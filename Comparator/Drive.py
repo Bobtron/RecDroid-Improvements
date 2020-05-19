@@ -32,6 +32,9 @@ for filename in bug_r_files:
 
 sim_arr_map = []
 
+min = sys.maxsize
+max = 0
+
 for bug_report_i in range(len(bug_report_step_arr) - 1):
     i_arr = []
 
@@ -43,12 +46,21 @@ for bug_report_i in range(len(bug_report_step_arr) - 1):
 
             for other_step_l in bug_report_step_arr[other_report_k]:
                 similarity = word_vectors.wmdistance(step_j, other_step_l)
+                if similarity > max:
+                    max = similarity
+                if similarity < min:
+                    min = similarity
                 k_arr.append(similarity)
-
             j_arr.append(k_arr)
-
         i_arr.append(j_arr)
-
     sim_arr_map.append(i_arr)
+# print(sim_arr_map)
 
-print(sim_arr_map)
+with open("graph_output", 'w') as file:
+    for report_i in range(len(sim_arr_map)):
+        for step_j in range(len(sim_arr_map[report_i])):
+            for report_k in range(len(sim_arr_map[report_i][step_j])):
+                for step_l in range(len(sim_arr_map[report_i][step_j][report_k])):
+                    sim_arr_map[report_i][step_j][report_k][step_l] = (sim_arr_map[report_i][step_j][report_k][step_l] - min) / max
+                    print(sim_arr_map[report_i][step_j][report_k][step_l])
+                    file.write( str(report_i) + "," + str(step_j) + "," + str(report_k + report_i + 1) + "," + str(step_l) + "," + "{:.6f}".format(sim_arr_map[report_i][step_j][report_k][step_l]) + "\n")
