@@ -4,6 +4,7 @@ from gensim.models.keyedvectors import KeyedVectors
 import Tools
 
 model = sys.argv[1]
+output = sys.argv[2]
 
 word_vectors = KeyedVectors.load_word2vec_format(model)
 word_vectors.init_sims(replace=True)
@@ -56,7 +57,7 @@ for bug_report_i in range(len(bug_report_step_arr) - 1):
     sim_arr_map.append(i_arr)
 # print(sim_arr_map)
 
-with open("graph_output", 'w') as file:
+with open(output, 'w') as file:
     for report_i in range(len(sim_arr_map)):
         for step_j in range(len(sim_arr_map[report_i])):
             for report_k in range(len(sim_arr_map[report_i][step_j])):
