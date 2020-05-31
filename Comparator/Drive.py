@@ -4,18 +4,23 @@ from gensim.models.keyedvectors import KeyedVectors
 import Tools
 
 model = sys.argv[1]
-output = sys.argv[2]
+binary = sys.argv[2]
+output = sys.argv[3]
 
-word_vectors = KeyedVectors.load_word2vec_format(model)
+word_vectors = KeyedVectors.load_word2vec_format(model, binary=False)
 word_vectors.init_sims(replace=True)
 
 bug_r_files = [
-    "bug_reports/bugreport0",
-    "bug_reports/bugreport1",
-    "bug_reports/bugreport2" # ,
-    # "bug_reports/bugreport3",
-    # "bug_reports/bugreport4"
+    # "bug_reports/bugreport0",
+    # "bug_reports/bugreport1",
+    # "bug_reports/bugreport2"  ,
+    #  "bug_reports/bugreport3",
+    #  "bug_reports/bugreport4"
+    "bug_reports/made_up/1_bugreport0",
+    "bug_reports/made_up/1_bugreport1",
+    "bug_reports/made_up/1_bugreport2"
 ]
+
 
 bug_report_step_arr = []
 
@@ -62,6 +67,6 @@ with open(output, 'w') as file:
         for step_j in range(len(sim_arr_map[report_i])):
             for report_k in range(len(sim_arr_map[report_i][step_j])):
                 for step_l in range(len(sim_arr_map[report_i][step_j][report_k])):
-                    sim_arr_map[report_i][step_j][report_k][step_l] = (sim_arr_map[report_i][step_j][report_k][step_l] - min) / max
+                    sim_arr_map[report_i][step_j][report_k][step_l] = (sim_arr_map[report_i][step_j][report_k][step_l] - min) / (max - min)
                     print(sim_arr_map[report_i][step_j][report_k][step_l])
                     file.write( str(report_i) + "," + str(step_j) + "," + str(report_k + report_i + 1) + "," + str(step_l) + "," + "{:.6f}".format(sim_arr_map[report_i][step_j][report_k][step_l]) + "\n")

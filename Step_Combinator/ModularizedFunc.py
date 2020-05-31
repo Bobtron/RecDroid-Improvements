@@ -2,7 +2,7 @@
 
 def get_nearest_neighbor(adj_mat_graph, node):
     neighbors = []
-    closest_score = 2 # worst score can only be 1
+    closest_score = .65 # worst score can only be 1
     for neighbor in adj_mat_graph[node].keys():
         if adj_mat_graph[node][neighbor] < closest_score:
             neighbors = [neighbor]
@@ -14,6 +14,8 @@ def get_nearest_neighbor(adj_mat_graph, node):
 
 
 def merge_node(adj_mat_graph, node1, node2):
+    num_node_1 = node1.count(';')
+    num_node_2 = node2.count(';')
     node1_neighbors = adj_mat_graph[node1]
     node2_neighbors = adj_mat_graph[node2]
     for node in node1_neighbors.keys():
@@ -25,6 +27,8 @@ def merge_node(adj_mat_graph, node1, node2):
     for node in node1_neighbors.keys():
         if node in node2_neighbors.keys():
             adj_mat_graph[merged][node] = max(node1_neighbors[node], node2_neighbors[node])
+            # if node1_neighbors[node] < .8 and node2_neighbors[node] < .8:
+            #     adj_mat_graph[merged][node] = (node1_neighbors[node] * num_node_1 + node2_neighbors[node] * num_node_2)/(num_node_1 + num_node_2)
     for node in adj_mat_graph[merged].keys():
         adj_mat_graph[node][merged] = adj_mat_graph[merged][node]
     del adj_mat_graph[node1]

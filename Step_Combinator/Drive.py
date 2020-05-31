@@ -18,13 +18,13 @@ with open(file_name, 'r') as file:
             adj_mat_graph[node1] = {}
         if node2 not in adj_mat_graph.keys():
             adj_mat_graph[node2] = {}
-        if score < .7:
-            adj_mat_graph[node1][node2] = score
-            adj_mat_graph[node2][node1] = score
+        # if score < .7:
+        adj_mat_graph[node1][node2] = score
+        adj_mat_graph[node2][node1] = score
 
 while True:
 
-    print(adj_mat_graph)
+    # print(adj_mat_graph)
 
     nearest_neighbor = {}
 
@@ -40,12 +40,12 @@ while True:
     for step in nearest_neighbor.keys():
         if step not in already_listed:
             for other_step in nearest_neighbor[step]:
-                if other_step not in already_listed and step in nearest_neighbor[other_step]:
+                if step not in already_listed and other_step not in already_listed and step in nearest_neighbor[other_step]:
                     to_combine.append([step, other_step])
                     already_listed.append(step)
                     already_listed.append(other_step)
 
-    # print(to_combine)
+    print(to_combine)
     if len(to_combine) == 0:
         break
 
@@ -53,7 +53,11 @@ while True:
         node1 = pair[0]
         node2 = pair[1]
         ModularizedFunc.merge_node(adj_mat_graph, node1, node2)
+        # print(adj_mat_graph)
 
     # print(adj_mat_graph)
 
 # print(adj_mat_graph)
+
+for key in adj_mat_graph.keys():
+    print(key)
