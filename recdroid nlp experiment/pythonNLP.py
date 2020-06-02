@@ -238,7 +238,7 @@ def pickupcrital(nlp,lineList, address):
                 print word
                 # print word.pos_
                 # print word.lemma_
-                print word.dep_
+                # print word.dep_
                 #############another example case########2018.2.21#####
                 '''
                 if word.text in ["e.g.","E.g.","E.G.","example"]:
@@ -837,6 +837,7 @@ def pickupcrital(nlp,lineList, address):
                             break
                     if tag==False:
                         recorder=newinfo
+
                 kk+=1
                 
                 
@@ -874,9 +875,15 @@ def pickupcrital(nlp,lineList, address):
             
             
                         steplist.append(newinfo)
+            # print len(steplist)
+            # if len(steplist) > 0:
+                # print steplist[-1].type
+
+                # print newinfo.type
                 
                 
-                
+    # for step in steplist:
+        # print step
                 
                 
                    
@@ -885,6 +892,8 @@ def pickupcrital(nlp,lineList, address):
     file_name = open(address + "/nlp.xml", "wb")
     doc=Document()
     root=doc.createElement("Steps")
+
+    new_file = open(address + "graph_output", "wb")
     
     for step in steplist:
         child=doc.createElement("Step"+str(step.step))
@@ -899,6 +908,9 @@ def pickupcrital(nlp,lineList, address):
                 nodeText=doc.createTextNode(sten)
                 newitem.appendChild(nodeText)
                 sentenceele.appendChild(newitem)
+
+                
+
         child.appendChild(sentenceele)
         
         idinfo=doc.createElement("sentenceid")
