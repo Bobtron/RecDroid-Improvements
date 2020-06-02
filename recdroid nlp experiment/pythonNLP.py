@@ -29,6 +29,8 @@ def computesimularity(word1,word2,model):
     return simularity
 #os.system("ls")
 '''
+
+import sys
 '''
 model = Word2Vec.load('wiki.en.word2vec.model')
 print model.wv.similarity('puzzle','medium')
@@ -62,6 +64,23 @@ class strandform:
         if(self.type==2):
             print("click create")
         return 2
+
+
+def to_string(not_str):
+    return_this = ""
+    if not isinstance(not_str, list):
+        return_this = str(not_str)
+    else:
+        for i in not_str:
+            if not isinstance(i, list):
+                return_this += i + " "
+            else:
+                for j in i:
+                    return_this += j + " "
+                # return_this += "~"
+    if len(return_this) > 0 and return_this[-1] == " ":
+        return_this = return_this[:-1]
+    return return_this
 
 
 #grammar = nltk.parse_cfg()
@@ -100,7 +119,8 @@ def main():
     
     nlp = English()
     # fileObject=open(address+'/nlpBugReport/bugreport')
-    fileObject = open(address + '/bugreport')
+    # fileObject = open(address + '/bugreport')
+    fileObject = open(address + '/' + sys.argv[1])
     
     
     lineList=[]
@@ -893,12 +913,58 @@ def pickupcrital(nlp,lineList, address):
     doc=Document()
     root=doc.createElement("Steps")
 
-    new_file = open(address + "graph_output", "wb")
+    new_file = open(address + "/" + sys.argv[2], "w")
+    # print address + sys.argv[1]
     
     for step in steplist:
+
+        '''
+        self.type = None
+        self.step = None
+        self.clickwhere = list()
+        self.clicktype = None
+        self.clicktimes = False
+        self.typewhat = list()
+        self.digittypewhat = list()
+        self.typewhere = list()
+        self.digittypewhere = list()
+        self.typetimes = False
+        self.createwhat = list()
+        self.sentence = list()
+        self.sentenceid = None
+        '''
+
+        print step.step
+        print to_string(step.type)
+        print to_string(step.step)
+        print to_string(step.clickwhere)
+        print to_string(step.clicktype)
+        print to_string(step.clicktimes)
+        print to_string(step.typewhat)
+        print to_string(step.digittypewhat)
+        print to_string(step.typewhere)
+        print to_string(step.digittypewhere)
+        print to_string(step.typetimes)
+        print to_string(step.createwhat)
+        print to_string(step.sentence)
+        print to_string(step.sentenceid)
+
+        stri = to_string(step.type) + "|" + to_string(step.step) + "|" + to_string(step.clickwhere) + "|" + to_string(step.clicktype) + "|"
+        stri += to_string(step.clicktimes) + "|" + to_string(step.typewhat) + "|" + to_string(step.digittypewhat) + "|" + to_string(step.typewhere) + "|"
+        stri += to_string(step.digittypewhere) + "|" + to_string(step.typetimes) + "|" + to_string(step.createwhat) + "|" + to_string(step.sentence)[:-2] + "|"
+        stri += to_string(step.sentenceid)
+
+        print stri
+        print
+        print
+
+        new_file.write(stri + "\n")
+
+
         child=doc.createElement("Step"+str(step.step))
         root.appendChild(child)
-        
+
+        # new_line = ""
         
         sentenceele=doc.createElement("sentence")
         k=0
@@ -909,7 +975,9 @@ def pickupcrital(nlp,lineList, address):
                 newitem.appendChild(nodeText)
                 sentenceele.appendChild(newitem)
 
-                
+                # new_line += sten + " "
+
+        # new_line = new_line[:-1] + ","
 
         child.appendChild(sentenceele)
         
@@ -1121,7 +1189,8 @@ def pickupcrital(nlp,lineList, address):
             child.appendChild(type)
             child.appendChild(createwhat)
         
-    
+    new_file.close()
+
     doc.appendChild(root)
     doc.writexml(file_name)
     file_name.close()
