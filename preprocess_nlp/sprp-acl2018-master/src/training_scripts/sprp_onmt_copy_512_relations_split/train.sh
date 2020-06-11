@@ -37,21 +37,20 @@ base_path=/Users/personanongrata/Documents/USC/RecDroid-Improvements/preprocess_
 model_name=sprp_onmt_copy_512_relations_split
 
 python $base_path/OpenNMT-py/train.py \
--save_model $base_path/sprp-acl2018-master/data/models/${model_name} \
+-save_model $base_path/sprp-acl2018-master/data/models/${model_name}/${model_name} \
 -data $base_path/sprp-acl2018-master/data/baseline-seq2seq-split-RDFs-relations/baseline \
 -global_attention mlp \
 -word_vec_size 512 \
 -rnn_size 512 \
 -layers 1 \
 -encoder_type brnn \
--train_steps 20 \
+-epochs 20 \
 -seed 777 \
 -batch_size 64 \
 -max_grad_norm 2 \
 -share_embeddings \
-# -gpuid 2 \
-# -start_checkpoint_at 1 \
-# -start_epoch 1 \
-# -copy_attn
+-start_checkpoint_at 1 \
+-start_epoch 1 \
+-copy_attn
 
 
