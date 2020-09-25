@@ -1,0 +1,665 @@
+https://code.google.com/archive/p/csipsimple/issues/851<!DOCTYPE html><html class="google ng-scope" lang="en" ng-app="codesiteArchive.application"><head>
+    <meta charset="utf-8">
+    <meta content="initial-scale=1, minimum-scale=1, width=device-width" name="viewport">
+
+    <!-- https://developers.google.com/webmasters/ajax-crawling/docs/specification -->
+    <meta name="fragment" content="!">
+    <title>Google Code Archive - Long-term storage for Google Code Project Hosting.</title>
+
+    <link rel="icon" type="image/vnd.microsoft.icon" href="/archive/img/project-hosting.ico">
+    <script src="//www.google.com/js/google.js"></script>
+    <link href="//www.google.com/css/maia.css" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;lang=en" rel="stylesheet">
+    <link rel="stylesheet" href="/archive/archive_css.css">
+    <script>
+      CLOSURE_NO_DEPS = true;
+    </script>
+    <script src="/archive/angular.js"></script><style type="text/css">@charset "UTF-8";
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak],
+.ng-cloak, .x-ng-cloak,
+.ng-hide:not(.ng-hide-animate) {
+  display: none !important;
+}
+
+ng\:form {
+  display: block;
+}
+
+.ng-animate-shim {
+  visibility:hidden;
+}
+
+.ng-anchor {
+  position:absolute;
+}
+</style>
+    <script src="/archive/pagedown.js"></script>
+    <script src="/archive/archive.js"></script>
+    <base href="/archive/">
+  </head>
+
+  <body>
+    <div class="maia-header" id="maia-header" role="banner">
+      <div class="maia-aux">
+        <a href="/archive/">
+          </a><h1><a href="/archive/">
+            <img alt="Google" src="//www.google.com/images/branding/googlelogo/1x/googlelogo_color_116x41dp.png"> Code</a>
+          </h1>
+        
+        <a href="/archive/">
+          <h2>Archive</h2>
+        </a>
+        <a class="maia-teleport" href="#content">Skip to content</a>
+        <div class="maia-util">
+          <form action="/archive/search" class="maia-search ng-pristine ng-valid">
+            <input name="q" placeholder="Search this site" type="text">
+            <button class="maia-button">
+              <span class="maia-search-icon">Search</span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- ngView: --><div ng-view="" class="ng-scope"><div ng-controller="ProjectIssueCtrl as issueCtrl" class="ng-scope">
+<nav-bar-widget nav-level-1="projectCtrl.navLevel1" class="ng-isolate-scope"><div class="maia-nav maia-complex" id="maia-nav-x" role="navigation">
+  <div class="maia-aux">
+    <ul>
+      <li ng-class="{active: navLevel1 == 'projects'}">
+        <a href="/archive/">Projects</a>
+        <!-- ngIf: navLevel2 -->
+      </li>
+      <li ng-class="{active: navLevel1 == 'search'}">
+        <a href="/archive/search">Search</a>
+      </li>
+      <li ng-class="{active: navLevel1 == 'about'}">
+        <a href="/archive/about">About</a>
+      </li>
+    </ul>
+  </div>
+</div>
+</nav-bar-widget>
+<div id="maia-main" role="main">
+
+  <!-- ngIf: issueCtrl.notFound -->
+
+  <div ng-hide="issueCtrl.notFound">
+    <!-- Left-side resource nav -->
+    <project-resources-widget domain="issueCtrl.domain" project="issueCtrl.projectName" class="ng-isolate-scope"><div class="maia-nav" id="maia-nav-y" role="navigation">
+  <!-- ngIf: domain == 'code.google.com' --><ul ng-if="domain == 'code.google.com'" class="ng-scope">
+    <li class="active">
+      <a href="/archive/p/csipsimple/">Project</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/source">Source</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/issues">Issues</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/wikis">Wikis</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/downloads">Downloads</a>
+    </li>
+  </ul><!-- end ngIf: domain == 'code.google.com' -->
+
+    <!-- ngIf: domain != 'code.google.com' -->
+</div></project-resources-widget>
+
+    <div class="maia-article" role="article">
+      <div class="maia-teleport" id="content"></div>
+      <div class="maia-cols">
+        <div id="gca-project-header" class="maia-col-10">
+          <a id="gca-export-to-gh" class="maia-button" href="https://code.google.com/export-to-github/export?project=csipsimple">Export to GitHub</a>
+            <img class="gca-project-logo" src="https://storage.googleapis.com/google-code-archive/v2/code.google.com/csipsimple/logo.png">
+            <h1 class="ng-binding">csipsimple - issue #851</h1>
+            <p class="ng-binding">Incoming callers can't hear me</p>
+        </div>
+
+        <div class="maia-col-10">
+          <hr>
+
+        <!-- ngIf: issueCtrl.error -->
+
+        <!-- ngIf: !issueCtrl.error --><div ng-if="!issueCtrl.error" class="ng-scope">
+          <!-- Comments -->
+          <div class="maia-col-8">
+            <!-- ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Mar 29, 2011 by
+                  <i class="ng-binding">Swift Camel</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p><b>What steps will reproduce the problem?</b>
+1.Receive call on my SIP
+2.Answer call
+3.Wait for them to hang up, then call out (outbound works fine)</p>
+
+<p><b>What is the expected output? What do you see instead?</b>
+Expect incoming calls to activate my microphone (I'm assuming that is the problem...)</p>
+
+<p><b>What version of the product are you using? On what operating system?</b>
+csipsimple version: 0.01-01 r615
+Android OS version: 2.2.1 (LG Optimus V)</p>
+
+<p><b>Please provide any additional information below.</b></p>
+
+<p>INBOUND CALLS STILL RING</p>
+
+<p>First used SIPdroid, worked ok, switched to csipsimple for integrated dialer - everything worked great for almost a month, then inbound calls broke. Using a pbxes account, and outbound calls work as expected, but now need to wait and call back (outbound) whenever I receive a call. Tried STUN, no help (may have caused other problems while enabled).</p>
+
+<p>PBXes, Google Voice, LG Optimus V (3G and WiFi)</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #1</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Mar 29, 2011 by
+                  <i class="ng-binding">Swift Camel</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Also, with inbound calls, if I accept the call, not only can callers not hear me, but also I am unable to end the call; instead, I have to wait for the call to be terminated from the other end.</p>
+
+<p>Again, outbound calling works as expected (could use a little more volume/gain control, most calls are a bit quiet - might be my SIP, but would be nice to be able to control this through application)</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #2</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Mar 29, 2011 by
+                  <i class="ng-binding">Helpful Lion</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p><a href="http://nightlies.csipsimple.com/trunk/">http://nightlies.csipsimple.com/trunk/</a>
+Try it. I also had problem with official release.
+Now it mostly ok, tiny bugs.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #3</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Mar 30, 2011 by
+                  <i class="ng-binding">Massive Horse</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Tried the nightly build - other than the keypad being messed up (and losing all my call logs -_-' smh) the app functioned the same for me - outbound calling worked perfectly, but inbound I could hear the person waiting for me to speak, but they could not hear me.</p>
+
+<p>Used the Mar 30 build (whichever was marked <em>latest</em> I think it was 3/30, the last one before that was 3/10 iirc)</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #4</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Mar 30, 2011 by
+                  <i class="ng-binding">Swift Camel</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>I reverted to the Market build (to see if a reinstall would help) but I am with no progress.</p>
+
+<p>I installed (with disdain) the new Sipdroid (basic) application, and registered my pbxes.org account with that app, and inbound and outbound work properly, so my issue is not with my provider, or my build, and my device has not changed.</p>
+
+<p>The issue did not arise with an update that I know of, either. So I'm not sure what happened, but as I continue to troubleshoot and support the csipsimple project, I will be using sipDroid for functionality of incoming calls :-(</p>
+
+<p>Any thoughts?</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #5</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Apr 1, 2011 by
+                  <i class="ng-binding">Massive Horse</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>I thought perhaps it was my PBXes account, so I connected my Sipgate account for incoming, and PBXes for outbound, but with Sipgate inbound, csipsimple doesn't even ring...</p>
+
+<p>I'm more confused than I was before - am I the only one with any issues like this? I reinstalled and everything!</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #6</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Apr 2, 2011 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>The fact you can't end call and you can hear the other side is probably linked.</p>
+
+<p>Most of the time it means that something goes wrong at some state of the SIP invite.</p>
+
+<p>If you say that it worked and suddently does not work anymore, my think is about length of UDP packets. CSipSimple support many codecs. The bad side of that is that it make UDP packets bigger. Some routers does not allow big packets in UDP.</p>
+
+<p>Fortunately, in nightly builds there is a new feature to reduce packets size. (It's in network settings &gt; compact mode).
+You can also disable some codecs. I'm almost sure that your sip provider does not support SILK for example, so useless to announce it in SIP Invites :). You can just disable it in codecs list.</p>
+
+<p>Quick note about nightly builds, as their name suggest, it's rebuilt each night, so "latest" always evolves ;).</p>
+
+<p>Also, I'd suggest you to activate STUN (I fixed things in nightly builds so that stun does not fail after some usage). Sipdroid activate it by default. I do not cause in some country it provide a very bad user experience.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #7</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Apr 2, 2011 by
+                  <i class="ng-binding">Massive Horse</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Comment deleted</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #8</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Apr 2, 2011 by
+                  <i class="ng-binding">Massive Horse</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Why would my packets have changed size? I'm using primarily the G722HD, PCMA, and PCMU codecs, STUN and ICE both not on for sipdroid (I'm now using only sipdroid and PBXes.org acct [EDIT: until I get this bug worked out, that is!]) and my SIP is working fine, so it must be some issue with csipsimple - and to be honest, it may have been with an update - was there an update on market within the past month?</p>
+
+<p>I wonder if anyone else has trouble with PBXes on CSS...</p>
+
+<p>And on another note, the <em>latest</em> build I tried had a broken keypad, not sure if this is my device, a glitch, or a known issue, but it happened (the keys worked, but I could not see them very well)</p>
+
+<p>Other than using a nightly build, is there anything else to try? Any logs to check (or send)?</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #9</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Apr 3, 2011 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Lol about latest build, that's not a glitch. It's the gingerbread theme that is now default :). When you'll be upgraded to 2.3 the stock dialer will have this black flat theme.
+However, I've just commit yesterday a new feature : themes :). And there is a first theme that take resources from the AOSP stock dialer (need the stock phone app of the android project to be installed on your phone). ( <a href="http://code.google.com/p/csipsimple/downloads/detail?name=CSipSimpleThemeAOSP.apk">http://code.google.com/p/csipsimple/downloads/detail?name=CSipSimpleThemeAOSP.apk</a> )</p>
+
+<p>About packet size it may have change. Did you look inside CSipSimple settings? There is a list of codecs in media settings. You can check that only the one you want are activated (white row). You can disable useless rows by long pressing the row and select de-activate.
+And did you try the "SIP compact" option?
+And last question, are you using the Pbxes.org wizard for your pbxes.org account or another wizard?</p>
+
+<p>Also be careful sipdroid and CSS can conflit if they run both at the same time (there is network resource that has to be acquired by a sip client).</p>
+
+<p>Anyway I'd be interested by logs. Read the HowToCollectLogs wiki page to know how collect and send me logs.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #10</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Apr 3, 2011 by
+                  <i class="ng-binding">Massive Horse</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>The logs are all yours - I'll try the compact version - I'm only running one at a time, just using Sipdroid as a "daily" app until I get css working again.</p>
+
+<p>I used Sipdroid wizard the first time for PBXes (just to set it up) then, when I saw how it worked, I junked the whole thing, started over with css and created a PBXes account from scratch. I'm only using PBXes so I can use GV and not pay for minutes. I also have a sipgate account, which has free inbound calls, but that was not working either (that one didn't even ring)</p>
+
+<p>And thanks for the themes! That <em>might</em> have been a deal breaker =D</p>
+
+<p>I'll install the nightly build again, and see what I can and cannot do. I'm more than happy to contribute whatever I can to the project, I think this is a very worth-while endeavor, especially if I can get free cell minutes ;)</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #11</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Apr 5, 2011 by
+                  <i class="ng-binding">Happy Elephant</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>I am having the same problem with gvoice inbound calls on csip with pbxes but sipdroid works for inbound and outbound. I would rather use csipsimple if this can get fixed though. Please let me know if you find a solution. Thanks.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #12</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Apr 6, 2011 by
+                  <i class="ng-binding">Massive Horse</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>May have stumbled upon the source of <em>part</em> of the issue - Virgin Mobile USA (Sprint PCS network) on the LG Optimus is not properly verifying network access for data, and when 3G drops, it doesn't come back when in signal range - has to be manually reset.</p>
+
+<p>I do say, though, that I have problems even at home on WiFi still...</p>
+
+<p>Still forced to use Sipdroid as my daily app :(
+I can still make outbound calls, but Sipdroid seems to use less bandwidth (i.e. easier to connect a call on 3G with Sipdroid than CSS, even in compact mode)</p>
+
+<p>When I get a chance, I will do some experimentation, inbound/outbound with different SIPs if I can, and send you the logs for the experiment (if I knew how to get logs from sipdroid I'd look at those too, but I'm not sure...)</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #13</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jul 3, 2011 by
+                  <i class="ng-binding">Swift Camel</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Comment deleted</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #14</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jul 3, 2011 by
+                  <i class="ng-binding">Swift Camel</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>I have the Optimus V on virginmobile.
+tried latest bumblebee rom and harmonia rom, but still have problems.</p>
+
+<p>I'm calling out and recieving calls fine.</p>
+
+<p>The problem is that I can't hear the other party.  They hear me fine though.
+I have tried using ICE and STUN and compact sip options and variations of it, but still can't hear the other party...</p>
+
+<p>using sipsorcery and ipkall and googlevoice
+and your wonderful app csipsimple!</p>
+
+<p>on another note: I have the exact setup on my Viewsonic G Tablet (running Froyo: Clemsyn/Calkulin combo) and I have no problems with hearing the other party or being heard with that android device.</p>
+
+<p>any help would be great, because I switched to this phone so that I can get by with $25/month.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #15</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Aug 25, 2011 by
+                  <i class="ng-binding">Happy Horse</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>I am having a similar issue as well. I answer the incoming call. The caller cannot hear me and I can't hear them even though the call is answered. The phone vibrates a little after about 10 seconds for some reason (phone is on my ear at that time so I don't know what it is doing). It then goes to Google Voicemail and they leave a message. I'm on PBXes with the latest nightly build. The one from the Market seemed to not have this problem.</p>
+
+<p>Outbound calls work fine.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #16</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Aug 30, 2011 by
+                  <i class="ng-binding">Swift Monkey</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Same as above, I am using CSS r1015 with sipgate.co.uk. When I answer an incoming call, the caller cannot hear me unless I shout.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #17</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Oct 6, 2011 by
+                  <i class="ng-binding">Swift Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>To bring these comments full circle, I have the same issues as the original poster but was able to resolve it through changes to the available codecs.  I also use pbxes.org to and Google Voice, but on an LG Vortex.  My understanding is that anyone using pbxes.org likely has encountered this problem.  Outgoing calls work as expected, but with incoming calls the other party can not hear me.</p>
+
+<p>The change required was removing some of the available codecs, as suggested by r3gis.  I just kept removing a few until it started working.  I also tried to enable the "SIP Compact" option, but that prohibited CSipSimple from registering with pbxes.org so I left it disabled.</p>
+
+<p>Here are the codecs I currently have enabled:</p>
+
+<p>Wideband: G722 16 kHz, PCMU 8kHz, PCMA 8kHz
+Narrowband: GSM 8kHz, PCMU 8kHz, PCMA 8kHz</p>
+
+<p>I can have incoming and outgoing audio for both calls I make and calls I receive.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #18</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Nov 10, 2011 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>@jclark : can you do some tests with recent nightly builds. I improved a lot of things.
+<a href="http://nightlies.csipsimple.com/trunk/">http://nightlies.csipsimple.com/trunk/</a></p>
+
+<p>However do not activate compact mode, pbxes.org does not support that correctly. Also, you can try to disable all codec but PCMU/PCMA in a first time for wifi and all but GSM for 3G.
+Since some sip servers are buggy and does not support that the client lock the codec once the call is established, it may result in some problem with the codec finally used. If it does not work, I'm interesting in logs get with HowToCollectLogs procedure.
+Thanks :)</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments -->
+          </div>
+
+          <!-- Sidebar with additional information -->
+          <div class="maia-col-4">
+            <div class="maia-aside">
+              <p>Status: <code class="ng-binding">Need-Details</code></p>
+              <!-- ngIf: issueCtrl.issue.labels.length > 0 --><p ng-if="issueCtrl.issue.labels.length &gt; 0" class="ng-scope">
+                Labels:
+                <br>
+                <!-- ngRepeat: label in issueCtrl.issue.labels track by $index --><span ng-repeat="label in issueCtrl.issue.labels track by $index" class="ng-scope">
+                  <span class="gca-label ng-binding">Type-Defect</span>
+                </span><!-- end ngRepeat: label in issueCtrl.issue.labels track by $index --><span ng-repeat="label in issueCtrl.issue.labels track by $index" class="ng-scope">
+                  <span class="gca-label ng-binding">Priority-Medium</span>
+                </span><!-- end ngRepeat: label in issueCtrl.issue.labels track by $index -->
+              </p><!-- end ngIf: issueCtrl.issue.labels.length > 0 -->
+            </div>
+          </div>
+        </div><!-- end ngIf: !issueCtrl.error -->
+      </div>
+    </div>
+
+  </div>
+</div>
+</div></div></div>
+    <noscript>
+      &lt;p&gt;The Google Code Archive requires JavaScript to be enabled in your browser.&lt;/p&gt;
+    </noscript>
+
+    <div id="maia-signature"></div>
+    <div class="maia-footer" id="maia-footer">
+      <div id="maia-footer-local">
+      </div>
+      <div id="maia-footer-global">
+        <div class="maia-aux">
+          <ul>
+            <li>
+              <a href="//www.google.com/">Google</a>
+            </li>
+            <li>
+              <a href="//www.google.com/intl/en/about/">About Google</a>
+            </li>
+            <li>
+              <a href="//www.google.com/intl/en/policies/privacy/">Privacy</a>
+            </li>
+            <li>
+              <a href="//www.google.com/intl/en/policies/terms/">Terms</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <script src="//www.google.com/js/maia.js"></script>
+  
+
+
+</body></html>

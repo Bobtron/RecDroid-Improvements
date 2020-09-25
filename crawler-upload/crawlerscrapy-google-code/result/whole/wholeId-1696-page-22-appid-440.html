@@ -1,0 +1,908 @@
+https://code.google.com/archive/p/csipsimple/issues/2863<!DOCTYPE html><html class="google ng-scope" lang="en" ng-app="codesiteArchive.application"><head>
+    <meta charset="utf-8">
+    <meta content="initial-scale=1, minimum-scale=1, width=device-width" name="viewport">
+
+    <!-- https://developers.google.com/webmasters/ajax-crawling/docs/specification -->
+    <meta name="fragment" content="!">
+    <title>Google Code Archive - Long-term storage for Google Code Project Hosting.</title>
+
+    <link rel="icon" type="image/vnd.microsoft.icon" href="/archive/img/project-hosting.ico">
+    <script src="//www.google.com/js/google.js"></script>
+    <link href="//www.google.com/css/maia.css" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;lang=en" rel="stylesheet">
+    <link rel="stylesheet" href="/archive/archive_css.css">
+    <script>
+      CLOSURE_NO_DEPS = true;
+    </script>
+    <script src="/archive/angular.js"></script><style type="text/css">@charset "UTF-8";
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak],
+.ng-cloak, .x-ng-cloak,
+.ng-hide:not(.ng-hide-animate) {
+  display: none !important;
+}
+
+ng\:form {
+  display: block;
+}
+
+.ng-animate-shim {
+  visibility:hidden;
+}
+
+.ng-anchor {
+  position:absolute;
+}
+</style>
+    <script src="/archive/pagedown.js"></script>
+    <script src="/archive/archive.js"></script>
+    <base href="/archive/">
+  </head>
+
+  <body>
+    <div class="maia-header" id="maia-header" role="banner">
+      <div class="maia-aux">
+        <a href="/archive/">
+          </a><h1><a href="/archive/">
+            <img alt="Google" src="//www.google.com/images/branding/googlelogo/1x/googlelogo_color_116x41dp.png"> Code</a>
+          </h1>
+        
+        <a href="/archive/">
+          <h2>Archive</h2>
+        </a>
+        <a class="maia-teleport" href="#content">Skip to content</a>
+        <div class="maia-util">
+          <form action="/archive/search" class="maia-search ng-pristine ng-valid">
+            <input name="q" placeholder="Search this site" type="text">
+            <button class="maia-button">
+              <span class="maia-search-icon">Search</span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- ngView: --><div ng-view="" class="ng-scope"><div ng-controller="ProjectIssueCtrl as issueCtrl" class="ng-scope">
+<nav-bar-widget nav-level-1="projectCtrl.navLevel1" class="ng-isolate-scope"><div class="maia-nav maia-complex" id="maia-nav-x" role="navigation">
+  <div class="maia-aux">
+    <ul>
+      <li ng-class="{active: navLevel1 == 'projects'}">
+        <a href="/archive/">Projects</a>
+        <!-- ngIf: navLevel2 -->
+      </li>
+      <li ng-class="{active: navLevel1 == 'search'}">
+        <a href="/archive/search">Search</a>
+      </li>
+      <li ng-class="{active: navLevel1 == 'about'}">
+        <a href="/archive/about">About</a>
+      </li>
+    </ul>
+  </div>
+</div>
+</nav-bar-widget>
+<div id="maia-main" role="main">
+
+  <!-- ngIf: issueCtrl.notFound -->
+
+  <div ng-hide="issueCtrl.notFound">
+    <!-- Left-side resource nav -->
+    <project-resources-widget domain="issueCtrl.domain" project="issueCtrl.projectName" class="ng-isolate-scope"><div class="maia-nav" id="maia-nav-y" role="navigation">
+  <!-- ngIf: domain == 'code.google.com' --><ul ng-if="domain == 'code.google.com'" class="ng-scope">
+    <li class="active">
+      <a href="/archive/p/csipsimple/">Project</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/source">Source</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/issues">Issues</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/wikis">Wikis</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/downloads">Downloads</a>
+    </li>
+  </ul><!-- end ngIf: domain == 'code.google.com' -->
+
+    <!-- ngIf: domain != 'code.google.com' -->
+</div></project-resources-widget>
+
+    <div class="maia-article" role="article">
+      <div class="maia-teleport" id="content"></div>
+      <div class="maia-cols">
+        <div id="gca-project-header" class="maia-col-10">
+          <a id="gca-export-to-gh" class="maia-button" href="https://code.google.com/export-to-github/export?project=csipsimple">Export to GitHub</a>
+            <img class="gca-project-logo" src="https://storage.googleapis.com/google-code-archive/v2/code.google.com/csipsimple/logo.png">
+            <h1 class="ng-binding">csipsimple - issue #2863</h1>
+            <p class="ng-binding">"Check server certificate" does not work properly in version 1.02.03 (r2457)</p>
+        </div>
+
+        <div class="maia-col-10">
+          <hr>
+
+        <!-- ngIf: issueCtrl.error -->
+
+        <!-- ngIf: !issueCtrl.error --><div ng-if="!issueCtrl.error" class="ng-scope">
+          <!-- Comments -->
+          <div class="maia-col-8">
+            <!-- ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jan 6, 2015 by
+                  <i class="ng-binding">Swift Camel</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p><b>What steps will reproduce the problem?</b>
+1. Set up TLS connections in CSipSimple and connect successfully via TLS
+2. In expert mode, enable checking the server certificate and provide a TLS CA file containing your certificate authoritys public key with "BEGIN CERTIFICATE"..."END CERTIFICATE"
+3. Try to connect again - CSipSimple throws an PJSIP_TLS_ECERTVERIF error (Certificate could not be verified)</p>
+
+<p><b>What is the expected output? What do you see instead?</b></p>
+
+<p>The expected output would be a positive check of the certificate.
+The logs say:
+D/libpjsip(18547): 10:33:49.161    pjsua_acc.c !Disconnected notification for transport tlsc0xa2f78014
+D/libpjsip(18547): 10:33:49.161    pjsua_acc.c  .Scheduling re-registration retry for acc 3 in 3 seconds..
+E/libpjsip(18547): 10:33:49.164 tlsc0xa2f78014  TLS connect() error: SSL certificate verification error (PJSIP_TLS_ECERTVERIF) [code=171173]
+W/libpjsip(18547): 10:33:49.164  tsx0xa353d064  Failed to send Request msg REGISTER/cseq=16955 (tdta0xa2c92000)! err=171173 (SSL certificate verification error (PJSIP_TLS_ECERTVERIF))
+W/libpjsip(18547): 10:33:49.164    pjsua_acc.c  ..SIP registration failed, status=503 (SSL certificate verification error (PJSIP_TLS_ECERTVERIF))
+D/libpjsip(18547): 10:33:49.166    pjsua_acc.c  ..Scheduling re-registration retry for acc 3 in 2 seconds..</p>
+
+<p><b>What version of the product are you using? On what device / operating</b>
+<b>system?</b>
+CSipSimple 1.02.03 (r2457) / Nexus 7 (2013) / Android 5.0.1</p>
+
+<p><b>Please provide any additional information below.</b></p>
+
+<p>I've compiled pjsip 2.0.1 on debian linux and used "pjsua-x86_64-unknown-linux-gnu" to test the TLS connection and verification with the same CA file that I've provided to CSipSimple. The pjsua application had no problems to verify the certificate.
+It literally says: "TLS cert verification result of [sip.domain.com:5061] : OK"</p>
+
+<p>I used the config:
+--id sips:1234@sip.domain.com
+--registrar sips:sip.domain.com;transport=tls
+--proxy sips:sip.domain.com;transport=tls
+--realm *
+--username 1234
+--password password
+--use-tls
+--tls-ca-file /tmp/cafile.pem
+--tls-verify-server</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #1</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jan 6, 2015 by
+                  <i class="ng-binding">Swift Camel</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>By the way: it is a self signed certificate and the cafile.pem only contains 1 entry.
+The common name and alt name for the certificate are both: sip.domain.com</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #2</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jan 6, 2015 by
+                  <i class="ng-binding">Swift Camel</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>some further info about csipsimple config:</p>
+
+<p>standard uri is SIP
+protocol is TLS
+proxy url: sips:sip.domain.com
+zrtp enabled</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #3</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jan 21, 2015 by
+                  <i class="ng-binding">Helpful Camel</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>I haven't checked it just yet, but maybe it is related to PJSIP's #1811, which is fixed in r4974?
+<a href="https://trac.pjsip.org/repos/ticket/1811">https://trac.pjsip.org/repos/ticket/1811</a></p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #4</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jan 24, 2015 by
+                  <i class="ng-binding">Swift Camel</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>I haven't seen any version later than mine in CSipSimple - <a href="http://nightlies.csipsimple.com/trunk/">http://nightlies.csipsimple.com/trunk/</a>
+The latest version there is 2456.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #5</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jan 26, 2015 by
+                  <i class="ng-binding">Helpful Camel</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Sorry, I meant it was fixed in PJSIP r4974.</p>
+
+<p>I'm testing the following patch against r2456 which I believe solves:
+1. Allows PJSIP r4977 to be built.
+2. Makes TLS Method selector work again (broken since PJSIP r1799).
+3. Adds new TLS Methods TLSv1.1 &amp; TLSv1.2.
+4. Corrects old TLS Method setting, if needed.
+5. Disables PJSIP built-in JNI OnLoad function.</p>
+
+<p>diff -rupN CSipSimple.orig/jni/pjsip/android_toolchain/Android.mk CSipSimple/jni/pjsip/android_toolchain/Android.mk
+--- CSipSimple.orig/jni/pjsip/android_toolchain/Android.mk  2015-01-26 18:11:06.217784423 +0100
++++ CSipSimple/jni/pjsip/android_toolchain/Android.mk   2015-01-26 22:53:14.423198964 +0100
+@@ -1,9 +1,9 @@
+ LOCAL_PATH := $(call my-dir)</p>
+
+<p>ifeq ($(USE_FIXED_POINT),1)
+-MY_PJSIP_FLAGS := $(BASE_PJSIP_FLAGS) -DPJ_AUTOCONF=1 -DPJ_HAS_FLOATING_POINT=0
++MY_PJSIP_FLAGS := $(BASE_PJSIP_FLAGS) -DPJ_AUTOCONF=1 -DPJ_JNI_HAS_JNI_ONLOAD=0 -DPJ_HAS_FLOATING_POINT=0
+ else
+-MY_PJSIP_FLAGS := $(BASE_PJSIP_FLAGS) -DPJ_AUTOCONF=1 -DPJ_HAS_FLOATING_POINT=1
++MY_PJSIP_FLAGS := $(BASE_PJSIP_FLAGS) -DPJ_AUTOCONF=1 -DPJ_JNI_HAS_JNI_ONLOAD=0 -DPJ_HAS_FLOATING_POINT=1
+ endif</p>
+
+<p># Build all sub dirs
+diff -rupN CSipSimple.orig/jni/swig-glue/android_toolchain/Android.mk CSipSimple/jni/swig-glue/android_toolchain/Android.mk
+--- CSipSimple.orig/jni/swig-glue/android_toolchain/Android.mk  2015-01-26 18:11:07.085726028 +0100
++++ CSipSimple/jni/swig-glue/android_toolchain/Android.mk   2015-01-26 21:13:55.955557791 +0100
+@@ -100,7 +100,7 @@ $(privatecleantarget)::
+ include $(CLEAR_VARS)
+ LOCAL_PATH := $(SWIG_GLUE_PATH)
+ LOCAL_MODULE    := swig-glue
+-LOCAL_CFLAGS := $(MY_PJSIP_FLAGS) -fno-strict-aliasing
++LOCAL_CFLAGS := $(MY_PJSIP_FLAGS) -fno-strict-aliasing -fpermissive</p>
+
+<p>PJ_ANDROID_ROOT_DIR := $(LOCAL_PATH)/../pjsip/android_sources</p>
+
+<p>diff -rupN CSipSimple.orig/jni/swig-glue/pjsip_header.i CSipSimple/jni/swig-glue/pjsip_header.i
+--- CSipSimple.orig/jni/swig-glue/pjsip_header.i    2015-01-26 18:11:07.113724144 +0100
++++ CSipSimple/jni/swig-glue/pjsip_header.i 2015-01-26 18:44:17.347974519 +0100
+@@ -521,6 +521,8 @@ enum pjsip_ssl_method
+ {
+     PJSIP_SSL_UNSPECIFIED_METHOD= 0,   /<strong>&lt; Default protocol method.   */
+     PJSIP_TLSV1_METHOD     = 31,   /</strong>&lt; Use SSLv1 method.      */
++    PJSIP_TLSV1_1_METHOD   = 32,   /<strong>&lt; Use TLSv1_1 method.    */
++    PJSIP_TLSV1_2_METHOD   = 33,   /</strong>&lt; Use TLSv1_2 method.    */
+     PJSIP_SSLV2_METHOD     = 20,   /<strong>&lt; Use SSLv2 method.      */
+     PJSIP_SSLV3_METHOD     = 30,   /</strong>&lt; Use SSLv3 method.      <em>/
+     PJSIP_SSLV23_METHOD        = 23    /*</em>&lt; Use SSLv23 method.     */
+@@ -559,9 +561,11 @@ struct pjsip_tls_setting
+      * TLS protocol method from #pjsip_ssl_method, which can be:
+      * - PJSIP_SSL_UNSPECIFIED_METHOD(0): default (which will use 
+      *                                     PJSIP_SSL_DEFAULT_METHOD)
+-     * - PJSIP_TLSV1_METHOD(1):       TLSv1
+-     * - PJSIP_SSLV2_METHOD(2):       SSLv2
+-     * - PJSIP_SSLV3_METHOD(3):       SSL3
++     * - PJSIP_TLSV1_METHOD(31):      TLSv1
++     *  - PJSIP_TLSV1_1_METHOD(32):       TLSv1.1
++     *  - PJSIP_TLSV1_2_METHOD(33):       TLSv1.2
++     * - PJSIP_SSLV2_METHOD(20):      SSLv2
++     * - PJSIP_SSLV3_METHOD(30):      SSL3
+      * - PJSIP_SSLV23_METHOD(23):     SSL23
+      *
+      * Default is PJSIP_SSL_UNSPECIFIED_METHOD (0), which in turn will
+diff -rupN CSipSimple.orig/res/values/prefs_values.xml CSipSimple/res/values/prefs_values.xml
+--- CSipSimple.orig/res/values/prefs_values.xml 2015-01-26 18:11:12.081389932 +0100
++++ CSipSimple/res/values/prefs_values.xml  2015-01-26 18:46:04.824627467 +0100
+@@ -99,14 +99,18 @@
+     
+     
+         0 
+-        1 
+-        2 
+-        3 
++        31 
++        32 
++        33 
++        20 
++        30 
+         23 
+     
+     
+         @string/auto
+         TLSv1
++        TLSv1.1
++        TLSv1.2
+         SSLv2
+         SSL3
+         SSL23
+diff -rupN CSipSimple.orig/src/com/csipsimple/utils/Compatibility.java CSipSimple/src/com/csipsimple/utils/Compatibility.java
+--- CSipSimple.orig/src/com/csipsimple/utils/Compatibility.java 2015-01-26 18:11:07.729682703 +0100
++++ CSipSimple/src/com/csipsimple/utils/Compatibility.java  2015-01-27 00:40:35.735864349 +0100
+@@ -968,6 +968,16 @@ public final class Compatibility {
+                         Integer.toString(getDefaultAudioImplementation()));
+             }
+         }
++        if(lastSeenVersion &lt; 2457) {
++            String method = prefWrapper.getPreferenceStringValue(SipConfigManager.TLS_METHOD);
++            if (method.equals("1")) {
++                prefWrapper.setPreferenceStringValue(SipConfigManager.TLS_METHOD, "31");
++            } else if (method.equals("2")) {
++                prefWrapper.setPreferenceStringValue(SipConfigManager.TLS_METHOD, "20");
++            } else if (method.equals("3")) {
++                prefWrapper.setPreferenceStringValue(SipConfigManager.TLS_METHOD, "30");
++            }
++        }
+         prefWrapper.endEditing();
+     }</p>
+
+<p>diff -rupN CSipSimple.orig/src/com/csipsimple/wizards/impl/Inovent.java CSipSimple/src/com/csipsimple/wizards/impl/Inovent.java
+--- CSipSimple.orig/src/com/csipsimple/wizards/impl/Inovent.java    2015-01-26 18:11:09.693550578 +0100
++++ CSipSimple/src/com/csipsimple/wizards/impl/Inovent.java 2015-01-26 19:01:46.672258978 +0100
+@@ -108,7 +108,7 @@ public class Inovent extends SimpleImple
+         prefs.setPreferenceBooleanValue(SipConfigManager.ENABLE_QOS, true);
+         prefs.setPreferenceBooleanValue(SipConfigManager.USE_COMPACT_FORM, true);
+         prefs.setPreferenceBooleanValue(SipConfigManager.SUPPORT_MULTIPLE_CALLS, true);
+-        prefs.setPreferenceStringValue(SipConfigManager.TLS_METHOD, "1");
++        prefs.setPreferenceStringValue(SipConfigManager.TLS_METHOD, "31");</p>
+
+<pre><code>     // Prefer opus,silk
+     prefs.setCodecPriority("opus/48000/1", SipConfigManager.CODEC_WB, "245");
+</code></pre>
+
+<p>diff -rupN CSipSimple.orig/src/com/csipsimple/wizards/impl/TelAccess.java CSipSimple/src/com/csipsimple/wizards/impl/TelAccess.java
+--- CSipSimple.orig/src/com/csipsimple/wizards/impl/TelAccess.java  2015-01-26 18:11:09.705549771 +0100
++++ CSipSimple/src/com/csipsimple/wizards/impl/TelAccess.java   2015-01-26 19:01:28.653486625 +0100
+@@ -56,7 +56,7 @@ public class TelAccess extends SimpleImp
+         prefs.setPreferenceBooleanValue(SipConfigManager.ENABLE_QOS, true);
+         prefs.setPreferenceBooleanValue(SipConfigManager.USE_COMPACT_FORM, true);
+         prefs.setPreferenceBooleanValue(SipConfigManager.SUPPORT_MULTIPLE_CALLS, true);
+-        prefs.setPreferenceStringValue(SipConfigManager.TLS_METHOD, "1");
++        prefs.setPreferenceStringValue(SipConfigManager.TLS_METHOD, "31");
+         prefs.setPreferenceStringValue("codec_g729_8000_fpp", "4");</p>
+
+<pre><code>     // Prefer silk, gsm
+</code></pre></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #6</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jan 27, 2015 by
+                  <i class="ng-binding">Swift Camel</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Ok, thanks for your input.
+I hope the patchs gets tested and built into the CSipSimple nightlies...</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #7</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Feb 7, 2015 by
+                  <i class="ng-binding">Helpful Camel</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Just for the record,</p>
+
+<p>my previous patch was incomplete.
+The good one:
+diff -rupN CSipSimple.orig/jni/pjsip/android_toolchain/Android.mk CSipSimple/jni/pjsip/android_toolchain/Android.mk
+--- CSipSimple.orig/jni/pjsip/android_toolchain/Android.mk  2015-01-26 18:11:06.217784423 +0100
++++ CSipSimple/jni/pjsip/android_toolchain/Android.mk   2015-01-26 22:53:14.423198964 +0100
+@@ -1,9 +1,9 @@
+ LOCAL_PATH := $(call my-dir)</p>
+
+<p>ifeq ($(USE_FIXED_POINT),1)
+-MY_PJSIP_FLAGS := $(BASE_PJSIP_FLAGS) -DPJ_AUTOCONF=1 -DPJ_HAS_FLOATING_POINT=0
++MY_PJSIP_FLAGS := $(BASE_PJSIP_FLAGS) -DPJ_AUTOCONF=1 -DPJ_JNI_HAS_JNI_ONLOAD=0 -DPJ_HAS_FLOATING_POINT=0
+ else
+-MY_PJSIP_FLAGS := $(BASE_PJSIP_FLAGS) -DPJ_AUTOCONF=1 -DPJ_HAS_FLOATING_POINT=1
++MY_PJSIP_FLAGS := $(BASE_PJSIP_FLAGS) -DPJ_AUTOCONF=1 -DPJ_JNI_HAS_JNI_ONLOAD=0 -DPJ_HAS_FLOATING_POINT=1
+ endif</p>
+
+<p># Build all sub dirs
+diff -rupN CSipSimple.orig/jni/swig-glue/android_toolchain/Android.mk CSipSimple/jni/swig-glue/android_toolchain/Android.mk
+--- CSipSimple.orig/jni/swig-glue/android_toolchain/Android.mk  2015-01-26 18:11:07.085726028 +0100
++++ CSipSimple/jni/swig-glue/android_toolchain/Android.mk   2015-01-26 21:13:55.955557791 +0100
+@@ -100,7 +100,7 @@ $(privatecleantarget)::
+ include $(CLEAR_VARS)
+ LOCAL_PATH := $(SWIG_GLUE_PATH)
+ LOCAL_MODULE    := swig-glue
+-LOCAL_CFLAGS := $(MY_PJSIP_FLAGS) -fno-strict-aliasing
++LOCAL_CFLAGS := $(MY_PJSIP_FLAGS) -fno-strict-aliasing -fpermissive</p>
+
+<p>PJ_ANDROID_ROOT_DIR := $(LOCAL_PATH)/../pjsip/android_sources</p>
+
+<p>diff -rupN CSipSimple.orig/jni/swig-glue/pjsip_header.i CSipSimple/jni/swig-glue/pjsip_header.i
+--- CSipSimple.orig/jni/swig-glue/pjsip_header.i    2015-01-26 18:11:07.113724144 +0100
++++ CSipSimple/jni/swig-glue/pjsip_header.i 2015-02-07 17:52:53.481103741 +0100
+@@ -46,7 +46,7 @@ typedef struct pjmedia_port_info</p>
+
+<p>typedef struct pjmedia_port
+ {
+-    pjmedia_port_info    info;              /<strong>&lt; Port information.  */
++    pjmedia_port_info   info;          /</strong>&lt; Port information.  */</p>
+
+<pre><code> /** Port data can be used by the port creator to attach arbitrary
+  *  value to be associated with the port.
+</code></pre>
+
+<p>@@ -57,18 +57,25 @@ typedef struct pjmedia_port
+     } port_data;</p>
+
+<pre><code> /**
+</code></pre>
+
+<p>-     * Sink interface.
++     * Get clock source.
++     * This should only be called by #pjmedia_port_get_clock_src().
++     <em>/
++    pjmedia_clock_src</em> (*get_clock_src)(struct pjmedia_port <em>this_port,
++                                        pjmedia_dir dir);
++
++    /*</em>
++     * Sink interface. 
+      * This should only be called by #pjmedia_port_put_frame().
+      */
+-    pj_status_t (*put_frame)(struct pjmedia_port *this_port,
+-                             pjmedia_frame *frame);
++    pj_status_t (*put_frame)(struct pjmedia_port *this_port, 
++                pjmedia_frame *frame);</p>
+
+<pre><code> /**
+</code></pre>
+
+<p>-     * Source interface.
++     * Source interface. 
+      * This should only be called by #pjmedia_port_get_frame().
+      */
+-    pj_status_t (*get_frame)(struct pjmedia_port *this_port,
+-                             pjmedia_frame *frame);
++    pj_status_t (*get_frame)(struct pjmedia_port *this_port, 
++                pjmedia_frame *frame);</p>
+
+<pre><code> /**
+  * Called to destroy this port.
+</code></pre>
+
+<p>@@ -86,14 +93,29 @@ enum pjmedia_dir
+     /** None */
+     PJMEDIA_DIR_NONE = 0,</p>
+
+<ul>
+<li>/** Encoding (outgoing to network) stream */</li>
+<li><p>/** Encoding (outgoing to network) stream, also known as capture */
+ PJMEDIA_DIR_ENCODING = 1,</p></li>
+<li><p>/** Decoding (incoming from network) stream. */</p></li>
+<li>/** Same as encoding direction. */</li>
+<li>PJMEDIA_DIR_CAPTURE = PJMEDIA_DIR_ENCODING,
++</li>
+<li><p>/** Decoding (incoming from network) stream, also known as playback. */
+ PJMEDIA_DIR_DECODING = 2,</p></li>
+<li><p>/** Incoming and outgoing stream. */</p></li>
+<li>PJMEDIA_DIR_ENCODING_DECODING = 3</li>
+<li>/** Same as decoding. */</li>
+<li>PJMEDIA_DIR_PLAYBACK = PJMEDIA_DIR_DECODING,
++</li>
+<li>/** Same as decoding. */</li>
+<li>PJMEDIA_DIR_RENDER = PJMEDIA_DIR_DECODING,
++</li>
+<li>/** Incoming and outgoing stream, same as PJMEDIA_DIR_CAPTURE_PLAYBACK */</li>
+<li>PJMEDIA_DIR_ENCODING_DECODING = 3,
++</li>
+<li>/** Same as ENCODING_DECODING */</li>
+<li>PJMEDIA_DIR_CAPTURE_PLAYBACK = PJMEDIA_DIR_ENCODING_DECODING,
++</li>
+<li>/** Same as ENCODING_DECODING */</li>
+<li><p>PJMEDIA_DIR_CAPTURE_RENDER = PJMEDIA_DIR_ENCODING_DECODING</p>
+
+<p>};</p></li>
+</ul>
+
+<p>@@ -247,6 +269,7 @@ struct pjmedia_tone_desc
+     short   on_msec;        /<strong>&lt; Playback ON duration, in miliseconds.      */
+     short   off_msec;       /</strong>&lt; Playback OFF duration, ini miliseconds.    */
+     short   volume;         /<strong>&lt; Volume (1-16383), or 0 for default.        */
++    short   flags;          /</strong>&lt; Currently internal flags, must be 0        <em>/
+ };
+ /*</em>
+  * This structure describes individual MF digits to be played
+@@ -519,12 +542,14 @@ enum pjmedia_srtp_use
+ /** SSL protocol method constants. */
+ enum pjsip_ssl_method
+ {
+-    PJSIP_SSL_UNSPECIFIED_METHOD= 0,   /<strong>&lt; Default protocol method.   */
+-    PJSIP_TLSV1_METHOD     = 31,   /</strong>&lt; Use SSLv1 method.      */
+-    PJSIP_SSLV2_METHOD     = 20,   /<strong>&lt; Use SSLv2 method.      */
+-    PJSIP_SSLV3_METHOD     = 30,   /</strong>&lt; Use SSLv3 method.      */
+-    PJSIP_SSLV23_METHOD        = 23    /<strong>&lt; Use SSLv23 method.     */
+-} ;
++    PJSIP_SSL_UNSPECIFIED_METHOD = 0,  /</strong>&lt; Default protocol method.   */ <br>
++    PJSIP_SSLV2_METHOD      = 20,  /<strong>&lt; Use SSLv2 method.      */
++    PJSIP_SSLV3_METHOD      = 30,  /</strong>&lt; Use SSLv3 method.      */
++    PJSIP_TLSV1_METHOD      = 31,  /<strong>&lt; Use TLSv1 method.      */
++    PJSIP_TLSV1_1_METHOD    = 32,  /</strong>&lt; Use TLSv1_1 method.    */
++    PJSIP_TLSV1_2_METHOD    = 33,  /<strong>&lt; Use TLSv1_2 method.    */
++    PJSIP_SSLV23_METHOD         = 23,  /</strong>&lt; Use SSLv23 method.     */
++};</p>
+
+<p>@@ -539,6 +564,11 @@ struct pjsip_tls_setting
+     pj_str_t   ca_list_file;</p>
+
+<pre><code> /**
+</code></pre>
+
+<p>+     * Certificate of Authority (CA) list directory path.
++     <em>/
++    pj_str_t   ca_list_path;
++
++    /*</em>
+      * Public endpoint certificate file, which will be used as client-
+      * side  certificate for outgoing TLS connection, and server-side
+      * certificate for incoming TLS connection.
+@@ -556,21 +586,25 @@ struct pjsip_tls_setting
+     pj_str_t   password;</p>
+
+<pre><code> /**
+</code></pre>
+
+<p>-     * TLS protocol method from #pjsip_ssl_method, which can be:
+-     * - PJSIP_SSL_UNSPECIFIED_METHOD(0): default (which will use 
+-     *                                     PJSIP_SSL_DEFAULT_METHOD)
+-     * - PJSIP_TLSV1_METHOD(1):       TLSv1
+-     * - PJSIP_SSLV2_METHOD(2):       SSLv2
+-     * - PJSIP_SSLV3_METHOD(3):       SSL3
+-     * - PJSIP_SSLV23_METHOD(23):     SSL23
++     * TLS protocol method from #pjsip_ssl_method. In the future, this field
++     * might be deprecated in favor of <b>proto</b> field. For now, this field 
++     * is only applicable only when <b>proto</b> field is set to zero.
+      *
+      * Default is PJSIP_SSL_UNSPECIFIED_METHOD (0), which in turn will
+-     * use PJSIP_SSL_DEFAULT_METHOD, which default value is 
+-     * PJSIP_TLSV1_METHOD.
++     * use PJSIP_SSL_DEFAULT_METHOD, which default value is PJSIP_TLSV1_METHOD.
+      */
+     int        method;</p>
+
+<pre><code> /**
+</code></pre>
+
+<p>+     * TLS protocol type from #pj_ssl_sock_proto. Use this field to enable 
++     * specific protocol type. Use bitwise OR operation to combine the protocol 
++     * type.
++     *
++     * Default is PJSIP_SSL_DEFAULT_PROTO.
++     <em>/
++    pj_uint32_t    proto;
++
++    /*</em>
+      * Number of ciphers contained in the specified cipher preference. 
+      * If this is set to zero, then default cipher list of the backend 
+      * will be used.
+@@ -638,6 +672,12 @@ struct pjsip_tls_setting
+     pj_time_val    timeout;</p>
+
+<pre><code> /**
+</code></pre>
+
+<p>+     * Should SO_REUSEADDR be used for the listener socket.
++     * Default value is PJSIP_TLS_TRANSPORT_REUSEADDR.
++     <em>/
++    pj_bool_t reuse_addr;
++
++    /*</em>
+      * QoS traffic type to be set on this transport. When application wants
+      * to apply QoS tagging to the transport, it's preferable to set this
+      * field rather than \a qos_param fields since this is more portable.
+@@ -663,9 +703,26 @@ struct pjsip_tls_setting
+      */
+     pj_bool_t qos_ignore_error;</p>
+
+<ul>
+<li>/**</li>
+<li><ul><li>Specify options to be set on the transport. </li></ul></li>
+<li>*</li>
+<li><ul><li>By default there is no options.</li></ul></li>
+<li><ul>*</ul></li>
+<li>*/</li>
+<li>pj_sockopt_params sockopt_params;
++</li>
+<li>/**</li>
+<li><ul><li>Specify if the transport should ignore any errors when setting the </li></ul></li>
+<li><ul><li>sockopt parameters.</li></ul></li>
+<li>*</li>
+<li><ul><li>Default: PJ_TRUE</li></ul></li>
+<li><ul>*</ul></li>
+<li>*/</li>
+<li>pj_bool_t sockopt_ignore_error;
++
+};</li>
+</ul>
+
+<p>-//pjlib/include/pj/types.h
++// pjlib/include/pj/types.h
+ typedef long       pj_ssize_t;</p>
+
+<p>/* QOS */
+@@ -712,7 +769,7 @@ struct pj_time_val</p>
+
+<p>-//pjnat/include/nat_detect.h
++// pjnath/include/pjnath/nat_detect.h</p>
+
+<p>/**
+  * This enumeration describes the NAT types, as specified by RFC 3489
+@@ -840,6 +897,13 @@ typedef enum pjsip_redirect_op
+     PJSIP_REDIRECT_ACCEPT,</p>
+
+<pre><code> /**
+</code></pre>
+
+<p>+     * Accept the redirection to the current target and replace the To
++     * header in the INVITE request with the current target. The INVITE
++     * request will be resent to the current target.
++     <em>/
++    PJSIP_REDIRECT_ACCEPT_REPLACE,
++
++    /*</em>
+      * Defer the redirection decision, for example to request permission
+      * from the end user.
+      */
+@@ -853,7 +917,7 @@ typedef enum pjsip_redirect_op</p>
+
+<p>};</p>
+
+<p>-// pjsip/include/psip-ua/sip_timer.h
++// pjsip/include/pjsip-ua/sip_timer.h</p>
+
+<p>/**
+  * This structure describes Session Timers settings in an invite session.
+@@ -878,6 +942,7 @@ struct pjsip_timer_setting
+ // Force decl of msg_data so that the real one is used -- this produce a build error but harmless
+ struct pjsua_msg_data
+ {
++    pj_str_t   target_uri;
+     pjsip_hdr  hdr_list;
+     pj_str_t   content_type;
+     pj_str_t   msg_body;
+diff -rupN CSipSimple.orig/res/values/prefs_values.xml CSipSimple/res/values/prefs_values.xml
+--- CSipSimple.orig/res/values/prefs_values.xml 2015-01-26 18:11:12.081389932 +0100
++++ CSipSimple/res/values/prefs_values.xml  2015-01-26 18:46:04.824627467 +0100
+@@ -99,14 +99,18 @@
+     
+     
+         0 
+-        1 
+-        2 
+-        3 
++        31 
++        32 
++        33 
++        20 
++        30 
+         23 
+     
+     
+         @string/auto
+         TLSv1
++        TLSv1.1
++        TLSv1.2
+         SSLv2
+         SSL3
+         SSL23
+diff -rupN CSipSimple.orig/src/com/csipsimple/pjsip/PjSipService.java CSipSimple/src/com/csipsimple/pjsip/PjSipService.java
+--- CSipSimple.orig/src/com/csipsimple/pjsip/PjSipService.java  2015-01-26 18:11:09.753546542 +0100
++++ CSipSimple/src/com/csipsimple/pjsip/PjSipService.java   2015-02-07 13:59:04.188381579 +0100
+@@ -767,6 +767,7 @@ public class PjSipService {
+             tlsSetting.setVerify_client(checkClient ? 1 : 0);</p>
+
+<pre><code>         tlsSetting.setMethod(prefsWrapper.getTLSMethod());
+</code></pre>
+
+<p>+            tlsSetting.setProto(0);
+             boolean checkServer = prefsWrapper
+                     .getPreferenceBooleanValue(SipConfigManager.TLS_VERIFY_SERVER);
+             tlsSetting.setVerify_server(checkServer ? 1 : 0);
+diff -rupN CSipSimple.orig/src/com/csipsimple/utils/Compatibility.java CSipSimple/src/com/csipsimple/utils/Compatibility.java
+--- CSipSimple.orig/src/com/csipsimple/utils/Compatibility.java 2015-01-26 18:11:07.729682703 +0100
++++ CSipSimple/src/com/csipsimple/utils/Compatibility.java  2015-01-27 00:40:35.735864349 +0100
+@@ -968,6 +968,16 @@ public final class Compatibility {
+                         Integer.toString(getDefaultAudioImplementation()));
+             }
+         }
++        if(lastSeenVersion &lt; 2457) {
++            String method = prefWrapper.getPreferenceStringValue(SipConfigManager.TLS_METHOD);
++            if (method.equals("1")) {
++                prefWrapper.setPreferenceStringValue(SipConfigManager.TLS_METHOD, "31");
++            } else if (method.equals("2")) {
++                prefWrapper.setPreferenceStringValue(SipConfigManager.TLS_METHOD, "20");
++            } else if (method.equals("3")) {
++                prefWrapper.setPreferenceStringValue(SipConfigManager.TLS_METHOD, "30");
++            }
++        }
+         prefWrapper.endEditing();
+     }</p>
+
+<p>diff -rupN CSipSimple.orig/src/com/csipsimple/wizards/impl/Inovent.java CSipSimple/src/com/csipsimple/wizards/impl/Inovent.java
+--- CSipSimple.orig/src/com/csipsimple/wizards/impl/Inovent.java    2015-01-26 18:11:09.693550578 +0100
++++ CSipSimple/src/com/csipsimple/wizards/impl/Inovent.java 2015-01-26 19:01:46.672258978 +0100
+@@ -108,7 +108,7 @@ public class Inovent extends SimpleImple
+         prefs.setPreferenceBooleanValue(SipConfigManager.ENABLE_QOS, true);
+         prefs.setPreferenceBooleanValue(SipConfigManager.USE_COMPACT_FORM, true);
+         prefs.setPreferenceBooleanValue(SipConfigManager.SUPPORT_MULTIPLE_CALLS, true);
+-        prefs.setPreferenceStringValue(SipConfigManager.TLS_METHOD, "1");
++        prefs.setPreferenceStringValue(SipConfigManager.TLS_METHOD, "31");</p>
+
+<pre><code>     // Prefer opus,silk
+     prefs.setCodecPriority("opus/48000/1", SipConfigManager.CODEC_WB, "245");
+</code></pre>
+
+<p>diff -rupN CSipSimple.orig/src/com/csipsimple/wizards/impl/TelAccess.java CSipSimple/src/com/csipsimple/wizards/impl/TelAccess.java
+--- CSipSimple.orig/src/com/csipsimple/wizards/impl/TelAccess.java  2015-01-26 18:11:09.705549771 +0100
++++ CSipSimple/src/com/csipsimple/wizards/impl/TelAccess.java   2015-01-26 19:01:28.653486625 +0100
+@@ -56,7 +56,7 @@ public class TelAccess extends SimpleImp
+         prefs.setPreferenceBooleanValue(SipConfigManager.ENABLE_QOS, true);
+         prefs.setPreferenceBooleanValue(SipConfigManager.USE_COMPACT_FORM, true);
+         prefs.setPreferenceBooleanValue(SipConfigManager.SUPPORT_MULTIPLE_CALLS, true);
+-        prefs.setPreferenceStringValue(SipConfigManager.TLS_METHOD, "1");
++        prefs.setPreferenceStringValue(SipConfigManager.TLS_METHOD, "31");
+         prefs.setPreferenceStringValue("codec_g729_8000_fpp", "4");</p>
+
+<pre><code>     // Prefer silk, gsm
+</code></pre></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #8</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jun 22, 2015 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content -->
+              <!-- ngIf: !comment.content --><span ng-if="!comment.content" class="ng-scope">
+                <p><em>(No comment was entered for this change.)</em></p>
+              </span><!-- end ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments -->
+          </div>
+
+          <!-- Sidebar with additional information -->
+          <div class="maia-col-4">
+            <div class="maia-aside">
+              <p>Status: <code class="ng-binding">Obsolete</code></p>
+              <!-- ngIf: issueCtrl.issue.labels.length > 0 --><p ng-if="issueCtrl.issue.labels.length &gt; 0" class="ng-scope">
+                Labels:
+                <br>
+                <!-- ngRepeat: label in issueCtrl.issue.labels track by $index --><span ng-repeat="label in issueCtrl.issue.labels track by $index" class="ng-scope">
+                  <span class="gca-label ng-binding">Type-Defect</span>
+                </span><!-- end ngRepeat: label in issueCtrl.issue.labels track by $index --><span ng-repeat="label in issueCtrl.issue.labels track by $index" class="ng-scope">
+                  <span class="gca-label ng-binding">Priority-Medium</span>
+                </span><!-- end ngRepeat: label in issueCtrl.issue.labels track by $index -->
+              </p><!-- end ngIf: issueCtrl.issue.labels.length > 0 -->
+            </div>
+          </div>
+        </div><!-- end ngIf: !issueCtrl.error -->
+      </div>
+    </div>
+
+  </div>
+</div>
+</div></div></div>
+    <noscript>
+      &lt;p&gt;The Google Code Archive requires JavaScript to be enabled in your browser.&lt;/p&gt;
+    </noscript>
+
+    <div id="maia-signature"></div>
+    <div class="maia-footer" id="maia-footer">
+      <div id="maia-footer-local">
+      </div>
+      <div id="maia-footer-global">
+        <div class="maia-aux">
+          <ul>
+            <li>
+              <a href="//www.google.com/">Google</a>
+            </li>
+            <li>
+              <a href="//www.google.com/intl/en/about/">About Google</a>
+            </li>
+            <li>
+              <a href="//www.google.com/intl/en/policies/privacy/">Privacy</a>
+            </li>
+            <li>
+              <a href="//www.google.com/intl/en/policies/terms/">Terms</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <script src="//www.google.com/js/maia.js"></script>
+  
+
+
+</body></html>

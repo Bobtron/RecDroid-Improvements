@@ -1,0 +1,34 @@
+https://github.com/microg/android_packages_apps_GmsCore/issues/284<td class="d-block comment-body markdown-body  js-comment-body">
+
+          <p>So I've recently migrated to Android 7.1.1 as LineageOS has picked up the ball and started producing builds for <code>bacon</code> again.</p>
+<p>My update workflow has changed in the following respects:</p>
+<ol>
+<li>
+<p>Where I would have normally had <strong>Xposed</strong>+FakeGapps installed, I now use <strong><a href="https://github.com/ale5000-git/tingle">tingle</a></strong>, as it's the only reliable way I could currently find to allow spoof'd signatures - given that Xposed for 7+ doesn't exist yet. This numeral is merely informative.</p>
+</li>
+<li>
+<p>The point of the issue: As you know, given the UnifiedNlp README and the patch you produced <a href="https://github.com/microg/android_packages_apps_UnifiedNlp/blob/master/patches/android_frameworks_base-N.patch">here</a> you are at least aware of the issue and the simple fact that <strong>going forward, UnifiedNlp and therefore many apps <em>will not work</em></strong> with the traditional "Just install the app" workflow, due to the fact that only privileged system apps may be a location provider in 7+.</p>
+</li>
+</ol>
+<p>Your solutions are:</p>
+<ol>
+<li>
+<p>Apply the patch (which you can only do if you intend to build your own ROM from scratch)</p>
+<ul>
+<li>CyanogenMod/LineageOS will not be including this patch: <a href="https://review.cyanogenmod.org/#/c/177082/" rel="nofollow">https://review.cyanogenmod.org/#/c/177082/</a></li>
+<li>Patching a ROM and building said rom is a non-trivial process for average users</li>
+</ul>
+</li>
+<li>
+<p>As root, install GmsCore in <code>/system/priv-app/</code> (You said it slightly different for UnifiedNlp-only but the problem remains the same, and I verified this works myself)</p>
+</li>
+</ol>
+<p>This leaves us with option <a class="issue-link js-issue-link" data-error-text="Failed to load issue title" data-id="36748704" data-permission-text="Issue title is private" data-url="https://github.com/microg/android_packages_apps_GmsCore/issues/2" href="https://github.com/microg/android_packages_apps_GmsCore/issues/2">#2</a>, which if you're a nightly user (hint: No other user of LineageOS atm)  is frankly really a pain. And worse, a conundrum:</p>
+<ol>
+<li>microG / GmsCore still needs to be installed prior to all GCM apps, and if it's reinstalled could it lose those subscriptions?</li>
+<li>Apps in <code>/system/priv-app/</code> will be erased on upgrade</li>
+</ol>
+<p>Given that, I think it would be really nice if you could produce a flashable .zip that also includes an <code>addon.d</code> script to "rollover" microG to the next upgrade like Gapps does it. (hopefully preserving the push subscriptions too) - note when I say "push subscription" I mean the apps listed under the "Google Cloud Messaging" menu and how that operates with the necessity of GmsCore having to be present first.</p>
+<p>Bonus points: Perhaps a second zip could be produced that does what <code>tingle</code> is doing and one-shot both the patching of the framework to support spoof'd signatures, and also install microG in the correct area.</p>
+<p>Thanks for all of your hard work! I've been using this for a long time now and it's otherwise has worked great and has given me great peace of mind.</p>
+      </td>

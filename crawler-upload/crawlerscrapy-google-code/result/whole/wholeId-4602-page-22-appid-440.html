@@ -1,0 +1,746 @@
+https://code.google.com/archive/p/csipsimple/issues/224<!DOCTYPE html><html class="google ng-scope" lang="en" ng-app="codesiteArchive.application"><head>
+    <meta charset="utf-8">
+    <meta content="initial-scale=1, minimum-scale=1, width=device-width" name="viewport">
+
+    <!-- https://developers.google.com/webmasters/ajax-crawling/docs/specification -->
+    <meta name="fragment" content="!">
+    <title>Google Code Archive - Long-term storage for Google Code Project Hosting.</title>
+
+    <link rel="icon" type="image/vnd.microsoft.icon" href="/archive/img/project-hosting.ico">
+    <script src="//www.google.com/js/google.js"></script>
+    <link href="//www.google.com/css/maia.css" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;lang=en" rel="stylesheet">
+    <link rel="stylesheet" href="/archive/archive_css.css">
+    <script>
+      CLOSURE_NO_DEPS = true;
+    </script>
+    <script src="/archive/angular.js"></script><style type="text/css">@charset "UTF-8";
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak],
+.ng-cloak, .x-ng-cloak,
+.ng-hide:not(.ng-hide-animate) {
+  display: none !important;
+}
+
+ng\:form {
+  display: block;
+}
+
+.ng-animate-shim {
+  visibility:hidden;
+}
+
+.ng-anchor {
+  position:absolute;
+}
+</style>
+    <script src="/archive/pagedown.js"></script>
+    <script src="/archive/archive.js"></script>
+    <base href="/archive/">
+  </head>
+
+  <body>
+    <div class="maia-header" id="maia-header" role="banner">
+      <div class="maia-aux">
+        <a href="/archive/">
+          </a><h1><a href="/archive/">
+            <img alt="Google" src="//www.google.com/images/branding/googlelogo/1x/googlelogo_color_116x41dp.png"> Code</a>
+          </h1>
+        
+        <a href="/archive/">
+          <h2>Archive</h2>
+        </a>
+        <a class="maia-teleport" href="#content">Skip to content</a>
+        <div class="maia-util">
+          <form action="/archive/search" class="maia-search ng-pristine ng-valid">
+            <input name="q" placeholder="Search this site" type="text">
+            <button class="maia-button">
+              <span class="maia-search-icon">Search</span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- ngView: --><div ng-view="" class="ng-scope"><div ng-controller="ProjectIssueCtrl as issueCtrl" class="ng-scope">
+<nav-bar-widget nav-level-1="projectCtrl.navLevel1" class="ng-isolate-scope"><div class="maia-nav maia-complex" id="maia-nav-x" role="navigation">
+  <div class="maia-aux">
+    <ul>
+      <li ng-class="{active: navLevel1 == 'projects'}">
+        <a href="/archive/">Projects</a>
+        <!-- ngIf: navLevel2 -->
+      </li>
+      <li ng-class="{active: navLevel1 == 'search'}">
+        <a href="/archive/search">Search</a>
+      </li>
+      <li ng-class="{active: navLevel1 == 'about'}">
+        <a href="/archive/about">About</a>
+      </li>
+    </ul>
+  </div>
+</div>
+</nav-bar-widget>
+<div id="maia-main" role="main">
+
+  <!-- ngIf: issueCtrl.notFound -->
+
+  <div ng-hide="issueCtrl.notFound">
+    <!-- Left-side resource nav -->
+    <project-resources-widget domain="issueCtrl.domain" project="issueCtrl.projectName" class="ng-isolate-scope"><div class="maia-nav" id="maia-nav-y" role="navigation">
+  <!-- ngIf: domain == 'code.google.com' --><ul ng-if="domain == 'code.google.com'" class="ng-scope">
+    <li class="active">
+      <a href="/archive/p/csipsimple/">Project</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/source">Source</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/issues">Issues</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/wikis">Wikis</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/downloads">Downloads</a>
+    </li>
+  </ul><!-- end ngIf: domain == 'code.google.com' -->
+
+    <!-- ngIf: domain != 'code.google.com' -->
+</div></project-resources-widget>
+
+    <div class="maia-article" role="article">
+      <div class="maia-teleport" id="content"></div>
+      <div class="maia-cols">
+        <div id="gca-project-header" class="maia-col-10">
+          <a id="gca-export-to-gh" class="maia-button" href="https://code.google.com/export-to-github/export?project=csipsimple">Export to GitHub</a>
+            <img class="gca-project-logo" src="https://storage.googleapis.com/google-code-archive/v2/code.google.com/csipsimple/logo.png">
+            <h1 class="ng-binding">csipsimple - issue #224</h1>
+            <p class="ng-binding">integration of pjsip jni</p>
+        </div>
+
+        <div class="maia-col-10">
+          <hr>
+
+        <!-- ngIf: issueCtrl.error -->
+
+        <!-- ngIf: !issueCtrl.error --><div ng-if="!issueCtrl.error" class="ng-scope">
+          <!-- Comments -->
+          <div class="maia-col-8">
+            <!-- ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Sep 20, 2010 by
+                  <i class="ng-binding">Happy Bird</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>hi..
+  Thanks for your fast response I just want to know that can we import the pjsip jni for android in csipsimple project means that at present time the csipsimple project takes reference from web . Is it possible to remove that link because  if any one is using csipsimple at that time the server is down at that time the csipsimple working will stop ?</p>
+
+<p>thanks a lot for your support.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #1</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Sep 20, 2010 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>No no, as I said there is no reference from web. CSipSimple source code already ship my modified version of pjsip-jni. Once you have checked out svn trunk you have everything you need (except some resource from the android ndk).</p>
+
+<p>You can browse csipsimple pjsip-jni copy here :
+<a href="http://code.google.com/p/csipsimple/source/browse/trunk/pjsip_android/apps/pjsip/project/jni/pjsua_wrap.cpp">http://code.google.com/p/csipsimple/source/browse/trunk/pjsip_android/apps/pjsip/project/jni/pjsua_wrap.cpp</a></p>
+
+<p>And here :
+<a href="http://code.google.com/p/csipsimple/source/browse/#svn/trunk/CSipSimple/src/org/pjsip/pjsua">http://code.google.com/p/csipsimple/source/browse/#svn/trunk/CSipSimple/src/org/pjsip/pjsua</a></p>
+
+<p>You just need that.</p>
+
+<p>See the wiki page about how to build,
+<a href="http://code.google.com/p/csipsimple/wiki/HowToBuild">http://code.google.com/p/csipsimple/wiki/HowToBuild</a>
+You'll see that you don't need to download anything from pjsip-jni. I think that you are confusing the native library with pjsip-jni project. The .so file pjsipjni.so is really much more than pjsip-jni it's pjsip_android available here on google code. (pjsip + parts of pjsip-jni + my android port of pjsip).</p>
+
+<p>PS : Plz - continue to reply on the same issue. Don't worry I'll be notified even if the issue is not active anymore.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #2</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Mar 5, 2011 by
+                  <i class="ng-binding">Happy Rhino</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>I noticed your license for pjsip_android is the Apache License. But isn't pjsip_android based off of pjsip-jni, which is GPL? Would this make pjsip_android therefore a derivative of pjsip-jni and restrict it to GPL too? </p>
+
+<p>Just want to make sure if I use any code, I use it with a legit license. Thanks!</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #3</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Mar 5, 2011 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Only <em>my</em> pjsip_android files are licensed under Apache license !!! <em>Only</em> these files. Be really careful with it. Read the Licensing wiki page carefully.</p>
+
+<p>pjsip is licensed under GPL so if you want to use it for your project you must acquire the right to use it under another license than the GPL one. Ask teluu company for that part (<a href="http://www.teluu.com/">http://www.teluu.com/</a>). 
+I released my part to make leave teluu free to reuse my code to sublicense something based on pjsip with android. </p>
+
+<p>It's also based on the work of pjsip-jni guys but is now far from it : pjsip-jni is "just" the swig export of pjsip. So it's not really relevant to consider the license of the files produced by a SWIG export.</p>
+
+<p>You should also read licensing page on pjsip project.</p>
+
+<p>Besides CSipSimple (the java part) is ONLY GPL licensed. No commercial license available.</p>
+
+<p>So if you want to use it for a commercial product : =&gt; you <em>MUST</em> acquire the teluu license and you'll be able to use ONLY the pjsip_android lib.
+It is NOT allowed to reuse code from CSipSimple in your project unless you release under GPL ! CSipSimple is entierly GPL and will remain only under this license.</p>
+
+<p>Last point, if you are doing a project for android I'd advise you to have a completely different approach : Android is a powerful OS and allows apps to inter-operate.
+CSipSimple provide a way to be distributed in a "plugin mode". In this mode it becomes a service available on the android OS that provide SIP capabilities to the rest of the OS. (Just like the android 2.3 stock SIP api).
+As consequence, you can easily imagine redistribute this plugin mode (under GPL) + your application that use this plugin (under the license you want).
+Using this approach you'll benefit every improvements made in CSipSimple, you'll don't bother with all android glue which is really hard to do (and you can't copy my code to do so since my code in CSipSimple is ONLY GPL). You'll also be able to contribute the opensource project CSipSimple and improve it so that it will benefit the rest of the world without preventing you to distribute something with hidden features.</p>
+
+<p>Also really think about that, most of the time you have absolutely no benefit to close your source. OpenSource things, work with the rest of the world for <em>USERS</em> .</p>
+
+<p>Be really careful with licensing. Opensource does not mean you can do anything with it.</p>
+
+<p>My personal goal is to make the app benefit users.
+As consequence :
+- I released my part of the <em>pjsip</em> port under Apache so that the company behind pjsip can benefit my work and promote/support this part in the future.
+- I released the java part under GPL so that everybody that want to reuse it <em>MUST</em> redistribute it work to the community and so make it available for all users.</p>
+
+<p>Hope that's more clear.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #4</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Mar 5, 2011 by
+                  <i class="ng-binding">Happy Rhino</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Ok, thanks for the explanation. Can you point me to more info on how to use CSipSimple in plugin mode? I would love to use it in that capacity if possible, and hopefully contribute to it. I see you did mention something about this mode in the licensing page, but I couldn't find the list of APIs or how this plugin mode works.</p>
+
+<p>Thanks!</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #5</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Mar 5, 2011 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Have a look to this directory :</p>
+
+<p><a href="http://code.google.com/p/csipsimple/source/browse/#svn%2Ftrunk%2FCSipSimple%2Fsrc%2Fcom%2Fcsipsimple%2Fapi">http://code.google.com/p/csipsimple/source/browse/#svn%2Ftrunk%2FCSipSimple%2Fsrc%2Fcom%2Fcsipsimple%2Fapi</a></p>
+
+<p>It contains all source code you have to import in your java application project.</p>
+
+<p>You import it, then you bind the service (read <a href="http://developer.android.com/guide/developing/tools/aidl.html">http://developer.android.com/guide/developing/tools/aidl.html</a> the "Calling an IPC Method" part).
+It explains how apps can communicate.</p>
+
+<p>The services available in csipsimple are SipManager.INTENT_SIP_SERVICE and SipManager.INTENT_SIP_CONFIGURATION . Bind with bindService(new Intent(SipManager.INTENT_SIP_CONFIGURATION), mConnection, Context.BIND_AUTO_CREATE);</p>
+
+<p>Then once you have the ISipService object (or ISipConfiguration object), you can call all method defined in the .aidl. :) If you need more methods than the one available it can be enriched. For now I try to use this approach even internally to CSipSimple. For example the InCallScreen only talk with the service through the aidl API.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #6</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Mar 5, 2011 by
+                  <i class="ng-binding">Happy Rhino</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Awesome thanks! So this allows me to use the CSipSimple's functionality behind the scenes while building my own UI right? </p>
+
+<p>This looks like it'll work. And I love how you encapsulated everything and provide a choice of using either PJSIP or Google's SIP. Will be looking into this further, thanks!</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #7</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Mar 5, 2011 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>There is not yet the implementation for the official google sip stack, but I'll do that soon :). Also I hope that I'll be able to integrate other stack in the future. (For example doubango which is really interesting).</p>
+
+<p>The only weird side of this approach is that you have to distribute 2 applications (the voip plugin (csipsimple) and your app). </p>
+
+<p>Then yes, you can do anything you want in your app. Have a look to Voxofon app on the market. They use this approach. Which is cool is that their app also allow their users to use CSipSimple or their distribution of the plugin if one is available and if none they open the android market to propose user to download their plugin.</p>
+
+<p>Last point, you have in your app to add permissions to use the sip service. In CSipSimple there is two permissions names : one is exactly the same than the stock android 2.3 permission and the other is one specifically for sip configuration.
+(Read the wiki page about PermissionsUse, last part explain what are permission third party apps can use) (
+        
+        
+)</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #8</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Mar 5, 2011 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Another point, if you want to override the InCall screen it is also possible by registering the correct intent (and removing it from your distribution of CSipSimple - in fact in your distribution of CSipSimple, you may only need to change the manifest file )</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #9</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Mar 5, 2011 by
+                  <i class="ng-binding">Happy Rhino</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Thanks. Is there a way to download the CSipSimple plugin behind the scenes or include it in the binary without the user having to do that extra step of going to Android market and downloading the plugin in addition to our app? </p>
+
+<p>I was going to say why not then license CSipSimple under LGPL, but then I remembered you're using PJSIP which is GPL..</p>
+
+<p>Hisham</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #10</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Mar 6, 2011 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>No you can't do that. It would break the GPL.</p>
+
+<p>GPL is a distribution license. If you distribute something with GPL inside it mean that all your software is GPL. That's why I choose GPL.</p>
+
+<p>I could have choose LGPL for my code, but that does not fit what I want for the software and my goals with it.
+In fact when you develop something you own the copyright on it. Then you can choose which license you put on this copyright. You can choose the license you want. 
+When you want to distribute the software you have to worry about licenses.
+When you distribute you have to be careful with the fact all your license are compatible together so that you can ship something with the good license.
+I distribute CSipSimple under GPL which is constraint by the fact CSipSimple itself is GPL and pjsip is GPL too.
+But it also contains code released under Apache and other license that are compatible with GPL (see the FSF website). That's fine cause GPL terms are are those with the most important constraint. So if I distribute CSipSimple or if anybody brand it he must redistribute it under GPL cause I choose to release under GPL CSipSimple. Even if he buy the pjsip commercial distribution license for the native library part.</p>
+
+<p>My goals are different from the one of pjsip guys (teluu). They do a GPL library but they have a dual commercial license for companies that does not want to release their software under GPL.
+It's clever for a library. Cause the aim of a library is to be embedded somewhere else. 
+CSipSimple is a complete program, besides my goal is <em>NOT</em> to make money with it. My goal is to make it benefit users. As consequence in my case, the only way I have to protect the software from companies that reuse it without ethic is to release it under GPL. Btw, I ensure that nobody will use it without redistributing improvements to the community. That's really important to keep in mind that my work aim is to benefit users, not you that will reuse the app.</p>
+
+<p>I allow by releasing the "api" and making efforts to make it easy for third party to reuse the apps and redistribute it 'UNDER GPL'. The goal here is the same. You have to release the plugin part under GPL as consequence if you find bugs, if you need improvements in the csipsimple part, you have to release source code on it. As consequence finally by providing you a way using it like this, I make the users benefit the fact you reuse the app. But the way you can reuse it is limited due to the fact you don't want your part of the app benefit all users cause you don't want to release it under GPL. 
+That's fine as far as you make benefit all users the CSipSimple part.</p>
+
+<p>The choose of GPL is really relevant and I know exactly what I do by releasing under GPL. I really know about free software licenses and I know that GPL is the one that fit what I want for the CSipSimple software. And that's also the reason why the little part about the pjsip_android code I wrote is released under Apache license so that Teluu company can reuse it. I know their goals with their library and as consequence I did my license compliant with their part of the work (it was not required at all but I wanted to allow them to make more money with my work if some third party company want to reuse <em>only</em> pjsip_android. That's the less I can do for they great job.</p>
+
+<p>You should read about licenses. That's really interesting and learn about that may make you change your point of view about "opensources" licenses. There is many opensource license and all are different and suit a specific use case. When something is released under a certain license, the author/contributors of the software really know what they do.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #11</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Mar 30, 2011 by
+                  <i class="ng-binding">Massive Elephant</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Hi, I took CSipSimple code and modified such that it is just a SIP UA without any UI with it. It is a service that any other application can call through interfaces defined in IDL. It was a very interesting exercise and had good results. 
+Based on your comment above on using CSipSimple in plug-in mode, does this new code base qualify to be a plug-in mode in a commercial product and does it violate any licensing?
+Your response really appreciated! </p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #12</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Mar 31, 2011 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Actually if you use the "plugin mode" you must distribute two distinct application.</p>
+
+<p>One will be the plugin (CSipSimple with a different .manifest file) and must be distributed under GPL license terms. This is not hurting. I guess (I hope) that to get CSipSimple running just as a SIP UA you only modified the .manifest file... if not, you probably do extra uneeded things ;). Cause actually if you try on the android market voxofon or mytunu, (that redistribute csipsimple as a branded plugin, the only thing they modify to not get it registering in the launcher, to not get it launching when click on notification is done and potentially to not get it registering when there is an active call is the .manifest file. I did everything to allow to do that simply ;).</p>
+
+<p>The other application will be your application that you can be distributed under license terms you want since it's independant of the "plugin" (CSipSimple).</p>
+
+<p>It's an independant software cause virtually CSipSimple (or your branded GPL redistirbution of it) can virtually be replaced by another plugin for VoIP that use the same interface. Actually that's not so virtual cause you probably noticed that the existing interfaces really look like the stock android 2.3 SIP features ;). </p>
+
+<p>(And the good reason for that is that in a near future third party apps such as your will be able to choose a prefered backend : pjsip or stock SIP if available... and hopefully if there is contributions other sip stacks... why not doubago for example...).</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #13</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Mar 31, 2011 by
+                  <i class="ng-binding">Massive Elephant</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Couple of things:
+1. I did not modify CSipSimple Manifest file to achieve the plug-in mode. In fact, I stripped down all the DB access, any calls to UI etc and made all calls into service and callbacks. A truly SIP UA with no ties attached to UI/DB at all. 
+2. As you suggested, I must distribute two distinct apps. Does it mean that the users will require to download two apps? Or can they be bundled into one app? Also, how does it work if my app (that depends on CSipSimple based SIP UA) is closed and SIP UA receives call. How do I wake it up?
+3. Are there any other licensing terms that you allow to let me use that stripped down SIPUA "as part of" my app?</p>
+
+<p>Once again, thanks for the good work and thanks for corresponding with me.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #14</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Mar 31, 2011 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>As for point 1 : you should consider modifying only the Manifest file. Everything I did was done to manage this use case.
+If you think there is something that can't be done through the manifest file, tell me. I should add that as an extensible way to use CSipSimple.</p>
+
+<p>2 -&gt; Yes two apps, but it can be done cleanly. Have a look to voxofon or mytunu apps. They integrate CSipSimple as plugin mode a way it provide a good user experience.
+You can't bundle the GPL app in your app. You must have really two different app so that your users can redistribute the "voip plugin".</p>
+
+<p>As for the incoming call, I think you didn't know yet how powerful are manifest files. I think you stripped down a lot of things while that was not a good idea. You should have asked me before ;). 
+In fact CSipSimple send "Intents" to launch UI. And...Intents are registered in manifest files !! :D ... 
+So if you comment the registration of the in call screen in csipsimple manifest and register in your app.... magic, your app will be callback ! Nothing else to do. Have a look to my manifest. For the in call screen you'll see that there is already a commented interface (that is the 0.01 interface and will be changed in next release).</p>
+
+<ol start="3">
+<li>No there is no dual license on the app. The goal is to lead anybody that want to rely to csipsimple to contribute the project for SIPUA aspects. 
+As you'll see when you'll have it really integrated as done by Mytunu or Voxofon, you'll see that's not a bad design. It will allow you to upgrade more easily the plugin, it will allow you to rely on csipsimple if installed on the phone and do not need to install your plugin if user has other sip providers.</li>
+</ol>
+
+<p>Actually this kind of approach is the one used by the android OS everywhere. For example, the telephony application is something different than the contact/dialer application.</p>
+
+<p>If you have a close look to list of installed apps on your phone, you'll see that there is many apps that are installed but not present in the launcher. </p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #15</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Mar 31, 2011 by
+                  <i class="ng-binding">Massive Elephant</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Thanks for the response and very appreciated your healthy discussion here. 
+I think your design is very good and I do understand the power it could bring in. A couple of things I did not like are as follows:
+1. UI layer is not fully independent of SIP UA. For example, notifyRegisteredAccounts gets called from PjSip layer and refers to Intents. I think it would be a better idea to just pass either return codes or objects back and forth through AIDL. Hope I am understanding everything correctly. If not, pardon my comments. </p>
+
+<ol start="2">
+<li>DB layer is embedded too deep. In other words, I might chose to not save account information at all in DB and would want to manage call logs etc on my own. I could do that as long as i get proper AIDL interfaces to make calls upon service and callback on SIP activities. </li>
+</ol>
+
+<p>I hope I am making sense to you. If not, please pardon my ignorance as I might not have understood your design 100%. </p>
+
+<p>My idea is, SIP UA is for call control and media and can be kept independent of everything else. It is easy to develop and debug independently. I developed the entire UA without having a second screen. Then designed a dialer and integrated. </p>
+
+<p>So on and so forth....</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #16</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Apr 1, 2011 by
+                  <i class="ng-binding">Massive Elephant</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Also, if you did it that way where people can slap the choice of their UI on top of this slick SIP UA as a service, there will be a better adoption for that SIP UA and that way more contributors as well. And you can open source it with GPL V2 if you like and just ask for support contracts for any bug fixes. </p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #17</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Apr 1, 2011 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Ok I'll try to reply point by point to what you where expecting :</p>
+
+<p>Globally, CSipSimple is more than just an UA. The UA is provided by pjsip/pjsua. It also provide the integration with the android OS. Again, Android OS is much much much more powerful and extensible than all other mobile OS (and even desktop OS). It is designed to allow apps to interact through these powerful intents, binders and content provider approach.</p>
+
+<p>Then,
+For point 1 : Indeed it refer to intents, and actually it's a very good idea when you understand how to use intents ;). You have probably noticed that each notification has a pending intent. This pending intent can be de-registered from the CSipSimple.manifest, and registered to <em>YOUR</em> application. 
+So that, when you'll click the notification about the fact you are registered to a sip service... it will open YOUR application !! Not CSipSimple UI anymore !! Just by commenting out two lines in csipsimple manifest and adding one in your app !! </p>
+
+<p>2 . DB layer is deep because it's not only the UA. Again, the UA is pjsua. CSipSimple provides facilities to manage everything related to SIP in the android context. For example... call logs. CSipSimple directly put call logs into Android OS call logs. The DB you see is an internal DB. If required I can provide a content provider so that an external app can access it. But that's the good way to do. Content providers are the way an app can provide other apps it's content. And then you'll not have to bother anymore with storing call logs in your app. Even in CSipSimple it's virtually useless cause most users will choose to merge with the stock app call logs.</p>
+
+<p>If you only need a SIP UA, you should probably only have a look to pjsip_android part. This is only the UI... but you'll redevelop a lot of useless things. Cause CSipSimple is hookable everywhere.... </p>
+
+<p>As for comment #16 : 
+Just please, try to install either Mytunu  (uninstall csipsimple before) (you can also try Voxofon). 
+You'll see what is possible and you'll maybe understand that android allow apps to interact such a way that it's useless to redevelop the "Service" twice. </p>
+
+<p>You'll see that it is absolutely possible just modifying .manifest file to remove <em>ALL</em> CSipSimple UI (except the outgoing call chooser and the widget manager).</p>
+
+<p>Then you'll be able anywhere in your app to re-bind any CSipSimple UI if you need it. (for example the configuration screen). But alternatively, everything can be done programmatically inside your app !</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #18</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Apr 1, 2011 by
+                  <i class="ng-binding">Happy Horse</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Comment deleted</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #19</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Apr 1, 2011 by
+                  <i class="ng-binding">Massive Elephant</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Thanks for the response. I will install Mytunu or Voxofon and see the apps in action. 
+As I mentioned, I might be completely off base on this need more understanding of your architecture a bit better and I am also sure you are developing it for the same reason that everyone can use it as a service. Let me dig it more. </p>
+
+<p>BTW, I tried to compile libpjsipjni.so on linux by using your instructions but CSipSimple failed to find JNI references. Any clue?</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments -->
+          </div>
+
+          <!-- Sidebar with additional information -->
+          <div class="maia-col-4">
+            <div class="maia-aside">
+              <p>Status: <code class="ng-binding">Duplicate</code></p>
+              <!-- ngIf: issueCtrl.issue.labels.length > 0 --><p ng-if="issueCtrl.issue.labels.length &gt; 0" class="ng-scope">
+                Labels:
+                <br>
+                <!-- ngRepeat: label in issueCtrl.issue.labels track by $index --><span ng-repeat="label in issueCtrl.issue.labels track by $index" class="ng-scope">
+                  <span class="gca-label ng-binding">Type-Defect</span>
+                </span><!-- end ngRepeat: label in issueCtrl.issue.labels track by $index --><span ng-repeat="label in issueCtrl.issue.labels track by $index" class="ng-scope">
+                  <span class="gca-label ng-binding">Priority-Medium</span>
+                </span><!-- end ngRepeat: label in issueCtrl.issue.labels track by $index -->
+              </p><!-- end ngIf: issueCtrl.issue.labels.length > 0 -->
+            </div>
+          </div>
+        </div><!-- end ngIf: !issueCtrl.error -->
+      </div>
+    </div>
+
+  </div>
+</div>
+</div></div></div>
+    <noscript>
+      &lt;p&gt;The Google Code Archive requires JavaScript to be enabled in your browser.&lt;/p&gt;
+    </noscript>
+
+    <div id="maia-signature"></div>
+    <div class="maia-footer" id="maia-footer">
+      <div id="maia-footer-local">
+      </div>
+      <div id="maia-footer-global">
+        <div class="maia-aux">
+          <ul>
+            <li>
+              <a href="//www.google.com/">Google</a>
+            </li>
+            <li>
+              <a href="//www.google.com/intl/en/about/">About Google</a>
+            </li>
+            <li>
+              <a href="//www.google.com/intl/en/policies/privacy/">Privacy</a>
+            </li>
+            <li>
+              <a href="//www.google.com/intl/en/policies/terms/">Terms</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <script src="//www.google.com/js/maia.js"></script>
+  
+
+
+</body></html>

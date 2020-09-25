@@ -1,0 +1,359 @@
+https://code.google.com/archive/p/klaxon/issues/39<!DOCTYPE html><html class="google ng-scope" lang="en" ng-app="codesiteArchive.application"><head>
+    <meta charset="utf-8">
+    <meta content="initial-scale=1, minimum-scale=1, width=device-width" name="viewport">
+
+    <!-- https://developers.google.com/webmasters/ajax-crawling/docs/specification -->
+    <meta name="fragment" content="!">
+    <title>Google Code Archive - Long-term storage for Google Code Project Hosting.</title>
+
+    <link rel="icon" type="image/vnd.microsoft.icon" href="/archive/img/project-hosting.ico">
+    <script src="//www.google.com/js/google.js"></script>
+    <link href="//www.google.com/css/maia.css" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;lang=en" rel="stylesheet">
+    <link rel="stylesheet" href="/archive/archive_css.css">
+    <script>
+      CLOSURE_NO_DEPS = true;
+    </script>
+    <script src="/archive/angular.js"></script><style type="text/css">@charset "UTF-8";
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak],
+.ng-cloak, .x-ng-cloak,
+.ng-hide:not(.ng-hide-animate) {
+  display: none !important;
+}
+
+ng\:form {
+  display: block;
+}
+
+.ng-animate-shim {
+  visibility:hidden;
+}
+
+.ng-anchor {
+  position:absolute;
+}
+</style>
+    <script src="/archive/pagedown.js"></script>
+    <script src="/archive/archive.js"></script>
+    <base href="/archive/">
+  </head>
+
+  <body>
+    <div class="maia-header" id="maia-header" role="banner">
+      <div class="maia-aux">
+        <a href="/archive/">
+          </a><h1><a href="/archive/">
+            <img alt="Google" src="//www.google.com/images/branding/googlelogo/1x/googlelogo_color_116x41dp.png"> Code</a>
+          </h1>
+        
+        <a href="/archive/">
+          <h2>Archive</h2>
+        </a>
+        <a class="maia-teleport" href="#content">Skip to content</a>
+        <div class="maia-util">
+          <form action="/archive/search" class="maia-search ng-pristine ng-valid">
+            <input name="q" placeholder="Search this site" type="text">
+            <button class="maia-button">
+              <span class="maia-search-icon">Search</span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- ngView: --><div ng-view="" class="ng-scope"><div ng-controller="ProjectIssueCtrl as issueCtrl" class="ng-scope">
+<nav-bar-widget nav-level-1="projectCtrl.navLevel1" class="ng-isolate-scope"><div class="maia-nav maia-complex" id="maia-nav-x" role="navigation">
+  <div class="maia-aux">
+    <ul>
+      <li ng-class="{active: navLevel1 == 'projects'}">
+        <a href="/archive/">Projects</a>
+        <!-- ngIf: navLevel2 -->
+      </li>
+      <li ng-class="{active: navLevel1 == 'search'}">
+        <a href="/archive/search">Search</a>
+      </li>
+      <li ng-class="{active: navLevel1 == 'about'}">
+        <a href="/archive/about">About</a>
+      </li>
+    </ul>
+  </div>
+</div>
+</nav-bar-widget>
+<div id="maia-main" role="main">
+
+  <!-- ngIf: issueCtrl.notFound -->
+
+  <div ng-hide="issueCtrl.notFound">
+    <!-- Left-side resource nav -->
+    <project-resources-widget domain="issueCtrl.domain" project="issueCtrl.projectName" class="ng-isolate-scope"><div class="maia-nav" id="maia-nav-y" role="navigation">
+  <!-- ngIf: domain == 'code.google.com' --><ul ng-if="domain == 'code.google.com'" class="ng-scope">
+    <li class="active">
+      <a href="/archive/p/klaxon/">Project</a>
+    </li>
+    <li>
+      <a href="/archive/p/klaxon/source">Source</a>
+    </li>
+    <li>
+      <a href="/archive/p/klaxon/issues">Issues</a>
+    </li>
+    <li>
+      <a href="/archive/p/klaxon/wikis">Wikis</a>
+    </li>
+    <li>
+      <a href="/archive/p/klaxon/downloads">Downloads</a>
+    </li>
+  </ul><!-- end ngIf: domain == 'code.google.com' -->
+
+    <!-- ngIf: domain != 'code.google.com' -->
+</div></project-resources-widget>
+
+    <div class="maia-article" role="article">
+      <div class="maia-teleport" id="content"></div>
+      <div class="maia-cols">
+        <div id="gca-project-header" class="maia-col-10">
+          <a id="gca-export-to-gh" class="maia-button" href="https://code.google.com/export-to-github/export?project=klaxon">Export to GitHub</a>
+            <img class="gca-project-logo" src="https://storage.googleapis.com/google-code-archive/v2/code.google.com/klaxon/logo.png">
+            <h1 class="ng-binding">klaxon - issue #39</h1>
+            <p class="ng-binding">Force Close When Receiving Text</p>
+        </div>
+
+        <div class="maia-col-10">
+          <hr>
+
+        <!-- ngIf: issueCtrl.error -->
+
+        <!-- ngIf: !issueCtrl.error --><div ng-if="!issueCtrl.error" class="ng-scope">
+          <!-- Comments -->
+          <div class="maia-col-8">
+            <!-- ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Aug 8, 2011 by
+                  <i class="ng-binding">Grumpy Dog</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p><b>What steps will reproduce the problem?</b>
+1. Send text to self with activation string.</p>
+
+<p><b>What is the expected output? What do you see instead?</b>
+Alarm, receiving force close</p>
+
+<p><b>What version of the product are you using? On what operating system?</b>
+Klaxon 0.24 with Android 2.3.3 on HTC Evo</p>
+
+<p><b>Please provide any additional information below.</b></p>
+
+<p>Error log is as follows:</p>
+
+<p>08-08 02:05:45.679 D/SmsPageReceiver( 1696): fetching messages...
+08-08 02:05:45.709 D/SmsPageReceiver( 1696): using Standard pageparser
+08-08 02:05:45.709 D/SmsPageReceiver( 1696): from: ((REDACTED))
+08-08 02:05:45.709 D/SmsPageReceiver( 1696): display from: ((REDACTED))
+08-08 02:05:45.709 D/SmsPageReceiver( 1696): subject: TEST
+08-08 02:05:45.709 D/SmsPageReceiver( 1696): body: TEST
+08-08 02:05:45.709 D/SmsPageReceiver( 1696): Trigger: test
+08-08 02:05:45.709 D/SmsPageReceiver( 1696): sender: ((REDACTED))
+08-08 02:05:45.709 D/SmsPageReceiver( 1696): from_addr: ((REDACTED))
+08-08 02:05:45.719 D/PagerProvider( 1696): Got row id: 1
+08-08 02:05:45.719 D/SmsPageReceiver( 1696): new message inserted.
+08-08 02:05:45.719 D/SmsPageReceiver( 1696): sent intent Intent { act=org.nerdcircus.android.klaxon.PAGE_RECEIVED dat=content://org.nerdcircus.android.klaxon/pages/1 }
+08-08 02:05:45.719 D/SmsPageReceiver( 1696): sms broadcast aborted.
+08-08 02:05:45.729 D/KlaxonNotifier( 1696): new page received. notifying.
+08-08 02:05:45.739 D/StatusBarService(  239): addNotification notification = StatusBarNotification(package=org.nerdcircus.android.klaxon id=2131165187 tag=null notification=Notification(vibrate=[0,800,500,800],sound=null,defaults=0x0,flags=0x11)), key = android.os.BinderProxy@4063b478, fullScreenIntent = null, contentIntent = PendingIntent{4063b638: android.os.BinderProxy@4063b600}
+08-08 02:05:45.749 D/lights  (  127): [LedInfo] write attr ok name=/sys/class/leds/amber/brightness string=0,len=1
+08-08 02:05:45.749 D/lights  (  127): [LedInfo] write attr ok name=/sys/class/leds/amber/blink string=0,len=1
+08-08 02:05:45.749 D/lights  (  127): [LedInfo] write attr ok name=/sys/class/leds/amber/off_timer string=0 0,len=3
+08-08 02:05:45.749 V/NotificationService(  127): dual Led for notification
+08-08 02:05:45.759 D/lights  (  127): [LedInfo] write attr ok name=/sys/class/leds/green/brightness string=1,len=1
+08-08 02:05:45.759 D/lights  (  127): [LedInfo] write attr ok name=/sys/class/leds/green/blink string=3,len=1
+08-08 02:05:45.759 D/lights  (  127): [LedInfo] write attr ok name=/sys/class/leds/green/off_timer string=5 0,len=3
+08-08 02:05:45.759 V/AgentService_J(  241): Action[318]:com.htc.android.iqagent.action.ui15
+08-08 02:05:45.759 I/HTC_SUBMITTER_C(  241): (0) submitUI15:1156888975,0
+08-08 02:05:45.759 V/AgentService_J(  241): (0)ui15_dwAppID:1156888975,ui15_shStatus:0
+08-08 02:05:45.759 I/WindowManager(  127): WIN DEATH: Window{40aba9f8 com.android.settings/com.android.settings.framework.activity.HtcSettings paused=false}
+08-08 02:05:45.769 I/WindowManager(  127): WIN DEATH: Window{40ae1260 com.android.settings/com.android.settings.ApplicationSettings paused=false}
+08-08 02:05:45.769 I/WindowManager(  127): WIN DEATH: Window{40b1c188 com.android.settings/com.android.settings.ManageApplications paused=false}
+08-08 02:05:45.779 I/LSState (  127): EventReceiver:android.intent.action.NOTIFICATION_ADD
+08-08 02:05:45.779 D/KlaxonNotifier( 1696): notifcation interval: 20000
+08-08 02:05:45.779 D/KlaxonNotifier( 1696): notifcation interval: 20000
+08-08 02:05:45.789 E/StatusBarService(  239): couldn't inflate view for notification org.nerdcircus.android.klaxon/0x7f070003
+08-08 02:05:45.789 E/StatusBarService(  239): android.view.InflateException: Binary XML file line #13: Error inflating class android.widget.EditText
+08-08 02:05:45.789 E/StatusBarService(  239): at android.view.LayoutInflater.createView(LayoutInflater.java:518)
+08-08 02:05:45.789 E/StatusBarService(  239): at com.android.internal.policy.impl.PhoneLayoutInflater.onCreateView(PhoneLayoutInflater.java:56)
+08-08 02:05:45.789 E/StatusBarService(  239): at android.view.LayoutInflater.createViewFromTag(LayoutInflater.java:568)
+08-08 02:05:45.789 E/StatusBarService(  239): at android.view.LayoutInflater.rInflate(LayoutInflater.java:623)
+08-08 02:05:45.789 E/StatusBarService(  239): at android.view.LayoutInflater.inflate(LayoutInflater.java:408)
+08-08 02:05:45.789 E/StatusBarService(  239): at android.view.LayoutInflater.inflate(LayoutInflater.java:320)
+08-08 02:05:45.789 E/StatusBarService(  239): at android.widget.RemoteViews.apply(RemoteViews.java:939)
+08-08 02:05:45.789 E/StatusBarService(  239): at com.android.systemui.statusbar.StatusBarService.makeNotificationView(StatusBarService.java:757)
+08-08 02:05:45.789 E/StatusBarService(  239): at com.android.systemui.statusbar.StatusBarService.addNotificationViews(StatusBarService.java:803)
+08-08 02:05:45.789 E/StatusBarService(  239): at com.android.systemui.statusbar.StatusBarService.addNotification(StatusBarService.java:557)
+08-08 02:05:45.789 E/StatusBarService(  239): at com.android.systemui.statusbar.CommandQueue$H.handleMessage(CommandQueue.java:188)
+08-08 02:05:45.789 E/StatusBarService(  239): at android.os.Handler.dispatchMessage(Handler.java:99)
+08-08 02:05:45.789 E/StatusBarService(  239): at android.os.Looper.loop(Looper.java:143)
+08-08 02:05:45.789 E/StatusBarService(  239): at android.app.ActivityThread.main(ActivityThread.java:4263)
+08-08 02:05:45.789 E/StatusBarService(  239): at java.lang.reflect.Method.invokeNative(Native Method)
+08-08 02:05:45.789 E/StatusBarService(  239): at java.lang.reflect.Method.invoke(Method.java:507)
+08-08 02:05:45.789 E/StatusBarService(  239): at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:839)
+08-08 02:05:45.789 E/StatusBarService(  239): at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:597)
+08-08 02:05:45.789 E/StatusBarService(  239): at dalvik.system.NativeStart.main(Native Method)
+08-08 02:05:45.789 E/StatusBarService(  239): Caused by: android.view.InflateException: Binary XML file line #13: Class not allowed to be inflated android.widget.EditText
+08-08 02:05:45.789 E/StatusBarService(  239): at android.view.LayoutInflater.failNotAllowed(LayoutInflater.java:530)
+08-08 02:05:45.789 E/StatusBarService(  239): at android.view.LayoutInflater.createView(LayoutInflater.java:477)
+08-08 02:05:45.789 E/StatusBarService(  239): ... 18 more
+08-08 02:05:45.789 W/StatusBarService(  239): removeNotification for unknown key: android.os.BinderProxy@4063b478
+08-08 02:05:45.789 D/NotificationService(  127): onNotification error pkg=org.nerdcircus.android.klaxon tag=null id=2131165187; will crashApplication(uid=10110, pid=1696)
+08-08 02:05:45.789 V/NotificationService(  127): dual Led off
+08-08 02:05:45.799 D/lights  (  127): [LedInfo] write attr ok name=/sys/class/leds/amber/brightness string=0,len=1
+08-08 02:05:45.799 D/lights  (  127): [LedInfo] write attr ok name=/sys/class/leds/amber/blink string=0,len=1
+08-08 02:05:45.809 D/lights  (  127): [LedInfo] write attr ok name=/sys/class/leds/amber/off_timer string=0 0,len=3
+08-08 02:05:45.809 D/lights  (  127): [LedInfo] write attr ok name=/sys/class/leds/green/brightness string=0,len=1
+08-08 02:05:45.819 V/AgentService_J(  241): Action[319]:com.htc.android.iqagent.action.ui08
+08-08 02:05:45.819 I/HTC_SUBMITTER_C(  241): actionUI08 metric:6, 2
+08-08 02:05:45.819 V/AgentService_J(  241): (0)ASU, TECH:6, 2
+08-08 02:05:45.819 D/lights  (  127): [LedInfo] write attr ok name=/sys/class/leds/green/blink string=0,len=1
+08-08 02:05:45.819 D/lights  (  127): [LedInfo] write attr ok name=/sys/class/leds/green/off_timer string=0 0,len=3
+08-08 02:05:45.829 I/LSState (  127): EventReceiver:android.intent.action.NOTIFICATION_REMOVE
+08-08 02:05:45.829 D/NotificationService(  127): cancelNotification, ACTION_NOTIFICATION_REMOVE,pkg=org.nerdcircus.android.klaxon,id=2131165187
+08-08 02:05:45.829 W/StatusBarService(  239): removeNotification for unknown key: android.os.BinderProxy@4063b478
+08-08 02:05:45.829 D/StatusBarPolicy(  239): onSignalStrengthsChanged
+08-08 02:05:45.829 D/StatusBarPolicy(  239): iconIndex=1
+08-08 02:05:45.829 V/StatusBarPolicy(  239): cdmaLevel:6;max:6
+08-08 02:05:45.829 D/StatusBarPolicy(  239): iconLevel:6
+08-08 02:05:45.829 D/StatusBarService(  239): updateIcon slot=phone_signal index=20 viewIndex=15 old=StatusBarIcon(pkg=com.android.systemui id=0x7f020012 level=0 visible=true num=0 ) icon=StatusBarIcon(pkg=com.android.systemui id=0x7f020012 level=0 visible=true num=0 )
+08-08 02:05:45.839 I/HtcLockScreen(  127): onRefreshCarrierInfo
+08-08 02:05:45.839 I/HtcLockScreen(  127): -----refreshCarrierInfo plmn=Sprint,spn=null, service=0
+08-08 02:05:45.839 I/HtcLockScreen(  127): -----refreshViewsWhetherSimOk ----- mSimState:READY mIsCDMA:true
+08-08 02:05:45.839 I/HtcLockScreen(  127): updateStatusViewByPriority, mIsSimCheckView = false, mIsBatteryInfo = false, mIsMusicPlaying = false, mIsAirPlaneMode = false
+08-08 02:05:45.839 D/AndroidRuntime( 1696): Shutting down VM
+08-08 02:05:45.839 W/dalvikvm( 1696): threadid=1: thread exiting with uncaught exception (group=0x4001d5a0)
+08-08 02:05:45.839 I/TelephonyRegistry(  127): notifyServiceState: 0 home Sprint Sprint 31000  EvDo rev. A CSS supported 1 4812RoamInd: 128DefRoamInd: 1EriInd: 1EriMode: 0RadioPowerSv: falseEmergOnly: false
+08-08 02:05:45.839 W/CarrierLabel(  239): updateNetworkNameExt: mSimState = UNKNOWN
+08-08 02:05:45.849 V/CarrierLabel(  239): Cdma ROAMING_INDICATOR_OFF, removing ERI icon
+08-08 02:05:45.849 D/StatusBarPolicy(  239): iconIndex=1
+08-08 02:05:45.849 V/StatusBarPolicy(  239): cdmaLevel:6;max:6
+08-08 02:05:45.849 D/StatusBarPolicy(  239): iconLevel:6
+08-08 02:05:45.869 D/StatusBarPolicy(  239): hasService()=true ,mDataState=0 ,mPhone.htcModemLinkOn()=false ,mDataActivity=0
+08-08 02:05:45.869 D/StatusBarPolicy(  239): slotType[0]=empty
+08-08 02:05:45.869 I/TelephonyRegistry(  127): notifyDataConnection: state=0 isDataConnectivityPossible=true reason=null interfaceName=null networkType=6
+08-08 02:05:45.869 D/TelephonyRegistry(  127): notifyDataConnection() state=0isDataConnectivityPossible()true, reason=null
+08-08 02:05:45.869 D/TelephonyRegistry(  127): broadcastDataConnectionStateChanged()  state=DISCONNECTEDtypes=default, interfaceName=null
+08-08 02:05:45.889 D/AutoSetting(  400): receiver - onReceive()
+08-08 02:05:45.889 D/StatusBarService(  239): updateIcon slot=phone_signal index=20 viewIndex=15 old=StatusBarIcon(pkg=com.android.systemui id=0x7f020012 level=0 visible=true num=0 ) icon=StatusBarIcon(pkg=com.android.systemui id=0x7f020012 level=0 visible=true num=0 )
+08-08 02:05:45.899 D/AutoSetting(  400): receiver - intent: android.intent.action.SERVICE_STATE
+08-08 02:05:45.899 D/StatusBarPolicy(  239): hasService()=true ,mDataState=0 ,mPhone.htcModemLinkOn()=false ,mDataActivity=0
+08-08 02:05:45.899 D/StatusBarPolicy(  239): slotType[0]=empty
+08-08 02:05:45.969 E/AndroidRuntime( 1696): FATAL EXCEPTION: main
+08-08 02:05:45.969 E/AndroidRuntime( 1696): android.app.RemoteServiceException: Bad notification posted from package org.nerdcircus.android.klaxon: Couldn't expand RemoteViews for: StatusBarNotification(package=org.nerdcircus.android.klaxon id=2131165187 tag=null notification=Notification(vibrate=[0,800,500,800],sound=null,defaults=0x0,flags=0x11))
+08-08 02:05:45.969 E/AndroidRuntime( 1696): at android.app.ActivityThread$H.handleMessage(ActivityThread.java:1161)
+08-08 02:05:45.969 E/AndroidRuntime( 1696): at android.os.Handler.dispatchMessage(Handler.java:99)
+08-08 02:05:45.969 E/AndroidRuntime( 1696): at android.os.Looper.loop(Looper.java:143)
+08-08 02:05:45.969 E/AndroidRuntime( 1696): at android.app.ActivityThread.main(ActivityThread.java:4263)
+08-08 02:05:45.969 E/AndroidRuntime( 1696): at java.lang.reflect.Method.invokeNative(Native Method)
+08-08 02:05:45.969 E/AndroidRuntime( 1696): at java.lang.reflect.Method.invoke(Method.java:507)
+08-08 02:05:45.969 E/AndroidRuntime( 1696): at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:839)
+08-08 02:05:45.969 E/AndroidRuntime( 1696): at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:597)
+08-08 02:05:45.969 E/AndroidRuntime( 1696): at dalvik.system.NativeStart.main(Native Method)
+08-08 02:05:45.979 D/AutoSetting(  400): receiver - flag: Service state 0
+08-08 02:05:45.979 D/AutoSetting(  400): Util - getMCC() MCC: 310
+08-08 02:05:45.979 D/AutoSetting(  400): receiver - current MCC: 310, user MCC: 0
+08-08 02:05:45.979 D/AutoSetting(  400): receiver - clear time_manual_set_timezone preference
+08-08 02:05:45.989 D/AutoSetting(  400): service - onStartCommand() action: com.htc.app.autosetting.timezoneupdate
+08-08 02:05:45.989 D/AutoSetting(  400): service - onStartCommand() Service state: 0
+08-08 02:05:45.989 V/AgentService_J(  241): Action[320]:com.htc.android.iqagent.action.ui03
+08-08 02:05:45.989 I/HTC_SUBMITTER_C(  241): (0) submitUI03:0,22,0,android.app.RemoteServiceException: Bad notification posted from package org.nerdcircus.android.klaxon: Couldn't expand RemoteViews for: StatusBarNotification(package=org.nerdcircus.android.klaxon id=2131165187 tag=null notification=Notification(vibrate=[0,800,500,800],sound=null,defaults=0x0,flags=0x11))
+08-08 02:05:45.989 V/AgentService_J(  241): (0)ErrorCode:0,AppType:22,Level:0,Message:android.app.RemoteServiceException: Bad notification posted from package org.nerdcircus.android.klaxon: Couldn't expand RemoteViews for: StatusBarNotification(package=org.nerdcircus.android.klaxon id=2131165187 tag=null notification=Notification(vibrate=[0,800,500,800],sound=null,defaults=0x0,flags=0x11))</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #1</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Aug 8, 2011 by
+                  <i class="ng-binding">Helpful Wombat</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>This appears to be related to issue 40, with a root cause of incorrect Resource generation. It should be fixed in version 25, which i have just pushed (after running the tests!).</p>
+
+<p>apologies,</p>
+
+<p>--marc.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments -->
+          </div>
+
+          <!-- Sidebar with additional information -->
+          <div class="maia-col-4">
+            <div class="maia-aside">
+              <p>Status: <code class="ng-binding">Fixed</code></p>
+              <!-- ngIf: issueCtrl.issue.labels.length > 0 --><p ng-if="issueCtrl.issue.labels.length &gt; 0" class="ng-scope">
+                Labels:
+                <br>
+                <!-- ngRepeat: label in issueCtrl.issue.labels track by $index --><span ng-repeat="label in issueCtrl.issue.labels track by $index" class="ng-scope">
+                  <span class="gca-label ng-binding">Type-Defect</span>
+                </span><!-- end ngRepeat: label in issueCtrl.issue.labels track by $index --><span ng-repeat="label in issueCtrl.issue.labels track by $index" class="ng-scope">
+                  <span class="gca-label ng-binding">Priority-Medium</span>
+                </span><!-- end ngRepeat: label in issueCtrl.issue.labels track by $index -->
+              </p><!-- end ngIf: issueCtrl.issue.labels.length > 0 -->
+            </div>
+          </div>
+        </div><!-- end ngIf: !issueCtrl.error -->
+      </div>
+    </div>
+
+  </div>
+</div>
+</div></div></div>
+    <noscript>
+      &lt;p&gt;The Google Code Archive requires JavaScript to be enabled in your browser.&lt;/p&gt;
+    </noscript>
+
+    <div id="maia-signature"></div>
+    <div class="maia-footer" id="maia-footer">
+      <div id="maia-footer-local">
+      </div>
+      <div id="maia-footer-global">
+        <div class="maia-aux">
+          <ul>
+            <li>
+              <a href="//www.google.com/">Google</a>
+            </li>
+            <li>
+              <a href="//www.google.com/intl/en/about/">About Google</a>
+            </li>
+            <li>
+              <a href="//www.google.com/intl/en/policies/privacy/">Privacy</a>
+            </li>
+            <li>
+              <a href="//www.google.com/intl/en/policies/terms/">Terms</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <script src="//www.google.com/js/maia.js"></script>
+  
+
+
+</body></html>

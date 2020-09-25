@@ -1,0 +1,669 @@
+https://code.google.com/archive/p/csipsimple/issues/2068<!DOCTYPE html><html class="google ng-scope" lang="en" ng-app="codesiteArchive.application"><head>
+    <meta charset="utf-8">
+    <meta content="initial-scale=1, minimum-scale=1, width=device-width" name="viewport">
+
+    <!-- https://developers.google.com/webmasters/ajax-crawling/docs/specification -->
+    <meta name="fragment" content="!">
+    <title>Google Code Archive - Long-term storage for Google Code Project Hosting.</title>
+
+    <link rel="icon" type="image/vnd.microsoft.icon" href="/archive/img/project-hosting.ico">
+    <script src="//www.google.com/js/google.js"></script>
+    <link href="//www.google.com/css/maia.css" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;lang=en" rel="stylesheet">
+    <link rel="stylesheet" href="/archive/archive_css.css">
+    <script>
+      CLOSURE_NO_DEPS = true;
+    </script>
+    <script src="/archive/angular.js"></script><style type="text/css">@charset "UTF-8";
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak],
+.ng-cloak, .x-ng-cloak,
+.ng-hide:not(.ng-hide-animate) {
+  display: none !important;
+}
+
+ng\:form {
+  display: block;
+}
+
+.ng-animate-shim {
+  visibility:hidden;
+}
+
+.ng-anchor {
+  position:absolute;
+}
+</style>
+    <script src="/archive/pagedown.js"></script>
+    <script src="/archive/archive.js"></script>
+    <base href="/archive/">
+  </head>
+
+  <body>
+    <div class="maia-header" id="maia-header" role="banner">
+      <div class="maia-aux">
+        <a href="/archive/">
+          </a><h1><a href="/archive/">
+            <img alt="Google" src="//www.google.com/images/branding/googlelogo/1x/googlelogo_color_116x41dp.png"> Code</a>
+          </h1>
+        
+        <a href="/archive/">
+          <h2>Archive</h2>
+        </a>
+        <a class="maia-teleport" href="#content">Skip to content</a>
+        <div class="maia-util">
+          <form action="/archive/search" class="maia-search ng-pristine ng-valid">
+            <input name="q" placeholder="Search this site" type="text">
+            <button class="maia-button">
+              <span class="maia-search-icon">Search</span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- ngView: --><div ng-view="" class="ng-scope"><div ng-controller="ProjectIssueCtrl as issueCtrl" class="ng-scope">
+<nav-bar-widget nav-level-1="projectCtrl.navLevel1" class="ng-isolate-scope"><div class="maia-nav maia-complex" id="maia-nav-x" role="navigation">
+  <div class="maia-aux">
+    <ul>
+      <li ng-class="{active: navLevel1 == 'projects'}">
+        <a href="/archive/">Projects</a>
+        <!-- ngIf: navLevel2 -->
+      </li>
+      <li ng-class="{active: navLevel1 == 'search'}">
+        <a href="/archive/search">Search</a>
+      </li>
+      <li ng-class="{active: navLevel1 == 'about'}">
+        <a href="/archive/about">About</a>
+      </li>
+    </ul>
+  </div>
+</div>
+</nav-bar-widget>
+<div id="maia-main" role="main">
+
+  <!-- ngIf: issueCtrl.notFound -->
+
+  <div ng-hide="issueCtrl.notFound">
+    <!-- Left-side resource nav -->
+    <project-resources-widget domain="issueCtrl.domain" project="issueCtrl.projectName" class="ng-isolate-scope"><div class="maia-nav" id="maia-nav-y" role="navigation">
+  <!-- ngIf: domain == 'code.google.com' --><ul ng-if="domain == 'code.google.com'" class="ng-scope">
+    <li class="active">
+      <a href="/archive/p/csipsimple/">Project</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/source">Source</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/issues">Issues</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/wikis">Wikis</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/downloads">Downloads</a>
+    </li>
+  </ul><!-- end ngIf: domain == 'code.google.com' -->
+
+    <!-- ngIf: domain != 'code.google.com' -->
+</div></project-resources-widget>
+
+    <div class="maia-article" role="article">
+      <div class="maia-teleport" id="content"></div>
+      <div class="maia-cols">
+        <div id="gca-project-header" class="maia-col-10">
+          <a id="gca-export-to-gh" class="maia-button" href="https://code.google.com/export-to-github/export?project=csipsimple">Export to GitHub</a>
+            <img class="gca-project-logo" src="https://storage.googleapis.com/google-code-archive/v2/code.google.com/csipsimple/logo.png">
+            <h1 class="ng-binding">csipsimple - issue #2068</h1>
+            <p class="ng-binding">Not recognized as zrtp capable by FS</p>
+        </div>
+
+        <div class="maia-col-10">
+          <hr>
+
+        <!-- ngIf: issueCtrl.error -->
+
+        <!-- ngIf: !issueCtrl.error --><div ng-if="!issueCtrl.error" class="ng-scope">
+          <!-- Comments -->
+          <div class="maia-col-8">
+            <!-- ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Nov 9, 2012 by
+                  <i class="ng-binding">Quick Rhino</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p><b>What steps will reproduce the problem?</b>
+1. Freeswitch compiled with --enable-zrtp
+2. CSipSimple create account using OSTN wizard.
+3. CSipSimple switch wizard to expert. Set ZRTP mode to Create ZRTP
+4. CSipSimple go to Settings-&gt;Network-&gt;Secure Transport. Set ZRTP mode to Create ZRTP.
+5. CSipSimple dial 9787</p>
+
+<p><b>What is the expected output? What do you see instead?</b>
+Expected phone to be recognized as an zrtp capable phone.
+FreeSWITCH does not recognize it and I do not see any security indication on phone.</p>
+
+<p><b>What version of the product are you using? On what operating system?</b>
+FreeSWITCH version: 1.3.2+git~20121108T020413Z~48a0924b54 (git 48a0924 2012-11-08 02:04:13Z)
+Linux Ubuntu12.04.1 3.2.0-32-generic-pae
+CSipSimple nightly build 0.04-05.r2006
+Android 2.3.7 Cyanogenmod MiniCM7 Pro-SE Style v1.1</p>
+
+<p><b>Please provide any additional information below.</b>
+My FreeSWITCH installation works. I have tested it using Jitsi &amp; Bria and they both recognized as zrtp capable phones.</p>
+
+<p>I suspect the problem lies at EC25 protocol. At my attached debug output i see
+[DEBUG] switch_rtp.c:915  [zrtp respond]:   Preparse incoming COMMIT. Remote peer wants EC25:2 mode lic=1 peer M=0.
+[DEBUG] switch_rtp.c:915  [zrtp respond]:   INFO: PKExch EC25 isn't supported by profile. ID=5</p>
+
+<p>You can view complete debug logs hereQ
+<a href="https://docs.google.com/open?id=0B_aFZjJihx3JVHV5ekVTRHdVYkU">https://docs.google.com/open?id=0B_aFZjJihx3JVHV5ekVTRHdVYkU</a></p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #1</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Nov 11, 2012 by
+                  <i class="ng-binding">Quick Rhino</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Found the reason by looking at OSTN.java. At line 45 says:
+// If latest part is digit we should not add port</p>
+
+<p>Therefore if user sets the server by ip (as i did) and not by domain name the wizard does not add the ":5061" port necessary for zrtp to work. </p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #2</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Nov 11, 2012 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Ahah, ok <br>
+I'll change the ostn wizard to take into account configuration using IP too and just detect if a port is set. (I guess that checking the server field for ":" is fine).</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #3</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Nov 11, 2012 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>MMmh, well, re-reading the code I'm not sure it's a problem in fact.</p>
+
+<p>I first split on the ":". And only if I get two parts I check that last part is compound of digits only.</p>
+
+<p>So even with IP address should be fine. Unless IP address you configured contains ":". Is it an IPv6 address? (Or if you entered manually your_ip:5060).</p>
+
+<p>So normally the app should correctly use port 5061 <em>for the proxy</em> even if you configure using the IP address of your server.
+It will not for the <em>registrar</em> however. But normally this is fine. Do you know how FS selects crypto capabilities?</p>
+
+<p>Also, keep in mind that a wizard is just a template. You can convert to Expert wizard and have access to each fields of expert mode and do setup tests.</p>
+
+<p>It could be interesting to have logs from the application too. See HowToCollectLogs wiki page. Will be interesting to see what the application complains about in zrtp init.</p>
+
+<p>I've also rapidely looked the logs from Jitsi.
+There is somethings that worries me a little bit more than in logs of CSipSimple actually...
+For example you have :</p>
+
+<p>2012-11-09 13:05:48.511955 [DEBUG] switch_rtp.c:915  [ zrtp engine]: WARNING! HELLO have been resent 5 times without a response. Raising ZRTP_EVENT_NO_ZRTP_QUICK event. ID=7</p>
+
+<p>[snip...]
+then it finally receive an hello... but apparently there is no info about the crypto method.</p>
+
+<p>2012-11-09 13:05:48.571854 [DEBUG] switch_rtp.c:915  [ zrtp engine]: Received HELLO had the same protocol V.
+2012-11-09 13:05:48.571854 [DEBUG] switch_rtp.c:915  [  zrtp utils]: _zrtp_choose_best_comp() for PKT. local=Unkn remote=Unkn, choosen=Unkn</p>
+
+<p>local, remote and choosen are unknown...
+Do you know which cyrpto method is used by jitsi when it signal you that zrtp is active? </p>
+
+<p>Apparently later, the HelloACK is not sent by csipsimple but it's more likely because it complains. If you have logs from the app we could maybe find a clue on what's going wrong.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #4</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Nov 12, 2012 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Mmmh, regarding logs from the app seems the app's zrtp layer gets a problem while trying to encrypt.</p>
+
+<p>As the app rely on the openssl of the device in standard builds, it could be something with the openssl version of your ROM. There is known similar problem with one old samsung device where stock ROM miss some encryption method in their build.</p>
+
+<p>I'll try to make a new fullOpenssl build so that you can test with one openssl that I built instead of the one of the ROM.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #5</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Nov 12, 2012 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>ok .... well after further investigations, I think that I got it.</p>
+
+<p>Some disclaimer : I'm not the expert in zrtp here. </p>
+
+<p>But from detailed logs you sent from the server and from the app... here's what I deduced :</p>
+
+<p>The app set as first "PubKeyAlgorithm" the algorithm EC25.
+The server does NOT support it
+As we can see here :
+[zrtp respond]: Preparse incoming COMMIT. Remote peer wants EC25:2 mode lic=1 peer M=0.
+[zrtp respond]: INFO: PKExch EC25 isn't supported by profile. ID=5
+[ zrtp engine]: Enter InitiatingError State with ERROR:, notification Enabled. ID=5</p>
+
+<p>This makes the sip server sending an error to CSipSimple about the fact it doesn't support the key exchange algorithm... and it stops zrtp neg like that.</p>
+
+<p>CSipSimple supports as key exchange algorithms :
+ec25, dh3k, ec38, dh2k and mult (dh3k and mult are mandatory ones).</p>
+
+<p>If I correclty understand too, ZRTPCPP (the implem used in csipsimple), sends in the Hello packet <em>all</em> algo mentioned aboved.
+So FS <em>should</em> be capable to pickup the one it wants instead of blocking on the first one and returning an error !</p>
+
+<p>So if I do not mistake the error is on FS side. 
+We could workaround that by adding settings in csipsimple to reorder algo method. But I think would be over-engineering and normally ZRTP protocol is made to not have user to bother about that if correctly implemented on both side.</p>
+
+<p>So it seems to be a problem on FS side (again I'm not expert in that) from logs and my comprehension;
+They could fix it by :
+ * supporting ec25 (which would be a crappy way to solve that... but why not it could do the trick)
+OR
+ * pick the desired key exchange algorithm in the Hello packet instead of just choosing the first one and failing if they do not support it.</p>
+
+<p>If you don't get help from FS guys (but I'm sure you will ;) ), or needs some build that works in your case fast I can produce a custom build with only mandatory key exchange algorithm announced.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #6</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Nov 16, 2012 by
+                  <i class="ng-binding">Happy Horse</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Hello,</p>
+
+<p>I think, that a version "with only mandatory key exchange algorithm announced" would be welcome by a lot of people. </p>
+
+<p>It could be used for debugging and testing.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #7</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Nov 16, 2012 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Available here :</p>
+
+<p><a href="http://nightlies.csipsimple.com/specific_builds/CSipSimple-BuggyFS-zrtp.apk">http://nightlies.csipsimple.com/specific_builds/CSipSimple-BuggyFS-zrtp.apk</a></p>
+
+<p>Not sure if I configure it the correct way (I tried to make it in the app space instead of hacking inside zrtp lower layer levels).
+Let me know how it goes with this version. It could confirm or repeal my previous analysis. In both cases, logs from FS could be very interesting to analyze (for me or for FS guys).</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #8</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Nov 17, 2012 by
+                  <i class="ng-binding">Happy Horse</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Thank you, I installed and tried with FS 1.2.3 here are the logs from FA
+<a href="http://pastebin.com/Ux4tn9yy">http://pastebin.com/Ux4tn9yy</a></p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #9</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Nov 17, 2012 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Thanks.</p>
+
+<p>What do you observe?</p>
+
+<p>From logs it seems to go far better. The key exchange is done. </p>
+
+<p>I see some errors on encryptions after, but maybe it same kind of problem. 
+Now that only mandatory algorithm enabled maybe FS is not able to encrypt packets with only algo remaining for packet encryption? (because setting only mandatory will affect key exchange algo but also cipher, hash, sas and auth len).</p>
+
+<p>So, I could be wrong but first part of the logs tends to prove my analysis. Have you already give the feedback to FS guys ? 
+Maybe they can have a look and give their opinion. At least for the treatment of the HELLO that takes only the first key exchange algo without trying other available if they do not support the first one.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #10</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Nov 17, 2012 by
+                  <i class="ng-binding">Happy Horse</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>If I use 
+ 
+and let the clients negotiate the encryption only one of the clients shows the SAS, but sometimes none of them.</p>
+
+<p>When I try to set zrtp_secire_media=true and the FS is in trusted mitm i get <a href="http://pastebin.com/LYFzq6J0">http://pastebin.com/LYFzq6J0</a></p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #11</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Nov 17, 2012 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Just to be sure we are ok on one point about the SAS. (It's often source of confusion -- I did confuse in first implementation too).</p>
+
+<p>It should be displayed only for the very first call you do with this remote.
+Then the remote side is trusted and stored locally. So no need to prompt an alert to trust remote side with the SAS for next calls to this remote side. It's already a trusted peer.</p>
+
+<p>You should however still have the yellow bar on the call card with the SAS you can extra check if you want (but normally not needed in this case unless remote side ask) and you should see in the yellow bar the media encryption state. 
+Only this yellow bar tell you about encryption state. The SAS popup will only appear if it's required and will not be shown if remote side is already trusted.</p>
+
+<p>If the SAS was previously trusted and you want to revoke remote side trust, you have an option in the 3 dots menu on the bottom of the call card to revoke trust. (And you'll be prompted next time to trust or not the SAS).</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #12</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Nov 17, 2012 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><ul>
+<li>It should be displayed only for the very first call you do with this remote.
+=&gt; "It" refers the prompt popup. (the SAS should still be readable in the yellow bar)</li>
+</ul></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #13</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jan 29, 2013 by
+                  <i class="ng-binding">Massive Bird</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>I also faced this issue. There is report - <a href="http://jira.freeswitch.org/browse/FS-5033">http://jira.freeswitch.org/browse/FS-5033</a> .</p>
+
+<p>"ZRTPCPP (the implem used in csipsimple), sends in the Hello packet <em>all</em> algo mentioned aboved" - that is correct, but as we can see further, CSipSimple sends 'Commit Message' with EC25 as Key Agreement Type. In this 'Commit Message' only one Key Agreement Type is allowed despite that in 'Hello Message' there is list of them (<a href="http://tools.ietf.org/html/rfc6189#section-5.4">http://tools.ietf.org/html/rfc6189#section-5.4</a>). And FreeSWITCH sends 'Error Message' by reason given in the comment in jira</p>
+
+<p>And on balance, I think it would be nice if CSipSimple will no advertise in 'Commit Message' EC25, but DH3072 for example</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #14</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Feb 11, 2013 by
+                  <i class="ng-binding">Grumpy Rhino</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>We may have resolved this issue on the FS side.  Please see:</p>
+
+<p><a href="http://jira.freeswitch.org/browse/FS-5033">http://jira.freeswitch.org/browse/FS-5033</a></p>
+
+<p>I convinced Phil to re-license the elliptic curve code used by libzrtp, so now we always build that into FS.</p>
+
+<p>Now FS can setup a call with EC25 when that's negotiated.</p>
+
+<p>I made a test call with CSipSimple and the client successfully setup EC25 with FS and enrolled with the PBX.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #15</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Feb 11, 2013 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Hi Travis,</p>
+
+<p>Excellent 2 news !</p>
+
+<p>Thanks a lot for updating the issue here.</p>
+
+<p>On my side I'll update zrtpcpp to latest version from Werner's repository. I guess he also did some work to make interop with Phil's implementation better.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #16</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Feb 11, 2013 by
+                  <i class="ng-binding">Grumpy Rhino</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Werner has been working hard on his library lately.  Definitely best to stay up to date with his changes.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments -->
+          </div>
+
+          <!-- Sidebar with additional information -->
+          <div class="maia-col-4">
+            <div class="maia-aside">
+              <p>Status: <code class="ng-binding">Invalid</code></p>
+              <!-- ngIf: issueCtrl.issue.labels.length > 0 --><p ng-if="issueCtrl.issue.labels.length &gt; 0" class="ng-scope">
+                Labels:
+                <br>
+                <!-- ngRepeat: label in issueCtrl.issue.labels track by $index --><span ng-repeat="label in issueCtrl.issue.labels track by $index" class="ng-scope">
+                  <span class="gca-label ng-binding">Type-Defect</span>
+                </span><!-- end ngRepeat: label in issueCtrl.issue.labels track by $index --><span ng-repeat="label in issueCtrl.issue.labels track by $index" class="ng-scope">
+                  <span class="gca-label ng-binding">Priority-Medium</span>
+                </span><!-- end ngRepeat: label in issueCtrl.issue.labels track by $index -->
+              </p><!-- end ngIf: issueCtrl.issue.labels.length > 0 -->
+            </div>
+          </div>
+        </div><!-- end ngIf: !issueCtrl.error -->
+      </div>
+    </div>
+
+  </div>
+</div>
+</div></div></div>
+    <noscript>
+      &lt;p&gt;The Google Code Archive requires JavaScript to be enabled in your browser.&lt;/p&gt;
+    </noscript>
+
+    <div id="maia-signature"></div>
+    <div class="maia-footer" id="maia-footer">
+      <div id="maia-footer-local">
+      </div>
+      <div id="maia-footer-global">
+        <div class="maia-aux">
+          <ul>
+            <li>
+              <a href="//www.google.com/">Google</a>
+            </li>
+            <li>
+              <a href="//www.google.com/intl/en/about/">About Google</a>
+            </li>
+            <li>
+              <a href="//www.google.com/intl/en/policies/privacy/">Privacy</a>
+            </li>
+            <li>
+              <a href="//www.google.com/intl/en/policies/terms/">Terms</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <script src="//www.google.com/js/maia.js"></script>
+  
+
+
+</body></html>

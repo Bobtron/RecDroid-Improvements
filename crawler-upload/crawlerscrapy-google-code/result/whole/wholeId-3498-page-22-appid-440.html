@@ -1,0 +1,505 @@
+https://code.google.com/archive/p/csipsimple/issues/1322<!DOCTYPE html><html class="google ng-scope" lang="en" ng-app="codesiteArchive.application"><head>
+    <meta charset="utf-8">
+    <meta content="initial-scale=1, minimum-scale=1, width=device-width" name="viewport">
+
+    <!-- https://developers.google.com/webmasters/ajax-crawling/docs/specification -->
+    <meta name="fragment" content="!">
+    <title>Google Code Archive - Long-term storage for Google Code Project Hosting.</title>
+
+    <link rel="icon" type="image/vnd.microsoft.icon" href="/archive/img/project-hosting.ico">
+    <script src="//www.google.com/js/google.js"></script>
+    <link href="//www.google.com/css/maia.css" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;lang=en" rel="stylesheet">
+    <link rel="stylesheet" href="/archive/archive_css.css">
+    <script>
+      CLOSURE_NO_DEPS = true;
+    </script>
+    <script src="/archive/angular.js"></script><style type="text/css">@charset "UTF-8";
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak],
+.ng-cloak, .x-ng-cloak,
+.ng-hide:not(.ng-hide-animate) {
+  display: none !important;
+}
+
+ng\:form {
+  display: block;
+}
+
+.ng-animate-shim {
+  visibility:hidden;
+}
+
+.ng-anchor {
+  position:absolute;
+}
+</style>
+    <script src="/archive/pagedown.js"></script>
+    <script src="/archive/archive.js"></script>
+    <base href="/archive/">
+  </head>
+
+  <body>
+    <div class="maia-header" id="maia-header" role="banner">
+      <div class="maia-aux">
+        <a href="/archive/">
+          </a><h1><a href="/archive/">
+            <img alt="Google" src="//www.google.com/images/branding/googlelogo/1x/googlelogo_color_116x41dp.png"> Code</a>
+          </h1>
+        
+        <a href="/archive/">
+          <h2>Archive</h2>
+        </a>
+        <a class="maia-teleport" href="#content">Skip to content</a>
+        <div class="maia-util">
+          <form action="/archive/search" class="maia-search ng-pristine ng-valid">
+            <input name="q" placeholder="Search this site" type="text">
+            <button class="maia-button">
+              <span class="maia-search-icon">Search</span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- ngView: --><div ng-view="" class="ng-scope"><div ng-controller="ProjectIssueCtrl as issueCtrl" class="ng-scope">
+<nav-bar-widget nav-level-1="projectCtrl.navLevel1" class="ng-isolate-scope"><div class="maia-nav maia-complex" id="maia-nav-x" role="navigation">
+  <div class="maia-aux">
+    <ul>
+      <li ng-class="{active: navLevel1 == 'projects'}">
+        <a href="/archive/">Projects</a>
+        <!-- ngIf: navLevel2 -->
+      </li>
+      <li ng-class="{active: navLevel1 == 'search'}">
+        <a href="/archive/search">Search</a>
+      </li>
+      <li ng-class="{active: navLevel1 == 'about'}">
+        <a href="/archive/about">About</a>
+      </li>
+    </ul>
+  </div>
+</div>
+</nav-bar-widget>
+<div id="maia-main" role="main">
+
+  <!-- ngIf: issueCtrl.notFound -->
+
+  <div ng-hide="issueCtrl.notFound">
+    <!-- Left-side resource nav -->
+    <project-resources-widget domain="issueCtrl.domain" project="issueCtrl.projectName" class="ng-isolate-scope"><div class="maia-nav" id="maia-nav-y" role="navigation">
+  <!-- ngIf: domain == 'code.google.com' --><ul ng-if="domain == 'code.google.com'" class="ng-scope">
+    <li class="active">
+      <a href="/archive/p/csipsimple/">Project</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/source">Source</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/issues">Issues</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/wikis">Wikis</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/downloads">Downloads</a>
+    </li>
+  </ul><!-- end ngIf: domain == 'code.google.com' -->
+
+    <!-- ngIf: domain != 'code.google.com' -->
+</div></project-resources-widget>
+
+    <div class="maia-article" role="article">
+      <div class="maia-teleport" id="content"></div>
+      <div class="maia-cols">
+        <div id="gca-project-header" class="maia-col-10">
+          <a id="gca-export-to-gh" class="maia-button" href="https://code.google.com/export-to-github/export?project=csipsimple">Export to GitHub</a>
+            <img class="gca-project-logo" src="https://storage.googleapis.com/google-code-archive/v2/code.google.com/csipsimple/logo.png">
+            <h1 class="ng-binding">csipsimple - issue #1322</h1>
+            <p class="ng-binding">My callers &amp; receivers of my calls report lots of static on their end of the line</p>
+        </div>
+
+        <div class="maia-col-10">
+          <hr>
+
+        <!-- ngIf: issueCtrl.error -->
+
+        <!-- ngIf: !issueCtrl.error --><div ng-if="!issueCtrl.error" class="ng-scope">
+          <!-- Comments -->
+          <div class="maia-col-8">
+            <!-- ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Oct 10, 2011 by
+                  <i class="ng-binding">Helpful Wombat</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p><b>What steps will reproduce the problem?</b>
+1. Register sipsorcery account in csipsimple
+2. Start a call to another party / Receive call from another party
+3. Start phone conversation</p>
+
+<p><b>What is the expected output? What do you see instead?</b>
+I expect a smooth phone conversation between myself and other party on the call. The other party on the call reports lots of static / clicking/ shooting sound.</p>
+
+<p><b>What version of the product are you using? On what operating system?</b>
+I'm using version 0.02-03 (current market version) on Android 2.3.7 (CyanogenMod 7.1)</p>
+
+<p><b>Please provide any additional information below.</b>
+I'm running CM7.1 (android 2.3.7) on HTC Nexus One running the current version of the app on the market.</p>
+
+<p>I manage my I can use my sipgate account directly or use it via sipsorcery. I mostly use sipsorcery to take advantage of dialplans and also get access to the google voice callback api. So gv is my main number &amp; I have a data only plan. I use the sipsorcery profile in the app with ICE and STUN turned on. My friend always complains about a static / clicking / shooting sound every time we're talking. this happen with both my data connection on the phone &amp; any wifi connection I happen to connect my phone to. On the PC, I use Blink to setup &amp; use sip/voip but my friend does not complain about static.</p>
+
+<p>Is there anything you can recommend to help me fix this - if any. It is a known bug with a possible fix?</p>
+
+<p>Thanks for your hard work &amp; dedication to building the best sip/voip client on android. it makes the built in gingerbread client look and function like a stone age tool. </p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #1</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Oct 14, 2011 by
+                  <i class="ng-binding">Quick Panda</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>I had this happen and finally I activated the lowest bandwidth G729 codec and it is MUCH better. Apparently the phone cannot handle the higher quality codecs at all.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #2</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Oct 14, 2011 by
+                  <i class="ng-binding">Quick Panda</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>My VoIP provider (VoIP.ms) also accepts GSM so I just chose GSM 8khz and it seems to work well, too.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #3</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Oct 14, 2011 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Or it can also be a matter of bandwidth available.</p>
+
+<p>If you make a call over networks with low bandwidth using PCMU/PCMA codec it will necessarily procude very bad results. PCMU/PCMA is 64kbps codec (in fact uncompressed). There is no loss in audio, it's 8kHz (so not the best quality). On the other side it requires less CPU processing since no compression. 
+There is other codecs optimized for bandwidth usage. G729, indeed (8kbps), iLBC (13kbps), GSM (13kbps) a lot of loss.
+There is other codecs that allow higher clock rate (and higher quality), speex 16 and 32kHz, g722 ...</p>
+
+<p>So it really matter depends on your network and its capabilities. It also depends on what is supported on the other side. Unfortunately, sip providers often only supports pcmu/pcma (aka g711). 
+You can play with codec priorities in the two list (low bandwidth and high bandwidth) in order to adjust which codec should be prefered. However, it should be done with care cause the application does not always have the last world on the choice, so sometimes worth to disable all but one you'd like to force.</p>
+
+<p>The choice of the codec is always complex. Bandwidth/Quality/CPU usage. (On nexus one CPU usage should not matter so much).</p>
+
+<p>Also, good to know as talking about codecs... CSipSimple nightly build now support AMR codec (for android 2.3 and upper) which can run at very low bitrate.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #4</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Oct 14, 2011 by
+                  <i class="ng-binding">Helpful Wombat</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Ok guys, thanks for all your feedback. I'm new to sip/voip so the whole talk about codec and clock rate as applied to this subject sounds foreign to me. So help me clear something here: you guys think I should select a clock rate first, then select a codec that matches the clock rate I chose before? Can a codec that clocks at a lower rate work with a higher chosen clock rate and vice-versa? </p>
+
+<p>If any, please direct me to a manual or website where I can read more about codecs and clock rates; and how to set them to get the best results. I really want to educate myself on this as this is the only way I make &amp; receive calls on my data only plan. Thanks in advance.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #5</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Oct 15, 2011 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Yes sorry I was not very clear this clock rate stuff.</p>
+
+<p>The first thing to know is that codec clock rate and android audio clock rate are independant.
+Opening the android audio clock rate at higher rate produce sound of better quality (at least percepted as better), even if codec only support lower clock rate.
+The application adapt the codec clock rate to the audio driver clock rate.</p>
+
+<p>For audio driver clock rate there is a setting in csipsimple about that. It's set to 16kHz by default on high CPU devices, and to 8kHz on lower. On device with low CPU (it is not your case), it is better to have the same clock rate for android audio layer than the one used for the codec. It avoids adaptation which consume CPU.</p>
+
+<p>So in your case, you can keep 16kHz, it should be fine for all codecs.</p>
+
+<p>Then, there is the codec. The codec is used to send your audio packet through the network. PCMU/PCMA does not compress packets and work at 8kHz. It results that it use 64kbps of bandwidth, which is important and not very suitable for mobile connections.
+There is other codecs. All others do compression on voice packets. Sometimes compression make quality lower. For example GSM codec (the one that is also used by your phone for GSM calls), is known to be very lossy and produce worse quality. However, if your bandwidth is low, you can get better results with a codec that compress a lot and reduce quality than with a codec that does compress nothing but which packet are not transmitted in time through the network. Usually in this case, what is observed is what you describe : static, cuts &amp; choppy.
+There is also codecs -such as g722- that compress packet but work at higher clock rate. It result higher bandwidth usage, but voice quality is better (if bandwidth is big enough, else it will just be more choppy).</p>
+
+<p>So, what you should do concretely :
+1st : check with your SIP provider which codec they support.
+2nd : according to this list, choose the one that fit the best your network bandwidth. (You can give here the list of codecs supported by your provider, I'll give you advise on the best). Obviously if they only support PCMU/A (aka G711), there nothing to improve.
+3rd : setup csipsimple to prefer this codec among others, and if necessary force the selected codec to be the only one available.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #6</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Oct 17, 2011 by
+                  <i class="ng-binding">Helpful Wombat</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Hey Regis, </p>
+
+<p>Thanks for all the education you gave me in your last post/comment. Things make much more sense to me now. 
+I contacted sipgate in regards to the recommended and supported codecs. This is what they wrote back:</p>
+
+<p>"G729 is recommended, if your phone does not support G729, try another codec. A
+list of codecs supported by sipgate follows here:</p>
+
+<p>G.729</p>
+
+<p>G.711</p>
+
+<p>iLBC</p>
+
+<p>GSM</p>
+
+<p>G726</p>
+
+<p>Please feel free to try each codec in turn and see which one works best for your
+connection."</p>
+
+<ol>
+<li><p>Based on this respond, what do you recommend that I use when 
+(a) I'm using my mobile data - T-Mobile's HSPA network (USA)
+(b) I'm on my home's wifi. Our router is also connected to a Vonage adapter for our home phone.</p></li>
+<li><p>Is there a way to test to know how much bandwidth my phone is getting in either case? I have no idea how much bandwidth my phone gets in either case that's why I ask.</p></li>
+<li><p>Should I turn on QoS in my router settings? I read somewhere that it can help improve the quality of voip calls on my home network.</p></li>
+<li><p>I plan to upgrade to a faster phone with a faster processor, more memory and a faster data transfer (T-mobile's theoretical 42 mbps '4G'). It will either be the Amaze 4G from T-mobile or Samsung Nexus (Nexus Prime) if it comes to T-Mobile USA and the specs are as good as rumored. My question is, will there be a significant boost in my setup &amp; sip calls (using csipsimple) with a better spec'd phone?</p></li>
+</ol>
+
+<p>Thanks for your time developing this kick ass app and your dedication in supporting it. I salute you.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #7</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Oct 18, 2011 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Ok,</p>
+
+<p>g729 is supported by csipsimple, but it requires a license use for end users (that I do not provide, since this is just an opensource application). However, if you get the license by your own (or if you already have another app that grant this license use on another app you can activate it in codec list). </p>
+
+<p>If you don't want to use this codec cause of its license terms (which I advise, because I think that it is better to use an opensource codec than something proprietary, but that's just my point of view). </p>
+
+<p>You can try iLBC as first choice. It is almost equivalent to g729 (quality and bandwidth). It should be suitable for both wifi and mobile connection.
+The only problem is that all sip providers does not support it very well (cause it requires many CPU). But if your provider has it correctly supported it should be fine.
+If it does not work you can try GSM codec. Voice quality will not be crystal clear, but should be good enough. This codec is the same used on standard GSM mobile calls, so it is not so bad ;).</p>
+
+<p>g726 is not supported by csipsimple for now, but its not really suitable for mobile anyway. And for g711 (aka PCMU/PCMA), I recommand to disable it on mobile data and depending on wifi connectivity can be suitable for wifi.</p>
+
+<p>About the bandwidth test, you can download for example : <a href="https://market.android.com/details?id=com.ookla.fccbroadband&amp;hl=fr">https://market.android.com/details?id=com.ookla.fccbroadband&amp;hl=fr</a> (that's just the first hit I found while searching, not sure it is the best). The point is that there is apps that allow to test the connectivity.</p>
+
+<p>About QoS, it depends on network equipments between you and the sip server. It does not always improve things (sometimes it make things going worse). But it is indeed interesting to try. In CSipSImple this setting is in expert settings. So to get the option =&gt; Go in settings, press menu key of the phone and select "Expert mode". Then go in Settings &gt; Network &gt; Check enable QoS.</p>
+
+<p>And for the last point...well, compared to a nexus one, CPU speed increase should not be significant for voice over IP. The CPU of the nexus one is already really fair for voice over ip. The point that could help is connectivity. I never tried with 4G, but if real bandwidth is as good as the theoretical one, should indeed improve things.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #8</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Oct 18, 2011 by
+                  <i class="ng-binding">Helpful Wombat</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Thanks very much for your help on this issue. I'm going with the iLBC and GSM in that order. People that I talk to do not complain about the choppy/static sound anymore. I do not plan to purchase a license for G.729 but I was wondering if I already have the license by purchasing the nexus one or an application on mobile (GrooveIP, maybe?) How can I tell?</p>
+
+<p>Lastly, what does the "Voice Audio Detection" setting do?</p>
+
+<p>Again, thanks for this wonderful application. Some donation will be coming your way soon. </p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #9</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Oct 18, 2011 by
+                  <i class="ng-binding">Helpful Wombat</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Donation sent.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #10</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Nov 7, 2011 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Thx for the donation :).</p>
+
+<p>Voice auto detection feature detects when you do not talk. When it detects that there is no voice, it does not send packets at all. It allow to reduce bandwidth used.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments -->
+          </div>
+
+          <!-- Sidebar with additional information -->
+          <div class="maia-col-4">
+            <div class="maia-aside">
+              <p>Status: <code class="ng-binding">Fixed</code></p>
+              <!-- ngIf: issueCtrl.issue.labels.length > 0 --><p ng-if="issueCtrl.issue.labels.length &gt; 0" class="ng-scope">
+                Labels:
+                <br>
+                <!-- ngRepeat: label in issueCtrl.issue.labels track by $index --><span ng-repeat="label in issueCtrl.issue.labels track by $index" class="ng-scope">
+                  <span class="gca-label ng-binding">Type-Defect</span>
+                </span><!-- end ngRepeat: label in issueCtrl.issue.labels track by $index --><span ng-repeat="label in issueCtrl.issue.labels track by $index" class="ng-scope">
+                  <span class="gca-label ng-binding">Priority-Medium</span>
+                </span><!-- end ngRepeat: label in issueCtrl.issue.labels track by $index -->
+              </p><!-- end ngIf: issueCtrl.issue.labels.length > 0 -->
+            </div>
+          </div>
+        </div><!-- end ngIf: !issueCtrl.error -->
+      </div>
+    </div>
+
+  </div>
+</div>
+</div></div></div>
+    <noscript>
+      &lt;p&gt;The Google Code Archive requires JavaScript to be enabled in your browser.&lt;/p&gt;
+    </noscript>
+
+    <div id="maia-signature"></div>
+    <div class="maia-footer" id="maia-footer">
+      <div id="maia-footer-local">
+      </div>
+      <div id="maia-footer-global">
+        <div class="maia-aux">
+          <ul>
+            <li>
+              <a href="//www.google.com/">Google</a>
+            </li>
+            <li>
+              <a href="//www.google.com/intl/en/about/">About Google</a>
+            </li>
+            <li>
+              <a href="//www.google.com/intl/en/policies/privacy/">Privacy</a>
+            </li>
+            <li>
+              <a href="//www.google.com/intl/en/policies/terms/">Terms</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <script src="//www.google.com/js/maia.js"></script>
+  
+
+
+</body></html>

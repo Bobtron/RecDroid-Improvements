@@ -1,0 +1,776 @@
+https://code.google.com/archive/p/csipsimple/issues/772<!DOCTYPE html><html class="google ng-scope" lang="en" ng-app="codesiteArchive.application"><head>
+    <meta charset="utf-8">
+    <meta content="initial-scale=1, minimum-scale=1, width=device-width" name="viewport">
+
+    <!-- https://developers.google.com/webmasters/ajax-crawling/docs/specification -->
+    <meta name="fragment" content="!">
+    <title>Google Code Archive - Long-term storage for Google Code Project Hosting.</title>
+
+    <link rel="icon" type="image/vnd.microsoft.icon" href="/archive/img/project-hosting.ico">
+    <script src="//www.google.com/js/google.js"></script>
+    <link href="//www.google.com/css/maia.css" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;lang=en" rel="stylesheet">
+    <link rel="stylesheet" href="/archive/archive_css.css">
+    <script>
+      CLOSURE_NO_DEPS = true;
+    </script>
+    <script src="/archive/angular.js"></script><style type="text/css">@charset "UTF-8";
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak],
+.ng-cloak, .x-ng-cloak,
+.ng-hide:not(.ng-hide-animate) {
+  display: none !important;
+}
+
+ng\:form {
+  display: block;
+}
+
+.ng-animate-shim {
+  visibility:hidden;
+}
+
+.ng-anchor {
+  position:absolute;
+}
+</style>
+    <script src="/archive/pagedown.js"></script>
+    <script src="/archive/archive.js"></script>
+    <base href="/archive/">
+  </head>
+
+  <body>
+    <div class="maia-header" id="maia-header" role="banner">
+      <div class="maia-aux">
+        <a href="/archive/">
+          </a><h1><a href="/archive/">
+            <img alt="Google" src="//www.google.com/images/branding/googlelogo/1x/googlelogo_color_116x41dp.png"> Code</a>
+          </h1>
+        
+        <a href="/archive/">
+          <h2>Archive</h2>
+        </a>
+        <a class="maia-teleport" href="#content">Skip to content</a>
+        <div class="maia-util">
+          <form action="/archive/search" class="maia-search ng-pristine ng-valid">
+            <input name="q" placeholder="Search this site" type="text">
+            <button class="maia-button">
+              <span class="maia-search-icon">Search</span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- ngView: --><div ng-view="" class="ng-scope"><div ng-controller="ProjectIssueCtrl as issueCtrl" class="ng-scope">
+<nav-bar-widget nav-level-1="projectCtrl.navLevel1" class="ng-isolate-scope"><div class="maia-nav maia-complex" id="maia-nav-x" role="navigation">
+  <div class="maia-aux">
+    <ul>
+      <li ng-class="{active: navLevel1 == 'projects'}">
+        <a href="/archive/">Projects</a>
+        <!-- ngIf: navLevel2 -->
+      </li>
+      <li ng-class="{active: navLevel1 == 'search'}">
+        <a href="/archive/search">Search</a>
+      </li>
+      <li ng-class="{active: navLevel1 == 'about'}">
+        <a href="/archive/about">About</a>
+      </li>
+    </ul>
+  </div>
+</div>
+</nav-bar-widget>
+<div id="maia-main" role="main">
+
+  <!-- ngIf: issueCtrl.notFound -->
+
+  <div ng-hide="issueCtrl.notFound">
+    <!-- Left-side resource nav -->
+    <project-resources-widget domain="issueCtrl.domain" project="issueCtrl.projectName" class="ng-isolate-scope"><div class="maia-nav" id="maia-nav-y" role="navigation">
+  <!-- ngIf: domain == 'code.google.com' --><ul ng-if="domain == 'code.google.com'" class="ng-scope">
+    <li class="active">
+      <a href="/archive/p/csipsimple/">Project</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/source">Source</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/issues">Issues</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/wikis">Wikis</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/downloads">Downloads</a>
+    </li>
+  </ul><!-- end ngIf: domain == 'code.google.com' -->
+
+    <!-- ngIf: domain != 'code.google.com' -->
+</div></project-resources-widget>
+
+    <div class="maia-article" role="article">
+      <div class="maia-teleport" id="content"></div>
+      <div class="maia-cols">
+        <div id="gca-project-header" class="maia-col-10">
+          <a id="gca-export-to-gh" class="maia-button" href="https://code.google.com/export-to-github/export?project=csipsimple">Export to GitHub</a>
+            <img class="gca-project-logo" src="https://storage.googleapis.com/google-code-archive/v2/code.google.com/csipsimple/logo.png">
+            <h1 class="ng-binding">csipsimple - issue #772</h1>
+            <p class="ng-binding">Crash on incoming MESSAGE </p>
+        </div>
+
+        <div class="maia-col-10">
+          <hr>
+
+        <!-- ngIf: issueCtrl.error -->
+
+        <!-- ngIf: !issueCtrl.error --><div ng-if="!issueCtrl.error" class="ng-scope">
+          <!-- Comments -->
+          <div class="maia-col-8">
+            <!-- ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Mar 6, 2011 by
+                  <i class="ng-binding">Helpful Monkey</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p><b>What steps will reproduce the problem?</b>
+1. Register csipsimple with server support MESSAGE packets.
+2. Send MESSAGE packet to sipsimple </p>
+
+<p><b>What is the expected output? What do you see instead?</b>
+System tray notification informing about incoming chat (MESSAGE). Currently app crashes with the output as in attached log file.</p>
+
+<p><b>What version of the product are you using? On what operating system?</b>
+Using <a href="http://nightlies.csipsimple.com/trunk/CSipSimple-r686-trunk.apk">http://nightlies.csipsimple.com/trunk/CSipSimple-r686-trunk.apk</a> with API 2.2 (emulator)</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length --><small ng-if="comment.attachments.length" class="ng-scope">Attachments</small><!-- end ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments --><ul ng-repeat="attachment in comment.attachments" class="ng-scope">
+                <li class="ng-binding">
+                  <a href="http://storage.googleapis.com/google-code-attachments/csipsimple/issue-772/comment-0/MESSAGE-crash.log" class="ng-binding">
+                    MESSAGE-crash.log
+                  </a> 4.35KB
+                </li>
+              </ul><!-- end ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #1</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Mar 6, 2011 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Mmm weird.</p>
+
+<p>What is the content (body) of the message? Is it empty or with a specific Mime-Type?</p>
+
+<p>Regarding log it sounds to be somewhere when I try to get string representation of one part of the message (I guess that is probably null in your case).</p>
+
+<p>So if you can wireshark the message sent it could be really interesting. Or let me know what SIP client / SIP server is on the other side.</p>
+
+<p>Thx in advance</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #2</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Mar 6, 2011 by
+                  <i class="ng-binding">Helpful Monkey</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Hi, please see MESSAGE I am sending below:</p>
+
+<p>U 192.168.1.52:5060 -&gt; 192.168.1.65:33854
+MESSAGE sip:10002@192.168.1.65:33854;ob SIP/2.0.
+Via: SIP/2.0/UDP 192.168.1.52;branch=z9hG4bK594.badfa004.1.
+Via: SIP/2.0/UDP 192.168.1.51:5065;received=192.168.1.51;rport=5065;branch=z9hG4bK295850.
+From: "Test User" ;tag=35970.
+To: .
+Call-ID: 8a42c40d8c247c6d1aaf121adc7fc3f6@192.168.1.51.
+CSeq: 20 MESSAGE.
+Content-Type: text/html; charset=utf-8.
+Max-Forwards: 69.
+User-Agent: PHP-SIP.
+Content-Length: 16.
+.
+Hello csipsimple</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #3</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Mar 6, 2011 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Seems to be good.</p>
+
+<p>Could be due to the fact I try to get the contact field from pjsip. I thought pjsip was passing an empty string in this case, but maybe I was wrong.
+What's strange is that even passing no contact field using twinkle it does not crash csipsimple :/</p>
+
+<p>I'll test if params on_pager method are not null before trying to get the associated string. (Will be at least better for robustness ;) ).</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #4</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Mar 8, 2011 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Latest dev version add some trace so that I can debug this problem.
+Can you try it and provide me logs you get?
+(I think it will still crash but I'll know where :) ).</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #5</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Mar 8, 2011 by
+                  <i class="ng-binding">Helpful Monkey</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Tested with CSipSimple-r693-trunk.apk and Twinkle on the other end. Outbound chat seems to work, but when I reply (inbound chat) CSipSimple crashes. Please see attached inbound/outbound SIP dumps and console log.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length --><small ng-if="comment.attachments.length" class="ng-scope">Attachments</small><!-- end ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments --><ul ng-repeat="attachment in comment.attachments" class="ng-scope">
+                <li class="ng-binding">
+                  <a href="http://storage.googleapis.com/google-code-attachments/csipsimple/issue-772/comment-5/MESSAGE-inbound.console.log" class="ng-binding">
+                    MESSAGE-inbound.console.log
+                  </a> 5.16KB
+                </li>
+              </ul><!-- end ngRepeat: attachment in comment.attachments --><ul ng-repeat="attachment in comment.attachments" class="ng-scope">
+                <li class="ng-binding">
+                  <a href="http://storage.googleapis.com/google-code-attachments/csipsimple/issue-772/comment-5/MESSAGE-inbound.sip.dump" class="ng-binding">
+                    MESSAGE-inbound.sip.dump
+                  </a> 3.74KB
+                </li>
+              </ul><!-- end ngRepeat: attachment in comment.attachments --><ul ng-repeat="attachment in comment.attachments" class="ng-scope">
+                <li class="ng-binding">
+                  <a href="http://storage.googleapis.com/google-code-attachments/csipsimple/issue-772/comment-5/MESSAGE-outbound.sip.dump" class="ng-binding">
+                    MESSAGE-outbound.sip.dump
+                  </a> 2.43KB
+                </li>
+              </ul><!-- end ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #6</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Mar 8, 2011 by
+                  <i class="ng-binding">Helpful Monkey</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Please find attached proposed implementation of SIP SIMPLE messaging.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length --><small ng-if="comment.attachments.length" class="ng-scope">Attachments</small><!-- end ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments --><ul ng-repeat="attachment in comment.attachments" class="ng-scope">
+                <li class="ng-binding">
+                  <a href="http://storage.googleapis.com/google-code-attachments/csipsimple/issue-772/comment-6/ChatImplementation-v1.pdf" class="ng-binding">
+                    ChatImplementation-v1.pdf
+                  </a> 228.39KB
+                </li>
+              </ul><!-- end ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #7</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Mar 8, 2011 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>As for logs I need the previous logcat logs.</p>
+
+<p>Read HowToCollectLogs wiki page (there is a tool inside csipsimple to report bugs that help to send directly logs to me (keeping it safe for your privacy info ;) ).</p>
+
+<p>As for your proposal, it's what is actually implemented and happens when it works properly ;) .</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #8</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Mar 9, 2011 by
+                  <i class="ng-binding">Helpful Monkey</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Unfortunately build in LogsCollector didn't work for me. When did "Stop recording logs (OPTIONALY send it)" and pressed "Send MMS" message it hanged in "Sending..." state.</p>
+
+<p>Attached is a logcat output from the moment csipsimple was started, until it restarted after the crash.</p>
+
+<p>Please let me know if you need any more details.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length --><small ng-if="comment.attachments.length" class="ng-scope">Attachments</small><!-- end ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments --><ul ng-repeat="attachment in comment.attachments" class="ng-scope">
+                <li class="ng-binding">
+                  <a href="http://storage.googleapis.com/google-code-attachments/csipsimple/issue-772/comment-8/csipsimple.log" class="ng-binding">
+                    csipsimple.log
+                  </a> 51.72KB
+                </li>
+              </ul><!-- end ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #9</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Mar 9, 2011 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Could you turn on logging. (In fact when you press start recording log it simply increase CSipSimple logging level -- there is also a way to do so in expert setting mode).</p>
+
+<p>So if you can :
+* turn on logging (with help &gt; start recording)
+* reproduce the issue
+* get the log with logcat and send it to me.</p>
+
+<p>Thx in advance.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #10</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Mar 10, 2011 by
+                  <i class="ng-binding">Helpful Monkey</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Hi, another logcat attached, this time with increased verbosity.</p>
+
+<p>Regards,
+Chris</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #11</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Mar 10, 2011 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Ok got it. That's due to the fact "Contact" field is empty. </p>
+
+<p>I'll try to see how I can check if not null before trying to get it from native stack layer.</p>
+
+<p>Thanks a lot for the log (I deleted it to protect your privacy info ).</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #12</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Mar 10, 2011 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>The weird thing is that on my phone, even when sending with twinkle with empty contact it does not crash and I have the same version than you ... :S</p>
+
+<p>I'll investigate but is there another special configuration you did in twinkle?</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #13</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Mar 10, 2011 by
+                  <i class="ng-binding">Helpful Monkey</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>I am doing my tests on Android emulator (API 2.2), not real device (I will test on my HTC Hero later today and post results).</p>
+
+<p>Secondly as you can see here <a href="http://code.google.com/p/csipsimple/issues/attachmentText?id=772&amp;aid=3199862298634539305&amp;name=MESSAGE-inbound.sip.dump&amp;token=0516c546644823167c94edfb53d2a364#96">http://code.google.com/p/csipsimple/issues/attachmentText?id=772&amp;aid=3199862298634539305&amp;name=MESSAGE-inbound.sip.dump&amp;token=0516c546644823167c94edfb53d2a364#96</a> my Twinkle is not talking directly to CSipSimple, but via a proxy (note two "Via" headers). Otherwise there is nothing special about my Twinkle.</p>
+
+<p>Could you maybe post your SIP MESSAGE packets, so I can have a look and compare with mine?</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #14</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Mar 10, 2011 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Using a proxy :</p>
+
+<p>03-10 10:40:19.238: DEBUG/libpjsip(249):  10:40:19.243   pjsua_core.c  RX 583 bytes Request msg MESSAGE/cseq=787 (rdata0x5e1274) from tcp 213.215.45.230:5060:
+03-10 10:40:19.238: DEBUG/libpjsip(249): MESSAGE sip:r3gis3r@62.161.117.118:46627;transport=tcp;ob SIP/2.0</p>
+
+<p>03-10 10:40:19.238: DEBUG/libpjsip(249): Record-Route: </p>
+
+<p>03-10 10:40:19.238: DEBUG/libpjsip(249): Record-Route: </p>
+
+<p>03-10 10:40:19.238: DEBUG/libpjsip(249): Via: SIP/2.0/TCP 213.215.45.230;branch=z9hG4bKba23.a82a8d41.0</p>
+
+<p>03-10 10:40:19.238: DEBUG/libpjsip(249): Via: SIP/2.0/UDP 172.17.132.13;received=62.161.117.118;rport=5060;branch=z9hG4bKejzlxhmw</p>
+
+<p>03-10 10:40:19.238: DEBUG/libpjsip(249): Max-Forwards: 12</p>
+
+<p>03-10 10:40:19.238: DEBUG/libpjsip(249): To: </p>
+
+<p>03-10 10:40:19.238: DEBUG/libpjsip(249): From: "Regis" ;tag=wpmpr</p>
+
+<p>03-10 10:40:19.238: DEBUG/libpjsip(249): Call-ID: jowzoavecszltpq@technologix</p>
+
+<p>03-10 10:40:19.238: DEBUG/libpjsip(249): CSeq: 787 MESSAGE</p>
+
+<p>03-10 10:40:19.238: DEBUG/libpjsip(249): Content-Type: text/plain;charset=utf-8</p>
+
+<p>03-10 10:40:19.238: DEBUG/libpjsip(249): User-Agent: Twinkle/1.4.2</p>
+
+<p>03-10 10:40:19.238: DEBUG/libpjsip(249): Content-Length: 14</p>
+
+<p>03-10 10:40:19.238: DEBUG/libpjsip(249): </p>
+
+<p>03-10 10:40:19.238: DEBUG/libpjsip(249): test from ippi
+03-10 10:40:19.238: DEBUG/libpjsip(249): --end msg--
+03-10 10:40:19.238: DEBUG/libpjsip(249):  10:40:19.244   pjsua_core.c  TX 478 bytes Response msg 200/MESSAGE/cseq=787 (tdta0x314728) to tcp 213.215.45.230:5060:
+03-10 10:40:19.238: DEBUG/libpjsip(249): SIP/2.0 200 OK</p>
+
+<p>03-10 10:40:19.238: DEBUG/libpjsip(249): Via: SIP/2.0/TCP 213.215.45.230;received=213.215.45.230;branch=z9hG4bKba23.a82a8d41.0</p>
+
+<p>03-10 10:40:19.238: DEBUG/libpjsip(249): Via: SIP/2.0/UDP 172.17.132.13;rport=5060;received=62.161.117.118;branch=z9hG4bKejzlxhmw</p>
+
+<p>03-10 10:40:19.238: DEBUG/libpjsip(249): Record-Route: </p>
+
+<p>03-10 10:40:19.238: DEBUG/libpjsip(249): Record-Route: </p>
+
+<p>03-10 10:40:19.238: DEBUG/libpjsip(249): Call-ID: jowzoavecszltpq@technologix</p>
+
+<p>03-10 10:40:19.238: DEBUG/libpjsip(249): From: "Regis" ;tag=wpmpr</p>
+
+<p>03-10 10:40:19.238: DEBUG/libpjsip(249): To: ;tag=z9hG4bKba23.a82a8d41.0</p>
+
+<p>03-10 10:40:19.238: DEBUG/libpjsip(249): CSeq: 787 MESSAGE</p>
+
+<p>03-10 10:40:19.238: DEBUG/libpjsip(249): Content-Length:  0</p>
+
+<p>03-10 10:40:19.238: DEBUG/libpjsip(249): </p>
+
+<p>03-10 10:40:19.238: DEBUG/libpjsip(249): --end msg--</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #15</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Mar 10, 2011 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Well in fact ... re-reading the code... Contact field is never used by csipsimple lol (just get and stored in DB "for future use" ...</p>
+
+<p>So it should be harmless to remove it from DB... But I'd prefer understand what is happening anyway ;).</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #16</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Mar 10, 2011 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>This issue was closed by revision r694.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #17</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Mar 10, 2011 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>I've commited a fix. Re-reading pjsip code made things more clear. In fact they do not fully init the contact field to "", but just to a pjsip struct representing string with 0 as length.</p>
+
+<p>The weird thing in fact is that it does not crash on my phone cause obviously it should crash just like with your emulator.</p>
+
+<p>I'll launch a build manually so that you can test the fix without waiting til tonight :)</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #18</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Mar 10, 2011 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Build available :
+<a href="http://nightlies.csipsimple.com/trunk/CSipSimple-r694-trunk.apk">http://nightlies.csipsimple.com/trunk/CSipSimple-r694-trunk.apk</a></p>
+
+<p>Let me know how it goes.</p>
+
+<p>Thx</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #19</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Mar 10, 2011 by
+                  <i class="ng-binding">Helpful Monkey</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Indeed the problem is now fixed :) Thanks!</p>
+
+<p>...however I will open few more Issues related to MESSAGE handling.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #20</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Mar 25, 2011 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Issue 836 has been merged into this issue.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments -->
+          </div>
+
+          <!-- Sidebar with additional information -->
+          <div class="maia-col-4">
+            <div class="maia-aside">
+              <p>Status: <code class="ng-binding">Fixed</code></p>
+              <!-- ngIf: issueCtrl.issue.labels.length > 0 --><p ng-if="issueCtrl.issue.labels.length &gt; 0" class="ng-scope">
+                Labels:
+                <br>
+                <!-- ngRepeat: label in issueCtrl.issue.labels track by $index --><span ng-repeat="label in issueCtrl.issue.labels track by $index" class="ng-scope">
+                  <span class="gca-label ng-binding">Type-Defect</span>
+                </span><!-- end ngRepeat: label in issueCtrl.issue.labels track by $index --><span ng-repeat="label in issueCtrl.issue.labels track by $index" class="ng-scope">
+                  <span class="gca-label ng-binding">Priority-Medium</span>
+                </span><!-- end ngRepeat: label in issueCtrl.issue.labels track by $index -->
+              </p><!-- end ngIf: issueCtrl.issue.labels.length > 0 -->
+            </div>
+          </div>
+        </div><!-- end ngIf: !issueCtrl.error -->
+      </div>
+    </div>
+
+  </div>
+</div>
+</div></div></div>
+    <noscript>
+      &lt;p&gt;The Google Code Archive requires JavaScript to be enabled in your browser.&lt;/p&gt;
+    </noscript>
+
+    <div id="maia-signature"></div>
+    <div class="maia-footer" id="maia-footer">
+      <div id="maia-footer-local">
+      </div>
+      <div id="maia-footer-global">
+        <div class="maia-aux">
+          <ul>
+            <li>
+              <a href="//www.google.com/">Google</a>
+            </li>
+            <li>
+              <a href="//www.google.com/intl/en/about/">About Google</a>
+            </li>
+            <li>
+              <a href="//www.google.com/intl/en/policies/privacy/">Privacy</a>
+            </li>
+            <li>
+              <a href="//www.google.com/intl/en/policies/terms/">Terms</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <script src="//www.google.com/js/maia.js"></script>
+  
+
+
+</body></html>

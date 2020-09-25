@@ -1,0 +1,57 @@
+<td class="d-block comment-body markdown-body  js-comment-body">
+
+          <p>Hello,</p>
+<p>I have microG 0.2.4-111 installed via NanoDroid (flashed as a Magisk module, version 16.5.20180402), which works fine for most things I need.</p>
+<p>Now, when I use Cabify (com.cabify.rider, a Spanish transportation network company), the app starts but crashes after I pick the destination address. Below is the crash log -- it seems related to microG GmsCore (perhaps Cabify would be a candidate for inclusion as one of the problematic apps?)</p>
+<p>I am using OmniDroid 8.1.0-20180408 on a Xiaomi Redmi Note 4 (mido).<br>
+However, the same issue happened when I used a Nougat-based crDroid.<br>
+The version of Cabify I am using is 7.1.9, installed via Yalpstore (I have no Gapps).</p>
+<p>Update: flashed OmniDroid 8.1.0-20180415, and the problem persists</p>
+<p>(Actually, the same crash happens with another cab app, Brazilian "99 Taxis", except that instead of com.cabify.driver it's "com.taxis99" in the logs)</p>
+<p>-- j</p>
+<pre><code>04-09 10:05:42.352 23461 23461 D SafeParcel: Unknown field num 15 in com.google.android.gms.maps.model.MarkerOptions, skipping.
+04-09 10:05:42.352 23461 23461 D GmsMapMarkerImpl: New marker m29 with title null @ lat/lng: (-23.561714,-46.656041)
+04-09 10:05:42.355 23461 23461 D SafeParcel: Unknown field num 15 in com.google.android.gms.maps.model.MarkerOptions, skipping.
+04-09 10:05:42.355 23461 23461 D GmsMapMarkerImpl: New marker m30 with title null @ lat/lng: (-23.561714,-46.656041)
+04-09 10:05:42.359 23461 23461 D SafeParcel: Unknown field num 15 in com.google.android.gms.maps.model.MarkerOptions, skipping.
+04-09 10:05:42.359 23461 23461 D GmsMapMarkerImpl: New marker m31 with title null @ lat/lng: (-23.5410497,-46.6736297)
+04-09 10:05:42.362 23461 23461 D SafeParcel: Unknown field num 15 in com.google.android.gms.maps.model.MarkerOptions, skipping.
+04-09 10:05:42.362 23461 23461 D GmsMapMarkerImpl: New marker m32 with title null @ lat/lng: (-23.5410497,-46.6736297)
+04-09 10:05:42.363 23461 23461 D AndroidRuntime: Shutting down VM
+04-09 10:05:42.363 23461 23461 E AndroidRuntime: FATAL EXCEPTION: main
+04-09 10:05:42.363 23461 23461 E AndroidRuntime: Process: com.cabify.rider, PID: 23461
+04-09 10:05:42.363 23461 23461 E AndroidRuntime: java.lang.NullPointerException: Attempt to invoke interface method 'android.os.IBinder com.google.android.gms.dynamic.IObjectWrapper.asBinder()' on a null object reference
+04-09 10:05:42.363 23461 23461 E AndroidRuntime: at com.google.android.gms.dynamic.zzn.zzx(Unknown Source:11)
+04-09 10:05:42.363 23461 23461 E AndroidRuntime: at com.google.android.gms.maps.model.Marker.getTag(Un known Source:6)
+04-09 10:05:42.363 23461 23461 E AndroidRuntime: at com.cabify.rider.presentation.customviews.map.Cabi fyGoogleMapView.a(Unknown Source:67)
+04-09 10:05:42.363 23461 23461 E AndroidRuntime: at com.cabify.rider.presentation.base.p.Jj(Unknown Source:12)
+04-09 10:05:42.363 23461 23461 E AndroidRuntime: at com.cabify.rider.presentation.base.r.Jp(Unknown Source:8)
+04-09 10:05:42.363 23461 23461 E AndroidRuntime: at com.cabify.rider.presentation.states.vehicle_selec tion.VehicleSelectorBaseFragment$addRouteMarkers$1 .sB(Unknown Source:6)
+04-09 10:05:42.363 23461 23461 E AndroidRuntime: at com.cabify.rider.presentation.states.vehicle_selec tion.VehicleSelectorBaseFragment$addRouteMarkers$1 .invoke(Unknown Source:0)
+04-09 10:05:42.363 23461 23461 E AndroidRuntime: at com.cabify.rider.presentation.customviews.map.Cabi fyGoogleMapView$drawMarkers$1.sB(Unknown Source:18)
+04-09 10:05:42.363 23461 23461 E AndroidRuntime: at com.cabify.rider.presentation.customviews.map.Cabi fyGoogleMapView$drawMarkers$$inlined$forEach$lambd a$1.sB(Unknown Source:2)
+04-09 10:05:42.363 23461 23461 E AndroidRuntime: at com.cabify.rider.presentation.customviews.map.Cabi fyGoogleMapView$drawMarkers$$inlined$forEach$lambd a$1.invoke(Unknown Source:0)
+04-09 10:05:42.363 23461 23461 E AndroidRuntime: at com.cabify.rider.presentation.customviews.map.Cabi fyGoogleMapView$drawMarker$3.a(Unknown Source:75)
+04-09 10:05:42.363 23461 23461 E AndroidRuntime: at com.cabify.rider.presentation.customviews.map.Cabi fyGoogleMapView$drawMarker$3.f(Unknown Source:4)
+04-09 10:05:42.363 23461 23461 E AndroidRuntime: at com.cabify.rider.presentation.customviews.map.Mark erFactory$Companion$createMarkerFromView$1.sB(Unkn own Source:130)
+04-09 10:05:42.363 23461 23461 E AndroidRuntime: at com.cabify.rider.presentation.customviews.map.Mark erFactory$Companion$createMarkerFromView$1.invoke( Unknown Source:0)
+04-09 10:05:42.363 23461 23461 E AndroidRuntime: at com.cabify.rider.extension.q$a.onGlobalLayout(Unkn own Source:20)
+04-09 10:05:42.363 23461 23461 E AndroidRuntime: at android.view.ViewTreeObserver.dispatchOnGlobalLayo ut(ViewTreeObserver.java:945)
+04-09 10:05:42.363 23461 23461 E AndroidRuntime: at android.view.ViewRootImpl.performTraversals(ViewRo otImpl.java:2250)
+04-09 10:05:42.363 23461 23461 E AndroidRuntime: at android.view.ViewRootImpl.doTraversal(ViewRootImpl .java:1392)
+04-09 10:05:42.363 23461 23461 E AndroidRuntime: at android.view.ViewRootImpl$TraversalRunnable.run(Vi ewRootImpl.java:6752)
+04-09 10:05:42.363 23461 23461 E AndroidRuntime: at android.view.Choreographer$CallbackRecord.run(Chor eographer.java:911)
+04-09 10:05:42.363 23461 23461 E AndroidRuntime: at android.view.Choreographer.doCallbacks(Choreograph er.java:723)
+04-09 10:05:42.363 23461 23461 E AndroidRuntime: at android.view.Choreographer.doFrame(Choreographer.j ava:658)
+04-09 10:05:42.363 23461 23461 E AndroidRuntime: at android.view.Choreographer$FrameDisplayEventReceiv er.run(Choreographer.java:897)
+04-09 10:05:42.363 23461 23461 E AndroidRuntime: at android.os.Handler.handleCallback(Handler.java:790 )
+04-09 10:05:42.363 23461 23461 E AndroidRuntime: at android.os.Handler.dispatchMessage(Handler.java:99 )
+04-09 10:05:42.363 23461 23461 E AndroidRuntime: at android.os.Looper.loop(Looper.java:164)
+04-09 10:05:42.363 23461 23461 E AndroidRuntime: at android.app.ActivityThread.main(ActivityThread.jav a:6494)
+04-09 10:05:42.363 23461 23461 E AndroidRuntime: at java.lang.reflect.Method.invoke(Native Method)
+04-09 10:05:42.363 23461 23461 E AndroidRuntime: at com.android.internal.os.RuntimeInit$MethodAndArgsC aller.run(RuntimeInit.java:438)
+04-09 10:05:42.363 23461 23461 E AndroidRuntime: at com.android.internal.os.ZygoteInit.main(ZygoteInit .java:807)
+04-09 10:05:42.516 2233 3126 W ActivityManager: Force finishing activity com.cabify.rider/.presentation.states.journeybase.JourneyBaseActivi ty
+04-09 10:05:42.521 2233 2260 I ActivityManager: Showing crash dialog for package com.cabify.rider u0
+</code></pre>
+      </td>

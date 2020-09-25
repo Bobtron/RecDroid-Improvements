@@ -1,0 +1,914 @@
+https://code.google.com/archive/p/csipsimple/issues/1780<!DOCTYPE html><html class="google ng-scope" lang="en" ng-app="codesiteArchive.application"><head>
+    <meta charset="utf-8">
+    <meta content="initial-scale=1, minimum-scale=1, width=device-width" name="viewport">
+
+    <!-- https://developers.google.com/webmasters/ajax-crawling/docs/specification -->
+    <meta name="fragment" content="!">
+    <title>Google Code Archive - Long-term storage for Google Code Project Hosting.</title>
+
+    <link rel="icon" type="image/vnd.microsoft.icon" href="/archive/img/project-hosting.ico">
+    <script src="//www.google.com/js/google.js"></script>
+    <link href="//www.google.com/css/maia.css" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;lang=en" rel="stylesheet">
+    <link rel="stylesheet" href="/archive/archive_css.css">
+    <script>
+      CLOSURE_NO_DEPS = true;
+    </script>
+    <script src="/archive/angular.js"></script><style type="text/css">@charset "UTF-8";
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak],
+.ng-cloak, .x-ng-cloak,
+.ng-hide:not(.ng-hide-animate) {
+  display: none !important;
+}
+
+ng\:form {
+  display: block;
+}
+
+.ng-animate-shim {
+  visibility:hidden;
+}
+
+.ng-anchor {
+  position:absolute;
+}
+</style>
+    <script src="/archive/pagedown.js"></script>
+    <script src="/archive/archive.js"></script>
+    <base href="/archive/">
+  </head>
+
+  <body>
+    <div class="maia-header" id="maia-header" role="banner">
+      <div class="maia-aux">
+        <a href="/archive/">
+          </a><h1><a href="/archive/">
+            <img alt="Google" src="//www.google.com/images/branding/googlelogo/1x/googlelogo_color_116x41dp.png"> Code</a>
+          </h1>
+        
+        <a href="/archive/">
+          <h2>Archive</h2>
+        </a>
+        <a class="maia-teleport" href="#content">Skip to content</a>
+        <div class="maia-util">
+          <form action="/archive/search" class="maia-search ng-pristine ng-valid">
+            <input name="q" placeholder="Search this site" type="text">
+            <button class="maia-button">
+              <span class="maia-search-icon">Search</span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- ngView: --><div ng-view="" class="ng-scope"><div ng-controller="ProjectIssueCtrl as issueCtrl" class="ng-scope">
+<nav-bar-widget nav-level-1="projectCtrl.navLevel1" class="ng-isolate-scope"><div class="maia-nav maia-complex" id="maia-nav-x" role="navigation">
+  <div class="maia-aux">
+    <ul>
+      <li ng-class="{active: navLevel1 == 'projects'}">
+        <a href="/archive/">Projects</a>
+        <!-- ngIf: navLevel2 -->
+      </li>
+      <li ng-class="{active: navLevel1 == 'search'}">
+        <a href="/archive/search">Search</a>
+      </li>
+      <li ng-class="{active: navLevel1 == 'about'}">
+        <a href="/archive/about">About</a>
+      </li>
+    </ul>
+  </div>
+</div>
+</nav-bar-widget>
+<div id="maia-main" role="main">
+
+  <!-- ngIf: issueCtrl.notFound -->
+
+  <div ng-hide="issueCtrl.notFound">
+    <!-- Left-side resource nav -->
+    <project-resources-widget domain="issueCtrl.domain" project="issueCtrl.projectName" class="ng-isolate-scope"><div class="maia-nav" id="maia-nav-y" role="navigation">
+  <!-- ngIf: domain == 'code.google.com' --><ul ng-if="domain == 'code.google.com'" class="ng-scope">
+    <li class="active">
+      <a href="/archive/p/csipsimple/">Project</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/source">Source</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/issues">Issues</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/wikis">Wikis</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/downloads">Downloads</a>
+    </li>
+  </ul><!-- end ngIf: domain == 'code.google.com' -->
+
+    <!-- ngIf: domain != 'code.google.com' -->
+</div></project-resources-widget>
+
+    <div class="maia-article" role="article">
+      <div class="maia-teleport" id="content"></div>
+      <div class="maia-cols">
+        <div id="gca-project-header" class="maia-col-10">
+          <a id="gca-export-to-gh" class="maia-button" href="https://code.google.com/export-to-github/export?project=csipsimple">Export to GitHub</a>
+            <img class="gca-project-logo" src="https://storage.googleapis.com/google-code-archive/v2/code.google.com/csipsimple/logo.png">
+            <h1 class="ng-binding">csipsimple - issue #1780</h1>
+            <p class="ng-binding">Processes cpu and ram usage</p>
+        </div>
+
+        <div class="maia-col-10">
+          <hr>
+
+        <!-- ngIf: issueCtrl.error -->
+
+        <!-- ngIf: !issueCtrl.error --><div ng-if="!issueCtrl.error" class="ng-scope">
+          <!-- Comments -->
+          <div class="maia-col-8">
+            <!-- ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jun 12, 2012 by
+                  <i class="ng-binding">Swift Cat</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Recently I noticed that in the list of process a third one is often present (info provided by Usage Timelines Free).
+I use CSipSimple only to make call, so I disconnect when I don't need it.
+In this situation usually there where only two processes, also when disconnected.
+The third process when present, now, uses 1 or 2% cpu consistently.</p>
+
+<p>Could this depends on my configuration or something introduced recently (if the case,I don't know since which revision)?</p>
+
+<p><b>What version of the product are you using? On what operating system?</b>
+r1610 on HTC Legend CM7rc3 and CM9 Unofficial.</p>
+
+<p>Thanks</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #1</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jun 12, 2012 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Mmm, normally no noticeable changes has been done recently regarding cpu usage. For RAM it has probably grown due to new resources.</p>
+
+<p>The process you see with 1 / 2% is com.csipsimple or com.csipsimple:sipStack? The first one is the user interface while the second is the sip process.</p>
+
+<p>Also what could have impact is the use of STUN. Is it activated in your configuration?
+Also, did you notice any high battery usage from CSipSimple in the stock setting battery view?  CPU % reported by some tools are sometimes not inline with actual battery usage from an app.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #2</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jun 12, 2012 by
+                  <i class="ng-binding">Swift Cat</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>The application does not discriminate, use only the package and the 3 process are in the same package.
+I have made a call, after that there are 3 process in list:
+id 17169 36.85MB 1%
+id 17183 33.37MB 0%
+id 19725 24,76MB 0%
+Hope the order of the processes can help to identify the process.</p>
+
+<p>I use smslisto, a Betamax clone with stun enabled: stun.counterpath.com</p>
+
+<p>I noticed a high battery usage, but I don't know if it depends on CSipSimple, stock setting battery view probably is not accurate in CM9 Unofficial.</p>
+
+<p>CPU % reported by Usage Timelines Free seems to be consistent normally and the two processes of CSipSimple were at 0% of cpu usually when the app was disconnected.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #3</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jun 12, 2012 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Weird that it see 3 process... normally there is only two declared in CSipSimple manifest :/</p>
+
+<p>Something you could try that is 100% sure is to start a terminal (with any terminal emulator, or better with adb shell from your pc), and run the 
+top
+command when in this android terminal.</p>
+
+<p>(Or better "top -m 5" to see only 5 processes that consume the more cpu)</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #4</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jun 12, 2012 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>For the record, on my galaxy S 1, that's what I get (with a refresh rate of 1 sec).</p>
+
+<p>As you can see it goes up only very rarely and doesn't exceed 1% of cpu usage. I did the test with STUN activated.</p>
+
+<p>Maybe if you have something different, there is an option to find that could introduce that.</p>
+
+<p>shell@android:/ $ top -m 5 -d 1                                              </p>
+
+<p>User 5%, System 10%, IOW 1%, IRQ 0%
+User 6 + Nice 0 + Sys 11 + Idle 84 + IOW 2 + IRQ 0 + SIRQ 0 = 103</p>
+
+<p>PID PR CPU% S  #THR     VSS     RSS PCY UID      Name
+  208  0   7% S    81 424172K  79776K  fg system   system_server
+32611  0   6% R     1   1016K    404K  fg shell    top
+32464  0   1% S     1      0K      0K  fg root     kworker/0:0
+  106  0   0% S     1      0K      0K  fg root     jbd2/mmcblk0p2-
+   63  0   0% S     1      0K      0K  fg root     mmcqd/0</p>
+
+<p>User 3%, System 4%, IOW 0%, IRQ 0%
+User 4 + Nice 0 + Sys 5 + Idle 100 + IOW 0 + IRQ 0 + SIRQ 0 = 109</p>
+
+<p>PID PR CPU% S  #THR     VSS     RSS PCY UID      Name
+32611  0   6% R     1   1020K    416K  fg shell    top
+    2  0   0% S     1      0K      0K  fg root     kthreadd
+    3  0   0% S     1      0K      0K  fg root     ksoftirqd/0
+    6  0   0% S     1      0K      0K  fg root     khelper
+    7  0   0% S     1      0K      0K  fg root     suspend</p>
+
+<p>User 0%, System 6%, IOW 0%, IRQ 0%
+User 1 + Nice 0 + Sys 7 + Idle 99 + IOW 0 + IRQ 0 + SIRQ 0 = 107</p>
+
+<p>PID PR CPU% S  #THR     VSS     RSS PCY UID      Name
+32611  0   7% R     1   1020K    416K  fg shell    top
+32148  0   0% S    16 288916K  29984K  fg app_60   com.csipsimple:sipStack
+32464  0   0% S     1      0K      0K  fg root     kworker/0:0
+    6  0   0% S     1      0K      0K  fg root     khelper
+    7  0   0% S     1      0K      0K  fg root     suspend</p>
+
+<p>User 1%, System 5%, IOW 0%, IRQ 0%
+User 2 + Nice 0 + Sys 6 + Idle 100 + IOW 0 + IRQ 0 + SIRQ 0 = 108</p>
+
+<p>PID PR CPU% S  #THR     VSS     RSS PCY UID      Name
+32611  0   6% R     1   1020K    416K  fg shell    top
+32464  0   0% S     1      0K      0K  fg root     kworker/0:0
+    3  0   0% S     1      0K      0K  fg root     ksoftirqd/0
+    6  0   0% S     1      0K      0K  fg root     khelper
+    7  0   0% S     1      0K      0K  fg root     suspend</p>
+
+<p>User 1%, System 5%, IOW 0%, IRQ 0%
+User 2 + Nice 0 + Sys 6 + Idle 99 + IOW 0 + IRQ 0 + SIRQ 0 = 107</p>
+
+<p>PID PR CPU% S  #THR     VSS     RSS PCY UID      Name
+32611  0   7% R     1   1020K    416K  fg shell    top
+   66  0   0% S     1      0K      0K  fg root     dhd_dpc
+32464  0   0% S     1      0K      0K  fg root     kworker/0:0
+    6  0   0% S     1      0K      0K  fg root     khelper
+    7  0   0% S     1      0K      0K  fg root     suspend</p>
+
+<p>User 2%, System 6%, IOW 0%, IRQ 0%
+User 3 + Nice 0 + Sys 7 + Idle 100 + IOW 0 + IRQ 0 + SIRQ 0 = 110</p>
+
+<p>PID PR CPU% S  #THR     VSS     RSS PCY UID      Name
+32611  0   6% R     1   1020K    416K  fg shell    top
+  108  0   0% S     1      0K      0K  fg root     yaffs-bg-1
+    3  0   0% S     1      0K      0K  fg root     ksoftirqd/0
+    6  0   0% S     1      0K      0K  fg root     khelper
+    7  0   0% S     1      0K      0K  fg root     suspend</p>
+
+<p>User 1%, System 5%, IOW 0%, IRQ 0%
+User 2 + Nice 0 + Sys 6 + Idle 98 + IOW 0 + IRQ 0 + SIRQ 0 = 106</p>
+
+<p>PID PR CPU% S  #THR     VSS     RSS PCY UID      Name
+32611  0  10% R     1   1020K    416K  fg shell    top
+32464  0   0% S     1      0K      0K  fg root     kworker/0:0
+    3  0   0% S     1      0K      0K  fg root     ksoftirqd/0
+    6  0   0% S     1      0K      0K  fg root     khelper
+    7  0   0% S     1      0K      0K  fg root     suspend</p>
+
+<p>User 3%, System 7%, IOW 0%, IRQ 0%
+User 4 + Nice 0 + Sys 9 + Idle 100 + IOW 0 + IRQ 0 + SIRQ 0 = 113</p>
+
+<p>PID PR CPU% S  #THR     VSS     RSS PCY UID      Name
+32611  0   6% R     1   1020K    416K  fg shell    top
+  108  0   0% S     1      0K      0K  fg root     yaffs-bg-1
+32464  0   0% S     1      0K      0K  fg root     kworker/0:0
+    6  0   0% S     1      0K      0K  fg root     khelper
+    7  0   0% S     1      0K      0K  fg root     suspend</p>
+
+<p>User 1%, System 5%, IOW 0%, IRQ 0%
+User 2 + Nice 0 + Sys 6 + Idle 99 + IOW 0 + IRQ 0 + SIRQ 0 = 107</p>
+
+<p>PID PR CPU% S  #THR     VSS     RSS PCY UID      Name
+32611  0   6% R     1   1020K    416K  fg shell    top
+32464  0   0% S     1      0K      0K  fg root     kworker/0:0
+  542  0   0% S    44 314520K  31156K  fg radio    com.android.phone
+21896  0   0% S     6   5628K    340K  fg shell    /sbin/adbd
+    7  0   0% S     1      0K      0K  fg root     suspend</p>
+
+<p>User 0%, System 6%, IOW 0%, IRQ 0%
+User 1 + Nice 0 + Sys 7 + Idle 99 + IOW 0 + IRQ 0 + SIRQ 0 = 107</p>
+
+<p>PID PR CPU% S  #THR     VSS     RSS PCY UID      Name
+32611  0  10% R     1   1020K    416K  fg shell    top
+32148  0   0% S    16 288916K  29984K  fg app_60   com.csipsimple:sipStack
+  108  0   0% S     1      0K      0K  fg root     yaffs-bg-1
+    6  0   0% S     1      0K      0K  fg root     khelper
+    7  0   0% S     1      0K      0K  fg root     suspend</p>
+
+<p>User 1%, System 7%, IOW 0%, IRQ 0%
+User 2 + Nice 0 + Sys 8 + Idle 100 + IOW 0 + IRQ 0 + SIRQ 1 = 111</p>
+
+<p>PID PR CPU% S  #THR     VSS     RSS PCY UID      Name
+32611  0   6% R     1   1020K    416K  fg shell    top
+   66  0   0% S     1      0K      0K  fg root     dhd_dpc
+32464  0   0% S     1      0K      0K  fg root     kworker/0:0
+    6  0   0% S     1      0K      0K  fg root     khelper
+    7  0   0% S     1      0K      0K  fg root     suspend</p>
+
+<p>User 2%, System 5%, IOW 0%, IRQ 0%
+User 3 + Nice 0 + Sys 6 + Idle 99 + IOW 0 + IRQ 0 + SIRQ 0 = 108</p>
+
+<p>PID PR CPU% S  #THR     VSS     RSS PCY UID      Name
+32611  0   6% R     1   1020K    416K  fg shell    top
+  108  0   0% S     1      0K      0K  fg root     yaffs-bg-1
+32464  0   0% S     1      0K      0K  fg root     kworker/0:0
+    6  0   0% S     1      0K      0K  fg root     khelper
+    7  0   0% S     1      0K      0K  fg root     suspend</p>
+
+<p>User 1%, System 5%, IOW 0%, IRQ 0%
+User 2 + Nice 0 + Sys 6 + Idle 99 + IOW 0 + IRQ 0 + SIRQ 0 = 107</p>
+
+<p>PID PR CPU% S  #THR     VSS     RSS PCY UID      Name
+32611  0   7% R     1   1020K    416K  fg shell    top
+  109  0   0% S     1      0K      0K  fg root     yaffs-bg-1
+    3  0   0% S     1      0K      0K  fg root     ksoftirqd/0
+    6  0   0% S     1      0K      0K  fg root     khelper
+    7  0   0% S     1      0K      0K  fg root     suspend</p>
+
+<p>User 1%, System 4%, IOW 0%, IRQ 0%
+User 2 + Nice 0 + Sys 5 + Idle 100 + IOW 0 + IRQ 0 + SIRQ 0 = 107</p>
+
+<p>PID PR CPU% S  #THR     VSS     RSS PCY UID      Name
+32611  0   6% R     1   1020K    416K  fg shell    top
+   66  0   0% S     1      0K      0K  fg root     dhd_dpc
+32464  0   0% S     1      0K      0K  fg root     kworker/0:0
+    6  0   0% S     1      0K      0K  fg root     khelper
+    7  0   0% S     1      0K      0K  fg root     suspend</p>
+
+<p>User 2%, System 4%, IOW 0%, IRQ 0%
+User 3 + Nice 0 + Sys 5 + Idle 100 + IOW 0 + IRQ 0 + SIRQ 0 = 108</p>
+
+<p>PID PR CPU% S  #THR     VSS     RSS PCY UID      Name
+32611  0   6% R     1   1020K    416K  fg shell    top
+   54  0   0% S     1      0K      0K  fg root     file-storage
+32464  0   0% S     1      0K      0K  fg root     kworker/0:0
+    6  0   0% S     1      0K      0K  fg root     khelper
+    7  0   0% S     1      0K      0K  fg root     suspend</p>
+
+<p>User 7%, System 7%, IOW 0%, IRQ 0%
+User 8 + Nice 0 + Sys 8 + Idle 92 + IOW 0 + IRQ 0 + SIRQ 0 = 108</p>
+
+<p>PID PR CPU% S  #THR     VSS     RSS PCY UID      Name
+32611  0   7% R     1   1020K    416K  fg shell    top
+  208  0   6% S    81 424172K  79776K  fg system   system_server
+32464  0   0% S     1      0K      0K  fg root     kworker/0:0
+    6  0   0% S     1      0K      0K  fg root     khelper
+    7  0   0% S     1      0K      0K  fg root     suspend</p>
+
+<p>User 1%, System 4%, IOW 0%, IRQ 0%
+User 2 + Nice 0 + Sys 5 + Idle 100 + IOW 0 + IRQ 0 + SIRQ 0 = 107</p>
+
+<p>PID PR CPU% S  #THR     VSS     RSS PCY UID      Name
+32611  0   9% R     1   1020K    416K  fg shell    top
+32464  0   0% S     1      0K      0K  fg root     kworker/0:0
+    3  0   0% S     1      0K      0K  fg root     ksoftirqd/0
+    6  0   0% S     1      0K      0K  fg root     khelper
+    7  0   0% S     1      0K      0K  fg root     suspend</p>
+
+<p>User 2%, System 7%, IOW 0%, IRQ 0%
+User 3 + Nice 0 + Sys 8 + Idle 100 + IOW 0 + IRQ 0 + SIRQ 0 = 111</p>
+
+<p>PID PR CPU% S  #THR     VSS     RSS PCY UID      Name
+32611  0   6% R     1   1020K    416K  fg shell    top
+  103  0   0% S     1      0K      0K  fg root     yaffs-bg-1
+    3  0   0% S     1      0K      0K  fg root     ksoftirqd/0
+    6  0   0% S     1      0K      0K  fg root     khelper
+    7  0   0% S     1      0K      0K  fg root     suspend</p>
+
+<p>User 1%, System 5%, IOW 0%, IRQ 0%
+User 2 + Nice 0 + Sys 6 + Idle 100 + IOW 0 + IRQ 0 + SIRQ 0 = 108</p>
+
+<p>PID PR CPU% S  #THR     VSS     RSS PCY UID      Name
+32611  0   7% R     1   1020K    416K  fg shell    top
+32464  0   0% S     1      0K      0K  fg root     kworker/0:0
+    3  0   0% S     1      0K      0K  fg root     ksoftirqd/0
+    6  0   0% S     1      0K      0K  fg root     khelper
+    7  0   0% S     1      0K      0K  fg root     suspend</p>
+
+<p>User 3%, System 10%, IOW 0%, IRQ 0%
+User 4 + Nice 0 + Sys 11 + Idle 94 + IOW 0 + IRQ 0 + SIRQ 0 = 109</p>
+
+<p>PID PR CPU% S  #THR     VSS     RSS PCY UID      Name
+  208  0   5% S    81 424172K  79776K  fg system   system_server
+32611  0   5% R     1   1020K    416K  fg shell    top
+32464  0   0% S     1      0K      0K  fg root     kworker/0:0
+    6  0   0% S     1      0K      0K  fg root     khelper
+    7  0   0% S     1      0K      0K  fg root     suspend</p>
+
+<p>User 1%, System 3%, IOW 0%, IRQ 0%
+User 2 + Nice 0 + Sys 4 + Idle 100 + IOW 0 + IRQ 0 + SIRQ 0 = 106</p>
+
+<p>PID PR CPU% S  #THR     VSS     RSS PCY UID      Name
+32611  0   6% R     1   1020K    416K  fg shell    top
+32464  0   0% S     1      0K      0K  fg root     kworker/0:0
+    3  0   0% S     1      0K      0K  fg root     ksoftirqd/0
+    6  0   0% S     1      0K      0K  fg root     khelper
+    7  0   0% S     1      0K      0K  fg root     suspend</p>
+
+<p>User 2%, System 3%, IOW 0%, IRQ 0%
+User 3 + Nice 0 + Sys 4 + Idle 100 + IOW 0 + IRQ 0 + SIRQ 0 = 107</p>
+
+<p>PID PR CPU% S  #THR     VSS     RSS PCY UID      Name
+32611  0   6% R     1   1020K    416K  fg shell    top
+    2  0   0% S     1      0K      0K  fg root     kthreadd
+    3  0   0% S     1      0K      0K  fg root     ksoftirqd/0
+    6  0   0% S     1      0K      0K  fg root     khelper
+    7  0   0% S     1      0K      0K  fg root     suspend</p>
+
+<p>User 0%, System 6%, IOW 0%, IRQ 0%
+User 1 + Nice 0 + Sys 7 + Idle 100 + IOW 0 + IRQ 0 + SIRQ 0 = 108</p>
+
+<p>PID PR CPU% S  #THR     VSS     RSS PCY UID      Name
+32611  0   6% R     1   1020K    416K  fg shell    top
+32464  0   0% S     1      0K      0K  fg root     kworker/0:0
+    3  0   0% S     1      0K      0K  fg root     ksoftirqd/0
+    6  0   0% S     1      0K      0K  fg root     khelper
+    7  0   0% S     1      0K      0K  fg root     suspend</p>
+
+<p>User 7%, System 6%, IOW 0%, IRQ 0%
+User 6 + Nice 2 + Sys 7 + Idle 92 + IOW 0 + IRQ 0 + SIRQ 1 = 108</p>
+
+<p>PID PR CPU% S  #THR     VSS     RSS PCY UID      Name
+32611  0   7% R     1   1020K    416K  fg shell    top
+  208  0   4% S    81 424172K  79776K  fg system   system_server
+32148  0   0% S    16 288916K  29984K  fg app_60   com.csipsimple:sipStack
+31952  0   0% S     1      0K      0K  fg root     kworker/u:0
+32464  0   0% S     1      0K      0K  fg root     kworker/0:0</p>
+
+<p>User 0%, System 6%, IOW 0%, IRQ 0%
+User 1 + Nice 0 + Sys 7 + Idle 100 + IOW 0 + IRQ 0 + SIRQ 0 = 108</p>
+
+<p>PID PR CPU% S  #THR     VSS     RSS PCY UID      Name
+32611  0   7% R     1   1020K    416K  fg shell    top
+32464  0   0% S     1      0K      0K  fg root     kworker/0:0
+    3  0   0% S     1      0K      0K  fg root     ksoftirqd/0
+    6  0   0% S     1      0K      0K  fg root     khelper
+    7  0   0% S     1      0K      0K  fg root     suspend</p>
+
+<p>User 0%, System 6%, IOW 0%, IRQ 0%
+User 1 + Nice 0 + Sys 7 + Idle 99 + IOW 0 + IRQ 0 + SIRQ 0 = 107</p>
+
+<p>PID PR CPU% S  #THR     VSS     RSS PCY UID      Name
+32611  0   6% R     1   1020K    416K  fg shell    top
+32464  0   0% S     1      0K      0K  fg root     kworker/0:0
+    3  0   0% S     1      0K      0K  fg root     ksoftirqd/0
+    6  0   0% S     1      0K      0K  fg root     khelper
+    7  0   0% S     1      0K      0K  fg root     suspend</p>
+
+<p>User 2%, System 7%, IOW 0%, IRQ 0%
+User 3 + Nice 0 + Sys 8 + Idle 98 + IOW 0 + IRQ 0 + SIRQ 0 = 109</p>
+
+<p>PID PR CPU% S  #THR     VSS     RSS PCY UID      Name
+32611  0   6% R     1   1020K    416K  fg shell    top
+  129  0   1% S     3   4040K    416K  fg root     /system/bin/vold
+32464  0   0% S     1      0K      0K  fg root     kworker/0:0
+    6  0   0% S     1      0K      0K  fg root     khelper
+    7  0   0% S     1      0K      0K  fg root     suspend</p>
+
+<p>User 2%, System 4%, IOW 0%, IRQ 0%
+User 3 + Nice 0 + Sys 5 + Idle 100 + IOW 0 + IRQ 0 + SIRQ 0 = 108</p>
+
+<p>PID PR CPU% S  #THR     VSS     RSS PCY UID      Name
+32611  0   7% R     1   1020K    416K  fg shell    top
+    2  0   0% S     1      0K      0K  fg root     kthreadd
+    3  0   0% S     1      0K      0K  fg root     ksoftirqd/0
+    6  0   0% S     1      0K      0K  fg root     khelper
+    7  0   0% S     1      0K      0K  fg root     suspend</p>
+
+<p>User 3%, System 7%, IOW 0%, IRQ 0%
+User 4 + Nice 0 + Sys 8 + Idle 95 + IOW 0 + IRQ 0 + SIRQ 0 = 107</p>
+
+<p>PID PR CPU% S  #THR     VSS     RSS PCY UID      Name
+32611  0   7% R     1   1020K    416K  fg shell    top
+  208  0   4% S    81 424172K  79776K  fg system   system_server
+32464  0   1% S     1      0K      0K  fg root     kworker/0:0
+21896  0   0% S     6   5628K    340K  fg shell    /sbin/adbd
+    7  0   0% S     1      0K      0K  fg root     suspend</p>
+
+<p>User 2%, System 5%, IOW 0%, IRQ 0%
+User 3 + Nice 0 + Sys 6 + Idle 100 + IOW 0 + IRQ 0 + SIRQ 0 = 109</p>
+
+<p>PID PR CPU% S  #THR     VSS     RSS PCY UID      Name
+32611  0   7% R     1   1020K    416K  fg shell    top
+    2  0   0% S     1      0K      0K  fg root     kthreadd
+    3  0   0% S     1      0K      0K  fg root     ksoftirqd/0
+    6  0   0% S     1      0K      0K  fg root     khelper
+    7  0   0% S     1      0K      0K  fg root     suspend</p>
+
+<p>User 0%, System 6%, IOW 0%, IRQ 0%
+User 1 + Nice 0 + Sys 7 + Idle 99 + IOW 0 + IRQ 0 + SIRQ 0 = 107</p>
+
+<p>PID PR CPU% S  #THR     VSS     RSS PCY UID      Name
+32611  0   7% R     1   1020K    416K  fg shell    top
+  542  0   0% S    44 314520K  31156K  fg radio    com.android.phone
+32464  0   0% S     1      0K      0K  fg root     kworker/0:0
+    6  0   0% S     1      0K      0K  fg root     khelper
+    7  0   0% S     1      0K      0K  fg root     suspend</p>
+
+<p>User 2%, System 6%, IOW 0%, IRQ 0%
+User 3 + Nice 0 + Sys 7 + Idle 99 + IOW 0 + IRQ 0 + SIRQ 0 = 109</p>
+
+<p>PID PR CPU% S  #THR     VSS     RSS PCY UID      Name
+32611  0   6% R     1   1020K    416K  fg shell    top
+  108  0   0% S     1      0K      0K  fg root     yaffs-bg-1
+32464  0   0% S     1      0K      0K  fg root     kworker/0:0
+    6  0   0% S     1      0K      0K  fg root     khelper
+    7  0   0% S     1      0K      0K  fg root     suspend</p>
+
+<p>User 1%, System 5%, IOW 0%, IRQ 0%
+User 2 + Nice 0 + Sys 6 + Idle 100 + IOW 0 + IRQ 0 + SIRQ 0 = 108</p>
+
+<p>PID PR CPU% S  #THR     VSS     RSS PCY UID      Name
+32611  0   8% R     1   1020K    416K  fg shell    top
+    2  0   0% S     1      0K      0K  fg root     kthreadd
+    3  0   0% S     1      0K      0K  fg root     ksoftirqd/0
+    6  0   0% S     1      0K      0K  fg root     khelper
+    7  0   0% S     1      0K      0K  fg root     suspend</p>
+
+<p>User 2%, System 5%, IOW 0%, IRQ 0%
+User 3 + Nice 0 + Sys 6 + Idle 100 + IOW 0 + IRQ 0 + SIRQ 0 = 109</p>
+
+<p>PID PR CPU% S  #THR     VSS     RSS PCY UID      Name
+32611  0   5% R     1   1020K    416K  fg shell    top
+  108  0   0% S     1      0K      0K  fg root     yaffs-bg-1
+32464  0   0% S     1      0K      0K  fg root     kworker/0:0
+    6  0   0% S     1      0K      0K  fg root     khelper
+    7  0   0% S     1      0K      0K  fg root     suspend</p>
+
+<p>User 2%, System 3%, IOW 0%, IRQ 0%
+User 3 + Nice 0 + Sys 4 + Idle 100 + IOW 0 + IRQ 0 + SIRQ 0 = 107</p>
+
+<p>PID PR CPU% S  #THR     VSS     RSS PCY UID      Name
+32611  0   7% R     1   1020K    416K  fg shell    top
+32464  0   0% S     1      0K      0K  fg root     kworker/0:0
+    3  0   0% S     1      0K      0K  fg root     ksoftirqd/0
+    6  0   0% S     1      0K      0K  fg root     khelper
+    7  0   0% S     1      0K      0K  fg root     suspend</p>
+
+<p>User 1%, System 5%, IOW 0%, IRQ 0%
+User 2 + Nice 0 + Sys 6 + Idle 100 + IOW 0 + IRQ 0 + SIRQ 0 = 108</p>
+
+<p>PID PR CPU% S  #THR     VSS     RSS PCY UID      Name
+32611  0   6% R     1   1020K    416K  fg shell    top
+32148  0   0% S    16 288916K  29984K  fg app_60   com.csipsimple:sipStack
+32464  0   0% S     1      0K      0K  fg root     kworker/0:0
+    6  0   0% S     1      0K      0K  fg root     khelper
+    7  0   0% S     1      0K      0K  fg root     suspend</p>
+
+<p>User 3%, System 3%, IOW 0%, IRQ 0%
+User 4 + Nice 0 + Sys 4 + Idle 100 + IOW 0 + IRQ 0 + SIRQ 0 = 108</p>
+
+<p>PID PR CPU% S  #THR     VSS     RSS PCY UID      Name
+32611  0  10% R     1   1020K    416K  fg shell    top
+32464  0   0% S     1      0K      0K  fg root     kworker/0:0
+    3  0   0% S     1      0K      0K  fg root     ksoftirqd/0
+    6  0   0% S     1      0K      0K  fg root     khelper
+    7  0   0% S     1      0K      0K  fg root     suspend</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #5</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jun 12, 2012 by
+                  <i class="ng-binding">Swift Cat</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>top -m 5 command reported com.csipsimple:sipStack at 1%</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #6</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jun 12, 2012 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>So probably an option somewhere. I'll try on an older device than the SGS 1. On your side can you try to disable STUN option to see if it helps?</p>
+
+<p>Thanks</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #7</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jun 13, 2012 by
+                  <i class="ng-binding">Swift Cat</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>I tried to disable STUN, but it seems that nothing has changed.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #8</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jun 19, 2012 by
+                  <i class="ng-binding">Swift Cat</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>The third process is telCallHandler.
+sipStack is at 1% or more when the third is present.
+When there are only two 'standard' processes (CSipSimple disconnected, used only for outgoing call) sipStack is at 0%.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #9</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jun 19, 2012 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Ok, make sense, it's probably linked to another problem another user reported to me.</p>
+
+<p>When you go in filters section of settings, is the loading instant? and does gsm option is there?</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #10</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jun 19, 2012 by
+                  <i class="ng-binding">Swift Cat</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Condition
+CSipSimple started and 2 processes present.
+I usually don't use filters, so no filters for me.</p>
+
+<p>Test
+Loading is quick and gsm option is present.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #11</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jun 19, 2012 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Thanks,</p>
+
+<p>I've merged the telCallHandler process with the sipStack one (as was previously). It's right that it will reduce the waiting loops since shared with others of the process.</p>
+
+<p>It will be produced tonight. Hopefully it will help.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #12</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jun 20, 2012 by
+                  <i class="ng-binding">Swift Cat</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>In r1633 there is no more the third process, but when CSipSimple is diconnected the sipStack process uses more than 1% of CPU.
+Before the start of the app both the processes are at 0% of CPU.
+I imagine that before the start and after disconnection (I use the app for outgoing only) CSipSimple should do 'nothing' with CPU at 0%.
+Maybe I need to change something in settings ...</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #13</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Aug 8, 2013 by
+                  <i class="ng-binding">Helpful Camel</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Hi, just to bump this a bit. I also see unusual CPU utilization of com.sipsimple, around 3-4% even when the GUI is not visible. Removing it from the last-used-apps list also removes that CPU usage.</p>
+
+<p>Kind regards
+Malte</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #14</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jun 22, 2015 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content -->
+              <!-- ngIf: !comment.content --><span ng-if="!comment.content" class="ng-scope">
+                <p><em>(No comment was entered for this change.)</em></p>
+              </span><!-- end ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments -->
+          </div>
+
+          <!-- Sidebar with additional information -->
+          <div class="maia-col-4">
+            <div class="maia-aside">
+              <p>Status: <code class="ng-binding">Obsolete</code></p>
+              <!-- ngIf: issueCtrl.issue.labels.length > 0 --><p ng-if="issueCtrl.issue.labels.length &gt; 0" class="ng-scope">
+                Labels:
+                <br>
+                <!-- ngRepeat: label in issueCtrl.issue.labels track by $index --><span ng-repeat="label in issueCtrl.issue.labels track by $index" class="ng-scope">
+                  <span class="gca-label ng-binding">Type-Defect</span>
+                </span><!-- end ngRepeat: label in issueCtrl.issue.labels track by $index --><span ng-repeat="label in issueCtrl.issue.labels track by $index" class="ng-scope">
+                  <span class="gca-label ng-binding">Priority-Medium</span>
+                </span><!-- end ngRepeat: label in issueCtrl.issue.labels track by $index -->
+              </p><!-- end ngIf: issueCtrl.issue.labels.length > 0 -->
+            </div>
+          </div>
+        </div><!-- end ngIf: !issueCtrl.error -->
+      </div>
+    </div>
+
+  </div>
+</div>
+</div></div></div>
+    <noscript>
+      &lt;p&gt;The Google Code Archive requires JavaScript to be enabled in your browser.&lt;/p&gt;
+    </noscript>
+
+    <div id="maia-signature"></div>
+    <div class="maia-footer" id="maia-footer">
+      <div id="maia-footer-local">
+      </div>
+      <div id="maia-footer-global">
+        <div class="maia-aux">
+          <ul>
+            <li>
+              <a href="//www.google.com/">Google</a>
+            </li>
+            <li>
+              <a href="//www.google.com/intl/en/about/">About Google</a>
+            </li>
+            <li>
+              <a href="//www.google.com/intl/en/policies/privacy/">Privacy</a>
+            </li>
+            <li>
+              <a href="//www.google.com/intl/en/policies/terms/">Terms</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <script src="//www.google.com/js/maia.js"></script>
+  
+
+
+</body></html>

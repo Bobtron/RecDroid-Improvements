@@ -1,0 +1,562 @@
+https://code.google.com/archive/p/csipsimple/issues/2316<!DOCTYPE html><html class="google ng-scope" lang="en" ng-app="codesiteArchive.application"><head>
+    <meta charset="utf-8">
+    <meta content="initial-scale=1, minimum-scale=1, width=device-width" name="viewport">
+
+    <!-- https://developers.google.com/webmasters/ajax-crawling/docs/specification -->
+    <meta name="fragment" content="!">
+    <title>Google Code Archive - Long-term storage for Google Code Project Hosting.</title>
+
+    <link rel="icon" type="image/vnd.microsoft.icon" href="/archive/img/project-hosting.ico">
+    <script src="//www.google.com/js/google.js"></script>
+    <link href="//www.google.com/css/maia.css" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;lang=en" rel="stylesheet">
+    <link rel="stylesheet" href="/archive/archive_css.css">
+    <script>
+      CLOSURE_NO_DEPS = true;
+    </script>
+    <script src="/archive/angular.js"></script><style type="text/css">@charset "UTF-8";
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak],
+.ng-cloak, .x-ng-cloak,
+.ng-hide:not(.ng-hide-animate) {
+  display: none !important;
+}
+
+ng\:form {
+  display: block;
+}
+
+.ng-animate-shim {
+  visibility:hidden;
+}
+
+.ng-anchor {
+  position:absolute;
+}
+</style>
+    <script src="/archive/pagedown.js"></script>
+    <script src="/archive/archive.js"></script>
+    <base href="/archive/">
+  </head>
+
+  <body>
+    <div class="maia-header" id="maia-header" role="banner">
+      <div class="maia-aux">
+        <a href="/archive/">
+          </a><h1><a href="/archive/">
+            <img alt="Google" src="//www.google.com/images/branding/googlelogo/1x/googlelogo_color_116x41dp.png"> Code</a>
+          </h1>
+        
+        <a href="/archive/">
+          <h2>Archive</h2>
+        </a>
+        <a class="maia-teleport" href="#content">Skip to content</a>
+        <div class="maia-util">
+          <form action="/archive/search" class="maia-search ng-pristine ng-valid">
+            <input name="q" placeholder="Search this site" type="text">
+            <button class="maia-button">
+              <span class="maia-search-icon">Search</span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- ngView: --><div ng-view="" class="ng-scope"><div ng-controller="ProjectIssueCtrl as issueCtrl" class="ng-scope">
+<nav-bar-widget nav-level-1="projectCtrl.navLevel1" class="ng-isolate-scope"><div class="maia-nav maia-complex" id="maia-nav-x" role="navigation">
+  <div class="maia-aux">
+    <ul>
+      <li ng-class="{active: navLevel1 == 'projects'}">
+        <a href="/archive/">Projects</a>
+        <!-- ngIf: navLevel2 -->
+      </li>
+      <li ng-class="{active: navLevel1 == 'search'}">
+        <a href="/archive/search">Search</a>
+      </li>
+      <li ng-class="{active: navLevel1 == 'about'}">
+        <a href="/archive/about">About</a>
+      </li>
+    </ul>
+  </div>
+</div>
+</nav-bar-widget>
+<div id="maia-main" role="main">
+
+  <!-- ngIf: issueCtrl.notFound -->
+
+  <div ng-hide="issueCtrl.notFound">
+    <!-- Left-side resource nav -->
+    <project-resources-widget domain="issueCtrl.domain" project="issueCtrl.projectName" class="ng-isolate-scope"><div class="maia-nav" id="maia-nav-y" role="navigation">
+  <!-- ngIf: domain == 'code.google.com' --><ul ng-if="domain == 'code.google.com'" class="ng-scope">
+    <li class="active">
+      <a href="/archive/p/csipsimple/">Project</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/source">Source</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/issues">Issues</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/wikis">Wikis</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/downloads">Downloads</a>
+    </li>
+  </ul><!-- end ngIf: domain == 'code.google.com' -->
+
+    <!-- ngIf: domain != 'code.google.com' -->
+</div></project-resources-widget>
+
+    <div class="maia-article" role="article">
+      <div class="maia-teleport" id="content"></div>
+      <div class="maia-cols">
+        <div id="gca-project-header" class="maia-col-10">
+          <a id="gca-export-to-gh" class="maia-button" href="https://code.google.com/export-to-github/export?project=csipsimple">Export to GitHub</a>
+            <img class="gca-project-logo" src="https://storage.googleapis.com/google-code-archive/v2/code.google.com/csipsimple/logo.png">
+            <h1 class="ng-binding">csipsimple - issue #2316</h1>
+            <p class="ng-binding">SIGSEGV android_audioRecorder_realize</p>
+        </div>
+
+        <div class="maia-col-10">
+          <hr>
+
+        <!-- ngIf: issueCtrl.error -->
+
+        <!-- ngIf: !issueCtrl.error --><div ng-if="!issueCtrl.error" class="ng-scope">
+          <!-- Comments -->
+          <div class="maia-col-8">
+            <!-- ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Apr 9, 2013 by
+                  <i class="ng-binding">Swift Kangaroo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p><b>What steps will reproduce the problem?</b>
+1. answer call
+<b>2.</b>
+<b>3.</b></p>
+
+<p><b>What is the expected output? What do you see instead?</b>
+When I move the slider to answer call, CS crashes.</p>
+
+<p><b>What version of the product are you using? On what operating system?</b>
+CS r2194
+ZTE Blade III CyanogenMod 10.1 (Android 4.2.2)</p>
+
+<p><b>Please provide any additional information below.</b></p>
+
+<p>My comment was too long, 60 KB was too much :(
+<a href="http://pastebin.com/raw.php?i=Eq0c8C2P">http://pastebin.com/raw.php?i=Eq0c8C2P</a></p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #1</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Apr 9, 2013 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>It looks like the ROM has a bug with OpenSL-ES.</p>
+
+<p>As a workaround (until fixed by the ROM properly), you can switch to java/jni implementation.</p>
+
+<p>To do so:
+Go in settings, press menu and expert mode
+Then in media &gt; audio troubleshooting section; in audio implementation choose Java instead of OpenSLES</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #2</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Apr 9, 2013 by
+                  <i class="ng-binding">Massive Dog</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Java worked better, thanks!  But crashed after a minute of chatting.</p>
+
+<p>04-09 16:11:14.205 I/libpjsip(16009): 16:11:14.216 zrtp_android.c  ZRTP warning message: Dropping packet because SRTP replay check failed!
+04-09 16:11:16.788 V/Timer wrap(16009): FIRE Received...
+04-09 16:11:16.788 V/Timer wrap(16009): Treat 134
+04-09 16:11:16.788 V/SipWakeLock(16009): acquire wakelock: holder count=1
+04-09 16:11:16.788 V/Timer wrap(16009): FIRE START 134
+04-09 16:11:16.788 V/libpjsip(16009): 16:11:16.800 timer_android. !FIRE timer 6 of heap 1
+04-09 16:11:16.788 V/libpjsip(16009): 16:11:16.800    pjsua_acc.c  Sending 2 bytes keep-alive packet for acc 3 to 199.7.173.100:5060
+04-09 16:11:16.788 V/libpjsip(16009): 16:11:16.801 tdta0x4dc99148  Destroying txdata raw
+04-09 16:11:16.788 V/libpjsip(16009): 16:11:16.801 timer_android.  Scheduling timer 0 of 1 in 80000 ms @ 0x53dc7330
+04-09 16:11:16.808 V/Timer wrap(16009): Schedule 128 in 80000ms
+04-09 16:11:16.808 V/libpjsip(16009): 16:11:16.817 timer_android.  FIRE done and released
+04-09 16:11:16.808 V/SipWakeLock(16009): release wakelock: holder count=0
+04-09 16:11:16.808 V/Timer wrap(16009): FIRE DONE 134
+04-09 16:11:17.218 I/libpjsip(16009): 16:11:17.228 zrtp_android.c !ZRTP warning message: Dropping packet because SRTP replay check failed!
+04-09 16:11:18.820 I/libpjsip(16009): 16:11:18.827 zrtp_android.c  ZRTP warning message: Dropping packet because SRTP replay check failed!
+04-09 16:11:19.871 I/libpjsip(16009): 16:11:19.876 zrtp_android.c !ZRTP warning message: Dropping packet because SRTP replay check failed!
+04-09 16:11:20.191 I/libpjsip(16009): 16:11:20.197 zrtp_android.c  ZRTP warning message: Dropping packet because SRTP replay check failed!
+04-09 16:11:21.513 V/libpjsip(16009): 16:11:21.520 strm0x4d2b29f4 !Jitter buffer empty (prefetch=0), plc invoked
+04-09 16:11:21.533 V/libpjsip(16009): 16:11:21.542 strm0x4d2b29f4  Jitter buffer starts returning normal frames (after 1 empty/lost)
+04-09 16:11:21.723 I/libpjsip(16009): 16:11:21.727 zrtp_android.c !ZRTP warning message: Dropping packet because SRTP replay check failed!
+04-09 16:11:22.043 I/libpjsip(16009): 16:11:22.047 zrtp_android.c  ZRTP warning message: Dropping packet because SRTP replay check failed!
+04-09 16:11:22.624 I/libpjsip(16009): 16:11:22.626 zrtp_android.c !ZRTP warning message: Dropping packet because SRTP replay check failed!
+04-09 16:11:23.194 D/dalvikvm(15752): GC_CONCURRENT freed 399K, 69% free 2355K/7588K, paused 4ms+2ms, total 65ms
+04-09 16:11:23.314 I/libpjsip(16009): 16:11:23.328 zrtp_android.c  ZRTP warning message: Dropping packet because SRTP replay check failed!
+04-09 16:11:24.285 I/libpjsip(16009): 16:11:24.286 zrtp_android.c  ZRTP warning message: Dropping packet because SRTP replay check failed!
+04-09 16:11:24.515 V/libpjsip(16009): 16:11:24.530 strm0x4d2b29f4  RTT value 39306 usec is normalized to 37377 usec
+04-09 16:11:24.616 I/libpjsip(16009): 16:11:24.627 zrtp_android.c !ZRTP warning message: Dropping packet because SRTP replay check failed!
+04-09 16:11:25.576 I/libpjsip(16009): 16:11:25.587 zrtp_android.c !ZRTP warning message: Dropping packet because SRTP replay check failed!
+04-09 16:11:25.897 I/libpjsip(16009): 16:11:25.906 zrtp_android.c  ZRTP warning message: Dropping packet because SRTP replay check failed!
+04-09 16:11:26.217 I/libpjsip(16009): 16:11:26.227 zrtp_android.c !ZRTP warning message: Dropping packet because SRTP replay check failed!
+04-09 16:11:26.607 I/libpjsip(16009): 16:11:26.617 zrtp_android.c  ZRTP warning message: Dropping packet because SRTP replay check failed!
+04-09 16:11:28.850 I/libpjsip(16009): 16:11:28.857 zrtp_android.c  ZRTP warning message: Dropping packet because SRTP replay check failed!
+04-09 16:11:29.550 V/libpjsip(16009): 16:11:29.558 strm0x4d2b29f4 !RTT value 63995 usec is normalized to 42360 usec
+04-09 16:11:29.640 V/libpjsip(16009): 16:11:29.654 strm0x4d2b29f4 !Jitter buffer empty (prefetch=0), plc invoked
+04-09 16:11:30.051 V/libpjsip(16009): 16:11:30.060 strm0x4d2b29f4  Jitter buffer starts returning normal frames (after 19 empty/lost)
+04-09 16:11:30.261 D/dalvikvm(16009): GC_CONCURRENT freed 281K, 60% free 3043K/7588K, paused 14ms+19ms, total 117ms
+04-09 16:11:30.671 V/libpjsip(16009): 16:11:30.681 strm0x4d2b29f4  Frame lost, recovered!
+04-09 16:11:30.681 V/libpjsip(16009): 16:11:30.685 strm0x4d2b29f4  Jitter buffer starts returning normal frames (after 1 empty/lost)
+04-09 16:11:30.942 F/libc    (16009): Fatal signal 11 (SIGSEGV) at 0x4be41000 (code=2), thread 16061 (ervice.Executor)
+04-09 16:11:31.052 I/DEBUG   (  107): <strong>* <em></em></strong><em> <strong></strong></em><strong> <em></em></strong><em> <strong></strong></em><strong> <em></em></strong><em> <strong></strong></em><strong> <em></em></strong><em> <strong></strong></em><strong> <em></em></strong><em> <strong></strong></em><strong> <em></em></strong><em> <strong></strong></em><strong> <em></em></strong><em> <strong></strong></em><strong> *</strong>
+04-09 16:11:31.052 I/DEBUG   (  107): Build fingerprint: 'ZTE/N880E_JB4_2/atlas40:4.2/JOP40C/20121121.110335:user/release-keys'
+04-09 16:11:31.052 I/DEBUG   (  107): Revision: '0'
+04-09 16:11:31.052 I/DEBUG   (  107): pid: 16009, tid: 16061, name: ervice.Executor  &gt;&gt;&gt; com.csipsimple:sipStack &lt;&lt;&lt;
+04-09 16:11:31.052 I/DEBUG   (  107): signal 11 (SIGSEGV), code 2 (SEGV_ACCERR), fault addr 4be41000
+04-09 16:11:31.112 W/AudioFlinger(  112): RecordThread: buffer overflow
+04-09 16:11:31.492 I/DEBUG   (  107):     r0 4d2b1bd0  r1 4be41000  r2 48dfbee4  r3 290cc338
+04-09 16:11:31.492 I/DEBUG   (  107):     r4 e69930ff  r5 6e8a59a0  r6 ddadd769  r7 4ae0d120
+04-09 16:11:31.492 I/DEBUG   (  107):     r8 5a827999  r9 00000000  sl 3ba65478  fp 85174964
+04-09 16:11:31.492 I/DEBUG   (  107):     ip a6ea9881  sp 543d6bb4  lr 543d6bd4  pc 408eaab4  cpsr 20000010
+04-09 16:11:31.492 I/DEBUG   (  107):     d0  0000000000000045  d1  00000000000000c2
+04-09 16:11:31.492 I/DEBUG   (  107):     d2  0000000000000051  d3  000000000000006d
+04-09 16:11:31.492 I/DEBUG   (  107):     d4  0000000000000000  d5  0000000000000000
+04-09 16:11:31.492 I/DEBUG   (  107):     d6  0000000000000000  d7  0000000000000000
+04-09 16:11:31.492 I/DEBUG   (  107):     d8  0000000000000000  d9  0000000000000000
+04-09 16:11:31.492 I/DEBUG   (  107):     d10 0000000000000000  d11 0000000000000000
+04-09 16:11:31.492 I/DEBUG   (  107):     d12 0000000000000000  d13 0000000000000000
+04-09 16:11:31.492 I/DEBUG   (  107):     d14 0000000000000000  d15 0000000000000000
+04-09 16:11:31.492 I/DEBUG   (  107):     d16 0000000000000000  d17 0000000000000000
+04-09 16:11:31.492 I/DEBUG   (  107):     d18 0000000000000000  d19 0000000000000000
+04-09 16:11:31.492 I/DEBUG   (  107):     d20 0000000000000000  d21 0000000000000000
+04-09 16:11:31.492 I/DEBUG   (  107):     d22 0000000000000000  d23 0000000000000000
+04-09 16:11:31.492 I/DEBUG   (  107):     d24 3fc7466e1d4d3f84  d25 3fe55559ee5e69f9
+04-09 16:11:31.492 I/DEBUG   (  107):     d26 0000000000000008  d27 0000000000000025
+04-09 16:11:31.492 I/DEBUG   (  107):     d28 0000000000000000  d29 0000000000000000
+04-09 16:11:31.492 I/DEBUG   (  107):     d30 0000000000000000  d31 0000000000000000
+04-09 16:11:31.502 I/DEBUG   (  107):     scr 60000010
+04-09 16:11:31.502 I/DEBUG   (  107): 
+04-09 16:11:31.502 I/DEBUG   (  107): backtrace:
+04-09 16:11:31.502 I/DEBUG   (  107):     #00  pc 00034ab4  /system/lib/libcrypto.so (sha1_block_data_order+116)
+04-09 16:11:31.502 I/DEBUG   (  107):     #01  pc 000fbbd0  
+04-09 16:11:31.502 I/DEBUG   (  107): 
+04-09 16:11:31.502 I/DEBUG   (  107): stack:
+04-09 16:11:31.502 I/DEBUG   (  107):          543d6b74  00000000 <br>
+04-09 16:11:31.502 I/DEBUG   (  107):          543d6b78  00000000 <br>
+04-09 16:11:31.502 I/DEBUG   (  107):          543d6b7c  00000000 <br>
+04-09 16:11:31.502 I/DEBUG   (  107):          543d6b80  00000000 <br>
+04-09 16:11:31.502 I/DEBUG   (  107):          543d6b84  00000000 <br>
+04-09 16:11:31.502 I/DEBUG   (  107):          543d6b88  00000000 <br>
+04-09 16:11:31.502 I/DEBUG   (  107):          543d6b8c  00000000 <br>
+04-09 16:11:31.502 I/DEBUG   (  107):          543d6b90  00000000 <br>
+04-09 16:11:31.502 I/DEBUG   (  107):          543d6b94  00000000 <br>
+04-09 16:11:31.502 I/DEBUG   (  107):          543d6b98  00000000 <br>
+04-09 16:11:31.502 I/DEBUG   (  107):          543d6b9c  00000000 <br>
+04-09 16:11:31.502 I/DEBUG   (  107):          543d6ba0  00000000 <br>
+04-09 16:11:31.502 I/DEBUG   (  107):          543d6ba4  00000000 <br>
+04-09 16:11:31.502 I/DEBUG   (  107):          543d6ba8  df0027ad <br>
+04-09 16:11:31.502 I/DEBUG   (  107):          543d6bac  00000000 <br>
+04-09 16:11:31.502 I/DEBUG   (  107):          543d6bb0  00000000 <br>
+04-09 16:11:31.502 I/DEBUG   (  107):     #00  543d6bb4  00000000 <br>
+04-09 16:11:31.502 I/DEBUG   (  107):          ........  ........
+04-09 16:11:31.502 I/DEBUG   (  107):     #01  543d6bb4  00000000 <br>
+04-09 16:11:31.502 I/DEBUG   (  107):          543d6bb8  00000000 <br>
+04-09 16:11:31.502 I/DEBUG   (  107):          543d6bbc  00000000 <br>
+04-09 16:11:31.502 I/DEBUG   (  107):          543d6bc0  00000000 <br>
+04-09 16:11:31.502 I/DEBUG   (  107):          543d6bc4  00000000 <br>
+04-09 16:11:31.502 I/DEBUG   (  107):          543d6bc8  00000000 <br>
+04-09 16:11:31.502 I/DEBUG   (  107):          543d6bcc  00000000 <br>
+04-09 16:11:31.502 I/DEBUG   (  107):          543d6bd0  00000000 <br>
+04-09 16:11:31.502 I/DEBUG   (  107):          543d6bd4  00000000 <br>
+04-09 16:11:31.502 I/DEBUG   (  107):          543d6bd8  00000000 <br>
+04-09 16:11:31.502 I/DEBUG   (  107):          543d6bdc  00000000 <br>
+04-09 16:11:31.512 I/DEBUG   (  107):          543d6be0  00000000 <br>
+04-09 16:11:31.512 I/DEBUG   (  107):          543d6be4  00000000 <br>
+04-09 16:11:31.512 I/DEBUG   (  107):          543d6be8  00000000 <br>
+04-09 16:11:31.512 I/DEBUG   (  107):          543d6bec  00000000 <br>
+04-09 16:11:31.512 I/DEBUG   (  107):          543d6bf0  fffe2b2d <br>
+04-09 16:11:31.512 I/DEBUG   (  107): 
+04-09 16:11:31.512 I/DEBUG   (  107): memory near r0:
+  censored</p>
+
+<p>04-09 16:11:31.552 I/DEBUG   (  107): code around pc:
+04-09 16:11:31.552 I/DEBUG   (  107):     408eaa94 e024a005 e0866de7 e6bf9f39 e003a16a <br>
+04-09 16:11:31.552 I/DEBUG   (  107):     408eaaa4 e0866009 e02aa165 e52e9004 e086600a <br>
+04-09 16:11:31.552 I/DEBUG   (  107):     408eaab4 e4919004 e0885165 e023a004 e0855de6 <br>
+04-09 16:11:31.552 I/DEBUG   (  107):     408eaac4 e6bf9f39 e007a16a e0855009 e02aa164 <br>
+04-09 16:11:31.552 I/DEBUG   (  107):     408eaad4 e52e9004 e085500a e4919004 e0884164 <br>
+04-09 16:11:31.552 I/DEBUG   (  107):     408eaae4 e027a003 e0844de5 e6bf9f39 e006a16a <br>
+04-09 16:11:31.552 I/DEBUG   (  107):     408eaaf4 e0844009 e02aa163 e52e9004 e084400a <br>
+04-09 16:11:31.552 I/DEBUG   (  107):     408eab04 e4919004 e0883163 e026a007 e0833de4 <br>
+04-09 16:11:31.552 I/DEBUG   (  107):     408eab14 e6bf9f39 e005a16a e0833009 e02aa167 <br>
+04-09 16:11:31.552 I/DEBUG   (  107):     408eab24 e52e9004 e083300a e13e000d 1affffcb <br>
+04-09 16:11:31.552 I/DEBUG   (  107):     408eab34 e24dd014 e4919004 e0887167 e025a006 <br>
+04-09 16:11:31.552 I/DEBUG   (  107):     408eab44 e0877de3 e6bf9f39 e004a16a e0877009 <br>
+04-09 16:11:31.552 I/DEBUG   (  107):     408eab54 e02aa166 e52e9004 e087700a e59e903c <br>
+04-09 16:11:31.552 I/DEBUG   (  107):     408eab64 e59ea034 e59eb01c e0886166 e59ec008 <br>
+04-09 16:11:31.552 I/DEBUG   (  107):     408eab74 e029900a e02bb00c e024a005 e1a09fe9 <br>
+04-09 16:11:31.562 I/DEBUG   (  107):     408eab84 e0866de7 e0299feb e52e9004 e003a16a <br>
+04-09 16:11:31.562 I/DEBUG   (  107): 
+04-09 16:11:31.562 I/DEBUG   (  107): code around lr:
+04-09 16:11:31.562 I/DEBUG   (  107):     543d6bb4 00000000 00000000 00000000 00000000 <br>
+04-09 16:11:31.562 I/DEBUG   (  107):     543d6bc4 00000000 00000000 00000000 00000000 <br>
+04-09 16:11:31.562 I/DEBUG   (  107):     543d6bd4 00000000 00000000 00000000 00000000 <br>
+04-09 16:11:31.562 I/DEBUG   (  107):     543d6be4 00000000 00000000 00000000 fffe2b2d <br>
+04-09 16:11:31.562 I/DEBUG   (  107):     543d6bf4 4d2b1bd0 48e193e4 fffe2b00 543d6c60 <br>
+04-09 16:11:31.562 I/DEBUG   (  107):     543d6c04 fffe2b2d 61776162 40140228 53db6e80 <br>
+04-09 16:11:31.562 I/DEBUG   (  107):     543d6c14 40942ba5 4d82a980 543d6c78 543d6c80 <br>
+04-09 16:11:31.562 I/DEBUG   (  107):     543d6c24 543d6c6c 543d6c60 40925e43 543fc3cf <br>
+04-09 16:11:31.562 I/DEBUG   (  107):     543d6c34 53cf61e3 00000000 543d6c68 4d83e530 <br>
+04-09 16:11:31.562 I/DEBUG   (  107):     543d6c44 543d6cb8 40140228 48e193e4 fffe2b2d <br>
+04-09 16:11:31.562 I/DEBUG   (  107):     543d6c54 53cf5729 543d6c60 4d8f7528 00000052 <br>
+04-09 16:11:31.562 I/DEBUG   (  107):     543d6c64 62617761 48e193e4 543d6c64 00000000 <br>
+04-09 16:11:31.562 I/DEBUG   (  107):     543d6c74 fffe2b2d 00000004 48e1385c 48e18abc <br>
+04-09 16:11:31.562 I/DEBUG   (  107):     543d6c84 00000004 0000004a 48e18ac8 40accf7c <br>
+04-09 16:11:31.562 I/DEBUG   (  107):     543d6c94 543fc3cf 4d83e530 48e193e4 543d6cb8 <br>
+04-09 16:11:31.562 I/DEBUG   (  107):     543d6ca4 48dfbf15 61776162 53cf4c93 543d6cb8 <br>
+04-09 16:11:31.562 I/DEBUG   (  107): 
+04-09 16:11:31.562 I/DEBUG   (  107): memory map around fault addr 4be41000:
+04-09 16:11:31.562 I/DEBUG   (  107):     4be2b000-4be41000 /system/lib/libstagefright_soft_amrwbenc.so
+04-09 16:11:31.562 I/DEBUG   (  107):     4be41000-4be42000 
+04-09 16:11:31.562 I/DEBUG   (  107):     4be42000-4be43000 /system/lib/libstagefright_soft_amrwbenc.so
+04-09 16:11:31.783 I/am_proc_died(  464): [0,16073,com.google.android.apps.plus]
+04-09 16:11:31.783 I/ActivityManager(  464): Process com.google.android.apps.plus (pid 16073) has died.
+04-09 16:11:31.943 I/WindowState(  464): WIN DEATH: Window{41684230 u0 com.csipsimple/com.csipsimple.ui.incall.InCallActivity}
+04-09 16:11:31.953 I/am_proc_died(  464): [0,16009,com.csipsimple:sipStack]
+04-09 16:11:31.953 I/notification_cancel(  464): [com.csipsimple,1,NULL,0,0,0]
+04-09 16:11:31.953 I/am_schedule_service_restart(  464): [0,com.csipsimple/.service.SipService,5000]
+04-09 16:11:31.953 I/ActivityManager(  464): Process com.csipsimple:sipStack (pid 16009) has died.
+04-09 16:11:31.953 W/ActivityManager(  464): Scheduling restart of crashed service com.csipsimple/.service.SipService in 5000ms</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #3</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Apr 9, 2013 by
+                  <i class="ng-binding">Massive Dog</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>&lt;3&gt;[04-09 13:11:25.767] [14095: kworker/0:0]TAOS: lux_timep-&gt;saturation=8100 hi=492 lo=296
+&lt;3&gt;[04-09 13:11:31.372] [audio_pcm_in.c:audpcm_in_get_dsp_frames] Error! not able to keep up the read
+&lt;3&gt;[04-09 13:11:31.402] [audio_pcm_in.c:audpcm_in_get_dsp_frames] Error! not able to keep up the read
+&lt;3&gt;[04-09 13:11:31.432] [audio_pcm_in.c:audpcm_in_get_dsp_frames] Error! not able to keep up the read
+&lt;3&gt;[04-09 13:11:31.462] [audio_pcm_in.c:audpcm_in_get_dsp_frames] Error! not able to keep up the read
+&lt;3&gt;[04-09 13:11:31.492] [audio_pcm_in.c:audpcm_in_get_dsp_frames] Error! not able to keep up the read
+&lt;3&gt;[04-09 13:11:31.532] [audio_pcm_in.c:audpcm_in_get_dsp_frames] Error! not able to keep up the read
+&lt;3&gt;[04-09 13:11:31.562] [audio_pcm_in.c:audpcm_in_get_dsp_frames] Error! not able to keep up the read
+&lt;3&gt;[04-09 13:11:31.592] [audio_pcm_in.c:audpcm_in_get_dsp_frames] Error! not able to keep up the read
+&lt;3&gt;[04-09 13:11:31.622] [audio_pcm_in.c:audpcm_in_get_dsp_frames] Error! not able to keep up the read
+&lt;3&gt;[04-09 13:11:31.652] [audio_pcm_in.c:audpcm_in_get_dsp_frames] Error! not able to keep up the read
+&lt;3&gt;[04-09 13:11:31.692] [audio_pcm_in.c:audpcm_in_get_dsp_frames] Error! not able to keep up the read
+&lt;3&gt;[04-09 13:11:31.722] [audio_pcm_in.c:audpcm_in_get_dsp_frames] Error! not able to keep up the read
+&lt;3&gt;[04-09 13:11:31.753] [audio_pcm_in.c:audpcm_in_get_dsp_frames] Error! not able to keep up the read
+&lt;4&gt;[04-09 13:11:31.773] [28: kswapd0]select 16073 (droid.apps.plus), adj 15, size 7920, to kill
+&lt;4&gt;[04-09 13:11:31.773] [28: kswapd0]send sigkill to 16073 (droid.apps.plus), adj 15, size 7920
+&lt;3&gt;[04-09 13:11:31.783] [audio_pcm_in.c:audpcm_in_get_dsp_frames] Error! not able to keep up the read
+&lt;3&gt;[04-09 13:11:31.813] [audio_pcm_in.c:audpcm_in_get_dsp_frames] Error! not able to keep up the read
+&lt;3&gt;[04-09 13:11:31.853] [audio_pcm_in.c:audpcm_in_get_dsp_frames] Error! not able to keep up the read
+&lt;3&gt;[04-09 13:11:31.883] [audio_pcm_in.c:audpcm_in_get_dsp_frames] Error! not able to keep up the read
+&lt;3&gt;[04-09 13:11:31.913] [audio_pcm_in.c:audpcm_in_get_dsp_frames] Error! not able to keep up the read
+&lt;6&gt;[04-09 13:11:31.953] [16142: AudioIn_6E3][adsp.c:msm_adsp_disable] disable 'AUDREC1TASK'
+&lt;6&gt;[04-09 13:11:31.953] [audio_pcm_in.c:audrec_dsp_event] CFG SLEEP
+&lt;6&gt;[04-09 13:11:31.953] [16142: AudioIn_6E3][adsp.c:msm_adsp_disable] disable 'AUDPREPROCTASK'
+&lt;6&gt;[04-09 13:11:31.953] [16142: AudioIn_6E3][audmgr.c:audmgr_disable] session 0xc08a60e4
+&lt;4&gt;[04-09 13:11:31.953] [1361: Binder_C]kxtik_disable. Count = 0
+&lt;6&gt;[04-09 13:11:31.953] [1465: audmgr_rpc][audmgr.c:audmgr_rpc_thread] rpc_reply status 0
+&lt;3&gt;[04-09 13:11:31.973] [1465: audmgr_rpc][audmgr.c:process_audmgr_callback] DISABLED
+&lt;6&gt;[04-09 13:11:31.973] [16142: AudioIn_6E3][adsp.c:msm_adsp_put] closing module AUDREC1TASK
+&lt;6&gt;[04-09 13:11:31.973] [16142: AudioIn_6E3][adsp.c:msm_adsp_put] closing module AUDPREPROCTASK
+&lt;6&gt;[04-09 13:11:31.973] [16142: AudioIn_6E3][snd.c:snd_ioctl] snd_set_device 0 1 1
+&lt;3&gt;[04-09 13:11:31.983] [16142: AudioIn_6E3]rpc_xbl:msm_rpc_call_reply,1848,rc=0 
+&lt;6&gt;[04-09 13:11:31.983] [16142: AudioIn_6E3][snd.c:snd_ioctl] chenjun:rc = 0
+&lt;6&gt;[04-09 13:11:31.983] [16142: AudioIn_6E3][snd.c:snd_ioctl] snd_set_device 0 1 0
+&lt;3&gt;[04-09 13:11:31.983] [16142: AudioIn_6E3]rpc_xbl:msm_rpc_call_reply,1848,rc=0 
+&lt;6&gt;[04-09 13:11:31.983] [16142: AudioIn_6E3][snd.c:snd_ioctl] chenjun:rc = 0
+&lt;6&gt;[04-09 13:11:31.993] [896: Binder_2][snd.c:snd_ioctl] snd_set_device 0 1 1
+&lt;3&gt;[04-09 13:11:31.993] [896: Binder_2]rpc_xbl:msm_rpc_call_reply,1848,rc=0 
+&lt;6&gt;[04-09 13:11:31.993] [896: Binder_2][snd.c:snd_ioctl] chenjun:rc = 0
+&lt;6&gt;[04-09 13:11:31.993] [896: Binder_2][snd.c:snd_ioctl] snd_set_device 0 1 0
+&lt;3&gt;[04-09 13:11:31.993] [896: Binder_2]rpc_xbl:msm_rpc_call_reply,1848,rc=0 
+&lt;6&gt;[04-09 13:11:31.993] [896: Binder_2][snd.c:snd_ioctl] chenjun:rc = 0
+&lt;6&gt;[04-09 13:11:33.564] [330: ApmCommand][snd.c:snd_ioctl] snd_set_volume 38 0 6
+&lt;3&gt;[04-09 13:11:33.564] [330: ApmCommand]rpc_xbl:msm_rpc_call_reply,1848,rc=0 
+&lt;6&gt;[04-09 13:11:33.564] [330: ApmCommand][snd.c:snd_ioctl] chenjun:rc = 0
+&lt;6&gt;[04-09 13:11:34.926] [audpp.c:audpp_dsp_event] DISABLE
+&lt;6&gt;[04-09 13:11:34.926] [331: AudioOut_2][audpp.c:audpp_disable] Received CFG_MSG_DISABLE from ADSP
+&lt;6&gt;[04-09 13:11:34.926] [331: AudioOut_2][adsp.c:msm_adsp_disable] disable 'AUDPPTASK'
+&lt;6&gt;[04-09 13:11:34.926] [331: AudioOut_2][adsp.c:msm_adsp_put] closing module AUDPPTASK
+&lt;6&gt;[04-09 13:11:34.926] [331: AudioOut_2][audmgr.c:audmgr_disable] session 0xc08a7a90
+&lt;6&gt;[04-09 13:11:34.926] [1465: audmgr_rpc][audmgr.c:audmgr_rpc_thread] rpc_reply status 0
+&lt;3&gt;[04-09 13:11:34.936] [1465: audmgr_rpc][audmgr.c:process_audmgr_callback] DISABLED</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #4</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Apr 9, 2013 by
+                  <i class="ng-binding">Massive Dog</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>stable without ZRTP (worked for +10min ;) )</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #5</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Apr 13, 2013 by
+                  <i class="ng-binding">Swift Kangaroo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>why status WrongConfig ? it segfaults with zrtp+java audio impl.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #6</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Apr 14, 2013 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Well, the initial problem is <em>only</em> something with OpenSL-ES and cyanogen unstable. The bug is in cyanogen rom (or more exactly in the build for your device).</p>
+
+<p>About the crash on ZRTP it's something different from this issue.
+And also the stack trace given here, is not something I reproduce and looks like more something with the ROM too (
+/system/lib/libcrypto.so (sha1_block_data_order+116) &lt;&lt;&lt; This is a system library.
+)
+But there is indeed something with ZRTP that randomly appear, but I think it's not what you experiment currently and that your problem for now is more the rom that is not stable.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments -->
+          </div>
+
+          <!-- Sidebar with additional information -->
+          <div class="maia-col-4">
+            <div class="maia-aside">
+              <p>Status: <code class="ng-binding">WrongConfig</code></p>
+              <!-- ngIf: issueCtrl.issue.labels.length > 0 --><p ng-if="issueCtrl.issue.labels.length &gt; 0" class="ng-scope">
+                Labels:
+                <br>
+                <!-- ngRepeat: label in issueCtrl.issue.labels track by $index --><span ng-repeat="label in issueCtrl.issue.labels track by $index" class="ng-scope">
+                  <span class="gca-label ng-binding">Type-Defect</span>
+                </span><!-- end ngRepeat: label in issueCtrl.issue.labels track by $index --><span ng-repeat="label in issueCtrl.issue.labels track by $index" class="ng-scope">
+                  <span class="gca-label ng-binding">Priority-Medium</span>
+                </span><!-- end ngRepeat: label in issueCtrl.issue.labels track by $index -->
+              </p><!-- end ngIf: issueCtrl.issue.labels.length > 0 -->
+            </div>
+          </div>
+        </div><!-- end ngIf: !issueCtrl.error -->
+      </div>
+    </div>
+
+  </div>
+</div>
+</div></div></div>
+    <noscript>
+      &lt;p&gt;The Google Code Archive requires JavaScript to be enabled in your browser.&lt;/p&gt;
+    </noscript>
+
+    <div id="maia-signature"></div>
+    <div class="maia-footer" id="maia-footer">
+      <div id="maia-footer-local">
+      </div>
+      <div id="maia-footer-global">
+        <div class="maia-aux">
+          <ul>
+            <li>
+              <a href="//www.google.com/">Google</a>
+            </li>
+            <li>
+              <a href="//www.google.com/intl/en/about/">About Google</a>
+            </li>
+            <li>
+              <a href="//www.google.com/intl/en/policies/privacy/">Privacy</a>
+            </li>
+            <li>
+              <a href="//www.google.com/intl/en/policies/terms/">Terms</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <script src="//www.google.com/js/maia.js"></script>
+  
+
+
+</body></html>

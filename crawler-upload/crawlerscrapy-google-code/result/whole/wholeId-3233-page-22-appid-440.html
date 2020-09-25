@@ -1,0 +1,824 @@
+https://code.google.com/archive/p/csipsimple/issues/1580<!DOCTYPE html><html class="google ng-scope" lang="en" ng-app="codesiteArchive.application"><head>
+    <meta charset="utf-8">
+    <meta content="initial-scale=1, minimum-scale=1, width=device-width" name="viewport">
+
+    <!-- https://developers.google.com/webmasters/ajax-crawling/docs/specification -->
+    <meta name="fragment" content="!">
+    <title>Google Code Archive - Long-term storage for Google Code Project Hosting.</title>
+
+    <link rel="icon" type="image/vnd.microsoft.icon" href="/archive/img/project-hosting.ico">
+    <script src="//www.google.com/js/google.js"></script>
+    <link href="//www.google.com/css/maia.css" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;lang=en" rel="stylesheet">
+    <link rel="stylesheet" href="/archive/archive_css.css">
+    <script>
+      CLOSURE_NO_DEPS = true;
+    </script>
+    <script src="/archive/angular.js"></script><style type="text/css">@charset "UTF-8";
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak],
+.ng-cloak, .x-ng-cloak,
+.ng-hide:not(.ng-hide-animate) {
+  display: none !important;
+}
+
+ng\:form {
+  display: block;
+}
+
+.ng-animate-shim {
+  visibility:hidden;
+}
+
+.ng-anchor {
+  position:absolute;
+}
+</style>
+    <script src="/archive/pagedown.js"></script>
+    <script src="/archive/archive.js"></script>
+    <base href="/archive/">
+  </head>
+
+  <body>
+    <div class="maia-header" id="maia-header" role="banner">
+      <div class="maia-aux">
+        <a href="/archive/">
+          </a><h1><a href="/archive/">
+            <img alt="Google" src="//www.google.com/images/branding/googlelogo/1x/googlelogo_color_116x41dp.png"> Code</a>
+          </h1>
+        
+        <a href="/archive/">
+          <h2>Archive</h2>
+        </a>
+        <a class="maia-teleport" href="#content">Skip to content</a>
+        <div class="maia-util">
+          <form action="/archive/search" class="maia-search ng-pristine ng-valid">
+            <input name="q" placeholder="Search this site" type="text">
+            <button class="maia-button">
+              <span class="maia-search-icon">Search</span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- ngView: --><div ng-view="" class="ng-scope"><div ng-controller="ProjectIssueCtrl as issueCtrl" class="ng-scope">
+<nav-bar-widget nav-level-1="projectCtrl.navLevel1" class="ng-isolate-scope"><div class="maia-nav maia-complex" id="maia-nav-x" role="navigation">
+  <div class="maia-aux">
+    <ul>
+      <li ng-class="{active: navLevel1 == 'projects'}">
+        <a href="/archive/">Projects</a>
+        <!-- ngIf: navLevel2 -->
+      </li>
+      <li ng-class="{active: navLevel1 == 'search'}">
+        <a href="/archive/search">Search</a>
+      </li>
+      <li ng-class="{active: navLevel1 == 'about'}">
+        <a href="/archive/about">About</a>
+      </li>
+    </ul>
+  </div>
+</div>
+</nav-bar-widget>
+<div id="maia-main" role="main">
+
+  <!-- ngIf: issueCtrl.notFound -->
+
+  <div ng-hide="issueCtrl.notFound">
+    <!-- Left-side resource nav -->
+    <project-resources-widget domain="issueCtrl.domain" project="issueCtrl.projectName" class="ng-isolate-scope"><div class="maia-nav" id="maia-nav-y" role="navigation">
+  <!-- ngIf: domain == 'code.google.com' --><ul ng-if="domain == 'code.google.com'" class="ng-scope">
+    <li class="active">
+      <a href="/archive/p/csipsimple/">Project</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/source">Source</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/issues">Issues</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/wikis">Wikis</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/downloads">Downloads</a>
+    </li>
+  </ul><!-- end ngIf: domain == 'code.google.com' -->
+
+    <!-- ngIf: domain != 'code.google.com' -->
+</div></project-resources-widget>
+
+    <div class="maia-article" role="article">
+      <div class="maia-teleport" id="content"></div>
+      <div class="maia-cols">
+        <div id="gca-project-header" class="maia-col-10">
+          <a id="gca-export-to-gh" class="maia-button" href="https://code.google.com/export-to-github/export?project=csipsimple">Export to GitHub</a>
+            <img class="gca-project-logo" src="https://storage.googleapis.com/google-code-archive/v2/code.google.com/csipsimple/logo.png">
+            <h1 class="ng-binding">csipsimple - issue #1580</h1>
+            <p class="ng-binding">Sip Device Auto-configuration</p>
+        </div>
+
+        <div class="maia-col-10">
+          <hr>
+
+        <!-- ngIf: issueCtrl.error -->
+
+        <!-- ngIf: !issueCtrl.error --><div ng-if="!issueCtrl.error" class="ng-scope">
+          <!-- Comments -->
+          <div class="maia-col-8">
+            <!-- ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Feb 19, 2012 by
+                  <i class="ng-binding">Swift Lion</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Feature Request:</p>
+
+<p>While not directly useful to me, It'd be really nice (especially if it were used in a corporate environment) to have a simple way of configuring up phones. QR Codes work quite well for some things (and maybe for csipsimple as well). Google Authenticator does this, but it has a small number of configuration varibales. But simply pointing someones phone at a qr code and it configures up the phone would be really nice in alot of cases.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #1</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Feb 19, 2012 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Very good idea.</p>
+
+<p>However, since very particular feature, I think that it's a good idea to have that as a third party application. Android is very well software designed to allow apps to interoperate, and csipsimple allow that easily.</p>
+
+<p>Besides, I have more and more request about how to use csipsimple api from a third party application.</p>
+
+<p>So maybe this feature request could be a good "Hello world" application :).</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #2</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Feb 19, 2012 by
+                  <i class="ng-binding">Swift Lion</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Well, I do have a certain amount of android coding experience so I might have a go at this myself. Im not entirely sure how I would setup an accout on csipsimple from an external app though, any suggestions where I should be looking in your code?</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #3</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Feb 19, 2012 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Great ! :)</p>
+
+<p>It's now based on Content Providers (from nightly builds).
+So it is about insterting/querying/updating on a content provider.</p>
+
+<p>You can do that by hand, or just copy the entiere com.csipsimple.api package in your app. There is definition of constants you'll need and some usefull wrapping method.
+You can have a look on this file : <a href="http://code.google.com/p/csipsimple/source/browse/trunk/CSipSimple/src/com/csipsimple/api/SipProfile.java">http://code.google.com/p/csipsimple/source/browse/trunk/CSipSimple/src/com/csipsimple/api/SipProfile.java</a></p>
+
+<p>The content provider authority and useful uris are defined here.
+The class is also a wrapping class around content values and add some basic static method to call content provider to get account config
+<a href="http://code.google.com/p/csipsimple/source/browse/trunk/CSipSimple/src/com/csipsimple/api/SipProfile.java#746">http://code.google.com/p/csipsimple/source/browse/trunk/CSipSimple/src/com/csipsimple/api/SipProfile.java#746</a></p>
+
+<p>Normally the api package is designed to be standalone and can be reused in another project. (almost) All the user interface of csipsimple relies on this interface. The only exception is video stuff where the surface is linked to the service directly.
+But else you can get inspired of all csipsimple user interface. I try to keep virtually possible to separate user interface from service which guarantee that the api allows to do almost everything (there is things I restrict for security reason like accessing to password however).</p>
+
+<p>Another file you may be interested in is the json serializer/deserializer :
+<a href="http://code.google.com/p/csipsimple/source/browse/trunk/CSipSimple/src/com/csipsimple/utils/SipProfileJson.java">http://code.google.com/p/csipsimple/source/browse/trunk/CSipSimple/src/com/csipsimple/utils/SipProfileJson.java</a>
+in your case you will have to redefine projection (because as I said the password field is not publicly available).</p>
+
+<p>Don't hesitate to join and ask on the csipsimple developer google group (<a href="http://groups.google.com/group/csipsimple-dev/">http://groups.google.com/group/csipsimple-dev/</a>)</p>
+
+<p>If you want to commit your project directly in csipsimple svn (as a separate folder) I can grant you commit writes. However, I'd advise to use github instead. 
+I already started some plugin projects for csipsimple on github because it should be easier to fork publicly.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #4</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Feb 20, 2012 by
+                  <i class="ng-binding">Swift Lion</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>I did actually pull down the source, but im having trouble with a few of the packages in the v4 support package, but i'll figure that one out later. Probably not that important at this stage anyways.</p>
+
+<p>I tend to do most of my work with git these days so github is probably preferred anyways. My app though probably would be more of a "behind the scenes" type thing where it'll just respond to content: uri's that other apps (email, web, barcode scanners) can send easily enough.</p>
+
+<p>But i'll have a look at your interfaces and see where i get to. Thanks for the info!</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #5</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Feb 21, 2012 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>For reference a sample starting app to show possibilities of the api:
+<a href="https://github.com/r3gis3r/SampleCSipSimpleApp">https://github.com/r3gis3r/SampleCSipSimpleApp</a></p>
+
+<p>I'll probably try to start something about Qr code in this repo as another folder.</p>
+
+<p>If you have some ideas about the format to store in qr code will be welcome. For now I think about json</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #6</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Feb 22, 2012 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>After a quick search to see how to implement, I faced the problem you mention : indeed "readable" QR code can be very limited in terms of content size. 
+So we have to compact as much as possible datas we want to save in qr code.</p>
+
+<p>In your imagination, how would you like to create the qr code to configure your accounts? 
+It could be a good starting point to think about the best and easier way to generate it. Because if it takes as many time to create QR code than it save time to enter 2 credentials in a wizard, it's maybe useless ;).</p>
+
+<p>On the other side if there is a cool format for config file that can be encoded as qr code. If this format is normalized it will be even better :). Or maybe we will have to normalize something. I think that this feature will be very efficient if sip providers gives the QR code in their setting web interface for example.</p>
+
+<p>Or maybe it will end with the fact that what we actually want is to get the config from an url (which can then saved in a qr code) -- but probably authenticated or with missing account password infos.</p>
+
+<p>Or maybe other idea, some hybrid method that may have one URL to get all global settings and not user related infos + user + password in qr code.</p>
+
+<p>That's just ideas I want to share because I've not really a precise idea on the best way to do that :).</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #7</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Feb 27, 2012 by
+                  <i class="ng-binding">Swift Lion</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>I had the same thoughts originally as well but depending on the qrcode you can go quite high (original versions i think went up to about 300 chars, but i think these days the only limit is the resolution of your camera) I have a test qrcode i wrote sometime ago that has 1024 chars on it and even my old htc hero could cope with it.</p>
+
+<p>Originally i was thinking you'd just have keywords encoded into the qrcode such as "server address" or a pickup url.</p>
+
+<p>Also, i was thinking it need not necessarily be only qrcodes, content: urls could be shared in a variety of means such as email, nfc, etc etc.</p>
+
+<p>I faced similar issues about how you secure that a little while ago when i was working on google authenticator project, cause the qrcode contains the secret key for the token - i.e. anyone who can read it gets your token.</p>
+
+<p>I came up with a few ways of solving it, but for this particular project, i'd envisage either or both these could work (but in alot of ways its up to the provider of the config info):
+1) encryption - encrypt the data in the code via a password (this could plausibly be your actual sip password in this situation or something sent oob)
+2) one-time pickup via a url (this worked well for tokens as it was easy to generate new ones if the wrong person picked it up) but the url was along the lines of <a href="https://pickupaddress/gettoken?id=">https://pickupaddress/gettoken?id=</a> and adding authentication to that shouldnt cause problems.</p>
+
+<p>What I ultimately mean though is the end product (configuration component) would be along the lines of:
+content://csipsimple/sipaddr1=address&amp;sipaddr2=address&amp;...
+or
+content://csipsimple/configurl=someurl
+or
+content://csipsimple/datatype=encrypted&amp;enctype=aes512&amp;data=</p>
+
+<p>just to be on the safe side with encrypted data you could base64 encode it incase some mix of hardware/software had problems with non-ascii chars. As you say tho, that could be very efficiently done and 1024 chars (while its a large qrcode and a massive amount of data in reality) is plausibly manageable.</p>
+
+<p>But, consider something like this:
+content://csipsimple/sipadddr1=reallylonghostname.sip.nsw.iinet.net.au:5060&amp;username=somelongusername is only 100 chars
+Or, for the sip providers themselves it could be along the lines of
+content://csipsimple/provider=iinet&amp;state=nsw&amp;voipnumber=0299999999 is under 70 chars.</p>
+
+<p>Sound feasible?</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #8</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Feb 27, 2012 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Well, in fact my "wizard" approach is just some UI thing on the top of the engine. </p>
+
+<p>I think that what has to be shared is something like the "real" configuration (which is in fact more close to the expert configuration). 
+Since wizards are just UI stuff and that this feature should be more located on service part of the app it's not a good idea to mix things together. All the more so as there is some forks of csipsimple that does not contains all wizard, and I think that configuration management is some feature that could benefit all.</p>
+
+<p>I discussed a little bit with guys more close to sip server side, and after reflection the url way sounds good to me. 
+It would be even better if it could be something normalized and that we could encourage common opensource sip server to announce their basic config using this formatting way.</p>
+
+<p>Let me do another comment about that :)</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #9</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Feb 27, 2012 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>What I have in my mind for now is something like that :
+ * Sip server publish at some http url their global config as an xml file (dtd to be normalized). It should express everything required to configure a sip server : stun, registrar, proxy, presence of a sbc, realm, support of sip presence etc etc. 
+It should also announce things that could vary from one user to another as "variable". I don't know yet if it should be expressed as "${username}", "${password}" in content of the xml tags or as attributes of the xml tags (the first approach would allow to share var names between two xml values entries). For example ${username}@${user_domain}.
+In this case the xml should also describe in one of the xml part what variable stands for and give a description for it and an example.</p>
+
+<ul>
+<li>With that done, we can support on android some sipconfig(s)://sip_server_or_webserver/path_to_the_file.xml
+I think that we can consider registering for a scheme rather than from generic content provider with only an authority name. We be better if other apps than csipsimple wants to adopt that on android ;). Then we can consider that sipconfig should use http as app protocol and sipconfigs should use https. (or maybe as you propose to pass the url completely as an argument).
+So that when you reach this url on android you'll be prompted which app to configure with this account config.
+When the app will get this url it should be able at this point to automatically generate a simplified UI (a wizard actually) to allow user to configure easily his own account.</li>
+</ul>
+
+<p>Now the tricky point is about credentials. Before your post I was simply thinking about adding that as args to the uri.
+For example : sipconfigs://myserver/generic_config.xml?username=toto&amp;password=secret
+And to have the app automatically consider that in the xml file all entries of ${username} and ${password} has to be replaced. And if remaining vars are left in xml file to generate an user interface to allow user to enter remaining infos.
+But your idea of encrypting things could be really interesting. Maybe it's a good idea to tell that params should be encrypted as you propose.</p>
+
+<p>BTW, we will have something that leave free sip provider to share these sipconfig uris as qrcode or just urls on their website. It will be also a good solution to have autogenerated wizard in csipsimple (and probably in all other sip apps even desktop).</p>
+
+<p>I don't think it's too much work to do technically on csipsimple side.
+However, the big point is about the normalization of xml file. I really fear doing something that would apply only to csipsimple while it's something that is a problem for all sip server and all sip clients. That's the reason why I'd like to have some more "normative" process on this xml file. I saw some candidate formats (old windows mobile sip config files, some desk sip phone also have xml config files), but none are normalized and built by a community.
+So I'd like to see if we can get some feedback (for now here) from sip server implementers and if we can reach to some proposal about how to define a sip configuration. Maybe it already exists (I don't know how IMS solves that cleanly yet), but if not it would be a great enhancement for sip.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #10</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Feb 27, 2012 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content -->
+              <!-- ngIf: !comment.content --><span ng-if="!comment.content" class="ng-scope">
+                <p><em>(No comment was entered for this change.)</em></p>
+              </span><!-- end ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #11</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Feb 27, 2012 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>For the record, some link to sipping config framework : <a href="http://tools.ietf.org/html/draft-ietf-sipping-config-framework-18">http://tools.ietf.org/html/draft-ietf-sipping-config-framework-18</a>
+That does not seem to address profile data content however.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #12</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Mar 26, 2012 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Just found another sipping draft more specific to profile / identity data content :
+<a href="http://tools.ietf.org/html/draft-petrie-sipping-identity-dataset-02">http://tools.ietf.org/html/draft-petrie-sipping-identity-dataset-02</a>
+and 
+<a href="http://tools.ietf.org/html/draft-petrie-sipping-profile-datasets-05">http://tools.ietf.org/html/draft-petrie-sipping-profile-datasets-05</a></p>
+
+<p>This sounds to me very good candidates to be implemented : even if just drafts, it doesn't seems to be obsolete.
+Also the config framework was turned into an RFC =&gt; <a href="http://www.rfc-archive.org/getrfc.php?rfc=6080&amp;tag=A-Framework-for-Session-Initiation-Protocol-User-Agent-Profile-Delivery">http://www.rfc-archive.org/getrfc.php?rfc=6080&amp;tag=A-Framework-for-Session-Initiation-Protocol-User-Agent-Profile-Delivery</a>
+(For now I don't plan to implement this latest one however, the config file for identity and profile are the first 2 one to implement before this one.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #13</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jul 9, 2012 by
+                  <i class="ng-binding">Massive Monkey</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>I think parsing through the RFC etc. and implementing may take a long while. 
+One quick option is to have export/import capability, to/from xml file.
+And csipsimple has an entry for a url to download this from a webserver.
+e.g. </p>
+
+<p>Below is just along lines you have already mentioned. But a nice already existing solution used in other very high end sip phones.</p>
+
+<p><a href="https://www.sipconfigserver.com/provisioning/auto/settings_lposagpwa.xml">https://www.sipconfigserver.com/provisioning/auto/settings_lposagpwa.xml</a>
+where lposagpwa.xml is unique to a particular csipsimple running on a phone.
+- The session can be password protected, where csipsimple will enter that login/password. This can part of the URL (like you have put earlier).</p>
+
+<p>The settings xml MUST HAVE ALSO following features
+- The settings MUST NOT BE ENCRYPTED. It must be hand editable and nicely human readable
+- capability to provide passwords in clear  (if they are put empty in the xml, then expectation is for manual entry on the csipsimple client). 
+the session is https, so no further encryption of passwords is needed.</p>
+
+<ul>
+<li><p>The csipsimple should NOT check for validity of the certificate (allowing use of self-signed certificates on the web server). Alternative it has a small certificate store which is NOT part of settings.xml</p></li>
+<li><p>EVERYTHING RELEVANT TO THE CSIPSIMPLE must be there in settings.xml (all accounts, all preferences, passwords etc.) except history and logs. </p></li>
+<li><p>ANOTHER PROVISION must be to provision just individual accounts, where it will be like above, but will use settings_account_.xml where the user will enter the provisioning URL per account. </p></li>
+<li><p>When csipsimple starts it must look at the GLOBAL and overall URL to see if there's a file. If there's a file it must use it, otherwise ignore it. 
+Then it checks the per account URLs and does the same. </p></li>
+</ul></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #14</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Aug 29, 2012 by
+                  <i class="ng-binding">Massive Monkey</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Regis,
+Any chance of having something that I put above basically already discussed before itself buy you guys. </p>
+
+<p>Below sounds good to me for 
+a) Entire csipsimple config
+b) Only an account identified by its title. If similar account title is already there it replaces it.</p>
+
+<p>sipconfigs://myserver/generic_config.xml?username=toto&amp;password=secret
+So if one gets an email with above link, and clicks on the link (assuming csipsimple is already installed), it will configure csipsimple automatically with a) or b).</p>
+
+<p>Any plan for when this will go into csipsimple ? </p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #15</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Sep 26, 2012 by
+                  <i class="ng-binding">Helpful Elephant</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>I think this needs to be handled properly just like other SIP clients or hard-phones.
+It is actually pretty easy. See this:</p>
+
+<p><a href="http://www.grandstream.com/general/gs_provisioning_guide_public.pdf">http://www.grandstream.com/general/gs_provisioning_guide_public.pdf</a>
+<a href="http://www.3cx.com/sip-phones/DHCP-option-66.html">http://www.3cx.com/sip-phones/DHCP-option-66.html</a></p>
+
+<p>With a simple web server and a DHCP server with the option 66 you can configure most of the SIP clients. It would be really nice if CSipSimple could do this and since it is already so capable and top-notch it's a must have.</p>
+
+<p>I hope the developer sees this and I keep my fingers crossed. Thank you</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #16</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Feb 10, 2013 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Issue 2237 has been merged into this issue.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #17</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jul 6, 2013 by
+                  <i class="ng-binding">Helpful Rhino</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>From my understandings, why are you trying to write an API to control CSipSimple by 3rd Apps for making an account?</p>
+
+<p>Importing/Exporting account settings without user name/password would the job quite perfect.</p>
+
+<p>Users can download/import pre-configuration files from wherever they want, even from the voip provider. </p>
+
+<p>User can export his account settings and share it on forums.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #18</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Nov 1, 2013 by
+                  <i class="ng-binding">Helpful Elephant</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>we sell DIDs and voip services and are looking for an app to auto configure account settings would consider donation to obtain or pay private programmer ecuadortelcom@gmail.com</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #19</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jan 11, 2014 by
+                  <i class="ng-binding">Massive Monkey</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Any chance of supporting provisioning ? Its been many months since no activity here or report of it being supported.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #20</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jan 19, 2014 by
+                  <i class="ng-binding">Happy Bear</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>I've been looking for a provisioning system for CSipSimple for a few months now, and I think writing one myself is probably going to be the best bet.</p>
+
+<p>There is one catch however.  I'm not a Java programmer, I've programmed in other languages before but never java.</p>
+
+<p>Anyways here is the plan.</p>
+
+<p>1) Create a wizard ala (Ippi.java)
+2) Remove both option (Create Account/Existing AccountJ) etc..
+3) Replace with (8 Digit Alphanumerical) Input window/Submit button.
+4) Submit request to a server, and build a profile based on response from system.
+5) After 8digit token has been used, server discards and can never be used again.</p>
+
+<p>Process:
+1) User installs application.
+2) First time wizard shows all available providers.
+3) User selects my wizard.
+4) User enters 8 digit alphanumerical one time use pins.
+5) User submits data in a HTTPS GET request to a (<a href="https://whatever.com/checkifpiniscorrect/12345678">https://whatever.com/checkifpiniscorrect/12345678</a>)
+6) If pin valid server returns JSON object including server, username, password etc.  If invalid server returns 404.
+7) CSipSimple wizard builds profile from received JSON object and saves Sip profile.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #21</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jan 19, 2014 by
+                  <i class="ng-binding">Swift Bird</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>May be useful: issue 2587 (Simple user registration via phone number)</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #22</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jun 22, 2015 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content -->
+              <!-- ngIf: !comment.content --><span ng-if="!comment.content" class="ng-scope">
+                <p><em>(No comment was entered for this change.)</em></p>
+              </span><!-- end ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments -->
+          </div>
+
+          <!-- Sidebar with additional information -->
+          <div class="maia-col-4">
+            <div class="maia-aside">
+              <p>Status: <code class="ng-binding">Obsolete</code></p>
+              <!-- ngIf: issueCtrl.issue.labels.length > 0 --><p ng-if="issueCtrl.issue.labels.length &gt; 0" class="ng-scope">
+                Labels:
+                <br>
+                <!-- ngRepeat: label in issueCtrl.issue.labels track by $index --><span ng-repeat="label in issueCtrl.issue.labels track by $index" class="ng-scope">
+                  <span class="gca-label ng-binding">Type-Defect</span>
+                </span><!-- end ngRepeat: label in issueCtrl.issue.labels track by $index --><span ng-repeat="label in issueCtrl.issue.labels track by $index" class="ng-scope">
+                  <span class="gca-label ng-binding">Priority-Medium</span>
+                </span><!-- end ngRepeat: label in issueCtrl.issue.labels track by $index -->
+              </p><!-- end ngIf: issueCtrl.issue.labels.length > 0 -->
+            </div>
+          </div>
+        </div><!-- end ngIf: !issueCtrl.error -->
+      </div>
+    </div>
+
+  </div>
+</div>
+</div></div></div>
+    <noscript>
+      &lt;p&gt;The Google Code Archive requires JavaScript to be enabled in your browser.&lt;/p&gt;
+    </noscript>
+
+    <div id="maia-signature"></div>
+    <div class="maia-footer" id="maia-footer">
+      <div id="maia-footer-local">
+      </div>
+      <div id="maia-footer-global">
+        <div class="maia-aux">
+          <ul>
+            <li>
+              <a href="//www.google.com/">Google</a>
+            </li>
+            <li>
+              <a href="//www.google.com/intl/en/about/">About Google</a>
+            </li>
+            <li>
+              <a href="//www.google.com/intl/en/policies/privacy/">Privacy</a>
+            </li>
+            <li>
+              <a href="//www.google.com/intl/en/policies/terms/">Terms</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <script src="//www.google.com/js/maia.js"></script>
+  
+
+
+</body></html>

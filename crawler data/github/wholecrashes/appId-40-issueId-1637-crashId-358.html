@@ -1,0 +1,28 @@
+https://github.com/google/mobly/issues/353<td class="d-block comment-body markdown-body  js-comment-body">
+
+          <p>On certain devices from huawei, micromax, and asus, the adb cmd to list instrumentation is flaky.<br>
+On rare occasions, the cmd prints error with ret code 0:</p>
+<pre><code>adb -s URX0215911016988 shell pm list instrumentation
+java.lang.UnsatisfiedLinkError: No implementation found for java.lang.String android.os.SystemProperties.native_get(java.lang.String, java.lang.String) (tried Java_android_os_SystemProperties_native_1get and Java_android_os_SystemProperties_native_1get__Ljava_lang_String_2Ljava_lang_String_2)
+	at android.os.SystemProperties.native_get(Native Method)
+	at android.os.SystemProperties.get(SystemProperties.java:64)
+	at android.os.Environment$UserEnvironment.&lt;init&gt;(Environment.java:169)
+	at android.os.Environment.initForCurrentUser(Environment.java:107)
+	at android.os.Environment.&lt;clinit&gt;(Environment.java:83)
+	at android.os.Environment.getLegacyExternalStorageDirectory(Environment.java:468)
+	at android.os.Debug.&lt;clinit&gt;(Debug.java:96)
+	at android.ddm.DdmHandleHello.handleHELO(DdmHandleHello.java:164)
+	at android.ddm.DdmHandleHello.handleChunk(DdmHandleHello.java:91)
+	at org.apache.harmony.dalvik.ddmc.DdmServer.dispatch(DdmServer.java:171)
+java.lang.UnsatisfiedLinkError: android.os.Debug
+	at android.ddm.DdmHandleHello.handleFEAT(DdmHandleHello.java:176)
+	at android.ddm.DdmHandleHello.handleChunk(DdmHandleHello.java:93)
+	at org.apache.harmony.dalvik.ddmc.DdmServer.dispatch(DdmServer.java:171)
+java.lang.UnsatisfiedLinkError: android.os.Debug
+	at android.ddm.DdmHandleProfiling.handleMPRQ(DdmHandleProfiling.java:187)
+	at android.ddm.DdmHandleProfiling.handleChunk(DdmHandleProfiling.java:88)
+	at org.apache.harmony.dalvik.ddmc.DdmServer.dispatch(DdmServer.java:171)
+</code></pre>
+<p>Retrying the same cmd worked.</p>
+<p>Looks like we should do a sleep and retry for the instrumentation check in <code>snippe_client</code>.</p>
+      </td>

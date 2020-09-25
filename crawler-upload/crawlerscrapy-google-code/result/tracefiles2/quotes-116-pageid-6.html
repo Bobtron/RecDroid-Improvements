@@ -1,0 +1,374 @@
+https://code.google.com/archive/p/panoptimage/<!DOCTYPE html><html class="google ng-scope" lang="en" ng-app="codesiteArchive.application"><head>
+    <meta charset="utf-8">
+    <meta content="initial-scale=1, minimum-scale=1, width=device-width" name="viewport">
+
+    <!-- https://developers.google.com/webmasters/ajax-crawling/docs/specification -->
+    <meta name="fragment" content="!">
+    <title>Google Code Archive - Long-term storage for Google Code Project Hosting.</title>
+
+    <link rel="icon" type="image/vnd.microsoft.icon" href="/archive/img/project-hosting.ico">
+    <script src="//www.google.com/js/google.js"></script>
+    <link href="//www.google.com/css/maia.css" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;lang=en" rel="stylesheet">
+    <link rel="stylesheet" href="/archive/archive_css.css">
+    <script>
+      CLOSURE_NO_DEPS = true;
+    </script>
+    <script src="/archive/angular.js"></script><style type="text/css">@charset "UTF-8";
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak],
+.ng-cloak, .x-ng-cloak,
+.ng-hide:not(.ng-hide-animate) {
+  display: none !important;
+}
+
+ng\:form {
+  display: block;
+}
+
+.ng-animate-shim {
+  visibility:hidden;
+}
+
+.ng-anchor {
+  position:absolute;
+}
+</style>
+    <script src="/archive/pagedown.js"></script>
+    <script src="/archive/archive.js"></script>
+    <base href="/archive/">
+  </head>
+
+  <body>
+    <div class="maia-header" id="maia-header" role="banner">
+      <div class="maia-aux">
+        <a href="/archive/">
+          </a><h1><a href="/archive/">
+            <img alt="Google" src="//www.google.com/images/branding/googlelogo/1x/googlelogo_color_116x41dp.png"> Code</a>
+          </h1>
+        
+        <a href="/archive/">
+          <h2>Archive</h2>
+        </a>
+        <a class="maia-teleport" href="#content">Skip to content</a>
+        <div class="maia-util">
+          <form action="/archive/search" class="maia-search ng-pristine ng-valid">
+            <input name="q" placeholder="Search this site" type="text">
+            <button class="maia-button">
+              <span class="maia-search-icon">Search</span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- ngView: --><div ng-view="" class="ng-scope"><div ng-controller="ProjectHomepageCtrl as projectCtrl" class="ng-scope">
+<nav-bar-widget nav-level-1="projectCtrl.navLevel1" class="ng-isolate-scope"><div class="maia-nav maia-complex" id="maia-nav-x" role="navigation">
+  <div class="maia-aux">
+    <ul>
+      <li ng-class="{active: navLevel1 == 'projects'}" class="active">
+        <a href="/archive/">Projects</a>
+        <!-- ngIf: navLevel2 -->
+      </li>
+      <li ng-class="{active: navLevel1 == 'search'}">
+        <a href="/archive/search">Search</a>
+      </li>
+      <li ng-class="{active: navLevel1 == 'about'}">
+        <a href="/archive/about">About</a>
+      </li>
+    </ul>
+  </div>
+</div>
+</nav-bar-widget>
+<div id="maia-main" role="main">
+
+  <!-- Left-side resource nav -->
+  <span ng-hide="projectCtrl.project.notFound">
+    <project-resources-widget domain="projectCtrl.domain" project="projectCtrl.projectName" class="ng-isolate-scope"><div class="maia-nav" id="maia-nav-y" role="navigation">
+  <!-- ngIf: domain == 'code.google.com' --><ul ng-if="domain == 'code.google.com'" class="ng-scope">
+    <li class="active">
+      <a href="/archive/p/panoptimage/">Project</a>
+    </li>
+    <li>
+      <a href="/archive/p/panoptimage/source">Source</a>
+    </li>
+    <li>
+      <a href="/archive/p/panoptimage/issues">Issues</a>
+    </li>
+    <li>
+      <a href="/archive/p/panoptimage/wikis">Wikis</a>
+    </li>
+    <li>
+      <a href="/archive/p/panoptimage/downloads">Downloads</a>
+    </li>
+  </ul><!-- end ngIf: domain == 'code.google.com' -->
+
+    <!-- ngIf: domain != 'code.google.com' -->
+</div></project-resources-widget>
+  </span>
+
+  <div class="maia-article" role="article">
+    <div class="maia-teleport" id="content"></div>
+    <div class="maia-cols">
+
+      <!-- BUG: We show "no issues" and relaged sub-pages for projects that
+           do not exist. Similarly, if you go to page 1,000,000 it says the
+           project has no issues, despite page 999,999 existing. -->
+      <!-- ngIf: projectCtrl.project.notFound -->
+
+      <div ng-hide="projectCtrl.project.notFound" id="gca-project-header" class="maia-col-10">
+        <img class="gca-project-logo" src="https://storage.googleapis.com/google-code-archive/v2/code.google.com/panoptimage/logo.png">
+        <h1 class="ng-binding">panoptimage</h1>
+      </div>
+
+      <div ng-hide="projectCtrl.project.notFound" class="maia-col-10">
+        <hr>
+
+        <!-- ngIf: projectCtrl.error -->
+
+        <!-- Switch by project resource -->
+        <!-- ngIf: !projectCtrl.error --><div ng-if="!projectCtrl.error" ng-switch="projectCtrl.resource" class="ng-scope">
+
+          <!-- Project -->
+          <!-- ngSwitchWhen: project --><div ng-switch-when="project" class="ng-scope">
+            <!-- ngIf: projectCtrl.project == null -->
+
+            <!-- ngIf: projectCtrl.project.notFound -->
+
+            <!-- ngIf: projectCtrl.project.found --><div ng-if="projectCtrl.project.found" class="ng-scope">
+              <div class="maia-col-6">
+                <p class="maia-meta ng-binding">All-around network image viewer for Android</p>
+                <markdown-widget text="projectCtrl.project.description" class="markdown"><p>Android image viewer able to view images on local repository, on webdav servers, and any other link can be (and will be) added as module.</p>
+
+<h2>Project roadmap</h2>
+
+<p>(All tasks striked are finished)</p>
+
+<h3>~~0.1.0~~</h3>
+
+<p><a href="http://panoptimage.googlecode.com/files/PanoptImage.0.1.0.apk">PanoptImage.0.1.0.apk</a></p>
+
+<ul>
+<li><p>~~Implement Home activity~~</p></li>
+<li><p>~~Implement Config activity~~</p></li>
+<li><p>~~Implement Param activity~~</p></li>
+<li><p>~~Implement Image activity~~</p></li>
+</ul>
+
+<blockquote>
+  <ul>
+  <li><p>~~Back~~</p></li>
+  <li><p>~~Rotate~~</p></li>
+  <li><p>~~Browser folders~~</p></li>
+  </ul>
+</blockquote>
+
+<ul>
+<li><p>~~Access to local storage area~~</p></li>
+<li><p>~~Error dialogs~~</p></li>
+<li><p>~~Rename project~~</p></li>
+<li><p>~~Debug~~</p></li>
+</ul>
+
+<h3>~~0.2.0~~</h3>
+
+<p><a href="http://panoptimage.googlecode.com/files/PanoptImage.0.2.0.apk">PanoptImage.0.2.0.apk</a></p>
+
+<ul>
+<li><p>~~Access to WebDAV storage area~~</p></li>
+<li><p>~~Optimize memory usage~~</p></li>
+<li><p>~~Allow user credentials for WebDAV~~</p></li>
+<li><p>~~Load images asynchronously (with animated gif to wait)~~</p></li>
+<li><p>~~Manage download cancelled~~</p></li>
+<li><p>~~Debug~~</p></li>
+</ul>
+
+<h3>~~0.3.0~~</h3>
+
+<p><a href="http://panoptimage.googlecode.com/files/PanoptImage.0.3.0.apk">PanoptImage.0.3.0.apk</a></p>
+
+<ul>
+<li><p>~~Rework the architecture (move webdav+file into DAO, rework services, rework activity classes)~~</p></li>
+<li><p>~~Implement About activity~~</p></li>
+<li><p>~~Implement directory browser to choose path~~</p></li>
+<li><p>~~Test server availability~~</p></li>
+<li><p>~~Debug~~</p></li>
+</ul>
+
+<h3>~~0.4.0~~</h3>
+
+<p>(WARNING: this version has a serious memory leak which will be corrected on v0.5.0)</p>
+
+<p><a href="http://panoptimage.googlecode.com/files/PanoptImage.0.4.0.apk">PanoptImage.0.4.0.apk</a></p>
+
+<ul>
+<li><p>~~Update icons and positions~~</p></li>
+<li><p>~~Implement tooltips~~</p></li>
+<li><p>~~Custom spinner for Config page~~</p></li>
+<li><p>~~Customize TextView~~</p></li>
+<li><p>~~Customize Buttons~~</p></li>
+<li><p>~~Customize Spinner (9-patch png)~~</p></li>
+<li><p>~~Debug~~</p></li>
+</ul>
+
+<h3>~~0.5.0~~</h3>
+
+<p><a href="http://panoptimage.googlecode.com/files/PanoptImage.0.5.0.apk">PanoptImage.0.5.0.apk</a></p>
+
+<ul>
+<li><p>~~Memory leak corrected~~</p></li>
+<li><p>~~Prepare display for low res and Android 2.3~~</p></li>
+<li><p>~~More memory optimization for android phones~~</p></li>
+<li><p>~~Cleanup dead code~~</p></li>
+<li><p>~~Debug~~</p></li>
+<li><p>~~First public version on web site (sources published)~~</p></li>
+</ul>
+
+<blockquote>
+  <ul>
+  <li>~~New logo~~</li>
+  </ul>
+</blockquote>
+
+<h3>1.0.0</h3>
+
+<p><a href="http://panoptimage.googlecode.com/files/PanoptImage.1.0.0.apk">PanoptImage.1.0.0.apk</a></p>
+
+<ul>
+<li><p>~~Access to HTTPS to finalize~~</p></li>
+<li><p>~~Apply design principles~~</p></li>
+</ul>
+
+<blockquote>
+  <ul>
+  <li><p>~~Use fragment transition between images~~</p></li>
+  <li><p>~~Allow automatic discovery of WebDAV repository~~</p></li>
+  <li><p>~~Propose default directory for local repository~~</p></li>
+  <li><p>~~Improve error messages~~</p></li>
+  <li><p>~~Put correct default values when application is installed~~</p></li>
+  <li><p>~~Step-by-step tutorial at first start~~</p></li>
+  <li><p>~~Display last consulted repository at startup~~</p></li>
+  <li><p>~~Update error messages to propose a solution~~</p></li>
+  <li><p>~~Hide buttons when viewing images and display them on "Back" event~~</p></li>
+  </ul>
+</blockquote>
+
+<ul>
+<li><p>~~Debug~~</p></li>
+<li><p>~~French translation~~</p></li>
+<li><p>~~Improve support of hdpi and xdpi res~~</p></li>
+<li><p>~~Deploy on Google Play~~</p></li>
+</ul>
+
+<h3>Future (not planned)</h3>
+
+<ul>
+<li><p>Access to Google Drive area</p></li>
+<li><p>Access to FTP storage area</p></li>
+<li><p>Access to AFP storage area (feasibility TBC)</p></li>
+<li><p>Allow using proxy for WebDAV (delayed due to lack of proxy test capabilities)</p></li>
+<li><p>Implement Zoom on images</p></li>
+<li><p>Take photos</p></li>
+<li><p>Transfer images between storage repository</p></li>
+<li><p>Generate image thumbs</p></li>
+<li><p>Use distant directory for image thumbs</p></li>
+<li><p>Send images via email</p></li>
+<li><p>Spanish translation</p></li>
+<li><p>Share photos on facebook, and edit size, ...</p></li>
+</ul>
+
+<p>Any other idea ???</p></markdown-widget>
+              </div>
+              <div id="gca-project-info-box" class="maia-col-4">
+                <div class="maia-aside">
+                  <h1>Project Information</h1>
+                  <!-- ngIf: projectCtrl.project.creationTime --><p ng-if="projectCtrl.project.creationTime" class="ng-binding ng-scope">
+                    The project was created on Nov 14, 2012.
+                  </p><!-- end ngIf: projectCtrl.project.creationTime -->
+                  <!-- ngIf: projectCtrl.project.ancestorRepo -->
+                  <ul>
+                    <li>
+                      License: <a href="http://www.gnu.org/licenses/gpl.html" class="ng-binding">
+                        GNU GPL v3</a>
+                    </li>
+                    <!-- ngIf: projectCtrl.project.contentLicenseName -->
+                    <!-- ngIf: projectCtrl.project.stars --><li ng-if="projectCtrl.project.stars" class="ng-binding ng-scope">
+                      1 stars
+                    </li><!-- end ngIf: projectCtrl.project.stars -->
+                    <li class="ng-binding">svn-based source control</li>
+                  </ul>
+                  <!-- ngIf: projectCtrl.project.labels.length > 0 --><p ng-if="projectCtrl.project.labels.length &gt; 0" class="ng-scope">
+                    Labels:
+                    <br>
+                    <!-- ngRepeat: label in projectCtrl.project.labels track by $index --><span ng-repeat="label in projectCtrl.project.labels track by $index" class="ng-scope">
+                      <a href="/archive/search?q=domain:code.google.com label:Android"><span class="gca-label ng-binding">Android</span></a>
+                    </span><!-- end ngRepeat: label in projectCtrl.project.labels track by $index --><span ng-repeat="label in projectCtrl.project.labels track by $index" class="ng-scope">
+                      <a href="/archive/search?q=domain:code.google.com label:Images"><span class="gca-label ng-binding">Images</span></a>
+                    </span><!-- end ngRepeat: label in projectCtrl.project.labels track by $index --><span ng-repeat="label in projectCtrl.project.labels track by $index" class="ng-scope">
+                      <a href="/archive/search?q=domain:code.google.com label:FTP"><span class="gca-label ng-binding">FTP</span></a>
+                    </span><!-- end ngRepeat: label in projectCtrl.project.labels track by $index --><span ng-repeat="label in projectCtrl.project.labels track by $index" class="ng-scope">
+                      <a href="/archive/search?q=domain:code.google.com label:WebDAV"><span class="gca-label ng-binding">WebDAV</span></a>
+                    </span><!-- end ngRepeat: label in projectCtrl.project.labels track by $index --><span ng-repeat="label in projectCtrl.project.labels track by $index" class="ng-scope">
+                      <a href="/archive/search?q=domain:code.google.com label:AppleTalkFileProtocol"><span class="gca-label ng-binding">AppleTalkFileProtocol</span></a>
+                    </span><!-- end ngRepeat: label in projectCtrl.project.labels track by $index -->
+                  </p><!-- end ngIf: projectCtrl.project.labels.length > 0 -->
+                </div>
+              </div>
+            </div><!-- end ngIf: projectCtrl.project.found -->
+          </div><!-- end ngSwitchWhen: -->
+
+          <!-- Source -->
+          <!-- ngSwitchWhen: source -->
+
+          <!-- Issues -->
+          <!-- ngSwitchWhen: issues -->
+
+          <!-- Wikis -->
+          <!-- ngSwitchWhen: wikis -->
+
+          <!-- Downloads -->
+          <!-- ngSwitchWhen: downloads -->
+
+          <!-- Default -->
+          <!-- ngSwitchDefault: -->
+
+        <!-- end Switch -->
+        </div><!-- end ngIf: !projectCtrl.error -->
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+    <noscript>
+      &lt;p&gt;The Google Code Archive requires JavaScript to be enabled in your browser.&lt;/p&gt;
+    </noscript>
+
+    <div id="maia-signature"></div>
+    <div class="maia-footer" id="maia-footer">
+      <div id="maia-footer-local">
+      </div>
+      <div id="maia-footer-global">
+        <div class="maia-aux">
+          <ul>
+            <li>
+              <a href="//www.google.com/">Google</a>
+            </li>
+            <li>
+              <a href="//www.google.com/intl/en/about/">About Google</a>
+            </li>
+            <li>
+              <a href="//www.google.com/intl/en/policies/privacy/">Privacy</a>
+            </li>
+            <li>
+              <a href="//www.google.com/intl/en/policies/terms/">Terms</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <script src="//www.google.com/js/maia.js"></script>
+  
+
+
+</body></html>

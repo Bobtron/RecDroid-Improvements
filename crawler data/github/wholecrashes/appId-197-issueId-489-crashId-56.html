@@ -1,0 +1,40 @@
+https://github.com/herbeth1u/VNDB-Android/issues/118<td class="d-block comment-body markdown-body  js-comment-body">
+
+          <p>Android default support of ExpandableListView is way too weak for the usage in this app and the resulting code is awful.</p>
+<ul class="contains-task-list">
+<li class="task-list-item">
+<p><input type="checkbox" id="" disabled class="task-list-item-checkbox"> Consider a cleaner way to do this, e.g. with a RecyclerView of <a href="https://github.com/iammert/ExpandableLayout">ExpandableLayout</a>, which would extend <a href="https://developer.android.com/reference/android/support/v7/widget/helper/ItemTouchHelper.html" rel="nofollow">ItemTouchHelper</a> to allow usenrs to change the order of the sections (cf. <a class="issue-link js-issue-link" data-error-text="Failed to load issue title" data-id="181860604" data-permission-text="Issue title is private" data-url="https://github.com/herbeth1u/VNDB-Android/issues/75" href="https://github.com/herbeth1u/VNDB-Android/issues/75">#75</a>) by drag'n'dropping.</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" id="" disabled class="task-list-item-checkbox"> Consider adding a "settings" button on the parent layout for the "keep open" option.</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" id="" disabled class="task-list-item-checkbox"> Remove the VNDetailsActivity.xxxSubmenu, VNDetailsActivity.releases, releasesList and characters fields. Remove the tight coupling between VNDetailsActivity and VNDetailsFactory. Use the VN as a parameter instead.</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" id="" disabled class="task-list-item-checkbox"> Replace VNDetailsElement.TYPE_XXX by creating a custom Recycler/Adapter for each submenu (VNPlatformsAdapter, VNTagsAdapter, VNCharactersAdapter, VNReleasesAdapter...).</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" id="" disabled class="task-list-item-checkbox"> Clean the VNDetailsFactory.setXXXSubmenu() methods by replacing</p>
+</li>
+</ul>
+<pre><code>if (activity.getVn().getPlatforms() == null) {
+    activity.setPlatformsSubmenu(new VNDetailsElement(data, VNDetailsElement.TYPE_TEXT));
+} else {
+</code></pre>
+<p>with <code>if (vn.getPlatforms() != null) {</code><br>
+and</p>
+<pre><code>if (activity.getPlatformsSubmenu() == null) {
+    activity.setPlatformsSubmenu(new VNDetailsElement(data, VNDetailsElement.TYPE_TEXT));
+} else {
+    activity.getPlatformsSubmenu().setData(data);
+}
+</code></pre>
+<p>with</p>
+<pre><code>platformsAdapter.setPlatforms(new List&lt;VNPlatform&gt;(...));
+platformsAdapter.notifyDataSetChanged();
+</code></pre>
+<ul class="contains-task-list">
+<li class="task-list-item"><input type="checkbox" id="" disabled class="task-list-item-checkbox"> Move <code>expandableListView.setOnGroupClickListener</code> and ìnitSubmenu()<code>in VNDetailsActivity into the new</code>SubmenuRecyclerView`.</li>
+</ul>
+      </td>

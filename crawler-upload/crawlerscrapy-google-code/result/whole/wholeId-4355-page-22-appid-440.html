@@ -1,0 +1,466 @@
+https://code.google.com/archive/p/csipsimple/issues/496<!DOCTYPE html><html class="google ng-scope" lang="en" ng-app="codesiteArchive.application"><head>
+    <meta charset="utf-8">
+    <meta content="initial-scale=1, minimum-scale=1, width=device-width" name="viewport">
+
+    <!-- https://developers.google.com/webmasters/ajax-crawling/docs/specification -->
+    <meta name="fragment" content="!">
+    <title>Google Code Archive - Long-term storage for Google Code Project Hosting.</title>
+
+    <link rel="icon" type="image/vnd.microsoft.icon" href="/archive/img/project-hosting.ico">
+    <script src="//www.google.com/js/google.js"></script>
+    <link href="//www.google.com/css/maia.css" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;lang=en" rel="stylesheet">
+    <link rel="stylesheet" href="/archive/archive_css.css">
+    <script>
+      CLOSURE_NO_DEPS = true;
+    </script>
+    <script src="/archive/angular.js"></script><style type="text/css">@charset "UTF-8";
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak],
+.ng-cloak, .x-ng-cloak,
+.ng-hide:not(.ng-hide-animate) {
+  display: none !important;
+}
+
+ng\:form {
+  display: block;
+}
+
+.ng-animate-shim {
+  visibility:hidden;
+}
+
+.ng-anchor {
+  position:absolute;
+}
+</style>
+    <script src="/archive/pagedown.js"></script>
+    <script src="/archive/archive.js"></script>
+    <base href="/archive/">
+  </head>
+
+  <body>
+    <div class="maia-header" id="maia-header" role="banner">
+      <div class="maia-aux">
+        <a href="/archive/">
+          </a><h1><a href="/archive/">
+            <img alt="Google" src="//www.google.com/images/branding/googlelogo/1x/googlelogo_color_116x41dp.png"> Code</a>
+          </h1>
+        
+        <a href="/archive/">
+          <h2>Archive</h2>
+        </a>
+        <a class="maia-teleport" href="#content">Skip to content</a>
+        <div class="maia-util">
+          <form action="/archive/search" class="maia-search ng-pristine ng-valid">
+            <input name="q" placeholder="Search this site" type="text">
+            <button class="maia-button">
+              <span class="maia-search-icon">Search</span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- ngView: --><div ng-view="" class="ng-scope"><div ng-controller="ProjectIssueCtrl as issueCtrl" class="ng-scope">
+<nav-bar-widget nav-level-1="projectCtrl.navLevel1" class="ng-isolate-scope"><div class="maia-nav maia-complex" id="maia-nav-x" role="navigation">
+  <div class="maia-aux">
+    <ul>
+      <li ng-class="{active: navLevel1 == 'projects'}">
+        <a href="/archive/">Projects</a>
+        <!-- ngIf: navLevel2 -->
+      </li>
+      <li ng-class="{active: navLevel1 == 'search'}">
+        <a href="/archive/search">Search</a>
+      </li>
+      <li ng-class="{active: navLevel1 == 'about'}">
+        <a href="/archive/about">About</a>
+      </li>
+    </ul>
+  </div>
+</div>
+</nav-bar-widget>
+<div id="maia-main" role="main">
+
+  <!-- ngIf: issueCtrl.notFound -->
+
+  <div ng-hide="issueCtrl.notFound">
+    <!-- Left-side resource nav -->
+    <project-resources-widget domain="issueCtrl.domain" project="issueCtrl.projectName" class="ng-isolate-scope"><div class="maia-nav" id="maia-nav-y" role="navigation">
+  <!-- ngIf: domain == 'code.google.com' --><ul ng-if="domain == 'code.google.com'" class="ng-scope">
+    <li class="active">
+      <a href="/archive/p/csipsimple/">Project</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/source">Source</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/issues">Issues</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/wikis">Wikis</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/downloads">Downloads</a>
+    </li>
+  </ul><!-- end ngIf: domain == 'code.google.com' -->
+
+    <!-- ngIf: domain != 'code.google.com' -->
+</div></project-resources-widget>
+
+    <div class="maia-article" role="article">
+      <div class="maia-teleport" id="content"></div>
+      <div class="maia-cols">
+        <div id="gca-project-header" class="maia-col-10">
+          <a id="gca-export-to-gh" class="maia-button" href="https://code.google.com/export-to-github/export?project=csipsimple">Export to GitHub</a>
+            <img class="gca-project-logo" src="https://storage.googleapis.com/google-code-archive/v2/code.google.com/csipsimple/logo.png">
+            <h1 class="ng-binding">csipsimple - issue #496</h1>
+            <p class="ng-binding">csipsimple causing occasional Android OS crashes</p>
+        </div>
+
+        <div class="maia-col-10">
+          <hr>
+
+        <!-- ngIf: issueCtrl.error -->
+
+        <!-- ngIf: !issueCtrl.error --><div ng-if="!issueCtrl.error" class="ng-scope">
+          <!-- Comments -->
+          <div class="maia-col-8">
+            <!-- ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Dec 14, 2010 by
+                  <i class="ng-binding">Happy Rhino</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Hello!  Trying to find the root cause of intermittent Android OS crashes which happen only during an active call with csipsimple.  The platform is HTC Wildfire running Android 2.2.1 (CyanogenMod 6.1).</p>
+
+<p>Problem: During some SIP calls, the call will freeze for several seconds, audio dies, and a moment later the Android boot screen appears and the system restarts.  The logcat shows that at a certain point the Android system_server starts sending SIGQUITs to a bunch of processes and this eventually leads to a crash/restart.  This happens on about 1 out of every 3-4 calls, longer calls making it more likely.</p>
+
+<p>This did not seem to hapen in the csipsimple 00.13 market version.  But since moving to 00.15-18, 00.16-00, and now revision 427, it has happened consistently.</p>
+
+<p>I'm not familiar with Android internals but the SIGQUIT-sending suggests some kind of purposeful action, like trying to recover from critical resource exhaustion.  Several log messages appear just before this happens:</p>
+
+<p>W/AudioFlinger(   75): RecordThread: buffer overflow
+W/AudioTrack(  302): obtainBuffer timed out (is the CPU pegged?) 0x335d00 user=0001b2a6, server=0001af40
+W/AudioFlinger(   75): RecordThread: buffer overflow
+W/AudioFlinger(   75): RecordThread: buffer overflow
+W/AudioFlinger(   75): RecordThread: buffer overflow
+W/AudioFlinger(   75): RecordThread: buffer overflow
+W/ActivityManager(  127): Launch timeout has expired, giving up wake lock!
+W/ActivityManager(  127): Activity idle timeout for HistoryRecord{43e26778 com.android.launcher/.Launcher}
+W/AudioFlinger(   75): RecordThread: buffer overflow
+W/AudioFlinger(   75): RecordThread: buffer overflow
+W/AudioFlinger(   75): RecordThread: buffer overflow
+W/AudioTrack(  302): obtainBuffer timed out (is the CPU pegged?) 0x335d00 user=0001bb66, server=0001b800
+W/AudioTrack(  302): obtainBuffer timed out (is the CPU pegged?) 0x335d00 user=0001bb66, server=0001b800</p>
+
+<p>I/Process (  127): Sending signal. PID: 205 SIG: 3
+I/dalvikvm(  205): threadid=3: reacting to signal 3
+I/dalvikvm(  205): Wrote stack traces to '/data/anr/traces.txt'
+I/Process (  127): Sending signal. PID: 127 SIG: 3
+I/dalvikvm(  127): threadid=3: reacting to signal 3
+W/AudioFlinger(   75): RecordThread: buffer overflow
+I/Process (  127): Sending signal. PID: 202 SIG: 3
+... many more of these followed by crash ...</p>
+
+<p>My current theory is that csipsimple is using up a large amount of resources, which at times gets bad enough to cause the OS to kill itself.  I have also noticed that in-call UI things are much slower in the recent csipsimple versions than they were in 00.13.  For example there is often a pause of several seconds before the screen changes state when answering a call, and after ending a call, the screen goes black for as long as 10-15 seconds before returning to the dialer/homescreen.</p>
+
+<p>The Wildfire has a relatively low-powered CPU (528MHz) so high resource usage would be more likely to hit it than faster devices.</p>
+
+<p>Any idea what could have changed after 00.13 that would cause significantly higher system load?</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #1</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Dec 14, 2010 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Yes CSipSimple "UI" use resources. However, the native SIP stack if correctly configured use really few CPU (if audio 'driver' behaves correctly).</p>
+
+<p>Actually there is two method to read audio. One which was used in prior versions to 0.00-13 were based on a straight implementation, very basic and hopping that the audio driver is correctly coded.
+It worked very well... until Samsung (and their awful audio drivers) comes ....</p>
+
+<p>Unfortunately, with these drivers the simple implementation was buggy. And I had to change my implementation to get it working on the Galaxy S (and some other devices based on Alsa driver).
+Unfortunately that's not optimized for HTC devices (that prefers the straight implementation and overrun a little bit).</p>
+
+<p>So what I would advise first of all :
+ * Change the audio frequency : from 16kHz (which is the default on 2.2.x devices to 8kHz which is the default for old generation 1.5/6 devices... but in your case as you are autodetected as a new device... but with a low CPU.... you have automatically 16kHz choosen). 8kHz will help <em>a lot</em> : 
+  * No more need of a resampler (cause all codecs are 8kHz so better to have 8kHz as output if you prefer performances to call quality)
+  * The audio driver will less overload it's buffers
+ * Ensure that codecs activated are only low CPU consuption codecs (for example no iLBC, no g722 etc)
+ * Disable Echo cancellation
+ * Disable Voice Auto Detection</p>
+
+<p>I could also do a custom build with the Alsa compatibility turned off, but I'd be interested first by results of theses tests, cause I think it's more likely to be the real cause of the problem (special audio frequency, cause in 0.00-13 was by default to 8kHz for all devices).</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #2</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Dec 19, 2010 by
+                  <i class="ng-binding">Happy Rhino</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Thanks for the suggestions, I've reduced the frequency to 8kHz and am still testing.</p>
+
+<p>In the meantime, I've been looking more closely at CPU usage during "idle" periods, while no call is active and csipsimple is in the background.  (I suppose any such background usage would be due to pjsip.)  I was prompted to do this because at one point the phone had slowed to a crawl.  When I opened a shell and ran a "top", I saw that system_server would often rise to the top of the list and consume more than 90% CPU for 10-15 seconds.  Then it would go back to normal for a few seconds, then shoot up again.</p>
+
+<p>I couldn't figure this out until I opened csipsimple and hit Menu-&gt;Disconnect.  After this the idle CPU usage immediately dropped back to 1-2% and stayed there.  After I told csipsimple to reconnect, CPU usage went up a little but was quite reasonable: periodically (once every 30-60 seconds) I would see csipsimple and system_server simultaneously rise up to about 7-10% each, then drop back after a couple of seconds.  I assume this is due to processing keepalives/registrations (I have keepalive set to the default of 40s and re-registration happens with callcentric every 60s).  There is no STUN etc. enabled.</p>
+
+<p>The strange thing is that the csipsimple/system_server CPU usage seems to creep back up over time.  I got in the habit of running a "top -m 3" in the shell now and then, and eventually I saw that the periodic "peaks" were getting both taller and wider: csipsimple hitting 15-20% and system_server hitting 90+%, and staying that way for 5-10 seconds before dropping.  Once again, telling csipsimple to disconnect/reconnect knocked the CPU usage back down.</p>
+
+<p>So there is something odd happening with how csipsimple/pjsip uses background CPU over time.  Any idea why the background usage would increase this way?</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #3</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jan 4, 2011 by
+                  <i class="ng-binding">Happy Rhino</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Update on this issue - so far I haven't experienced an Android crash after changing the audio frequency from 16 KHz to 8 KHz.  It may be that 16 KHz is just too much for this CPU to handle, although that's unfortunate since apart from the occasional JVM crash it worked OK and the sound quality was definitely better.</p>
+
+<p>(I have been experiencing a different kind of crash during calls but it's a complete freeze rather than a JVM crash so it's probably a kernel problem)</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #4</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jan 31, 2011 by
+                  <i class="ng-binding">Happy Wombat</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>I have same problems on my Wildfire. These are some logs from DDMS</p>
+
+<p>01-31 15:11:18.817: DEBUG/dalvikvm(18797): GC_EXPLICIT freed 2220 objects / 100104 bytes in 369ms
+01-31 15:11:32.867: DEBUG/dalvikvm(214): GC_EXPLICIT freed 1932 objects / 117048 bytes in 257095ms
+01-31 15:11:34.077: DEBUG/dalvikvm(3915): GC_EXPLICIT freed 4414 objects / 454808 bytes in 290898ms
+01-31 15:11:34.907: DEBUG/dalvikvm(14432): GC_EXPLICIT freed 24 objects / 1312 bytes in 262148ms
+01-31 15:11:34.977: DEBUG/dalvikvm(14499): GC_EXPLICIT freed 3551 objects / 387584 bytes in 294813ms
+01-31 15:11:35.377: DEBUG/dalvikvm(18840): GC_FOR_MALLOC freed 7375 objects / 814352 bytes in 842ms
+01-31 15:11:36.147: DEBUG/dalvikvm(18849): GC_FOR_MALLOC freed 2612 objects / 169128 bytes in 298ms
+01-31 15:11:36.837: DEBUG/dalvikvm(18840): GC_FOR_MALLOC freed 4088 objects / 297888 bytes in 709ms
+01-31 15:11:37.227: DEBUG/dalvikvm(18849): GC_FOR_MALLOC freed 877 objects / 49200 bytes in 239ms
+01-31 15:11:37.347: DEBUG/dalvikvm(18840): GC_FOR_MALLOC freed 382 objects / 354696 bytes in 283ms</p>
+
+<p>01-31 15:03:21.838: ERROR/ActivityManager(98): ANR in com.csipsimple (com.csipsimple/.ui.InCallActivity)
+01-31 15:03:21.838: ERROR/ActivityManager(98): Reason: keyDispatchingTimedOut
+01-31 15:03:21.838: ERROR/ActivityManager(98): Load: 34.8 / 14.8 / 7.75
+01-31 15:03:21.838: ERROR/ActivityManager(98): CPU usage from 53283ms to 471ms ago:
+01-31 15:03:21.838: ERROR/ActivityManager(98):   com.csipsimple: 90% = 87% user + 3% kernel / faults: 40 minor 6 major
+01-31 15:03:21.838: ERROR/ActivityManager(98):   system_server: 2% = 1% user + 0% kernel / faults: 533 minor 31 major
+01-31 15:03:21.838: ERROR/ActivityManager(98):   dhd_dpc: 2% = 0% user + 2% kernel
+01-31 15:03:21.838: ERROR/ActivityManager(98):   mediaserver: 1% = 0% user + 1% kernel
+01-31 15:03:21.838: ERROR/ActivityManager(98):   logcat: 1% = 0% user + 0% kernel
+01-31 15:03:21.838: ERROR/ActivityManager(98):   synaptics_wq: 0% = 0% user + 0% kernel
+01-31 15:03:21.838: ERROR/ActivityManager(98):   m.android.phone: 0% = 0% user + 0% kernel / faults: 166 minor 18 major
+01-31 15:03:21.838: ERROR/ActivityManager(98):   usb_mass_storag: 0% = 0% user + 0% kernel
+01-31 15:03:21.838: ERROR/ActivityManager(98):   adbd: 0% = 0% user + 0% kernel
+01-31 15:03:21.838: ERROR/ActivityManager(98):   wpa_supplicant: 0% = 0% user + 0% kernel / faults: 1 minor
+01-31 15:03:21.838: ERROR/ActivityManager(98):   w1_bus_master1: 0% = 0% user + 0% kernel
+01-31 15:03:21.838: ERROR/ActivityManager(98):   rild: 0% = 0% user + 0% kernel
+01-31 15:03:21.838: ERROR/ActivityManager(98):   .android.htcime: 0% = 0% user + 0% kernel / faults: 60 minor
+01-31 15:03:21.838: ERROR/ActivityManager(98):   om.htc.launcher: 0% = 0% user + 0% kernel / faults: 75 minor
+01-31 15:03:21.838: ERROR/ActivityManager(98):   events/0: 0% = 0% user + 0% kernel
+01-31 15:03:21.838: ERROR/ActivityManager(98):   ds2784-battery.: 0% = 0% user + 0% kernel
+01-31 15:03:21.838: ERROR/ActivityManager(98):   droid.wallpaper: 0% = 0% user + 0% kernel / faults: 106 minor
+01-31 15:03:21.838: ERROR/ActivityManager(98):   ata.android.rss: 0% = 0% user + 0% kernel / faults: 24 minor
+01-31 15:03:21.838: ERROR/ActivityManager(98):   aob.android.mnm: 0% = 0% user + 0% kernel / faults: 6 minor
+01-31 15:03:21.838: ERROR/ActivityManager(98):   ndroid.settings: 0% = 0% user + 0% kernel / faults: 1 minor
+01-31 15:03:21.838: ERROR/ActivityManager(98):   com.htc.bgp: 0% = 0% user + 0% kernel / faults: 5 minor
+01-31 15:03:21.838: ERROR/ActivityManager(98):   nie.geniewidget: 0% = 0% user + 0% kernel / faults: 5 minor
+01-31 15:03:21.838: ERROR/ActivityManager(98):   eatherWallpaper: 0% = 0% user + 0% kernel / faults: 23 minor
+01-31 15:03:21.838: ERROR/ActivityManager(98): TOTAL: 100% = 90% user + 8% kernel + 0% softirq</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #5</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jan 31, 2011 by
+                  <i class="ng-binding">Happy Rhino</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>dmitry, that log shows the csipsimple process eating 90% CPU, which definitely should not be happening. What csipsimple version/build are you using and what are your media settings (echo cancellation, audio clock frequency, etc.)  Current builds of csipsimple should not use more than roughly 30-35% CPU during calls if correctly configured on your phone.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #6</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jan 31, 2011 by
+                  <i class="ng-binding">Happy Wombat</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>When this log was collected, I used 0.00-16 r593 from Nightly builds tls branch, TLS+SRTP, speex, EC was on, ACF was 16 kHz. I will try to set EC off and ACF to 8 kHz, but sometimes CsipSimple works fine with my old settings. And I have approximate problems with garbage collecor on HTC Desire. Sometimes GC stops media for 500-700 ms.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #7</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jan 31, 2011 by
+                  <i class="ng-binding">Happy Rhino</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>The first thing I'd recommend is moving to the latest build, there were problems with the echo canceller that have since been fixed.  Also I should have mentioned the 30-35% figure is with PCMU, if you're using other codecs the % will be higher.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #8</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Aug 17, 2011 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Quick update on this issue, csipsimple now integrate webRTC (google) AEC for mobile that should work better with low cpu devices.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments -->
+          </div>
+
+          <!-- Sidebar with additional information -->
+          <div class="maia-col-4">
+            <div class="maia-aside">
+              <p>Status: <code class="ng-binding">Obsolete</code></p>
+              <!-- ngIf: issueCtrl.issue.labels.length > 0 --><p ng-if="issueCtrl.issue.labels.length &gt; 0" class="ng-scope">
+                Labels:
+                <br>
+                <!-- ngRepeat: label in issueCtrl.issue.labels track by $index --><span ng-repeat="label in issueCtrl.issue.labels track by $index" class="ng-scope">
+                  <span class="gca-label ng-binding">Type-Defect</span>
+                </span><!-- end ngRepeat: label in issueCtrl.issue.labels track by $index --><span ng-repeat="label in issueCtrl.issue.labels track by $index" class="ng-scope">
+                  <span class="gca-label ng-binding">Priority-Medium</span>
+                </span><!-- end ngRepeat: label in issueCtrl.issue.labels track by $index -->
+              </p><!-- end ngIf: issueCtrl.issue.labels.length > 0 -->
+            </div>
+          </div>
+        </div><!-- end ngIf: !issueCtrl.error -->
+      </div>
+    </div>
+
+  </div>
+</div>
+</div></div></div>
+    <noscript>
+      &lt;p&gt;The Google Code Archive requires JavaScript to be enabled in your browser.&lt;/p&gt;
+    </noscript>
+
+    <div id="maia-signature"></div>
+    <div class="maia-footer" id="maia-footer">
+      <div id="maia-footer-local">
+      </div>
+      <div id="maia-footer-global">
+        <div class="maia-aux">
+          <ul>
+            <li>
+              <a href="//www.google.com/">Google</a>
+            </li>
+            <li>
+              <a href="//www.google.com/intl/en/about/">About Google</a>
+            </li>
+            <li>
+              <a href="//www.google.com/intl/en/policies/privacy/">Privacy</a>
+            </li>
+            <li>
+              <a href="//www.google.com/intl/en/policies/terms/">Terms</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <script src="//www.google.com/js/maia.js"></script>
+  
+
+
+</body></html>

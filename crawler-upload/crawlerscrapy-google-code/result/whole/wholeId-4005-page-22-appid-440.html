@@ -1,0 +1,785 @@
+https://code.google.com/archive/p/csipsimple/issues/831<!DOCTYPE html><html class="google ng-scope" lang="en" ng-app="codesiteArchive.application"><head>
+    <meta charset="utf-8">
+    <meta content="initial-scale=1, minimum-scale=1, width=device-width" name="viewport">
+
+    <!-- https://developers.google.com/webmasters/ajax-crawling/docs/specification -->
+    <meta name="fragment" content="!">
+    <title>Google Code Archive - Long-term storage for Google Code Project Hosting.</title>
+
+    <link rel="icon" type="image/vnd.microsoft.icon" href="/archive/img/project-hosting.ico">
+    <script src="//www.google.com/js/google.js"></script>
+    <link href="//www.google.com/css/maia.css" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;lang=en" rel="stylesheet">
+    <link rel="stylesheet" href="/archive/archive_css.css">
+    <script>
+      CLOSURE_NO_DEPS = true;
+    </script>
+    <script src="/archive/angular.js"></script><style type="text/css">@charset "UTF-8";
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak],
+.ng-cloak, .x-ng-cloak,
+.ng-hide:not(.ng-hide-animate) {
+  display: none !important;
+}
+
+ng\:form {
+  display: block;
+}
+
+.ng-animate-shim {
+  visibility:hidden;
+}
+
+.ng-anchor {
+  position:absolute;
+}
+</style>
+    <script src="/archive/pagedown.js"></script>
+    <script src="/archive/archive.js"></script>
+    <base href="/archive/">
+  </head>
+
+  <body>
+    <div class="maia-header" id="maia-header" role="banner">
+      <div class="maia-aux">
+        <a href="/archive/">
+          </a><h1><a href="/archive/">
+            <img alt="Google" src="//www.google.com/images/branding/googlelogo/1x/googlelogo_color_116x41dp.png"> Code</a>
+          </h1>
+        
+        <a href="/archive/">
+          <h2>Archive</h2>
+        </a>
+        <a class="maia-teleport" href="#content">Skip to content</a>
+        <div class="maia-util">
+          <form action="/archive/search" class="maia-search ng-pristine ng-valid">
+            <input name="q" placeholder="Search this site" type="text">
+            <button class="maia-button">
+              <span class="maia-search-icon">Search</span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- ngView: --><div ng-view="" class="ng-scope"><div ng-controller="ProjectIssueCtrl as issueCtrl" class="ng-scope">
+<nav-bar-widget nav-level-1="projectCtrl.navLevel1" class="ng-isolate-scope"><div class="maia-nav maia-complex" id="maia-nav-x" role="navigation">
+  <div class="maia-aux">
+    <ul>
+      <li ng-class="{active: navLevel1 == 'projects'}">
+        <a href="/archive/">Projects</a>
+        <!-- ngIf: navLevel2 -->
+      </li>
+      <li ng-class="{active: navLevel1 == 'search'}">
+        <a href="/archive/search">Search</a>
+      </li>
+      <li ng-class="{active: navLevel1 == 'about'}">
+        <a href="/archive/about">About</a>
+      </li>
+    </ul>
+  </div>
+</div>
+</nav-bar-widget>
+<div id="maia-main" role="main">
+
+  <!-- ngIf: issueCtrl.notFound -->
+
+  <div ng-hide="issueCtrl.notFound">
+    <!-- Left-side resource nav -->
+    <project-resources-widget domain="issueCtrl.domain" project="issueCtrl.projectName" class="ng-isolate-scope"><div class="maia-nav" id="maia-nav-y" role="navigation">
+  <!-- ngIf: domain == 'code.google.com' --><ul ng-if="domain == 'code.google.com'" class="ng-scope">
+    <li class="active">
+      <a href="/archive/p/csipsimple/">Project</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/source">Source</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/issues">Issues</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/wikis">Wikis</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/downloads">Downloads</a>
+    </li>
+  </ul><!-- end ngIf: domain == 'code.google.com' -->
+
+    <!-- ngIf: domain != 'code.google.com' -->
+</div></project-resources-widget>
+
+    <div class="maia-article" role="article">
+      <div class="maia-teleport" id="content"></div>
+      <div class="maia-cols">
+        <div id="gca-project-header" class="maia-col-10">
+          <a id="gca-export-to-gh" class="maia-button" href="https://code.google.com/export-to-github/export?project=csipsimple">Export to GitHub</a>
+            <img class="gca-project-logo" src="https://storage.googleapis.com/google-code-archive/v2/code.google.com/csipsimple/logo.png">
+            <h1 class="ng-binding">csipsimple - issue #831</h1>
+            <p class="ng-binding">Add more infos to useragent.</p>
+        </div>
+
+        <div class="maia-col-10">
+          <hr>
+
+        <!-- ngIf: issueCtrl.error -->
+
+        <!-- ngIf: !issueCtrl.error --><div ng-if="!issueCtrl.error" class="ng-scope">
+          <!-- Comments -->
+          <div class="maia-col-8">
+            <!-- ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Mar 24, 2011 by
+                  <i class="ng-binding">Happy Wombat</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Just suggestion for developers 
+Please add all detailed information in "User agent" to avoid stupid questions to tester-s about version of software, OS etc.
+I do not have my own android telephone.</p>
+
+<p>Here is tcp dump from you today nightly build. It's information from customer.
+Your application send INVITE receive Proxy Authentication Required
+respond ASK and JUST DROP the call.
+Lower REGISTER working perfect.
+Other suggestion test in laboratory, before provide in public.</p>
+
+<p>Thanks.</p>
+
+<p>filter: (ip or ip6) and ( host 94.27.76.9 and port 5060 )
+#
+U 2011/03/24 09:56:20.019909 94.27.76.9:5060 -&gt; 193.28.184.13:5060
+INVITE sip:0016414725000@ipshka.com SIP/2.0.
+Via: SIP/2.0/UDP 94.27.76.9:5060;rport;branch=z9hG4bKPjWzG.KemsldsEJ0DPqeSbsT2RPxP4b7tV.
+Max-Forwards: 70.
+From: "olden" &lt;sip:100008@ipshka.com&gt;;tag=BrnvthT6L9VtCU2.ctCkO40VuW8-lShq.
+To: &lt;sip:0016414725000@ipshka.com&gt;.
+Contact: "olden" &lt;sip:100008@94.27.76.9:5060;ob&gt;.
+Call-ID: GORVB1efzskKRc4xus6tIDeGTTuvXlTt.
+CSeq: 29784 INVITE.
+Route: &lt;sip:ipshka.com;transport=udp;lr&gt;.
+Allow: PRACK, INVITE, ACK, BYE, CANCEL, UPDATE, SUBSCRIBE, NOTIFY, REFER, MESSAGE, OPTIONS.
+Supported: replaces, 100rel, timer, norefersub.
+Session-Expires: 1800.
+Min-SE: 90.
+User-Agent: CSipSimple.
+Content-Type: application/sdp.
+Content-Length:   319.
+.
+v=0.
+o=- 3509942737 3509942737 IN IP4 94.27.76.9.
+s=pjmedia.
+c=IN IP4 94.27.76.9.
+t=0 0.
+a=X-nat:0.
+m=audio 4016 RTP/AVP 8 18 0 101.
+a=rtcp:4017 IN IP4 192.168.0.101.
+a=rtpmap:8 PCMA/8000.
+a=rtpmap:18 G729/8000.
+a=fmtp:18 annexb=no.
+a=rtpmap:0 PCMU/8000.
+a=sendrecv.
+a=rtpmap:101 telephone-event/8000.
+a=fmtp:101 0-15.</p>
+
+<p>#
+U 2011/03/24 09:56:20.022396 193.28.184.13:5060 -&gt; 94.27.76.9:5060
+SIP/2.0 100 Trying.
+Via: SIP/2.0/UDP 94.27.76.9:5060;rport=5060;branch=z9hG4bKPjWzG.KemsldsEJ0DPqeSbsT2RPxP4b7tV.
+From: "olden" &lt;sip:100008@ipshka.com&gt;;tag=BrnvthT6L9VtCU2.ctCkO40VuW8-lShq.
+To: &lt;sip:0016414725000@ipshka.com&gt;.
+Call-ID: GORVB1efzskKRc4xus6tIDeGTTuvXlTt.
+CSeq: 29784 INVITE.
+Server: OpenSER (1.3.4-notls (x86_64/linux)).
+Content-Length: 0.
+.</p>
+
+<p>#
+U 2011/03/24 09:56:20.022450 193.28.184.13:5060 -&gt; 94.27.76.9:5060
+SIP/2.0 407 Proxy Authentication Required.
+Via: SIP/2.0/UDP 94.27.76.9:5060;rport=5060;branch=z9hG4bKPjWzG.KemsldsEJ0DPqeSbsT2RPxP4b7tV.
+From: "olden" &lt;sip:100008@ipshka.com&gt;;tag=BrnvthT6L9VtCU2.ctCkO40VuW8-lShq.
+To: &lt;sip:0016414725000@ipshka.com&gt;;tag=8e373578fa68a199c630c28b25cb902f.8b53.
+Call-ID: GORVB1efzskKRc4xus6tIDeGTTuvXlTt.
+CSeq: 29784 INVITE.
+Proxy-Authenticate: Digest realm="ipshka.com", nonce="4d8afa5031ffd7d97d61a96d311e03ea161ca195", qop="auth".
+Server: OpenSER (1.3.4-notls (x86_64/linux)).
+Content-Length: 0.
+.</p>
+
+<p>#
+U 2011/03/24 09:56:20.030924 94.27.76.9:5060 -&gt; 193.28.184.13:5060
+ACK sip:0016414725000@ipshka.com SIP/2.0.
+Via: SIP/2.0/UDP 94.27.76.9:5060;rport;branch=z9hG4bKPjWzG.KemsldsEJ0DPqeSbsT2RPxP4b7tV.
+Max-Forwards: 70.
+From: "olden" &lt;sip:100008@ipshka.com&gt;;tag=BrnvthT6L9VtCU2.ctCkO40VuW8-lShq.
+To: &lt;sip:0016414725000@ipshka.com&gt;;tag=8e373578fa68a199c630c28b25cb902f.8b53.
+Call-ID: GORVB1efzskKRc4xus6tIDeGTTuvXlTt.
+CSeq: 29784 ACK.
+Route: &lt;sip:ipshka.com;transport=udp;lr&gt;.
+Content-Length:  0.
+.</p>
+
+<p>#
+U 2011/03/24 09:59:39.381923 94.27.76.9:5060 -&gt; 193.28.184.13:5060
+REGISTER sip:ipshka.com SIP/2.0.
+Via: SIP/2.0/UDP 94.27.76.9:5060;rport;branch=z9hG4bKPjv7WnvBKBn5iQTl4gXjkDS.AgSh8pgGKc.
+Route: &lt;sip:ipshka.com;transport=udp;lr&gt;.
+Max-Forwards: 70.
+From: "olden" &lt;sip:100008@ipshka.com&gt;;tag=WmE9M9tMiyEURbDqiDsqcEWKBEuB-MVl.
+To: "olden" &lt;sip:100008@ipshka.com&gt;.
+Call-ID: OKA5mH9ZeyKptuC03AWIa4tI7dLBqfqH.
+CSeq: 45837 REGISTER.
+User-Agent: CSipSimple.
+Contact: "olden" &lt;sip:100008@94.27.76.9:5060;ob&gt;.
+Expires: 300.
+Allow: PRACK, INVITE, ACK, BYE, CANCEL, UPDATE, SUBSCRIBE, NOTIFY, REFER, MESSAGE, OPTIONS.
+Content-Length:  0.
+.</p>
+
+<p>#
+U 2011/03/24 09:59:39.383480 193.28.184.13:5060 -&gt; 94.27.76.9:5060
+SIP/2.0 100 Trying.
+Via: SIP/2.0/UDP 94.27.76.9:5060;rport=5060;branch=z9hG4bKPjv7WnvBKBn5iQTl4gXjkDS.AgSh8pgGKc.
+From: "olden" &lt;sip:100008@ipshka.com&gt;;tag=WmE9M9tMiyEURbDqiDsqcEWKBEuB-MVl.
+To: "olden" &lt;sip:100008@ipshka.com&gt;.
+Call-ID: OKA5mH9ZeyKptuC03AWIa4tI7dLBqfqH.
+CSeq: 45837 REGISTER.
+Server: OpenSER (1.3.4-notls (x86_64/linux)).
+Content-Length: 0.
+.</p>
+
+<p>#
+U 2011/03/24 09:59:39.383503 193.28.184.13:5060 -&gt; 94.27.76.9:5060
+SIP/2.0 401 Unauthorized.
+Via: SIP/2.0/UDP 94.27.76.9:5060;rport=5060;branch=z9hG4bKPjv7WnvBKBn5iQTl4gXjkDS.AgSh8pgGKc.
+From: "olden" &lt;sip:100008@ipshka.com&gt;;tag=WmE9M9tMiyEURbDqiDsqcEWKBEuB-MVl.
+To: "olden" &lt;sip:100008@ipshka.com&gt;;tag=8e373578fa68a199c630c28b25cb902f.c72e.
+Call-ID: OKA5mH9ZeyKptuC03AWIa4tI7dLBqfqH.
+CSeq: 45837 REGISTER.
+WWW-Authenticate: Digest realm="ipshka.com", nonce="4d8afb17a4097f536ffa66ee1230553e36ea93ee", qop="auth".
+Server: OpenSER (1.3.4-notls (x86_64/linux)).
+Content-Length: 0.
+.</p>
+
+<p>#
+U 2011/03/24 09:59:39.390906 94.27.76.9:5060 -&gt; 193.28.184.13:5060
+REGISTER sip:ipshka.com SIP/2.0.
+Via: SIP/2.0/UDP 94.27.76.9:5060;rport;branch=z9hG4bKPj31dHyV9TctfzaynASl88rHAApKA4z74D.
+Route: &lt;sip:ipshka.com;transport=udp;lr&gt;.
+Max-Forwards: 70.
+From: "olden" &lt;sip:100008@ipshka.com&gt;;tag=WmE9M9tMiyEURbDqiDsqcEWKBEuB-MVl.
+To: "olden" &lt;sip:100008@ipshka.com&gt;.
+Call-ID: OKA5mH9ZeyKptuC03AWIa4tI7dLBqfqH.
+CSeq: 45838 REGISTER.
+User-Agent: CSipSimple.
+Contact: "olden" &lt;sip:100008@94.27.76.9:5060;ob&gt;.
+Expires: 300.
+Allow: PRACK, INVITE, ACK, BYE, CANCEL, UPDATE, SUBSCRIBE, NOTIFY, REFER, MESSAGE, OPTIONS.
+Authorization: Digest username="100008", realm="ipshka.com", nonce="4d8afb17a4097f536ffa66ee1230553e36ea93ee", uri="sip:ipshka.com", response="fe6408de4cd61bae0d52a91753648a50", cnonce="VAVDLD9K8IxcD9ZUioEA4f8jw29pFHaC", qop=auth, nc=00000001.
+Content-Length:  0.
+.</p>
+
+<p>#
+U 2011/03/24 09:59:39.392520 193.28.184.13:5060 -&gt; 94.27.76.9:5060
+SIP/2.0 100 Trying.
+Via: SIP/2.0/UDP 94.27.76.9:5060;rport=5060;branch=z9hG4bKPj31dHyV9TctfzaynASl88rHAApKA4z74D.
+From: "olden" &lt;sip:100008@ipshka.com&gt;;tag=WmE9M9tMiyEURbDqiDsqcEWKBEuB-MVl.
+To: "olden" &lt;sip:100008@ipshka.com&gt;.
+Call-ID: OKA5mH9ZeyKptuC03AWIa4tI7dLBqfqH.
+CSeq: 45838 REGISTER.
+Server: OpenSER (1.3.4-notls (x86_64/linux)).
+Content-Length: 0.
+.</p>
+
+<p>#
+U 2011/03/24 09:59:39.393706 193.28.184.13:5060 -&gt; 94.27.76.9:5060
+SIP/2.0 200 OK.
+Via: SIP/2.0/UDP 94.27.76.9:5060;rport=5060;branch=z9hG4bKPj31dHyV9TctfzaynASl88rHAApKA4z74D.
+From: "olden" &lt;sip:100008@ipshka.com&gt;;tag=WmE9M9tMiyEURbDqiDsqcEWKBEuB-MVl.
+To: "olden" &lt;sip:100008@ipshka.com&gt;;tag=8e373578fa68a199c630c28b25cb902f.24ec.
+Call-ID: OKA5mH9ZeyKptuC03AWIa4tI7dLBqfqH.
+CSeq: 45838 REGISTER.
+Contact: &lt;sip:100008@94.27.76.9:5060;ob&gt;;expires=300.
+Server: OpenSER (1.3.4-notls (x86_64/linux)).
+Content-Length: 0.
+.</p>
+
+<p>#
+U 2011/03/24 10:01:45.106874 94.27.76.9:5060 -&gt; 193.28.184.13:5060
+INVITE sip:100010@ipshka.com SIP/2.0.
+Via: SIP/2.0/UDP 94.27.76.9:5060;rport;branch=z9hG4bKPjhXDCUe46FU1rXEMBcR1ba06rQYE5j.JO.
+Max-Forwards: 70.
+From: "olden" &lt;sip:100008@ipshka.com&gt;;tag=dS2E6DBcTqm9Bm1S.PiBVAlz2ePrR4op.
+To: &lt;sip:100010@ipshka.com&gt;.
+Contact: "olden" &lt;sip:100008@94.27.76.9:5060;ob&gt;.
+Call-ID: g5qxUJcAHpY37JFqNsovlEQvPvHuZZWv.
+CSeq: 24772 INVITE.
+Route: &lt;sip:ipshka.com;transport=udp;lr&gt;.
+Allow: PRACK, INVITE, ACK, BYE, CANCEL, UPDATE, SUBSCRIBE, NOTIFY, REFER, MESSAGE, OPTIONS.
+Supported: replaces, 100rel, timer, norefersub.
+Session-Expires: 1800.
+Min-SE: 90.
+User-Agent: CSipSimple.
+Content-Type: application/sdp.
+Content-Length:   319.
+.
+v=0.
+o=- 3509943061 3509943061 IN IP4 94.27.76.9.
+s=pjmedia.
+c=IN IP4 94.27.76.9.
+t=0 0.
+a=X-nat:0.
+m=audio 4018 RTP/AVP 8 18 0 101.
+a=rtcp:4019 IN IP4 192.168.0.101.
+a=rtpmap:8 PCMA/8000.
+a=rtpmap:18 G729/8000.
+a=fmtp:18 annexb=no.
+a=rtpmap:0 PCMU/8000.
+a=sendrecv.
+a=rtpmap:101 telephone-event/8000.
+a=fmtp:101 0-15.</p>
+
+<p>#
+U 2011/03/24 10:01:45.108291 193.28.184.13:5060 -&gt; 94.27.76.9:5060
+SIP/2.0 100 Trying.
+Via: SIP/2.0/UDP 94.27.76.9:5060;rport=5060;branch=z9hG4bKPjhXDCUe46FU1rXEMBcR1ba06rQYE5j.JO.
+From: "olden" &lt;sip:100008@ipshka.com&gt;;tag=dS2E6DBcTqm9Bm1S.PiBVAlz2ePrR4op.
+To: &lt;sip:100010@ipshka.com&gt;.
+Call-ID: g5qxUJcAHpY37JFqNsovlEQvPvHuZZWv.
+CSeq: 24772 INVITE.
+Server: OpenSER (1.3.4-notls (x86_64/linux)).
+Content-Length: 0.
+.</p>
+
+<p>#
+U 2011/03/24 10:01:45.114508 193.28.184.13:5060 -&gt; 94.27.76.9:5060
+SIP/2.0 100 Giving a try.
+Via: SIP/2.0/UDP 94.27.76.9:5060;rport=5060;branch=z9hG4bKPjhXDCUe46FU1rXEMBcR1ba06rQYE5j.JO.
+From: "olden" &lt;sip:100008@ipshka.com&gt;;tag=dS2E6DBcTqm9Bm1S.PiBVAlz2ePrR4op.
+To: &lt;sip:100010@ipshka.com&gt;.
+Call-ID: g5qxUJcAHpY37JFqNsovlEQvPvHuZZWv.
+CSeq: 24772 INVITE.
+Server: OpenSER (1.3.4-notls (x86_64/linux)).
+Content-Length: 0.
+.</p>
+
+<p>#
+U 2011/03/24 10:01:45.177334 193.28.184.13:5060 -&gt; 94.27.76.9:5060
+SIP/2.0 180 Ringing.
+Via: SIP/2.0/UDP 94.27.76.9:5060;rport=5060;branch=z9hG4bKPjhXDCUe46FU1rXEMBcR1ba06rQYE5j.JO.
+Record-Route: &lt;sip:193.28.184.13;lr=on;ftag=dS2E6DBcTqm9Bm1S.PiBVAlz2ePrR4op&gt;.
+From: "olden" &lt;sip:100008@ipshka.com&gt;;tag=dS2E6DBcTqm9Bm1S.PiBVAlz2ePrR4op.
+To: "Andrew O. Zhukov" &lt;sip:100010@ipshka.com&gt;;tag=e04ln4owxe.
+Call-ID: g5qxUJcAHpY37JFqNsovlEQvPvHuZZWv.
+CSeq: 24772 INVITE.
+Contact: &lt;sip:100010@193.28.184.10:2048;line=8tt4hpfg;nat=yes&gt;;reg-id=1.
+Require: 100rel.
+RSeq: 1.
+Allow: INVITE, ACK, CANCEL, BYE, REFER, OPTIONS, NOTIFY, SUBSCRIBE, PRACK, MESSAGE, INFO.
+Allow-Events: talk, hold, refer, call-info.
+Content-Length: 0.
+.</p>
+
+<p>#
+U 2011/03/24 10:01:45.191727 94.27.76.9:5060 -&gt; 193.28.184.13:5060
+PRACK sip:100010@193.28.184.10:2048;line=8tt4hpfg;nat=yes SIP/2.0.
+Via: SIP/2.0/UDP 94.27.76.9:5060;rport;branch=z9hG4bKPj0CbsN3bKyQvs6xTA1OOoSXRcGgstIYs9.
+Max-Forwards: 70.
+From: "olden" &lt;sip:100008@ipshka.com&gt;;tag=dS2E6DBcTqm9Bm1S.PiBVAlz2ePrR4op.
+To: &lt;sip:100010@ipshka.com&gt;;tag=e04ln4owxe.
+Call-ID: g5qxUJcAHpY37JFqNsovlEQvPvHuZZWv.
+CSeq: 24773 PRACK.
+Route: &lt;sip:193.28.184.13;lr;ftag=dS2E6DBcTqm9Bm1S.PiBVAlz2ePrR4op&gt;.
+RAck: 1 24772 INVITE.
+Content-Length:  0.
+.</p>
+
+<p>#
+U 2011/03/24 10:01:45.339190 193.28.184.13:5060 -&gt; 94.27.76.9:5060
+SIP/2.0 200 Ok.
+Via: SIP/2.0/UDP 94.27.76.9:5060;rport=5060;branch=z9hG4bKPj0CbsN3bKyQvs6xTA1OOoSXRcGgstIYs9.
+Record-Route: &lt;sip:193.28.184.13;lr=on;ftag=dS2E6DBcTqm9Bm1S.PiBVAlz2ePrR4op&gt;.
+From: "olden" &lt;sip:100008@ipshka.com&gt;;tag=dS2E6DBcTqm9Bm1S.PiBVAlz2ePrR4op.
+To: "Andrew O. Zhukov" &lt;sip:100010@ipshka.com&gt;;tag=e04ln4owxe.
+Call-ID: g5qxUJcAHpY37JFqNsovlEQvPvHuZZWv.
+CSeq: 24773 PRACK.
+Contact: &lt;sip:100010@193.28.184.10:2048;line=8tt4hpfg;nat=yes&gt;;reg-id=1.
+Content-Length: 0.
+.</p>
+
+<p>#
+U 2011/03/24 10:01:48.006161 193.28.184.13:5060 -&gt; 94.27.76.9:5060
+SIP/2.0 200 Ok.
+Via: SIP/2.0/UDP 94.27.76.9:5060;rport=5060;branch=z9hG4bKPjhXDCUe46FU1rXEMBcR1ba06rQYE5j.JO.
+Record-Route: &lt;sip:193.28.184.13;lr=on;ftag=dS2E6DBcTqm9Bm1S.PiBVAlz2ePrR4op&gt;.
+From: "olden" &lt;sip:100008@ipshka.com&gt;;tag=dS2E6DBcTqm9Bm1S.PiBVAlz2ePrR4op.
+To: "Andrew O. Zhukov" &lt;sip:100010@ipshka.com&gt;;tag=e04ln4owxe.
+Call-ID: g5qxUJcAHpY37JFqNsovlEQvPvHuZZWv.
+CSeq: 24772 INVITE.
+Contact: &lt;sip:100010@193.28.184.10:2048;line=8tt4hpfg;nat=yes&gt;;reg-id=1.
+Require: timer.
+Session-Expires: 1800;refresher=uac.
+User-Agent: snom320/7.3.14.
+Allow: INVITE, ACK, CANCEL, BYE, REFER, OPTIONS, NOTIFY, SUBSCRIBE, PRACK, MESSAGE, INFO.
+Allow-Events: talk, hold, refer, call-info.
+Supported: timer, 100rel, replaces, from-change.
+Content-Type: application/sdp.
+Content-Length: 290.
+.
+v=0.
+o=root 515079793 515079794 IN IP4 10.0.1.55.
+s=call.
+c=IN IP4 193.28.184.13.
+t=0 0.
+m=audio 28216 RTP/AVP 8 18 0 101.
+a=rtpmap:8 pcma/8000.
+a=rtpmap:18 g729/8000.
+a=rtpmap:0 pcmu/8000.
+a=rtpmap:101 telephone-event/8000.
+a=fmtp:101 0-16.
+a=direction:both.
+a=sendrecv.
+a=nortpproxy:yes.</p>
+
+<p>#
+U 2011/03/24 10:01:48.160761 94.27.76.9:5060 -&gt; 193.28.184.13:5060
+ACK sip:100010@193.28.184.10:2048;line=8tt4hpfg;nat=yes SIP/2.0.
+Via: SIP/2.0/UDP 94.27.76.9:5060;rport;branch=z9hG4bKPjGdLBfdI6orQx1WkusUHokzN-OvG.ECW7.
+Max-Forwards: 70.
+From: "olden" &lt;sip:100008@ipshka.com&gt;;tag=dS2E6DBcTqm9Bm1S.PiBVAlz2ePrR4op.
+To: &lt;sip:100010@ipshka.com&gt;;tag=e04ln4owxe.
+Call-ID: g5qxUJcAHpY37JFqNsovlEQvPvHuZZWv.
+CSeq: 24772 ACK.
+Route: &lt;sip:193.28.184.13;lr;ftag=dS2E6DBcTqm9Bm1S.PiBVAlz2ePrR4op&gt;.
+Content-Length:  0.
+.</p>
+
+<p>#
+U 2011/03/24 10:01:48.182478 94.27.76.9:5060 -&gt; 193.28.184.13:5060
+INVITE sip:100010@193.28.184.10:2048;line=8tt4hpfg;nat=yes SIP/2.0.
+Via: SIP/2.0/UDP 94.27.76.9:5060;rport;branch=z9hG4bKPj0UV6ulLn.I72KSxzm3O4lqk1v1HDiCxv.
+Max-Forwards: 70.
+From: "olden" &lt;sip:100008@ipshka.com&gt;;tag=dS2E6DBcTqm9Bm1S.PiBVAlz2ePrR4op.
+To: &lt;sip:100010@ipshka.com&gt;;tag=e04ln4owxe.
+Contact: "olden" &lt;sip:100008@94.27.76.9:5060;ob&gt;.
+Call-ID: g5qxUJcAHpY37JFqNsovlEQvPvHuZZWv.
+CSeq: 24774 INVITE.
+Route: &lt;sip:193.28.184.13;lr;ftag=dS2E6DBcTqm9Bm1S.PiBVAlz2ePrR4op&gt;.
+Allow: PRACK, INVITE, ACK, BYE, CANCEL, UPDATE, SUBSCRIBE, NOTIFY, REFER, MESSAGE, OPTIONS.
+Supported: replaces, 100rel, timer, norefersub.
+Session-Expires: 1800;refresher=uac.
+Min-SE: 90.
+Content-Type: application/sdp.
+Content-Length:   248.
+.
+v=0.
+o=- 3509943061 3509943062 IN IP4 94.27.76.9.
+s=pjmedia.
+c=IN IP4 94.27.76.9.
+t=0 0.
+a=X-nat:0.
+m=audio 4018 RTP/AVP 8 101.
+a=rtcp:4019 IN IP4 192.168.0.101.
+a=rtpmap:8 PCMA/8000.
+a=sendrecv.
+a=rtpmap:101 telephone-event/8000.
+a=fmtp:101 0-15.</p>
+
+<p>#
+U 2011/03/24 10:01:48.184008 193.28.184.13:5060 -&gt; 94.27.76.9:5060
+SIP/2.0 100 Trying.
+Via: SIP/2.0/UDP 94.27.76.9:5060;rport=5060;branch=z9hG4bKPj0UV6ulLn.I72KSxzm3O4lqk1v1HDiCxv.
+From: "olden" &lt;sip:100008@ipshka.com&gt;;tag=dS2E6DBcTqm9Bm1S.PiBVAlz2ePrR4op.
+To: &lt;sip:100010@ipshka.com&gt;;tag=e04ln4owxe.
+Call-ID: g5qxUJcAHpY37JFqNsovlEQvPvHuZZWv.
+CSeq: 24774 INVITE.
+Server: OpenSER (1.3.4-notls (x86_64/linux)).
+Content-Length: 0.
+.</p>
+
+<p>#
+U 2011/03/24 10:01:48.184051 193.28.184.13:5060 -&gt; 94.27.76.9:5060
+SIP/2.0 407 Proxy Authentication Required.
+Via: SIP/2.0/UDP 94.27.76.9:5060;rport=5060;branch=z9hG4bKPj0UV6ulLn.I72KSxzm3O4lqk1v1HDiCxv.
+From: "olden" &lt;sip:100008@ipshka.com&gt;;tag=dS2E6DBcTqm9Bm1S.PiBVAlz2ePrR4op.
+To: &lt;sip:100010@ipshka.com&gt;;tag=e04ln4owxe.
+Call-ID: g5qxUJcAHpY37JFqNsovlEQvPvHuZZWv.
+CSeq: 24774 INVITE.
+Proxy-Authenticate: Digest realm="ipshka.com", nonce="4d8afb98286c18b780c3396268c66d3f25855b00", qop="auth".
+Server: OpenSER (1.3.4-notls (x86_64/linux)).
+Content-Length: 0.
+.</p>
+
+<p>#
+U 2011/03/24 10:01:48.192156 94.27.76.9:5060 -&gt; 193.28.184.13:5060
+ACK sip:100010@193.28.184.10:2048;line=8tt4hpfg;nat=yes SIP/2.0.
+Via: SIP/2.0/UDP 94.27.76.9:5060;rport;branch=z9hG4bKPj0UV6ulLn.I72KSxzm3O4lqk1v1HDiCxv.
+Max-Forwards: 70.
+From: "olden" &lt;sip:100008@ipshka.com&gt;;tag=dS2E6DBcTqm9Bm1S.PiBVAlz2ePrR4op.
+To: &lt;sip:100010@ipshka.com&gt;;tag=e04ln4owxe.
+Call-ID: g5qxUJcAHpY37JFqNsovlEQvPvHuZZWv.
+CSeq: 24774 ACK.
+Route: &lt;sip:193.28.184.13;lr;ftag=dS2E6DBcTqm9Bm1S.PiBVAlz2ePrR4op&gt;.
+Content-Length:  0.
+.</p>
+
+<p>#
+U 2011/03/24 10:01:57.371699 193.28.184.13:5060 -&gt; 94.27.76.9:5060
+BYE sip:100008@94.27.76.9:5060;ob SIP/2.0.
+Record-Route: &lt;sip:193.28.184.13;lr=on;ftag=e04ln4owxe&gt;.
+Via: SIP/2.0/UDP 193.28.184.13;branch=z9hG4bKeba2.854440a2.0.
+Via: SIP/2.0/UDP 10.0.1.55:2048;received=193.28.184.10;branch=z9hG4bK-9i9sxkr9zpnl;rport=2048.
+From: "Andrew O. Zhukov" &lt;sip:100010@ipshka.com&gt;;tag=e04ln4owxe.
+To: "olden" &lt;sip:100008@ipshka.com&gt;;tag=dS2E6DBcTqm9Bm1S.PiBVAlz2ePrR4op.
+Call-ID: g5qxUJcAHpY37JFqNsovlEQvPvHuZZWv.
+CSeq: 1 BYE.
+Max-Forwards: 69.
+Contact: &lt;sip:100010@193.28.184.10:2048;line=8tt4hpfg;nat=yes&gt;;reg-id=1.
+User-Agent: snom320/7.3.14.
+RTP-RxStat: Total_Rx_Pkts=453,Rx_Pkts=453,Rx_Pkts_Lost=0,Remote_Rx_Pkts_Lost=0.
+RTP-TxStat: Total_Tx_Pkts=458,Tx_Pkts=458,Remote_Tx_Pkts=0.
+Content-Length: 0.
+P-hint: rr-enforced.
+.</p>
+
+<p>#
+U 2011/03/24 10:01:57.378672 94.27.76.9:5060 -&gt; 193.28.184.13:5060
+SIP/2.0 200 OK.
+Via: SIP/2.0/UDP 193.28.184.13;received=193.28.184.13;branch=z9hG4bKeba2.854440a2.0.
+Via: SIP/2.0/UDP 10.0.1.55:2048;rport=2048;received=193.28.184.10;branch=z9hG4bK-9i9sxkr9zpnl.
+Record-Route: &lt;sip:193.28.184.13;lr;ftag=e04ln4owxe&gt;.
+Call-ID: g5qxUJcAHpY37JFqNsovlEQvPvHuZZWv.
+From: "Andrew O. Zhukov" &lt;sip:100010@ipshka.com&gt;;tag=e04ln4owxe.
+To: "olden" &lt;sip:100008@ipshka.com&gt;;tag=dS2E6DBcTqm9Bm1S.PiBVAlz2ePrR4op.
+CSeq: 1 BYE.
+Content-Length:  0.
+.</p>
+
+<p>exit
+24 received, 0 dropped</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #1</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Mar 24, 2011 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><blockquote>
+  <p>Other suggestion test in laboratory, before provide in public.</p>
+</blockquote>
+
+<p>Grrrrrr !!!!!</p>
+
+<p>1 - I ACTUALLY do tests. You are probably very well placed to know that SIP RFC are not implemented the same way at each provider ! Then everything is matter of configuration ! 
+ 2 - I develop CSipSimple on my own time which mean about 1 h a day if I have time. You work 7h a day for your company and you have much more time to do more professional development workflow. I JUST CAN'T afford that.
+ 3 - CSipSimple is opensource. Which mean anybody could contribute and also mean the development process is different. Nightly builds are builds done automatically on the current trunk. It means it IS BY DEFINITION unstable. I encourage users that have time to use it AND REPORT bugs. Else it make no sense to use nightly builds. Reports from users using nightly build help me A LOT. So, I'll continue releasing nightly builds. If users does not report me bugs on nightly, they do not participate the software... And in an opensource software it is <em>USERS</em> that do the software.
+ 4 - CSipSimple is opensource. You can have a look to the code and investigate if you have time to spend. CSipSimple is a community of developer and you can join us to make the app more reliable for your service. BUT IT JUST WORK FINE on many other providers. The fact is that SIP is sometimes really matter of configuration. Besides CSipSimple entirely rely on pjsip. Which is an opensource stack (google it). You'll see that many other sip client use it. So learning what should be the good configuration for this stack for your service is probably valuable for you. </p>
+
+<p>Once this is more clear...</p>
+
+<p>As goal of nightly build is to report bugs there is a way to get real stack of what is happening, the version and so on. Read the wiki, there is a page about HowToCollectLogs. The version of the software is usually not enough to debug problems. Device brand, model, android version, kernel version and so on. The tool to collect logs get all this stuff and it's a preferred way to get logs. Your user can change the "To" of the email it produce to send it directly to you if they want. But if the problem is something with configuration I think that an experience of configuration of pjsip is valuable ;).</p>
+
+<p>As for user agent, I agree that was already asked time ago. I have to do it.... I really miss time to do everything but if that's really really important I can take 5 min to add the feature ;)</p>
+
+<p>In your logs as far as i can read it's your server that drop the call : 
+ 2011/03/24 10:01:57.371699 193.28.184.13:5060 -&gt; 94.27.76.9:5060
+BYE sip:100008@94.27.76.9:5060;ob SIP/2.0.</p>
+
+<p>It could be due to timeout due to the fact CSipSimple does not send the reply to the invite to the right place .... but without logs from csipsimple/pjsip ... I can't say nothing else. </p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #2</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Mar 24, 2011 by
+                  <i class="ng-binding">Happy Wombat</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><blockquote>
+  <p>As goal of nightly build is to report bugs there is a way to get real stack of what &gt;is happening, the version and so on. Read the wiki, there is a page about &gt;HowToCollectLogs.</p>
+</blockquote>
+
+<p>Gone to advanced user</p>
+
+<blockquote>
+  <p>As for user agent, I agree that was already asked time ago. I have to do it.... I &gt;really miss time to do everything but if that's really really important I can take &gt;5 min to add the feature ;)</p>
+</blockquote>
+
+<p>Do it please. I trust log's not a customers :)</p>
+
+<p>Hope we can do a good application together.
+Lucky.</p>
+
+<p>Andrew O. Zhukov.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #3</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Mar 24, 2011 by
+                  <i class="ng-binding">Happy Wombat</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Customer switch off stun, ice, turn, rewrite.....</p>
+
+<p>However in invite body ip external
+in sdp ip internal</p>
+
+<p>logs in attacments</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length --><small ng-if="comment.attachments.length" class="ng-scope">Attachments</small><!-- end ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments --><ul ng-repeat="attachment in comment.attachments" class="ng-scope">
+                <li class="ng-binding">
+                  <a href="http://storage.googleapis.com/google-code-attachments/csipsimple/issue-831/comment-3/Dump.txt" class="ng-binding">
+                    Dump.txt
+                  </a> 15.01KB
+                </li>
+              </ul><!-- end ngRepeat: attachment in comment.attachments --><ul ng-repeat="attachment in comment.attachments" class="ng-scope">
+                <li class="ng-binding">
+                  <a href="http://storage.googleapis.com/google-code-attachments/csipsimple/issue-831/comment-3/logs_03-24-11_145912.txt" class="ng-binding">
+                    logs_03-24-11_145912.txt
+                  </a> 125.78KB
+                </li>
+              </ul><!-- end ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #4</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Mar 27, 2011 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content -->
+              <!-- ngIf: !comment.content --><span ng-if="!comment.content" class="ng-scope">
+                <p><em>(No comment was entered for this change.)</em></p>
+              </span><!-- end ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #5</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Mar 27, 2011 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>User agent fixed in revision 755.</p>
+
+<p>Regarding logs you attached in comment #3, your user didn't disable "allow contact rewrite option". As consequence obviously it rewrite the contact header and re-register using public IP. (he probably just changed to legacy contact rewrite method).</p>
+
+<p>As wizard is now included it could be interesting to ask to test with wizard directly that should directly set correctly the contact rewrite setting.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments -->
+          </div>
+
+          <!-- Sidebar with additional information -->
+          <div class="maia-col-4">
+            <div class="maia-aside">
+              <p>Status: <code class="ng-binding">Fixed</code></p>
+              <!-- ngIf: issueCtrl.issue.labels.length > 0 --><p ng-if="issueCtrl.issue.labels.length &gt; 0" class="ng-scope">
+                Labels:
+                <br>
+                <!-- ngRepeat: label in issueCtrl.issue.labels track by $index --><span ng-repeat="label in issueCtrl.issue.labels track by $index" class="ng-scope">
+                  <span class="gca-label ng-binding">Type-Defect</span>
+                </span><!-- end ngRepeat: label in issueCtrl.issue.labels track by $index --><span ng-repeat="label in issueCtrl.issue.labels track by $index" class="ng-scope">
+                  <span class="gca-label ng-binding">Priority-Medium</span>
+                </span><!-- end ngRepeat: label in issueCtrl.issue.labels track by $index -->
+              </p><!-- end ngIf: issueCtrl.issue.labels.length > 0 -->
+            </div>
+          </div>
+        </div><!-- end ngIf: !issueCtrl.error -->
+      </div>
+    </div>
+
+  </div>
+</div>
+</div></div></div>
+    <noscript>
+      &lt;p&gt;The Google Code Archive requires JavaScript to be enabled in your browser.&lt;/p&gt;
+    </noscript>
+
+    <div id="maia-signature"></div>
+    <div class="maia-footer" id="maia-footer">
+      <div id="maia-footer-local">
+      </div>
+      <div id="maia-footer-global">
+        <div class="maia-aux">
+          <ul>
+            <li>
+              <a href="//www.google.com/">Google</a>
+            </li>
+            <li>
+              <a href="//www.google.com/intl/en/about/">About Google</a>
+            </li>
+            <li>
+              <a href="//www.google.com/intl/en/policies/privacy/">Privacy</a>
+            </li>
+            <li>
+              <a href="//www.google.com/intl/en/policies/terms/">Terms</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <script src="//www.google.com/js/maia.js"></script>
+  
+
+
+</body></html>

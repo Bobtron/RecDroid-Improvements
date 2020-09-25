@@ -1,0 +1,338 @@
+https://code.google.com/archive/p/csipsimple/issues/2031<!DOCTYPE html><html class="google ng-scope" lang="en" ng-app="codesiteArchive.application"><head>
+    <meta charset="utf-8">
+    <meta content="initial-scale=1, minimum-scale=1, width=device-width" name="viewport">
+
+    <!-- https://developers.google.com/webmasters/ajax-crawling/docs/specification -->
+    <meta name="fragment" content="!">
+    <title>Google Code Archive - Long-term storage for Google Code Project Hosting.</title>
+
+    <link rel="icon" type="image/vnd.microsoft.icon" href="/archive/img/project-hosting.ico">
+    <script src="//www.google.com/js/google.js"></script>
+    <link href="//www.google.com/css/maia.css" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;lang=en" rel="stylesheet">
+    <link rel="stylesheet" href="/archive/archive_css.css">
+    <script>
+      CLOSURE_NO_DEPS = true;
+    </script>
+    <script src="/archive/angular.js"></script><style type="text/css">@charset "UTF-8";
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak],
+.ng-cloak, .x-ng-cloak,
+.ng-hide:not(.ng-hide-animate) {
+  display: none !important;
+}
+
+ng\:form {
+  display: block;
+}
+
+.ng-animate-shim {
+  visibility:hidden;
+}
+
+.ng-anchor {
+  position:absolute;
+}
+</style>
+    <script src="/archive/pagedown.js"></script>
+    <script src="/archive/archive.js"></script>
+    <base href="/archive/">
+  </head>
+
+  <body>
+    <div class="maia-header" id="maia-header" role="banner">
+      <div class="maia-aux">
+        <a href="/archive/">
+          </a><h1><a href="/archive/">
+            <img alt="Google" src="//www.google.com/images/branding/googlelogo/1x/googlelogo_color_116x41dp.png"> Code</a>
+          </h1>
+        
+        <a href="/archive/">
+          <h2>Archive</h2>
+        </a>
+        <a class="maia-teleport" href="#content">Skip to content</a>
+        <div class="maia-util">
+          <form action="/archive/search" class="maia-search ng-pristine ng-valid">
+            <input name="q" placeholder="Search this site" type="text">
+            <button class="maia-button">
+              <span class="maia-search-icon">Search</span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- ngView: --><div ng-view="" class="ng-scope"><div ng-controller="ProjectIssueCtrl as issueCtrl" class="ng-scope">
+<nav-bar-widget nav-level-1="projectCtrl.navLevel1" class="ng-isolate-scope"><div class="maia-nav maia-complex" id="maia-nav-x" role="navigation">
+  <div class="maia-aux">
+    <ul>
+      <li ng-class="{active: navLevel1 == 'projects'}">
+        <a href="/archive/">Projects</a>
+        <!-- ngIf: navLevel2 -->
+      </li>
+      <li ng-class="{active: navLevel1 == 'search'}">
+        <a href="/archive/search">Search</a>
+      </li>
+      <li ng-class="{active: navLevel1 == 'about'}">
+        <a href="/archive/about">About</a>
+      </li>
+    </ul>
+  </div>
+</div>
+</nav-bar-widget>
+<div id="maia-main" role="main">
+
+  <!-- ngIf: issueCtrl.notFound -->
+
+  <div ng-hide="issueCtrl.notFound">
+    <!-- Left-side resource nav -->
+    <project-resources-widget domain="issueCtrl.domain" project="issueCtrl.projectName" class="ng-isolate-scope"><div class="maia-nav" id="maia-nav-y" role="navigation">
+  <!-- ngIf: domain == 'code.google.com' --><ul ng-if="domain == 'code.google.com'" class="ng-scope">
+    <li class="active">
+      <a href="/archive/p/csipsimple/">Project</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/source">Source</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/issues">Issues</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/wikis">Wikis</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/downloads">Downloads</a>
+    </li>
+  </ul><!-- end ngIf: domain == 'code.google.com' -->
+
+    <!-- ngIf: domain != 'code.google.com' -->
+</div></project-resources-widget>
+
+    <div class="maia-article" role="article">
+      <div class="maia-teleport" id="content"></div>
+      <div class="maia-cols">
+        <div id="gca-project-header" class="maia-col-10">
+          <a id="gca-export-to-gh" class="maia-button" href="https://code.google.com/export-to-github/export?project=csipsimple">Export to GitHub</a>
+            <img class="gca-project-logo" src="https://storage.googleapis.com/google-code-archive/v2/code.google.com/csipsimple/logo.png">
+            <h1 class="ng-binding">csipsimple - issue #2031</h1>
+            <p class="ng-binding">application crash when initiating or receiving calls</p>
+        </div>
+
+        <div class="maia-col-10">
+          <hr>
+
+        <!-- ngIf: issueCtrl.error -->
+
+        <!-- ngIf: !issueCtrl.error --><div ng-if="!issueCtrl.error" class="ng-scope">
+          <!-- Comments -->
+          <div class="maia-col-8">
+            <!-- ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Oct 23, 2012 by
+                  <i class="ng-binding">Happy Rabbit</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p><b>What steps will reproduce the problem?</b>
+1. register the phone
+2. crashes when initiating or recieving a call
+3. phone re-registers</p>
+
+<p><b>What is the expected output? What do you see instead?</b>
+. expected screen to change to the call in progress screen and call to be initiated or received, instead the call/caller is dropped and the softphone crashes and re-registers, never leaving the dialer screen.</p>
+
+<p><b>What version of the product are you using? On what operating system?</b>
+. latest build 0.04-04</p>
+
+<p><b>Please provide any additional information below.</b></p>
+
+<p>Based on GPL application CSipSimple version : 0.04-04 r1916
+Here are important informations about Device :
+android.os.Build.BOARD : pyramid
+android.os.Build.BRAND : htc
+android.os.Build.DEVICE : pyramid
+android.os.Build.ID : IMM76L
+android.os.Build.MODEL : HTC Sensation
+android.os.Build.PRODUCT : htc_pyramid
+android.os.Build.TAGS : test-keys
+android.os.Build.CPU_ABI : armeabi-v7a
+android.os.Build.VERSION.INCREMENTAL : 356011
+android.os.Build.VERSION.RELEASE : 4.0.4
+android.os.Build.VERSION.SDK_INT : 15</p>
+
+<p>--- LOG ---
+D/ConnectivityService(  217): handleInetConditionHoldEnd: net=0, condition=100, published condition=0
+D/NetworkPolicy(  217): applying policy NetworkPolicy[NetworkTemplate: matchRule=MOBILE_ALL, subscriberId=valid]: cycleDay=14, warningBytes=2147483648, limitBytes=-1, lastSnooze=-1 to ifaces [rmnet0]
+W/BackupManagerService(  217): dataChanged but no participant pkg='com.android.providers.settings' uid=10062
+W/BackupManagerService(  217): dataChanged but no participant pkg='com.android.providers.settings' uid=10062
+I/BootReceiver(  217): Copying /data/tombstones/tombstone_05 to DropBox (SYSTEM_TOMBSTONE)
+I/ActivityManager(  217): Process com.csipsimple:sipStack (pid 1510) has died.
+W/ActivityManager(  217): Scheduling restart of crashed service com.csipsimple/.service.SipService in 5000ms
+I/ActivityManager(  217): Start proc com.csipsimple:sipStack for service com.csipsimple/.service.SipService: pid=1805 uid=10062 gids={3003, 3002, 1007, 1015, 1006}
+I/ActivityManager(  217): START {act=com.csipsimple.ui.action.PREFS_GLOBAL cmp=com.csipsimple/.ui.prefs.hc.MainPrefs} from pid 1543
+I/ActivityManager(  217): START {act=com.csipsimple.ui.action.PREFS_FAST cmp=com.csipsimple/.ui.prefs.PrefsFast} from pid 1543
+I/ActivityManager(  217): START {act=com.csipsimple.ui.action.PREFS_FAST cmp=com.csipsimple/.ui.prefs.PrefsFast} from pid 1543
+I/ActivityManager(  217): START {act=android.intent.action.MAIN cmp=com.csipsimple/.ui.prefs.hc.MainPrefs (has extras)} from pid 1543
+W/InputManagerService(  217): Window already focused, ignoring focus gain of: com.android.internal.view.IInputMethodClient$Stub$Proxy@41216f98
+W/InputManagerService(  217): Window already focused, ignoring focus gain of: com.android.internal.view.IInputMethodClient$Stub$Proxy@40f38b78
+W/InputManagerService(  217): Starting input on non-focused client com.android.internal.view.IInputMethodClient$Stub$Proxy@41164b88 (uid=10062 pid=1543)
+I/ActivityManager(  217): START {act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10200000 cmp=com.android.settings/.Settings bnds=[141,669][270,851]} from pid 443
+I/ActivityManager(  217): START {act=android.intent.action.MAIN cmp=com.android.settings/.SubSettings (has extras)} from pid 1489
+I/ActivityManager(  217): Start proc com.android.defcontainer for service com.android.defcontainer/.DefaultContainerService: pid=2254 uid=10012 gids={1015, 2001}
+I/ActivityManager(  217): START {act=android.intent.action.MAIN cmp=com.android.settings/.SubSettings (has extras)} from pid 1489
+I/ActivityManager(  217): Force stopping package com.csipsimple uid=10062
+I/ActivityManager(  217): Killing proc 1805:com.csipsimple:sipStack/10062: force stop
+I/ActivityManager(  217): Killing proc 1543:com.csipsimple/10062: force stop
+W/InputManagerService(  217): Window already focused, ignoring focus gain of: com.android.internal.view.IInputMethodClient$Stub$Proxy@412f9208
+I/ActivityManager(  217): Force stopping package com.csipsimple uid=10062
+W/InputManagerService(  217): Window already focused, ignoring focus gain of: com.android.internal.view.IInputMethodClient$Stub$Proxy@40f90e68
+W/InputManagerService(  217): Starting input on non-focused client com.android.internal.view.IInputMethodClient$Stub$Proxy@410da918 (uid=1000 pid=1489)
+I/ActivityManager(  217): START {act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10000000 pkg=com.csipsimple cmp=com.csipsimple/.ui.SipHome bnds=[141,123][270,305]} from pid 443
+I/ActivityManager(  217): Start proc com.csipsimple for activity com.csipsimple/.ui.SipHome: pid=2355 uid=10062 gids={3003, 3002, 1007, 1015, 1006}
+I/ActivityManager(  217): Start proc com.google.android.gm for service com.google.android.gm/.provider.MailSyncAdapterService: pid=2381 uid=10061 gids={3003, 1015}
+I/ActivityManager(  217): Start proc com.csipsimple:sipStack for service com.csipsimple/.service.SipService: pid=2394 uid=10062 gids={3003, 3002, 1007, 1015, 1006}
+I/ActivityManager(  217): START {act=com.csipsimple.ui.action.PREFS_FAST flg=0x10000000 cmp=com.csipsimple/.ui.prefs.PrefsFast} from pid 2355
+W/ActivityManager(  217): Activity pause timeout for ActivityRecord{413f8180 com.csipsimple/.ui.SipHome}
+I/ActivityManager(  217): START {act=com.csipsimple.ui.action.PREFS_FAST flg=0x10000000 cmp=com.csipsimple/.ui.prefs.PrefsFast} from pid 2355
+I/ActivityManager(  217): Config changed: {1.0 310mcc260mnc en_US layoutdir=0 sw360dp w640dp h334dp nrml long land finger -keyb/v/h -nav/h s.6 themeResource=null}
+I/ActivityManager(  217): START {act=com.csipsimple.ui.action.PREFS_FAST flg=0x10000000 cmp=com.csipsimple/.ui.prefs.PrefsFast} from pid 2355
+I/ActivityManager(  217): Config changed: {1.0 310mcc260mnc en_US layoutdir=0 sw360dp w360dp h614dp nrml long port finger -keyb/v/h -nav/h s.7 themeResource=null}
+I/ActivityManager(  217): START {act=com.csipsimple.ui.action.PREFS_FAST flg=0x10000000 cmp=com.csipsimple/.ui.prefs.PrefsFast} from pid 2355
+I/ActivityManager(  217): START {flg=0x10000000 cmp=com.csipsimple/.ui.account.AccountsEditList} from pid 2355
+W/InputManagerService(  217): Window already focused, ignoring focus gain of: com.android.internal.view.IInputMethodClient$Stub$Proxy@41001360
+W/InputManagerService(  217): Window already focused, ignoring focus gain of: com.android.internal.view.IInputMethodClient$Stub$Proxy@40f48eb0
+I/ActivityManager(  217): START {cmp=com.csipsimple/.wizards.WizardChooser} from pid 2355
+I/ActivityManager(  217): START {cmp=com.csipsimple/.wizards.BasePrefsWizard (has extras)} from pid 2355
+E/ActivityThread(  396): Failed to find provider info for com.android.inputmethod.latin.dictionarypack
+I/ActivityManager(  217): START {cmp=com.csipsimple/.wizards.BasePrefsWizard (has extras)} from pid 2355
+I/ActivityManager(  217): START {cmp=com.csipsimple/.wizards.BasePrefsWizard (has extras)} from pid 2355
+I/ActivityManager(  217): START {cmp=com.csipsimple/.wizards.BasePrefsWizard (has extras)} from pid 2355
+W/InputManagerService(  217): Window already focused, ignoring focus gain of: com.android.internal.view.IInputMethodClient$Stub$Proxy@4109ab18
+W/InputManagerService(  217): Starting input on non-focused client com.android.internal.view.IInputMethodClient$Stub$Proxy@41145928 (uid=10062 pid=2355)
+I/ActivityManager(  217): No longer want com.keramidas.TitaniumBackup (pid 1044): hidden #16
+I/ActivityManager(  217): No longer want com.android.voicedialer (pid 1209): hidden #17
+I/ActivityManager(  217): START {act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10000000 pkg=com.csipsimple cmp=com.csipsimple/.ui.SipHome bnds=[141,123][270,305]} from pid 443
+I/ActivityManager(  217): START {act=com.csipsimple.ui.action.PREFS_GLOBAL cmp=com.csipsimple/.ui.prefs.hc.MainPrefs} from pid 2355
+I/ActivityManager(  217): START {act=android.intent.action.MAIN cmp=com.csipsimple/.ui.prefs.hc.MainPrefs (has extras)} from pid 2355
+W/InputManagerService(  217): Window already focused, ignoring focus gain of: com.android.internal.view.IInputMethodClient$Stub$Proxy@412533b0
+W/InputManagerService(  217): Starting input on non-focused client com.android.internal.view.IInputMethodClient$Stub$Proxy@41145928 (uid=10062 pid=2355)
+I/ActivityManager(  217): START {act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10000000 pkg=com.csipsimple cmp=com.csipsimple/.ui.SipHome bnds=[141,123][270,305]} from pid 443
+W/BackupManagerService(  217): dataChanged but no participant pkg='com.android.providers.settings' uid=10062
+W/BackupManagerService(  217): dataChanged but no participant pkg='com.android.providers.settings' uid=10062
+I/ActivityManager(  217): Process com.csipsimple:sipStack (pid 2394) has died.
+W/ActivityManager(  217): Scheduling restart of crashed service com.csipsimple/.service.SipService in 5000ms</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #1</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Oct 23, 2012 by
+                  <i class="ng-binding">Happy Rabbit</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>current nightly build is working....
+CSipSimple-r1975-trunk.apk  23-Oct-2012 12:33   6.3M    </p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #2</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Oct 23, 2012 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Ok, thanks for the feedback.</p>
+
+<p>There is indeed some known problem with custom ROM (based on cyanogen audio drivers) in the version on google play. </p>
+
+<p>The nightly build version basically disable one setting (which is also available in expert audio troubleshooting section of the playstore version, but was enabled by default).
+That's why normally fixed in nightly builds and will be included in next release.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments -->
+          </div>
+
+          <!-- Sidebar with additional information -->
+          <div class="maia-col-4">
+            <div class="maia-aside">
+              <p>Status: <code class="ng-binding">NextRelease</code></p>
+              <!-- ngIf: issueCtrl.issue.labels.length > 0 --><p ng-if="issueCtrl.issue.labels.length &gt; 0" class="ng-scope">
+                Labels:
+                <br>
+                <!-- ngRepeat: label in issueCtrl.issue.labels track by $index --><span ng-repeat="label in issueCtrl.issue.labels track by $index" class="ng-scope">
+                  <span class="gca-label ng-binding">Type-Defect</span>
+                </span><!-- end ngRepeat: label in issueCtrl.issue.labels track by $index --><span ng-repeat="label in issueCtrl.issue.labels track by $index" class="ng-scope">
+                  <span class="gca-label ng-binding">Priority-Medium</span>
+                </span><!-- end ngRepeat: label in issueCtrl.issue.labels track by $index -->
+              </p><!-- end ngIf: issueCtrl.issue.labels.length > 0 -->
+            </div>
+          </div>
+        </div><!-- end ngIf: !issueCtrl.error -->
+      </div>
+    </div>
+
+  </div>
+</div>
+</div></div></div>
+    <noscript>
+      &lt;p&gt;The Google Code Archive requires JavaScript to be enabled in your browser.&lt;/p&gt;
+    </noscript>
+
+    <div id="maia-signature"></div>
+    <div class="maia-footer" id="maia-footer">
+      <div id="maia-footer-local">
+      </div>
+      <div id="maia-footer-global">
+        <div class="maia-aux">
+          <ul>
+            <li>
+              <a href="//www.google.com/">Google</a>
+            </li>
+            <li>
+              <a href="//www.google.com/intl/en/about/">About Google</a>
+            </li>
+            <li>
+              <a href="//www.google.com/intl/en/policies/privacy/">Privacy</a>
+            </li>
+            <li>
+              <a href="//www.google.com/intl/en/policies/terms/">Terms</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <script src="//www.google.com/js/maia.js"></script>
+  
+
+
+</body></html>

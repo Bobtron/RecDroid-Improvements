@@ -1,0 +1,988 @@
+https://code.google.com/archive/p/csipsimple/issues/2280<!DOCTYPE html><html class="google ng-scope" lang="en" ng-app="codesiteArchive.application"><head>
+    <meta charset="utf-8">
+    <meta content="initial-scale=1, minimum-scale=1, width=device-width" name="viewport">
+
+    <!-- https://developers.google.com/webmasters/ajax-crawling/docs/specification -->
+    <meta name="fragment" content="!">
+    <title>Google Code Archive - Long-term storage for Google Code Project Hosting.</title>
+
+    <link rel="icon" type="image/vnd.microsoft.icon" href="/archive/img/project-hosting.ico">
+    <script src="//www.google.com/js/google.js"></script>
+    <link href="//www.google.com/css/maia.css" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;lang=en" rel="stylesheet">
+    <link rel="stylesheet" href="/archive/archive_css.css">
+    <script>
+      CLOSURE_NO_DEPS = true;
+    </script>
+    <script src="/archive/angular.js"></script><style type="text/css">@charset "UTF-8";
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak],
+.ng-cloak, .x-ng-cloak,
+.ng-hide:not(.ng-hide-animate) {
+  display: none !important;
+}
+
+ng\:form {
+  display: block;
+}
+
+.ng-animate-shim {
+  visibility:hidden;
+}
+
+.ng-anchor {
+  position:absolute;
+}
+</style>
+    <script src="/archive/pagedown.js"></script>
+    <script src="/archive/archive.js"></script>
+    <base href="/archive/">
+  </head>
+
+  <body>
+    <div class="maia-header" id="maia-header" role="banner">
+      <div class="maia-aux">
+        <a href="/archive/">
+          </a><h1><a href="/archive/">
+            <img alt="Google" src="//www.google.com/images/branding/googlelogo/1x/googlelogo_color_116x41dp.png"> Code</a>
+          </h1>
+        
+        <a href="/archive/">
+          <h2>Archive</h2>
+        </a>
+        <a class="maia-teleport" href="#content">Skip to content</a>
+        <div class="maia-util">
+          <form action="/archive/search" class="maia-search ng-pristine ng-valid">
+            <input name="q" placeholder="Search this site" type="text">
+            <button class="maia-button">
+              <span class="maia-search-icon">Search</span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- ngView: --><div ng-view="" class="ng-scope"><div ng-controller="ProjectIssueCtrl as issueCtrl" class="ng-scope">
+<nav-bar-widget nav-level-1="projectCtrl.navLevel1" class="ng-isolate-scope"><div class="maia-nav maia-complex" id="maia-nav-x" role="navigation">
+  <div class="maia-aux">
+    <ul>
+      <li ng-class="{active: navLevel1 == 'projects'}">
+        <a href="/archive/">Projects</a>
+        <!-- ngIf: navLevel2 -->
+      </li>
+      <li ng-class="{active: navLevel1 == 'search'}">
+        <a href="/archive/search">Search</a>
+      </li>
+      <li ng-class="{active: navLevel1 == 'about'}">
+        <a href="/archive/about">About</a>
+      </li>
+    </ul>
+  </div>
+</div>
+</nav-bar-widget>
+<div id="maia-main" role="main">
+
+  <!-- ngIf: issueCtrl.notFound -->
+
+  <div ng-hide="issueCtrl.notFound">
+    <!-- Left-side resource nav -->
+    <project-resources-widget domain="issueCtrl.domain" project="issueCtrl.projectName" class="ng-isolate-scope"><div class="maia-nav" id="maia-nav-y" role="navigation">
+  <!-- ngIf: domain == 'code.google.com' --><ul ng-if="domain == 'code.google.com'" class="ng-scope">
+    <li class="active">
+      <a href="/archive/p/csipsimple/">Project</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/source">Source</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/issues">Issues</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/wikis">Wikis</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/downloads">Downloads</a>
+    </li>
+  </ul><!-- end ngIf: domain == 'code.google.com' -->
+
+    <!-- ngIf: domain != 'code.google.com' -->
+</div></project-resources-widget>
+
+    <div class="maia-article" role="article">
+      <div class="maia-teleport" id="content"></div>
+      <div class="maia-cols">
+        <div id="gca-project-header" class="maia-col-10">
+          <a id="gca-export-to-gh" class="maia-button" href="https://code.google.com/export-to-github/export?project=csipsimple">Export to GitHub</a>
+            <img class="gca-project-logo" src="https://storage.googleapis.com/google-code-archive/v2/code.google.com/csipsimple/logo.png">
+            <h1 class="ng-binding">csipsimple - issue #2280</h1>
+            <p class="ng-binding">Android 4.2.2 Outgoing call problem + broken OpenSL-ES support</p>
+        </div>
+
+        <div class="maia-col-10">
+          <hr>
+
+        <!-- ngIf: issueCtrl.error -->
+
+        <!-- ngIf: !issueCtrl.error --><div ng-if="!issueCtrl.error" class="ng-scope">
+          <!-- Comments -->
+          <div class="maia-col-8">
+            <!-- ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Mar 9, 2013 by
+                  <i class="ng-binding">Helpful Rhino</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p><b>What steps will reproduce the problem?</b>
+1. setup an account with tls and use it from a non-local ip (lan works)
+2. register
+3. make an outgoing call (fails firstly because of OpenSL not working but even after changing to Java still fails)</p>
+
+<p><b>What is the expected output? What do you see instead?</b>
+Outgoing call over tls works
+instead, it unregisters and won't call OR after changing audio settings to Java hangs up and shows "503 / End Of File(PJ_EEOF)"</p>
+
+<p><b>What version of the product are you using? On what operating system?</b>
+r2156 (nightly) on Galaxy S2 CM10.1 Jelly Bean 4.2.2-- has also had identical problem on other roms.</p>
+
+<p><b>Please provide any additional information below.</b>
+I have tried various troubleshooting steps (disabling/enabling every combination of STUN/TURN/ICE), reading the logs myself, etc.  It seems to work locally but not externally.  On Asterisk I receive:</p>
+
+<p>WARNING chan_sip.c:3618 __sip_xmit: sip_xmit of 0x7fe5f4054630 (len 748) to xxx.xxx.xxx.xx:33936 returned -2: Success</p>
+
+<p>WARNING chan_sip.c:3618 __sip_xmit: sip_xmit of 0x7fe5f4054630 (len 748) to xxx.xxx.xxx.xx:33936 returned -2: No such file or directory</p>
+
+<p>Thanks for any help</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #1</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Mar 16, 2013 by
+                  <i class="ng-binding">Grumpy Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Same issue here. Nexus 4 running stock 4.2.2, r2163 nightly build. </p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #2</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Mar 26, 2013 by
+                  <i class="ng-binding">Happy Dog</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>This issue started with CM10.1. Also affects Groundwire. Workaround is to go to Settings/Media/Audio Troubleshooting/Audio Implementation and choose Java instead of OpenSL-ES. I'm guessing there may be a performance penalty, but so far I'm able to maintain decent calls on my SGH-T879 Galaxy Note.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #3</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Apr 13, 2013 by
+                  <i class="ng-binding">Swift Kangaroo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>I have ZTE Blade III+CM10.1, can't file bugs for CM because this is unofficial build.
+If this is CM bug, has somebody filed a bug report for it already?</p>
+
+<p>04-09 14:16:04.214 D/InCallActivity( 5086): Answer call 0
+04-09 14:16:04.234 V/SipWakeLock( 5086): acquire wakelock: holder count=1
+04-09 14:16:04.244 D/libpjsip( 5086): 14:16:04.247   pjsua_call.c !Answering call 0: code=200
+04-09 14:16:04.244 V/libpjsip( 5086): 14:16:04.247  inv0x4bede784  ..SDP negotiation done, status=0
+04-09 14:16:04.244 D/libpjsip( 5086): 14:16:04.247  pjsua_media.c  ...Call 0: updating media..
+04-09 14:16:04.244 D/libpjsip( 5086): 14:16:04.247    pjsua_aud.c  ....Audio channel update..
+04-09 14:16:04.244 V/libpjsip( 5086): 14:16:04.249          rtp.c  .....pjmedia_rtp_session_init: ses=0x4d7c175c, default_pt=111, ssrc=0x371063d0
+04-09 14:16:04.244 V/libpjsip( 5086): 14:16:04.249          rtp.c  .....pjmedia_rtp_session_init: ses=0x4d7c3464, default_pt=111, ssrc=0x371063d0
+04-09 14:16:04.244 V/libpjsip( 5086): 14:16:04.249       stream.c  .....Stream strm0x4d7b2d3c created
+04-09 14:16:04.244 D/libpjsip( 5086): 14:16:04.249 strm0x4d7b2d3c  .....Encoder stream started
+04-09 14:16:04.244 D/libpjsip( 5086): 14:16:04.249 strm0x4d7b2d3c  .....Decoder stream started
+04-09 14:16:04.244 V/libpjsip( 5086): 14:16:04.251     resample.c  .....resample created: high qualiy, small filter, in/out rate=16000/32000
+04-09 14:16:04.244 V/libpjsip( 5086): 14:16:04.251     resample.c  .....resample created: high qualiy, small filter, in/out rate=32000/16000
+04-09 14:16:04.244 D/libpjsip( 5086): 14:16:04.251  pjsua_media.c  ....Audio updated, stream #0: speex (sendrecv)
+04-09 14:16:04.244 V/libpjsip( 5086): 14:16:04.251 timer_android.  ...Scheduling timer 2 of 0 in 0 ms @ 0x53dd08c4
+04-09 14:16:04.254 V/Timer wrap( 5086): Schedule 2 in 0ms
+04-09 14:16:04.254 D/SIP UA Receiver( 5086): &lt; LOCK CPU
+04-09 14:16:04.254 D/Ringer  ( 5086): ==&gt; stopRing() called...
+04-09 14:16:04.254 D/Ringer  ( 5086): Ringer thread interrupt
+04-09 14:16:04.254 W/AudioCache(  112): Battery track warning: refCount is already 0
+04-09 14:16:04.254 D/Ringer  ( 5086): Ringer thread exiting
+04-09 14:16:04.254 D/SIP UA Receiver( 5086): Updating call infos from the stack
+04-09 14:16:04.254 D/PjSipCalls( 5086): Update call 0
+04-09 14:16:04.254 D/PjService( 5086): Found pjsua 3 searching 3
+04-09 14:16:04.264 D/libpjsip( 5086): 14:16:04.266 pjsua_jni_addo  ...Get secure for media type 1
+04-09 14:16:04.264 D/libpjsip( 5086): 14:16:04.270 zrtp_android.c  ...jzrtp_getInfoFromContext : user data 49379200
+04-09 14:16:04.264 D/libpjsip( 5086): 14:16:04.270 zrtp_android.c  ...jzrtp_getInfoFromContext : user data 49379200
+04-09 14:16:04.264 D/libpjsip( 5086): 14:16:04.270    pjsua_aud.c  ...Conf connect: 2 --&gt; 0
+04-09 14:16:04.264 D/libpjsip( 5086): 14:16:04.270    pjsua_aud.c  ....Set sound device: capture=-1, playback=-2
+04-09 14:16:04.264 D/libpjsip( 5086): 14:16:04.270    pjsua_aud.c  .....Opening sound device PCM@32000/1/20ms
+04-09 14:16:04.264 D/libpjsip( 5086): 14:16:04.270   opensl_dev.c  ......Creating OpenSL stream
+04-09 14:16:04.294 D/libpjsip( 5086): 14:16:04.302   opensl_dev.c  ......Recording stream type 4, SDK : 17
+04-09 14:16:04.294 W/AudioPolicyManager7627a(  112): getInput() could not find profile for device 100000, samplingRate 32000, format 1,channelMask 0010
+04-09 14:16:04.294 E/AudioRecord( 5086): Could not get audio input for record source 7
+04-09 14:16:04.294 E/libOpenSLES( 5086): android_audioRecorder_realize(0x4d75bf10) error creating AudioRecord object
+04-09 14:16:04.294 W/libOpenSLES( 5086): Leaving Object::Realize (SL_RESULT_CONTENT_UNSUPPORTED)
+04-09 14:16:04.294 I/libpjsip( 5086): 14:16:04.304   opensl_dev.c  ......Cannot realize recorder : 9
+04-09 14:16:04.294 D/libpjsip( 5086): 14:16:04.304   opensl_dev.c  ......Stopping stream
+04-09 14:16:04.294 D/libpjsip( 5086): 14:16:04.304   opensl_dev.c  ......OpenSL stream stopped
+04-09 14:16:04.294 V/Timer wrap( 5086): FIRE Received...
+04-09 14:16:04.294 V/Timer wrap( 5086): Treat 2
+04-09 14:16:04.294 F/libc    ( 5086): Fatal signal 11 (SIGSEGV) at 0x000000a5 (code=1), thread 5100 (ervice.Executor)
+04-09 14:16:04.294 V/SipWakeLock( 5086): acquire wakelock: holder count=1
+04-09 14:16:04.294 V/Timer wrap( 5086): FIRE START 2
+04-09 14:16:04.294 V/libpjsip( 5086): 14:16:04.312 timer_android. !FIRE timer 2 of heap 0
+04-09 14:16:04.404 I/DEBUG   (  107): <strong>* <em></em></strong><em> <strong></strong></em><strong> <em></em></strong><em> <strong></strong></em><strong> <em></em></strong><em> <strong></strong></em><strong> <em></em></strong><em> <strong></strong></em><strong> <em></em></strong><em> <strong></strong></em><strong> <em></em></strong><em> <strong></strong></em><strong> <em></em></strong><em> <strong></strong></em><strong> <em></em></strong><em>
+04-09 14:16:04.404 I/DEBUG   (  107): Build fingerprint: 'ZTE/N880E_JB4_2/atlas40:4.2/JOP40C/20121121.110335:user/release-keys'
+04-09 14:16:04.404 I/DEBUG   (  107): Revision: '0'
+04-09 14:16:04.404 I/DEBUG   (  107): pid: 5086, tid: 5100, name: ervice.Executor  &gt;&gt;&gt; com.csipsimple:sipStack &lt;&lt;&lt;
+04-09 14:16:04.404 I/DEBUG   (  107): signal 11 (SIGSEGV), code 1 (SEGV_MAPERR), fault addr 000000a5
+04-09 14:16:04.895 I/DEBUG   (  107):     r0 000000a5  r1 00000001  r2 00000001  r3 00000020
+04-09 14:16:04.895 I/DEBUG   (  107):     r4 4c027580  r5 00000000  r6 53ed8f74  r7 4c027588
+04-09 14:16:04.895 I/DEBUG   (  107):     r8 493793c4  r9 493793ac  sl 4be9a6d9  fp 00000004
+04-09 14:16:04.895 I/DEBUG   (  107):     ip 40a4bbdc  sp 53ed8f68  lr 40a12fa3  pc 401020f8  cpsr 200d0010
+04-09 14:16:04.895 I/DEBUG   (  107):     d0  5555555555555555  d1  5555555555555555
+04-09 14:16:04.895 I/DEBUG   (  107):     d2  5555555555555555  d3  5555555555555555
+04-09 14:16:04.895 I/DEBUG   (  107):     d4  0074006300410049  d5  0074006900760069
+04-09 14:16:04.895 I/DEBUG   (  107):     d6  006e0061004d0079  d7  0081330000000000
+04-09 14:16:04.895 I/DEBUG   (  107):     d8  0000000000000000  d9  0000000000000000
+04-09 14:16:04.895 I/DEBUG   (  107):     d10 0000000000000000  d11 0000000000000000
+04-09 14:16:04.895 I/DEBUG   (  107):     d12 0000000000000000  d13 0000000000000000
+04-09 14:16:04.895 I/DEBUG   (  107):     d14 0000000000000000  d15 0000000000000000
+04-09 14:16:04.895 I/DEBUG   (  107):     d16 4160266010000000  d17 3fe0000000000000
+04-09 14:16:04.895 I/DEBUG   (  107):     d18 00730063002e006d  d19 0069007300700069
+04-09 14:16:04.895 I/DEBUG   (  107):     d20 0065006c0070006d  d21 73622a8500000000
+04-09 14:16:04.895 I/DEBUG   (  107):     d22 000000000000017f  d23 ffffffff00000000
+04-09 14:16:04.895 I/DEBUG   (  107):     d24 3fc7466e1d4d3f84  d25 3fe55559ee5e69f9
+04-09 14:16:04.895 I/DEBUG   (  107):     d26 0000000000000008  d27 0000000000000025
+04-09 14:16:04.895 I/DEBUG   (  107):     d28 0000000000000000  d29 0000000000000000
+04-09 14:16:04.895 I/DEBUG   (  107):     d30 0000000000000000  d31 0000000000000000
+04-09 14:16:04.895 I/DEBUG   (  107):     scr 20000010
+04-09 14:16:04.895 I/DEBUG   (  107): 
+04-09 14:16:04.895 I/DEBUG   (  107): backtrace:
+04-09 14:16:04.895 I/DEBUG   (  107):     #00  pc 0000d0f8  /system/lib/libc.so
+04-09 14:16:04.895 I/DEBUG   (  107):     #01  pc 00049f9f  /system/lib/libmedia.so (android::AudioRecord::stop()+50)
+04-09 14:16:04.895 I/DEBUG   (  107):     #02  pc 0000aa2f  /system/lib/libwilhelm.so
+04-09 14:16:04.895 I/DEBUG   (  107):     #03  pc 0001966b  /system/lib/libwilhelm.so
+04-09 14:16:04.895 I/DEBUG   (  107):     #04  pc 00001929  /data/app-lib/com.csipsimple-2/libpj_opensl_dev.so
+04-09 14:16:04.895 I/DEBUG   (  107):     #05  pc 00001e3d  /data/app-lib/com.csipsimple-2/libpj_opensl_dev.so
+04-09 14:16:04.895 I/DEBUG   (  107):     #06  pc 000b73d9  /data/app-lib/com.csipsimple-2/libpjsipjni.so (pjmedia_aud_stream_create+124)
+04-09 14:16:04.895 I/DEBUG   (  107):     #07  pc 000ab665  /data/app-lib/com.csipsimple-2/libpjsipjni.so
+04-09 14:16:04.895 I/DEBUG   (  107):     #08  pc 000ab7d1  /data/app-lib/com.csipsimple-2/libpjsipjni.so (pjmedia_snd_port_create2+164)
+04-09 14:16:04.895 I/DEBUG   (  107):     #09  pc 0008c4ad  /data/app-lib/com.csipsimple-2/libpjsipjni.so
+04-09 14:16:04.895 I/DEBUG   (  107):     #10  pc 0008da49  /data/app-lib/com.csipsimple-2/libpjsipjni.so (pjsua_set_snd_dev+244)
+04-09 14:16:04.895 I/DEBUG   (  107):     #11  pc 0008dc45  /data/app-lib/com.csipsimple-2/libpjsipjni.so (pjsua_conf_connect+424)
+04-09 14:16:04.895 I/DEBUG   (  107):     #12  pc 0001e410  /system/lib/libdvm.so (dvmPlatformInvoke+112)
+04-09 14:16:04.895 I/DEBUG   (  107):     #13  pc 0004d05d  /system/lib/libdvm.so (dvmCallJNIMethod(unsigned int const</em>, JValue*, Method const*, Thread*)+392)
+04-09 14:16:04.895 I/DEBUG   (  107):     #14  pc 00027820  /system/lib/libdvm.so
+04-09 14:16:04.895 I/DEBUG   (  107):     #15  pc 0002b6b4  /system/lib/libdvm.so (dvmInterpret(Thread*, Method const*, JValue*)+176)
+04-09 14:16:04.895 I/DEBUG   (  107):     #16  pc 0005f855  /system/lib/libdvm.so (dvmCallMethodV(Thread*, Method const*, Object*, bool, JValue*, std::__va_list)+272)
+04-09 14:16:04.895 I/DEBUG   (  107):     #17  pc 000496af  /system/lib/libdvm.so
+04-09 14:16:04.895 I/DEBUG   (  107):     #18  pc 000bc31b  /data/app-lib/com.csipsimple-2/libpjsipjni.so (_JNIEnv::CallStaticVoidMethod(_jclass*, _jmethodID*, ...)+18)
+04-09 14:16:04.895 I/DEBUG   (  107):     #19  pc 000c78fb  /data/app-lib/com.csipsimple-2/libpjsipjni.so (SwigDirector_Callback::on_call_media_state(int)+62)
+04-09 14:16:04.895 I/DEBUG   (  107):     #20  pc 000c94ab  /data/app-lib/com.csipsimple-2/libpjsipjni.so (on_call_media_state_wrapper+14)
+04-09 14:16:04.905 I/DEBUG   (  107):     #21  pc 00082cdd  /data/app-lib/com.csipsimple-2/libpjsipjni.so
+04-09 14:16:04.905 I/DEBUG   (  107):     #22  pc 0009a2ed  /data/app-lib/com.csipsimple-2/libpjsipjni.so
+04-09 14:16:04.905 I/DEBUG   (  107):     #23  pc 0009b331  /data/app-lib/com.csipsimple-2/libpjsipjni.so
+04-09 14:16:04.905 I/DEBUG   (  107):     #24  pc 0009b76d  /data/app-lib/com.csipsimple-2/libpjsipjni.so (pjsip_inv_answer+60)
+04-09 14:16:04.905 I/DEBUG   (  107):     #25  pc 00080f11  /data/app-lib/com.csipsimple-2/libpjsipjni.so (pjsua_call_answer2+460)
+04-09 14:16:04.905 I/DEBUG   (  107):     #26  pc 000c3f4d  /data/app-lib/com.csipsimple-2/libpjsipjni.so (Java_org_pjsip_pjsua_pjsuaJNI_call_1answer2+14)
+04-09 14:16:04.905 I/DEBUG   (  107):     #27  pc 0001e410  /system/lib/libdvm.so (dvmPlatformInvoke+112)
+04-09 14:16:04.905 I/DEBUG   (  107):     #28  pc 0004d05d  /system/lib/libdvm.so (dvmCallJNIMethod(unsigned int const*, JValue*, Method const*, Thread*)+392)
+04-09 14:16:04.905 I/DEBUG   (  107):     #29  pc 00027820  /system/lib/libdvm.so
+04-09 14:16:04.905 I/DEBUG   (  107):     #30  pc 0002b6b4  /system/lib/libdvm.so (dvmInterpret(Thread*, Method const*, JValue*)+176)
+04-09 14:16:04.905 I/DEBUG   (  107):     #31  pc 0005f855  /system/lib/libdvm.so (dvmCallMethodV(Thread*, Method const*, Object*, bool, JValue*, std::__va_list)+272)</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #4</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Apr 15, 2013 by
+                  <i class="ng-binding">Grumpy Elephant</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>I get the same issue PJ_EEOF on outgoing call via TLS when using my Galaxy Tab 2 (stock Android from Samsung, 4.1.1 build number JRO03C.P3113UECLK7 )</p>
+
+<p>changing to Java vs OpenSL doesn't change anything. </p>
+
+<p>Using the same version of CSS I have no trouble on my Samsung Exhibit 4g Android 2.3.6 baseband version: T679UVLE1 </p>
+
+<p>so apparently this is related to some kind of difference between 2.3 era and 4.1 era</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #5</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Apr 22, 2013 by
+                  <i class="ng-binding">Grumpy Camel</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>I also can confirm this issue (PJ_EEOF on outgoing call) with Galaxy S3 LTE (i9305) and CM 10.1 using TLS as a transport. Both CSipSimple and CM are very recent nightly builds.
+With me this problem comes and goes, seemingly at random times. What I do is simply redial and it usually goes away at the 2nd or 3rd try. Not a solution but a somewhat acceptable work around until we can get it fixed.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #6</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on May 6, 2013 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content -->
+              <!-- ngIf: !comment.content --><span ng-if="!comment.content" class="ng-scope">
+                <p><em>(No comment was entered for this change.)</em></p>
+              </span><!-- end ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #7</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on May 6, 2013 by
+                  <i class="ng-binding">Swift Kangaroo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>r2215 crashes in the same place</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #8</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on May 30, 2013 by
+                  <i class="ng-binding">Grumpy Camel</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Hi,
+Why has this issue been closed? Has it been resolved?
+At least for me the issue remains. I still get the PJ_EEOF error when using TLS transport (I think this error has to do with TLS and Android 4.1 and above).</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #9</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on May 31, 2013 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>@privus the problem you mention can normally have a workaround by installing a version of CSipSimple with openssl bundled.
+<a href="http://nightlies.csipsimple.com/specific_builds/CSipSimple-fullOpenSSL.apk">http://nightlies.csipsimple.com/specific_builds/CSipSimple-fullOpenSSL.apk</a></p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #10</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on May 31, 2013 by
+                  <i class="ng-binding">Grumpy Camel</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Hi Regis,</p>
+
+<p>Indeed the PJ_EEOF error seems to have been resolved with the OpenSSL build.</p>
+
+<p>Thanks</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #11</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jun 2, 2013 by
+                  <i class="ng-binding">Grumpy Camel</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Can you point me to some documentation/tutorial on how to bundle the OpenSSL library ourselves instead of having to download your compiled version? I'm sure others would appreciate learning how to do it on our own too.</p>
+
+<p>Thanks</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #12</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jun 2, 2013 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>It's the same than the HowToBuild wiki page + modify the file <a href="http://code.google.com/p/csipsimple/source/browse/trunk/CSipSimple/jni/Application.mk#22">http://code.google.com/p/csipsimple/source/browse/trunk/CSipSimple/jni/Application.mk#22</a>
+Line 27 : set the MY_USE_STATIC_SSL flag to 1</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #13</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jun 2, 2013 by
+                  <i class="ng-binding">Grumpy Camel</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Thanks Regis.
+Now that you point it out it seems so obvious.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #14</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jun 3, 2013 by
+                  <i class="ng-binding">Grumpy Camel</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Just to update this issue in case others come looking for info.</p>
+
+<p>Although the number of PJ_EEOF errors have decreased since using the full openssl build, they have not gone away. It seems my celebration was a little premature.
+It would be nice to hear from others and their results...</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #15</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jun 13, 2013 by
+                  <i class="ng-binding">Massive Elephant</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Is is just me or is nightlies.csipsimple.com not on-line?  I haven't been able to get to it for days.</p>
+
+<p>Kev</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #16</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jun 13, 2013 by
+                  <i class="ng-binding">Grumpy Camel</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>I think the problem is on your end. I can access the site without any
+problems.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #17</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jun 13, 2013 by
+                  <i class="ng-binding">Massive Elephant</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>And all of a sudden it's back!</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #18</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jun 13, 2013 by
+                  <i class="ng-binding">Massive Elephant</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>CSipSimple-fullOpenSSL.apk  doesn't install for me.  I have Unknown Sources enabled.  Just says App not installed.  </p>
+
+<p>My PJ_EEOF error only happens on my Nexus 4 when I dial long distance (11 digits) otherwise seems fine.  I don't see the error on my old Nexus S either.  Both are running r2239.  </p>
+
+<p>For some reason Update Nightly build tells me No update available.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #19</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jun 14, 2013 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>@calgary : you were right the server were down. Thanks for raising the problem.
+About why the app doesn't install, it's weird. Is there another sip app that could be a fork of csipsimple installed?</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #20</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jun 14, 2013 by
+                  <i class="ng-binding">Grumpy Camel</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Update: I recompiled from scratch with the full openssl static library, and I have not seen any more PJ_EEOF errors on my 4.2.2 Samsung S3 (i9305).</p>
+
+<p>I think this fixed the issue.</p>
+
+<p>Now if only I could find some fix for the ZRTP replay errors <a href="http://code.google.com/p/csipsimple/issues/detail?id=2378">http://code.google.com/p/csipsimple/issues/detail?id=2378</a>, I'd be very happy....</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #21</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jul 7, 2013 by
+                  <i class="ng-binding">Grumpy Elephant</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>I still have this problem. The OpenSSL build seems to fix it but will this be fixed in the market version, and/or will the openssl build be updated regularly? Until then this bug can cause problems since google play wants to either auto-update all or auto-update none (as opposed to before where you could check certain things to auto-update), so now I can't auto-update anything because csipsimple updates will break on my phone. </p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #22</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jul 7, 2013 by
+                  <i class="ng-binding">Quick Camel</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Same as Daniel in comment #21 I still have this issue with HTC One on Android 4.2.2, and "full-OpenSSL" binary solves it. So my question is will there be updated "full-OpenSSL version" for download, or, since there is more and more devices running 4.2.2 should the PlayStore version be compiled with full OpenSSL ? </p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #23</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jul 23, 2013 by
+                  <i class="ng-binding">Happy Cat</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>This seems to be a larger problem with ICS. I have tried a few SIP apps and all have problems with SRTP and outgoing calls. Sometimes it will work, but not often. No SRTP packets are sent from the phone when placing a call. Receiving calls is fine. I am running CM9.1 ICS 4.0.4</p>
+
+<p>The full-OpenSSL rom does not fix it for me. No errors that I have noticed in the logcat. </p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #24</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jul 28, 2013 by
+                  <i class="ng-binding">Grumpy Panda</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Yeah, behaviour has been sketchy with the static openssl builds. We ended up just ignoring the message and retrying the call on PJ_EEOF. Otherwise if the user had installed a normal build of csipsimple, he had to clear the cache, the dalvik cache and app data to get flawless behaviour.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #25</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jul 29, 2013 by
+                  <i class="ng-binding">Quick Bear</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>CSipSimple with openssl does not solve the problem for me. I have s3 with 4.0.4 and xperia ray and arc s with 2.3.6 . Sorry but nothing change. TLS and SRTP is used.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #26</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Aug 14, 2013 by
+                  <i class="ng-binding">Swift Camel</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>I have the same problem (PJ_EEOF) on my Galaxy S2 Plus (Android 4.1).
+I'm using TLS with ZRTP.</p>
+
+<p>On my HTC Desire S (Android 2.3.5) the same configuration works without errors.
+Will this error not be fixed in the market version builds?</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #27</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Oct 16, 2013 by
+                  <i class="ng-binding">Quick Camel</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Also getting same PJ_EEOF from market version on Galaxy Note 3, TLS/SRTP. Workaround in #2 doesn't have any effect.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #28</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Feb 27, 2014 by
+                  <i class="ng-binding">Massive Ox</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Hey, men, maybe I've found the cause... It seems that some message is growing too much to be transmitted over TLS... I've found it by "trial &amp; error" method - first I found, that with just one codec permitted, it works, while for more codecs it doesn't. Then I tried to turn on compact SIP headers, and since then, it works for me even with more (tried with 3) codecs! Give it a try as well, maybe it will help you too.. 
+  Regards, Pavel</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #29</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jun 12, 2014 by
+                  <i class="ng-binding">Grumpy Rhino</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>AFAICT in the latest nightly rev 2416 the problem still exists on Samsung S4 Mini LTE with Android 4.2.2 and Nexus S with Cyanogenmod CM11 M7 when using TLS/SRTP.</p>
+
+<p>What works for me:
+- TLS &amp; SRTP enabled/mandatory
+- compact SIP headers enabled
+- only one codec (g722)
+- STUN enabled</p>
+
+<p>What doesn't work for me:
+- the settings above
+- and ICE enabled
+- and/or more codecs enabled</p>
+
+<p>ICE adds a lot of info to the invite and to some extent so does adding a bunch of codecs. Is there perhaps an array or buffer too small?</p>
+
+<p>FWIW Asterisk 12 also uses PJSip and I'm not aware of a similar problem. If you have any questions or need help testing stuff please let me know. </p>
+
+<p>Thank you for all your hard work!</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #30</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jul 1, 2014 by
+                  <i class="ng-binding">Grumpy Rhino</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>The nightly R2423 now works for me. With TLS &amp; SRTP enforced, all codecs enabled, compact SIP headers off, STUN enabled I no longer see the PJ_EEOF error. Tested on a Nexus S with CM7 against Asterisk 11.10.2 with the tlsBigSDP.patch from <a href="https://issues.asterisk.org/jira/browse/ASTERISK-18345">https://issues.asterisk.org/jira/browse/ASTERISK-18345</a></p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments -->
+          </div>
+
+          <!-- Sidebar with additional information -->
+          <div class="maia-col-4">
+            <div class="maia-aside">
+              <p>Status: <code class="ng-binding">Done</code></p>
+              <!-- ngIf: issueCtrl.issue.labels.length > 0 --><p ng-if="issueCtrl.issue.labels.length &gt; 0" class="ng-scope">
+                Labels:
+                <br>
+                <!-- ngRepeat: label in issueCtrl.issue.labels track by $index --><span ng-repeat="label in issueCtrl.issue.labels track by $index" class="ng-scope">
+                  <span class="gca-label ng-binding">Type-Defect</span>
+                </span><!-- end ngRepeat: label in issueCtrl.issue.labels track by $index --><span ng-repeat="label in issueCtrl.issue.labels track by $index" class="ng-scope">
+                  <span class="gca-label ng-binding">Priority-Medium</span>
+                </span><!-- end ngRepeat: label in issueCtrl.issue.labels track by $index -->
+              </p><!-- end ngIf: issueCtrl.issue.labels.length > 0 -->
+            </div>
+          </div>
+        </div><!-- end ngIf: !issueCtrl.error -->
+      </div>
+    </div>
+
+  </div>
+</div>
+</div></div></div>
+    <noscript>
+      &lt;p&gt;The Google Code Archive requires JavaScript to be enabled in your browser.&lt;/p&gt;
+    </noscript>
+
+    <div id="maia-signature"></div>
+    <div class="maia-footer" id="maia-footer">
+      <div id="maia-footer-local">
+      </div>
+      <div id="maia-footer-global">
+        <div class="maia-aux">
+          <ul>
+            <li>
+              <a href="//www.google.com/">Google</a>
+            </li>
+            <li>
+              <a href="//www.google.com/intl/en/about/">About Google</a>
+            </li>
+            <li>
+              <a href="//www.google.com/intl/en/policies/privacy/">Privacy</a>
+            </li>
+            <li>
+              <a href="//www.google.com/intl/en/policies/terms/">Terms</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <script src="//www.google.com/js/maia.js"></script>
+  
+
+
+</body></html>

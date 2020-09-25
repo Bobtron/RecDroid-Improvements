@@ -1,0 +1,484 @@
+https://code.google.com/archive/p/csipsimple/issues/1973<!DOCTYPE html><html class="google ng-scope" lang="en" ng-app="codesiteArchive.application"><head>
+    <meta charset="utf-8">
+    <meta content="initial-scale=1, minimum-scale=1, width=device-width" name="viewport">
+
+    <!-- https://developers.google.com/webmasters/ajax-crawling/docs/specification -->
+    <meta name="fragment" content="!">
+    <title>Google Code Archive - Long-term storage for Google Code Project Hosting.</title>
+
+    <link rel="icon" type="image/vnd.microsoft.icon" href="/archive/img/project-hosting.ico">
+    <script src="//www.google.com/js/google.js"></script>
+    <link href="//www.google.com/css/maia.css" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;lang=en" rel="stylesheet">
+    <link rel="stylesheet" href="/archive/archive_css.css">
+    <script>
+      CLOSURE_NO_DEPS = true;
+    </script>
+    <script src="/archive/angular.js"></script><style type="text/css">@charset "UTF-8";
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak],
+.ng-cloak, .x-ng-cloak,
+.ng-hide:not(.ng-hide-animate) {
+  display: none !important;
+}
+
+ng\:form {
+  display: block;
+}
+
+.ng-animate-shim {
+  visibility:hidden;
+}
+
+.ng-anchor {
+  position:absolute;
+}
+</style>
+    <script src="/archive/pagedown.js"></script>
+    <script src="/archive/archive.js"></script>
+    <base href="/archive/">
+  </head>
+
+  <body>
+    <div class="maia-header" id="maia-header" role="banner">
+      <div class="maia-aux">
+        <a href="/archive/">
+          </a><h1><a href="/archive/">
+            <img alt="Google" src="//www.google.com/images/branding/googlelogo/1x/googlelogo_color_116x41dp.png"> Code</a>
+          </h1>
+        
+        <a href="/archive/">
+          <h2>Archive</h2>
+        </a>
+        <a class="maia-teleport" href="#content">Skip to content</a>
+        <div class="maia-util">
+          <form action="/archive/search" class="maia-search ng-pristine ng-valid">
+            <input name="q" placeholder="Search this site" type="text">
+            <button class="maia-button">
+              <span class="maia-search-icon">Search</span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- ngView: --><div ng-view="" class="ng-scope"><div ng-controller="ProjectIssueCtrl as issueCtrl" class="ng-scope">
+<nav-bar-widget nav-level-1="projectCtrl.navLevel1" class="ng-isolate-scope"><div class="maia-nav maia-complex" id="maia-nav-x" role="navigation">
+  <div class="maia-aux">
+    <ul>
+      <li ng-class="{active: navLevel1 == 'projects'}">
+        <a href="/archive/">Projects</a>
+        <!-- ngIf: navLevel2 -->
+      </li>
+      <li ng-class="{active: navLevel1 == 'search'}">
+        <a href="/archive/search">Search</a>
+      </li>
+      <li ng-class="{active: navLevel1 == 'about'}">
+        <a href="/archive/about">About</a>
+      </li>
+    </ul>
+  </div>
+</div>
+</nav-bar-widget>
+<div id="maia-main" role="main">
+
+  <!-- ngIf: issueCtrl.notFound -->
+
+  <div ng-hide="issueCtrl.notFound">
+    <!-- Left-side resource nav -->
+    <project-resources-widget domain="issueCtrl.domain" project="issueCtrl.projectName" class="ng-isolate-scope"><div class="maia-nav" id="maia-nav-y" role="navigation">
+  <!-- ngIf: domain == 'code.google.com' --><ul ng-if="domain == 'code.google.com'" class="ng-scope">
+    <li class="active">
+      <a href="/archive/p/csipsimple/">Project</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/source">Source</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/issues">Issues</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/wikis">Wikis</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/downloads">Downloads</a>
+    </li>
+  </ul><!-- end ngIf: domain == 'code.google.com' -->
+
+    <!-- ngIf: domain != 'code.google.com' -->
+</div></project-resources-widget>
+
+    <div class="maia-article" role="article">
+      <div class="maia-teleport" id="content"></div>
+      <div class="maia-cols">
+        <div id="gca-project-header" class="maia-col-10">
+          <a id="gca-export-to-gh" class="maia-button" href="https://code.google.com/export-to-github/export?project=csipsimple">Export to GitHub</a>
+            <img class="gca-project-logo" src="https://storage.googleapis.com/google-code-archive/v2/code.google.com/csipsimple/logo.png">
+            <h1 class="ng-binding">csipsimple - issue #1973</h1>
+            <p class="ng-binding">Version 0.04-02 And 0.04-03</p>
+        </div>
+
+        <div class="maia-col-10">
+          <hr>
+
+        <!-- ngIf: issueCtrl.error -->
+
+        <!-- ngIf: !issueCtrl.error --><div ng-if="!issueCtrl.error" class="ng-scope">
+          <!-- Comments -->
+          <div class="maia-col-8">
+            <!-- ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Sep 17, 2012 by
+                  <i class="ng-binding">Swift Monkey</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>After updating to these two latest versions, all accounts were shown as inactive. This issue was reported in issue 1927 as a possible follow up but it seemed to be ignored and the new versions were having issue with many other models. </p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #1</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Sep 17, 2012 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Hi,
+Strange I thought was because some google play version didn't select the right package version so I changed in 0.04-03 the versionning numbers to have the armeabi+armeabi-v7a the top one. (I didn't ignore the remark).
+Apparently still not good for some devices (I did tests on my devices and goes fine, but there is maybe some difference with your devices).
+Can you collect me logs (press menu &gt; help &gt; record logs and menu &gt; help &gt; send logs).
+So that I can see what is the error raised when it tries to load the native library?</p>
+
+<p>Thanks in advance.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #2</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Sep 18, 2012 by
+                  <i class="ng-binding">Swift Monkey</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>D/dalvikvm( 2768): Trying to load lib /data/data/com.csipsimple/lib/libstlport_shared.so 0x46589f88
+D/dalvikvm( 2768): Added shared lib /data/data/com.csipsimple/lib/libstlport_shared.so 0x46589f88
+D/dalvikvm( 2768): No JNI_OnLoad found in /data/data/com.csipsimple/lib/libstlport_shared.so 0x46589f88, skipping init</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #3</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Sep 18, 2012 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>These logs are normal but indeed it's some logs like that I'm looking for. 
+What I'm more worried about is the loading of libpjsipjni.so
+Is there some logs just before or after these one about loading of libpjsipjni.so?</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #4</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Sep 18, 2012 by
+                  <i class="ng-binding">Swift Monkey</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Cannot find anything else suspicious..</p>
+
+<p>I/PackageManager(  122): Removing non-system package:com.csipsimple
+I/ActivityManager(  122): Force stopping package com.csipsimple uid=10089
+D/PackageManager(  122): Scanning package com.csipsimple
+I/PackageManager(  122): Package com.csipsimple codePath changed from /data/app/com.csipsimple-1.apk to /data/app/com.csipsimple-2.apk; Retaining data and using new
+I/PackageManager(  122): /data/app/com.csipsimple-2.apk changed; unpacking
+D/installd(   69): DexInv: --- BEGIN '/data/app/com.csipsimple-2.apk' ---
+D/installd(   69): DexInv: --- END '/data/app/com.csipsimple-2.apk' (success) ---
+I/ActivityManager(  122): Force stopping package com.csipsimple uid=10089
+W/PackageManager(  122): Code path for pkg : com.csipsimple changing from /data/app/com.csipsimple-1.apk to /data/app/com.csipsimple-2.apk
+W/PackageManager(  122): Resource path for pkg : com.csipsimple changing from /data/app/com.csipsimple-1.apk to /data/app/com.csipsimple-2.apk
+D/PackageManager(  122): Registered content provider: com.csipsimple.prefs, className = com.csipsimple.service.PreferenceProvider, isSyncable = false
+D/PackageManager(  122): Registered content provider: com.csipsimple.db, className = com.csipsimple.db.DBProvider, isSyncable = false
+D/PackageManager(  122):   Providers: com.csipsimple.service.PreferenceProvider com.csipsimple.db.DBProvider
+D/PackageManager(  122):   Services: com.csipsimple.service.SipService com.csipsimple.service.Downloader
+D/PackageManager(  122):   Receivers: com.csipsimple.service.DeviceStateReceiver com.csipsimple.service.DeviceStateReceiver com.csipsimple.service.OutgoingCall com.csipsimple.service.HeadsetButtonReceiver com.csipsimple.widgets.AccountWidgetProvider com.csipsimple.widgets.ShortcutWidgetProvider com.csipsimple.plugins.telephony.CallHandler com.csipsimple.plugins.codecs.ReceiverSilk
+D/PackageManager(  122):   Activities: com.csipsimple.ui.SipHome com.csipsimple.ui.calllog.CallLogDetailsActivity com.csipsimple.ui.filters.AccountFilters com.csipsimple.ui.filters.EditFilter com.csipsimple.wizards.WizardChooser com.csipsimple.ui.prefs.hc.MainPrefs com.csipsimple.ui.prefs.cupcake.MainPrefs com.csipsimple.ui.prefs.cupcake.PrefsLoaderActivity com.csipsimple.ui.prefs.PrefsFilters com.csipsimple.ui.prefs.PrefsFast com.csipsimple.ui.prefs.Codecs com.csipsimple.ui.prefs.AudioTester com.csipsimple.wizards.BasePrefsWizard com.csipsimple.ui.outgoingcall.OutgoingCallChooser com.csipsimple.ui.PrivilegedOutgoingSipCallBroadcaster com.csipsimple.ui.PrivilegedOutgoingCallBroadcaster com.csipsimple.ui.incall.InCallActivity com.csipsimple.ui.PickupSipUri com.csipsimple.ui.incall.InCallMediaControl com.csipsimple.widgets.AccountWidgetConfigure com.csipsimple.widgets.ShortcutWidgetConfigure com.csipsimple.ui.messages.MessageActivity com.csipsimple.ui.account.AccountsEditList com.csipsimple.ui.account.AccountEdit com.csipsimple.wizards.impl.MondotalkCreate
+I/installd(   69): move /data/dalvik-cache/data@app@com.csipsimple-2.apk@classes.dex -&gt; /data/dalvik-cache/data@app@com.csipsimple-2.apk@classes.dex
+D/PackageManager(  122): New package installed in /data/app/com.csipsimple-2.apk
+W/PackageManager(  122): Not granting permission android.permission.CALL_PRIVILEGED to package com.csipsimple (protectionLevel=3 flags=0x3e44)
+W/PackageManager(  122): Unknown permission android.permission.READ_PROFILE in package com.csipsimple
+W/PackageManager(  122): Unknown permission android.permission.WRITE_CALL_LOG in package com.csipsimple
+I/ActivityManager(  122): Force stopping package com.csipsimple uid=10089
+I/installd(   69): unlink /data/dalvik-cache/data@app@com.csipsimple-1.apk@classes.dex
+D/Finsky  ( 1218): [27] 1.packageInstalled: Package install status for "com.csipsimple" is 1
+I/ActivityManager(  122): Start proc com.csipsimple:sipStack for broadcast com.csipsimple/.service.DeviceStateReceiver: pid=2768 uid=10089 gids={3003, 3002, 1007, 1015, 1006}
+I/ActivityThread( 2768): Publishing provider com.csipsimple.db: com.csipsimple.db.DBProvider
+D/InstallReceiver(  797): com.csipsimple
+V/AlarmManager(  122): Adding Alarm{468ec7e8 type 2 com.csipsimple} Jan 01 06:50:37 am
+V/AlarmManager(  122): Adding Alarm{467b06e8 type 2 com.csipsimple} Jan 01 07:45:33 am
+V/AlarmManager(  122): Adding Alarm{46795b28 type 2 com.csipsimple} Jan 01 07:45:33 am
+V/AlarmManager(  122): Adding Alarm{46666800 type 2 com.csipsimple} Jan 01 07:45:34 am
+V/AlarmManager(  122): Adding Alarm{46a54c98 type 2 com.csipsimple} Jan 01 06:50:37 am
+V/AlarmManager(  122): Adding Alarm{46af3188 type 2 com.csipsimple} Jan 01 07:45:33 am
+V/AlarmManager(  122): Adding Alarm{46abf810 type 2 com.csipsimple} Jan 01 07:45:33 am
+V/AlarmManager(  122): Adding Alarm{46a73ae0 type 2 com.csipsimple} Jan 01 07:45:34 am
+I/ActivityManager(  122): Starting activity: Intent { act=android.intent.action.MAIN flg=0x10000000 cmp=com.csipsimple/.ui.SipHome }
+I/ActivityManager(  122): Start proc com.csipsimple for activity com.csipsimple/.ui.SipHome: pid=2803 uid=10089 gids={3003, 3002, 1007, 1015, 1006}
+I/ActivityThread( 2803): Publishing provider com.csipsimple.prefs: com.csipsimple.service.PreferenceProvider
+D/dalvikvm( 2803): GC_FOR_MALLOC freed 3603 objects / 187496 bytes in 38ms
+D/dalvikvm( 2768): GC_FOR_MALLOC freed 2717 objects / 171248 bytes in 72ms
+D/dalvikvm( 2803): GC_EXTERNAL_ALLOC freed 3467 objects / 302424 bytes in 55ms
+W/KeyCharacterMap( 2803): No keyboard for id -1
+W/KeyCharacterMap( 2803): Using default keymap: /system/usr/keychars/qwerty.kcm.bin
+D/dalvikvm( 2768): Trying to load lib /data/data/com.csipsimple/lib/libstlport_shared.so 0x46589f88
+D/dalvikvm( 2768): Added shared lib /data/data/com.csipsimple/lib/libstlport_shared.so 0x46589f88
+D/dalvikvm( 2768): No JNI_OnLoad found in /data/data/com.csipsimple/lib/libstlport_shared.so 0x46589f88, skipping init
+D/dalvikvm( 2768): Trying to load lib /data/data/com.csipsimple/lib/libpjsipjni.so 0x46589f88
+D/dalvikvm( 2803): GC_EXTERNAL_ALLOC freed 1914 objects / 110632 bytes in 66ms
+D/dalvikvm( 2768): Added shared lib /data/data/com.csipsimple/lib/libpjsipjni.so 0x46589f88
+I/ActivityManager(  122): Displayed activity com.csipsimple/.ui.SipHome: 1876 ms (total 1876 ms)
+D/dalvikvm( 2768): GC_FOR_MALLOC freed 8743 objects / 431232 bytes in 34ms
+I/global  ( 2768): Default buffer size used in BufferedReader constructor. It would be better to be explicit if an 8k-char buffer is required.
+I/global  ( 2768): Default buffer size used in BufferedReader constructor. It would be better to be explicit if an 8k-char buffer is required.
+D/dalvikvm( 2803): GC_EXPLICIT freed 1417 objects / 53496 bytes in 37ms
+D/PendingIntent( 2768): PendingIntent getBroadcast Intent String =com.csipsimple.PJ_TIMER
+D/PendingIntent( 2768): PendingIntent getBroadcast returnPendingIntent packageName =com.csipsimple
+V/AlarmManager(  122): Adding Alarm{46b5fe40 type 2 com.csipsimple} Jan 01 06:47:44 am
+D/PendingIntent( 2768): PendingIntent getBroadcast Intent String =com.csipsimple.PJ_TIMER
+D/PendingIntent( 2768): PendingIntent getBroadcast returnPendingIntent packageName =com.csipsimple
+D/PendingIntent( 2768): PendingIntent getBroadcast Intent String =com.csipsimple.PJ_TIMER
+D/PendingIntent( 2768): PendingIntent getBroadcast returnPendingIntent packageName =com.csipsimple
+V/AlarmManager(  122): Adding Alarm{469be370 type 2 com.csipsimple} Jan 01 06:47:44 am
+D/PendingIntent( 2768): PendingIntent getBroadcast Intent String =com.csipsimple.PJ_TIMER
+D/PendingIntent( 2768): PendingIntent getBroadcast returnPendingIntent packageName =com.csipsimple
+D/PendingIntent( 2768): PendingIntent getBroadcast Intent String =com.csipsimple.PJ_TIMER
+D/PendingIntent( 2768): PendingIntent getBroadcast returnPendingIntent packageName =com.csipsimple
+V/AlarmManager(  122): Adding Alarm{468536e0 type 2 com.csipsimple} Jan 01 06:47:42 am
+D/PendingIntent( 2768): PendingIntent getBroadcast Intent String =com.csipsimple.PJ_TIMER
+D/PendingIntent( 2768): PendingIntent getBroadcast returnPendingIntent packageName =com.csipsimple
+V/AlarmManager(  122): Alarm triggering: Alarm{468536e0 type 2 com.csipsimple}
+D/PendingIntent( 2768): PendingIntent getBroadcast Intent String =com.csipsimple.PJ_TIMER
+D/PendingIntent( 2768): PendingIntent getBroadcast returnPendingIntent packageName =com.csipsimple
+V/AlarmManager(  122): Adding Alarm{46b5f170 type 2 com.csipsimple} Jan 01 06:47:44 am
+D/PendingIntent( 2768): PendingIntent getBroadcast Intent String =com.csipsimple.PJ_TIMER
+D/PendingIntent( 2768): PendingIntent getBroadcast returnPendingIntent packageName =com.csipsimple
+V/AlarmManager(  122): Alarm triggering: Alarm{46b5fe40 type 2 com.csipsimple}
+V/AlarmManager(  122): Alarm triggering: Alarm{469be370 type 2 com.csipsimple}
+V/AlarmManager(  122): Alarm triggering: Alarm{46b5f170 type 2 com.csipsimple}
+V/AlarmManager(  122): Adding Alarm{46aa9860 type 2 com.csipsimple} Jan 01 06:50:37 am
+V/AlarmManager(  122): Adding Alarm{469a2918 type 2 com.csipsimple} Jan 01 07:45:33 am
+V/AlarmManager(  122): Adding Alarm{4692cd28 type 2 com.csipsimple} Jan 01 07:45:33 am
+V/AlarmManager(  122): Adding Alarm{469dae70 type 2 com.csipsimple} Jan 01 07:45:34 am
+V/AlarmManager(  122): Alarm triggering: Alarm{46aa9860 type 2 com.csipsimple}
+V/AlarmManager(  122): Adding Alarm{46d0ffc8 type 2 com.csipsimple} Jan 01 07:45:33 am
+V/AlarmManager(  122): Adding Alarm{46d10490 type 2 com.csipsimple} Jan 01 07:45:33 am
+V/AlarmManager(  122): Adding Alarm{46b9d9f0 type 2 com.csipsimple} Jan 01 07:45:34 am
+V/AlarmManager(  122): Adding Alarm{46a3b330 type 2 com.csipsimple} Jan 01 07:45:33 am
+V/AlarmManager(  122): Adding Alarm{46a31348 type 2 com.csipsimple} Jan 01 07:45:33 am
+V/AlarmManager(  122): Adding Alarm{46a1f200 type 2 com.csipsimple} Jan 01 07:45:34 am
+V/AlarmManager(  122): Adding Alarm{46b421c8 type 2 com.csipsimple} Jan 01 07:45:33 am
+V/AlarmManager(  122): Adding Alarm{46b09160 type 2 com.csipsimple} Jan 01 07:45:33 am
+V/AlarmManager(  122): Adding Alarm{46a8f918 type 2 com.csipsimple} Jan 01 07:45:34 am
+V/AlarmManager(  122): Adding Alarm{469cc8a8 type 2 com.csipsimple} Jan 01 07:45:33 am
+V/AlarmManager(  122): Adding Alarm{469d4540 type 2 com.csipsimple} Jan 01 07:45:33 am
+V/AlarmManager(  122): Adding Alarm{46a80710 type 2 com.csipsimple} Jan 01 07:45:34 am
+V/AlarmManager(  122): Adding Alarm{4695aad0 type 2 com.csipsimple} Jan 01 07:45:33 am
+V/AlarmManager(  122): Adding Alarm{46b09558 type 2 com.csipsimple} Jan 01 07:45:33 am
+V/AlarmManager(  122): Adding Alarm{46be92d8 type 2 com.csipsimple} Jan 01 07:45:34 am
+W/KeyCharacterMap( 2803): No keyboard for id 65540
+W/KeyCharacterMap( 2803): Using default keymap: /system/usr/keychars/qwerty.kcm.bin
+W/KeyCharacterMap( 2803): No keyboard for id -1
+W/KeyCharacterMap( 2803): Using default keymap: /system/usr/keychars/qwerty.kcm.bin
+D/dalvikvm( 2803): GC_EXTERNAL_ALLOC freed 2959 objects / 226248 bytes in 37ms
+W/KeyCharacterMap( 2803): No keyboard for id 65540
+W/KeyCharacterMap( 2803): Using default keymap: /system/usr/keychars/qwerty.kcm.bin
+W/KeyCharacterMap( 2803): No keyboard for id -1
+W/KeyCharacterMap( 2803): Using default keymap: /system/usr/keychars/qwerty.kcm.bin
+I/Help    ( 2803): Item clicked : 2 2
+I/global  ( 2803): Default buffer size used in BufferedReader constructor. It would be better to be explicit if an 8k-char buffer is required.
+W/IInputConnectionWrapper( 2803): showStatusIcon on inactive InputConnection
+D/dalvikvm( 2768): GC_EXPLICIT freed 3170 objects / 196824 bytes in 44ms
+D/dalvikvm( 2803): GC_EXPLICIT freed 2191 objects / 199416 bytes in 88ms
+W/KeyCharacterMap( 2803): No keyboard for id 65540
+W/KeyCharacterMap( 2803): Using default keymap: /system/usr/keychars/qwerty.kcm.bin
+W/KeyCharacterMap( 2803): No keyboard for id -1
+W/KeyCharacterMap( 2803): Using default keymap: /system/usr/keychars/qwerty.kcm.bin
+W/IInputConnectionWrapper( 2803): showStatusIcon on inactive InputConnection
+D/DfeApi  ( 1218): [1] DfeRequest.deliverResponse: Not delivering second response for request=[[ ] <a href="https://android.clients.google.com/fdfe/details?doc=com.csipsimple">https://android.clients.google.com/fdfe/details?doc=com.csipsimple</a> NORMAL 59]
+I/ActivityManager(  122): Starting activity: Intent { act=android.intent.action.MAIN flg=0x10000000 cmp=com.csipsimple/.ui.SipHome }
+D/dalvikvm( 2803): GC_EXTERNAL_ALLOC freed 5527 objects / 402368 bytes in 40ms
+I/ActivityManager(  122): Displayed activity com.csipsimple/.ui.SipHome: 566 ms (total 566 ms)
+I/dalvikvm( 2803): Jit: resizing JitTable from 4096 to 8192
+W/KeyCharacterMap( 2803): No keyboard for id 65540
+W/KeyCharacterMap( 2803): Using default keymap: /system/usr/keychars/qwerty.kcm.bin
+W/KeyCharacterMap( 2803): No keyboard for id -1
+W/KeyCharacterMap( 2803): Using default keymap: /system/usr/keychars/qwerty.kcm.bin
+I/ActivityManager(  122): Starting activity: Intent { cmp=com.csipsimple/.ui.account.AccountsEditList }
+D/SIP_HOME( 2803): On Pause SIPHOME
+D/dalvikvm( 2803): GC_EXTERNAL_ALLOC freed 6427 objects / 424400 bytes in 37ms
+W/IInputConnectionWrapper( 2803): finishComposingText on inactive InputConnection
+I/ActivityManager(  122): Displayed activity com.csipsimple/.ui.account.AccountsEditList: 244 ms (total 244 ms)
+D/dalvikvm( 2803): GC_EXTERNAL_ALLOC freed 3087 objects / 217824 bytes in 38ms
+D/DnD view( 2803): Start dragging at 2 for 2 # 0
+D/AccEditListAd( 2803): Clicked on ...
+D/DnD view( 2803): Start dragging at 2 for 2 # 0
+D/AccEditListAd( 2803): Clicked on ...
+W/KeyCharacterMap( 2803): No keyboard for id 65540
+W/KeyCharacterMap( 2803): Using default keymap: /system/usr/keychars/qwerty.kcm.bin
+D/SIP_HOME( 2803): On Resume SIPHOME
+D/SIP_HOME( 2803): WE CAN NOW start SIP service
+W/KeyCharacterMap( 2803): No keyboard for id -1
+W/KeyCharacterMap( 2803): Using default keymap: /system/usr/keychars/qwerty.kcm.bin
+I/Help    ( 2803): Item clicked : 2 2
+I/global  ( 2803): Default buffer size used in BufferedReader constructor. It would be better to be explicit if an 8k-char buffer is required.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #5</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Sep 19, 2012 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Can you try to download and upgrade from :
+<a href="http://nightlies.csipsimple.com/trunk/CSipSimple-r1914-trunk.apk">http://nightlies.csipsimple.com/trunk/CSipSimple-r1914-trunk.apk</a></p>
+
+<p>Apparently some device suffer of a problem with optimized builds. Seems to be the case for many motorola device and one htc for now.
+In version above I removed optimizations stuff. Let me know how it goes.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #6</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Sep 19, 2012 by
+                  <i class="ng-binding">Swift Monkey</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>r1914 works fine. </p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments -->
+          </div>
+
+          <!-- Sidebar with additional information -->
+          <div class="maia-col-4">
+            <div class="maia-aside">
+              <p>Status: <code class="ng-binding">Need-Details</code></p>
+              <!-- ngIf: issueCtrl.issue.labels.length > 0 --><p ng-if="issueCtrl.issue.labels.length &gt; 0" class="ng-scope">
+                Labels:
+                <br>
+                <!-- ngRepeat: label in issueCtrl.issue.labels track by $index --><span ng-repeat="label in issueCtrl.issue.labels track by $index" class="ng-scope">
+                  <span class="gca-label ng-binding">Type-Defect</span>
+                </span><!-- end ngRepeat: label in issueCtrl.issue.labels track by $index --><span ng-repeat="label in issueCtrl.issue.labels track by $index" class="ng-scope">
+                  <span class="gca-label ng-binding">Priority-Medium</span>
+                </span><!-- end ngRepeat: label in issueCtrl.issue.labels track by $index -->
+              </p><!-- end ngIf: issueCtrl.issue.labels.length > 0 -->
+            </div>
+          </div>
+        </div><!-- end ngIf: !issueCtrl.error -->
+      </div>
+    </div>
+
+  </div>
+</div>
+</div></div></div>
+    <noscript>
+      &lt;p&gt;The Google Code Archive requires JavaScript to be enabled in your browser.&lt;/p&gt;
+    </noscript>
+
+    <div id="maia-signature"></div>
+    <div class="maia-footer" id="maia-footer">
+      <div id="maia-footer-local">
+      </div>
+      <div id="maia-footer-global">
+        <div class="maia-aux">
+          <ul>
+            <li>
+              <a href="//www.google.com/">Google</a>
+            </li>
+            <li>
+              <a href="//www.google.com/intl/en/about/">About Google</a>
+            </li>
+            <li>
+              <a href="//www.google.com/intl/en/policies/privacy/">Privacy</a>
+            </li>
+            <li>
+              <a href="//www.google.com/intl/en/policies/terms/">Terms</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <script src="//www.google.com/js/maia.js"></script>
+  
+
+
+</body></html>

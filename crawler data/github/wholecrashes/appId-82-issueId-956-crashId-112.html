@@ -1,0 +1,60 @@
+https://github.com/the-blue-alliance/the-blue-alliance-android/issues/770<td class="d-block comment-body markdown-body  js-comment-body">
+
+          <p>Android N's freeform multi-window mode is unfinished and buggy. E.g. tapping just outside an app's window can switch it to full-screen mode, then it's unclear how to get it back into a small window. Then tapping the zoom icon once or twice can crash the app with <code>java.lang.IllegalStateException: exitFreeformMode: You can only go fullscreen from freeform.</code></p>
+<p>Some normal window moving and resizing can also cause the app to crash. To reproduce:</p>
+<ul>
+<li>Create an Android N Nexus 10 AVD.</li>
+<li>Enable <a href="http://stackoverflow.com/questions/35905726/how-do-we-try-freeform-multi-window-mode-on-the-android-n-developer-preview/38817283#38817283" rel="nofollow">freeform multi-window mode</a>.</li>
+<li>Open TBA Android and another app in freeform mode.</li>
+<li>Try adjusting the position and size of TBA Android.</li>
+</ul>
+<p>See the log, below. Note the second stack traceback has an empty <code>Rect(0, 0 - 0, 0)</code> and no TBA code on the stack. <em>That and the "fullscreen" error message suggests that Nougat will need bug fixes before device vendors enable multi-window mode.</em></p>
+<p>But the first traceback has a NPE from this code:</p>
+<pre><code>    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        // Forward the new configuration the drawer toggle component.
+        mDrawerToggle.onConfigurationChanged(newConfig); // *** null mDrawerToggle here ***
+    }
+</code></pre>
+<p>[Scroll to see the wide text --------&gt;]</p>
+<pre><code>                                                                                   --------- beginning of crash
+08-07 18:16:21.616 2715-2715/com.thebluealliance.androidclient.development E/AndroidRuntime: FATAL EXCEPTION: main
+                                                                                             Process: com.thebluealliance.androidclient.development, PID: 2715
+                                                                                             java.lang.NullPointerException: Attempt to invoke virtual method 'void android.support.v7.app.ActionBarDrawerToggle.onConfigurationChanged(android.content.res.Configuration)' on a null object reference
+                                                                                                 at com.thebluealliance.androidclient.fragments.NavigationDrawerFragment.onConfigurationChanged(NavigationDrawerFragment.java:379)
+                                                                                                 at android.support.v4.app.Fragment.performConfigurationChanged(Fragment.java:2032)
+                                                                                                 at android.support.v4.app.FragmentManagerImpl.dispatchConfigurationChanged(FragmentManager.java:2094)
+                                                                                                 at android.support.v4.app.FragmentController.dispatchConfigurationChanged(FragmentController.java:255)
+                                                                                                 at android.support.v4.app.FragmentActivity.onConfigurationChanged(FragmentActivity.java:287)
+                                                                                                 at android.support.v7.app.AppCompatActivity.onConfigurationChanged(AppCompatActivity.java:156)
+                                                                                                 at android.app.ActivityThread.performConfigurationChanged(ActivityThread.java:4666)
+                                                                                                 at android.app.ActivityThread.performConfigurationChangedForActivity(ActivityThread.java:4577)
+                                                                                                 at android.app.ActivityThread.handleActivityConfigurationChanged(ActivityThread.java:4784)
+                                                                                                 at android.app.ActivityThread$H.handleMessage(ActivityThread.java:1597)
+                                                                                                 at android.os.Handler.dispatchMessage(Handler.java:102)
+                                                                                                 at android.os.Looper.loop(Looper.java:154)
+                                                                                                 at android.app.ActivityThread.main(ActivityThread.java:6077)
+                                                                                                 at java.lang.reflect.Method.invoke(Native Method)
+                                                                                                 at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:865)
+                                                                                                 at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:755)
+08-07 18:16:21.627 1242-1809/? E/SurfaceFlinger: ro.sf.lcd_density must be defined as a build property
+
+                                                 [ 08-07 18:16:21.656  1503: 2957 D/         ]
+                                                 HostConnection::get() New Host Connection established 0x9c660040, tid 2957
+08-07 18:16:21.658 2136-2958/com.google.android.gms D/DropBoxEntryAddedChimeraService: User is not opted-in to Usage &amp; Diagnostics or Lockbox.
+08-07 18:16:21.675 1503-2957/system_process I/OpenGLRenderer: Initialized EGL, version 1.4
+08-07 18:16:21.675 1503-2957/system_process D/OpenGLRenderer: Swap behavior 1
+08-07 18:16:21.752 1503-1524/system_process E/ActivityManager: Received strange task bounds: Rect(0, 0 - 0, 0)
+                                                               java.lang.Throwable
+                                                                   at com.android.server.am.TaskRecord.validateBounds(TaskRecord.java:1612)
+                                                                   at com.android.server.am.ActivityStackSupervisor.resizeTaskLocked(ActivityStackSupervisor.java:2250)
+                                                                   at com.android.server.am.ActivityManagerService.resizeTask(ActivityManagerService.java:9386)
+                                                                   at com.android.server.wm.TaskPositioner$WindowPositionerEventReceiver.onInputEvent(TaskPositioner.java:197)
+                                                                   at android.view.InputEventReceiver.dispatchInputEvent(InputEventReceiver.java:185)
+                                                                   at android.os.MessageQueue.nativePollOnce(Native Method)
+                                                                   at android.os.MessageQueue.next(MessageQueue.java:323)
+                                                                   at android.os.Looper.loop(Looper.java:136)
+                                                                   at android.os.HandlerThread.run(HandlerThread.java:61)
+                                                                   at com.android.server.ServiceThread.run(ServiceThread.java:46)
+</code></pre>
+      </td>

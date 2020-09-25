@@ -1,0 +1,97 @@
+https://github.com/crownstone/CrownstoneApp/issues/27<td class="d-block comment-body markdown-body  js-comment-body">
+
+          <p>Currently <code>ScanRecord</code> is complaining 10 times a second about the following.</p>
+<pre><code>04-09 12:31:48.467  3910  4310 D ScanRecord: parseFromBytes
+04-09 12:31:48.467  3910  4310 D ScanRecord: first manudata for manu ID
+04-09 12:31:48.467  3910  4310 D ScanRecord: Not a Multi Manu data
+04-09 12:31:48.467  3910  4310 D ScanRecord: Not a Multi Manu data
+04-09 12:31:48.467  3910  4310 D ScanRecord: Not a Multi Manu data
+04-09 12:31:48.467  3910  4310 D ScanRecord: Not a Multi Manu data
+04-09 12:31:48.467  3910  4310 D ScanRecord: parseFromBytes
+04-09 12:31:48.467  3910  4310 D ScanRecord: first manudata for manu ID
+04-09 12:31:48.467  3910  4631 D BtGatt.ContextMap: sendClientScanResult for app id 5
+04-09 12:31:48.467 25989 25999 D ScanRecord: parseFromBytes
+04-09 12:31:48.467 25989 25999 D ScanRecord: first manudata for manu ID
+</code></pre>
+<p>Process <code>3910</code> complains about <code>Not a Multi Manu data</code>, process <code>25989</code> does not seem to be bothered by it.</p>
+<p>Part of <code>getprop</code>:</p>
+<pre><code>[ro.build.PDA]: [G901FXXS1CPK2]
+[ro.build.changelist]: [7582628]
+[ro.build.characteristics]: [phone]
+[ro.build.date]: [Mon Nov  7 15:47:33 KST 2016]
+[ro.build.date.utc]: [1478501253]
+[ro.build.description]: [kccat6xx-user 6.0.1 MMB29M G901FXXS1CPK2 release-keys]
+[ro.build.display.id]: [MMB29M.G901FXXS1CPK2]
+[ro.build.fingerprint]: [samsung/kccat6xx/kccat6:6.0.1/MMB29M/G901FXXS1CPK2:user/release-keys]
+[ro.build.flavor]: [kccat6xx-user]
+[ro.build.hidden_ver]: [G901FXXS1CPK2]
+[ro.build.host]: [SWHE7714]
+[ro.build.id]: [MMB29M]
+[ro.build.official.release]: [true]
+[ro.build.product]: [kccat6]
+[ro.build.scafe]: [americano]
+[ro.build.scafe.cream]: [white]
+[ro.build.scafe.shot]: [single]
+[ro.build.scafe.size]: [short]
+[ro.build.scafe.version]: [2015A]
+[ro.build.selinux]: [1]
+[ro.build.selinux.enforce]: [1]
+[ro.build.tags]: [release-keys]
+[ro.build.type]: [user]
+[ro.build.user]: [dpi]
+[ro.build.version.all_codenames]: [REL]
+[ro.build.version.base_os]: [samsung/kccat6xx/kccat6:6.0.1/MMB29M/G901FXXU1CPG3:user/release-keys]
+[ro.build.version.codename]: [REL]
+[ro.build.version.incremental]: [G901FXXS1CPK2]
+[ro.build.version.preview_sdk]: [0]
+[ro.build.version.release]: [6.0.1]
+[ro.build.version.sdk]: [23]
+[ro.build.version.sdl]: [2301]
+[ro.build.version.security_patch]: [2016-11-01]
+</code></pre>
+<p>Logging:</p>
+<pre><code>cat /etc/bluetooth/bt_stack.conf                              
+# Enable BtSnoop logging function
+# valid value : true, false
+BtSnoopLogOutput=true
+
+# BtSnoop log output file
+BtSnoopFileName=/sdcard/Android/data/btsnoop_hci.log
+
+# Preserve existing BtSnoop log before overwriting
+BtSnoopSaveLog=true
+
+# Enable trace level reconfiguration function
+# Must be present before any TRC_ trace level settings
+TraceConf=true
+
+# Trace level configuration
+#   BT_TRACE_LEVEL_NONE    0    ( No trace messages to be generated )
+#   BT_TRACE_LEVEL_ERROR   1    ( Error condition trace messages )
+#   BT_TRACE_LEVEL_WARNING 2    ( Warning condition trace messages )
+#   BT_TRACE_LEVEL_API     3    ( API traces )
+#   BT_TRACE_LEVEL_EVENT   4    ( Debug messages for events )
+#   BT_TRACE_LEVEL_DEBUG   5    ( Full debug messages )
+#   BT_TRACE_LEVEL_VERBOSE 6    ( Verbose messages ) - Currently supported for TRC_BTAPP only.
+TRC_BTM=3
+TRC_HCI=2
+TRC_L2CAP=4
+TRC_RFCOMM=2
+TRC_OBEX=2
+TRC_AVCT=2
+TRC_AVDT=2
+TRC_AVRC=2
+TRC_AVDT_SCB=2
+TRC_AVDT_CCB=2
+TRC_A2D=2
+TRC_SDP=4
+TRC_GATT=2
+TRC_SMP=2
+TRC_BTAPP=4
+TRC_BTIF=4
+TRC_GAP=4
+TRC_BNEP=2
+TRC_PAN=2
+</code></pre>
+<p>Expected: properly handled beacon messages without filling the logs with errors.</p>
+      </td>

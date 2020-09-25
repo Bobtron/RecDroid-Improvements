@@ -44,13 +44,11 @@ python $base_path/OpenNMT-py/train.py \
 -rnn_size 512 \
 -layers 1 \
 -encoder_type brnn \
--epochs 20 \
+-train_steps 100000 \
 -seed 777 \
 -batch_size 64 \
 -max_grad_norm 2 \
 -share_embeddings \
--start_checkpoint_at 1 \
--start_epoch 1 \
 -copy_attn
 
 

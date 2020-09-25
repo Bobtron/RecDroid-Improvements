@@ -1,0 +1,89 @@
+<td class="d-block comment-body markdown-body  js-comment-body">
+
+          <p>Hi, I previously posted this feature request in <a class="issue-link js-issue-link" data-error-text="Failed to load issue title" data-id="302815756" data-permission-text="Issue title is private" data-url="https://github.com/k0shk0sh/FastHub/issues/1594" href="https://github.com/k0shk0sh/FastHub/issues/1594">#1594</a>, but it was interpreted as a usage question.  It's a feature request.</p>
+<p>Original Text for <a class="issue-link js-issue-link" data-error-text="Failed to load issue title" data-id="302815756" data-permission-text="Issue title is private" data-url="https://github.com/k0shk0sh/FastHub/issues/1594" href="https://github.com/k0shk0sh/FastHub/issues/1594">#1594</a>:</p>
+<blockquote>
+<p>Hi, I use labels quite a bit - would it be possible to display labels in the PR and Issue lists? I'd envision that if enabled, they would show up below other issue info, as a bar of colors (lexically sorted by label title), optionally with (potentially truncated) label text.</p>
+<p>Thanks for your work! Easily worth the price for pro.</p>
+</blockquote>
+<p>To be more clear:</p>
+<h3>Current behavior</h3>
+<p>Prior to this change, reading the tags for just(!) three issues involves:</p>
+<ul>
+<li>Look at list</li>
+<li>Click or long-press on issue</li>
+<li>Possible:  Scroll down to tags</li>
+<li>click back or swipe issue away</li>
+<li>Look at list</li>
+<li>Click or long-press on issue</li>
+<li>Possible:  Scroll down to tags</li>
+<li>click back or swipe issue away</li>
+<li>Look at list</li>
+<li>Click or long-press on issue</li>
+<li>Possible:  Scroll down to tags</li>
+<li>click back or swipe issue away</li>
+</ul>
+<h3>What is the effect of the desired change?</h3>
+<p>After this change, reading the tags for three issues is simply:</p>
+<ul>
+<li>Look at the list</li>
+<li>Look at the list</li>
+<li>Look at the list</li>
+</ul>
+<p>In this, consider the user's "action cost" of performing the <em>type</em> of activity.  Clicking, long-pressing, swiping, and hitting back are all expensive in user-time in comparison with looking -- and this doesn't count user's mental reorientation to the new screen(s) and back.  Granted, individually these are all simple actions, but they add up, and it's an obvious boon to have tags immediately available without further effort and with minimal UI space taken.</p>
+<p>If color associations are forgotten, the issue can still be clicked on / long-pressed as normal, but this is comparatively infrequent.</p>
+<h3>Why is a change desired?</h3>
+<p>These are all rather interrelated, but:</p>
+<ul>
+<li>Information availability without information overload</li>
+<li>Speed of use</li>
+<li>User experience</li>
+<li>Minimal UI space cost</li>
+<li>Avoid multiple view changes</li>
+</ul>
+<h3>Desired behavior</h3>
+<ul>
+<li>The list of issues (and PRs) would indicate what tags are associated with a given entry by providing a (thin) colored line underneath the list item.</li>
+<li>Line would be divided up into sections depending on how many tags the issue/PR has
+<ul>
+<li>If two tags (yellow and green) were present, half the line would be yellow, half green</li>
+<li>If three tags (yellow, orange, purple) were present, the line would be divided into thirds</li>
+<li>..etc.</li>
+</ul>
+</li>
+<li>If you want a colorblind option, the line can be expanded slightly and mini-text (barely readable) added.
+<ul>
+<li>For tags, this is enough, as they don't nead to be easily readable, just easily distinguished from each other.</li>
+</ul>
+</li>
+</ul>
+<p>So instead of containing this info in the PR/Issue display:</p>
+<pre><code>Foo has no baz associated with it
+#123 someuser opened Apr 1, 1770
+
+Foo is out of date and it's all your fault
+#122 troublemaker opened Apr 1, 1776
+</code></pre>
+<p>A PR or Issue would contain this (please ignore the plus and minus -- I'm abusing the <em>diff</em> syntax highlighting for example tag colors):</p>
+<div class="highlight highlight-source-diff"><pre>Foo has no baz associated with it
+<span class="pl-c"><span class="pl-c">#</span>123 someuser opened Apr 1, 1770</span>
+<span class="pl-mi1"><span class="pl-mi1">+</span> &lt;just a thin bar with tag color or colors&gt;</span>
+Foo is out of date and it's all your fault
+<span class="pl-c"><span class="pl-c">#</span>122 troublemaker opened Apr 1, 1776</span>
+<span class="pl-md"><span class="pl-md">-</span> &lt;just a thin bar with tag color or colors&gt;</span></pre></div><div class="js-accept-changes" style="margin-top: -16px;"></div>
+<p>The line would be fairly thin, like an underline of the entry, but (possibly multi-) colored.</p>
+<p>I'm not familiar with coding on Android, but I imagine at its core it's just a view hierarchy, and it would be as straightforward as adding a short, horizontal list view that has autoexpanded blank text boxes with the tag's background color.</p>
+<ul>
+<li>vertical list of issues
+<ul>
+<li>vertical list of issue components
+<ul>
+<li>horizontal list (or just a text item) for title</li>
+<li>horizontal list of issue number, username, 'opened', date, messsages icon, messages count</li>
+<li>(new) horizontal list of text items, blank, one for each tag the issue has, background matches tag</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+      </td>

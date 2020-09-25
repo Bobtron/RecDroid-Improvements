@@ -1,0 +1,72 @@
+https://github.com/microg/android_packages_apps_GmsCore/issues/86<td class="d-block comment-body markdown-body  js-comment-body">
+
+          <p>When gmail sync is enabled under:<br>
+Settings &gt; Accounts &gt; Google &gt; (account) &gt; Gmail: ON,<br>
+it does not wait between syncs, here is a logcat:<br>
+(Is there another email client that uses GCM like gmail?)</p>
+<pre><code>02-01 11:27:13.863 11596 16471 W Gmail   : Sync started for account: account:1200572429
+02-01 11:27:13.864 11596 16471 I Gmail   : notifyAccountChanged
+02-01 11:27:13.867 11596 11620 I Gmail   : getAccountsCursor
+02-01 11:27:13.871  1472 11676 D GmsAuthenticator: hasFeatures: Account {name=my-account@gmail.com, type=com.google}, [service_mail]
+02-01 11:27:13.880 11596 16471 I Gmail   : MainSyncRequestProto: lowestBkwdConvoId: 0, highestHandledServerOp: 126568, normalSync: true
+02-01 11:27:13.906 11596 16471 D ProviderInstallerImpl: yep, i should do something with Security here...
+02-01 11:27:13.910  1472 12075 D GmsAuthenticator: getAuthToken: Account {name=my-account@gmail.com, type=com.google}, mail, Bundle[{androidPackageName=com.google.android.gm, callerPid=11596, callerUid=10139, notifyOnAuthFailure=true}]
+02-01 11:27:13.912  1472 12075 D GmsAuthManager: token present, but expired
+02-01 11:27:13.919  1472 12075 D GmsHttpFormClient: -- Request --
+02-01 11:27:13.919  1472 12075 D GmsHttpFormClient: accountType=HOSTED_OR_GOOGLE&amp;androidId=my-important-stuff
+02-01 11:27:15.403  1472 12075 D GmsHttpFormClient: -- Response --
+02-01 11:27:15.403  1472 12075 D GmsHttpFormClient: SID=my-important-stuff
+02-01 11:27:15.403  1472 12075 D GmsHttpFormClient: LSID=my-important-stuff
+02-01 11:27:15.403  1472 12075 D GmsHttpFormClient: Auth=my-important-stuff
+02-01 11:27:15.403  1472 12075 D GmsHttpFormClient: issueAdvice=auto
+02-01 11:27:15.403  1472 12075 D GmsHttpFormClient: services=mail,android,cl,talk,friendview,lso,youtube,chromiumsync,multilogin,lh2,urlshortener,omaha,writely,wise,oz,mymaps,googleme,esmobile
+02-01 11:27:15.403  1472 12075 D GmsHttpFormClient: firstName=my-name
+02-01 11:27:15.403  1472 12075 D GmsHttpFormClient: lastName=.
+02-01 11:27:15.498  1472 12075 D GmsAuthenticator: getAuthToken: my-important-token
+02-01 11:27:16.128  1472 12075 D GmsAuthenticator: hasFeatures: Account {name=my-account@gmail.com, type=com.google}, [service_mail, service_gmailrenameeligible]
+02-01 11:27:16.273 11596 16471 I Gmail   : MainSyncRequestProto: lowestBkwdConvoId: 0, highestHandledServerOp: 126670, normalSync: true
+02-01 11:27:16.279 11596 16471 D ProviderInstallerImpl: yep, i should do something with Security here...
+02-01 11:27:16.285  1472 11676 D GmsAuthenticator: getAuthToken: Account {name=my-account@gmail.com, type=com.google}, mail, Bundle[{androidPackageName=com.google.android.gm, callerPid=11596, callerUid=10139, notifyOnAuthFailure=true}]
+02-01 11:27:16.287  1472 11676 D GmsAuthManager: token present, but expired
+02-01 11:27:16.294  1472 11676 D GmsHttpFormClient: -- Request --
+02-01 11:27:16.294  1472 11676 D GmsHttpFormClient: accountType=HOSTED_OR_GOOGLE&amp;androidId=my-important-stuff
+02-01 11:27:16.560  1472 11676 D GmsHttpFormClient: -- Response --
+02-01 11:27:16.560  1472 11676 D GmsHttpFormClient: SID=my-important-stuff
+02-01 11:27:16.560  1472 11676 D GmsHttpFormClient: LSID=my-important-stuff
+02-01 11:27:16.560  1472 11676 D GmsHttpFormClient: Auth=my-important-stuff
+02-01 11:27:16.560  1472 11676 D GmsHttpFormClient: issueAdvice=auto
+02-01 11:27:16.560  1472 11676 D GmsHttpFormClient: services=mail,android,cl,talk,friendview,lso,youtube,chromiumsync,multilogin,lh2,urlshortener,omaha,writely,wise,oz,mymaps,googleme,esmobile
+02-01 11:27:16.560  1472 11676 D GmsHttpFormClient: firstName=my-name
+02-01 11:27:16.560  1472 11676 D GmsHttpFormClient: lastName=.
+02-01 11:27:16.667  1472 11676 D GmsAuthenticator: getAuthToken: my-important-token
+02-01 11:27:17.027  1472 11676 D GmsAuthenticator: hasFeatures: Account {name=my-account@gmail.com, type=com.google}, [service_mail, service_gmailrenameeligible]
+02-01 11:27:17.166 11596 16471 I Gmail   : MainSyncRequestProto: lowestBkwdConvoId: 0, highestHandledServerOp: 126670, normalSync: true
+02-01 11:27:17.167 11596 16471 I Gmail   : lowestBackward conversation id 0
+02-01 11:27:17.189  1472  1472 D GmsIcingIndexSvc: onBind: Intent { act=com.google.android.gms.icing.INDEX_SERVICE pkg=com.google.android.gms }
+02-01 11:27:17.194  1472 12075 D GmsIcingIndexSvc: bound by: GetServiceRequest{serviceId=SEARCH_QUERIES, gmsVersion=7327000, packageName='com.google.android.gm', extras=Bundle[{}]}
+02-01 11:27:17.197  1472  1483 D GmsIcingIndexSvc: bound by: GetServiceRequest{serviceId=SEARCH_CORPORA, gmsVersion=7327000, packageName='com.google.android.gm', extras=Bundle[{}]}
+02-01 11:27:17.200  1472 11676 D GmsIcingCorporaImpl: getCorpusStatus: GetCorpusStatusRequest{versionCode=1, packageName='com.google.android.gm', corpus='messages/com.google/my-account%40gmail.com'}
+02-01 11:27:17.204 11596 16471 E Gmail   : Account account:1200572429 is not registered for search
+02-01 11:27:17.240 11596 16471 I Gmail   : Sending provider changed intent: Intent { act=android.intent.action.PROVIDER_CHANGED dat=content://gmail-ls/unread/^i (has extras) }
+02-01 11:27:17.250 11596 16503 I NotifUtils: Validating Notification, mapSize: 1 getAttention: true ignoreUnobtrusive: true
+02-01 11:27:17.260 11596 16471 I Gmail   : notifyAccountChanged
+02-01 11:27:17.262 11596 16503 I NotifUtils: Showing notification with unreadCount of 7 and unseenCount of 2
+02-01 11:27:17.266 11596 11613 I Gmail   : getAccountsCursor
+02-01 11:27:17.271  1472  1485 D GmsAuthenticator: hasFeatures: Account {name=my-account@gmail.com, type=com.google}, [service_mail]
+02-01 11:27:17.277 11596 16471 W Gmail   : Sync complete for account: account:1200572429
+02-01 11:27:17.367  1472  1472 D GmsPeopleSvc: onBind: Intent { act=com.google.android.gms.people.service.START pkg=com.google.android.gms }
+02-01 11:27:17.371 11596 16509 W Gmail   : Sync started for account: account:1200572429
+02-01 11:27:17.372 11596 16509 I Gmail   : notifyAccountChanged
+02-01 11:27:17.374  1472 11676 D GmsPeopleSvc: bound by: GetServiceRequest{serviceId=PEOPLE, gmsVersion=7327000, packageName='com.google.android.gm', extras=Bundle[{support_new_image_callback=true, social_client_application_id=135, real_client_package_name=com.google.android.gm}]}
+02-01 11:27:17.375 11596 11638 I Gmail   : getAccountsCursor
+02-01 11:27:17.380  1472 11676 D GmsAuthenticator: hasFeatures: Account {name=my-account@gmail.com, type=com.google}, [service_mail]
+02-01 11:27:17.381  1472 12075 D GmsPeopleSvcImpl: loadAutocompleteList: my-account@gmail.com, null, false, com.google, no-reply@google.com, 1, 0, 10, true
+02-01 11:27:17.392 11596 16509 I Gmail   : MainSyncRequestProto: lowestBkwdConvoId: 0, highestHandledServerOp: 126670, normalSync: true
+02-01 11:27:17.411 11596 16509 D ProviderInstallerImpl: yep, i should do something with Security here...
+02-01 11:27:17.415  1472 12076 D GmsAuthenticator: getAuthToken: Account {name=my-account@gmail.com, type=com.google}, mail, Bundle[{androidPackageName=com.google.android.gm, callerPid=11596, callerUid=10139, notifyOnAuthFailure=true}]
+02-01 11:27:17.417  1472 12076 D GmsAuthManager: token present, but expired
+... lots of spam ...
+02-01 11:27:27.553 11596 11628 I Gmail   : master sync=true, engine sync=false
+</code></pre>
+<h2></h2>
+      </td>

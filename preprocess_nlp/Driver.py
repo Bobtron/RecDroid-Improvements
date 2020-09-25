@@ -1,5 +1,6 @@
 from nltk.parse.corenlp import CoreNLPParser
 from nltk import Tree
+import sys
 
 def getNodes(parent):
     ROOT = 'ROOT'
@@ -33,6 +34,8 @@ def break_up_sent(node):
                 # l += child.label() + " "
                 if child.label() != 'CC':
                     result = break_up_sent(child)
+                    if len(result) == 1 and len(result[0]) == 1 and result[0] != '"':
+                        continue
                     for i in result:
                         return_this.append(i)
             # l += " YES"
@@ -83,18 +86,32 @@ comp_sent_rec = [
     'hey i have a problem and that is after building project when i try to edit the saved video, app crashesh on multiple devices (m above).',
     'During multiple input of identical values e.g. 10 km (by day) and 10 litres some calculations fail. E.g. first calculates correcty 100 l/km but then next two results are \"infinity l / 100 km.',
     'Plotting will death lock program then and you have to restart device.'
+
 ]
+result = []
 
 for sent in comp_sent_rec:
-    parse = next(parser.raw_parse(sent))
-    t = Tree.fromstring(str(parse))
 
-    t.pretty_print()
-    # print(t.leaves())
 
-    result = break_up_sent(t)
-    print(result)
-    print()
+
+# with open(sys.argv[1], 'r') as file:
+#     lines = file.readlines()
+#     for sent in lines:
+        parse = next(parser.raw_parse(sent))
+        t = Tree.fromstring(str(parse))
+
+        t.pretty_print()
+        # print(t.leaves())
+
+        for i in break_up_sent(t):
+            result.append(i)
+            print(i)
+        # result = break_up_sent(t)
+        # print(result)
+        # print()
+
+# for i in result:
+#     print(i)
 
 # parse = next(parser.raw_parse("Input t on the username input box and password input box."))
 # print(parse)

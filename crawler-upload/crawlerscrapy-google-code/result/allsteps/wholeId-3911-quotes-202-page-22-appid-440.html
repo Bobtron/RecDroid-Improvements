@@ -1,0 +1,755 @@
+https://code.google.com/archive/p/csipsimple/issues/935<!DOCTYPE html><html class="google ng-scope" lang="en" ng-app="codesiteArchive.application"><head>
+    <meta charset="utf-8">
+    <meta content="initial-scale=1, minimum-scale=1, width=device-width" name="viewport">
+
+    <!-- https://developers.google.com/webmasters/ajax-crawling/docs/specification -->
+    <meta name="fragment" content="!">
+    <title>Google Code Archive - Long-term storage for Google Code Project Hosting.</title>
+
+    <link rel="icon" type="image/vnd.microsoft.icon" href="/archive/img/project-hosting.ico">
+    <script src="//www.google.com/js/google.js"></script>
+    <link href="//www.google.com/css/maia.css" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;lang=en" rel="stylesheet">
+    <link rel="stylesheet" href="/archive/archive_css.css">
+    <script>
+      CLOSURE_NO_DEPS = true;
+    </script>
+    <script src="/archive/angular.js"></script><style type="text/css">@charset "UTF-8";
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak],
+.ng-cloak, .x-ng-cloak,
+.ng-hide:not(.ng-hide-animate) {
+  display: none !important;
+}
+
+ng\:form {
+  display: block;
+}
+
+.ng-animate-shim {
+  visibility:hidden;
+}
+
+.ng-anchor {
+  position:absolute;
+}
+</style>
+    <script src="/archive/pagedown.js"></script>
+    <script src="/archive/archive.js"></script>
+    <base href="/archive/">
+  </head>
+
+  <body>
+    <div class="maia-header" id="maia-header" role="banner">
+      <div class="maia-aux">
+        <a href="/archive/">
+          </a><h1><a href="/archive/">
+            <img alt="Google" src="//www.google.com/images/branding/googlelogo/1x/googlelogo_color_116x41dp.png"> Code</a>
+          </h1>
+        
+        <a href="/archive/">
+          <h2>Archive</h2>
+        </a>
+        <a class="maia-teleport" href="#content">Skip to content</a>
+        <div class="maia-util">
+          <form action="/archive/search" class="maia-search ng-pristine ng-valid">
+            <input name="q" placeholder="Search this site" type="text">
+            <button class="maia-button">
+              <span class="maia-search-icon">Search</span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- ngView: --><div ng-view="" class="ng-scope"><div ng-controller="ProjectIssueCtrl as issueCtrl" class="ng-scope">
+<nav-bar-widget nav-level-1="projectCtrl.navLevel1" class="ng-isolate-scope"><div class="maia-nav maia-complex" id="maia-nav-x" role="navigation">
+  <div class="maia-aux">
+    <ul>
+      <li ng-class="{active: navLevel1 == 'projects'}">
+        <a href="/archive/">Projects</a>
+        <!-- ngIf: navLevel2 -->
+      </li>
+      <li ng-class="{active: navLevel1 == 'search'}">
+        <a href="/archive/search">Search</a>
+      </li>
+      <li ng-class="{active: navLevel1 == 'about'}">
+        <a href="/archive/about">About</a>
+      </li>
+    </ul>
+  </div>
+</div>
+</nav-bar-widget>
+<div id="maia-main" role="main">
+
+  <!-- ngIf: issueCtrl.notFound -->
+
+  <div ng-hide="issueCtrl.notFound">
+    <!-- Left-side resource nav -->
+    <project-resources-widget domain="issueCtrl.domain" project="issueCtrl.projectName" class="ng-isolate-scope"><div class="maia-nav" id="maia-nav-y" role="navigation">
+  <!-- ngIf: domain == 'code.google.com' --><ul ng-if="domain == 'code.google.com'" class="ng-scope">
+    <li class="active">
+      <a href="/archive/p/csipsimple/">Project</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/source">Source</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/issues">Issues</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/wikis">Wikis</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/downloads">Downloads</a>
+    </li>
+  </ul><!-- end ngIf: domain == 'code.google.com' -->
+
+    <!-- ngIf: domain != 'code.google.com' -->
+</div></project-resources-widget>
+
+    <div class="maia-article" role="article">
+      <div class="maia-teleport" id="content"></div>
+      <div class="maia-cols">
+        <div id="gca-project-header" class="maia-col-10">
+          <a id="gca-export-to-gh" class="maia-button" href="https://code.google.com/export-to-github/export?project=csipsimple">Export to GitHub</a>
+            <img class="gca-project-logo" src="https://storage.googleapis.com/google-code-archive/v2/code.google.com/csipsimple/logo.png">
+            <h1 class="ng-binding">csipsimple - issue #935</h1>
+            <p class="ng-binding">can't send sip MESSAGE directly to the client in TLS mode</p>
+        </div>
+
+        <div class="maia-col-10">
+          <hr>
+
+        <!-- ngIf: issueCtrl.error -->
+
+        <!-- ngIf: !issueCtrl.error --><div ng-if="!issueCtrl.error" class="ng-scope">
+          <!-- Comments -->
+          <div class="maia-col-8">
+            <!-- ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on May 7, 2011 by
+                  <i class="ng-binding">Grumpy Elephant</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p><b>What steps will reproduce the problem?</b>
+1.use a build with TLS enable, and configure TLS to listen to the 5061 or another known port
+2.Try to send a sip MESSAGE to the client directly, without using a sip server, to the ip/port of csipsimple listening in TLS mode</p>
+
+<p><b>What is the expected output? What do you see instead?</b>
+The message should work as usual, opening a notification. It doesn't work, and looking in logcat with csipsimple in debug=5, it show the error as: </p>
+
+<p>libpjsip: Error calling SSL_accept(): error:1408A0C1:SSL routines:SSL3_GET_CLIENT_HELLO:no shared cipher</p>
+
+<p>This is a common error when you don't have any cipher matching between client and server, but it is not the case as i have a custom client with cipher list "ALL", and i use the same openssl version. This error is also common in the case when on the server side there is no certificate, and i think this is the case.</p>
+
+<p>We should have a way to upload a certificate on the csipsimple client to let's the ssl "listening server" socket used by pjsip to have a valid certificate.</p>
+
+<p><b>What version of the product are you using? On what operating system?</b>
+revision 830, latest pjsip_android self-compiled with tls enabled</p>
+
+<p><b>Please provide any additional information below.</b>
+I'm working on android 2.1 and 2.2, but i don't think this matter in any way.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #1</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on May 7, 2011 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Ok you're absolutely right. 
+I removed previously these settings cause thought it was useless but I forgot the direct calls use cases.</p>
+
+<p>I guess these settings could be classed in 'Expert mode' settings.</p>
+
+<p>I think there is maybe also something to ensure about the scheme. By default csipsimple always put "sip:" before uris. Maybe specifying "sips:" will be detected by the app will do the trick but I have to check that point too.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #2</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on May 24, 2011 by
+                  <i class="ng-binding">Massive Monkey</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>not only direct calls. also incoming sips calls. freeswitch in my office trying to establish ssl connection to phone on incoming call, with same result. </p>
+
+<p>i try to build csipsimple with hardcoded path to CA, certificate and key. incoming calls works fine :) </p>
+
+<p>i think, path to CA should be in common options. path to server cert, path to key, and key password - in account options. </p>
+
+<p>also need option for generate CA, cert and key from csipsimple (if possible). </p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #3</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on May 31, 2011 by
+                  <i class="ng-binding">Massive Monkey</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>attached small fix for pjsip. if account config for zrtp is set to 0, do not return PJSIP_ESESSIONINSECURE. equivalent to:</p>
+
+<p>if (acc-&gt;cfg.use_zrtp == 0) {
+   acc-&gt;cfg.use_zrtp = PJMEDIA_NO_ZRTP;
+}</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length --><small ng-if="comment.attachments.length" class="ng-scope">Attachments</small><!-- end ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments --><ul ng-repeat="attachment in comment.attachments" class="ng-scope">
+                <li class="ng-binding">
+                  <a href="http://storage.googleapis.com/google-code-attachments/csipsimple/issue-935/comment-3/pjsua-lib-pjsua_media-zrtp_check_fix.patch" class="ng-binding">
+                    pjsua-lib-pjsua_media-zrtp_check_fix.patch
+                  </a> 648
+                </li>
+              </ul><!-- end ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #4</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on May 31, 2011 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Interesting point.</p>
+
+<p>However, after some search on the code, the problem is not really here. In fact use_zrtp should never be 0. The java code do that correctly already. But I noticed that the zrtp patch for pjsip does not set the default use_zrtp value to PJSUA_DEFAULT_USE_ZRTP. I think that this is actually the root of the problem (Maybe other piece of the zrtp patch also assume use_zrtp should be either 1 or 2, so better to fix the root of the problem :).</p>
+
+<p>Thx a lot for pointing this out, I'll do the fix about the default value so that you can let me know if it fix as well as your fix ;)</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #5</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on May 31, 2011 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Can you review r896 and let me know how it goes with this fix?</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #6</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on May 31, 2011 by
+                  <i class="ng-binding">Massive Monkey</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>didn't help. acc-&gt;cfg.use_zrtp still equals 0. </p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #7</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on May 31, 2011 by
+                  <i class="ng-binding">Massive Monkey</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>i tried to add 
+PJ_LOG(4,(THIS_FILE, "ZRTP are enabled. ZRTP: %d", acc-&gt;cfg.use_zrtp));</p>
+
+<p>after 
+acc-&gt;cfg.use_zrtp = PJSUA_DEFAULT_USE_ZRTP;</p>
+
+<p>cannot see debug message in log. </p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #8</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on May 31, 2011 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Mmmh, weird.
+How do you create the account?</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #9</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on May 31, 2011 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Ahah, you are probably building without ZRTP enabled :)</p>
+
+<p>Ok , my bad, the default value should be done even if ZRTP is not activated.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #10</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on May 31, 2011 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>r897, should be better ;)</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #11</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on May 31, 2011 by
+                  <i class="ng-binding">Massive Monkey</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>no. i removed the #if defined immediately after 'svn co' :) because in struct pjsua_acc_config (pjmedia.h) use_zrtp defined without this.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #12</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on May 31, 2011 by
+                  <i class="ng-binding">Massive Monkey</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>hmmm. pjsua_acc_modify should be called from addAccount, but currentAccountStatus.isAddedToStack() return false on my phones, and condition:</p>
+
+<p>if (currentAccountStatus.isAddedToStack() )</p>
+
+<p>is not satisfied, and pjsua_acc_modify isn't called. i don't know, this is local misconfiguration or bug in CSipSimple.</p>
+
+<p>i use android 2.3.4 and 2.3.3 on htc hero and acer liquid me s120.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #13</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on May 31, 2011 by
+                  <i class="ng-binding">Massive Monkey</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>so, there are 2 bugs.</p>
+
+<p>1-st bug in pjsip library is partially fixed in <a href="https://code.google.com/p/csipsimple/source/detail?r=896">https://code.google.com/p/csipsimple/source/detail?r=896</a></p>
+
+<p>i say "partially", because 
+acc-&gt;cfg.use_zrtp = PJSUA_DEFAULT_USE_ZRTP; 
+should be changed to
+acc-&gt;cfg.use_zrtp = cfg-&gt;use_zrtp;</p>
+
+<p>2-nd bug in PJSipService.java</p>
+
+<p>condition "if (currentAccountStatus.isAddedToStack() )" always return false, because it called <em>before</em> pjsua.acc_add. then isAddedToStack() always return -1.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #14</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on May 31, 2011 by
+                  <i class="ng-binding">Massive Monkey</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>even if currentAccountStatus.isAddedToStack () returns true, pjsua.acc_modify(currentAccountStatus.getPjsuaId(), account.cfg) should return error, because acc_modify called before acc_add.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #15</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on May 31, 2011 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>In fact my fix was very wrong. 
+My bad, I thought I was adding that to the set default params of account params. Instead cause of the search feature of eclipse I was in a function that has nothing to do with that ;)</p>
+
+<p>And actually the way it does in java space is good. It should modify account only when already added. So most of the time, obviously, it will only add the account ;).</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #16</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on May 31, 2011 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>I'll stop commiting things at lunch time ;) -- I does weird things ;)</p>
+
+<p>r898 should be better (at least it's what I was aiming first). </p>
+
+<p>Thx again for your feedback and investigations.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #17</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jun 1, 2011 by
+                  <i class="ng-binding">Massive Monkey</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>r898 works if PJSUA_DEFAULT_USE_ZRTP is set to PJMEDIA_NO_ZRTP in pjsua.h</p>
+
+<p>if PJSUA_DEFAULT_USE_ZRTP set to PJMEDIA_CREATE_ZRTP (pjsip defaults), incoming calls still don't work. i add some debug prints to pjsip library, see result below:</p>
+
+<p>$ adb -s 352809040254607 logcat | grep -iE 'srtp|zrtp|_acc|return|Current account isn|set.*to' </p>
+
+<p>D/libpjsip( 1811/ 1839):  13:56:31.337    pjsua_acc.c  pjsua_acc_config_dup()
+D/libpjsip( 1811/ 1839):  13:56:31.337    pjsua_acc.c  cfg-&gt;use_zrtp = 2
+D/libpjsip( 1811/ 1839):  13:56:31.337    pjsua_acc.c  pjsua_var.acc[id].cfg.use_zrtp = 2
+D/libpjsip( 1811/ 1839):  13:56:31.337    pjsua_acc.c  Account  added with id 0</p>
+
+<p>D/libpjsip( 1811/ 1839):  13:56:31.338    pjsua_acc.c  pjsua_acc_config_dup()
+D/libpjsip( 1811/ 1839):  13:56:31.338    pjsua_acc.c  cfg-&gt;use_zrtp = 2
+D/libpjsip( 1811/ 1839):  13:56:31.338    pjsua_acc.c  pjsua_var.acc[id].cfg.use_zrtp = 2
+D/libpjsip( 1811/ 1839):  13:56:31.338    pjsua_acc.c  Account  added with id 1</p>
+
+<p>V/libpjsip( 1811/ 1839):  13:56:31.342    tls0x74b03c  TLS verification mode set to 0
+D/libpjsip( 1811/ 1839):  13:56:31.347    pjsua_acc.c  pjsua_acc_config_dup()
+D/libpjsip( 1811/ 1839):  13:56:31.347    pjsua_acc.c  cfg-&gt;use_zrtp = 2
+D/libpjsip( 1811/ 1839):  13:56:31.347    pjsua_acc.c  pjsua_var.acc[id].cfg.use_zrtp = 2
+D/libpjsip( 1811/ 1839):  13:56:31.347    pjsua_acc.c  Account  added with id 2</p>
+
+<p>D/Pj profile( 1811/ 1839): --&gt; added zrtp 1</p>
+
+<p>D/PjService( 1811/ 1839): Current account isn't added to stack
+D/libpjsip( 1811/ 1839):  13:56:31.419    pjsua_acc.c  pjsua_acc_config_dup()
+D/libpjsip( 1811/ 1839):  13:56:31.419    pjsua_acc.c  cfg-&gt;use_zrtp = 1
+D/libpjsip( 1811/ 1839):  13:56:31.419    pjsua_acc.c  pjsua_var.acc[id].cfg.use_zrtp = 1
+D/libpjsip( 1811/ 1839):  13:56:31.420    pjsua_acc.c  Account  added with id 3
+D/libpjsip( 1811/ 1839):  13:56:31.420    pjsua_acc.c  Contact for acc 3 updated for SIP outbound: ;+sip.ice;reg-id=1;+sip.instance=""
+I/libpjsip( 1811/ 1839):  13:56:31.430    pjsua_acc.c  Registration sent
+D/libpjsip( 1811/ 2123):  13:56:31.726    pjsua_acc.c  SIP outbound status for acc 3 is not active
+I/libpjsip( 1811/ 2123):  13:56:31.726    pjsua_acc.c  : registration success, status=200 (OK), will re-register in 900 seconds</p>
+
+<p>ZRTP settings for account 3 are applied. But on incoming call:</p>
+
+<p>D/libpjsip( 2167/ 2184):  14:03:36.579    tls0x318c2c  TLS listener 10.192.156.10:51198: got incoming TCP connection from 10.192.168.70:51850, sock=63
+D/libpjsip( 2167/ 2184):  14:03:36.580   tlss0x33a64c  TLS server transport created
+V/libpjsip( 2167/ 2184):  14:03:36.580   tlss0x33a64c  Starting SSL_accept() negotiation
+V/libpjsip( 2167/ 2184):  14:03:37.340   tlss0x33a64c  SSL_accept() negotiation completes successfully
+V/libpjsip( 2167/ 2185):  14:03:37.642 sip_endpoint.c  Processing incoming message: Request msg INVITE/cseq=13125244 (rdata0x33a770)
+D/libpjsip( 2167/ 2185):  14:03:37.642   pjsua_core.c  RX 1340 bytes Request msg INVITE/cseq=13125244 (rdata0x33a770) from tls 10.192.168.70:51850:
+D/libpjsip( 2167/ 2185): INVITE sip:4565@10.192.156.10:51198;transport=TLS;ob SIP/2.0
+D/libpjsip( 2167/ 2185): Via: SIP/2.0/TLS 10.192.168.70:5071;rport;branch=z9hG4bKtK6rSvmH52H0c
+D/libpjsip( 2167/ 2185): Max-Forwards: 69
+D/libpjsip( 2167/ 2185): From: "Ilyasova Lyudmila" ;tag=Nmm93y21y2eca
+D/libpjsip( 2167/ 2185): To: 
+D/libpjsip( 2167/ 2185): Call-ID: 42116824-06d9-122f-a69c-001a64642a14
+D/libpjsip( 2167/ 2185): CSeq: 13125244 INVITE
+D/libpjsip( 2167/ 2185): Contact: 
+D/libpjsip( 2167/ 2185): User-Agent: FreeSWITCH-mod_sofia/1.0.head-git-3de9b51 2011-04-08 14-53-59 +0200
+D/libpjsip( 2167/ 2185): Allow: INVITE, ACK, BYE, CANCEL, OPTIONS, MESSAGE, UPDATE, INFO, REGISTER, REFER, NOTIFY, PUBLISH, SUBSCRIBE
+D/libpjsip( 2167/ 2185): Supported: timer, precondition, path, replaces
+D/libpjsip( 2167/ 2185): Allow-Events: talk, hold, presence, dialog, line-seize, call-info, sla, include-session-description, presence.winfo, message-summary, refer
+D/libpjsip( 2167/ 2185): Content-Type: application/sdp
+D/libpjsip( 2167/ 2185): Content-Disposition: session
+D/libpjsip( 2167/ 2185): Content-Length: 345
+D/libpjsip( 2167/ 2185): X-FS-Support: update_display
+D/libpjsip( 2167/ 2185): Remote
+D/libpjsip( 2167/ 2185):  14:03:37.643  pjsua_media.c  SRTP and ZRTP are enabled. ZRTP: 2
+E/libpjsip( 2167/ 2185):  14:03:37.643   pjsua_call.c  Error initializing media channel: Require secure session/transport (PJSIP_ESESSIONINSECURE) [status=171142]
+V/libpjsip( 2167/ 2185):  14:03:37.644       endpoint  Response msg 1685202976/INVITE/cseq=13125244 (tdta0x3694a8) created
+V/libpjsip( 2167/ 2185):  14:03:37.644    tsx0x34a32c  Transaction created for Request msg INVITE/cseq=13125244 (rdata0x33a770)
+V/libpjsip( 2167/ 2185):  14:03:37.644    tsx0x34a32c  Incoming Request msg INVITE/cseq=13125244 (rdata0x33a770) in state Null
+V/libpjsip( 2167/ 2185):  14:03:37.645    tsx0x34a32c  State changed from Null to Trying, event=RX_MSG
+V/libpjsip( 2167/ 2185):  14:03:37.645    tsx0x34a32c  Sending Response msg 1685202976/INVITE/cseq=13125244 (tdta0x3694a8) in state Trying
+D/libpjsip( 2167/ 2185):  14:03:37.645   pjsua_core.c  TX 362 bytes Response msg 1685202976/INVITE/cseq=13125244 (tdta0x3694a8) to tls 10.192.168.70:51850:
+D/libpjsip( 2167/ 2185): SIP/2.0 1685202976 Default status message
+D/libpjsip( 2167/ 2185): Via: SIP/2.0/TLS 10.192.168.70:5071;rport=51850;received=10.192.168.70;branch=z9hG4bKtK6rSvmH52H0c
+D/libpjsip( 2167/ 2185): Call-ID: 42116824-06d9-122f-a69c-001a64642a14
+D/libpjsip( 2167/ 2185): From: "Ilyasova Lyudmila" ;tag=Nmm93y21y2eca
+D/libpjsip( 2167/ 2185): To: ;tag=z9hG4bKtK6rSvmH52H0c
+D/libpjsip( 2167/ 2185): CSeq: 13125244 INVITE
+D/libpjsip( 2167/ 2185): Content-Length:  0</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #18</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jun 1, 2011 by
+                  <i class="ng-binding">Massive Monkey</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>i really don't understand next things:
+- why accounts with id from 0 to 2 are added ?
+- why zrtp settings for account 3 has been changed from NO_ZRTP to CREATE_ZRTP ? </p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #19</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Aug 3, 2011 by
+                  <i class="ng-binding">Massive Monkey</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>now all works fine (r993). you may close this bug. </p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #20</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Nov 10, 2011 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content -->
+              <!-- ngIf: !comment.content --><span ng-if="!comment.content" class="ng-scope">
+                <p><em>(No comment was entered for this change.)</em></p>
+              </span><!-- end ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments -->
+          </div>
+
+          <!-- Sidebar with additional information -->
+          <div class="maia-col-4">
+            <div class="maia-aside">
+              <p>Status: <code class="ng-binding">Fixed</code></p>
+              <!-- ngIf: issueCtrl.issue.labels.length > 0 --><p ng-if="issueCtrl.issue.labels.length &gt; 0" class="ng-scope">
+                Labels:
+                <br>
+                <!-- ngRepeat: label in issueCtrl.issue.labels track by $index --><span ng-repeat="label in issueCtrl.issue.labels track by $index" class="ng-scope">
+                  <span class="gca-label ng-binding">Type-Defect</span>
+                </span><!-- end ngRepeat: label in issueCtrl.issue.labels track by $index --><span ng-repeat="label in issueCtrl.issue.labels track by $index" class="ng-scope">
+                  <span class="gca-label ng-binding">Priority-Low</span>
+                </span><!-- end ngRepeat: label in issueCtrl.issue.labels track by $index -->
+              </p><!-- end ngIf: issueCtrl.issue.labels.length > 0 -->
+            </div>
+          </div>
+        </div><!-- end ngIf: !issueCtrl.error -->
+      </div>
+    </div>
+
+  </div>
+</div>
+</div></div></div>
+    <noscript>
+      &lt;p&gt;The Google Code Archive requires JavaScript to be enabled in your browser.&lt;/p&gt;
+    </noscript>
+
+    <div id="maia-signature"></div>
+    <div class="maia-footer" id="maia-footer">
+      <div id="maia-footer-local">
+      </div>
+      <div id="maia-footer-global">
+        <div class="maia-aux">
+          <ul>
+            <li>
+              <a href="//www.google.com/">Google</a>
+            </li>
+            <li>
+              <a href="//www.google.com/intl/en/about/">About Google</a>
+            </li>
+            <li>
+              <a href="//www.google.com/intl/en/policies/privacy/">Privacy</a>
+            </li>
+            <li>
+              <a href="//www.google.com/intl/en/policies/terms/">Terms</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <script src="//www.google.com/js/maia.js"></script>
+  
+
+
+</body></html>

@@ -1,0 +1,29 @@
+https://github.com/QuantumBadger/RedReader/issues/279<td class="d-block comment-body markdown-body  js-comment-body">
+
+          <p>Opening an image using the app on Replicant results in a crash:</p>
+<pre><code>02-26 18:56:34.450  3718  4303 I ActivityManager: START u0 {dat=https://imgur.com/... cmp=org.quantumbadger.redreader/.activities.ImageViewActivity (has extras)} from uid 10074 on display 0
+02-26 18:56:34.570  6430  6430 I ImageViewActivity: Loading URL https://imgur.com/abcdefg
+02-26 18:56:34.670  6430  6452 I ImageViewActivity: Got image URL: http://i.imgur.com/abcdefg.jpg
+02-26 18:56:34.865  3718  3737 I ActivityManager: Displayed org.quantumbadger.redreader/.activities.ImageViewActivity: +342ms
+02-26 18:56:35.090  1907  1907 W SurfaceFlinger: couldn't log to binary event log: overflow.
+02-26 18:56:35.455  6430  6489 D libEGL  : Emulator without GPU support detected. Fallback to software renderer.
+02-26 18:56:35.460  6430  6489 D libEGL  : loaded /system/lib/egl/libGLES_android.so
+02-26 18:56:35.555  6430  6489 W System.err: java.lang.IllegalArgumentException: No configs match configSpec
+02-26 18:56:35.555  6430  6489 W System.err:    at android.opengl.GLSurfaceView$BaseConfigChooser.chooseConfig(GLSurfaceView.java:859)
+02-26 18:56:35.555  6430  6489 W System.err:    at android.opengl.GLSurfaceView$EglHelper.start(GLSurfaceView.java:1024)
+02-26 18:56:35.555  6430  6489 W System.err:    at android.opengl.GLSurfaceView$GLThread.guardedRun(GLSurfaceView.java:1401)
+02-26 18:56:35.555  6430  6489 W System.err:    at android.opengl.GLSurfaceView$GLThread.run(GLSurfaceView.java:1240)
+02-26 18:56:35.555  6430  6489 E AndroidRuntime: FATAL EXCEPTION: GLThread 294
+02-26 18:56:35.555  6430  6489 E AndroidRuntime: Process: org.quantumbadger.redreader, PID: 6430
+02-26 18:56:35.555  6430  6489 E AndroidRuntime: java.lang.IllegalArgumentException: No configs match configSpec
+02-26 18:56:35.555  6430  6489 E AndroidRuntime:    at android.opengl.GLSurfaceView$BaseConfigChooser.chooseConfig(GLSurfaceView.java:859)
+02-26 18:56:35.555  6430  6489 E AndroidRuntime:    at android.opengl.GLSurfaceView$EglHelper.start(GLSurfaceView.java:1024)
+02-26 18:56:35.555  6430  6489 E AndroidRuntime:    at android.opengl.GLSurfaceView$GLThread.guardedRun(GLSurfaceView.java:1401)
+02-26 18:56:35.555  6430  6489 E AndroidRuntime:    at android.opengl.GLSurfaceView$GLThread.run(GLSurfaceView.java:1240)
+02-26 18:56:35.555  3718  5367 W ActivityManager:   Force finishing activity org.quantumbadger.redreader/.activities.ImageViewActivity
+</code></pre>
+<p>Replicant has no hardware acceleration and only uses software rendering. The software rendering implementation is more or less the same as the one the emulator is using.<br>
+Would it be possible to add a fallback for the image view that works with the software renderer?<br>
+An alternative would be to provide an option that allows to use an external gallery application instead of the internal image view, just like the already existing option to use an external app as video viewer. Watching gifs/videos with vlc works using this option.</p>
+<p>Many thanks for working on this app! It works otherwise great on Replicant!</p>
+      </td>

@@ -1,0 +1,118 @@
+<td class="d-block comment-body markdown-body  js-comment-body">
+
+          <p>After updating to LineageOS (14.1-20170712) and reinstalling the GCM core apps cannot register to GCM anymore.<br>
+The self-check is all okay. And on the GCM page in the settings you can also see "connected 11 minutes ago". But this page is empty and when activating the option "ask before registering to GCM" you get no message.</p>
+<p>Core version v0.2.4-103-gd9e86d9 installed in <code>/system/app</code>.</p>
+<p>This is what the push notification tester shows:<br>
+<a target="_blank" href="https://user-images.githubusercontent.com/11966684/28248575-f8801eec-6a46-11e7-803d-bf0f1ce4b2bd.png"><img src="https://user-images.githubusercontent.com/11966684/28248575-f8801eec-6a46-11e7-803d-bf0f1ce4b2bd.png" alt="push" style="max-width:100%;"></a></p>
+<p>This is the logcat in this moment:</p>
+<pre><code>07-16 16:42:21.547  2191  2729 I ActivityManager: Start proc 7400:com.firstrowria.pushnotificationtester/u0a95 for activity com.firstrowria.pushnotificationtester/.activities.MainActivity
+07-16 16:42:21.748  7400  7400 W System  : ClassLoader referenced unknown path: /mnt/expand/e1d540e0-e159-48b6-85a5-63091e50af47/app/com.firstrowria.pushnotificationtester-1/lib/arm
+07-16 16:42:22.381  7400  7421 I Adreno-EGL: &lt;qeglDrvAPI_eglInitialize:379&gt;: QUALCOMM Build: 10/21/15, 369a2ea, I96aee987eb
+07-16 16:42:22.388  7400  7421 I OpenGLRenderer: Initialized EGL, version 1.4
+07-16 16:42:22.389  7400  7421 D OpenGLRenderer: Swap behavior 1
+07-16 16:42:22.385  7421  7421 W RenderThread: type=1400 audit(0.0:30): avc: denied { read } for name="gpuclk" dev="sysfs" ino=11273 scontext=u:r:untrusted_app:s0:c512,c768 tcontext=u:object_r:sysfs:s0 tclass=file permissive=0
+07-16 16:42:22.385  7421  7421 W RenderThread: type=1300 audit(0.0:30): arch=40000028 syscall=322 per=800008 success=no exit=-13 a0=ffffff9c a1=a759e07a a2=20000 a3=0 items=1 ppid=1862 auid=4294967295 uid=10095 gid=10095 euid=10095 suid=10095 fsuid=10095 egid=10095 sgid=10095 fsgid=10095 tty=(none) ses=4294967295 exe="/system/bin/app_process32" subj=u:r:untrusted_app:s0:c512,c768 key=(null)
+07-16 16:42:22.385   213   213 W auditd  : type=1307 audit(0.0:30): cwd="/"
+07-16 16:42:22.385   213   213 W auditd  : type=1302 audit(0.0:30): item=0 name="/sys/class/kgsl/kgsl-3d0/gpuclk" inode=11273 dev=00:0d mode=0100644 ouid=0 ogid=0 rdev=00:00 obj=u:object_r:sysfs:s0
+07-16 16:42:22.385   213   213 W auditd  : type=1320 audit(0.0:30): 
+07-16 16:42:22.394  7400  7421 W Adreno-ES20: &lt;get_gpu_clk:229&gt;: open failed: errno 13
+07-16 16:42:22.548  2191  2245 I ActivityManager: Displayed com.firstrowria.pushnotificationtester/.activities.MainActivity: +1s51ms
+07-16 16:42:22.608  2191  3359 I WindowManager: Switching to real app window: Window{a131e35 u0 com.firstrowria.pushnotificationtester/com.firstrowria.pushnotificationtester.activities.MainActivity}
+07-16 16:42:22.616  2335  2335 W InputMethodService: Window size has been changed. This may cause jankiness of resizing window: -1 -&gt; -2
+07-16 16:42:22.649  3393  3393 W IInputConnectionWrapper: finishComposingText on inactive InputConnection
+07-16 16:42:22.682  3393  3393 W IInputConnectionWrapper: reportFullscreenMode on inexistent InputConnection
+07-16 16:42:22.683  3393  3393 W IInputConnectionWrapper: finishComposingText on inactive InputConnection
+07-16 16:42:24.036  1863  1957 D audio_hw_primary: out_set_parameters: enter: usecase(1: low-latency-playback) kvpairs: routing=2
+07-16 16:42:24.075  7400  7400 D PushNotificationTester: Connected to Internet: WIFI
+07-16 16:42:24.155  2191  3359 W ActivityManager: Permission Denial: Accessing service ComponentInfo{com.google.android.gms/org.microg.gms.gcm.PushRegisterService} from pid=7400, uid=10095 requires com.google.android.c2dm.permission.RECEIVE
+07-16 16:42:24.157  7400  7433 W System.err: java.lang.SecurityException: Not allowed to start service Intent { act=com.google.android.c2dm.intent.REGISTER pkg=com.google.android.gms (has extras) } without permission com.google.android.c2dm.permission.RECEIVE
+07-16 16:42:24.157  7400  7433 W System.err: 	at android.app.ContextImpl.startServiceCommon(ContextImpl.java:1381)
+07-16 16:42:24.157  7400  7433 W System.err: 	at android.app.ContextImpl.startService(ContextImpl.java:1358)
+07-16 16:42:24.157  7400  7433 W System.err: 	at android.content.ContextWrapper.startService(ContextWrapper.java:613)
+07-16 16:42:24.157  7400  7433 W System.err: 	at com.google.android.gms.b.a.a(Unknown Source)
+07-16 16:42:24.157  7400  7433 W System.err: 	at com.google.android.gms.b.a.a(Unknown Source)
+07-16 16:42:24.157  7400  7433 W System.err: 	at com.google.android.gms.b.a.a(Unknown Source)
+07-16 16:42:24.158  7400  7433 W System.err: 	at com.firstrowria.pushnotificationtester.broadcast.GCMReceiver$2.a(Unknown Source)
+07-16 16:42:24.158  7400  7433 W System.err: 	at com.firstrowria.pushnotificationtester.broadcast.GCMReceiver$2.doInBackground(Unknown Source)
+07-16 16:42:24.158  7400  7433 W System.err: 	at android.os.AsyncTask$2.call(AsyncTask.java:305)
+07-16 16:42:24.159  7400  7432 D NetworkSecurityConfig: No Network Security Config specified, using platform default
+07-16 16:42:24.161  7400  7432 W System  : ClassLoader referenced unknown path: /system/framework/tcmclient.jar
+07-16 16:42:24.161  7400  7433 W System.err: 	at java.util.concurrent.FutureTask.run(FutureTask.java:237)
+07-16 16:42:24.161  7400  7433 W System.err: 	at android.os.AsyncTask$SerialExecutor$1.run(AsyncTask.java:243)
+07-16 16:42:24.161  7400  7433 W System.err: 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1133)
+07-16 16:42:24.161  7400  7433 W System.err: 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:607)
+07-16 16:42:24.161  7400  7433 W System.err: 	at java.lang.Thread.run(Thread.java:761)
+07-16 16:42:24.178  7400  7400 E PushNotificationTester: Registering for Push Notifications failed
+07-16 16:42:25.172  7400  7432 W System.err: java.net.ConnectException: Connection refused
+07-16 16:42:25.173  7400  7432 W System.err: 	at java.net.PlainSocketImpl.socketConnect(Native Method)
+07-16 16:42:25.173  7400  7432 W System.err: 	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:334)
+07-16 16:42:25.173  7400  7432 W System.err: 	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:196)
+07-16 16:42:25.173  7400  7432 W System.err: 	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:178)
+07-16 16:42:25.174  7400  7432 W System.err: 	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:356)
+07-16 16:42:25.174  7400  7432 W System.err: 	at java.net.Socket.connect(Socket.java:605)
+07-16 16:42:25.174  7400  7432 W System.err: 	at com.android.okhttp.internal.Platform.connectSocket(Platform.java:113)
+07-16 16:42:25.174  7400  7432 W System.err: 	at com.android.okhttp.Connection.connectSocket(Connection.java:196)
+07-16 16:42:25.174  7400  7432 W System.err: 	at com.android.okhttp.Connection.connect(Connection.java:172)
+07-16 16:42:25.175  7400  7432 W System.err: 	at com.android.okhttp.Connection.connectAndSetOwner(Connection.java:367)
+07-16 16:42:25.175  7400  7432 W System.err: 	at com.android.okhttp.OkHttpClient$1.connectAndSetOwner(OkHttpClient.java:130)
+07-16 16:42:25.175  7400  7432 W System.err: 	at com.android.okhttp.internal.http.HttpEngine.connect(HttpEngine.java:330)
+07-16 16:42:25.175  7400  7432 W System.err: 	at com.android.okhttp.internal.http.HttpEngine.sendRequest(HttpEngine.java:247)
+07-16 16:42:25.175  7400  7432 W System.err: 	at com.android.okhttp.internal.huc.HttpURLConnectionImpl.execute(HttpURLConnectionImpl.java:457)
+07-16 16:42:25.176  7400  7432 W System.err: 	at com.android.okhttp.internal.huc.HttpURLConnectionImpl.getResponse(HttpURLConnectionImpl.java:405)
+07-16 16:42:25.176  7400  7432 W System.err: 	at com.android.okhttp.internal.huc.HttpURLConnectionImpl.getInputStream(HttpURLConnectionImpl.java:243)
+07-16 16:42:25.176  7400  7432 W System.err: 	at com.android.okhttp.internal.huc.DelegatingHttpsURLConnection.getInputStream(DelegatingHttpsURLConnection.java:210)
+07-16 16:42:25.177  7400  7432 W System.err: 	at com.android.okhttp.internal.huc.HttpsURLConnectionImpl.getInputStream(HttpsURLConnectionImpl.java)
+07-16 16:42:25.177  7400  7432 W System.err: 	at com.firstrowria.pushnotificationtester.b.a.run(Unknown Source)
+07-16 16:42:25.177  7400  7432 E PushNotificationTester: Cannot connect to server or response is wrong
+07-16 16:42:27.189  1863  1957 D audio_hw_primary: out_standby: enter: stream (0xb6244240) usecase(1: low-latency-playback)
+07-16 16:43:15.890  2191  2247 D LuxLevels: bright hysteresis constant= 0.1, threshold=668.5538, lux=607.7761
+07-16 16:43:15.891  2191  2247 D LuxLevels: dark hysteresis constant= 0.2, threshold=486.22092, lux=607.7761
+07-16 16:43:17.064  2446  2446 I wpa_supplicant: wlan0: WPA: Group rekeying completed with 60:e3:27:cf:1a:2a [GTK=TKIP]
+07-16 16:43:23.924  2191  2247 I PowerManagerService: Nap time (uid 1000)...
+07-16 16:43:23.926  2191  2247 I DreamManagerService: Entering dreamland.
+07-16 16:43:23.928  2191  2247 I PowerManagerService: Dreaming...
+07-16 16:43:23.940  2191  2243 I DreamController: Starting dream: name=ComponentInfo{com.android.deskclock/com.android.deskclock.Screensaver}, isTest=false, canDoze=false, userId=0
+07-16 16:43:24.247  2191  2238 I VrManagerService: VR mode is disallowed
+07-16 16:43:24.266  7495  7495 W RenderThread: type=1400 audit(0.0:31): avc: denied { read } for name="gpuclk" dev="sysfs" ino=11273 scontext=u:r:untrusted_app:s0:c512,c768 tcontext=u:object_r:sysfs:s0 tclass=file permissive=0
+07-16 16:43:24.266  7495  7495 W RenderThread: type=1300 audit(0.0:31): arch=40000028 syscall=322 per=800008 success=no exit=-13 a0=ffffff9c a1=a759e07a a2=20000 a3=0 items=1 ppid=1862 auid=4294967295 uid=10045 gid=10045 euid=10045 suid=10045 fsuid=10045 egid=10045 sgid=10045 fsgid=10045 tty=(none) ses=4294967295 exe="/system/bin/app_process32" subj=u:r:untrusted_app:s0:c512,c768 key=(null)
+07-16 16:43:24.266   213   213 W auditd  : type=1307 audit(0.0:31): cwd="/"
+07-16 16:43:24.266   213   213 W auditd  : type=1302 audit(0.0:31): item=0 name="/sys/class/kgsl/kgsl-3d0/gpuclk" inode=11273 dev=00:0d mode=0100644 ouid=0 ogid=0 rdev=00:00 obj=u:object_r:sysfs:s0
+07-16 16:43:24.266   213   213 W auditd  : type=1320 audit(0.0:31): 
+07-16 16:43:24.270  4760  7495 I OpenGLRenderer: Initialized EGL, version 1.4
+07-16 16:43:24.271  4760  7495 D OpenGLRenderer: Swap behavior 1
+07-16 16:43:24.274  4760  7495 W Adreno-ES20: &lt;get_gpu_clk:229&gt;: open failed: errno 13
+07-16 16:43:24.448  2191  3351 W InputMethodManagerService: Starting input on non-focused client com.android.internal.view.IInputMethodClient$Stub$Proxy@d11941b (uid=10095 pid=7400)
+07-16 16:43:29.112  2191  3349 I ActivityManager: Setting hasTopUi=true for pid=2342
+07-16 16:43:29.167  2342  2342 D CarrierText: onSimStateChanged: Normal
+07-16 16:43:29.190  2191  3356 E Sensors : Proximity old sensor_state 129, new sensor_state : 161 en : 1
+07-16 16:43:29.206  2191  2261 D Sensors : ProximitySensor : mHasPendingEvent mEnabled = 1
+07-16 16:43:29.243  2342  2342 D PhoneStatusBar: disable: &lt; expand ICONS* alerts SYSTEM_INFO* back home recent clock search quick_settings &gt;
+07-16 16:43:29.264  2342  2342 W FingerprintManager: isFingerprintHardwareDetected(): Service not connected!
+07-16 16:43:29.282  2342  2342 W FingerprintManager: isFingerprintHardwareDetected(): Service not connected!
+07-16 16:43:29.341  2191  3359 V KeyguardServiceDelegate: setOccluded(true) animate=false
+07-16 16:43:29.431  2342  2342 W FingerprintManager: isFingerprintHardwareDetected(): Service not connected!
+07-16 16:43:29.436  2342  2342 D PhoneStatusBar: disable: &lt; expand ICONS alerts SYSTEM_INFO back HOME* RECENT* clock SEARCH* quick_settings &gt;
+07-16 16:43:29.442  2191  3353 E Sensors : Proximity old sensor_state 161, new sensor_state : 129 en : 0
+07-16 16:43:29.486  2191  2261 D Sensors : ProximitySensor : mHasPendingEvent mEnabled = 0
+07-16 16:43:29.537  2191  3352 W InputMethodManagerService: Window already focused, ignoring focus gain of: com.android.internal.view.IInputMethodClient$Stub$Proxy@dfc0301 attribute=null, token = android.os.BinderProxy@36fe021
+07-16 16:43:29.550  2342  2342 D PhoneStatusBar: disable: &lt; expand ICONS alerts SYSTEM_INFO back home* RECENT clock SEARCH quick_settings &gt;
+07-16 16:43:29.552  2191  3357 I ActivityManager: Setting hasTopUi=false for pid=2342
+07-16 16:43:29.554  2342  2342 D PhoneStatusBar: disable: &lt; expand icons* alerts system_info* back home RECENT clock SEARCH quick_settings &gt;
+07-16 16:43:49.762  2191  2247 D LuxLevels: bright hysteresis constant= 0.1, threshold=738.7461, lux=671.58734
+07-16 16:43:49.763  2191  2247 D LuxLevels: dark hysteresis constant= 0.2, threshold=537.2699, lux=671.58734
+07-16 16:43:52.743  2191  2261 I TemperatureHumiditySensor: Accuracy has been changed to 3
+07-16 16:44:02.807  2191  2290 E wifi    : wifi_get_supported_feature_set returned error = 0xffffffa1
+07-16 16:44:02.816  2191  2241 E BatteryStatsService: no controller energy info supplied
+07-16 16:44:02.816  2191  2241 E BatteryStatsService: no controller energy info supplied
+07-16 16:44:02.831  2191  2241 E BatteryStatsService: power: Missing API
+07-16 16:44:02.854  2191  2241 E BatteryStatsService: modem info is invalid: ModemActivityInfo{ mTimestamp=0 mSleepTimeMs=0 mIdleTimeMs=0 mTxTimeMs[]=[0, 0, 0, 0, 0] mRxTimeMs=0 mEnergyUsed=0}
+07-16 16:44:15.345  2191  2247 D LuxLevels: bright hysteresis constant= 0.1, threshold=814.05756, lux=740.0523
+07-16 16:44:15.345  2191  2247 D LuxLevels: dark hysteresis constant= 0.2, threshold=592.0419, lux=740.0523
+07-16 16:44:22.797  5607  5633 D GmsGcmMcsSvc: Heartbeat initiated, reason: Intent { act=org.microg.gms.gcm.mcs.HEARTBEAT flg=0x4 cmp=com.google.android.gms/org.microg.gms.gcm.McsService (has extras) }
+07-16 16:44:22.798  5607  5633 D GmsGcmMcsSvc: Scheduling heartbeat in 300 seconds...
+07-16 16:44:22.810  5607  6306 D GmsGcmMcsOutput: Outgoing message: HeartbeatPing{last_stream_id_received=3}
+07-16 16:44:23.115  5607  6305 D GmsGcmMcsInput: Incoming message: HeartbeatAck{last_stream_id_received=3}
+07-16 16:44:23.115  5607  6305 D GmsGcmPrefs: learnReached: gcm_network_wifi / 224562
+</code></pre>
+      </td>

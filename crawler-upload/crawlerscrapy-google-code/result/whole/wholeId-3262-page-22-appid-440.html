@@ -1,0 +1,428 @@
+https://code.google.com/archive/p/csipsimple/issues/1550<!DOCTYPE html><html class="google ng-scope" lang="en" ng-app="codesiteArchive.application"><head>
+    <meta charset="utf-8">
+    <meta content="initial-scale=1, minimum-scale=1, width=device-width" name="viewport">
+
+    <!-- https://developers.google.com/webmasters/ajax-crawling/docs/specification -->
+    <meta name="fragment" content="!">
+    <title>Google Code Archive - Long-term storage for Google Code Project Hosting.</title>
+
+    <link rel="icon" type="image/vnd.microsoft.icon" href="/archive/img/project-hosting.ico">
+    <script src="//www.google.com/js/google.js"></script>
+    <link href="//www.google.com/css/maia.css" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;lang=en" rel="stylesheet">
+    <link rel="stylesheet" href="/archive/archive_css.css">
+    <script>
+      CLOSURE_NO_DEPS = true;
+    </script>
+    <script src="/archive/angular.js"></script><style type="text/css">@charset "UTF-8";
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak],
+.ng-cloak, .x-ng-cloak,
+.ng-hide:not(.ng-hide-animate) {
+  display: none !important;
+}
+
+ng\:form {
+  display: block;
+}
+
+.ng-animate-shim {
+  visibility:hidden;
+}
+
+.ng-anchor {
+  position:absolute;
+}
+</style>
+    <script src="/archive/pagedown.js"></script>
+    <script src="/archive/archive.js"></script>
+    <base href="/archive/">
+  </head>
+
+  <body>
+    <div class="maia-header" id="maia-header" role="banner">
+      <div class="maia-aux">
+        <a href="/archive/">
+          </a><h1><a href="/archive/">
+            <img alt="Google" src="//www.google.com/images/branding/googlelogo/1x/googlelogo_color_116x41dp.png"> Code</a>
+          </h1>
+        
+        <a href="/archive/">
+          <h2>Archive</h2>
+        </a>
+        <a class="maia-teleport" href="#content">Skip to content</a>
+        <div class="maia-util">
+          <form action="/archive/search" class="maia-search ng-pristine ng-valid">
+            <input name="q" placeholder="Search this site" type="text">
+            <button class="maia-button">
+              <span class="maia-search-icon">Search</span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- ngView: --><div ng-view="" class="ng-scope"><div ng-controller="ProjectIssueCtrl as issueCtrl" class="ng-scope">
+<nav-bar-widget nav-level-1="projectCtrl.navLevel1" class="ng-isolate-scope"><div class="maia-nav maia-complex" id="maia-nav-x" role="navigation">
+  <div class="maia-aux">
+    <ul>
+      <li ng-class="{active: navLevel1 == 'projects'}">
+        <a href="/archive/">Projects</a>
+        <!-- ngIf: navLevel2 -->
+      </li>
+      <li ng-class="{active: navLevel1 == 'search'}">
+        <a href="/archive/search">Search</a>
+      </li>
+      <li ng-class="{active: navLevel1 == 'about'}">
+        <a href="/archive/about">About</a>
+      </li>
+    </ul>
+  </div>
+</div>
+</nav-bar-widget>
+<div id="maia-main" role="main">
+
+  <!-- ngIf: issueCtrl.notFound -->
+
+  <div ng-hide="issueCtrl.notFound">
+    <!-- Left-side resource nav -->
+    <project-resources-widget domain="issueCtrl.domain" project="issueCtrl.projectName" class="ng-isolate-scope"><div class="maia-nav" id="maia-nav-y" role="navigation">
+  <!-- ngIf: domain == 'code.google.com' --><ul ng-if="domain == 'code.google.com'" class="ng-scope">
+    <li class="active">
+      <a href="/archive/p/csipsimple/">Project</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/source">Source</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/issues">Issues</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/wikis">Wikis</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/downloads">Downloads</a>
+    </li>
+  </ul><!-- end ngIf: domain == 'code.google.com' -->
+
+    <!-- ngIf: domain != 'code.google.com' -->
+</div></project-resources-widget>
+
+    <div class="maia-article" role="article">
+      <div class="maia-teleport" id="content"></div>
+      <div class="maia-cols">
+        <div id="gca-project-header" class="maia-col-10">
+          <a id="gca-export-to-gh" class="maia-button" href="https://code.google.com/export-to-github/export?project=csipsimple">Export to GitHub</a>
+            <img class="gca-project-logo" src="https://storage.googleapis.com/google-code-archive/v2/code.google.com/csipsimple/logo.png">
+            <h1 class="ng-binding">csipsimple - issue #1550</h1>
+            <p class="ng-binding">Crash in SIP message window trunk@r1242</p>
+        </div>
+
+        <div class="maia-col-10">
+          <hr>
+
+        <!-- ngIf: issueCtrl.error -->
+
+        <!-- ngIf: !issueCtrl.error --><div ng-if="!issueCtrl.error" class="ng-scope">
+          <!-- Comments -->
+          <div class="maia-col-8">
+            <!-- ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Feb 3, 2012 by
+                  <i class="ng-binding">Happy Giraffe</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p><b>What steps will reproduce the problem?</b>
+1. Upon attempting to compose a new MESSAGE, CSipSimple crashes</p>
+
+<p><b>What is the expected output? What do you see instead?</b>
+I expect to see the message composition window, instead I get the crash.  Here is the relevant portion of the log:</p>
+
+<p>02-02 13:10:55.491  2285  2285 D ComposeMessage: Resume compose message act
+02-02 13:10:55.491   511   511 I ActivityManager: Starting: Intent { cmp=com.csipsimple/.ui.PickupSipUri } from pid 2285
+02-02 13:10:55.514   851   874 I Database: sqlite returned: error code = 1, msg = near "vnd": syntax error
+02-02 13:10:55.514   851   874 E DatabaseUtils: Writing exception to parcel
+02-02 13:10:55.514   851   874 E DatabaseUtils: android.database.sqlite.SQLiteException: near "vnd": syntax error: , while compiling: SELECT _id, contact_id, data1, display_name, photo_id, lookup FROM blur_view_data_restricted data WHERE (1) AND (display_name IS NOT NULL  AND ((mimetype='vnd.android.cursor.item/phone_v2' AND data1 IS NOT NULL )  OR mimetype='vnd.android.cursor.item/sip_address OR (mimetype='vnd.android.cursor.item/im'  AND data5=-1 AND data6='sip') OR (mimetype='vnd.android.cursor.item/im'  AND data5=-1 AND data6='csip'))) ORDER BY display_name ASC
+02-02 13:10:55.514   851   874 E DatabaseUtils:     at android.database.sqlite.SQLiteCompiledSql.native_compile(Native Method)
+02-02 13:10:55.514   851   874 E DatabaseUtils:     at android.database.sqlite.SQLiteCompiledSql.compile(SQLiteCompiledSql.java:92)
+02-02 13:10:55.514   851   874 E DatabaseUtils:     at android.database.sqlite.SQLiteCompiledSql.&lt;init&gt;(SQLiteCompiledSql.java:65)
+02-02 13:10:55.514   851   874 E DatabaseUtils:     at android.database.sqlite.SQLiteProgram.&lt;init&gt;(SQLiteProgram.java:83)
+02-02 13:10:55.514   851   874 E DatabaseUtils:     at android.database.sqlite.SQLiteQuery.&lt;init&gt;(SQLiteQuery.java:49)
+02-02 13:10:55.514   851   874 E DatabaseUtils:     at android.database.sqlite.SQLiteDirectCursorDriver.query(SQLiteDirectCursorDriver.java:42)
+02-02 13:10:55.514   851   874 E DatabaseUtils:     at android.database.sqlite.SQLiteDatabase.rawQueryWithFactory(SQLiteDatabase.java:1440)
+02-02 13:10:55.514   851   874 E DatabaseUtils:     at android.database.sqlite.SQLiteQueryBuilder.query(SQLiteQueryBuilder.java:330)
+02-02 13:10:55.514   851   874 E DatabaseUtils:     at com.android.providers.contacts.ContactsProvider2.query(ContactsProvider2.java:4839)
+02-02 13:10:55.514   851   874 E DatabaseUtils:     at com.android.providers.contacts.ContactsProvider2.query(ContactsProvider2.java:4823)
+02-02 13:10:55.514   851   874 E DatabaseUtils:     at android.content.ContentProvider$Transport.bulkQuery(ContentProvider.java:174)
+02-02 13:10:55.514   851   874 E DatabaseUtils:     at android.content.ContentProviderNative.onTransact(ContentProviderNative.java:132)
+02-02 13:10:55.514   851   874 E DatabaseUtils:     at android.os.Binder.execTransact(Binder.java:336)
+02-02 13:10:55.514   851   874 E DatabaseUtils:     at dalvik.system.NativeStart.run(Native Method)
+02-02 13:10:55.514  2285  2285 D AndroidRuntime: Shutting down VM
+02-02 13:10:55.514  2285  2285 W dalvikvm: threadid=1: thread exiting with uncaught exception (group=0x4001e560)
+02-02 13:10:55.522  2285  2285 E AndroidRuntime: FATAL EXCEPTION: main
+02-02 13:10:55.522  2285  2285 E AndroidRuntime: java.lang.RuntimeException: Unable to start activity ComponentInfo{com.csipsimple/com.csipsimple.ui.PickupSipUri}: android.view.InflateException: Binary XML file line #27: Error inflating class com.csipsimple.widgets.EditSipUri
+02-02 13:10:55.522  2285  2285 E AndroidRuntime:    at android.app.ActivityThread.performLaunchActivity(ActivityThread.java:1702)
+02-02 13:10:55.522  2285  2285 E AndroidRuntime:    at android.app.ActivityThread.handleLaunchActivity(ActivityThread.java:1727)
+02-02 13:10:55.522  2285  2285 E AndroidRuntime:    at android.app.ActivityThread.access$1500(ActivityThread.java:124)
+02-02 13:10:55.522  2285  2285 E AndroidRuntime:    at android.app.ActivityThread$H.handleMessage(ActivityThread.java:974)
+02-02 13:10:55.522  2285  2285 E AndroidRuntime:    at android.os.Handler.dispatchMessage(Handler.java:99)
+02-02 13:10:55.522  2285  2285 E AndroidRuntime:    at android.os.Looper.loop(Looper.java:130)
+02-02 13:10:55.522  2285  2285 E AndroidRuntime:    at android.app.ActivityThread.main(ActivityThread.java:3859)
+02-02 13:10:55.522  2285  2285 E AndroidRuntime:    at java.lang.reflect.Method.invokeNative(Native Method)
+02-02 13:10:55.522  2285  2285 E AndroidRuntime:    at java.lang.reflect.Method.invoke(Method.java:507)
+02-02 13:10:55.522  2285  2285 E AndroidRuntime:    at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:840)
+02-02 13:10:55.522  2285  2285 E AndroidRuntime:    at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:598)
+02-02 13:10:55.522  2285  2285 E AndroidRuntime:    at dalvik.system.NativeStart.main(Native Method)
+02-02 13:10:55.522  2285  2285 E AndroidRuntime: Caused by: android.view.InflateException: Binary XML file line #27: Error inflating class com.csipsimple.widgets.EditSipUri
+02-02 13:10:55.522  2285  2285 E AndroidRuntime:    at android.view.LayoutInflater.createView(LayoutInflater.java:518)
+02-02 13:10:55.522  2285  2285 E AndroidRuntime:    at android.view.LayoutInflater.createViewFromTag(LayoutInflater.java:570)
+02-02 13:10:55.522  2285  2285 E AndroidRuntime:    at android.view.LayoutInflater.rInflate(LayoutInflater.java:623)
+02-02 13:10:55.522  2285  2285 E AndroidRuntime:    at android.view.LayoutInflater.inflate(LayoutInflater.java:408)
+02-02 13:10:55.522  2285  2285 E AndroidRuntime:    at android.view.LayoutInflater.inflate(LayoutInflater.java:320)
+02-02 13:10:55.522  2285  2285 E AndroidRuntime:    at android.view.LayoutInflater.inflate(LayoutInflater.java:276)
+02-02 13:10:55.522  2285  2285 E AndroidRuntime:    at com.android.internal.policy.impl.PhoneWindow.setContentView(PhoneWindow.java:251)
+02-02 13:10:55.522  2285  2285 E AndroidRuntime:    at android.app.Activity.setContentView(Activity.java:1716)
+02-02 13:10:55.522  2285  2285 E AndroidRuntime:    at com.csipsimple.ui.PickupSipUri.onCreate(PickupSipUri.java:49)
+02-02 13:10:55.522  2285  2285 E AndroidRuntime:    at android.app.Instrumentation.callActivityOnCreate(Instrumentation.java:1047)
+02-02 13:10:55.522  2285  2285 E AndroidRuntime:    at android.app.ActivityThread.performLaunchActivity(ActivityThread.java:1666)
+02-02 13:10:55.522  2285  2285 E AndroidRuntime:    ... 11 more
+02-02 13:10:55.522  2285  2285 E AndroidRuntime: Caused by: java.lang.reflect.InvocationTargetException
+02-02 13:10:55.522  2285  2285 E AndroidRuntime:    at java.lang.reflect.Constructor.constructNative(Native Method)
+02-02 13:10:55.522  2285  2285 E AndroidRuntime:    at java.lang.reflect.Constructor.newInstance(Constructor.java:415)
+02-02 13:10:55.522  2285  2285 E AndroidRuntime:    at android.view.LayoutInflater.createView(LayoutInflater.java:505)
+02-02 13:10:55.522  2285  2285 E AndroidRuntime:    ... 21 more
+02-02 13:10:55.522  2285  2285 E AndroidRuntime: Caused by: android.database.sqlite.SQLiteException: near "vnd": syntax error: , while compiling: SELECT _id, contact_id, data1, display_name, photo_id, lookup FROM blur_view_data_restricted data WHERE (1) AND (display_name IS NOT NULL  AND ((mimetype='vnd.android.cursor.item/phone_v2' AND data1 IS NOT NULL )  OR mimetype='vnd.android.cursor.item/sip_address OR (mimetype='vnd.android.cursor.item/im'  AND data5=-1 AND data6='sip') OR (mimetype='vnd.android.cursor.item/im'  AND data5=-1 AND data6='csip'))) ORDER BY display_name ASC
+02-02 13:10:55.522  2285  2285 E AndroidRuntime:    at android.database.DatabaseUtils.readExceptionFromParcel(DatabaseUtils.java:181)
+02-02 13:10:55.522  2285  2285 E AndroidRuntime:    at android.database.DatabaseUtils.readExceptionFromParcel(DatabaseUtils.java:137)
+02-02 13:10:55.522  2285  2285 E AndroidRuntime:    at android.content.ContentProviderProxy.bulkQueryInternal(ContentProviderNative.java:372)
+02-02 13:10:55.522  2285  2285 E AndroidRuntime:    at android.content.ContentProviderProxy.query(ContentProviderNative.java:408)
+02-02 13:10:55.522  2285  2285 E AndroidRuntime:    at android.content.ContentResolver.query(ContentResolver.java:266)
+02-02 13:10:55.522  2285  2285 E AndroidRuntime:    at com.csipsimple.utils.contacts.ContactsUtils5.getContactsPhones(ContactsUtils5.java:460)
+02-02 13:10:55.522  2285  2285 E AndroidRuntime:    at com.csipsimple.widgets.EditSipUri.&lt;init&gt;(EditSipUri.java:90)
+02-02 13:10:55.522  2285  2285 E AndroidRuntime:    ... 24 more
+02-02 13:10:55.537   511   721 W ActivityManager:   Force finishing activity com.csipsimple/.ui.PickupSipUri
+02-02 13:10:55.537   511   721 W ActivityManager:   Force finishing activity com.csipsimple/.ui.messages.MessageActivity
+02-02 13:10:55.553   511   529 W ApplicationContext: Unable to create files directory</p>
+
+<p><b>What version of the product are you using? On what operating system?</b>
+CSipSimple trunk@r1242
+Motorola RAZR Verizon verizon/spyder_vzw/cdma_spyder:2.3.5/6.5.1-73_DHD-11_M1-2/111130</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #1</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Feb 3, 2012 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>This issue was closed by revision r1243.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #2</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Feb 3, 2012 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Thanks a lot for the report. I don't know how I could missed that :/</p>
+
+<p>I just did a quick fix on that. No unit tests on it yet, but I'll do tonight. However it should be fixed : the error was pretty hudge.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #3</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Feb 3, 2012 by
+                  <i class="ng-binding">Happy Giraffe</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>What a response!  Thanks.  I'm trying to get some logs for failed IPv6 connectivity.  I'm trying to use IPv6 instead to combat <a href="http://code.google.com/p/csipsimple/issues/detail?id=1535">http://code.google.com/p/csipsimple/issues/detail?id=1535</a>, but CSipSimple seems to always bind to the [::1] address.</p>
+
+<p>Again, thanks.  -A</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #4</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Feb 3, 2012 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>I have to do a pass on ipv6 with pjsip-2.x versions. In fact they changed things on the sip stack for media transport so that I'm not sure it will go on ipv6. (And actually the option should do nothing in settings).
+Normally as far as I understood from changes of the sip stack, it will be managed automatically now.</p>
+
+<p>However, some thought you can try is to use the "Bound RTP address" (in expert wizard mode) to force pjsip to bind specific address instead of 0.0.0.0 (ipv4) and [::1] ipv6 which are default. </p>
+
+<p>In fact, the app bind all ports and then use linux capabilities to find the route.</p>
+
+<p>It may fail however for android vpn implementation that does not use core linux features and maybe there is something with ipv6 too...
+However, the rest should be fine with ipv6. You should be able to register and control the call. The only point that could be a problem is media transportation.</p>
+
+<p>About issue 1535, that's weird because on network changes, a new DNS request should be done by android. 
+In fact it's not the application that take care of domain name resolution in standard case. 
+There is one case where the app take the point, it's when you activate the DNS SRV option (in expert setting mode, in settings &gt; network). In this case it's up to the app to do dns requests (it also do dns srv request). And in this case, the android stuff are not used to resolve the hostname.
+Maybe you could try to activate this option. However, unless android is buggy, I think that there is another problem.
+You should also check that your DNS server does not resolve with the private IP when called from the public network. Even if I think that you use some public DNS when you are on mobile data network. 
+If your DNS server does separate properly public and private request, you can also fix the DNS server in csipsimple configuration. If not it will retrieve it from the android configuration.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #5</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Feb 3, 2012 by
+                  <i class="ng-binding">Happy Giraffe</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Regarding issue 1535, I think it is Android that is not re-querying DNS for my SIP server.  I have my own internal DNS server serving only internal IPs and an external DNS (dns.he.net) which serves only external addresses.  If I turn off the phone, then turn it on with Wifi enabled, DNS SRV disabled, and no custom DNS, CSipSimple registers properly to the SIP server's internal address at 192.168.1.x.  If I then leave my home, where Wifi will get disconnected eventually and cellular takes over, CSipSimple continues to try to register with the 192.168.1.x SIP server address.</p>
+
+<p>The same happens in reverse--If the phone initially gets the external address of my SIP server (when wifi is not connected), then even when I move to my internal LAN, CSipSimple will register via the external address.  This is problematic as traffic would now have to leave via a NAT router only to be looped back in, requiring STUN, etc.</p>
+
+<p>My SIP server is 'multi-homed' with one external IPv4 and one internal IPv4 address, so from either side, CSipSimple should not need to use NAT, <em>if</em> it attempts to connect to the proper IPv4 address of the SIP server.</p>
+
+<p>I have tried the DNS SRV option to resolve the issue, but since I am IPv4 &amp; IPv6 dual-stacked, the IPv6 SRV returned from Android's DNS causes a failure when the phone is outside of my LAN since the IPv6 address of my SIP server seems to be returned first :(</p>
+
+<p>The issue appears to be that Android, once it has an address for a hostname, doesn't automatically re-resolve that hostname's potentially new IP address on a network change.</p>
+
+<p>I'll put this on the mailing list to see if anyone else has tinkered with this type of issue.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #6</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Feb 3, 2012 by
+                  <i class="ng-binding">Happy Giraffe</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>I'll try r1243 when the nightlies refresh.  Thanks again.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments -->
+          </div>
+
+          <!-- Sidebar with additional information -->
+          <div class="maia-col-4">
+            <div class="maia-aside">
+              <p>Status: <code class="ng-binding">Fixed</code></p>
+              <!-- ngIf: issueCtrl.issue.labels.length > 0 --><p ng-if="issueCtrl.issue.labels.length &gt; 0" class="ng-scope">
+                Labels:
+                <br>
+                <!-- ngRepeat: label in issueCtrl.issue.labels track by $index --><span ng-repeat="label in issueCtrl.issue.labels track by $index" class="ng-scope">
+                  <span class="gca-label ng-binding">Type-Defect</span>
+                </span><!-- end ngRepeat: label in issueCtrl.issue.labels track by $index --><span ng-repeat="label in issueCtrl.issue.labels track by $index" class="ng-scope">
+                  <span class="gca-label ng-binding">Priority-Medium</span>
+                </span><!-- end ngRepeat: label in issueCtrl.issue.labels track by $index -->
+              </p><!-- end ngIf: issueCtrl.issue.labels.length > 0 -->
+            </div>
+          </div>
+        </div><!-- end ngIf: !issueCtrl.error -->
+      </div>
+    </div>
+
+  </div>
+</div>
+</div></div></div>
+    <noscript>
+      &lt;p&gt;The Google Code Archive requires JavaScript to be enabled in your browser.&lt;/p&gt;
+    </noscript>
+
+    <div id="maia-signature"></div>
+    <div class="maia-footer" id="maia-footer">
+      <div id="maia-footer-local">
+      </div>
+      <div id="maia-footer-global">
+        <div class="maia-aux">
+          <ul>
+            <li>
+              <a href="//www.google.com/">Google</a>
+            </li>
+            <li>
+              <a href="//www.google.com/intl/en/about/">About Google</a>
+            </li>
+            <li>
+              <a href="//www.google.com/intl/en/policies/privacy/">Privacy</a>
+            </li>
+            <li>
+              <a href="//www.google.com/intl/en/policies/terms/">Terms</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <script src="//www.google.com/js/maia.js"></script>
+  
+
+
+</body></html>

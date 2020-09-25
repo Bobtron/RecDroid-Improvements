@@ -1,0 +1,911 @@
+https://code.google.com/archive/p/csipsimple/issues/543<!DOCTYPE html><html class="google ng-scope" lang="en" ng-app="codesiteArchive.application"><head>
+    <meta charset="utf-8">
+    <meta content="initial-scale=1, minimum-scale=1, width=device-width" name="viewport">
+
+    <!-- https://developers.google.com/webmasters/ajax-crawling/docs/specification -->
+    <meta name="fragment" content="!">
+    <title>Google Code Archive - Long-term storage for Google Code Project Hosting.</title>
+
+    <link rel="icon" type="image/vnd.microsoft.icon" href="/archive/img/project-hosting.ico">
+    <script src="//www.google.com/js/google.js"></script>
+    <link href="//www.google.com/css/maia.css" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;lang=en" rel="stylesheet">
+    <link rel="stylesheet" href="/archive/archive_css.css">
+    <script>
+      CLOSURE_NO_DEPS = true;
+    </script>
+    <script src="/archive/angular.js"></script><style type="text/css">@charset "UTF-8";
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak],
+.ng-cloak, .x-ng-cloak,
+.ng-hide:not(.ng-hide-animate) {
+  display: none !important;
+}
+
+ng\:form {
+  display: block;
+}
+
+.ng-animate-shim {
+  visibility:hidden;
+}
+
+.ng-anchor {
+  position:absolute;
+}
+</style>
+    <script src="/archive/pagedown.js"></script>
+    <script src="/archive/archive.js"></script>
+    <base href="/archive/">
+  </head>
+
+  <body>
+    <div class="maia-header" id="maia-header" role="banner">
+      <div class="maia-aux">
+        <a href="/archive/">
+          </a><h1><a href="/archive/">
+            <img alt="Google" src="//www.google.com/images/branding/googlelogo/1x/googlelogo_color_116x41dp.png"> Code</a>
+          </h1>
+        
+        <a href="/archive/">
+          <h2>Archive</h2>
+        </a>
+        <a class="maia-teleport" href="#content">Skip to content</a>
+        <div class="maia-util">
+          <form action="/archive/search" class="maia-search ng-pristine ng-valid">
+            <input name="q" placeholder="Search this site" type="text">
+            <button class="maia-button">
+              <span class="maia-search-icon">Search</span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- ngView: --><div ng-view="" class="ng-scope"><div ng-controller="ProjectIssueCtrl as issueCtrl" class="ng-scope">
+<nav-bar-widget nav-level-1="projectCtrl.navLevel1" class="ng-isolate-scope"><div class="maia-nav maia-complex" id="maia-nav-x" role="navigation">
+  <div class="maia-aux">
+    <ul>
+      <li ng-class="{active: navLevel1 == 'projects'}">
+        <a href="/archive/">Projects</a>
+        <!-- ngIf: navLevel2 -->
+      </li>
+      <li ng-class="{active: navLevel1 == 'search'}">
+        <a href="/archive/search">Search</a>
+      </li>
+      <li ng-class="{active: navLevel1 == 'about'}">
+        <a href="/archive/about">About</a>
+      </li>
+    </ul>
+  </div>
+</div>
+</nav-bar-widget>
+<div id="maia-main" role="main">
+
+  <!-- ngIf: issueCtrl.notFound -->
+
+  <div ng-hide="issueCtrl.notFound">
+    <!-- Left-side resource nav -->
+    <project-resources-widget domain="issueCtrl.domain" project="issueCtrl.projectName" class="ng-isolate-scope"><div class="maia-nav" id="maia-nav-y" role="navigation">
+  <!-- ngIf: domain == 'code.google.com' --><ul ng-if="domain == 'code.google.com'" class="ng-scope">
+    <li class="active">
+      <a href="/archive/p/csipsimple/">Project</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/source">Source</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/issues">Issues</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/wikis">Wikis</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/downloads">Downloads</a>
+    </li>
+  </ul><!-- end ngIf: domain == 'code.google.com' -->
+
+    <!-- ngIf: domain != 'code.google.com' -->
+</div></project-resources-widget>
+
+    <div class="maia-article" role="article">
+      <div class="maia-teleport" id="content"></div>
+      <div class="maia-cols">
+        <div id="gca-project-header" class="maia-col-10">
+          <a id="gca-export-to-gh" class="maia-button" href="https://code.google.com/export-to-github/export?project=csipsimple">Export to GitHub</a>
+            <img class="gca-project-logo" src="https://storage.googleapis.com/google-code-archive/v2/code.google.com/csipsimple/logo.png">
+            <h1 class="ng-binding">csipsimple - issue #543</h1>
+            <p class="ng-binding">(r502) Incoming call notification UI sometimes fails </p>
+        </div>
+
+        <div class="maia-col-10">
+          <hr>
+
+        <!-- ngIf: issueCtrl.error -->
+
+        <!-- ngIf: !issueCtrl.error --><div ng-if="!issueCtrl.error" class="ng-scope">
+          <!-- Comments -->
+          <div class="maia-col-8">
+            <!-- ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Dec 26, 2010 by
+                  <i class="ng-binding">Happy Rhino</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>I am occasionally seeing incoming calls that do not trigger the ringtone or incoming-call notification UI screen, leading to missed calls.  It can happen both when the phone is in sleep and when the phone is actively being used.  I've noticed this happen several times while an incoming call attempt is in progress by looking at the notification bar, which has the green csipsimple active-call icon. If I catch this while it's happening, I can manually switch to the incoming-call UI screen and answer the call normally.</p>
+
+<p>My version history is r427 -&gt; r461 -&gt; r502 (Wildfire/CM 6.1/Android 2.2.1).  I'm not certain but it seems that this has started happening, or been happening more frequently, since moving to r461.</p>
+
+<p>Logs are unfortunately hard to capture for this since it doesn't happen predictably.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #1</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Dec 29, 2010 by
+                  <i class="ng-binding">Happy Rhino</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Another occurrence and some more details: Called my SIP number from PSTN.  After dialing there is a long silent pause, and then eventually SIP provider's standard "user is unavailable" message, although csipsimple is registered.  Just after dialing I see the green "active SIP call" icon in the notification bar, but there is no ring and the incoming call screen does not appear.  After getting the unavailable message at the other end and hanging up there, the "active call" icon and notification item is still visible.  Selecting the notification item leads to a csipsimple FC.</p>
+
+<p>From this it appears that the incoming call SIP message is reaching csipsimple, but at that point something bad is going wrong, and no "ringing" SIP response reaches the SIP provider from csipsimple.</p>
+
+<p>But on other occasions the caller does hear ringing, so either this is not consistent or there is more than one problem.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #2</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Dec 29, 2010 by
+                  <i class="ng-binding">Happy Rhino</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>I was just able to capture logs for an occurrence matching the description in comment 1.  I sent a trimmed version to "developers".</p>
+
+<p>The log begins with the SIP INVITE message for the incoming call.  The next thing that happens is a csipsimple ANR/crash:</p>
+
+<p>D/libpjsip(13229):  23:01:11.100   pjsua_core.c  RX 1099 bytes Request msg INVITE/cseq=101 (rdata0x3ea7c4) from UDP 204.11.192.36:5080:
+D/libpjsip(13229):  23:01:11.119  pjsua_media.c  Media index 0 selected for call 1
+D/libpjsip(13229):  23:01:11.122   pjsua_core.c  TX 327 bytes Response msg 100/INVITE/cseq=101 (tdta0x42dc00) to UDP 204.11.192.36:5080:
+D/libpjsip(13229): SIP/2.0 100 Trying
+...
+D/PowerManagerService(  127): mProximityListener.onSensorChanged active: false
+D/PowerManagerService(  127): proximityChangedLocked, active: false
+D/AccelerometerListener(  203): orientation: horizontal
+D/PhoneApp(  203): updateProximitySensorMode: releasing...
+D/PowerManagerService(  127): disableProximityLockLocked
+W/ActivityManager(  127): Timeout of broadcast BroadcastRecord{4438e4f0 com.csipsimple.service.REGISTRATION_CHANGED} - receiver=android.os.BinderProxy@43f3df68
+W/ActivityManager(  127): Receiver during timeout: ResolveInfo{443636f8 com.csipsimple.widgets.AccountWidgetProvider p=0 o=0 m=0x108000}
+I/Process (  127): Sending signal. PID: 13229 SIG: 3
+I/dalvikvm(13229): threadid=3: reacting to signal 3
+I/dalvikvm(13229): Wrote stack traces to '/data/anr/traces.txt'
+...
+I/Process (  127): Sending signal. PID: 13229 SIG: 9
+E/ActivityManager(  127): ANR in com.csipsimple
+E/ActivityManager(  127): Reason: Broadcast of Intent { act=com.csipsimple.service.REGISTRATION_CHANGED cmp=com.csipsimple/.widgets.AccountWidgetProvider }
+E/ActivityManager(  127): Load: 5.53 / 4.62 / 4.32
+E/ActivityManager(  127): CPU usage from 10555ms to 4205ms ago:
+E/ActivityManager(  127):   system_server: 42% = 38% user + 3% kernel / faults: 56 minor
+E/ActivityManager(  127):   com.csipsimple: 5% = 5% user + 0% kernel / faults: 63 minor
+E/ActivityManager(  127):   akmd: 1% = 0% user + 1% kernel
+E/ActivityManager(  127):   d.process.acore: 1% = 1% user + 0% kernel / faults: 1 minor
+E/ActivityManager(  127):   m.android.phone: 0% = 0% user + 0% kernel / faults: 3 minor
+E/ActivityManager(  127):   rild: 0% = 0% user + 0% kernel
+E/ActivityManager(  127):   events/0: 0% = 0% user + 0% kernel
+E/ActivityManager(  127):   dhd_dpc: 0% = 0% user + 0% kernel
+E/ActivityManager(  127):   wpa_supplicant: 0% = 0% user + 0% kernel
+E/ActivityManager(  127):   com.jim2: 0% = 0% user + 0% kernel
+E/ActivityManager(  127):   org.connectbot: 0% = 0% user + 0% kernel
+E/ActivityManager(  127): TOTAL: 51% = 44% user + 6% kernel
+I/ActivityManager(  127): Process com.csipsimple (pid 13229) has died.
+W/ActivityManager(  127): Scheduling restart of crashed service com.csipsimple/.service.SipService in 5000ms
+D/WifiService(  127): releaseWifiLockLocked: WifiLock{com.csipsimple.SipService type=1 binder=android.os.BinderProxy@44106af0}
+W/AudioService(  127): setMode() client died
+W/AudioService(  127):   AudioFocus   audio focus client died
+I/WindowManager(  127): WIN DEATH: Window{43f56d30 com.csipsimple/com.csipsimple.ui.AccountsList paused=false}
+W/BinderNative(  127): Uncaught exception from death notification
+W/BinderNative(  127): java.lang.NullPointerException
+W/BinderNative(  127):  at android.media.AudioService.removeFocusStackEntryForClient(AudioService.java:2086)
+W/BinderNative(  127):  at android.media.AudioService.access$5100(AudioService.java:76)
+W/BinderNative(  127):  at android.media.AudioService$AudioFocusDeathHandler.binderDied(AudioService.java:2131)
+W/BinderNative(  127):  at android.os.BinderProxy.sendDeathNotice(Binder.java:350)
+W/BinderNative(  127):  at dalvik.system.NativeStart.run(Native Method)
+I/WindowManager(  127): WIN DEATH: Window{44311700 com.csipsimple/com.csipsimple.ui.SipHome paused=false}
+W/AudioService(  127):   AudioFocus   audio focus client died
+W/BinderNative(  127): Uncaught exception from death notification
+W/BinderNative(  127): java.lang.NullPointerException
+W/BinderNative(  127):  at android.media.AudioService.removeFocusStackEntryForClient(AudioService.java:2086)
+W/BinderNative(  127):  at android.media.AudioService.access$5100(AudioService.java:76)
+W/BinderNative(  127):  at android.media.AudioService$AudioFocusDeathHandler.binderDied(AudioService.java:2131)
+W/BinderNative(  127):  at android.os.BinderProxy.sendDeathNotice(Binder.java:350)
+W/BinderNative(  127):  at dalvik.system.NativeStart.run(Native Method)</p>
+
+<p>After this, csipsimple restarts, and when I switch to the "active call" screen another crash happens:</p>
+
+<p>I/ActivityManager(  127): Starting activity: Intent { act=com.csipsimple.phone.action.INCALL flg=0x30000000 cmp=com.csipsimple/.ui.InCallActivity bnds=[0,100][240,148] (has extras) }
+D/SIP CALL HANDLER(13489): Create in call
+D/SIP CALL HANDLER(13489): Proximty sensor : android.hardware.Sensor@43ee5e50
+D/SIP CALL HANDLER(13489): Start in call
+D/SIP SRV (13489): Action is null
+D/SIP SRV (13489): Service returned
+D/SIP CALL HANDLER(13489): Distance is now 1.0
+D/AndroidRuntime(13489): Shutting down VM
+W/dalvikvm(13489): threadid=1: thread exiting with uncaught exception (group=0x40020800)
+E/AndroidRuntime(13489): FATAL EXCEPTION: main
+E/AndroidRuntime(13489): java.lang.NullPointerException
+E/AndroidRuntime(13489):        at com.csipsimple.ui.InCallActivity.onSensorChanged(InCallActivity.java:841)
+E/AndroidRuntime(13489):        at android.hardware.SensorManager$ListenerDelegate$1.handleMessage(SensorManager.java:449)
+E/AndroidRuntime(13489):        at android.os.Handler.dispatchMessage(Handler.java:99)
+E/AndroidRuntime(13489):        at android.os.Looper.loop(Looper.java:123)
+E/AndroidRuntime(13489):        at android.app.ActivityThread.main(ActivityThread.java:4627)
+E/AndroidRuntime(13489):        at java.lang.reflect.Method.invokeNative(Native Method)
+E/AndroidRuntime(13489):        at java.lang.reflect.Method.invoke(Method.java:521)
+E/AndroidRuntime(13489):        at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:868)
+E/AndroidRuntime(13489):        at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:626)
+E/AndroidRuntime(13489):        at dalvik.system.NativeStart.main(Native Method)
+W/ActivityManager(  127):   Force finishing activity com.csipsimple/.ui.InCallActivity
+W/ActivityManager(  127): Activity pause timeout for HistoryRecord{43f6f9e0 com.csipsimple/.ui.InCallActivity}
+...
+D/WifiService(  127): acquireWifiLockLocked: WifiLock{com.csipsimple.SipService type=1 binder=android.os.BinderProxy@4409e198}
+I/Process (13489): Sending signal. PID: 13489 SIG: 9
+D/WifiService(  127): releaseWifiLockLocked: WifiLock{com.csipsimple.SipService type=1 binder=android.os.BinderProxy@4409e198}
+I/WindowManager(  127): WIN DEATH: Window{43f42288 com.csipsimple/com.csipsimple.ui.InCallActivity paused=false}
+I/ActivityManager(  127): Process com.csipsimple (pid 13489) has died.
+W/ActivityManager(  127): Service crashed 2 times, stopping: ServiceRecord{44077e68 com.csipsimple/.service.SipService}
+I/ActivityManager(  127): Start proc com.csipsimple for activity com.csipsimple/.ui.SipHome: pid=13526 uid=10030 gids={3003, 3002, 1007, 1015}
+I/UsageStats(  127): Unexpected resume of com.csipsimple while already resumed in com.csipsimple</p>
+
+<p>After this csipsimple restarts again.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #3</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Dec 30, 2010 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Ok thx for logs I'll have a look. 
+Seems to be due to widgets and some dead lock in it. I had to review my code for another isue with widget so good point to know there is something else to look at in this part of code.</p>
+
+<p>Thx for reporting and getting logs :)</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #4</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jan 3, 2011 by
+                  <i class="ng-binding">Happy Rhino</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Thanks, I moved to r553 when it was built, in hopes the r547 changes would help.  Things have seemed to be more stable.  But today I hit the problem again; this time it happened about 1 second into the ringtone.  So something is still breaking.</p>
+
+<p>Hoping to nail this one as random crashes on incoming calls are a pretty serious limitation.  ;)</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #5</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jan 3, 2011 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Indeed it should have helped.
+Did you get logs when it crashes today? (if so could help me a lot, since I think that the ANR you get is probably different now).
+If you have an shell access to your phone (with the android SDK and adb shell), maybe you can find intersting thing in /data/traces.txt if it was also an ANR.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #6</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jan 3, 2011 by
+                  <i class="ng-binding">Happy Rhino</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>No, didn't get logs unfortunately: that's even harder to do now that the problem seems to happen less frequently, since the only way I can do it is start a capture ahead of time...both the log buffer and the trace file wrap very quickly.  I'll keep trying, though.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #7</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jan 4, 2011 by
+                  <i class="ng-binding">Happy Rhino</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Ok!  I was able to duplicate the crash a few times by calling the phone in the first 1-2 seconds after starting the csipsimple process.  There is nothing interesting in /data/anr/traces.txt (it doesn't seem to be an ANR this time).  Here is a representative sample of the logs:</p>
+
+<hr>
+
+<p>D/WifiService(  127): acquireWifiLockLocked: WifiLock{com.csipsimple.SipService type=1 binder=android.os.BinderProxy@440995f0}
+V/SipWakeLock( 3970): acquire wakelock: holder count=2
+D/SIP SRV ( 3970):  deliver change for WIFI CONNECTED
+D/PreferencesWrapper( 3970): Wifi state is now CONNECTED
+D/PreferencesWrapper( 3970): We are valid for WIFI
+D/SIP SRV ( 3970): Nothing done since already well registered
+V/SipWakeLock( 3970): release wakelock: holder count=1
+V/SipWakeLock( 3970): release wakelock: holder count=0
+D/libpjsip( 3970):  16:18:52.944   pjsua_core.c  RX 1111 bytes Request msg INVITE/cseq=101 (rdata0x2a74b4) from UDP 204.11.192.35:5080:
+D/SIP UA Receiver( 3970): Get call info
+D/SIP UA Receiver( 3970): Incoming call &lt;&lt;
+W/SIP SRV ( 3970): Search if should auto answer : 00000000000@1.1.1.1
+D/SIP ACC_DB( 3970): Get filters for account 1
+D/libpjsip( 3970):  16:18:53.172   pjsua_core.c  TX 521 bytes Response msg 180/INVITE/cseq=101 (tdta0x2c8638) to UDP 204.11.192.35:5080:
+D/libpjsip( 3970): SIP/2.0 180 Ringing
+D/SIP UA Receiver( 3970): Call state &lt;&lt;
+D/SIP UA Receiver( 3970): Get call info
+D/SIP UA Receiver( 3970): UPDATE CALL INFOS !!!
+D/SIP UA Receiver( 3970): Call state &gt;&gt;
+D/AudioFocus 8( 3970): Focus again false
+I/AudioService(  127):   Remote Control   registerMediaButtonEventReceiver() for ComponentInfo{com.csipsimple/com.csipsimple.service.HeadsetButtonReceiver}
+I/AudioService(  127):  AudioFocus  requestAudioFocus() from android.media.AudioManager@43d16200com.csipsimple.utils.audio.AudioFocus8$1@43d19db8
+D/Ringer  ( 3970): ==&gt; ring() called...
+D/Ringer  ( 3970): v=2 rm=2
+D/CallerInfo( 3970): Number looks usable, try People lookup
+D/CallerInfo( 3970): Trying Api 5 for PhoneLookup
+D/CallerInfo( 3970): Api 5 succeeded, uri=content://com.android.contacts/phone_lookup/00000000000
+D/Ringer  ( 3970): Starting ring with ring1
+D/Ringer  ( 3970): Starting ringer...
+D/AudioHardwareInterface(   75): setMode(RINGTONE)
+D/SIP UA Receiver( 3970): Anounce call activity
+I/ActivityManager(  127): Starting activity: Intent { act=com.csipsimple.phone.action.INCALL flg=0x30000000 cmp=com.csipsimple/.ui.InCallActivity (has extras) }
+D/SIP UA Receiver( 3970): Incoming call &gt;&gt;
+D/AudioFlinger(   75): setParameters(): io 1, keyvalue routing=2, tid 123, calling tid 75
+I/AudioHardwareMSM72XX(   75): Routing audio to Speakerphone
+D/HTC Acoustic(   75): msm72xx_enable_audpp: 0x0007
+D/SIP CALL HANDLER( 3970): Create in call
+W/AudioFlinger(   75): write blocked for 85 msecs, 14 delayed writes, thread 0xe280
+D/SIP CALL HANDLER( 3970): Proximty sensor : android.hardware.Sensor@43d73ca0
+D/SIP CALL HANDLER( 3970): Start in call
+D/SIP SRV ( 3970): Action is null
+D/SIP SRV ( 3970): Service returned
+D/SIP CALL HANDLER( 3970): Distance is now 1.0
+D/AndroidRuntime( 3970): Shutting down VM
+W/dalvikvm( 3970): threadid=1: thread exiting with uncaught exception (group=0x40020800)
+E/AndroidRuntime( 3970): FATAL EXCEPTION: main
+E/AndroidRuntime( 3970): java.lang.NullPointerException
+E/AndroidRuntime( 3970):    at com.csipsimple.ui.InCallActivity.onSensorChanged(InCallActivity.java:854)
+E/AndroidRuntime( 3970):    at android.hardware.SensorManager$ListenerDelegate$1.handleMessage(SensorManager.java:449)
+E/AndroidRuntime( 3970):    at android.os.Handler.dispatchMessage(Handler.java:99)
+E/AndroidRuntime( 3970):    at android.os.Looper.loop(Looper.java:123)
+E/AndroidRuntime( 3970):    at android.app.ActivityThread.main(ActivityThread.java:4627)
+E/AndroidRuntime( 3970):    at java.lang.reflect.Method.invokeNative(Native Method)
+E/AndroidRuntime( 3970):    at java.lang.reflect.Method.invoke(Method.java:521)
+E/AndroidRuntime( 3970):    at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:868)
+E/AndroidRuntime( 3970):    at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:626)
+E/AndroidRuntime( 3970):    at dalvik.system.NativeStart.main(Native Method)
+W/ActivityManager(  127):   Force finishing activity com.csipsimple/.ui.InCallActivity
+W/ActivityManager(  127): Activity pause timeout for HistoryRecord{4414e4a8 com.csipsimple/.ui.InCallActivity}
+I/Process ( 3970): Sending signal. PID: 3970 SIG: 9
+W/AudioService(  127):   AudioFocus   audio focus client died
+I/AudioService(  127):  AudioFocus  abandonAudioFocus(): removing entry for android.media.AudioManager@43d16200com.csipsimple.utils.audio.AudioFocus8$1@43d19db8
+W/AudioService(  127): setMode() client died
+D/WifiService(  127): releaseWifiLockLocked: WifiLock{com.csipsimple.SipService type=1 binder=android.os.BinderProxy@440995f0}
+I/WindowManager(  127): WIN DEATH: Window{4414b400 com.csipsimple/com.csipsimple.ui.InCallActivity paused=false}
+I/ActivityManager(  127): Process com.csipsimple (pid 3970) has died.
+W/ActivityManager(  127): Scheduling restart of crashed service com.csipsimple/.service.SipService in 5000ms
+D/AudioHardwareInterface(   75): setMode(NORMAL)
+W/TimedEventQueue(   75): Event 89 was not found in the queue, already cancelled?
+W/InputManagerService(  127): Window already focused, ignoring focus gain of: com.android.internal.view.IInputMethodClient$Stub$Proxy@43e483e8
+I/UsageStats(  127): Unexpected resume of com.android.launcher while already resumed in com.csipsimple</p>
+
+<h2>I/ActivityManager(  127): Start proc com.csipsimple for service com.csipsimple/.service.SipService: pid=3998 uid=10030 gids={3003, 3002, 1007, 1015}</h2></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #8</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jan 4, 2011 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Excellent !</p>
+
+<p>Thx a lot :) 
+I've added a fix for this error log in revision 560. 
+This one is probably a race concurrence problem, proximity sensor is up and running faster than the rest on your device. 
+So excellent thing to fix that because it could appear on many devices and randomly ! Thx a lot for the stack trace!</p>
+
+<p>Let me know how it goes after 560. And do not hesitate if you get other crash. As you device run probably slower than mine you may find this kind of problems and it helps a lot to fix them cause it will improve the robustness of the app for all devices.</p>
+
+<p>I keep the issue open so that we can validate it's more robust now (or not ;) ).</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #9</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jan 4, 2011 by
+                  <i class="ng-binding">Happy Rhino</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Wow - from crash log to fix in 15 minutes!  You're the best.  :)  Will test r560 and update with the outcome.</p>
+
+<p>This traceback looks like the same one that occurred in comment 2 after the first restart following the ANR recovery.  Question to think about: if csipsimple crashes for some reason while a call is active, the active-call notification stays around, but (at least in my testing of this issue) selecting it causes another crash.  What's the expected behavior in this situation?</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #10</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jan 4, 2011 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Yes firstly I didn't really paid attention to second crash cause most of the time if it crashes first it may put the app in a bad state then and any crash we get then can not be relevant. I should give it a closer look cause indeed your second trace make sens alone :). My bad.</p>
+
+<p>As for the problem of an unexpected crash in the middle of the call... Well first in an ideal world there is not unexpected crash ;) ... But we should indeed be able to restore from crashes. 
+If crash occurs in java part we should be able to do something. (I've to check and I'm not sure about how to do that yet, but I guess it's possible). I think that a "good" behavior would be to end the call in the worse case and to restore the call from the native stack in better case.
+If crash occurs in the native part, unfortunately in this case it's really worse. And I fear that in this case nothing can be done to restore a "good" state. In this case audio is in a bad state but you and the remote party will not ear each other anymore and SIP session will be considered as still active by SIP server until it timeout (fortunately SIP servers timeouts ;) ).
+Well this case (crash in native part) is really less probable. All crashes you observed are java crash and the native SIP stack is developed and tested by pjsip guys who do unitary test and much more robust things that the "young" CSipSimple java part ;).</p>
+
+<p>I've built r560 so that you can early test the fix. (I'm also building r561 to remove some warnings on my build server so don't pay attention to r561 ;) ).</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #11</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jan 4, 2011 by
+                  <i class="ng-binding">Happy Rhino</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Agreed, graceful recovery from a java exception would be good, whereas at the native layer there's probably nothing that can be done other than try to clean up dangling state.</p>
+
+<p>I did a few tests with r560 and so far it looks good, the method I used to trigger the crash before didn't cause any problems this time.</p>
+
+<p>At the moment things seem stable for me on the Wildfire, except an occasional complete phone freeze during calls that I assume is a kernel (probably bcm4329 driver) fault.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #12</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jan 14, 2011 by
+                  <i class="ng-binding">Happy Rhino</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Hi, although things have been much better since r560, I just had an instance of a problem with the same symptoms as in comment 1/2 above.  Caller failed to get through and there was no ringtone for me, and checking my phone after, I saw a stuck "call in progress" notification from csipsimple.  Selecting it led to a Wait/FC.</p>
+
+<p>I have some logs and traces but they might be incomplete; the log wraps too quickly.  It looks like the ANR in the log is from the point where I selected the stuck notification, since it's a keyDispatchingTimedOut error.  But the info in the traces looks different and might be related to the problem triggered by the incoming call.</p>
+
+<p>So there are at least two problems here and ideally this info will give clues about both!</p>
+
+<p>Log:</p>
+
+<p>D/KeyguardViewMediator(  127): pokeWakelock(5000)
+D/KeyguardViewMediator(  127): pokeWakelock(5000)
+D/KeyguardViewMediator(  127): pokeWakelock(5000)
+D/KeyguardViewMediator(  127): pokeWakelock(5000)
+D/ConnectivityService(  127): getMobileDataEnabled returning false
+D/SettingsAppWidgetProvider( 1357): Call buildUpdate for widget:14
+D/SettingsAppWidgetProvider( 1357): buildUpdate done for widget:14
+I/ActivityManager(  127): Starting activity: Intent { act=com.csipsimple.phone.action.INCALL flg=0x30000000 cmp=com.csipsimple/.ui.InCallActivity bnds=[0,149][240,197] (has extras) }
+I/ActivityManager(  127): Displayed activity com.csipsimple/.ui.InCallActivity: 1497 ms (total 1497 ms)
+W/WindowManager(  127): Key dispatching timed out sending to com.csipsimple/com.csipsimple.ui.InCallActivity
+W/WindowManager(  127): Previous dispatch state: {{KeyEvent{action=1 code=24 repeat=0 meta=0 scancode=115 mFlags=8} to Window{43ea50a0 com.csipsimple/com.csipsimple.ui.InCallActivity paused=false} @ 1295015748132 lw=Window{43ea50a0 com.csipsimple/com.csipsimple.ui.InCallActivity paused=false} lb=android.os.BinderProxy@43ec3020 fin=false gfw=true ed=true tts=0 wf=false fp=false mcf=Window{43ea50a0 com.csipsimple/com.csipsimple.ui.InCallActivity paused=false}}}
+W/WindowManager(  127): Current dispatch state: {{null to Window{440afff8 com.csipsimple/com.csipsimple.ui.InCallActivity paused=false} @ 1295016938212 lw=Window{440afff8 com.csipsimple/com.csipsimple.ui.InCallActivity paused=false} lb=android.os.BinderProxy@4407f628 fin=false gfw=true ed=true tts=0 wf=false fp=false mcf=Window{440afff8 com.csipsimple/com.csipsimple.ui.InCallActivity paused=false}}}
+I/Process (  127): Sending signal. PID: 19751 SIG: 3
+I/dalvikvm(19751): threadid=3: reacting to signal 3
+I/dalvikvm(19751): Wrote stack traces to '/data/anr/traces.txt'
+...
+E/ActivityManager(  127): ANR in com.csipsimple (com.csipsimple/.ui.InCallActivity)
+E/ActivityManager(  127): Reason: keyDispatchingTimedOut
+E/ActivityManager(  127): Load: 4.13 / 4.03 / 4.04
+E/ActivityManager(  127): CPU usage from 6767ms to 733ms ago:
+E/ActivityManager(  127):   d.process.acore: 10% = 9% user + 0% kernel / faults: 5 minor
+E/ActivityManager(  127):   system_server: 4% = 1% user + 2% kernel / faults: 2 minor
+E/ActivityManager(  127):   com.jim2: 0% = 0% user + 0% kernel / faults: 4 minor
+E/ActivityManager(  127):   akmd: 0% = 0% user + 0% kernel
+E/ActivityManager(  127):   events/0: 0% = 0% user + 0% kernel
+E/ActivityManager(  127):   com.csipsimple: 0% = 0% user + 0% kernel
+E/ActivityManager(  127):   ksoftirqd/0: 0% = 0% user + 0% kernel
+E/ActivityManager(  127):   atmel_wq: 0% = 0% user + 0% kernel
+E/ActivityManager(  127):   m.android.phone: 0% = 0% user + 0% kernel
+E/ActivityManager(  127):   wpa_supplicant: 0% = 0% user + 0% kernel
+E/ActivityManager(  127):   id.defcontainer: 0% = 0% user + 0% kernel
+E/ActivityManager(  127):   viders.calendar: 0% = 0% user + 0% kernel
+E/ActivityManager(  127):   utta.rommanager: 0% = 0% user + 0% kernel
+E/ActivityManager(  127): TOTAL: 18% = 12% user + 5% kernel</p>
+
+<p>Traces:</p>
+
+<p>Cmd line: com.csipsimple</p>
+
+<p>DALVIK THREADS:
+"main" prio=5 tid=1 MONITOR
+  | group="main" sCount=1 dsCount=0 s=N obj=0x400208e0 self=0xcca8
+  | sysTid=19751 nice=0 sched=0/0 cgrp=default handle=-1345021856
+  | schedstat=( 21888061558 21679809532 7027 )
+  at com.csipsimple.pjsip.PjSipService.callAnswer(PjSipService.java:~706)
+  - waiting to lock &lt;0x43d09e20&gt; (a java.lang.Object) held by threadid=12 (Thread-499)
+  at com.csipsimple.service.SipService$1.answer(SipService.java:238)
+  at com.csipsimple.ui.InCallActivity.onTrigger(InCallActivity.java:749)
+  at com.csipsimple.widgets.InCallControls.dispatchTriggerEvent(InCallControls.java:333)
+  at com.csipsimple.widgets.InCallControls.onTrigger(InCallControls.java:351)
+  at com.csipsimple.widgets.SlidingTab.dispatchTriggerEvent(SlidingTab.java:516)
+  at com.csipsimple.widgets.SlidingTab.onTouchEvent(SlidingTab.java:379)
+  at android.view.View.dispatchTouchEvent(View.java:3807)
+  at android.view.ViewGroup.dispatchTouchEvent(ViewGroup.java:897)
+  at android.view.ViewGroup.dispatchTouchEvent(ViewGroup.java:936)
+  at android.view.ViewGroup.dispatchTouchEvent(ViewGroup.java:936)
+  at android.view.ViewGroup.dispatchTouchEvent(ViewGroup.java:936)
+  at android.view.ViewGroup.dispatchTouchEvent(ViewGroup.java:936)
+  at android.view.ViewGroup.dispatchTouchEvent(ViewGroup.java:936)
+  at com.android.internal.policy.impl.PhoneWindow$DecorView.superDispatchTouchEvent(PhoneWindow.java:1671)
+  at com.android.internal.policy.impl.PhoneWindow.superDispatchTouchEvent(PhoneWindow.java:1107)
+  at android.app.Activity.dispatchTouchEvent(Activity.java:2086)
+  at com.android.internal.policy.impl.PhoneWindow$DecorView.dispatchTouchEvent(PhoneWindow.java:1655)
+  at android.view.ViewRoot.handleMessage(ViewRoot.java:1785)
+  at android.os.Handler.dispatchMessage(Handler.java:99)
+  at android.os.Looper.loop(Looper.java:123)
+  at android.app.ActivityThread.main(ActivityThread.java:4627)
+  at java.lang.reflect.Method.invokeNative(Native Method)
+  at java.lang.reflect.Method.invoke(Method.java:521)
+  at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:868)
+  at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:626)
+  at dalvik.system.NativeStart.main(Native Method)</p>
+
+<p>...</p>
+
+<p>"Thread-499" prio=5 tid=12 MONITOR
+  | group="main" sCount=1 dsCount=0 s=N obj=0x43d788c0 self=0x340068
+  | sysTid=19765 nice=0 sched=0/0 cgrp=default handle=1256056
+  | schedstat=( 52622711172 46782959006 33906 )
+  at org.pjsip.pjsua.pjsua.call_answer(pjsua.java:~324)
+  - waiting to lock &lt;0x43d12b48&gt; (a java.lang.Class) held by threadid=9 (UAStateAsyncWorker)
+  at com.csipsimple.pjsip.PjSipService.callAnswer(PjSipService.java:707)
+  at com.csipsimple.pjsip.UAStateReceiver.treatIncomingCall(UAStateReceiver.java:535)
+  at com.csipsimple.pjsip.UAStateReceiver.on_incoming_call(UAStateReceiver.java:108)
+  at org.pjsip.pjsua.pjsuaJNI.SwigDirector_Callback_on_incoming_call(pjsuaJNI.java:931)
+  at dalvik.system.NativeStart.run(Native Method)</p>
+
+<p>...</p>
+
+<p>"UAStateAsyncWorker" prio=5 tid=9 NATIVE
+  | group="main" sCount=1 dsCount=0 s=N obj=0x43d13d30 self=0x22d898
+  | sysTid=19761 nice=0 sched=0/0 cgrp=default handle=1209536
+  | schedstat=( 16930999706 20886047367 7030 )
+  at org.pjsip.pjsua.pjsuaJNI.acc_get_info(Native Method)
+  at org.pjsip.pjsua.pjsua.acc_get_info(pjsua.java:230)
+  at com.csipsimple.pjsip.PjSipService.getAccountInfo(PjSipService.java:637)
+  at com.csipsimple.service.SipService.getSipProfileState(SipService.java:911)
+  at com.csipsimple.pjsip.PjSipService.getAndUpdateActiveAccounts(PjSipService.java:597)
+  at com.csipsimple.service.SipService.updateRegistrationsState(SipService.java:915)
+  at com.csipsimple.pjsip.UAStateReceiver$WorkerHandler.handleMessage(UAStateReceiver.java:482)
+  at android.os.Handler.dispatchMessage(Handler.java:99)
+  at android.os.Looper.loop(Looper.java:123)
+  at android.os.HandlerThread.run(HandlerThread.java:60)</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #13</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jan 14, 2011 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Ok. Very interesting log. I'm not sure but I've maybe already fixed that in my current code (not commited yet cause it introduce many changes I've to validate).
+Also I've done a lot of new stuff around the CPU locking/unlocking (it will also save a lot of battery).
+I'll have a look to this specific case.
+Thx for logs.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #14</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Feb 6, 2011 by
+                  <i class="ng-binding">Massive Cat</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>I get a similar problem when I am low on memory in my G1. the CSipSimple black icon appears in the notification area as if all is well, and stays even after the CSipSimple log says the process has been killed by android because of low memory. Intermittently, while CSipSimple is operating at low memory, the green phone icon appears on an incoming call, and can only be cleared by a reboot. The phone doesn't again answer SIP once the green icon is showing, even if I get the dialler to re-register SIP...</p>
+
+<p>One set of logs attached, although they seem of little help...</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length --><small ng-if="comment.attachments.length" class="ng-scope">Attachments</small><!-- end ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments --><ul ng-repeat="attachment in comment.attachments" class="ng-scope">
+                <li class="ng-binding">
+                  <a href="http://storage.googleapis.com/google-code-attachments/csipsimple/issue-543/comment-14/logs_02-06-11_095240.txt" class="ng-binding">
+                    logs_02-06-11_095240.txt
+                  </a> 118.07KB
+                </li>
+              </ul><!-- end ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #15</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Feb 6, 2011 by
+                  <i class="ng-binding">Massive Cat</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>I forgot to include header info in the above post. Here it is (Cyanogenmod 6.1, but 6.0.0 was the same behavior):</p>
+
+<p>Based on the GPL CSipSimple version : 0.01-01 r619
+Here are important informations about Device : 
+android.os.Build.BOARD : trout
+android.os.Build.BRAND : tmobile
+android.os.Build.DEVICE : dream
+android.os.Build.ID : FRG83
+android.os.Build.MODEL : HTC Dream
+android.os.Build.PRODUCT : kila
+android.os.Build.TAGS : test-keys
+android.os.Build.VERSION.INCREMENTAL : eng.shade.20101205.060940
+android.os.Build.VERSION.RELEASE : 2.2.1
+android.os.Build.VERSION.SDK : 8
+android.os.Build.VERSION.SDK_INT : 8</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #16</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Feb 6, 2011 by
+                  <i class="ng-binding">Massive Cat</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Sorry, to keep forgetting things, but I need to say that the problem with the Green stuck phone notification icon and inactive black CSipSimple icon was entirely low memory. Cleaning out some unused applications, clearing /system/cache, deleting and compacting my K9 mailboxes was all that was needed to fix it, once I had seen the log (posted above).</p>
+
+<p>Thanks for this wonderful application, I rely on it when traveling. I use GoogleVoice with a Gizmo5 account gateway :) 8KHz PCM U-Law is the codec they prefer.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #17</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Apr 6, 2011 by
+                  <i class="ng-binding">Happy Camel</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Comment deleted</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #18</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on May 7, 2011 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Ok, so I close this issue. 
+I still have to do some optimization pass to try to reduce memory footprint of the app. All the more so as recent refactoring in UI may increase it a little bit. </p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments -->
+          </div>
+
+          <!-- Sidebar with additional information -->
+          <div class="maia-col-4">
+            <div class="maia-aside">
+              <p>Status: <code class="ng-binding">NextRelease</code></p>
+              <!-- ngIf: issueCtrl.issue.labels.length > 0 --><p ng-if="issueCtrl.issue.labels.length &gt; 0" class="ng-scope">
+                Labels:
+                <br>
+                <!-- ngRepeat: label in issueCtrl.issue.labels track by $index --><span ng-repeat="label in issueCtrl.issue.labels track by $index" class="ng-scope">
+                  <span class="gca-label ng-binding">Type-Defect</span>
+                </span><!-- end ngRepeat: label in issueCtrl.issue.labels track by $index --><span ng-repeat="label in issueCtrl.issue.labels track by $index" class="ng-scope">
+                  <span class="gca-label ng-binding">Priority-Medium</span>
+                </span><!-- end ngRepeat: label in issueCtrl.issue.labels track by $index -->
+              </p><!-- end ngIf: issueCtrl.issue.labels.length > 0 -->
+            </div>
+          </div>
+        </div><!-- end ngIf: !issueCtrl.error -->
+      </div>
+    </div>
+
+  </div>
+</div>
+</div></div></div>
+    <noscript>
+      &lt;p&gt;The Google Code Archive requires JavaScript to be enabled in your browser.&lt;/p&gt;
+    </noscript>
+
+    <div id="maia-signature"></div>
+    <div class="maia-footer" id="maia-footer">
+      <div id="maia-footer-local">
+      </div>
+      <div id="maia-footer-global">
+        <div class="maia-aux">
+          <ul>
+            <li>
+              <a href="//www.google.com/">Google</a>
+            </li>
+            <li>
+              <a href="//www.google.com/intl/en/about/">About Google</a>
+            </li>
+            <li>
+              <a href="//www.google.com/intl/en/policies/privacy/">Privacy</a>
+            </li>
+            <li>
+              <a href="//www.google.com/intl/en/policies/terms/">Terms</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <script src="//www.google.com/js/maia.js"></script>
+  
+
+
+</body></html>

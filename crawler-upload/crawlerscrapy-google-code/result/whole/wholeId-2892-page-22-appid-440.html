@@ -1,0 +1,611 @@
+https://code.google.com/archive/p/csipsimple/issues/1916<!DOCTYPE html><html class="google ng-scope" lang="en" ng-app="codesiteArchive.application"><head>
+    <meta charset="utf-8">
+    <meta content="initial-scale=1, minimum-scale=1, width=device-width" name="viewport">
+
+    <!-- https://developers.google.com/webmasters/ajax-crawling/docs/specification -->
+    <meta name="fragment" content="!">
+    <title>Google Code Archive - Long-term storage for Google Code Project Hosting.</title>
+
+    <link rel="icon" type="image/vnd.microsoft.icon" href="/archive/img/project-hosting.ico">
+    <script src="//www.google.com/js/google.js"></script>
+    <link href="//www.google.com/css/maia.css" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;lang=en" rel="stylesheet">
+    <link rel="stylesheet" href="/archive/archive_css.css">
+    <script>
+      CLOSURE_NO_DEPS = true;
+    </script>
+    <script src="/archive/angular.js"></script><style type="text/css">@charset "UTF-8";
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak],
+.ng-cloak, .x-ng-cloak,
+.ng-hide:not(.ng-hide-animate) {
+  display: none !important;
+}
+
+ng\:form {
+  display: block;
+}
+
+.ng-animate-shim {
+  visibility:hidden;
+}
+
+.ng-anchor {
+  position:absolute;
+}
+</style>
+    <script src="/archive/pagedown.js"></script>
+    <script src="/archive/archive.js"></script>
+    <base href="/archive/">
+  </head>
+
+  <body>
+    <div class="maia-header" id="maia-header" role="banner">
+      <div class="maia-aux">
+        <a href="/archive/">
+          </a><h1><a href="/archive/">
+            <img alt="Google" src="//www.google.com/images/branding/googlelogo/1x/googlelogo_color_116x41dp.png"> Code</a>
+          </h1>
+        
+        <a href="/archive/">
+          <h2>Archive</h2>
+        </a>
+        <a class="maia-teleport" href="#content">Skip to content</a>
+        <div class="maia-util">
+          <form action="/archive/search" class="maia-search ng-pristine ng-valid">
+            <input name="q" placeholder="Search this site" type="text">
+            <button class="maia-button">
+              <span class="maia-search-icon">Search</span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- ngView: --><div ng-view="" class="ng-scope"><div ng-controller="ProjectIssueCtrl as issueCtrl" class="ng-scope">
+<nav-bar-widget nav-level-1="projectCtrl.navLevel1" class="ng-isolate-scope"><div class="maia-nav maia-complex" id="maia-nav-x" role="navigation">
+  <div class="maia-aux">
+    <ul>
+      <li ng-class="{active: navLevel1 == 'projects'}">
+        <a href="/archive/">Projects</a>
+        <!-- ngIf: navLevel2 -->
+      </li>
+      <li ng-class="{active: navLevel1 == 'search'}">
+        <a href="/archive/search">Search</a>
+      </li>
+      <li ng-class="{active: navLevel1 == 'about'}">
+        <a href="/archive/about">About</a>
+      </li>
+    </ul>
+  </div>
+</div>
+</nav-bar-widget>
+<div id="maia-main" role="main">
+
+  <!-- ngIf: issueCtrl.notFound -->
+
+  <div ng-hide="issueCtrl.notFound">
+    <!-- Left-side resource nav -->
+    <project-resources-widget domain="issueCtrl.domain" project="issueCtrl.projectName" class="ng-isolate-scope"><div class="maia-nav" id="maia-nav-y" role="navigation">
+  <!-- ngIf: domain == 'code.google.com' --><ul ng-if="domain == 'code.google.com'" class="ng-scope">
+    <li class="active">
+      <a href="/archive/p/csipsimple/">Project</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/source">Source</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/issues">Issues</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/wikis">Wikis</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/downloads">Downloads</a>
+    </li>
+  </ul><!-- end ngIf: domain == 'code.google.com' -->
+
+    <!-- ngIf: domain != 'code.google.com' -->
+</div></project-resources-widget>
+
+    <div class="maia-article" role="article">
+      <div class="maia-teleport" id="content"></div>
+      <div class="maia-cols">
+        <div id="gca-project-header" class="maia-col-10">
+          <a id="gca-export-to-gh" class="maia-button" href="https://code.google.com/export-to-github/export?project=csipsimple">Export to GitHub</a>
+            <img class="gca-project-logo" src="https://storage.googleapis.com/google-code-archive/v2/code.google.com/csipsimple/logo.png">
+            <h1 class="ng-binding">csipsimple - issue #1916</h1>
+            <p class="ng-binding">Text dialer mode enhancement</p>
+        </div>
+
+        <div class="maia-col-10">
+          <hr>
+
+        <!-- ngIf: issueCtrl.error -->
+
+        <!-- ngIf: !issueCtrl.error --><div ng-if="!issueCtrl.error" class="ng-scope">
+          <!-- Comments -->
+          <div class="maia-col-8">
+            <!-- ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Aug 27, 2012 by
+                  <i class="ng-binding">Quick Giraffe</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p><b>What steps will reproduce the problem?</b>
+1. Start dial digits in 123 mode. For example, enter 111
+2. Switch to txt mode and add @domain.com
+3. Switch back to 123 mode and check the URI you're going to dial. If correct, dial that number. CSS fails to make the call, mangling the URI</p>
+
+<p><b>What is the expected output? What do you see instead?</b>
+If the dialed URI in step 3 is correct, dialing it should make the call. Instead CSS starts dialing a different URI (when you dial 111@domain.com) - 1112@null and, of course, it fails...</p>
+
+<p><b>What version of the product are you using? On what operating system?</b>
+r1848, Android 2.2</p>
+
+<p><b>Please provide any additional information below.</b>
+Issue is related to recent ticket - "dial pad switch to txt erases numeric input":
+<a href="http://code.google.com/p/csipsimple/issues/detail?id=1913">http://code.google.com/p/csipsimple/issues/detail?id=1913</a></p>
+
+<p>Instead of dialing the number (URI) it correctly displays (e.g. 111@domain.com), CSS mangles the URI (making it 1112@null) and then calls the wrong URI. </p>
+
+<p>I've repeated test many times and, in my case, CSS always adds '2@null', replacing domain in real URI. I expect that switching between two modes (123 and txt) should not change entered URI in any way and just dial it, when I press "Call" button.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #1</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Aug 28, 2012 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Indeed was probably one of the reason why was as before issue 1913. 
+In fact the underlying problem is that the field when in digit mode is considered as a phone number and so has some strip separator (and auto add separator) of country added and removed when called. The function to apply the remove of the separator depends on the manufacturer/device implementation. So possibly this will not be observed everywhere.</p>
+
+<p>For example I tried to reproduce exactly your scenario and have not the problem. But from code it's possible that the problem is reached in case the manufacturer strip phone number digits this way.</p>
+
+<p>So... I think that I'll partially revert the change of issue 1913 so that it keep the content only when switching from digit to text. And clear it when switching from text to digits.</p>
+
+<p>I merge with 1913 to track this change in the other issue to that will be affected by the new fix.</p>
+
+<p>Thanks a lot for reporting the issue. I was not sure of this change and forgot why I cleared the field previously this was probably one of the good reason.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #2</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Aug 28, 2012 by
+                  <i class="ng-binding">Quick Giraffe</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>I've seen the problem with removing entered data when I switch between 123 and txt modes before and I was going to ask you for the fix. And I'm glad that it was opened and fixed in issue 1913. Thank you for that!</p>
+
+<p>IMHO, the best solution should be to keep whatever the user has entered in both modes (123 and txt) and to allow the user to check it and make any changes, he wants or needs. If user wants to enter digits in 123 mode and then to switch to txt, just show him, what was already entered and allow to edit it further. The same should happen when user switches from txt to 123 modes too. In other words, CSS should just dial whatever user sees on the screen without any modifications of the entered data (both plain digits and / or complex URI). It would be a simple and quite expected design. If there is a need for modification (to add/remove separators, county and / or area codes, etc), CSS has powerful filters, that can do it. But user should be able to enter and dial whatever he wants.</p>
+
+<p>Bottom line, please don't revert the change of issue 1913 and just allow us to dial what we see (and entered) in our dial pad in any mode without additional restrictions.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #3</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Aug 29, 2012 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>The ability to enter whatever user wants is text mode.
+The digit mode has parity with the android stock dialer. So it should automatically add separator and format as the stock dialer would do.</p>
+
+<p>The filter doesn't apply to the csipsimple dialer by design because you are able here to choose your account.</p>
+
+<p>Switching <em>from</em> text <em>to</em> digit while dialing is in my opinion absolutely useless to do. Did you find a reason to do that?
+Btw, I didn't revert fully issue 1913. Only for the <em>from</em> text to <em>digit</em> which is normally absolutely useless and will lead to break the phone number formatter of android.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #4</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Aug 29, 2012 by
+                  <i class="ng-binding">Quick Giraffe</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><blockquote>
+  <p>The digit mode has parity with the android stock dialer. So it should automatically add separator and format as the stock dialer would do.</p>
+</blockquote>
+
+<p>Under separator you mean '@domain.tld', right? That's the only thing that I see is added to the dialed number, when I make call via specific SIP account. It may be OK, unless the dialed number/URI has already such suffix. For example, if I dial '111@domain.com' I'd expect the dialer to keep all my data intact. If dialer replaces it with whatever it wants (for example dialing '1112@null' instead) - it doesn't help users, but rather creates unnecessary frustration.</p>
+
+<blockquote>
+  <p>The filter doesn't apply to the csipsimple dialer by design because you are able here to choose your account.</p>
+</blockquote>
+
+<p>When I make an outbound call via some SIP account and that account has its own set of filters I expect them to be applied. And why not?</p>
+
+<p>It seems to me that sometimes we create some artificial limitations and then try to justify them. Limiting filters only to stock dialer is one of them... Removing / changing data in dial pad when I toggle its entering mode (123 vs txt) is another example.</p>
+
+<blockquote>
+  <p>Switching <em>from</em> text <em>to</em> digit while dialing is in my opinion absolutely useless to do. Did you find a reason to do that?
+  Btw, I didn't revert fully  issue 1913 . Only for the <em>from</em> text to <em>digit</em> which is normally absolutely useless and will lead to break the phone number formatter of android.</p>
+</blockquote>
+
+<p>It may look useless to you. But mangling entered data (removing part of it or the whole) when I toggle between 123 and txt modes back and force is definitely frustrating experience to me. It's unexpected and then I have to repeat entering the same data again... Not a fun. Please keep it simpler and predicable for users.</p>
+
+<p>In the latest r1852 in '123' mode I've entered a number to dial (containing digits only), switched to 'txt' and back to '123' mode and the phone number is gone now... :( Dial pad should run similarly to Android stock keyboard. When I switch its mode I expect different sets of keys to enter new data, not the content change...</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #5</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Aug 29, 2012 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><blockquote>
+  <p>Under separator you mean '@domain.tld', right? </p>
+</blockquote>
+
+<p>No. It's space or - char. In some countries it's added automatically to phone numbers.</p>
+
+<blockquote>
+  <p>When I make an outbound call via some SIP account and that account has its own set of filters I expect them to be applied. And why not?</p>
+</blockquote>
+
+<p>No. Has been discussed already in another issue. An option should be present. But CSipSimple dialer shows you the account you'll dial and you are aware of what you are doing while typing. The filters are for android integration to dial one number and get the app be clever for you. If you are inside csipsimple you see the account you are dialing, you dial what you want to dial and it's the number you dial that will be sent. The auto phone number formating is just a display and is actually not dialed by the user. It's to leave a way to bypass filtering/rewriting rules. However the option to apply filter on what has been entered is some enhancement to add. But it's not the expected behavior to have something rewriting automatically while you are inside csipsimple dialer.</p>
+
+<blockquote>
+  <p>It seems to me that sometimes we create some artificial limitations and then try to justify them. Limiting filters only to stock dialer is one of them... Removing / changing data in dial pad when I toggle its entering mode (123 vs txt) is another example.</p>
+</blockquote>
+
+<p>As your first assumption is wrong... The text formatting I'm talking about here has <em>NOTHING</em> to do with rewriting rules. BESIDES.... you probably didn't notice because probably in your country there is no such text formating rule for phone numbers... but if you dial from stock dialer it will send the information to csipsimple with additional space and hash. And here even WITHOUT any rewriting rule, the app will automatically remove these chars. It's because there is on android a library to add and remove it. It's part of the platform. I'm not inventing anything... just integrating the system... if you doubt... read the code...</p>
+
+<blockquote>
+  <p>It may look useless to you. But mangling entered data (removing part of it or the whole)</p>
+</blockquote>
+
+<p>Did you just try to press the input field while in digit mode????????
+You are trying to complicate your life... Even when you are report problem... rather than telling me what is really annoying for you... you are telling me to fix some very complicate use case without focusing on the root use case that bother you... </p>
+
+<p>The fact you <em>think</em> you can't edit part of the field in digit mode -- which is actually possible !!! -- is the real root cause of why you are doing this complicate use case that is absolutely not natural for a user. -- At least I don't guess so --
+Instead of having long debate on the very complicate use case I would prefer a feedback on the real use case behind. And to try to make your life <em>really</em> easier instead ;)</p>
+
+<p>And last point -- not very import BTW -- : Even if was not possible to edit part of the content of the field in digit mode (which is possible), it would not be a reason to switch back to digit... again... you are in text mode you can do strictly more than in digit mode (there is no more feature in digit mode). Or there is maybe something I missed?</p>
+
+<p>As it's possible to click on the digit text field and get the cursor and remove part of the digit input ... I still don't get the use case where it's necessary to keep the content of the field when switching FROM TEXT TO DIGIT.... 
+(And if you actually read my comment just before you should have expected in r1852 what you observe... FROM TEXT TO DIGIT, content is cleared).</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #6</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Aug 29, 2012 by
+                  <i class="ng-binding">Quick Giraffe</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><blockquote>
+  <p>However the option to apply filter on what has been entered is some enhancement to add. But it's not the expected behavior to have something rewriting automatically while you are inside csipsimple dialer.</p>
+</blockquote>
+
+<p>But it is. It IS expected behavior, IMHO.</p>
+
+<p>Here is example how I use filters. I want to make direct calls to toll free numbers via "tf.callwithus.com" domain. In order to do so I've created a new gateway (let's call it "DC-TF"). This gateway is used only for outbound calls and therefore it doesn't have any Registration URI, User name, etc. I added to it one simple filter (Rewrite, Custom RegExp):
+"matches": "^((\+?1)?(8(00|55|66|77|88)[2-9]\d{6}))$",
+"replace": "$1@tf.callwithus.com",
+But when I dial 1-800-444-4444 number from this account to make a test, I'm getting error. It's because the filer, associated with that account, doesn't work with it. Instead of expected "18004444444@tf.callwithus.com" URI, the account dials "18004444444@null". At the same time, it's working well, when I dial the number in stock dialer though... So now, if I want to dial toll free numbers, I have to remember; a) to allow "DC-TF" gateway (it's expected) and b) I have to remember to leave CSS and use stock dial pad. It's not a very big deal, but rather ... a bit weird.</p>
+
+<blockquote>
+  <p>You are trying to complicate your life... </p>
+</blockquote>
+
+<p>No, I rather try to make it simple and predictable. In this particular case simple and predictable means, that CSS doesn't remove the number I just entered, when I toggle between '123' and 'txt' modes. Just keep it, no matter how many times I change the mode. If I want to remove my number, I have "Backspace" button. That's simple and predictable. </p>
+
+<blockquote>
+  <p>it would not be a reason to switch back to digit... again... </p>
+</blockquote>
+
+<p>Users should be allowed to do what they want. If they consider to toggle dial pad (for whatever reason) multiple times between '123' and 'txt', and that doesn't critically brakes main functionality of CSS, they certainly should be able to do so...  Toggling the edit mode between '123' and 'txt' is a good example of the action they should be allowed to do. And what they don't expect is - the app removes entered data from the field they just spend their time to enter. :(</p>
+
+<blockquote>
+  <p>I still don't get the use case where it's necessary to keep the content of the field when switching FROM TEXT TO DIGIT.... </p>
+</blockquote>
+
+<p>OK, personal experience here - when I enter data in 'txt' mode I see it with extremely small font (I have to use a lens to check it) and sometimes parts of the data is presented as black text on black background (appears and disappears). When I toggle to '123' I want to final check it with the font, used in that '123' mode... I know that I better start to complain about small font in 'txt' mode, but I've decided to wait for someone else to open the ticket. At this time, I've mentioned it as one of the reasons, why one dumb user (like me) may want to toggle between '123' and 'txt' back and force... And believe me, there could be other reasons too...</p>
+
+<p>Make it simple, keep the data unmodified. If I need a modification, I'm going to create a filter...</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #7</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Aug 31, 2012 by
+                  <i class="ng-binding">Quick Giraffe</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Regarding the black text on black background in 'txt' mode - I've opened new issue 1929.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #8</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Aug 31, 2012 by
+                  <i class="ng-binding">Quick Giraffe</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Here is what I'd do when user toggles '123' and 'txt' modes.</p>
+
+<p>First of all, let's focus on what to do with domain prefix (@domain.tld). Until user enters any characters except '@' symbol, CSS should append default domain prefix (DDP), associated with account/gateway making the call. As soon as user enters '@' symbol, CSS should use whatever user enters after that as a new specific domain (SP). If user removes '@', DDP should be re-used again.</p>
+
+<p>a) In 'txt' mode always show the domain prefix.
+If DDP is used, you may show that prefix slightly dimmer (grayed) or using slightly different color (highlighting, that it's 'default' and can't be edited). If user enters SP, show it as a regular data.</p>
+
+<p>b) In '123' mode.
+If DDP is used (user did not enter '@'), do not show it. But if user has entered '@', show whatever user entered.</p>
+
+<p>Couple of related points:
+1. Use formatting (extra dashes when displaying number) when user enters digits only (0-9 or '*' or '#' or '+'). If user enters anything else, show exactly what was entered (including even possible dashes, if he wants).
+2. If DDP is used (no '@' entered yet), use DDP accordingly to outbound account. If user changes it while entering the data, change it automatically (grayed in 'txt' mode). It will help user to see exact URI he will dial.
+3. If user enters specific domain (SP), it means that he want to make new call to that domain using chosen outbound account/gateway. Nothing contradictory is here and he should be able to do so. No any domain prefix replacement is expected here.</p>
+
+<p>Important point to remember, as with any services, user is always right. Do not punish him (by removing entered data), when he changes dial pad mode. It leads to WTF moment, and if it will be repeated a number of times, he eventually may drop the service (program).</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #9</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Aug 31, 2012 by
+                  <i class="ng-binding">Quick Giraffe</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Regarding filters and using them directly from specific account, it'd be very nice to see the result of filter (associated with account/gateway) applied to the entered data.</p>
+
+<p>In 'txt' mode even in my small HTC Aria there is a black area below the field to enter new data and above stock keypad, which is enough to display the result of filtered data in real time. Until filter is not triggered by any matching rule, user will see the same data below as he enters it in the data field (or you may even hide it at this time). But when filter is triggered, matches rule applies and user starts to see in that auxiliary field (read only) what URI will be actually used in outbound call.</p>
+
+<p>Using example mentioned earlier in post 6, user (at the time when user finished entering the data) may see: 
+Edited data:  180044444444
+Filtered data: 180044444444@tf.callwithus.com</p>
+
+<p>With this new feature user can see and check what exactly CSS is going to use in next call. Even if it was implemented only in 'txt' mode, it'd be useful for users who is using dial pad in '123' mode too. They may easily switch from '123' to 'txt' and check. And then, (if we fix current issue and will not remove entered data) user may continue to use '123' mode too...</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #10</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Aug 31, 2012 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Yes this point is a very good idea that covers all cases. It would be good to have that implemented indeed. 
+Not so obvious to implement but would be a good target.
+I can't promise it in short term as far as I'm concerned because other hot topic to finish before, but if any developer wants to contribute that proposal will be welcome.</p>
+
+<p>About the rewriting rules I still believe on the fact it should be done as a separate button. 
+As the button is not yet there to apply filter, I can't and probably nobody can't really have a clear opinion on that. What I'm sure of is that applying rules from this dialer would be very annoying for me as an user of the application. </p>
+
+<p>About how to present to user the option to enable or not filtering rules for csipsimple dialpad it's another topic that I can't really address for now until there's the engine to do that. 
+There is several options to show it to user : 
+ * as some switch to tell if we'd like rules to be applied or not 
+     - in dialpad ui 
+      or 
+     - in the app settings
+or 
+ * as button in dialpad ui to apply rule when the button is clicked one shot apply. 
+    (and so dialing will always dial what is displayed in screen in this case).
+ * other ideas...
+Maybe some of these options has to be explored. On my side it's clear that there is a miss here and many users expect the filtering/rewriting rules to be available in css dialer, but the solution is not to apply rules unilaterally here without giving a way to users to prevent that.... if so I would not use anymore my own app and so probably not continue developing it ;).
+Anyway, about this point it's topic of issue 1448. Maybe if you have ideas with user interface full definition proposal you can share on the issue 1448 and we leave this one for the dialer input field management of text input.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #11</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Aug 31, 2012 by
+                  <i class="ng-binding">Quick Giraffe</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>What do you think will be annoying here? Is it watching how the value will be changed in second (filtered data) display while user enters a new character in dial pad? I'd think it's rather a fun to watch how the filtered result could be changed with just one added/removed symbol in the edit pad. But if you think it is, there are two simple solutions:
+a) delay displaying the string in filtered display for 1 sec after user enters a new character (start it with 5 sec delay and then reduce timeout until it will start bothering you)
+b) make a pop up which will display filtered data after user presses a button.</p>
+
+<p>Personally, I'd prefer the (a) approach, but (b) could be done too, even if it's less flexible (user will be required to hit the button all the time to check) and not in real time. I could live with that, pressing that button again and again... But eventually, after I'll get tired with it, I'll ask you to support (a) case and always show filtered data in second display (in 'txt' mode) :) </p>
+
+<p>Note: in all cases (using for filtered data a second display or a special pop-up) I expect to be able to make a copy of the filtered data to clipboard for further analysis... Please don't make it copy-protected. It will help users to troubleshoot potential problems with filters later on.</p>
+
+<p>Regarding the switch to enable/disable filters, I think that we may start with simple presumption - all filters, associated with account/gateway, are active all the time. Then later, in "Settings | Filters | Account | List of filters" page we may add switch, toggling each rule. The page looks very similar to the one, that displays list of all accounts. There is a list of rules, there is tab on the right side to re-order rules and there could be a switch (icon) on the left side too. If rule is active - it's highlighted, or if it's not - its left icon is dark. Very similar to accounts page... But again, for simplicity sake, let's start with applying filters all the time.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #12</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Mar 30, 2014 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>This issue was closed by revision r2387.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments -->
+          </div>
+
+          <!-- Sidebar with additional information -->
+          <div class="maia-col-4">
+            <div class="maia-aside">
+              <p>Status: <code class="ng-binding">Fixed</code></p>
+              <!-- ngIf: issueCtrl.issue.labels.length > 0 --><p ng-if="issueCtrl.issue.labels.length &gt; 0" class="ng-scope">
+                Labels:
+                <br>
+                <!-- ngRepeat: label in issueCtrl.issue.labels track by $index --><span ng-repeat="label in issueCtrl.issue.labels track by $index" class="ng-scope">
+                  <span class="gca-label ng-binding">Type-Enhancement</span>
+                </span><!-- end ngRepeat: label in issueCtrl.issue.labels track by $index --><span ng-repeat="label in issueCtrl.issue.labels track by $index" class="ng-scope">
+                  <span class="gca-label ng-binding">Priority-Medium</span>
+                </span><!-- end ngRepeat: label in issueCtrl.issue.labels track by $index -->
+              </p><!-- end ngIf: issueCtrl.issue.labels.length > 0 -->
+            </div>
+          </div>
+        </div><!-- end ngIf: !issueCtrl.error -->
+      </div>
+    </div>
+
+  </div>
+</div>
+</div></div></div>
+    <noscript>
+      &lt;p&gt;The Google Code Archive requires JavaScript to be enabled in your browser.&lt;/p&gt;
+    </noscript>
+
+    <div id="maia-signature"></div>
+    <div class="maia-footer" id="maia-footer">
+      <div id="maia-footer-local">
+      </div>
+      <div id="maia-footer-global">
+        <div class="maia-aux">
+          <ul>
+            <li>
+              <a href="//www.google.com/">Google</a>
+            </li>
+            <li>
+              <a href="//www.google.com/intl/en/about/">About Google</a>
+            </li>
+            <li>
+              <a href="//www.google.com/intl/en/policies/privacy/">Privacy</a>
+            </li>
+            <li>
+              <a href="//www.google.com/intl/en/policies/terms/">Terms</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <script src="//www.google.com/js/maia.js"></script>
+  
+
+
+</body></html>

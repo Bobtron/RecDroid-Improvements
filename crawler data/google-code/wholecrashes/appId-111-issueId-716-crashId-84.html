@@ -1,0 +1,66 @@
+https://github.com/microg/AppleWifiNlpBackend/issues/16<td class="d-block comment-body markdown-body  js-comment-body">
+
+          <p>Crash happens right after enabling the backend.<br>
+microG Services Core 0.2.4-107-g0596d2c<br>
+Apple UnifiedNlp Backend 1.2.2</p>
+<p>Here's the logcat relevant part:</p>
+<pre><code>D/dalvikvm( 2449): GC_CONCURRENT freed 1609K, 51% free 6439K/13063K, paused 6ms+18ms
+D/NlpLocBackendHelper( 2580): Binding to: Intent { act=org.microg.nlp.LOCATION_BACKEND pkg=org.microg.nlp.backend.apple cmp=org.microg.nlp.backend.apple/.BackendService }
+W/InputManagerService( 2326): Window already focused, ignoring focus gain of: com.android.internal.view.IInputMethodClient$Stub$Proxy@4114a688
+D/NlpLocBackendHelper( 2580): Bound to: ComponentInfo{org.microg.nlp.backend.apple/org.microg.nlp.backend.apple.BackendService}
+D/AppleNlpBackendService(13761): onOpen
+I/libblt_hw( 1962): Library closed (handle = 0, fd = 26)
+D/AppleNlpBackendService(13761): Found 4 wifis, of whom 2 with location and 0 unknown.
+D/AppleNlpCalculator(13761): Build classes of size: 2
+D/AppleNlpCalculator(13761): is dual class and verified.
+D/AppleNlpCalculator(13761): Using with weight=1.000000 mac=14:cc:20:6d:df:96 sig=-80 acc=27.000000 lat=32.640476 lon=51.682774
+D/AppleNlpCalculator(13761): Using with weight=4.000000 mac=90:f6:52:7d:0b:2c sig=-58 acc=24.000000 lat=32.640461 lon=51.682556
+D/AndroidRuntime(13761): Shutting down VM
+W/dalvikvm(13761): threadid=1: thread exiting with uncaught exception (group=0x40a371f8)
+E/AndroidRuntime(13761): FATAL EXCEPTION: main
+E/AndroidRuntime(13761): java.lang.RuntimeException: Error receiving broadcast Intent { act=android.net.wifi.SCAN_RESULTS flg=0x10000010 } in org.microg.nlp.api.WiFiBackendHelper$1@40d08108
+E/AndroidRuntime(13761): 	at android.app.LoadedApk$ReceiverDispatcher$Args.run(LoadedApk.java:737)
+E/AndroidRuntime(13761): 	at android.os.Handler.handleCallback(Handler.java:605)
+E/AndroidRuntime(13761): 	at android.os.Handler.dispatchMessage(Handler.java:92)
+E/AndroidRuntime(13761): 	at android.os.Looper.loop(Looper.java:137)
+E/AndroidRuntime(13761): 	at android.app.ActivityThread.main(ActivityThread.java:4575)
+E/AndroidRuntime(13761): 	at java.lang.reflect.Method.invokeNative(Native Method)
+E/AndroidRuntime(13761): 	at java.lang.reflect.Method.invoke(Method.java:511)
+E/AndroidRuntime(13761): 	at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:789)
+E/AndroidRuntime(13761): 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:556)
+E/AndroidRuntime(13761): 	at de.robv.android.xposed.XposedBridge.main(XposedBridge.java:132)
+E/AndroidRuntime(13761): 	at dalvik.system.NativeStart.main(Native Method)
+E/AndroidRuntime(13761): Caused by: java.lang.SecurityException: Requires INSTALL_LOCATION_PROVIDER permission
+E/AndroidRuntime(13761): 	at android.os.Parcel.readException(Parcel.java:1327)
+E/AndroidRuntime(13761): 	at android.os.Parcel.readException(Parcel.java:1281)
+E/AndroidRuntime(13761): 	at org.microg.nlp.api.LocationCallback$Stub$Proxy.report(LocationCallback.java:91)
+E/AndroidRuntime(13761): 	at org.microg.nlp.api.LocationBackendService.report(LocationBackendService.java:53)
+E/AndroidRuntime(13761): 	at org.microg.nlp.backend.apple.BackendService.onWiFisChanged(BackendService.java:158)
+E/AndroidRuntime(13761): 	at org.microg.nlp.api.WiFiBackendHelper.onWiFisChanged(WiFiBackendHelper.java:117)
+E/AndroidRuntime(13761): 	at org.microg.nlp.api.WiFiBackendHelper.access$000(WiFiBackendHelper.java:41)
+E/AndroidRuntime(13761): 	at org.microg.nlp.api.WiFiBackendHelper$1.onReceive(WiFiBackendHelper.java:51)
+E/AndroidRuntime(13761): 	at android.app.LoadedApk$ReceiverDispatcher$Args.run(LoadedApk.java:728)
+E/AndroidRuntime(13761): 	... 10 more
+I/libblt_hw( 1962): Library opened (handle = 0, fd = 26)
+I/AMIL    (13797): Amil1_01Init : Creating AMIL thread
++++ LOG: malformed log message
+I/Process (13761): Sending signal. PID: 13761 SIG: 9
+I/ActivityManager( 2326): Process org.microg.nlp.backend.apple (pid 13761) has died.
+W/ActivityManager( 2326): Scheduling restart of crashed service org.microg.nlp.backend.apple/.BackendService in 5000ms
+D/NlpLocBackendHelper( 2580): Unbound from: ComponentInfo{org.microg.nlp.backend.apple/org.microg.nlp.backend.apple.BackendService}
+W/InputManagerService( 2326): Window already focused, ignoring focus gain of: com.android.internal.view.IInputMethodClient$Stub$Proxy@40edc450
+I/libblt_hw( 1962): Library closed (handle = 0, fd = 26)
+D/NlpLocBackendHelper( 2580): Not (yet) bound.
+I/AMIL    (13804): Amil1_01Init : Creating AMIL thread
+D/NlpLocBackendHelper( 2580): Not (yet) bound.
+I/ActivityManager( 2326): Start proc org.microg.nlp.backend.apple for service org.microg.nlp.backend.apple/.BackendService: pid=13809 uid=10095 gids={3003, 1015}
+I/dalvikvm(13809): Could not find method org.microg.nlp.api.HelperLocationBackendService.checkSelfPermission, referenced from method org.microg.nlp.api.HelperLocationBackendService.getInitIntent
+W/dalvikvm(13809): VFY: unable to resolve virtual method 1841: Lorg/microg/nlp/api/HelperLocationBackendService;.checkSelfPermission (Ljava/lang/String;)I
+D/dalvikvm(13809): VFY: replacing opcode 0x6e at 0x0039
+I/dalvikvm(13809): Could not find method android.net.wifi.WifiManager.isScanAlwaysAvailable, referenced from method org.microg.nlp.api.WiFiBackendHelper.isScanAlwaysAvailable
+W/dalvikvm(13809): VFY: unable to resolve virtual method 235: Landroid/net/wifi/WifiManager;.isScanAlwaysAvailable ()Z
+D/dalvikvm(13809): VFY: replacing opcode 0x6e at 0x0008
+D/NlpLocBackendHelper( 2580): Bound to: ComponentInfo{org.microg.nlp.backend.apple/org.microg.nlp.backend.apple.BackendService}
+D/AppleNlpBackendService(13809): onOpen
+</code></pre>
+      </td>

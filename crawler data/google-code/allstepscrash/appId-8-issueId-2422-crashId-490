@@ -1,0 +1,84 @@
+<td class="d-block comment-body markdown-body  js-comment-body">
+
+          <p>I get to enable Google Assistant with microG and make it recognize my account but it stuck indefinitely at "Configuring" "This may take a minute or two".</p>
+<p>Some things that I see in the logcat:</p>
+<pre><code>[ 05-13 22:40:26.661  4998: 5074 W/SensorSignalsOracle ]
+Failed to get device tag
+java.lang.SecurityException: Device tag restricted to approved apps
+	at com.google.android.gms.internal.ea.btD(Unknown Source)
+	at com.google.android.libraries.f.j.b.b.e.btD(SourceFile:8)
+	at com.google.android.libraries.f.j.b.b.i.btD(SourceFile:4)
+	at com.google.android.apps.gsa.staticplugins.bi.at.a(SourceFile:196)
+	at com.google.android.apps.gsa.staticplugins.bi.bc.run(SourceFile:6)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:428)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:237)
+	at com.google.android.apps.gsa.taskgraph.d.a.a.run(SourceFile:27)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:428)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:237)
+	at com.google.android.apps.gsa.shared.util.concurrent.a.ax.run(SourceFile:14)
+	at com.google.android.apps.gsa.shared.util.concurrent.a.bl.run(SourceFile:4)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1133)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:607)
+	at java.lang.Thread.run(Thread.java:761)
+	at com.google.android.apps.gsa.shared.util.concurrent.a.ai.run(SourceFile:6)
+
+[ 05-13 22:40:27.082  4998: 4998 E/NowDoodleController ]
+Failed to receive DoodleData
+java.util.concurrent.CancellationException: Task was cancelled.
+	at com.google.common.util.concurrent.d.cv(SourceFile:75)
+	at com.google.common.util.concurrent.d.get(SourceFile:57)
+	at com.google.common.util.concurrent.ce.n(SourceFile:2)
+	at com.google.common.util.concurrent.at.l(SourceFile:54)
+	at com.google.common.util.concurrent.av.run(SourceFile:5)
+	at com.google.android.apps.gsa.shared.util.concurrent.a.bc.run(SourceFile:2)
+	at android.os.Handler.handleCallback(Handler.java:751)
+	at android.os.Handler.dispatchMessage(Handler.java:95)
+	at android.os.Looper.loop(Looper.java:154)
+	at android.app.ActivityThread.main(ActivityThread.java:6186)
+	at java.lang.reflect.Method.invoke(Native Method)
+	at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:889)
+	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:779)
+
+[ 05-13 22:40:39.253  3229: 3824 D/GmsAuthenticator ]
+hasFeatures: Account {name=my_email@gmail.com, type=com.google}, [service_gmscore_out_of_sync_fake_service]
+
+[ 05-13 22:40:39.278  4998: 6056 W/UriRequestData ]
+URL param or header with a key: "X-Google-Use-Geolocation-For-Country-Code" has an empty value.
+
+[ 05-13 22:40:39.282  3229: 3244 D/SafeParcel ]
+Unknown field num 10 in com.google.android.gms.common.internal.GetServiceRequest, skipping.
+
+[ 05-13 22:40:43.224  4998: 5900 W/UriRequestData ]
+URL param or header with a key: "X-Google-Use-Geolocation-For-Country-Code" has an empty value.
+
+[ 05-13 22:40:43.344  3229: 3243 D/GmsWalletOwSvc ]
+onTransact [unknown]: 15, android.os.Parcel@f030a92, 17
+
+[ 05-13 22:40:43.219  4998: 4998 I/OptInState ]
+There is a new client and it does not support opt-in. Dropping request.
+
+[ 05-13 22:40:43.224  4998: 5900 W/UriRequestData ]
+URL param or header with a key: "X-Google-Use-Geolocation-For-Country-Code" has an empty value.
+
+[ 05-13 22:40:43.369  3229: 3229 D/GmsDummySvc ]
+onBind: Intent { act=com.google.android.gms.udc.service.START pkg=com.google.android.gms }
+
+[ 05-13 22:40:43.379  4998: 5914 W/CronetHttpEngine ]
+Upload request without a content type.
+
+[ 05-13 22:40:43.384  4998: 4998 I/OpaConsentManager ]
+started consent check: account = [REDACTED-25], udcSettings = [5, 7, 9, 2, 15, 1, 8, 10]
+
+[ 05-13 22:40:43.623  4998: 4998 I/OpaConsentManager ]
+handleNowEligibilityStatus: status = 1
+
+[ 05-13 22:40:43.624  2481: 2481 W/RichInputConnection ]
+Slow InputConnection: GET_TEXT_BEFORE_CURSOR took 203 ms.
+
+[ 05-13 22:40:43.626  3229: 3244 D/GmsLocManagerSvc ]
+bound by: GetServiceRequest{serviceId=LOCATION_MANAGER, gmsVersion=10298000, packageName='com.google.android.googlequicksearchbox', extras=Bundle[{client_name=locationServices}]}
+
+[ 05-13 22:40:43.739  2481: 2481 I/InputAttributes ]
+InputType.TYPE_NULL is specified
+</code></pre>
+      </td>

@@ -1,0 +1,790 @@
+https://code.google.com/archive/p/csipsimple/issues/2579<!DOCTYPE html><html class="google ng-scope" lang="en" ng-app="codesiteArchive.application"><head>
+    <meta charset="utf-8">
+    <meta content="initial-scale=1, minimum-scale=1, width=device-width" name="viewport">
+
+    <!-- https://developers.google.com/webmasters/ajax-crawling/docs/specification -->
+    <meta name="fragment" content="!">
+    <title>Google Code Archive - Long-term storage for Google Code Project Hosting.</title>
+
+    <link rel="icon" type="image/vnd.microsoft.icon" href="/archive/img/project-hosting.ico">
+    <script src="//www.google.com/js/google.js"></script>
+    <link href="//www.google.com/css/maia.css" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;lang=en" rel="stylesheet">
+    <link rel="stylesheet" href="/archive/archive_css.css">
+    <script>
+      CLOSURE_NO_DEPS = true;
+    </script>
+    <script src="/archive/angular.js"></script><style type="text/css">@charset "UTF-8";
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak],
+.ng-cloak, .x-ng-cloak,
+.ng-hide:not(.ng-hide-animate) {
+  display: none !important;
+}
+
+ng\:form {
+  display: block;
+}
+
+.ng-animate-shim {
+  visibility:hidden;
+}
+
+.ng-anchor {
+  position:absolute;
+}
+</style>
+    <script src="/archive/pagedown.js"></script>
+    <script src="/archive/archive.js"></script>
+    <base href="/archive/">
+  </head>
+
+  <body>
+    <div class="maia-header" id="maia-header" role="banner">
+      <div class="maia-aux">
+        <a href="/archive/">
+          </a><h1><a href="/archive/">
+            <img alt="Google" src="//www.google.com/images/branding/googlelogo/1x/googlelogo_color_116x41dp.png"> Code</a>
+          </h1>
+        
+        <a href="/archive/">
+          <h2>Archive</h2>
+        </a>
+        <a class="maia-teleport" href="#content">Skip to content</a>
+        <div class="maia-util">
+          <form action="/archive/search" class="maia-search ng-pristine ng-valid">
+            <input name="q" placeholder="Search this site" type="text">
+            <button class="maia-button">
+              <span class="maia-search-icon">Search</span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- ngView: --><div ng-view="" class="ng-scope"><div ng-controller="ProjectIssueCtrl as issueCtrl" class="ng-scope">
+<nav-bar-widget nav-level-1="projectCtrl.navLevel1" class="ng-isolate-scope"><div class="maia-nav maia-complex" id="maia-nav-x" role="navigation">
+  <div class="maia-aux">
+    <ul>
+      <li ng-class="{active: navLevel1 == 'projects'}">
+        <a href="/archive/">Projects</a>
+        <!-- ngIf: navLevel2 -->
+      </li>
+      <li ng-class="{active: navLevel1 == 'search'}">
+        <a href="/archive/search">Search</a>
+      </li>
+      <li ng-class="{active: navLevel1 == 'about'}">
+        <a href="/archive/about">About</a>
+      </li>
+    </ul>
+  </div>
+</div>
+</nav-bar-widget>
+<div id="maia-main" role="main">
+
+  <!-- ngIf: issueCtrl.notFound -->
+
+  <div ng-hide="issueCtrl.notFound">
+    <!-- Left-side resource nav -->
+    <project-resources-widget domain="issueCtrl.domain" project="issueCtrl.projectName" class="ng-isolate-scope"><div class="maia-nav" id="maia-nav-y" role="navigation">
+  <!-- ngIf: domain == 'code.google.com' --><ul ng-if="domain == 'code.google.com'" class="ng-scope">
+    <li class="active">
+      <a href="/archive/p/csipsimple/">Project</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/source">Source</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/issues">Issues</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/wikis">Wikis</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/downloads">Downloads</a>
+    </li>
+  </ul><!-- end ngIf: domain == 'code.google.com' -->
+
+    <!-- ngIf: domain != 'code.google.com' -->
+</div></project-resources-widget>
+
+    <div class="maia-article" role="article">
+      <div class="maia-teleport" id="content"></div>
+      <div class="maia-cols">
+        <div id="gca-project-header" class="maia-col-10">
+          <a id="gca-export-to-gh" class="maia-button" href="https://code.google.com/export-to-github/export?project=csipsimple">Export to GitHub</a>
+            <img class="gca-project-logo" src="https://storage.googleapis.com/google-code-archive/v2/code.google.com/csipsimple/logo.png">
+            <h1 class="ng-binding">csipsimple - issue #2579</h1>
+            <p class="ng-binding">Changing DNS server on WiFi connection is ignored by csipsimple</p>
+        </div>
+
+        <div class="maia-col-10">
+          <hr>
+
+        <!-- ngIf: issueCtrl.error -->
+
+        <!-- ngIf: !issueCtrl.error --><div ng-if="!issueCtrl.error" class="ng-scope">
+          <!-- Comments -->
+          <div class="maia-col-8">
+            <!-- ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Dec 3, 2013 by
+                  <i class="ng-binding">Swift Rhino</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p><b>What steps will reproduce the problem?</b>
+1. Turn on wifi
+2. Run csipsimple
+3. Connect account</p>
+
+<p><b>What is the expected output? What do you see instead?</b>
+Expected a successful connection, but the connection fails with a timeout error after a long wait.</p>
+
+<p><b>What version of the product are you using? On what device / operating</b>
+<b>system?</b>
+Android 4.2.2 on Samsung i9192 (Galaxy S4 mini) with lastest version of csipsimple from market</p>
+
+<p><b>Please provide any additional information below.</b>
+On 3G connection csipsample uses external DNS server and external address of sip server, it works without any problem.</p>
+
+<p>When connecting to wifi AP all programs detects DNS server change to local, but only csipsample continues to use the old DNS server from 3G connection and gets invalid sip server address that unaccessable from localnet.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #1</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Dec 5, 2013 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Hi,</p>
+
+<p>Did you enable the DNS SRV option in csipsimple settings (in settings &gt; network).</p>
+
+<p>Depending on this setting the DNS resolution is made very differently by the app.</p>
+
+<p>Also, normally, when network changes, the app should stop existing registrations and try to re-register. Is it the case for you? Does the csipsimple icon in notification bar disapears?</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #2</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Dec 5, 2013 by
+                  <i class="ng-binding">Swift Rhino</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Hi,
+Sorry for bad English. I do not speak English and use machine translation
+from Russian.</p>
+
+<p>No, its currently disabled.
+I experimented with options. I created the SRV records on the local DNS
+server (dnsmasq), try to include this option, but the same result. My
+DNS/DHCP server has long served local network without problems.</p>
+
+<p>Yes, accounts are restarted.
+On wifi start in Android system settings I see local ip, local dns server,
+etc received by dhcp.
+Sip account on external service (sipnet.ru) restarted successfully and work
+fine on wifi, but local account (to my local asterisk), that just worked
+via 3G - failed to start on wifi. In csipsimple logs I see that connections
+tryed to external ip of my server, not to local. Asterisk logs is empty, no
+connections attempts is tryed.</p>
+
+<p>From this I concluded that there is a problem with DNS resolving.</p>
+
+<p>After many experiments, I realized that the problem was more global.
+Neither party sip client did work with a local sip server on my andriod via
+wifi. I tried csipsimple, linphone, sipdroid, etc. Only native android sip
+client (SIPAUA) works without problems from both the outside world and from
+the LAN. (I disabled SIPAUA during experiments with csipsimple  that it
+does not create conflicts.)</p>
+
+<p>Same problem occures with LG G2 (andriod 4.2.2), which does not have native
+sip client, but problem NOT occured with Galaxy S Plus (android 2.3), which
+works with any sip client, from any net, without any problems .</p>
+
+<p>Now I tend to think that the reason somewhere within the system. Then must
+be massive complaints from owners android 4.2.2, but I do not see them.
+My system is: GT-I9192, Android 4.2.2, firmware I9192XXUBMK4, kernel
+3.4.0-1961802</p>
+
+<p>Everything looks very strange, I ran out of assumptions about the cause of
+what is happening.
+I like your program, but after the change of the smartphone I can not use
+it.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #3</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Dec 6, 2013 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Thanks a lot for the details !</p>
+
+<p>So if DNS SRV is not enabled, the DNS resolution is made by android system itself. CSipSimple uses platform resolution. It's confirmed by the fact you have the same on some other apps. And it's probably not particular to SIP actually. It's possible that on the ROM of this device there is a bug : just after network changes, the internal android system does not resolve properly DNS names.</p>
+
+<p>What you can try is to enable DNS SRV option. This way, CSipSimple will do the DNS resolution by itself instead of relying on the Android OS. If the problem is only internal and the DNS servers settings are correctly immediately updated by this device, it should do the trick.</p>
+
+<p>Can you test and tell me how it goes with DNS SRV option enabled?</p>
+
+<p>Thanks !</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #4</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Dec 6, 2013 by
+                  <i class="ng-binding">Swift Rhino</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Strangeness that other applications (web browser, email client, xmpp
+client, etc.) get the correct address of the local server in wifi
+connection. The problem somehow relates only to sip clients.</p>
+
+<p>Returns "Service Unavailable" after 2-3 secs of waiting.</p>
+
+<p>My android xmpp client (xabber) also uses the SRV record from same DNS
+server, jabberd2 (xmpp server) running on same server as a asterisk, but
+xabber works fine - instant smooth connection, csipsimple is not.</p>
+
+<p>Asterisk runs on 10.0.2.251 5060/UDP</p>
+
+<h2>nslookup output from local machine:</h2>
+
+<p>Server: 10.0.2.251
+Address: 10.0.2.251#53</p>
+
+<p>_sip._udp.xxxxx.xx service = 0 0 5060 mx.xxxxx.xx.</p>
+
+<p>Server: 10.0.2.251
+Address: 10.0.2.251#53</p>
+
+<p>Name: mx.xxxxx.xx
+Address: 10.0.2.251</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #5</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Dec 6, 2013 by
+                  <i class="ng-binding">Swift Rhino</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>csipsimple log for "Service Unavailable" with SRV enabled is attached.</p>
+
+<p>Alarming phrases: <em>Failed to resolve 'delfos.ru <a href="http://delfos.ru">http://delfos.ru</a>'.
+Err=320046 (No working DNS nameserver (PJLIB_UTIL_EDNSNOWORKINGNS))</em></p>
+
+<p>2013/12/6 Dmitry Hide </p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #6</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Dec 6, 2013 by
+                  <i class="ng-binding">Swift Rhino</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>I looked at the tcpdump (sniffer) log running on DNS server, and saw an
+unexpected thing - from the device absolutely No packets to the DNS server
+while csipsimple is connecting.
+That is, either all outgoing DNS packets are blocked inside android or
+packets go somewhere else, but not to the DNS server.</p>
+
+<p>I would be glad if my information will help cure the problem.</p>
+
+<p>2013/12/6 Dmitry Hide </p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #7</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Dec 7, 2013 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Ok, the "No working DNS nameserver (PJLIB_UTIL_EDNSNOWORKINGNS)" indicates the DNS server given by android system at the moment network change notification is sent by android system is probably something invalid. And as consequence, no DNS request packet is sent by the app.
+Maybe a problem with synchronization of android system on this device : when they send the fact network changed, the DNS SRV is not yet internally set up in android database. Could be only few milliseconds, but those will make a difference for the sip app that will immediately try to re-register without waiting (maybe stock android client wait a little bit before re-registering or they get better internal notification of the android system to restart when dns value is finally changed).</p>
+
+<p>To test if this assumption is true, can you try the following :
+ - Reproduce the problem.
+ - Go in csipsimple dialer, and then go in settings and press back.
+This will restart the sip stack (exactly the same way it does when it receive a network change event from android system). If it register using the good dns server this time, it means that the problem is with timing when network change event from android system arrives.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #8</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Dec 8, 2013 by
+                  <i class="ng-binding">Swift Rhino</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Returns "Service Unavaliable".</p>
+
+<p>I found the cause of the error .
+csipsimple (Android?) for reasons unknown to me sends DNS requests to
+default router (internet gateway), but device, DNS server and sip server
+are on the same local /24 network , and default router must NOT be used .
+In same LAN always used direct connections between computers. Gateway is
+forbidden to make local loops.</p>
+
+<p>Next tcpdump output taken from the Internet gateway (10.0.2.254).
+10.0.2.213 - android ip
+10.0.2.251 - local dns, local sip server ip</p>
+
+<p>Router prohibited route 10.0.2.0/24 -&gt; 10.0.2.0/24 as meaningless and, of</p>
+
+<h2>course, DNS server does not receive requests.</h2>
+
+<p>$ sudo tcpdump -i eth1 host 10.0.2.213
+tcpdump: verbose output suppressed, use -v or -vv for full protocol decode
+listening on eth1, link-type EN10MB (Ethernet), capture size 65535 bytes
+08:41:27.114210 IP 10.0.2.213.39577 &gt; 10.0.2.251.domain: 1+ SRV? <em>sip.</em>
+udp.delfos.ru. (37)
+08:41:29.160829 IP 10.0.2.213.39577 &gt; 10.0.2.251.domain: 1+ SRV? <em>sip.</em>
+udp.delfos.ru. (37)
+08:41:31.216319 IP 10.0.2.213.39577 &gt; 10.0.2.251.domain: 1+ SRV? <em>sip.</em>
+udp.delfos.ru. (37)
+08:41:33.199751 IP 10.0.2.213.39577 &gt; 10.0.2.251.domain: 1+ SRV? <em>sip.</em>
+udp.delfos.ru. (37)
+08:41:35.226500 IP 10.0.2.213.39577 &gt; 10.0.2.251.domain: 1+ SRV? <em>sip.</em>
+udp.delfos.ru. (37)
+08:41:37.251575 IP 10.0.2.213.39577 &gt; 10.0.2.251.domain: 2+ A? delfos.ru.
+(27)
+08:41:39.298468 IP 10.0.2.213.39577 &gt; 10.0.2.251.domain: 2+ A? delfos.ru.
+(27)</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #9</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Dec 8, 2013 by
+                  <i class="ng-binding">Swift Rhino</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Once again summarize what is happening:</p>
+
+<p>csipsimple works correctly, except for one configuration when the DNS
+server is on the same local network as the Android device.</p>
+
+<p>Running the program simultaneously or separately with wifi, restart,
+manually, automatic etc. - Do not bring any result.</p>
+
+<p>The reason is that the DNS requests go to the default gateway, despite the
+fact that the device and the DNS server are in the same / 24 network.</p>
+
+<p>2013/12/9 Dmitry Hide </p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #10</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Dec 9, 2013 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Thanks a lot for your investigations.
+The IP packet routing is not made by csipsimple, but by the OS. So it tends to confirms the fact the problem is with the android system ROM.
+If you have adb usb debugger tool installed on your pc and able to connect your device using adb, I would advise to run following command on the android device (run adb shell on your pc to connect the android device shell)</p>
+
+<p>cat /proc/net/route</p>
+
+<p>Maybe "cat /proc/net/arp" will also be instructive.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #11</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Dec 9, 2013 by
+                  <i class="ng-binding">Swift Rhino</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>An interesting fact is that the xmpp client ( like the rest of the software
+) has no problems with DNS resolution on the same device, at same time, in
+the same environment.</p>
+
+<p>IMHO, this DNS error on this version of Android is present for your
+specific implementation of the resolver . (resolver.c?)
+I am 100 % sure that your code can lead to a working state , but, sorry I
+can not help you, I'm not so strong in C .
+Whether there was a change API, whether changed system defaults ... is a
+question for programmers .</p>
+
+<p>Mystery is why others experienced by me sip clients had the same problem
+... I assume that, possible, in all of these OpenSource projects used same
+resolver source code .</p>
+
+<p>Luckily my configuration is not typical for Android users , but I think
+with the increase in the share 4.x Android will still complain about this
+problem. At this point, at least two different devices from different
+famous manufacturers have this problem (Samsung Galaxy S4 mini and LG G2
+D802).</p>
+
+<p>If changes need to be tested - I'm ready to help you... but, sorry, I have
+no experience debugging android devices.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #12</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Dec 9, 2013 by
+                  <i class="ng-binding">Swift Rhino</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Oh. I was find terminal emulator for android. :-)</p>
+
+<p>Router table:</p>
+
+<p>Iface Destination Gateway Flags RefCnt Use Metric Mask MTU Window IRTT</p>
+
+<p>wlan0 00000000 FE02000A 0003 0 0 0 00000000 0 0 0</p>
+
+<p>wlan0 00000000 FE02000A 0003 0 0 331 00000000 0 0 0</p>
+
+<p>wlan0 0002000A 00000000 0001 0 0 331 00FFFFFF 0 0 0</p>
+
+<p>wlan0 FB02000A FE02000A 0007 0 0 0 FFFFFFFF 0 0 0</p>
+
+<p>wlan0 FE02000A 00000000 0005 0 0 0 FFFFFFFF 0 0 0</p>
+
+<p>arp table:</p>
+
+<p>IP address       HW type     Flags       HW address            Mask
+Device
+10.0.2.254       0x1         0x2         00:03:b3:04:2a:95     *
+ wlan0</p>
+
+<p>2013/12/9 Dmitry Hide </p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #13</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Dec 9, 2013 by
+                  <i class="ng-binding">Swift Rhino</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Yes, its line defines route to host 10.0.2.251 via 10.0.2.254...</p>
+
+<p>2013/12/9 Dmitry Hide </p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #14</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Dec 9, 2013 by
+                  <i class="ng-binding">Swift Rhino</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Yes, its line defines route to host 10.0.2.251 via 10.0.2.254...</p>
+
+<p>wlan0 FB02000A FE02000A 0007 0 0 0 FFFFFFFF 0 0 0</p>
+
+<p>But I can't find where declared this route... Other hosts in my net haven't
+this route.</p>
+
+<p>2013/12/9 Dmitry Hide </p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #15</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Dec 9, 2013 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Yes it's very strange.
+I suspect something in the android ROM that does something special with the DNS ip.</p>
+
+<p>It's also very strange that the xmpp client is able to reach directly your local dns server. Normally the system route applies to any application using network; and actually I even do not know how it would be possible to use different routing than the ones defined in system.</p>
+
+<p>Just as quick sum up of how things goes in csipsimple/pjsip :
+When DNS SRV is used, the application basically request the posix socket api to open a connection to the ip of the dns server and then it's sytem that decide the route to use.
+When DNS SRV is not used, it's even more the system that does anything since the application request to open the socket directly to the hostname you defined and so it's up to system to do the name resolution (and apparently it internally ends with the same conclusion than csipsimple internal dns resolver).</p>
+
+<p>If we except the fact xmpp app magically get ride of the linux routing table; my conclusion is that the root cause problem is this additional routing rule that asks to use the gateway to reach your DNS.
+I've no idea why this rule could have been added. AFAIK android has no setting to add manually new routes for a single host. Maybe the ROM does something special or has a bug. 
+Else, maybe could be something sent as reply by the DHCP server (using dhcp-option) or something added by another app that have root permissions or a remaining thing from a previous VPN connection.</p>
+
+<p>Anyway, maybe you could workaround that on your router configuration by allowing routing from your 10.0.2.x network to 10.0.2.251 host (or to entiere network). I admit it's very strange to add such rule, but well.. if the android system decide to use this kind of route rule to reach the dns... And BTW, will probably solve a lot of problems for other apps.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #16</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Dec 9, 2013 by
+                  <i class="ng-binding">Swift Rhino</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Not only xmpp client works. Web browser works with local web server, mail
+client works with local mail server.
+I understand that with this route is nothing that requires a DNS server is
+not working properly ... but it works.</p>
+
+<p>Why xabber (xmpp client) works with my configuration possible would be able
+to see in xabber sources:
+<a href="https://github.com/redsolution/xabber-android">https://github.com/redsolution/xabber-android</a></p>
+
+<p>Well, if "right" solution does not exist, it is necessary to rebuild the
+entire system. I hope that eventually the bug will be fixed.
+Thanks for your time.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #17</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Dec 9, 2013 by
+                  <i class="ng-binding">Swift Rhino</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Well, allowing routing 10.0.2.0/24 -&gt; 10.0.2.0/24 on internet gateway is
+solve problem with both variants of connection, via SRV and without.
+Good that I am an administrator of my network and I can make any changes on
+the servers. In foreign networks, this method will not work.</p>
+
+<p>Thank you.</p>
+
+<p>2013/12/10 Dmitry Hide </p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments -->
+          </div>
+
+          <!-- Sidebar with additional information -->
+          <div class="maia-col-4">
+            <div class="maia-aside">
+              <p>Status: <code class="ng-binding">Need-Details</code></p>
+              <!-- ngIf: issueCtrl.issue.labels.length > 0 --><p ng-if="issueCtrl.issue.labels.length &gt; 0" class="ng-scope">
+                Labels:
+                <br>
+                <!-- ngRepeat: label in issueCtrl.issue.labels track by $index --><span ng-repeat="label in issueCtrl.issue.labels track by $index" class="ng-scope">
+                  <span class="gca-label ng-binding">Type-Defect</span>
+                </span><!-- end ngRepeat: label in issueCtrl.issue.labels track by $index --><span ng-repeat="label in issueCtrl.issue.labels track by $index" class="ng-scope">
+                  <span class="gca-label ng-binding">Priority-Medium</span>
+                </span><!-- end ngRepeat: label in issueCtrl.issue.labels track by $index -->
+              </p><!-- end ngIf: issueCtrl.issue.labels.length > 0 -->
+            </div>
+          </div>
+        </div><!-- end ngIf: !issueCtrl.error -->
+      </div>
+    </div>
+
+  </div>
+</div>
+</div></div></div>
+    <noscript>
+      &lt;p&gt;The Google Code Archive requires JavaScript to be enabled in your browser.&lt;/p&gt;
+    </noscript>
+
+    <div id="maia-signature"></div>
+    <div class="maia-footer" id="maia-footer">
+      <div id="maia-footer-local">
+      </div>
+      <div id="maia-footer-global">
+        <div class="maia-aux">
+          <ul>
+            <li>
+              <a href="//www.google.com/">Google</a>
+            </li>
+            <li>
+              <a href="//www.google.com/intl/en/about/">About Google</a>
+            </li>
+            <li>
+              <a href="//www.google.com/intl/en/policies/privacy/">Privacy</a>
+            </li>
+            <li>
+              <a href="//www.google.com/intl/en/policies/terms/">Terms</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <script src="//www.google.com/js/maia.js"></script>
+  
+
+
+</body></html>

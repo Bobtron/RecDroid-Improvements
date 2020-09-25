@@ -1,0 +1,68 @@
+https://github.com/DroidKaigi/conference-app-2017/issues/110<td class="d-block comment-body markdown-body  js-comment-body">
+
+          <h2>Overview (Required)</h2>
+<ul>
+<li>App causes a crash due to twoway-view when enabling <code>Don't keep activities</code>.</li>
+<li>FYI, This bug is already fixed in the repository of twoway-view, but not released yet.</li>
+</ul>
+<h2>Links</h2>
+<ul>
+<li><a class="issue-link js-issue-link" data-error-text="Failed to load issue title" data-id="151620846" data-permission-text="Issue title is private" data-url="https://github.com/lucasr/twoway-view/issues/270" href="https://github.com/lucasr/twoway-view/issues/270">lucasr/twoway-view#270</a></li>
+</ul>
+<h2>Screenshot</h2>
+<pre><code>02-06 18:53:13.214 7824-7824/io.github.droidkaigi.confsched2017.develop.debug E/AndroidRuntime: FATAL EXCEPTION: main
+    Process: io.github.droidkaigi.confsched2017.develop.debug, PID: 7824
+    java.lang.RuntimeException: Unable to start activity ComponentInfo{io.github.droidkaigi.confsched2017.develop.debug/io.github.droidkaigi.confsched2017.view.activity.MainActivity}: java.lang.ArrayIndexOutOfBoundsException: src.length=11 srcPos=0 dst.length=0 dstPos=0 length=11
+        at android.app.ActivityThread.performLaunchActivity(ActivityThread.java:2416)
+        at android.app.ActivityThread.handleLaunchActivity(ActivityThread.java:2476)
+        at android.app.ActivityThread.-wrap11(ActivityThread.java)
+        at android.app.ActivityThread$H.handleMessage(ActivityThread.java:1344)
+        at android.os.Handler.dispatchMessage(Handler.java:102)
+        at android.os.Looper.loop(Looper.java:148)
+        at android.app.ActivityThread.main(ActivityThread.java:5417)
+        at java.lang.reflect.Method.invoke(Native Method)
+        at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:726)
+        at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:616)
+     Caused by: java.lang.ArrayIndexOutOfBoundsException: src.length=11 srcPos=0 dst.length=0 dstPos=0 length=11
+        at java.lang.System.arraycopy(Native Method)
+        at org.lucasr.twowayview.widget.ItemEntries.ensureSize(ItemEntries.java:56)
+        at org.lucasr.twowayview.widget.ItemEntries.putItemEntry(ItemEntries.java:70)
+        at org.lucasr.twowayview.widget.BaseLayoutManager$LanedSavedState.&lt;init&gt;(BaseLayoutManager.java:597)
+        at org.lucasr.twowayview.widget.BaseLayoutManager$LanedSavedState.&lt;init&gt;(BaseLayoutManager.java:566)
+        at org.lucasr.twowayview.widget.BaseLayoutManager$LanedSavedState$1.createFromParcel(BaseLayoutManager.java:628)
+        at org.lucasr.twowayview.widget.BaseLayoutManager$LanedSavedState$1.createFromParcel(BaseLayoutManager.java:625)
+        at android.os.Parcel.readParcelable(Parcel.java:2367)
+        at android.support.v7.widget.RecyclerView$SavedState.&lt;init&gt;(RecyclerView.java:11129)
+        at android.support.v7.widget.RecyclerView$SavedState$1.createFromParcel(RecyclerView.java:11154)
+        at android.support.v7.widget.RecyclerView$SavedState$1.createFromParcel(RecyclerView.java:11151)
+        at android.support.v4.os.ParcelableCompatCreatorHoneycombMR2.createFromParcel(ParcelableCompatHoneycombMR2.java:46)
+        at android.os.Parcel.readParcelable(Parcel.java:2365)
+        at android.os.Parcel.readValue(Parcel.java:2264)
+        at android.os.Parcel.readSparseArrayInternal(Parcel.java:2675)
+        at android.os.Parcel.readSparseArray(Parcel.java:1967)
+        at android.os.Parcel.readValue(Parcel.java:2321)
+        at android.os.Parcel.readArrayMapInternal(Parcel.java:2614)
+        at android.os.BaseBundle.unparcel(BaseBundle.java:221)
+        at android.os.Bundle.getSparseParcelableArray(Bundle.java:856)
+        at android.support.v4.app.FragmentManagerImpl.moveToState(FragmentManager.java:1207)
+        at android.support.v4.app.FragmentManagerImpl.moveFragmentToExpectedState(FragmentManager.java:1523)
+        at android.support.v4.app.FragmentManagerImpl.moveToState(FragmentManager.java:1585)
+        at android.support.v4.app.FragmentManagerImpl.dispatchCreate(FragmentManager.java:2827)
+        at android.support.v4.app.FragmentController.dispatchCreate(FragmentController.java:190)
+        at android.support.v4.app.FragmentActivity.onCreate(FragmentActivity.java:353)
+        at android.support.v7.app.AppCompatActivity.onCreate(AppCompatActivity.java:88)
+        at io.github.droidkaigi.confsched2017.view.activity.MainActivity.onCreate(MainActivity.java:39)
+        at android.app.Activity.performCreate(Activity.java:6251)
+        at android.app.Instrumentation.callActivityOnCreate(Instrumentation.java:1107)
+        at android.app.ActivityThread.performLaunchActivity(ActivityThread.java:2369)
+        at android.app.ActivityThread.handleLaunchActivity(ActivityThread.java:2476) 
+        at android.app.ActivityThread.-wrap11(ActivityThread.java) 
+        at android.app.ActivityThread$H.handleMessage(ActivityThread.java:1344) 
+        at android.os.Handler.dispatchMessage(Handler.java:102) 
+        at android.os.Looper.loop(Looper.java:148) 
+        at android.app.ActivityThread.main(ActivityThread.java:5417) 
+        at java.lang.reflect.Method.invoke(Native Method) 
+        at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:726) 
+        at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:616) 
+</code></pre>
+      </td>

@@ -1,0 +1,37 @@
+https://github.com/microg/android_packages_apps_UnifiedNlp/issues/68<td class="d-block comment-body markdown-body  js-comment-body">
+
+          <p>android 6.0.1, UnifiedNlp.apk (1.6.1)</p>
+<p>after installing UnifiedNlp, Location perimssion default to "off"<br>
+selecting any location backend raise the following exception in log</p>
+<pre><code>03-04 23:14:50.335  9088 10256 W ActivityManager: Permission Denial: Accessing service ComponentInfo{org.microg.nlp.backend.ichnaea/org.microg.nlp.backend.ichnaea.BackendService} from pid=12474, uid=10080 requires2 android.permission.ACCESS_COARSE_LOCATION
+03-04 23:14:50.336 12474 12474 D AndroidRuntime: Shutting down VM
+03-04 23:14:50.338 12474 12474 E AndroidRuntime: FATAL EXCEPTION: main
+03-04 23:14:50.338 12474 12474 E AndroidRuntime: Process: org.microg.nlp, PID: 12474
+03-04 23:14:50.338 12474 12474 E AndroidRuntime: Theme: themes:{}
+03-04 23:14:50.338 12474 12474 E AndroidRuntime: java.lang.SecurityException: Not allowed to bind to service Intent { act=org.microg.nlp.LOCATION_BACKEND pkg=org.microg.nlp.backend.ichnaea cmp=org.microg.nlp.backend.ichnaea/.BackendService }
+03-04 23:14:50.338 12474 12474 E AndroidRuntime:        at android.app.ContextImpl.bindServiceCommon(ContextImpl.java:1334)
+03-04 23:14:50.338 12474 12474 E AndroidRuntime:        at android.app.ContextImpl.bindService(ContextImpl.java:1298)
+03-04 23:14:50.338 12474 12474 E AndroidRuntime:        at android.content.ContextWrapper.bindService(ContextWrapper.java:610)
+03-04 23:14:50.338 12474 12474 E AndroidRuntime:        at org.microg.nlp.ui.AbstractBackendPreference.enableBackend(AbstractBackendPreference.java:208)
+03-04 23:14:50.338 12474 12474 E AndroidRuntime:        at org.microg.nlp.ui.AbstractBackendPreference$Adapter$1.onClick(AbstractBackendPreference.java:175)03-04 23:14:50.338 12474 12474 E AndroidRuntime:        at android.view.View.performClick(View.java:5204)
+03-04 23:14:50.338 12474 12474 E AndroidRuntime:        at android.widget.CompoundButton.performClick(CompoundButton.java:122)
+03-04 23:14:50.338 12474 12474 E AndroidRuntime:        at android.view.View$PerformClick.run(View.java:21156)
+03-04 23:14:50.338 12474 12474 E AndroidRuntime:        at android.os.Handler.handleCallback(Handler.java:739)
+03-04 23:14:50.338 12474 12474 E AndroidRuntime:        at android.os.Handler.dispatchMessage(Handler.java:95)
+03-04 23:14:50.338 12474 12474 E AndroidRuntime:        at android.os.Looper.loop(Looper.java:148)
+03-04 23:14:50.338 12474 12474 E AndroidRuntime:        at android.app.ActivityThread.main(ActivityThread.java:5466)
+03-04 23:14:50.338 12474 12474 E AndroidRuntime:        at java.lang.reflect.Method.invoke(Native Method)
+03-04 23:14:50.338 12474 12474 E AndroidRuntime:        at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:726)
+03-04 23:14:50.338 12474 12474 E AndroidRuntime:        at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:616)
+03-04 23:14:50.339  9088 10145 W ActivityManager:   Force finishing activity org.microg.nlp/.ui.SettingsActivity
+</code></pre>
+<p>UnifiedNlp is not requesting permission automatically like it should. same applies to the backend apps made by you, like IchnaeaNlpBackend which crash after selected this backend and pressing "ok"</p>
+<p>i suppose it's called runtime permissions under 6.0<br>
+apps like org.fitchfamily.android.wifi_backend, however can request for permission at runtime</p>
+<p>yes we can grant permission manually in app permission setting dialog<br>
+but chance are only after first installation but before it is used by system (hack or custom framework-res.apk/config.xml + reboot), i can grant permission in UnifiedNlp app permission setting page to avoid this issue</p>
+<p>after reboot, since UnifiedNlp is used as system NLP, I can no longer grant permission because it looks like permission is already granted while it's not. (seems like 6.0 bug). can't even toggle it off</p>
+<h2></h2>
+<p>Want to back this issue? <strong><a href="https://www.bountysource.com/issues/31592439-mm-permission-denial-requires-android-permission-access_coarse_location?utm_campaign=plugin&amp;utm_content=tracker%2F934369&amp;utm_medium=issues&amp;utm_source=github" rel="nofollow">Post a bounty on it!</a></strong> We accept bounties via <a href="https://www.bountysource.com/?utm_campaign=plugin&amp;utm_content=tracker%2F934369&amp;utm_medium=issues&amp;utm_source=github" rel="nofollow">Bountysource</a>.<br>
+</p>
+      </td>

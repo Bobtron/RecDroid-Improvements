@@ -1,0 +1,782 @@
+https://code.google.com/archive/p/csipsimple/issues/1830<!DOCTYPE html><html class="google ng-scope" lang="en" ng-app="codesiteArchive.application"><head>
+    <meta charset="utf-8">
+    <meta content="initial-scale=1, minimum-scale=1, width=device-width" name="viewport">
+
+    <!-- https://developers.google.com/webmasters/ajax-crawling/docs/specification -->
+    <meta name="fragment" content="!">
+    <title>Google Code Archive - Long-term storage for Google Code Project Hosting.</title>
+
+    <link rel="icon" type="image/vnd.microsoft.icon" href="/archive/img/project-hosting.ico">
+    <script src="//www.google.com/js/google.js"></script>
+    <link href="//www.google.com/css/maia.css" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;lang=en" rel="stylesheet">
+    <link rel="stylesheet" href="/archive/archive_css.css">
+    <script>
+      CLOSURE_NO_DEPS = true;
+    </script>
+    <script src="/archive/angular.js"></script><style type="text/css">@charset "UTF-8";
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak],
+.ng-cloak, .x-ng-cloak,
+.ng-hide:not(.ng-hide-animate) {
+  display: none !important;
+}
+
+ng\:form {
+  display: block;
+}
+
+.ng-animate-shim {
+  visibility:hidden;
+}
+
+.ng-anchor {
+  position:absolute;
+}
+</style>
+    <script src="/archive/pagedown.js"></script>
+    <script src="/archive/archive.js"></script>
+    <base href="/archive/">
+  </head>
+
+  <body>
+    <div class="maia-header" id="maia-header" role="banner">
+      <div class="maia-aux">
+        <a href="/archive/">
+          </a><h1><a href="/archive/">
+            <img alt="Google" src="//www.google.com/images/branding/googlelogo/1x/googlelogo_color_116x41dp.png"> Code</a>
+          </h1>
+        
+        <a href="/archive/">
+          <h2>Archive</h2>
+        </a>
+        <a class="maia-teleport" href="#content">Skip to content</a>
+        <div class="maia-util">
+          <form action="/archive/search" class="maia-search ng-pristine ng-valid">
+            <input name="q" placeholder="Search this site" type="text">
+            <button class="maia-button">
+              <span class="maia-search-icon">Search</span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- ngView: --><div ng-view="" class="ng-scope"><div ng-controller="ProjectIssueCtrl as issueCtrl" class="ng-scope">
+<nav-bar-widget nav-level-1="projectCtrl.navLevel1" class="ng-isolate-scope"><div class="maia-nav maia-complex" id="maia-nav-x" role="navigation">
+  <div class="maia-aux">
+    <ul>
+      <li ng-class="{active: navLevel1 == 'projects'}">
+        <a href="/archive/">Projects</a>
+        <!-- ngIf: navLevel2 -->
+      </li>
+      <li ng-class="{active: navLevel1 == 'search'}">
+        <a href="/archive/search">Search</a>
+      </li>
+      <li ng-class="{active: navLevel1 == 'about'}">
+        <a href="/archive/about">About</a>
+      </li>
+    </ul>
+  </div>
+</div>
+</nav-bar-widget>
+<div id="maia-main" role="main">
+
+  <!-- ngIf: issueCtrl.notFound -->
+
+  <div ng-hide="issueCtrl.notFound">
+    <!-- Left-side resource nav -->
+    <project-resources-widget domain="issueCtrl.domain" project="issueCtrl.projectName" class="ng-isolate-scope"><div class="maia-nav" id="maia-nav-y" role="navigation">
+  <!-- ngIf: domain == 'code.google.com' --><ul ng-if="domain == 'code.google.com'" class="ng-scope">
+    <li class="active">
+      <a href="/archive/p/csipsimple/">Project</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/source">Source</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/issues">Issues</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/wikis">Wikis</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/downloads">Downloads</a>
+    </li>
+  </ul><!-- end ngIf: domain == 'code.google.com' -->
+
+    <!-- ngIf: domain != 'code.google.com' -->
+</div></project-resources-widget>
+
+    <div class="maia-article" role="article">
+      <div class="maia-teleport" id="content"></div>
+      <div class="maia-cols">
+        <div id="gca-project-header" class="maia-col-10">
+          <a id="gca-export-to-gh" class="maia-button" href="https://code.google.com/export-to-github/export?project=csipsimple">Export to GitHub</a>
+            <img class="gca-project-logo" src="https://storage.googleapis.com/google-code-archive/v2/code.google.com/csipsimple/logo.png">
+            <h1 class="ng-binding">csipsimple - issue #1830</h1>
+            <p class="ng-binding">SIP TCP - cntact info</p>
+        </div>
+
+        <div class="maia-col-10">
+          <hr>
+
+        <!-- ngIf: issueCtrl.error -->
+
+        <!-- ngIf: !issueCtrl.error --><div ng-if="!issueCtrl.error" class="ng-scope">
+          <!-- Comments -->
+          <div class="maia-col-8">
+            <!-- ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jul 17, 2012 by
+                  <i class="ng-binding">Quick Giraffe</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p><b>What steps will reproduce the problem?</b>
+1. Set account to use TCP
+2. Check what "Contact" info it sends in REGISTER request
+3. It sends local LAN IP, not WAN IP</p>
+
+<p><b>What is the expected output? What do you see instead?</b>
+In "Contact" CSS should provide WAN IP address and not LAN IP.</p>
+
+<p><b>What version of the product are you using? On what operating system?</b>
+r1709
+Android 2.2</p>
+
+<p><b>Please provide any additional information below.</b>
+Trying to run  CSS with TCP transport and I can't get incoming calls from SIP server. Server refuses to send INVITE messages to CSS when a new call arrives.</p>
+
+<p>Both SIP server and CSS are on different networks (behind NAT) and CSS uses STUN to get its WAN address. It works very well, when CSS uses UDP transport to communicate with SIP server. It stops working, when I set it with TCP. I can toggle it many times and I'm getting always the same problem...</p>
+
+<p>Here is what CSS sends, when I run it with UDP transport:
+User-Agent: CSipSimple_liberty-8/r1709
+Contact: "aria" &lt;sip:1002@IP.ADD.RES.CSS:47102;ob&gt;</p>
+
+<p>And what it sends, when I run it with TCP transport:
+User-Agent: CSipSimple_liberty-8/r1709
+Contact: "aria" &lt;sip:1002@IP.ADD.RES.LOC:37361;transport=TCP;ob&gt;</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #1</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jul 18, 2012 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Weird. Normally there is two things to prevent that.
+The first is STUN that you seems to have already enabled (however make sure you didn't disable the global UDP transport in global settings since STUN use UDP transport).
+The second is the allow_contact_rewrite option (that should be activated by default - but you can check by transforming your account into expert one and verify that allow_contact_rewrite is enabled). This method introduces a second registration based on the reply of the first one.</p>
+
+<p>If you checked this two points and still have problem, can you collect and send me logs. There is probably a clue on what is going wrong ;).</p>
+
+<p>Thanks</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #2</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jul 18, 2012 by
+                  <i class="ng-binding">Quick Giraffe</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Regis, thanks. After I checked "account | Connection | Allow contact rewrite" everything is back to normal. I can get incoming calls from FS. :) Just in case, another potentially related setting "Contact rewrite method" is set to "Normal".</p>
+
+<p>The question remains: if this setting is so important, why it's working with UDP and not with TCP transport?</p>
+
+<p>In other words, if UDP is used I can un-check it. But if TCP is used, I must check it... To test it, I just toggled TCP and UDP transport and CSS behaves differently (see initial description of the problem).</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #3</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jul 18, 2012 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>It depends on how server behaves.</p>
+
+<p>First thing is that TCP is a persistent and consistent socket while UDP has only strict necessary to transmit packets (no handshake etc).
+So an UDP and a TCP socket are very different and behaves very differently : for example on UDP you can without any problem reuse the same port to transmit to different IP/port (which make stun resolution possible) while it's not possible in TCP (in TCP you are connected to a remote).</p>
+
+<p>This implies that server can behaves differently when they talk to a UDP or a TCP remote side. In our case, in UDP the server will just reuse the socket that was previously incoming. So they don't really matter on the registered contact IP:PORT address. On TCP, the server will actually use this address to transmit incoming invite. If this address is not reachable / routable, it's a problem while was not for UDP (even if in UDP the registered address was also wrong).</p>
+
+<p>So it's not really csipsimple that behaves differently, but the way the server sends the invite. In one case, it just don't care about the Registered contact. In the other it cares of the Registered contact, and if wrong it fails.</p>
+
+<p>To confirm what I say, you just run a wireshark/tcpdump on the server, you'll see that your server sends INVITE for both TCP and UDP but in case the allow contact rewrite was not set, in TCP case it tries to reach the private IP of the client (which is unreachable), while in UDP it tries to reach the public IP of the client (since reusing the previous unix socket)</p>
+
+<p>So normally (I mean to be strict with configuration), you should check the option for both UDP and TCP. 
+Another solution would be to have things on the server side able to manage that (I don't know if FS has that available).</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #4</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jul 19, 2012 by
+                  <i class="ng-binding">Quick Giraffe</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>You're completely right about differences between UDP and TCP.</p>
+
+<p>What I expect from CSS is some predictability. If I set "Allow contact rewrite", I expect that in both cases (transport is either UDP or TCP) "Contact" should have same value (whatever it should be). If I do not check option "Allow contact rewrite", I could expect, that "Contact" may be changed accordingly. That's OK and that's what is expected. What I don't expect is that in this case "Contact" value becomes different, depending on transport used (configured in other place)... All options should be independent (unless they are configured together in one place). Otherwise it creates confusion for users and for SIP servers.</p>
+
+<blockquote>
+  <p>So it's not really csipsimple that behaves differently, but the way the server sends the invite. In one case, it just don't care about the Registered contact. In the other it cares of the Registered contact, and if wrong it fails.</p>
+</blockquote>
+
+<p>It is CSS, that sends different values, while using different transports. FreeSWITCH (FS) always uses host:port form "Contact" data to send INVITE message. What confuses FS is incorrect "Contact" info. While FS is (unfortunately) inconsistent with "Contact" data use (it don't use it for sending OK/REGISTER, NOTIFY and some other messages), it refuses to send INVITE message, if host:port in "Contact" is incorrect. That's why I've got the problem with FS refusing pass call to CSS... FS is sensitive to that value in both cases - UDP and TCP.</p>
+
+<p>Bottom line, what I'd suggest is to use "Allow contact rewrite" to set what should be in "Contact" data (overwrite it or not). But don't make it dependent from transport used (UDP or TCP). Or, if this can't be done separately, group those two options together, so we can manage them one place (with enforcing some dependency rules that you may need here).</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #5</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jul 19, 2012 by
+                  <i class="ng-binding">Quick Giraffe</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>BTW, I discovered what is at fault here by an incident. As I mentioned, FS refused to send INVITE logging completely unrelated message (it does it quite often :( ). I was almost ready to open a new ticket with FS developers about this weird problem (TCP connection is OK, FS gets/responds to REGISTER requests, sends NOTIFY, etc) but refuses to send INVITE requests... I'm glad that I've tried to test-configure another client with TCP transport just to see what's going on and it started working... Then I start compare all data and suddenly noticed, that CSS by some strange reason sends in "Contact" info LAN:port data. Then I opened this ticked here instead. And frankly I'm glad, that your advice to change that "Allow contact rewrite" option helped and I don't need to contact FS developers with it :). But I did not look at "Contact" data first..</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #6</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jul 19, 2012 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Hi,</p>
+
+<p>Ok my thoughts here (again I'm not expert is SIP stuff and just learn things every day so maybe I'm saying wrong things, if so don't hesitate to tell me ;) ).</p>
+
+<p>There is 4 cases and pjsip behaves a consistant way in all cases :</p>
+
+<p>1) STUN is enabled
+ a ) Allow contact rewrite disabled 
+     * For UDP contact will contain the public IP since resolved by the STUN server (STUN is for UDP)
+     * For TCP contact will contain the private IP since not possible to resolve through STUN (from title of the STUN rfc 3489 : "STUN - Simple Traversal of User Datagram Protocol (UDP) Through Network Address Translators (NATs)". However, depending on how the server behaves it can get rid of the fact it's a private IP that is used to register.</p>
+
+<p>b ) Allow contact rewrite is enabled :
+     * For UDP we are in the same than 1-a). The allow contact rewrite is useless because the public IP is already sent (thanks to STUN resolution and so no need to rewrite)
+     * For TCP the first registration (using the private lan IP) will be detected as providing the wrong IP and so a new registration with the public IP will be sent</p>
+
+<p>2) STUN is disabled
+  a)  Allow contact rewrite disabled 
+     * For both TCP and UDP, private IP is used to register. Depending on how the sip server uses sockets it may get rid of the fact the private IP is used to register.
+  b) Allow contact rewrite enabled
+     * For both TCP and UDP, once the first registration is done, the stack may detect the registered IP is wrong and try a new register with the correct IP.</p>
+
+<p>That's why :
+ -- By default Allow contact rewrite is enabled (because in all cases, if nothing is done on server side to get rid of incorrect contact it helps a lot. On the contrary if something is done on server side to get rid of incorrect contact, it may completely break server registration)</p>
+
+<p>-- And STUN is disabled : The drawback of STUN is that public STUN servers are not always located in the same "public" network than the sip server (example : entreprise servers, countries with separated internet space like China). The problem is that in case STUN is disabled and was actually needed because remote side is not able to update sending RTP address, STUN would be required for the media (even if not mandatory for registration thanks to the allow contact rewrite).</p>
+
+<p>I know that's not easy. But that's SIP and NAT issues. It's not easy. That's why there is wizards in csipsimple to abstract all this crap from users. 
+However, pjsip is absolutely logic on how it works. I mean they don't use some fuzzy logic, but some robust one based on SIP RFC. Some other sip stack has some fuzzy logic and can get rid of most problems. But they also don't allow to connect to other services where their fuzzy logic fails. While in pjsip you have the entire hand on settings and can just decide how SIP stack behaves and adapt to your server and network your settings.</p>
+
+<p>I hope that my explanation helped you to get the logic (at least as I understood it ;) ).</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #7</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jul 20, 2012 by
+                  <i class="ng-binding">Quick Giraffe</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Regis, thanks a lot for that summary. It made me thinking about it more and more. :) Now, including 3 parameters (STUN, Allow and TCP/UDP) into the mix we have 8 possibilities of configuration...</p>
+
+<p>With regard to "Allow contact rewrite" option, here is what I think:
+If SIP servers would always return correct "Via" string in first respond to REGISTER request (it comes as "SIP/2.0 401 Unauthorized"), there is no need to rewrite contact info by sending the second pair of REGISTER requests. That first reply already may contain correct WAN:port data, that could be immediately used in the second REGISTER request, that CSS sends with "Authorization" field. Just use the data coming form SIP server within "Via:" (and particularly "rport=36862;received=IP.ADD.RES.WAN"). If SIP servers supports rfc3581, the "Allow contact rewrite" option may be omitted at all, making configuration simpler.</p>
+
+<p>I see that CSS complies to <a href="http://www.ietf.org/rfc/rfc3581.txt">rfc3581</a> specification. It sends REGISTER containing "Via" with "tport" (no value), soliciting WAN:port data from SIP server. It it gets it - there is no need to rewrite contact info...</p>
+
+<p>I'm sure you have more experience with different SIP servers. Do the majority of them comply to that old RFC? If they do, make it simpler and hide the option (I guess it may require additional work in PJSIP lib project though).</p>
+
+<p>From the other side (and leaving alone the point I've made above), do you really need that "Allow contact rewrite" option? What if it's always on? Cases 1.a.UDP == 1.b.UDP, 2.a.UDP == 2.b.UDP, aren't they? And cases 1.a.TCP and 1.b.TCP look similar to me, as well as 2.a.TCP and 2.b.TCP. Moreover, if PJSIP stack detects that 1st registration was done with LAN IP and should be corrected with second REGISTER request (overwriting "Contact" info) - let's always do it automatically. If it can't correct it, so be it, don't send second REGISTER request, the same way BTW as if stack detects, that correct WAN:host was already used with the first REGISTER request... In all those cases the option looks unnecessary to me. Of course, I could miss some details, but so far, I don't see a reason to make configuration more complicated (offering the option), than it needs to be (and people will try to open tickets, similar to this one in the future).</p>
+
+<p>Now, couple of words about STUN option. I understand that some folks can avoid using it. But with direct media mode I can't turn it off. If I do and SIP channel is correctly set (let say I use TCP), I can make / receive calls, but there is no audio. STUN is needed not only for setting correct SIP channel. It's required for RTP channel too. I've tested it and it SIP worked fine, but there is no audio at all (both directions). It's because SDP contains LAN:port data :( So, for me - STUN is always ON, TCP or UDP still a question, and ... I don't want to see the "Allow" option in my configuration at all :D</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #8</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jul 20, 2012 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Server doesn't all do the same things and support the same RFC. There is also the 5626 that could help.</p>
+
+<p>About the first point, from my understood of the RFC, nothing ensure that the sip server took the via into account for the registered contact. If it does, you would observe exactly same thing with and without allow contact rewrite option in your case... and that's not what you observe, isn't it?</p>
+
+<p>About why allow contact rewrite is optional (but default to true) : case 2.a.UDP and 2.b.UDP are different. In one case the result is private IP in the other it's public IP. 
+And some servers that does clever things requires to have allow contact rewrite disabled (actually they do things based on the RFC you mention plus other things) ! 
+If you register to them with public IP it will break their NAT handling. You can check the source code, there is some sip providers where this is disabled. It's very often because if it's activated it breaks things. So it's required as an option.</p>
+
+<p>The best proof is that in some wizard configuration it's required (and validated by corresponding sip providers), and in other case it must be set to off (and validated by corresponding sip providers). So it's an option that must be there. It's an expert option however. And you'll find it only in expert wizard, and requires expert skills to understand what it does and how the server behaves depending on what it sends.</p>
+
+<p>About the STUN point, you're right. If direct media (between two NATed clients) it's required. It's an option because not always necessary and also because in some case it just break registration (because public ip is invalid).
+So also one things that must be kept as optional setting.</p>
+
+<p>Again, SIP is not easy to configure with NAT. That's why there is so many settings and case. That's also why the approach in csipsimple is to make wizard that abstract that from users point of view.
+As soon as you have your own server, you'll need to understand the expert mode and deal with it. Having STUN + allow contact rewrite is often a solution to be robust even if it's not always required (both options). That's why that's options and that's why you have to understand these options if you want to disable/enable it.</p>
+
+<p>To sum up it really depends on how the server behaves and the options available are options that you can or not enable/disable it depending on how the server behaves. The default options are the one that are known to be the most robust regarding current state of mainstream sip providers. That's not necessarily the most efficient however, but my goal is to provide the best user experience. Then if expert users wants to adapt/optimize for their needs they can. If sip providers wants to adapt/optimize for their server they also can send me info and I create a wizard.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #9</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jul 20, 2012 by
+                  <i class="ng-binding">Quick Giraffe</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><blockquote>
+  <p>About the first point, from my understood of the RFC, nothing ensure that the sip server took the via into account for the registered contact. If it does, you would observe exactly same thing with and without allow contact rewrite option in your case... and that's not what you observe, isn't it?</p>
+</blockquote>
+
+<p>Server doesn't took "Via" as "Contact". When first REGISTER packet arrives to server, it looks at "Via" field and if it contains "rport" without any value, it adds here "host:port" data as it sees it ("Via: rport=36862;received=IP.ADD.RES.WAN"). That's exactly what CSS wants to know about its own external IP and port on WAN side of its NAT router. If CSS will take it and change "Contact" field accordingly in the next its REGISTER request, there will be no need to rewrite anything !!! REGISTER packet would already contain correct data in "Contact" field. That's why server MUST send external "host:port" in "Via:" if there is "rport" without value. (<a href="http://www.ietf.org/rfc/rfc3581.txt">http://www.ietf.org/rfc/rfc3581.txt</a>)</p>
+
+<blockquote>
+  <p>If you register to them with public IP it will break their NAT handling.</p>
+</blockquote>
+
+<p>I don't understand. "Contact" should provide public IP address in the first place. If it's not - it's incorrect and should should be fixed ASAP. What CSS does when it rewrites "Contact" data is - it corrects (rewrites with second REGISTER request) incorrect IP (it was LAN) with correct one (WAN, the public IP)... Again, if CSS was sending correct public IP with its 1st REGISTER request, how it would break server's NAT handling?</p>
+
+<p>My related proposal was: 1) set "Allow contact rewrite" to "ON" and hide it from users; 2) make CSS a bit smarter what will help to deploy p.1. 
+(Under the smarter I mean - send second REGISTER request automatically and only if it's needed, without the mentioned option)</p>
+
+<blockquote>
+  <p>Again, SIP is not easy to configure with NAT.</p>
+</blockquote>
+
+<p>I agree. It's one of the biggest drawbacks of SIP - lack of NAT support. And BTW, it was designed long after everyone started using NAT (businesses, residents, almost everyone)... SIP designers obviously suffered lack of any vision of the Internet reality around them :( BTW, similar to IPSec designers, who also assumed, that every host should have public IP... Both have proved to be dumb as we see it now :(</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #10</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jul 20, 2012 by
+                  <i class="ng-binding">Quick Giraffe</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><h2>Ok, my earlier proposal (how to set "Contact" automatically without the second round of REGISTER request needed) was based on analysis of logs, generated by CSS and FS. Now I've got lucky and I found a real example of similar scenario. It's exactly how OBi100 ATA device works using, TCP transport. Here is the log, containing important fields:</h2>
+
+<p>1.
+   REGISTER sip:gdomain.tld:5060 SIP/2.0
+   Via: SIP/2.0/TCP IP.ADD.RES.LAN:4553;branch=z9hG4bK-725d1ca2;rport
+   User-Agent: OBIHAI/OBi100-1.3.0.2711
+   Contact: "SIP5" ;expires=1100
+2.
+   SIP/2.0 401 Unauthorized
+   Via: SIP/2.0/TCP IP.ADD.RES.LAN:4553;branch=z9hG4bK-725d1ca2;rport=17156;received=IP.ADD.RES.WAN
+   User-Agent: FreeSWITCH-mod_sofia/1.2.0-rc2+git~20120718T034013Z~ef3050f3a9+unclean~20120718T051225Z
+3.
+   REGISTER sip:gdomain.tld:5060 SIP/2.0
+   Via: SIP/2.0/TCP IP.ADD.RES.LAN:4553;branch=z9hG4bK-bf09dba;rport
+   User-Agent: OBIHAI/OBi100-1.3.0.2711
+   Contact: "OBi SP1" ;expires=1100
+4.
+   SIP/2.0 200 OK
+   Via: SIP/2.0/TCP IP.ADD.RES.LAN:4553;branch=z9hG4bK-bf09dba;rport=17156;received=IP.ADD.RES.WAN
+   Contact: ;expires=1100</p>
+
+<h2>   User-Agent: FreeSWITCH-mod_sofia/1.2.0-rc2+git~20120718T034013Z~ef3050f3a9+unclean~20120718T051225Z</h2>
+
+<p>Note:
+1. in 1.Via field  "rport" is empty. It means that in next reply SIP server NUST to fill in proper info (WAN:port) there.
+   "Contact" in 1 contains LAN IP of the client - obvoiusly wrong IP to contact to.
+2. Server replies with new "Via:", now containing "received=IP.ADD.RES.WAN" and "rport=17156".
+3. Client puts that data into "Connect" field (correcting it this time) and sends REGISTER request again.
+4. Registration accepted. "Contact" contains proper "IP.ADD.RES.WAN:17156" data.</p>
+
+<p>As you can see, there is no need for the second round of REGISTER requests to send, because everything is already set correctly with the first round. And therefore there is no need for a configuration option, like "Allow contact rewrite"...</p>
+
+<p>It's real example from real device, that works fine with TCP transport behind NAT router.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #11</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jul 21, 2012 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><blockquote>
+  <p>Server doesn't took "Via" as "Contact". When first REGISTER packet arrives to server, it looks at "Via" field and if it contains "rport" without any value, it adds here "host:port" data as it sees it ("Via: rport=36862;received=IP.ADD.RES.WAN"). That's exactly what CSS wants to know about its own external IP and port on WAN side of its NAT router. If CSS will take it and change "Contact" field accordingly in the next its REGISTER request, there will be no need to rewrite anything !!! REGISTER packet would already contain correct data in "Contact" field. That's why server MUST send external "host:port" in "Via:" if there is "rport" without value. (<a href="http://www.ietf.org/rfc/rfc3581.txt">http://www.ietf.org/rfc/rfc3581.txt</a>)</p>
+</blockquote>
+
+<p>But....... That's what the allow contact rewrite option does !!!
+Again, here's how the allow contact option works.
+It takes the "Via" Host:port and then rewrite (don't be afraid about the fact it's named rewrite), the "contact" field and send a next Register request....... That's EXACTLY what you describe !!!!!!! The allow contact rewrite option is EXACTLY what you ask for !!!! 
+Just re read your sentience : </p>
+
+<blockquote>
+  <p>If CSS will take it and change "Contact" field accordingly in the next its REGISTER request, there will be no need to rewrite anything !!!</p>
+</blockquote>
+
+<p>You are telling me that if CSipSimple take it and "rewrite"/change the "Contact" field accordingly in the next register request, it doesn't need to rewrite !?!
+Does it makes more sense for your if the world change is replaced by rewrite? It's exactly what pjsip does. The allow contact rewrite is made to take this via into account from first register and rewrite (or change if you prefer) the contact from this first register result and send a second register with valid contact field !!!! Exactly what you are asking for !!!!</p>
+
+<p>The <em>only</em> thing that changes is the fact it sends after a full authentication process or in the middle of the authentication process. 
+And I think that there is very good reason for pjsip doing that.
+Some SIP server maintains challenge + contact of the request to identify a registration request. So the way your ATA device work may break some SIP server implementation : this client will receive an error if the server maintain the registration request using challenge + contact. 
+While in pjsip, it complete the registration process and send a new register then. </p>
+
+<p>But appart of that it's <em>EXACTLY</em> the same thing than the "allow contact rewrite" option. 
+If pjsip had something to change contact in the middle of the authentication (which is maybe not rfc correct and anyway breaks some server implementations), it would be named <em>EXACTLY</em> the same "allow contact rewrite" option. Don't be afraid about the fact it's named rewrite. It just change the contact according to the result of the first register...</p>
+
+<p>And again, it <em>must</em> be an option because doing that breaks some servers implementation. Trust me.</p>
+
+<p>In your case (FS), the correct configuration is to allow STUN + allow contact rewrite option.
+And trust me about the fact other servers needs other configuration. You can have a look to the list of wizard available in CSipSimple and try to create an account on those that need allow contact rewrite to be turned off... you'll see that it breaks the clever things done by server in this case. And if you test with your ATA device it will not work. Unless you have an option in this device to disable the rewrite/change of the contact after the first register...</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #12</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jul 21, 2012 by
+                  <i class="ng-binding">Quick Giraffe</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>At this point it's just a matter of opinion - you prefer to have 2 REGISTER exchanges (8 packets total), while I prefer to have only one REGISTER exchange (4 packets total). You prefer to offer additional option (the reason of opening this issue on my side) and I prefer to simplify the interface by hiding that option that may cause others to do the same mistake as I did. And I offered real example of how the function of rewriting the Contact info is automatically performed in OBi100 ATA, which with, I have nothing, but a good experience with its implementation (BTW, it works directly with Google Voice too, while CSS still can't). </p>
+
+<p>Of course, keep that option. That's OK with me. I'll just try to remember do not turn it off later on :)</p>
+
+<p>And finally, if CSS saw that it broke some server implementation, it could immediately change its behavior (without asking for any configuration option) and send the second REGISTER request. Perhaps that's how OBi100 would do under similar circumstances (it's just a guess at this time, I have not encountered with such servers yet to test it ;) ). So far, I have not found complains about OBi100 and such servers on the Internet... but I'll keep that in mind :)</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #13</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jul 21, 2012 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>The option is an EXPERT option!!! In EXPERT settings !!! Mainstream users should not go here... never... unless I tell them to try. 
+You and me are expert so no problem using the Expert wizard. 
+We understand what we do or at least we can ask and communicate with developers on what it does. So, it's not a problem... it's EXPERT settings for expert users we are ;) !</p>
+
+<p>The philosophy of the app is to leave access to pjsip settings inside the application for mainstream users. And for other users, mainstream, provide basic account configuration that can be done in 2 minutes. Mainstream users will not go in the expert wizard !! They will be afraid of the options. Mainstream users will use the basic one. And the basic is very simple and leave this option to on.
+And it makes sense to keep it as an option because ... again... some servers plays bad when it's enabled ! So it's useful for me, when people have problems to receive call media with their server to tell them to try to disable this option... and trust me it makes a difference sometimes.
+And it's not a problem that can be observed at registration time... it's something that can be observed only when you receive a call. So no way to magically detect that....unfortunately :S</p>
+
+<p>To test with servers which requires (some of them only prefer because they work well without, but for some it's really required) to have allow contact rewrite to off :
+Blicnet, FreephoneLine.ca, Gradwell, IPshka, Keyyo, Neuftalk, Odorik, Sipnet, Sipwise, Vono and ZonPt.</p>
+
+<p>It's indeed not a majority, but it represents users.</p>
+
+<p>Also just to remind you, pjsip is not only used by CSipSimple, it's widely used by other applications. I've even heard it's used by Bria on iphone... which is not a private little application made by one developer ;). 
+So more likely if there is errors, it's in my android portage of it or it could be with default configuration I use. But very rarely it's within pjsip (it can happen and I already raised some things to pjsip guys, but it's very rare cases and often on new features).
+For the reference, about the allow contact rewrite option : <a href="http://www.pjsip.org/pjsip/docs/html/structpjsua__acc__config.htm#a22961bb72ea75f7ca7008464f081ca06">http://www.pjsip.org/pjsip/docs/html/structpjsua__acc__config.htm#a22961bb72ea75f7ca7008464f081ca06</a></p>
+
+<p><a href="http://trac.pjsip.org/repos/wiki/FAQ#regipchange">http://trac.pjsip.org/repos/wiki/FAQ#regipchange</a></p>
+
+<p>And last, if something has to be done, it's to ask on pjsip mailing list... not on CSipSimple. All I can do is forward a request to pjsip guys, but I try to bother them as less as possible and usually when I have a patch ready ;).
+I very rarely dive into pjsip source code and leave that to SIP dev experts.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #14</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jul 22, 2012 by
+                  <i class="ng-binding">Quick Giraffe</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Using TCP transport in r1718 and "Allow contact rewrite" option it ON, registration is fine, FS sends calls to CSS just fine (because it knows now where to send those calls - "Contact" field was fixed with second pack of REGISTER requests). But this time FS doesn't send ACK message back to CSS, when it accepts the incoming calls. I suppose it's because OK/INVITE message, coming from CSS, contains bogus data in "Contact" field again...</p>
+
+<p>As a result - incoming calls, while answered OK, ate always dropped by CSS in 1 min.</p>
+
+<p>Could you please check?</p>
+
+<p>Potentially related "Contact rewrite method" option could be changed from "Normal" (I usually use this option's value) to "Legacy" without any result...</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #15</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jul 22, 2012 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Do you have logs of the final INVITE response from csipsimple with the bogus contact. I'll check on my side too.
+Could be interesting to see what wireshark tells. It could gives some interesting clue on why FS doesn't send the ACK message (for example if TCP socket is broken on his side).</p>
+
+<p>About the "Contact rewrite method", normally you should see something changing in packets sent. But nothing about the final state.
+Normal pass the expires = 0 of the previous contact registration directly in the new registration; while in legacy mode, it sends a full unregister and send a new register with the updated contact.</p>
+
+<p>FS supports the normal mode, so no problem using normal mode. It will produce less transactions and will result exactly same thing functionally. 
+Some servers doesn't support the "Normal" method because not fully compliant with the RFC that specifies that a contact could be unregistered in the same request than another is registration. </p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #16</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jul 22, 2012 by
+                  <i class="ng-binding">Quick Giraffe</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Log you find here: <a href="http://code.google.com/p/csipsimple/issues/detail?id=1793#c40">http://code.google.com/p/csipsimple/issues/detail?id=1793#c40</a>
+Look at time 14:51:41, and particularly, at line #256.</p>
+
+<h2>I compare two logs on FS side. In one, the call goes from OBi to CSS and in another one call goes in opposite direction - from CSS to OBi. Both using TCP transport. Call form OBi to CSS is always terminated in 1 min by CSS (there is no ACK messages sent to CSS in response to OK/INVITE messages). Calls from CSS to OBi work always fine. OBi gets its ACK from FS in response for OK/INVITE that is sends. The only difference is in "Contact" string. Not working CSS sends:</h2>
+
+<p>recv 852 bytes from tcp/[IP.ADD.RES.WAN]:51400 at 19:40:19.724158:</p>
+
+<hr>
+
+<p>SIP/2.0 200 OK
+   Via: SIP/2.0/TCP IP.ADD.RES.FS;rport=5060;received=IP.ADD.RES.FS;branch=z9hG4bK91cctU1tHZ1Ke
+   CSeq: 31156942 INVITE</p>
+
+<h2>   Contact: </h2>
+
+<h2>and always working OBi ATA sends:</h2>
+
+<p>recv 800 bytes from tcp/[IP.ADD.RES.OBI]:19825 at 19:44:32.868353:</p>
+
+<hr>
+
+<p>SIP/2.0 200 OK
+   Via: SIP/2.0/TCP IP.ADD.RES.FS;branch=z9hG4bKcXrpZcm58S4BH;received=0.57.132.176;rport=1
+   CSeq: 31157066 INVITE</p>
+
+<h2>   Contact: "SIP5" </h2>
+
+<p>Where: IP.ADD.RES.OBI - WAN IP of OBi ATA and IP.ADD.RES.WAN - WAN IP of CSS.</p>
+
+<p>Interesting (but not important), that "Via:" in the latter case contain garbage (received=0.57.132.176;rport=1). But nevertheless FS responds just fine...</p>
+
+<p>I suppose, if you will fix "Contact" field, it will fix the problem of the 1 minute termination...</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments -->
+          </div>
+
+          <!-- Sidebar with additional information -->
+          <div class="maia-col-4">
+            <div class="maia-aside">
+              <p>Status: <code class="ng-binding">WrongConfig</code></p>
+              <!-- ngIf: issueCtrl.issue.labels.length > 0 --><p ng-if="issueCtrl.issue.labels.length &gt; 0" class="ng-scope">
+                Labels:
+                <br>
+                <!-- ngRepeat: label in issueCtrl.issue.labels track by $index --><span ng-repeat="label in issueCtrl.issue.labels track by $index" class="ng-scope">
+                  <span class="gca-label ng-binding">Type-Defect</span>
+                </span><!-- end ngRepeat: label in issueCtrl.issue.labels track by $index --><span ng-repeat="label in issueCtrl.issue.labels track by $index" class="ng-scope">
+                  <span class="gca-label ng-binding">Priority-Medium</span>
+                </span><!-- end ngRepeat: label in issueCtrl.issue.labels track by $index -->
+              </p><!-- end ngIf: issueCtrl.issue.labels.length > 0 -->
+            </div>
+          </div>
+        </div><!-- end ngIf: !issueCtrl.error -->
+      </div>
+    </div>
+
+  </div>
+</div>
+</div></div></div>
+    <noscript>
+      &lt;p&gt;The Google Code Archive requires JavaScript to be enabled in your browser.&lt;/p&gt;
+    </noscript>
+
+    <div id="maia-signature"></div>
+    <div class="maia-footer" id="maia-footer">
+      <div id="maia-footer-local">
+      </div>
+      <div id="maia-footer-global">
+        <div class="maia-aux">
+          <ul>
+            <li>
+              <a href="//www.google.com/">Google</a>
+            </li>
+            <li>
+              <a href="//www.google.com/intl/en/about/">About Google</a>
+            </li>
+            <li>
+              <a href="//www.google.com/intl/en/policies/privacy/">Privacy</a>
+            </li>
+            <li>
+              <a href="//www.google.com/intl/en/policies/terms/">Terms</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <script src="//www.google.com/js/maia.js"></script>
+  
+
+
+</body></html>

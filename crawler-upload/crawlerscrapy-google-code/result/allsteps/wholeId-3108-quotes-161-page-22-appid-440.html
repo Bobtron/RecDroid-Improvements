@@ -1,0 +1,860 @@
+https://code.google.com/archive/p/csipsimple/issues/1732<!DOCTYPE html><html class="google ng-scope" lang="en" ng-app="codesiteArchive.application"><head>
+    <meta charset="utf-8">
+    <meta content="initial-scale=1, minimum-scale=1, width=device-width" name="viewport">
+
+    <!-- https://developers.google.com/webmasters/ajax-crawling/docs/specification -->
+    <meta name="fragment" content="!">
+    <title>Google Code Archive - Long-term storage for Google Code Project Hosting.</title>
+
+    <link rel="icon" type="image/vnd.microsoft.icon" href="/archive/img/project-hosting.ico">
+    <script src="//www.google.com/js/google.js"></script>
+    <link href="//www.google.com/css/maia.css" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;lang=en" rel="stylesheet">
+    <link rel="stylesheet" href="/archive/archive_css.css">
+    <script>
+      CLOSURE_NO_DEPS = true;
+    </script>
+    <script src="/archive/angular.js"></script><style type="text/css">@charset "UTF-8";
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak],
+.ng-cloak, .x-ng-cloak,
+.ng-hide:not(.ng-hide-animate) {
+  display: none !important;
+}
+
+ng\:form {
+  display: block;
+}
+
+.ng-animate-shim {
+  visibility:hidden;
+}
+
+.ng-anchor {
+  position:absolute;
+}
+</style>
+    <script src="/archive/pagedown.js"></script>
+    <script src="/archive/archive.js"></script>
+    <base href="/archive/">
+  </head>
+
+  <body>
+    <div class="maia-header" id="maia-header" role="banner">
+      <div class="maia-aux">
+        <a href="/archive/">
+          </a><h1><a href="/archive/">
+            <img alt="Google" src="//www.google.com/images/branding/googlelogo/1x/googlelogo_color_116x41dp.png"> Code</a>
+          </h1>
+        
+        <a href="/archive/">
+          <h2>Archive</h2>
+        </a>
+        <a class="maia-teleport" href="#content">Skip to content</a>
+        <div class="maia-util">
+          <form action="/archive/search" class="maia-search ng-pristine ng-valid">
+            <input name="q" placeholder="Search this site" type="text">
+            <button class="maia-button">
+              <span class="maia-search-icon">Search</span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- ngView: --><div ng-view="" class="ng-scope"><div ng-controller="ProjectIssueCtrl as issueCtrl" class="ng-scope">
+<nav-bar-widget nav-level-1="projectCtrl.navLevel1" class="ng-isolate-scope"><div class="maia-nav maia-complex" id="maia-nav-x" role="navigation">
+  <div class="maia-aux">
+    <ul>
+      <li ng-class="{active: navLevel1 == 'projects'}">
+        <a href="/archive/">Projects</a>
+        <!-- ngIf: navLevel2 -->
+      </li>
+      <li ng-class="{active: navLevel1 == 'search'}">
+        <a href="/archive/search">Search</a>
+      </li>
+      <li ng-class="{active: navLevel1 == 'about'}">
+        <a href="/archive/about">About</a>
+      </li>
+    </ul>
+  </div>
+</div>
+</nav-bar-widget>
+<div id="maia-main" role="main">
+
+  <!-- ngIf: issueCtrl.notFound -->
+
+  <div ng-hide="issueCtrl.notFound">
+    <!-- Left-side resource nav -->
+    <project-resources-widget domain="issueCtrl.domain" project="issueCtrl.projectName" class="ng-isolate-scope"><div class="maia-nav" id="maia-nav-y" role="navigation">
+  <!-- ngIf: domain == 'code.google.com' --><ul ng-if="domain == 'code.google.com'" class="ng-scope">
+    <li class="active">
+      <a href="/archive/p/csipsimple/">Project</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/source">Source</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/issues">Issues</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/wikis">Wikis</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/downloads">Downloads</a>
+    </li>
+  </ul><!-- end ngIf: domain == 'code.google.com' -->
+
+    <!-- ngIf: domain != 'code.google.com' -->
+</div></project-resources-widget>
+
+    <div class="maia-article" role="article">
+      <div class="maia-teleport" id="content"></div>
+      <div class="maia-cols">
+        <div id="gca-project-header" class="maia-col-10">
+          <a id="gca-export-to-gh" class="maia-button" href="https://code.google.com/export-to-github/export?project=csipsimple">Export to GitHub</a>
+            <img class="gca-project-logo" src="https://storage.googleapis.com/google-code-archive/v2/code.google.com/csipsimple/logo.png">
+            <h1 class="ng-binding">csipsimple - issue #1732</h1>
+            <p class="ng-binding">csipsimple crashes after r1400</p>
+        </div>
+
+        <div class="maia-col-10">
+          <hr>
+
+        <!-- ngIf: issueCtrl.error -->
+
+        <!-- ngIf: !issueCtrl.error --><div ng-if="!issueCtrl.error" class="ng-scope">
+          <!-- Comments -->
+          <div class="maia-col-8">
+            <!-- ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on May 12, 2012 by
+                  <i class="ng-binding">Helpful Bear</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p><b>What steps will reproduce the problem?</b>
+1.update to/fresh install any version past r1400, which was the last version sorta worked
+2.launch csipsimple</p>
+
+<p><b>What is the expected output? What do you see instead?</b>
+after approx. 4s of blank screen, it simply crashes ("stopped unexpectedly")</p>
+
+<p><b>What version of the product are you using? On what operating system?</b>
+r1406-r1490, on GalaxyTab 7.7 P6800 running vendor provided Android 3.2</p>
+
+<p><b>Please provide any additional information below.</b></p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #1</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on May 12, 2012 by
+                  <i class="ng-binding">Helpful Bear</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Can't attach the log file, so I'll post it here
+--------- beginning of /dev/log/system</p>
+
+<p>V/WindowOrientationListener( 3171): rotation : 3   Angle: 275   tilt: 40</p>
+
+<p>--------- beginning of /dev/log/main</p>
+
+<p>I/InputReader( 3171): dispatchTouch::touch event's action is 0, pending(waiting finished signal)=0 (deviceType=0)</p>
+
+<p>I/InputDispatcher( 3171): Delivering touch to current input target</p>
+
+<p>I/InputDispatcher( 3171): Delivering touch to current input target</p>
+
+<p>I/InputDispatcher( 3171): Delivering touch to current input target</p>
+
+<p>I/InputReader( 3171): dispatchTouch::touch event's action is 1, pending(waiting finished signal)=0 (deviceType=0)</p>
+
+<p>I/InputDispatcher( 3171): Delivering touch to current input target</p>
+
+<p>I/InputDispatcher( 3171): Delivering touch to current input target</p>
+
+<p>I/InputDispatcher( 3171): Delivering touch to current input target</p>
+
+<p>V/AudioPolicyManager( 2704): getParamFromPolicy  deviceInt = 0, situationInt = 1, situationVolume = 0.300000</p>
+
+<p>V/AudioPolicyManager( 2704): startOutput() output 1, stream 1, session 178</p>
+
+<p>V/AudioPolicyManager( 2704): getNewDevice() selected device 2</p>
+
+<p>V/AudioPolicyManager( 2704): setOutputDevice() output 1 device 2 delayMs 0</p>
+
+<p>V/AudioPolicyManager( 2704): setOutputDevice() setting same device 2 or null device for output 1</p>
+
+<p>I/AudioFlinger( 2704): start output streamType (0, 1) for 1</p>
+
+<p>I/AudioHardwareYamaha( 2704): AudioStreamOut::setParameters(keyValuePairs="start_output_streamtype=1")</p>
+
+<p>V/yamaha::media::Parameters( 2704): Parameters::getDacInfo()</p>
+
+<p>V/yamaha::media::VolumeCtrl( 2704): VolumeCtrl::createVolume()</p>
+
+<p>V/yamaha::media::Parameters( 2704): Parameters::getVolInfo()</p>
+
+<p>V/yamaha::media::Parameters( 2704): Parameters::getVolInfo(TuningParam::VolumePatterns)</p>
+
+<p>V/yamaha::media::UserDep( 2704): UserDep::getRouteInfo(output: audioengine=0, devices=00000002h</p>
+
+<p>V/yamaha::media::UserDep( 2704):                       incall: onoff=0, devices=00000000h</p>
+
+<p>V/yamaha::media::UserDep( 2704):                       capture: onoff=0, devices=00100000h, audioSource=6</p>
+
+<p>V/yamaha::media::UserDep( 2704):                       playback: audio_onoff=0, line_onoff=0)</p>
+
+<p>V/yamaha::media::UserDep( 2704): ALL Off</p>
+
+<p>V/yamaha::media::VolumeCtrl( 2704): VolumeCtrl::setVolume()</p>
+
+<p>V/yamaha::media::VolumeCtrl( 2704): VolumeCtrl::setVolume() FM Playback: Ready</p>
+
+<p>V/yamaha::media::VolumeCtrl( 2704): VolumeCtrl::setVolume() VoiceCall: Ready</p>
+
+<p>V/yamaha::media::Parameters( 2704): Parameters::getAengInfo(id=19)</p>
+
+<p>V/yamaha::media::Parameters( 2704): Parameters::getDacInfo()</p>
+
+<p>V/yamaha::media::VolumeCtrl( 2704): VolumeCtrl::createVolume()</p>
+
+<p>V/yamaha::media::Parameters( 2704): Parameters::getVolInfo()</p>
+
+<p>V/yamaha::media::Parameters( 2704): Parameters::getVolInfo(TuningParam::VolumePatterns)</p>
+
+<p>V/yamaha::media::VolumeCtrl( 2704): Dir0      : AP Playback Music SP (0001h)</p>
+
+<p>V/yamaha::media::VolumeCtrl( 2704): Dir0Att   : AP Playback Music SP (0001h)</p>
+
+<p>V/yamaha::media::VolumeCtrl( 2704): DacMaster : AP Playback Music SP (0001h)</p>
+
+<p>V/yamaha::media::VolumeCtrl( 2704): Sp        : AP Playback Music SP (FE81h)</p>
+
+<p>V/yamaha::media::UserDep( 2704): UserDep::getRouteInfo(output: audioengine=0, devices=00000002h</p>
+
+<p>V/yamaha::media::UserDep( 2704):                       incall: onoff=0, devices=00000000h</p>
+
+<p>V/yamaha::media::UserDep( 2704):                       capture: onoff=0, devices=00100000h, audioSource=6</p>
+
+<p>V/yamaha::media::UserDep( 2704):                       playback: audio_onoff=1, line_onoff=0)</p>
+
+<p>V/yamaha::media::UserDep( 2704): Playback[Audio], Output[dev:DAC, NonAE]</p>
+
+<p>V/yamaha::media::UserDep( 2704): editDacDst(devices=2h) HPOUT Off</p>
+
+<p>V/yamaha::media::UserDep( 2704): editDacDst(devices=2h) RCOUT Off</p>
+
+<p>V/yamaha::media::UserDep( 2704): editDacDst(devices=2h) LINEOUT1 Off</p>
+
+<p>V/yamaha::media::VolumeCtrl( 2704): VolumeCtrl::setVolume()</p>
+
+<p>V/yamaha::media::VolumeCtrl( 2704): VolumeCtrl::setVolume() FM Playback: Ready</p>
+
+<p>V/yamaha::media::VolumeCtrl( 2704): VolumeCtrl::setVolume() VoiceCall: Ready</p>
+
+<p>V/AudioPolicyManager( 2704): releaseOutput() 1</p>
+
+<p>I/WifiOffloadConnectivity( 3171): Empty method for doOffloadStuff</p>
+
+<p>D/WindowManager( 3171): addWindowToListInOrder() : current mSkipWidgetFocus='true'</p>
+
+<p>I/SurfaceFlinger( 2701): id=328(41) createSurface 0x47934 for pid 3171 (1x1),1 flag=400</p>
+
+<p>I/Launcher( 3907): ----------onPause</p>
+
+<p>I/ALSAModule( 2704): Initialized ALSA PLAYBACK device hifi</p>
+
+<p>W/AudioFlinger( 2704): write blocked for 126 msecs, 98 delayed writes, thread 0x83e00</p>
+
+<p>D/dalvikvm(22271): GC_CONCURRENT freed 147K, 4% free 6812K/7047K, paused 1ms+1ms</p>
+
+<p>V/AudioPolicyManager( 2704): stopOutput() output 1, stream 1, session 178</p>
+
+<p>V/AudioPolicyManager( 2704): getNewDevice() selected device 0</p>
+
+<p>V/AudioPolicyManager( 2704): setOutputDevice() output 1 device 0 delayMs 0</p>
+
+<p>V/AudioPolicyManager( 2704): setOutputDevice() setting same device 0 or null device for output 1</p>
+
+<p>I/AudioFlinger( 2704): stop output streamType (0, 1) for 1</p>
+
+<p>I/AudioHardwareYamaha( 2704): AudioStreamOut::setParameters(keyValuePairs="stop_output_streamtype=1")</p>
+
+<p>I/SurfaceFlinger( 2701): id=327 Removed idx=1 Map Size=3</p>
+
+<p>I/SurfaceFlinger( 2701): id=327 Removed idx=-2 Map Size=3</p>
+
+<p>D/dalvikvm(22271): GC_CONCURRENT freed 260K, 5% free 7023K/7367K, paused 3ms+1ms</p>
+
+<p>D/dalvikvm(22271): GC_FOR_ALLOC freed 4K, 5% free 7019K/7367K, paused 15ms</p>
+
+<p>I/dalvikvm-heap(22271): Grow heap (frag case) to 7.393MB for 513744-byte allocation</p>
+
+<p>D/dalvikvm(22271): GC_FOR_ALLOC freed 0K, 5% free 7520K/7879K, paused 41ms</p>
+
+<p>E/com.actionbarsherlock.internal.widget.ScrollingTabContainerView(22271): Impossible to get method setAlpha</p>
+
+<p>E/com.actionbarsherlock.internal.widget.ScrollingTabContainerView(22271): java.lang.NoSuchMethodException: setAlpha []</p>
+
+<p>E/com.actionbarsherlock.internal.widget.ScrollingTabContainerView(22271):   at java.lang.ClassMembers.getConstructorOrMethod(ClassMembers.java:235)</p>
+
+<p>E/com.actionbarsherlock.internal.widget.ScrollingTabContainerView(22271):   at java.lang.Class.getDeclaredMethod(Class.java:672)</p>
+
+<p>E/com.actionbarsherlock.internal.widget.ScrollingTabContainerView(22271):   at com.actionbarsherlock.internal.utils.UtilityWrapper.safelyGetSuperclassMethod(UtilityWrapper.java:88)</p>
+
+<p>E/com.actionbarsherlock.internal.widget.ScrollingTabContainerView(22271):   at com.actionbarsherlock.internal.nineoldandroids.widget.NineHorizontalScrollView.(NineHorizontalScrollView.java:27)</p>
+
+<p>E/com.actionbarsherlock.internal.widget.ScrollingTabContainerView(22271):   at com.actionbarsherlock.internal.widget.ScrollingTabContainerView.(ScrollingTabContainerView.java:69)</p>
+
+<p>E/com.actionbarsherlock.internal.widget.ScrollingTabContainerView(22271):   at com.actionbarsherlock.internal.app.ActionBarImpl.ensureTabsExist(ActionBarImpl.java:214)</p>
+
+<p>E/com.actionbarsherlock.internal.widget.ScrollingTabContainerView(22271):   at com.actionbarsherlock.internal.app.ActionBarImpl.setNavigationMode(ActionBarImpl.java:990)</p>
+
+<p>E/com.actionbarsherlock.internal.widget.ScrollingTabContainerView(22271):   at com.csipsimple.ui.SipHome.onCreate(SipHome.java:142)</p>
+
+<p>E/com.actionbarsherlock.internal.widget.ScrollingTabContainerView(22271):   at android.app.Instrumentation.callActivityOnCreate(Instrumentation.java:1053)</p>
+
+<p>E/com.actionbarsherlock.internal.widget.ScrollingTabContainerView(22271):   at android.app.ActivityThread.performLaunchActivity(ActivityThread.java:1779)</p>
+
+<p>E/com.actionbarsherlock.internal.widget.ScrollingTabContainerView(22271):   at android.app.ActivityThread.handleLaunchActivity(ActivityThread.java:1831)</p>
+
+<p>E/com.actionbarsherlock.internal.widget.ScrollingTabContainerView(22271):   at android.app.ActivityThread.access$500(ActivityThread.java:122)</p>
+
+<p>E/com.actionbarsherlock.internal.widget.ScrollingTabContainerView(22271):   at android.app.ActivityThread$H.handleMessage(ActivityThread.java:1024)</p>
+
+<p>E/com.actionbarsherlock.internal.widget.ScrollingTabContainerView(22271):   at android.os.Handler.dispatchMessage(Handler.java:99)</p>
+
+<p>E/com.actionbarsherlock.internal.widget.ScrollingTabContainerView(22271):   at android.os.Looper.loop(Looper.java:132)</p>
+
+<p>E/com.actionbarsherlock.internal.widget.ScrollingTabContainerView(22271):   at android.app.ActivityThread.main(ActivityThread.java:4125)</p>
+
+<p>E/com.actionbarsherlock.internal.widget.ScrollingTabContainerView(22271):   at java.lang.reflect.Method.invokeNative(Native Method)</p>
+
+<p>E/com.actionbarsherlock.internal.widget.ScrollingTabContainerView(22271):   at java.lang.reflect.Method.invoke(Method.java:491)</p>
+
+<p>E/com.actionbarsherlock.internal.widget.ScrollingTabContainerView(22271):   at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:849)</p>
+
+<p>E/com.actionbarsherlock.internal.widget.ScrollingTabContainerView(22271):   at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:607)</p>
+
+<p>E/com.actionbarsherlock.internal.widget.ScrollingTabContainerView(22271):   at dalvik.system.NativeStart.main(Native Method)</p>
+
+<p>V/WindowManager( 3171): new rotation is set to 3</p>
+
+<p>D/dalvikvm(22271): GC_CONCURRENT freed 66K, 4% free 7573K/7879K, paused 1ms+3ms</p>
+
+<p>D/WindowManager( 3171): addWindowToListInOrder() : current mSkipWidgetFocus='true'</p>
+
+<p>I/WifiOffloadConnectivity( 3171): Empty method for doOffloadStuff</p>
+
+<p>D/WindowManager( 3171): addWindowToListInOrder() : current mSkipWidgetFocus='true'</p>
+
+<p>V/AudioPolicyManager( 2704): getOutput() stream 3, samplingRate 0, format 0, channels c, flags 0</p>
+
+<p>V/yamaha::media::Parameters( 2704): Parameters::getDacInfo()</p>
+
+<p>V/yamaha::media::VolumeCtrl( 2704): VolumeCtrl::createVolume()</p>
+
+<p>V/yamaha::media::Parameters( 2704): Parameters::getVolInfo()</p>
+
+<p>V/yamaha::media::Parameters( 2704): Parameters::getVolInfo(TuningParam::VolumePatterns)</p>
+
+<p>V/yamaha::media::VolumeCtrl( 2704): Dir0      : AP Playback Music SP (0001h)</p>
+
+<p>V/yamaha::media::VolumeCtrl( 2704): Dir0Att   : AP Playback Music SP (0001h)</p>
+
+<p>V/yamaha::media::VolumeCtrl( 2704): DacMaster : AP Playback Music SP (0001h)</p>
+
+<p>V/yamaha::media::VolumeCtrl( 2704): Sp        : AP Playback Music SP (FE81h)</p>
+
+<p>V/yamaha::media::UserDep( 2704): UserDep::getRouteInfo(output: audioengine=0, devices=00000002h</p>
+
+<p>V/yamaha::media::UserDep( 2704):                       incall: onoff=0, devices=00000000h</p>
+
+<p>V/yamaha::media::UserDep( 2704):                       capture: onoff=0, devices=00100000h, audioSource=6</p>
+
+<p>V/yamaha::media::UserDep( 2704):                       playback: audio_onoff=1, line_onoff=0)</p>
+
+<p>V/yamaha::media::UserDep( 2704): Playback[Audio], Output[dev:DAC, NonAE]</p>
+
+<p>V/yamaha::media::UserDep( 2704): editDacDst(devices=2h) HPOUT Off</p>
+
+<p>V/yamaha::media::UserDep( 2704): editDacDst(devices=2h) RCOUT Off</p>
+
+<p>V/yamaha::media::UserDep( 2704): editDacDst(devices=2h) LINEOUT1 Off</p>
+
+<p>V/yamaha::media::VolumeCtrl( 2704): VolumeCtrl::setVolume()</p>
+
+<p>V/yamaha::media::VolumeCtrl( 2704): VolumeCtrl::setVolume() FM Playback: Ready</p>
+
+<p>V/yamaha::media::VolumeCtrl( 2704): VolumeCtrl::setVolume() VoiceCall: Ready</p>
+
+<p>E/NotificationService( 3171): cancelNotification - pkg:com.csipsimple, id:4</p>
+
+<p>E/NotificationService( 3171): cancelNotification - pkg:com.csipsimple, id:3</p>
+
+<p>E/NotificationService( 3171): cancelNotification - pkg:com.csipsimple, id:5</p>
+
+<p>E/NotificationService( 3171): cancelNotification - pkg:com.csipsimple, id:2</p>
+
+<p>D/dalvikvm(22287): GC_CONCURRENT freed 155K, 4% free 6827K/7047K, paused 1ms+1ms</p>
+
+<p>E/SIP SRV (22287): RESET SETTINGS !!!!</p>
+
+<p>D/dalvikvm(22271): GC_CONCURRENT freed 171K, 3% free 7973K/8199K, paused 5ms+1ms</p>
+
+<p>D/dalvikvm(22271): GC_CONCURRENT freed 94K, 2% free 8357K/8519K, paused 3ms+1ms</p>
+
+<p>V/WindowOrientationListener( 3171): rotation : 3   Angle: 275   tilt: 43</p>
+
+<p>I/SurfaceFlinger( 2701): id=329(1) createSurface 0x361b4 for pid 22271 (800x1232),1 flag=400</p>
+
+<p>D/libEGL  (22271): loaded /system/lib/egl/libEGL_mali.so</p>
+
+<p>D/libEGL  (22271): loaded /system/lib/egl/libGLESv1_CM_mali.so</p>
+
+<p>D/libEGL  (22271): loaded /system/lib/egl/libGLESv2_mali.so</p>
+
+<p>D/OpenGLRenderer(22271): Creating OpenGL renderer caches</p>
+
+<p>D/OpenGLRenderer(22271): Enabling debug mode 0</p>
+
+<p>D/OpenGLRenderer(22271): Layers will be composited as regions</p>
+
+<p>W/System.err(22271): Error reading from ./org/apache/harmony/awt/www/content/text/plain.class</p>
+
+<p>D/dalvikvm(22271): GC_CONCURRENT freed 543K, 7% free 8502K/9095K, paused 8ms+5ms</p>
+
+<p>W/CursorWrapperInner(22271): Cursor finalized without prior close()</p>
+
+<p>D/BatteryService( 3171): update start</p>
+
+<p>D/WindowManager( 3171): addWindowToListInOrder() : current mSkipWidgetFocus='true'</p>
+
+<p>I/SurfaceFlinger( 2701): id=330(2) createSurface 0x16a44 for pid 22271 (1x1),1 flag=0</p>
+
+<p>W/dalvikvm(22271): threadid=1: thread exiting with uncaught exception (group=0x40215760)</p>
+
+<p>E/AndroidRuntime(22271): FATAL EXCEPTION: main</p>
+
+<p>E/AndroidRuntime(22271): java.lang.NullPointerException</p>
+
+<p>E/AndroidRuntime(22271):    at com.actionbarsherlock.internal.utils.UtilityWrapper.safelyInvokeMethod(UtilityWrapper.java:97)</p>
+
+<p>E/AndroidRuntime(22271):    at com.actionbarsherlock.internal.nineoldandroids.widget.NineFrameLayout.getAlpha(NineFrameLayout.java:70)</p>
+
+<p>E/AndroidRuntime(22271):    at android.view.ViewGroup.drawChild(ViewGroup.java:2422)</p>
+
+<p>E/AndroidRuntime(22271):    at android.view.ViewGroup.dispatchDraw(ViewGroup.java:2189)</p>
+
+<p>E/AndroidRuntime(22271):    at android.view.View.getDisplayList(View.java:8771)</p>
+
+<p>E/AndroidRuntime(22271):    at android.view.ViewGroup.drawChild(ViewGroup.java:2556)</p>
+
+<p>E/AndroidRuntime(22271):    at android.view.ViewGroup.dispatchDraw(ViewGroup.java:2189)</p>
+
+<p>E/AndroidRuntime(22271):    at android.view.View.getDisplayList(View.java:8771)</p>
+
+<p>E/AndroidRuntime(22271):    at android.view.ViewGroup.drawChild(ViewGroup.java:2556)</p>
+
+<p>E/AndroidRuntime(22271):    at android.view.ViewGroup.dispatchDraw(ViewGroup.java:2189)</p>
+
+<p>E/AndroidRuntime(22271):    at android.view.View.getDisplayList(View.java:8771)</p>
+
+<p>E/AndroidRuntime(22271):    at android.view.ViewGroup.drawChild(ViewGroup.java:2556)</p>
+
+<p>E/AndroidRuntime(22271):    at android.view.ViewGroup.dispatchDraw(ViewGroup.java:2189)</p>
+
+<p>E/AndroidRuntime(22271):    at android.view.View.draw(View.java:9313)</p>
+
+<p>E/AndroidRuntime(22271):    at android.widget.FrameLayout.draw(FrameLayout.java:419)</p>
+
+<p>E/AndroidRuntime(22271):    at com.android.internal.policy.impl.PhoneWindow$DecorView.draw(PhoneWindow.java:2095)</p>
+
+<p>E/AndroidRuntime(22271):    at android.view.View.getDisplayList(View.java:8773)</p>
+
+<p>E/AndroidRuntime(22271):    at android.view.HardwareRenderer$GlRenderer.draw(HardwareRenderer.java:609)</p>
+
+<p>E/AndroidRuntime(22271):    at android.view.ViewRoot.draw(ViewRoot.java:1634)</p>
+
+<p>E/AndroidRuntime(22271):    at android.view.ViewRoot.performTraversals(ViewRoot.java:1450)</p>
+
+<p>E/AndroidRuntime(22271):    at android.view.ViewRoot.handleMessage(ViewRoot.java:2094)</p>
+
+<p>E/AndroidRuntime(22271):    at android.os.Handler.dispatchMessage(Handler.java:99)</p>
+
+<p>E/AndroidRuntime(22271):    at android.os.Looper.loop(Looper.java:132)</p>
+
+<p>E/AndroidRuntime(22271):    at android.app.ActivityThread.main(ActivityThread.java:4125)</p>
+
+<p>E/AndroidRuntime(22271):    at java.lang.reflect.Method.invokeNative(Native Method)</p>
+
+<p>E/AndroidRuntime(22271):    at java.lang.reflect.Method.invoke(Method.java:491)</p>
+
+<p>E/AndroidRuntime(22271):    at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:849)</p>
+
+<p>E/AndroidRuntime(22271):    at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:607)</p>
+
+<p>E/AndroidRuntime(22271):    at dalvik.system.NativeStart.main(Native Method)</p>
+
+<p>E/android.os.Debug( 3171): Dumpstate &gt; dumpstate -k -z -d -o /data/log/dumpstate_app_error</p>
+
+<p>I/dumpstate(22307): begin</p>
+
+<p>D/dalvikvm(22271): GC_CONCURRENT freed 559K, 8% free 8569K/9223K, paused 14ms+2ms</p>
+
+<p>I/ALSAModule( 2704): Terminated ALSA PLAYBACK device hifi</p>
+
+<p>D/dalvikvm(22271): GC_CONCURRENT freed 675K, 9% free 8564K/9351K, paused 2ms+6ms</p>
+
+<p>V/yamaha::media::Parameters( 2704): Parameters::getAengInfo(id=-1)</p>
+
+<p>V/yamaha::media::Parameters( 2704): Parameters::getDacInfo()</p>
+
+<p>V/yamaha::media::VolumeCtrl( 2704): VolumeCtrl::createVolume()</p>
+
+<p>V/yamaha::media::Parameters( 2704): Parameters::getVolInfo()</p>
+
+<p>V/yamaha::media::Parameters( 2704): Parameters::getVolInfo(TuningParam::VolumePatterns)</p>
+
+<p>V/yamaha::media::UserDep( 2704): UserDep::getRouteInfo(output: audioengine=0, devices=00000002h</p>
+
+<p>V/yamaha::media::UserDep( 2704):                       incall: onoff=0, devices=00000000h</p>
+
+<p>V/yamaha::media::UserDep( 2704):                       capture: onoff=0, devices=00100000h, audioSource=6</p>
+
+<p>V/yamaha::media::UserDep( 2704):                       playback: audio_onoff=0, line_onoff=0)</p>
+
+<p>V/yamaha::media::UserDep( 2704): ALL Off</p>
+
+<p>V/yamaha::media::VolumeCtrl( 2704): VolumeCtrl::setVolume()</p>
+
+<p>V/yamaha::media::VolumeCtrl( 2704): VolumeCtrl::setVolume() FM Playback: Ready</p>
+
+<p>V/yamaha::media::VolumeCtrl( 2704): VolumeCtrl::setVolume() VoiceCall: Ready</p>
+
+<p>D/dalvikvm(22271): GC_CONCURRENT freed 567K, 9% free 8564K/9351K, paused 1ms+2ms</p>
+
+<p>D/VoldCmdListener( 2697): asec list</p>
+
+<p>I/ApplicationPolicy( 3171): getActualApplicationStateEnabled() : true</p>
+
+<p>D/dalvikvm( 3171): GC_CONCURRENT freed 3761K, 26% free 27764K/37511K, paused 2ms+6ms</p>
+
+<p>W/PowerManagerService( 3171): Timer 0x3-&gt;0x3|0x0</p>
+
+<p>I/dumpstate(22307): done</p>
+
+<p>D/WindowManager( 3171): addWindowToListInOrder() : current mSkipWidgetFocus='true'</p>
+
+<p>I/SurfaceFlinger( 2701): id=331(33) createSurface 0x2716c for pid 3907 (800x1232),1 flag=0</p>
+
+<p>D/dalvikvm(22287): Trying to load lib /data/data/com.csipsimple/lib/libpjsipjni.so 0x408724a8</p>
+
+<p>V/WindowOrientationListener( 3171): rotation : 3   Angle: 274   tilt: 43</p>
+
+<p>I/SurfaceFlinger( 2701): id=332(42) createSurface 0x1663c for pid 3171 (1x1),1 flag=0</p>
+
+<p>D/Launcher( 3907): onResume mOnResumeNeedsLoad = false</p>
+
+<p>D/dalvikvm(22287): Added shared lib /data/data/com.csipsimple/lib/libpjsipjni.so 0x408724a8</p>
+
+<p>D/dalvikvm(22287): GC_EXPLICIT freed 143K, 3% free 6908K/7111K, paused 1ms+2ms</p>
+
+<p>E/libpjsip(22287): 10:07:19.968  pjsua_media.c  ..NAT type detection failed: Invalid STUN server or server not configured (PJNATH_ESTUNINSERVER)</p>
+
+<p>D/dalvikvm(22271): GC_EXPLICIT freed 295K, 9% free 8591K/9351K, paused 2ms+3ms</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #2</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on May 13, 2012 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Ahah,
+Indeed r1400 was broken with 3.x devices. 
+I've fixed the error you get in recent versions. It was something in action bar sherlock that I've fixed in revision 1433.</p>
+
+<p>But I think that what's wrong is that the nightly build server didn't update ActionBarSherlock project ...
+I'll do that right now and produce a new build that will work for 3.2 on nightly build server.
+Thanks for the report</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #3</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on May 13, 2012 by
+                  <i class="ng-binding">Helpful Bear</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>oh, that makes sense :P thanks for the quick response.
+while we are at it, could you revert home layout for sw600+ in portrait mode to one_pane please or hopefully fix it? dual_pane is really not working on tablets in partrait mode.</p>
+
+<p>(ps. do i need to start a new issue for that?)</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #4</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on May 13, 2012 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Ok. 
+I get inspired from some sample of android and didn't take time yet to find the good filter for dual pane mode. I want to keep it for 10' devices since it still usable in dual pane mode in this case, but it's the limit so I can imagine that it renders weird on lower than 8' device.</p>
+
+<p>I'll try to get the emulator template for 7.7 device and see how I can filter.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #5</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on May 13, 2012 by
+                  <i class="ng-binding">Helpful Bear</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Actually it looks wired for 10' devices too, P6800 has the same resolution as XOOM, just smaller. Dual pane does work in landscape mode, and kinda works in portrait, but it doesn't look good.</p>
+
+<p>here's the screenies:
+<a href="http://i48.tinypic.com/2j44ln7.jpg">http://i48.tinypic.com/2j44ln7.jpg</a>
+<a href="http://i50.tinypic.com/2yzbmyu.jpg">http://i50.tinypic.com/2yzbmyu.jpg</a></p>
+
+<p>and the stock samsung dialer:
+<a href="http://i47.tinypic.com/3463kp3.jpg">http://i47.tinypic.com/3463kp3.jpg</a></p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #6</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on May 13, 2012 by
+                  <i class="ng-binding">Helpful Bear</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>so if you are planning to work on it at some point, then take your time.
+in the mean time perhaps i can sort out some layout and test it out.
+thanks again</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #7</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on May 13, 2012 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>The stock samsung dialer is very interesting. How the stock call log renders in portrait mode. Did they keep single pane or is it dual pane?</p>
+
+<p>In portrait mode other views are list and so it's not so bad. I'll try to see how I could do layouting in case of dialer pane only to have something similar to samsung dialer.
+Probably something like :
+ landscape + sw800 =&gt; keep what we have
+ landscape + sw600 =&gt; single pane
+ portrait + sw800 =&gt; samsung dialer mode for dialer and dual pane for others
+ portrait  + sw600 =&gt; samsung dialer mode for dialer and other single pane</p>
+
+<p>What do you think? I wonder on landscape + sw600 how it renders on your 7.7. Maybe I could keep dual pane for other than dialer?</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #8</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on May 13, 2012 by
+                  <i class="ng-binding">Helpful Bear</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>yeah, sammy did the same thing basically. anything other than the dialer is dual pane.
+here's the log view
+<a href="http://i48.tinypic.com/6hnl1l.jpg">http://i48.tinypic.com/6hnl1l.jpg</a></p>
+
+<p>i actually don't think there's much need to distinguish sw600/800, since they tend to be of the same or similar physical size. if dual pane works fine for 7.7@800dp, it should work just fine with 7@600dp, so dual pane in landscape for all modes, single pane for dialer and dual pane for everything else in portrait should work just fine.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #9</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on May 13, 2012 by
+                  <i class="ng-binding">Helpful Bear</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>of course letting people choose between single/dual pane mode with a single phone/tablet switch like im+ did would certainly help.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #10</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jul 14, 2012 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>There is some improvements on this topic in latest nightly builds about this point. It should render a little bit better. I merge with issue 1462 to keep track of changes for tablets screen display</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments -->
+          </div>
+
+          <!-- Sidebar with additional information -->
+          <div class="maia-col-4">
+            <div class="maia-aside">
+              <p>Status: <code class="ng-binding">Duplicate</code></p>
+              <!-- ngIf: issueCtrl.issue.labels.length > 0 --><p ng-if="issueCtrl.issue.labels.length &gt; 0" class="ng-scope">
+                Labels:
+                <br>
+                <!-- ngRepeat: label in issueCtrl.issue.labels track by $index --><span ng-repeat="label in issueCtrl.issue.labels track by $index" class="ng-scope">
+                  <span class="gca-label ng-binding">Type-Defect</span>
+                </span><!-- end ngRepeat: label in issueCtrl.issue.labels track by $index --><span ng-repeat="label in issueCtrl.issue.labels track by $index" class="ng-scope">
+                  <span class="gca-label ng-binding">Priority-Medium</span>
+                </span><!-- end ngRepeat: label in issueCtrl.issue.labels track by $index -->
+              </p><!-- end ngIf: issueCtrl.issue.labels.length > 0 -->
+            </div>
+          </div>
+        </div><!-- end ngIf: !issueCtrl.error -->
+      </div>
+    </div>
+
+  </div>
+</div>
+</div></div></div>
+    <noscript>
+      &lt;p&gt;The Google Code Archive requires JavaScript to be enabled in your browser.&lt;/p&gt;
+    </noscript>
+
+    <div id="maia-signature"></div>
+    <div class="maia-footer" id="maia-footer">
+      <div id="maia-footer-local">
+      </div>
+      <div id="maia-footer-global">
+        <div class="maia-aux">
+          <ul>
+            <li>
+              <a href="//www.google.com/">Google</a>
+            </li>
+            <li>
+              <a href="//www.google.com/intl/en/about/">About Google</a>
+            </li>
+            <li>
+              <a href="//www.google.com/intl/en/policies/privacy/">Privacy</a>
+            </li>
+            <li>
+              <a href="//www.google.com/intl/en/policies/terms/">Terms</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <script src="//www.google.com/js/maia.js"></script>
+  
+
+
+</body></html>

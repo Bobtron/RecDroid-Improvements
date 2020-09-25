@@ -1,0 +1,665 @@
+https://code.google.com/archive/p/csipsimple/issues/2399<!DOCTYPE html><html class="google ng-scope" lang="en" ng-app="codesiteArchive.application"><head>
+    <meta charset="utf-8">
+    <meta content="initial-scale=1, minimum-scale=1, width=device-width" name="viewport">
+
+    <!-- https://developers.google.com/webmasters/ajax-crawling/docs/specification -->
+    <meta name="fragment" content="!">
+    <title>Google Code Archive - Long-term storage for Google Code Project Hosting.</title>
+
+    <link rel="icon" type="image/vnd.microsoft.icon" href="/archive/img/project-hosting.ico">
+    <script src="//www.google.com/js/google.js"></script>
+    <link href="//www.google.com/css/maia.css" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;lang=en" rel="stylesheet">
+    <link rel="stylesheet" href="/archive/archive_css.css">
+    <script>
+      CLOSURE_NO_DEPS = true;
+    </script>
+    <script src="/archive/angular.js"></script><style type="text/css">@charset "UTF-8";
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak],
+.ng-cloak, .x-ng-cloak,
+.ng-hide:not(.ng-hide-animate) {
+  display: none !important;
+}
+
+ng\:form {
+  display: block;
+}
+
+.ng-animate-shim {
+  visibility:hidden;
+}
+
+.ng-anchor {
+  position:absolute;
+}
+</style>
+    <script src="/archive/pagedown.js"></script>
+    <script src="/archive/archive.js"></script>
+    <base href="/archive/">
+  </head>
+
+  <body>
+    <div class="maia-header" id="maia-header" role="banner">
+      <div class="maia-aux">
+        <a href="/archive/">
+          </a><h1><a href="/archive/">
+            <img alt="Google" src="//www.google.com/images/branding/googlelogo/1x/googlelogo_color_116x41dp.png"> Code</a>
+          </h1>
+        
+        <a href="/archive/">
+          <h2>Archive</h2>
+        </a>
+        <a class="maia-teleport" href="#content">Skip to content</a>
+        <div class="maia-util">
+          <form action="/archive/search" class="maia-search ng-pristine ng-valid">
+            <input name="q" placeholder="Search this site" type="text">
+            <button class="maia-button">
+              <span class="maia-search-icon">Search</span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- ngView: --><div ng-view="" class="ng-scope"><div ng-controller="ProjectIssueCtrl as issueCtrl" class="ng-scope">
+<nav-bar-widget nav-level-1="projectCtrl.navLevel1" class="ng-isolate-scope"><div class="maia-nav maia-complex" id="maia-nav-x" role="navigation">
+  <div class="maia-aux">
+    <ul>
+      <li ng-class="{active: navLevel1 == 'projects'}">
+        <a href="/archive/">Projects</a>
+        <!-- ngIf: navLevel2 -->
+      </li>
+      <li ng-class="{active: navLevel1 == 'search'}">
+        <a href="/archive/search">Search</a>
+      </li>
+      <li ng-class="{active: navLevel1 == 'about'}">
+        <a href="/archive/about">About</a>
+      </li>
+    </ul>
+  </div>
+</div>
+</nav-bar-widget>
+<div id="maia-main" role="main">
+
+  <!-- ngIf: issueCtrl.notFound -->
+
+  <div ng-hide="issueCtrl.notFound">
+    <!-- Left-side resource nav -->
+    <project-resources-widget domain="issueCtrl.domain" project="issueCtrl.projectName" class="ng-isolate-scope"><div class="maia-nav" id="maia-nav-y" role="navigation">
+  <!-- ngIf: domain == 'code.google.com' --><ul ng-if="domain == 'code.google.com'" class="ng-scope">
+    <li class="active">
+      <a href="/archive/p/csipsimple/">Project</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/source">Source</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/issues">Issues</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/wikis">Wikis</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/downloads">Downloads</a>
+    </li>
+  </ul><!-- end ngIf: domain == 'code.google.com' -->
+
+    <!-- ngIf: domain != 'code.google.com' -->
+</div></project-resources-widget>
+
+    <div class="maia-article" role="article">
+      <div class="maia-teleport" id="content"></div>
+      <div class="maia-cols">
+        <div id="gca-project-header" class="maia-col-10">
+          <a id="gca-export-to-gh" class="maia-button" href="https://code.google.com/export-to-github/export?project=csipsimple">Export to GitHub</a>
+            <img class="gca-project-logo" src="https://storage.googleapis.com/google-code-archive/v2/code.google.com/csipsimple/logo.png">
+            <h1 class="ng-binding">csipsimple - issue #2399</h1>
+            <p class="ng-binding">crash a few min into a ZRTP call</p>
+        </div>
+
+        <div class="maia-col-10">
+          <hr>
+
+        <!-- ngIf: issueCtrl.error -->
+
+        <!-- ngIf: !issueCtrl.error --><div ng-if="!issueCtrl.error" class="ng-scope">
+          <!-- Comments -->
+          <div class="maia-col-8">
+            <!-- ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jun 10, 2013 by
+                  <i class="ng-binding">Massive Rabbit</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>A few minutes into a ZRTP call CSip segfaults. </p>
+
+<p>I'm using the latest play store release. Please let me know if you need more information</p>
+
+<p>Abel, The Guardian Project</p>
+
+<hr>
+
+<p>Segfault here: <a href="http://sprunge.us/FVNa">http://sprunge.us/FVNa</a>
+Copy and pasted here for longevity
+                             y (has extras)} from pid 31304
+ 14570               dalvikvm  D  GC_EXPLICIT freed 287K, 3% free 11289K/11604K, paused 3ms+12ms, total 76ms
+ 31304               dalvikvm  D  GC_CONCURRENT freed 197K, 3% free 9981K/10208K, paused 3ms+5ms, total 40ms
+ 31304               dalvikvm  D  GC_CONCURRENT freed 248K, 3% free 10127K/10408K, paused 4ms+11ms, total 42ms
+ 31304               dalvikvm  I  Jit: resizing JitTable from 4096 to 8192
+ 31304                   libc  F  Fatal signal 11 (SIGSEGV) at 0x58e43000 (code=1), thread 31320 (ervice.Executor)
+ 19443                  DEBUG  I  <strong>* <em></em></strong><em> <strong></strong></em><strong> <em></em></strong><em> <strong></strong></em><strong> <em></em></strong><em> <strong></strong></em><strong> <em></em></strong><em> <strong></strong></em><strong> <em></em></strong><em> <strong></strong></em><strong> <em></em></strong><em> <strong></strong></em><strong> <em></em></strong><em> <strong></strong></em><strong> <em></em></strong><em>
+ 19443                  DEBUG  I  Build fingerprint: 'google/takju/maguro:4.2.2/JDQ39/573038:user/release-keys'
+ 19443                  DEBUG  I  Revision: '9'
+ 19443                  DEBUG  I  pid: 31304, tid: 31320, name: ervice.Executor  &gt;&gt;&gt; com.csipsimple:sipStack &lt;&lt;&lt;
+ 19443                  DEBUG  I  signal 11 (SIGSEGV), code 1 (SEGV_MAPERR), fault addr 58e43000
+  711            AudioFlinger  W  RecordThread: buffer overflow
+ 19443                  DEBUG  I  r0 5e107bc0  r1 58e42fe4  r2 00000000  r3 00000000
+ 19443                  DEBUG  I  r4 f4afbdf4  r5 5e107bc0  r6 58a52e00  r7 58e42fc4
+ 19443                  DEBUG  I  r8 003ff4c0  r9 5e107bb0  sl 00000000  fp 30000000
+ 19443                  DEBUG  I  ip 5dce7b08  sp 5e1071c8  lr 5dc2c14b  pc 4014a67c  cpsr 60000010
+ 19443                  DEBUG  I  d0  0000000000000000  d1  0000000000000000
+ 19443                  DEBUG  I  d2  0000000000000000  d3  0000000000000000
+ 19443                  DEBUG  I  d4  0000000000000000  d5  0000000000000000
+ 19443                  DEBUG  I  d6  0000000000000000  d7  0000000000000000
+ 19443                  DEBUG  I  d8  0000000000000000  d9  0000000000000000
+ 19443                  DEBUG  I  d10 0000000000000000  d11 0000000000000000
+ 19443                  DEBUG  I  d12 0000000000000000  d13 0000000000000000
+ 19443                  DEBUG  I  d14 0000000000000000  d15 0000000000000000
+ 19443                  DEBUG  I  d16 416a5e0010000000  d17 3fe0000000000000
+ 19443                  DEBUG  I  d18 0000000000000000  d19 00bc800000b98000
+ 19443                  DEBUG  I  d20 00b6802e00b3802d  d21 00bc802f00b9802f
+ 19443                  DEBUG  I  d22 0707070703030303  d23 0000002f0000002e
+ 19443                  DEBUG  I  d24 0000000000000000  d25 0000000000000000
+ 19443                  DEBUG  I  d26 0000002f0000002f  d27 0000002f0000002f
+ 19443                  DEBUG  I  d28 0001000000010000  d29 0001000000010000
+ 19443                  DEBUG  I  d30 0003000000030000  d31 0003000000030000
+ 19443                  DEBUG  I  scr 60000090
+ 19443                  DEBUG  I  backtrace:
+ 19443                  DEBUG  I  #00  pc 0001867c  /system/lib/libc.so (memcpy+124)
+ 19443                  DEBUG  I  #01  pc 0011a147  /data/app-lib/com.csipsimple-2/libpjsipjni.so (Skein_512_Process_Block+278)
+ 19443                  DEBUG  I  #02  pc 001178d1  /data/app-lib/com.csipsimple-2/libpjsipjni.so (Skein_512_Update+80)
+ 19443                  DEBUG  I  #03  pc 001155b3  /data/app-lib/com.csipsimple-2/libpjsipjni.so (macSkeinCtx(void</em>, unsigned char const**, unsigned int*, unsi
+                               gned char*)+16)
+ 19443                  DEBUG  I  #04  pc 001149bf  /data/app-lib/com.csipsimple-2/libpjsipjni.so (CryptoContextCtrl::srtcpAuthenticate(unsigned char*, int, uns
+                               igned int, unsigned char*)+94)
+ 19443                  DEBUG  I  #05  pc 00113f1b  /data/app-lib/com.csipsimple-2/libpjsipjni.so (zsrtp_unprotectCtrl+94)
+ 19443                  DEBUG  I  #06  pc 0010afe1  /data/app-lib/com.csipsimple-2/libpjsipjni.so
+ 19443                  DEBUG  I  #07  pc 000b0707  /data/app-lib/com.csipsimple-2/libpjsipjni.so
+ 19443                  DEBUG  I  #08  pc 000b16bf  /data/app-lib/com.csipsimple-2/libpjsipjni.so
+ 19443                  DEBUG  I  #09  pc 000e1703  /data/app-lib/com.csipsimple-2/libpjsipjni.so (ioqueue_dispatch_read_event+276)
+ 19443                  DEBUG  I  #10  pc 000e1dc1  /data/app-lib/com.csipsimple-2/libpjsipjni.so (pj_ioqueue_poll+492)
+ 19443                  DEBUG  I  #11  pc 000a6f25  /data/app-lib/com.csipsimple-2/libpjsipjni.so
+ 19443                  DEBUG  I  #12  pc 000dac7d  /data/app-lib/com.csipsimple-2/libpjsipjni.so
+ 19443                  DEBUG  I  #13  pc 0000e3d8  /system/lib/libc.so (__thread_entry+72)
+ 19443                  DEBUG  I  #14  pc 0000dac4  /system/lib/libc.so (pthread_create+160)</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #1</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jun 14, 2013 by
+                  <i class="ng-binding">Massive Rabbit</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>This happens 100% of the time every few minutes into a call.</p>
+
+<p>more crash info:
+                               l, token = android.os.BinderProxy@426fb238
+ 12310               dalvikvm  D  GC_CONCURRENT freed 1259K, 9% free 13741K/15032K, paused 4ms+19ms, total 61ms
+  699              AudioTrack  W  stepServer() could not lock cblk
+  699              AudioTrack  W  stepServer() could not lock cblk
+  699            AudioFlinger  W  RecordThread: buffer overflow
+ 12310                   libc  F  Fatal signal 11 (SIGSEGV) at 0x5a327000 (code=2), thread 12496 (ervice.Executor)
+  699            AudioFlinger  W  RecordThread: buffer overflow
+  694                   DEBUG  I  <strong>* <em></em></strong><em> <strong></strong></em><strong> <em></em></strong><em> <strong></strong></em><strong> <em></em></strong><em> <strong></strong></em><strong> <em></em></strong><em> <strong></strong></em><strong> <em></em></strong><em> <strong></strong></em><strong> <em></em></strong><em> <strong></strong></em><strong> <em></em></strong><em> <strong></strong></em><strong> *</strong>
+  694                   DEBUG  I  Build fingerprint: 'google/takju/maguro:4.2.2/JDQ39/573038:user/release-keys'
+  694                   DEBUG  I  Revision: '9'
+  694                   DEBUG  I  pid: 12310, tid: 12496, name: ervice.Executor  &gt;&gt;&gt; com.csipsimple:sipStack &lt;&lt;&lt;
+  694                   DEBUG  I  signal 11 (SIGSEGV), code 2 (SEGV_ACCERR), fault addr 5a327000
+  694                   DEBUG  I  r0 5c8ce950  r1 5a327000  r2 5a1f0f34  r3 749caa04
+  694                   DEBUG  I  r4 cbb14dd9  r5 e2a94c5e  r6 630359e0  r7 3d2c2e54
+  694                   DEBUG  I  r8 5a827999  r9 00000000  sl 5fe47b22  fp 34d95e64
+  694                   DEBUG  I  ip ae4ca47b  sp 5f0e5bb4  lr 5f0e5be4  pc 40923adc  cpsr 20000010
+  694                   DEBUG  I  d0  0000000000000000  d1  0000000000000000
+  694                   DEBUG  I  d2  0000000000000000  d3  0000000000000000
+  694                   DEBUG  I  d4  0000000000000000  d5  0000000000000000
+  694                   DEBUG  I  d6  0000000000000000  d7  0000000000000000
+  694                   DEBUG  I  d8  0000000000000000  d9  0000000000000000
+  694                   DEBUG  I  d10 0000000000000000  d11 0000000000000000
+  694                   DEBUG  I  d12 0000000000000000  d13 0000000000000000
+  694                   DEBUG  I  d14 0000000000000000  d15 0000000000000000
+  694                   DEBUG  I  d16 4040000000000000  d17 4040000000000000
+  694                   DEBUG  I  d18 0000000000000000  d19 00bc800000b98000
+  694                   DEBUG  I  d20 00b6802e00b3802d  d21 00bc802f00b9802f
+  694                   DEBUG  I  d22 0707070703030303  d23 0000002f0000002e
+  694                   DEBUG  I  d24 0000000000000000  d25 0000000000000000
+  694                   DEBUG  I  d26 0000002f0000002f  d27 0000002f0000002f
+  694                   DEBUG  I  d28 0001000000010000  d29 0001000000010000
+  694                   DEBUG  I  d30 0003000000030000  d31 0003000000030000
+  694                   DEBUG  I  scr 60000090
+  694                   DEBUG  I  backtrace:
+  694                   DEBUG  I  #00  pc 00034adc  /system/lib/libcrypto.so (sha1_block_data_order+156)
+  694                   DEBUG  I  #01  pc 000fbbe0  
+  694                   DEBUG  I  stack:
+  694                   DEBUG  I  5f0e5b74  00000000
+  694                   DEBUG  I  5f0e5b78  00000000
+  694                   DEBUG  I  5f0e5b7c  00000000
+  694                   DEBUG  I  5f0e5b80  00000000
+  694                   DEBUG  I  5f0e5b84  00000000
+  694                   DEBUG  I  5f0e5b88  00000000
+  694                   DEBUG  I  5f0e5b8c  00000000
+  694                   DEBUG  I  5f0e5b90  00000000
+  694                   DEBUG  I  5f0e5b94  00000000
+  694                   DEBUG  I  5f0e5b98  00000000
+  694                   DEBUG  I  5f0e5b9c  00000000
+  694                   DEBUG  I  5f0e5ba0  00000000
+  694                   DEBUG  I  5f0e5ba4  00000000
+  694                   DEBUG  I  5f0e5ba8  df0027ad
+  694                   DEBUG  I  5f0e5bac  00000000
+  694                   DEBUG  I  5f0e5bb0  00000000
+  694                   DEBUG  I  #00  5f0e5bb4  00000000
+  694                   DEBUG  I  ........  ........
+  694                   DEBUG  I  #01  5f0e5bb4  00000000
+  694                   DEBUG  I  5f0e5bb8  00000000
+  694                   DEBUG  I  5f0e5bbc  00000000
+  694                   DEBUG  I  5f0e5bc0  00000000
+  694                   DEBUG  I  5f0e5bc4  00000000
+  694                   DEBUG  I  5f0e5bc8  00000000
+  694                   DEBUG  I  5f0e5bcc  00000000
+  694                   DEBUG  I  5f0e5bd0  00000000
+  694                   DEBUG  I  5f0e5bd4  00000000
+  694                   DEBUG  I  5f0e5bd8  00000000
+  694                   DEBUG  I  5f0e5bdc  00000000
+  694                   DEBUG  I  5f0e5be0  00000000
+  694                   DEBUG  I  5f0e5be4  00000000
+  694                   DEBUG  I  5f0e5be8  00000000
+  694                   DEBUG  I  5f0e5bec  00000000
+  694                   DEBUG  I  5f0e5bf0  fffe2b2d
+  694                   DEBUG  I  memory near r0:
+  694                   DEBUG  I  5c8ce930 00000000 00000000 00000000 00000000
+  694                   DEBUG  I  5c8ce940 00000000 00000000 00000000 0000006b
+  694                   DEBUG  I  5c8ce950 749caa04 cbb14dd9 c7d71b97 6f2c0229
+  694                   DEBUG  I  5c8ce960 6777687c fff15b68 00000007 00000000
+  694                   DEBUG  I  5c8ce970 00000000 00000000 00000000 00000000
+  694                   DEBUG  I  5c8ce980 00000000 00000000 00000000 00000000
+  694                   DEBUG  I  5c8ce990 00000000 00000000 00000000 00000000
+  694                   DEBUG  I  5c8ce9a0 00000000 00000000 00000000 00000000
+  694                   DEBUG  I  5c8ce9b0 00000000 000000fb 1874866d 033b108c
+  694                   DEBUG  I  5c8ce9c0 07095c14 f3fd9083 4d146a60 4e2f7aec
+  694                   DEBUG  I  5c8ce9d0 492626f8 badbb67b f65a4b94 b8753178
+  694                   DEBUG  I  5c8ce9e0 f1531780 4b88a1fb 36684427 8e1d755f
+  694                   DEBUG  I  5c8ce9f0 7f4e62df 34c6c324 8a46723f 045b0760
+  694                   DEBUG  I  5c8cea00 7b1565bf 4fd3a69b fc6266bb f83961db
+  694                   DEBUG  I  5c8cea10 832c0464 ccffa2ff ca5870f0 3261112b
+  694                   DEBUG  I  5c8cea20 b14d154f 7db2b7b0 bdf1970f 8f908624
+  694                   DEBUG  I  memory near r1:
+  694                   DEBUG  I  5a326fe0 00000000 00000000 00000000 00000000
+  694                   DEBUG  I  5a326ff0 00000000 00000000 00000000 00000000
+  694                   DEBUG  I  5a327000 00000000 00000000 00000000 00000000
+  694                   DEBUG  I  5a327010 00000000 00000000 00000000 00000000
+  694                   DEBUG  I  5a327020 00000000 00000000 00000000 00000000
+  694                   DEBUG  I  5a327030 00000000 00000000 00000000 00000000
+  694                   DEBUG  I  5a327040 00000000 00000000 00000000 00000000
+  694                   DEBUG  I  5a327050 00000000 00000000 00000000 00000000
+  694                   DEBUG  I  5a327060 00000000 00000000 00000000 00000000
+  694                   DEBUG  I  5a327070 00000000 00000000 00000000 00000000
+  694                   DEBUG  I  5a327080 00000000 00000000 00000000 00000000
+  694                   DEBUG  I  5a327090 00000000 00000000 00000000 00000000
+  694                   DEBUG  I  5a3270a0 00000000 00000000 00000000 00000000
+  694                   DEBUG  I  5a3270b0 00000000 00000000 00000000 00000000
+  694                   DEBUG  I  5a3270c0 00000000 00000000 00000000 00000000
+  694                   DEBUG  I  5a3270d0 00000000 00000000 00000000 00000000
+  694                   DEBUG  I  memory near r2:
+  694                   DEBUG  I  5a1f0f14 00000000 00000000 00000000 00000000
+  694                   DEBUG  I  5a1f0f24 00000000 00000000 00000000 00000000
+  694                   DEBUG  I  5a1f0f34 00000000 00000000 00000000 00000000
+  694                   DEBUG  I  5a1f0f44 00000000 00000000 00000000 00000000
+  694                   DEBUG  I  5a1f0f54 00000000 00000000 00000000 00000000
+  694                   DEBUG  I  5a1f0f64 00000000 00000000 00000000 00000000
+  694                   DEBUG  I  5a1f0f74 00000000 00000000 00000000 00000000
+  694                   DEBUG  I  5a1f0f84 00000000 00000000 00000000 00000000
+  694                   DEBUG  I  5a1f0f94 00000000 00000000 00000000 00000000
+  694                   DEBUG  I  5a1f0fa4 00000000 00000000 00000000 00000000
+  694                   DEBUG  I  5a1f0fb4 00000000 00000000 00000000 00000000
+  694                   DEBUG  I  5a1f0fc4 00000000 00000000 00000000 00000000
+  694                   DEBUG  I  5a1f0fd4 00000000 00000000 00000000 00000000
+  694                   DEBUG  I  5a1f0fe4 00000000 00000000 00000000 00000000
+  694                   DEBUG  I  5a1f0ff4 00000000 00000000 00000000 00000000
+  694                   DEBUG  I  5a1f1004 000044bb 1600000d 03170103 97200001
+  694                   DEBUG  I  memory near r3:
+  694                   DEBUG  I  749ca9e4 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  749ca9f4 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  749caa04 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  749caa14 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  749caa24 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  749caa34 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  749caa44 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  749caa54 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  749caa64 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  749caa74 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  749caa84 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  749caa94 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  749caaa4 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  749caab4 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  749caac4 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  749caad4 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  memory near r6:
+  694                   DEBUG  I  630359c0 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  630359d0 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  630359e0 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  630359f0 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  63035a00 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  63035a10 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  63035a20 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  63035a30 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  63035a40 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  63035a50 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  63035a60 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  63035a70 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  63035a80 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  63035a90 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  63035aa0 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  63035ab0 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  memory near r7:
+  694                   DEBUG  I  3d2c2e34 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  3d2c2e44 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  3d2c2e54 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  3d2c2e64 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  3d2c2e74 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  3d2c2e84 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  3d2c2e94 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  3d2c2ea4 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  3d2c2eb4 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  3d2c2ec4 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  3d2c2ed4 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  3d2c2ee4 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  3d2c2ef4 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  3d2c2f04 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  3d2c2f14 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  3d2c2f24 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  memory near r8:
+  694                   DEBUG  I  5a827978 69207461 7020696e 69796e65 6e61706d
+  694                   DEBUG  I  5a827988 55206e61 73204253 6e616465 69642067
+  694                   DEBUG  I  5a827998 69726570 2e61736b 4b1b1b00 75747261
+  694                   DEBUG  I  5a8279a8 20445320 616c6574 69642068 756c656b
+  694                   DEBUG  I  5a8279b8 616b7261 38002e6e 61615338 6e692074
+  694                   DEBUG  I  5a8279c8 65702069 6d69796e 616e6170 5355206e
+  694                   DEBUG  I  5a8279d8 65732042 676e6164 67696420 6b616e75
+  694                   DEBUG  I  5a8279e8 6f206e61 2068656c 706d6f6b 72657475
+  694                   DEBUG  I  5a8279f8 2d2d002e 6964654d 6b652061 72657473
+  694                   DEBUG  I  5a827a08 206c616e 616c6164 7473206d 73757461
+  694                   DEBUG  I  5a827a18 64697420 64206b61 74656b69 69756861
+  694                   DEBUG  I  5a827a28 0707002e 69676142 006e616b 65540707
+  694                   DEBUG  I  5a827a38 616b756d 0f0f006e 656e6550 7573756c
+  694                   DEBUG  I  5a827a48 206e6172 00626557 61430f0f 62206972
+  694                   DEBUG  I  5a827a58 6b697265 796e7475 0f0f0061 69726143
+  694                   DEBUG  I  5a827a68 62657320 6d756c65 0061796e 65501919
+  694                   DEBUG  I  memory near sl:
+  694                   DEBUG  I  5fe47b00 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  5fe47b10 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  5fe47b20 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  5fe47b30 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  5fe47b40 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  5fe47b50 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  5fe47b60 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  5fe47b70 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  5fe47b80 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  5fe47b90 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  5fe47ba0 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  5fe47bb0 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  5fe47bc0 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  5fe47bd0 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  5fe47be0 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  5fe47bf0 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  memory near fp:
+  694                   DEBUG  I  34d95e44 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  34d95e54 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  34d95e64 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  34d95e74 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  34d95e84 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  34d95e94 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  34d95ea4 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  34d95eb4 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  34d95ec4 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  34d95ed4 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  34d95ee4 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  34d95ef4 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  34d95f04 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  34d95f14 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  34d95f24 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  34d95f34 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  memory near ip:
+  694                   DEBUG  I  ae4ca458 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  ae4ca468 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  ae4ca478 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  ae4ca488 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  ae4ca498 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  ae4ca4a8 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  ae4ca4b8 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  ae4ca4c8 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  ae4ca4d8 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  ae4ca4e8 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  ae4ca4f8 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  ae4ca508 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  ae4ca518 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  ae4ca528 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  ae4ca538 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  ae4ca548 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  memory near sp:
+  694                   DEBUG  I  5f0e5b94 00000000 00000000 00000000 00000000
+  694                   DEBUG  I  5f0e5ba4 00000000 df0027ad 00000000 00000000
+  694                   DEBUG  I  5f0e5bb4 00000000 00000000 00000000 00000000
+  694                   DEBUG  I  5f0e5bc4 00000000 00000000 00000000 00000000
+  694                   DEBUG  I  5f0e5bd4 00000000 00000000 00000000 00000000
+  694                   DEBUG  I  5f0e5be4 00000000 00000000 00000000 fffe2b2d
+  694                   DEBUG  I  5f0e5bf4 5c8ce950 5a20e434 fffe2b00 5f0e5c60
+  694                   DEBUG  I  5f0e5c04 fffe2b2d 00000000 401e6228 5eec5e80
+  694                   DEBUG  I  5f0e5c14 4097bba1 5c8ce7a8 5f0e5c78 5f0e5c80
+  694                   DEBUG  I  5f0e5c24 5f0e5c6c 5f0e5c60 4095ee37 25224824
+  694                   DEBUG  I  5f0e5c34 5ee0546f 00000000 5f0e5c68 5ab8ce88
+  694                   DEBUG  I  5f0e5c44 5f0e5cb8 401e6228 5a20e434 fffe2b2d
+  694                   DEBUG  I  5f0e5c54 5ee049b5 5f0e5c60 5cbe8218 0000005b
+  694                   DEBUG  I  5f0e5c64 00000000 5a20e434 5f0e5c64 00000000
+  694                   DEBUG  I  5f0e5c74 fffe2b2d 00000004 5b5487cc 5a20e468
+  694                   DEBUG  I  5f0e5c84 00000004 00000053 5a20db18 0700b7ef
+  694                   DEBUG  I  code around pc:
+  694                   DEBUG  I  40923abc e023a004 e0855de6 e6bf9f39 e007a16a
+  694                   DEBUG  I  40923acc e0855009 e02aa164 e52e9004 e085500a
+  694                   DEBUG  I  40923adc e4919004 e0884164 e027a003 e0844de5
+  694                   DEBUG  I  40923aec e6bf9f39 e006a16a e0844009 e02aa163
+  694                   DEBUG  I  40923afc e52e9004 e084400a e4919004 e0883163
+  694                   DEBUG  I  40923b0c e026a007 e0833de4 e6bf9f39 e005a16a
+  694                   DEBUG  I  40923b1c e0833009 e02aa167 e52e9004 e083300a
+  694                   DEBUG  I  40923b2c e13e000d 1affffcb e24dd014 e4919004
+  694                   DEBUG  I  40923b3c e0887167 e025a006 e0877de3 e6bf9f39
+  694                   DEBUG  I  40923b4c e004a16a e0877009 e02aa166 e52e9004
+  694                   DEBUG  I  40923b5c e087700a e59e903c e59ea034 e59eb01c
+  694                   DEBUG  I  40923b6c e0886166 e59ec008 e029900a e02bb00c
+  694                   DEBUG  I  40923b7c e024a005 e1a09fe9 e0866de7 e0299feb
+  694                   DEBUG  I  40923b8c e52e9004 e003a16a e0866009 e02aa165
+  694                   DEBUG  I  40923b9c e086600a e59e903c e59ea034 e59eb01c
+  694                   DEBUG  I  40923bac e0885165 e59ec008 e029900a e02bb00c
+  694                   DEBUG  I  code around lr:
+  694                   DEBUG  I  5f0e5bc4 00000000 00000000 00000000 00000000
+  694                   DEBUG  I  5f0e5bd4 00000000 00000000 00000000 00000000
+  694                   DEBUG  I  5f0e5be4 00000000 00000000 00000000 fffe2b2d
+  694                   DEBUG  I  5f0e5bf4 5c8ce950 5a20e434 fffe2b00 5f0e5c60
+  694                   DEBUG  I  5f0e5c04 fffe2b2d 00000000 401e6228 5eec5e80
+  694                   DEBUG  I  5f0e5c14 4097bba1 5c8ce7a8 5f0e5c78 5f0e5c80
+  694                   DEBUG  I  5f0e5c24 5f0e5c6c 5f0e5c60 4095ee37 25224824
+  694                   DEBUG  I  5f0e5c34 5ee0546f 00000000 5f0e5c68 5ab8ce88
+  694                   DEBUG  I  5f0e5c44 5f0e5cb8 401e6228 5a20e434 fffe2b2d
+  694                   DEBUG  I  5f0e5c54 5ee049b5 5f0e5c60 5cbe8218 0000005b
+  694                   DEBUG  I  5f0e5c64 00000000 5a20e434 5f0e5c64 00000000
+  694                   DEBUG  I  5f0e5c74 fffe2b2d 00000004 5b5487cc 5a20e468
+  694                   DEBUG  I  5f0e5c84 00000004 00000053 5a20db18 0700b7ef
+  694                   DEBUG  I  5f0e5c94 25224824 5ab8ce88 5a20e434 5f0e5cb8
+  694                   DEBUG  I  5f0e5ca4 5a1f0f65 00000000 5ee03f1f 5f0e5cb8
+  694                   DEBUG  I  5f0e5cb4 5edfb20b 5eecb75c 59e2df7c 41dcddd8
+  694                   DEBUG  I  memory map around fault addr 5a327000:
+  694                   DEBUG  I  5a241000-5a327000 /system/lib/libstagefright.so
+  694                   DEBUG  I  5a327000-5a328000
+  694                   DEBUG  I  5a328000-5a32e000 /system/lib/libstagefright.so
+  950            BootReceiver  I  Copying /data/tombstones/tombstone_02 to DropBox (SYSTEM_TOMBSTONE)
+  950             WindowState  I  WIN DEATH: Window{42aeb0d8 u0 com.csipsimple/com.csipsimple.ui.incall.InCallActivity}
+  950            AudioService  W  setMode() client died
+  699        audio_hw_primary  E  Leaving IN_CALL state, in_call=0, mode=0
+  950         ActivityManager  I  Process com.csipsimple:sipStack (pid 12310) has died.
+  950         ActivityManager  W  Scheduling restart of crashed service com.csipsimple/.service.SipService in 5000ms
+  950         ActivityManager  I  Kill com.csipsimple (pid 12322): provider com.csipsimple.db.DBProvider in dying process com.csipsimple:sipStack
+  950         ActivityManager  W  Force removing ActivityRecord{429f2650 u0 com.csipsimple/.ui.incall.InCallActivity}: app died, no saved state</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #2</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jun 15, 2013 by
+                  <i class="ng-binding">Grumpy Camel</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>This seems to be the exact same issue I tried to report and debug in issue 2378, but, for some reason, wasn't accepted as an open issue.</p>
+
+<p>As I state in issue 2378, I've done much testing and exchanged emails with Werner on the PJSIP mailing list. Hopefully that'll be useful.</p>
+
+<p>I'm glad to finally find out that I'm not the only one with this issue. I was starting to believe the silence on this meant it was only happening with me.
+Hopefully it's something that can be quickly resolved.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #3</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jun 15, 2013 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>I all, 
+Sorry for the big delay replying. Keep in mind I do the project on my free time and I have almost no free time those days.
+You are definitely not alone with the problem and I also noticed that on my setup several times. It's not easy to reproduce for me however and seems to be linked to network conditions. The full openssl builds seems to help too, but I'm not sure if it's actually better.
+Unfortunately I've currently not the time to debug that, but the issue is valid and should be investigated.
+If some dev around has time to debug he will be welcome.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #4</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jun 15, 2013 by
+                  <i class="ng-binding">Grumpy Camel</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>No worries Regie.
+I really appreciate all the work you put into CS, and on your free time too.</p>
+
+<p>If I can help anyone debug this, please let me know.</p>
+
+<p>Cheers</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments -->
+          </div>
+
+          <!-- Sidebar with additional information -->
+          <div class="maia-col-4">
+            <div class="maia-aside">
+              <p>Status: <code class="ng-binding">Duplicate</code></p>
+              <!-- ngIf: issueCtrl.issue.labels.length > 0 --><p ng-if="issueCtrl.issue.labels.length &gt; 0" class="ng-scope">
+                Labels:
+                <br>
+                <!-- ngRepeat: label in issueCtrl.issue.labels track by $index --><span ng-repeat="label in issueCtrl.issue.labels track by $index" class="ng-scope">
+                  <span class="gca-label ng-binding">Type-Defect</span>
+                </span><!-- end ngRepeat: label in issueCtrl.issue.labels track by $index --><span ng-repeat="label in issueCtrl.issue.labels track by $index" class="ng-scope">
+                  <span class="gca-label ng-binding">Priority-Medium</span>
+                </span><!-- end ngRepeat: label in issueCtrl.issue.labels track by $index -->
+              </p><!-- end ngIf: issueCtrl.issue.labels.length > 0 -->
+            </div>
+          </div>
+        </div><!-- end ngIf: !issueCtrl.error -->
+      </div>
+    </div>
+
+  </div>
+</div>
+</div></div></div>
+    <noscript>
+      &lt;p&gt;The Google Code Archive requires JavaScript to be enabled in your browser.&lt;/p&gt;
+    </noscript>
+
+    <div id="maia-signature"></div>
+    <div class="maia-footer" id="maia-footer">
+      <div id="maia-footer-local">
+      </div>
+      <div id="maia-footer-global">
+        <div class="maia-aux">
+          <ul>
+            <li>
+              <a href="//www.google.com/">Google</a>
+            </li>
+            <li>
+              <a href="//www.google.com/intl/en/about/">About Google</a>
+            </li>
+            <li>
+              <a href="//www.google.com/intl/en/policies/privacy/">Privacy</a>
+            </li>
+            <li>
+              <a href="//www.google.com/intl/en/policies/terms/">Terms</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <script src="//www.google.com/js/maia.js"></script>
+  
+
+
+</body></html>

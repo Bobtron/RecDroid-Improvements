@@ -1,8 +1,8 @@
 
 
-def get_nearest_neighbor(adj_mat_graph, node):
+def get_nearest_neighbor(adj_mat_graph, node, min_score):
     neighbors = []
-    closest_score = .65 # worst score can only be 1
+    closest_score = min_score # worst score can only be 1
     for neighbor in adj_mat_graph[node].keys():
         if adj_mat_graph[node][neighbor] < closest_score:
             neighbors = [neighbor]

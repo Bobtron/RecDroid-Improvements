@@ -1,0 +1,276 @@
+https://code.google.com/archive/p/droid-utils/<!DOCTYPE html><html class="google ng-scope" lang="en" ng-app="codesiteArchive.application"><head>
+    <meta charset="utf-8">
+    <meta content="initial-scale=1, minimum-scale=1, width=device-width" name="viewport">
+
+    <!-- https://developers.google.com/webmasters/ajax-crawling/docs/specification -->
+    <meta name="fragment" content="!">
+    <title>Google Code Archive - Long-term storage for Google Code Project Hosting.</title>
+
+    <link rel="icon" type="image/vnd.microsoft.icon" href="/archive/img/project-hosting.ico">
+    <script src="//www.google.com/js/google.js"></script>
+    <link href="//www.google.com/css/maia.css" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;lang=en" rel="stylesheet">
+    <link rel="stylesheet" href="/archive/archive_css.css">
+    <script>
+      CLOSURE_NO_DEPS = true;
+    </script>
+    <script src="/archive/angular.js"></script><style type="text/css">@charset "UTF-8";
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak],
+.ng-cloak, .x-ng-cloak,
+.ng-hide:not(.ng-hide-animate) {
+  display: none !important;
+}
+
+ng\:form {
+  display: block;
+}
+
+.ng-animate-shim {
+  visibility:hidden;
+}
+
+.ng-anchor {
+  position:absolute;
+}
+</style>
+    <script src="/archive/pagedown.js"></script>
+    <script src="/archive/archive.js"></script>
+    <base href="/archive/">
+  </head>
+
+  <body>
+    <div class="maia-header" id="maia-header" role="banner">
+      <div class="maia-aux">
+        <a href="/archive/">
+          </a><h1><a href="/archive/">
+            <img alt="Google" src="//www.google.com/images/branding/googlelogo/1x/googlelogo_color_116x41dp.png"> Code</a>
+          </h1>
+        
+        <a href="/archive/">
+          <h2>Archive</h2>
+        </a>
+        <a class="maia-teleport" href="#content">Skip to content</a>
+        <div class="maia-util">
+          <form action="/archive/search" class="maia-search ng-pristine ng-valid">
+            <input name="q" placeholder="Search this site" type="text">
+            <button class="maia-button">
+              <span class="maia-search-icon">Search</span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- ngView: --><div ng-view="" class="ng-scope"><div ng-controller="ProjectHomepageCtrl as projectCtrl" class="ng-scope">
+<nav-bar-widget nav-level-1="projectCtrl.navLevel1" class="ng-isolate-scope"><div class="maia-nav maia-complex" id="maia-nav-x" role="navigation">
+  <div class="maia-aux">
+    <ul>
+      <li ng-class="{active: navLevel1 == 'projects'}" class="active">
+        <a href="/archive/">Projects</a>
+        <!-- ngIf: navLevel2 -->
+      </li>
+      <li ng-class="{active: navLevel1 == 'search'}">
+        <a href="/archive/search">Search</a>
+      </li>
+      <li ng-class="{active: navLevel1 == 'about'}">
+        <a href="/archive/about">About</a>
+      </li>
+    </ul>
+  </div>
+</div>
+</nav-bar-widget>
+<div id="maia-main" role="main">
+
+  <!-- Left-side resource nav -->
+  <span ng-hide="projectCtrl.project.notFound">
+    <project-resources-widget domain="projectCtrl.domain" project="projectCtrl.projectName" class="ng-isolate-scope"><div class="maia-nav" id="maia-nav-y" role="navigation">
+  <!-- ngIf: domain == 'code.google.com' --><ul ng-if="domain == 'code.google.com'" class="ng-scope">
+    <li class="active">
+      <a href="/archive/p/droid-utils/">Project</a>
+    </li>
+    <li>
+      <a href="/archive/p/droid-utils/source">Source</a>
+    </li>
+    <li>
+      <a href="/archive/p/droid-utils/issues">Issues</a>
+    </li>
+    <li>
+      <a href="/archive/p/droid-utils/wikis">Wikis</a>
+    </li>
+    <li>
+      <a href="/archive/p/droid-utils/downloads">Downloads</a>
+    </li>
+  </ul><!-- end ngIf: domain == 'code.google.com' -->
+
+    <!-- ngIf: domain != 'code.google.com' -->
+</div></project-resources-widget>
+  </span>
+
+  <div class="maia-article" role="article">
+    <div class="maia-teleport" id="content"></div>
+    <div class="maia-cols">
+
+      <!-- BUG: We show "no issues" and relaged sub-pages for projects that
+           do not exist. Similarly, if you go to page 1,000,000 it says the
+           project has no issues, despite page 999,999 existing. -->
+      <!-- ngIf: projectCtrl.project.notFound -->
+
+      <div ng-hide="projectCtrl.project.notFound" id="gca-project-header" class="maia-col-10">
+        <img class="gca-project-logo" src="https://storage.googleapis.com/google-code-archive/v2/code.google.com/droid-utils/logo.png">
+        <h1 class="ng-binding">droid-utils</h1>
+      </div>
+
+      <div ng-hide="projectCtrl.project.notFound" class="maia-col-10">
+        <hr>
+
+        <!-- ngIf: projectCtrl.error -->
+
+        <!-- Switch by project resource -->
+        <!-- ngIf: !projectCtrl.error --><div ng-if="!projectCtrl.error" ng-switch="projectCtrl.resource" class="ng-scope">
+
+          <!-- Project -->
+          <!-- ngSwitchWhen: project --><div ng-switch-when="project" class="ng-scope">
+            <!-- ngIf: projectCtrl.project == null -->
+
+            <!-- ngIf: projectCtrl.project.notFound -->
+
+            <!-- ngIf: projectCtrl.project.found --><div ng-if="projectCtrl.project.found" class="ng-scope">
+              <div class="maia-col-6">
+                <p class="maia-meta ng-binding">Android Utilities</p>
+                <markdown-widget text="projectCtrl.project.description" class="markdown"><p>WARNING: These utilities are currently in beta. Please http://code.google.com/p/droid-utils/issues/list'&gt; file bugs!</p>
+
+<p>Utilities that help in the development of Android application. This library currently consists of one individual tools for developers:</p>
+
+<h1>1. Android JSON Utils</h1>
+
+<p><strong>Try out the current version:</strong> http://code.google.com/p/droid-utils/downloads/detail?name=android-json-utils-0.1.jar&amp;can=2&amp;q='&gt; Android Json Utils </p>
+
+<p>Android JSON Utils is a android library that can be used to convert Java Objects into their JSON representation. It can also be used to convert a JSON string to an equivalent Java object. Android JSON Utils can work with arbitrary Java objects including pre-existing objects that you do not have source-code of.</p>
+
+<p>There are a few open-source projects that can convert Java objects to JSON. However, most of them having their own json parser and its not optimized to android vm and its added extra coded to application. Android JSON Utils considers both of these as very important design goals.</p>
+
+<blockquote>
+  <h2>Features</h2>
+</blockquote>
+
+<ul>
+<li>Lightweight component.</li>
+<li>No external parser its required because its use default android json parser.</li>
+<li>Provide simple deserialize () and serialize() methods to convert Java objects to JSON and vice-versa</li>
+<li>Allow pre-existing unmodifiable objects to be converted to and from JSON</li>
+<li>Extensive support of Java Annotation.</li>
+<li>Customized date format , we can convert the json date format into user defined date format at parsing time.</li>
+<li>Customized json array size, its will help you to avoided unwanted data’s in the collection data type , i.e suppose you have 100 elements in the json array response , but you need only 10 elements on the UI, by using <code>@ItemType(size=10)</code> annotation you can archive this.</li>
+<li>Mapping json key name into customized java object field name , meaning dont need to keep same json key name as a field name , if you want different name from json key then you can use <code>@SerializedName(“name”)</code></li>
+</ul>
+
+<blockquote>
+  <h2>Android JSON Utils Documentation</h2>
+</blockquote>
+
+<ul>
+<li>Android-json-utils http://code.google.com/p/droid-utils/downloads/detail?name=android-json-uitls-javadoc-0.1.zip&amp;can=1&amp;q='&gt;API: Javadocs for the current Android-json-utils release</li>
+</ul></markdown-widget>
+              </div>
+              <div id="gca-project-info-box" class="maia-col-4">
+                <div class="maia-aside">
+                  <h1>Project Information</h1>
+                  <!-- ngIf: projectCtrl.project.creationTime --><p ng-if="projectCtrl.project.creationTime" class="ng-binding ng-scope">
+                    The project was created on Nov 9, 2011.
+                  </p><!-- end ngIf: projectCtrl.project.creationTime -->
+                  <!-- ngIf: projectCtrl.project.ancestorRepo -->
+                  <ul>
+                    <li>
+                      License: <a href="http://www.apache.org/licenses/LICENSE-2.0" class="ng-binding">
+                        Apache License 2.0</a>
+                    </li>
+                    <!-- ngIf: projectCtrl.project.contentLicenseName -->
+                    <!-- ngIf: projectCtrl.project.stars --><li ng-if="projectCtrl.project.stars" class="ng-binding ng-scope">
+                      3 stars
+                    </li><!-- end ngIf: projectCtrl.project.stars -->
+                    <li class="ng-binding">svn-based source control</li>
+                  </ul>
+                  <!-- ngIf: projectCtrl.project.labels.length > 0 --><p ng-if="projectCtrl.project.labels.length &gt; 0" class="ng-scope">
+                    Labels:
+                    <br>
+                    <!-- ngRepeat: label in projectCtrl.project.labels track by $index --><span ng-repeat="label in projectCtrl.project.labels track by $index" class="ng-scope">
+                      <a href="/archive/search?q=domain:code.google.com label:Android"><span class="gca-label ng-binding">Android</span></a>
+                    </span><!-- end ngRepeat: label in projectCtrl.project.labels track by $index --><span ng-repeat="label in projectCtrl.project.labels track by $index" class="ng-scope">
+                      <a href="/archive/search?q=domain:code.google.com label:Java"><span class="gca-label ng-binding">Java</span></a>
+                    </span><!-- end ngRepeat: label in projectCtrl.project.labels track by $index --><span ng-repeat="label in projectCtrl.project.labels track by $index" class="ng-scope">
+                      <a href="/archive/search?q=domain:code.google.com label:CodeGeneration"><span class="gca-label ng-binding">CodeGeneration</span></a>
+                    </span><!-- end ngRepeat: label in projectCtrl.project.labels track by $index --><span ng-repeat="label in projectCtrl.project.labels track by $index" class="ng-scope">
+                      <a href="/archive/search?q=domain:code.google.com label:JSON"><span class="gca-label ng-binding">JSON</span></a>
+                    </span><!-- end ngRepeat: label in projectCtrl.project.labels track by $index --><span ng-repeat="label in projectCtrl.project.labels track by $index" class="ng-scope">
+                      <a href="/archive/search?q=domain:code.google.com label:serialization"><span class="gca-label ng-binding">serialization</span></a>
+                    </span><!-- end ngRepeat: label in projectCtrl.project.labels track by $index --><span ng-repeat="label in projectCtrl.project.labels track by $index" class="ng-scope">
+                      <a href="/archive/search?q=domain:code.google.com label:serializer"><span class="gca-label ng-binding">serializer</span></a>
+                    </span><!-- end ngRepeat: label in projectCtrl.project.labels track by $index --><span ng-repeat="label in projectCtrl.project.labels track by $index" class="ng-scope">
+                      <a href="/archive/search?q=domain:code.google.com label:conversion"><span class="gca-label ng-binding">conversion</span></a>
+                    </span><!-- end ngRepeat: label in projectCtrl.project.labels track by $index --><span ng-repeat="label in projectCtrl.project.labels track by $index" class="ng-scope">
+                      <a href="/archive/search?q=domain:code.google.com label:converter"><span class="gca-label ng-binding">converter</span></a>
+                    </span><!-- end ngRepeat: label in projectCtrl.project.labels track by $index --><span ng-repeat="label in projectCtrl.project.labels track by $index" class="ng-scope">
+                      <a href="/archive/search?q=domain:code.google.com label:droid-utils"><span class="gca-label ng-binding">droid-utils</span></a>
+                    </span><!-- end ngRepeat: label in projectCtrl.project.labels track by $index -->
+                  </p><!-- end ngIf: projectCtrl.project.labels.length > 0 -->
+                </div>
+              </div>
+            </div><!-- end ngIf: projectCtrl.project.found -->
+          </div><!-- end ngSwitchWhen: -->
+
+          <!-- Source -->
+          <!-- ngSwitchWhen: source -->
+
+          <!-- Issues -->
+          <!-- ngSwitchWhen: issues -->
+
+          <!-- Wikis -->
+          <!-- ngSwitchWhen: wikis -->
+
+          <!-- Downloads -->
+          <!-- ngSwitchWhen: downloads -->
+
+          <!-- Default -->
+          <!-- ngSwitchDefault: -->
+
+        <!-- end Switch -->
+        </div><!-- end ngIf: !projectCtrl.error -->
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+    <noscript>
+      &lt;p&gt;The Google Code Archive requires JavaScript to be enabled in your browser.&lt;/p&gt;
+    </noscript>
+
+    <div id="maia-signature"></div>
+    <div class="maia-footer" id="maia-footer">
+      <div id="maia-footer-local">
+      </div>
+      <div id="maia-footer-global">
+        <div class="maia-aux">
+          <ul>
+            <li>
+              <a href="//www.google.com/">Google</a>
+            </li>
+            <li>
+              <a href="//www.google.com/intl/en/about/">About Google</a>
+            </li>
+            <li>
+              <a href="//www.google.com/intl/en/policies/privacy/">Privacy</a>
+            </li>
+            <li>
+              <a href="//www.google.com/intl/en/policies/terms/">Terms</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <script src="//www.google.com/js/maia.js"></script>
+  
+
+
+</body></html>

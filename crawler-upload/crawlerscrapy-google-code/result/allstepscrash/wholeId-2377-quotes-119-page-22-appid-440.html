@@ -1,0 +1,435 @@
+https://code.google.com/archive/p/csipsimple/issues/2398<!DOCTYPE html><html class="google ng-scope" lang="en" ng-app="codesiteArchive.application"><head>
+    <meta charset="utf-8">
+    <meta content="initial-scale=1, minimum-scale=1, width=device-width" name="viewport">
+
+    <!-- https://developers.google.com/webmasters/ajax-crawling/docs/specification -->
+    <meta name="fragment" content="!">
+    <title>Google Code Archive - Long-term storage for Google Code Project Hosting.</title>
+
+    <link rel="icon" type="image/vnd.microsoft.icon" href="/archive/img/project-hosting.ico">
+    <script src="//www.google.com/js/google.js"></script>
+    <link href="//www.google.com/css/maia.css" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;lang=en" rel="stylesheet">
+    <link rel="stylesheet" href="/archive/archive_css.css">
+    <script>
+      CLOSURE_NO_DEPS = true;
+    </script>
+    <script src="/archive/angular.js"></script><style type="text/css">@charset "UTF-8";
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak],
+.ng-cloak, .x-ng-cloak,
+.ng-hide:not(.ng-hide-animate) {
+  display: none !important;
+}
+
+ng\:form {
+  display: block;
+}
+
+.ng-animate-shim {
+  visibility:hidden;
+}
+
+.ng-anchor {
+  position:absolute;
+}
+</style>
+    <script src="/archive/pagedown.js"></script>
+    <script src="/archive/archive.js"></script>
+    <base href="/archive/">
+  </head>
+
+  <body>
+    <div class="maia-header" id="maia-header" role="banner">
+      <div class="maia-aux">
+        <a href="/archive/">
+          </a><h1><a href="/archive/">
+            <img alt="Google" src="//www.google.com/images/branding/googlelogo/1x/googlelogo_color_116x41dp.png"> Code</a>
+          </h1>
+        
+        <a href="/archive/">
+          <h2>Archive</h2>
+        </a>
+        <a class="maia-teleport" href="#content">Skip to content</a>
+        <div class="maia-util">
+          <form action="/archive/search" class="maia-search ng-pristine ng-valid">
+            <input name="q" placeholder="Search this site" type="text">
+            <button class="maia-button">
+              <span class="maia-search-icon">Search</span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- ngView: --><div ng-view="" class="ng-scope"><div ng-controller="ProjectIssueCtrl as issueCtrl" class="ng-scope">
+<nav-bar-widget nav-level-1="projectCtrl.navLevel1" class="ng-isolate-scope"><div class="maia-nav maia-complex" id="maia-nav-x" role="navigation">
+  <div class="maia-aux">
+    <ul>
+      <li ng-class="{active: navLevel1 == 'projects'}">
+        <a href="/archive/">Projects</a>
+        <!-- ngIf: navLevel2 -->
+      </li>
+      <li ng-class="{active: navLevel1 == 'search'}">
+        <a href="/archive/search">Search</a>
+      </li>
+      <li ng-class="{active: navLevel1 == 'about'}">
+        <a href="/archive/about">About</a>
+      </li>
+    </ul>
+  </div>
+</div>
+</nav-bar-widget>
+<div id="maia-main" role="main">
+
+  <!-- ngIf: issueCtrl.notFound -->
+
+  <div ng-hide="issueCtrl.notFound">
+    <!-- Left-side resource nav -->
+    <project-resources-widget domain="issueCtrl.domain" project="issueCtrl.projectName" class="ng-isolate-scope"><div class="maia-nav" id="maia-nav-y" role="navigation">
+  <!-- ngIf: domain == 'code.google.com' --><ul ng-if="domain == 'code.google.com'" class="ng-scope">
+    <li class="active">
+      <a href="/archive/p/csipsimple/">Project</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/source">Source</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/issues">Issues</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/wikis">Wikis</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/downloads">Downloads</a>
+    </li>
+  </ul><!-- end ngIf: domain == 'code.google.com' -->
+
+    <!-- ngIf: domain != 'code.google.com' -->
+</div></project-resources-widget>
+
+    <div class="maia-article" role="article">
+      <div class="maia-teleport" id="content"></div>
+      <div class="maia-cols">
+        <div id="gca-project-header" class="maia-col-10">
+          <a id="gca-export-to-gh" class="maia-button" href="https://code.google.com/export-to-github/export?project=csipsimple">Export to GitHub</a>
+            <img class="gca-project-logo" src="https://storage.googleapis.com/google-code-archive/v2/code.google.com/csipsimple/logo.png">
+            <h1 class="ng-binding">csipsimple - issue #2398</h1>
+            <p class="ng-binding">start called in state 0</p>
+        </div>
+
+        <div class="maia-col-10">
+          <hr>
+
+        <!-- ngIf: issueCtrl.error -->
+
+        <!-- ngIf: !issueCtrl.error --><div ng-if="!issueCtrl.error" class="ng-scope">
+          <!-- Comments -->
+          <div class="maia-col-8">
+            <!-- ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jun 8, 2013 by
+                  <i class="ng-binding">Helpful Kangaroo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p><b>What steps will reproduce the problem?</b>
+1.When the device as the called，tips has been kept the same mistake.
+Error message shown below.
+<b>2.</b>
+<b>3.</b></p>
+
+<p><b>What is the expected output? What do you see instead?</b></p>
+
+<p><b>What version of the product are you using? On what device / operating</b>
+<b>system?</b></p>
+
+<p><b>Please provide any additional information below.</b></p>
+
+<p>01-01 01:34:26.976: I/DEBUG(16145): Build fingerprint: 'jorjin/pantherboard/pantherboard:2.3.4/GRJ22/eng.root.20130316.094911:eng/test-keys'
+01-01 01:34:26.976: I/DEBUG(16145): pid: 16640, tid: 16646  &gt;&gt;&gt; /system/bin/mediaserver &lt;&lt;&lt;
+01-01 01:34:26.976: I/DEBUG(16145): signal 11 (SIGSEGV), code 1 (SEGV_MAPERR), fault addr 00000098
+01-01 01:34:26.976: I/DEBUG(16145):  r0 00010000  r1 00002000  r2 00000000  r3 00000000
+01-01 01:34:26.976: I/DEBUG(16145):  r4 00026ac8  r5 00002000  r6 0003c420  r7 00000000
+01-01 01:34:26.976: I/DEBUG(16145):  r8 00000000  r9 00026ad8  10 00000000  fp a970d200
+01-01 01:34:26.976: I/DEBUG(16145):  ip a970f728  sp 40564d48  lr a97085e4  pc 800443a4  cpsr 60000010
+01-01 01:34:26.976: I/DEBUG(16145):  d0  6b6f6f74203a3a20  d1  42444e415453206d
+01-01 01:34:26.976: I/DEBUG(16145):  d2  4580000000001073  d3  0000000000001065
+01-01 01:34:26.976: I/DEBUG(16145):  d4  0000000000000000  d5  0000100000000000
+01-01 01:34:26.976: I/DEBUG(16145):  d6  0000100045800000  d7  0000100000000000
+01-01 01:34:26.976: I/DEBUG(16145):  d8  0000000000000000  d9  0000000000000000
+01-01 01:34:26.976: I/DEBUG(16145):  d10 0000000000000000  d11 0000000000000000
+01-01 01:34:26.976: I/DEBUG(16145):  d12 0000000000000000  d13 0000000000000000
+01-01 01:34:26.976: I/DEBUG(16145):  d14 0000000000000000  d15 0000000000000000
+01-01 01:34:26.976: I/DEBUG(16145):  d16 0000000000000000  d17 0000000000000000
+01-01 01:34:26.976: I/DEBUG(16145):  d18 0000000000000000  d19 0000000000000000
+01-01 01:34:26.976: I/DEBUG(16145):  d20 0000000000000000  d21 0000000000000000
+01-01 01:34:26.976: I/DEBUG(16145):  d22 0000000000000000  d23 0000000000000000
+01-01 01:34:26.976: I/DEBUG(16145):  d24 0000000000000000  d25 0000000000000000
+01-01 01:34:26.976: I/DEBUG(16145):  d26 0000000000000000  d27 0000000000000000
+01-01 01:34:26.976: I/DEBUG(16145):  d28 0000000000000000  d29 0000000000000000
+01-01 01:34:26.976: I/DEBUG(16145):  d30 0000000000000000  d31 0000000000000000
+01-01 01:34:26.976: I/DEBUG(16145):  scr 80000000
+01-01 01:34:27.039: I/DEBUG(16145):          #00  pc 000443a4  /system/lib/libasound.so
+01-01 01:34:27.039: I/DEBUG(16145):          #01  pc 000085e0  /system/lib/libaudio.so
+01-01 01:34:27.039: I/DEBUG(16145):          #02  pc 00027958  /system/lib/libaudioflinger.so
+01-01 01:34:27.039: I/DEBUG(16145):          #03  pc 0001c8dc  /system/lib/libutils.so
+01-01 01:34:27.039: I/DEBUG(16145):          #04  pc 0001ce3a  /system/lib/libutils.so
+01-01 01:34:27.039: I/DEBUG(16145):          #05  pc 00011b74  /system/lib/libc.so
+01-01 01:34:27.039: I/DEBUG(16145):          #06  pc 00011740  /system/lib/libc.so
+01-01 01:34:27.039: I/DEBUG(16145): code around pc:
+01-01 01:34:27.039: I/DEBUG(16145): 80044384 e59230f0 e1a0e00f e593f024 e3a00000 
+01-01 01:34:27.039: I/DEBUG(16145): 80044394 e8bd8010 e1a03000 e1a00181 e92d4010 
+01-01 01:34:27.039: I/DEBUG(16145): 800443a4 e5931098 ebff5c06 e8bd8010 e5902098 
+01-01 01:34:27.039: I/DEBUG(16145): 800443b4 e0000192 e1a001a0 e12fff1e e1a03000 
+01-01 01:34:27.039: I/DEBUG(16145): 800443c4 e1a00181 e92d4010 e5931094 ebff5bfc 
+01-01 01:34:27.039: I/DEBUG(16145): code around lr:
+01-01 01:34:27.046: I/DEBUG(16145): a97085c4 11580005 2a000027 e5932028 e3520000 
+01-01 01:34:27.046: I/DEBUG(16145): a97085d4 1affffe5 e0681005 e1a00007 ebfffadb 
+01-01 01:34:27.046: I/DEBUG(16145): a97085e4 e0861008 e1a02000 e1a00007 ebfffae0 
+01-01 01:34:27.046: I/DEBUG(16145): a97085f4 e1a07000 e3570000 aaffffe5 e377004d 
+01-01 01:34:27.046: I/DEBUG(16145): a9708604 0a00001a e594200c e5920010 e3500000 
+01-01 01:34:27.046: I/DEBUG(16145): stack:
+01-01 01:34:27.046: I/DEBUG(16145):     40564d08  00000000 <br>
+01-01 01:34:27.046: I/DEBUG(16145):     40564d0c  0012292a <br>
+01-01 01:34:27.046: I/DEBUG(16145):     40564d10  00000000 <br>
+01-01 01:34:27.046: I/DEBUG(16145):     40564d14  a970d200  /system/lib/libaudio.so
+01-01 01:34:27.046: I/DEBUG(16145):     40564d18  00026ad8 <br>
+01-01 01:34:27.046: I/DEBUG(16145):     40564d1c  6f77e57e <br>
+01-01 01:34:27.046: I/DEBUG(16145):     40564d20  00000528 <br>
+01-01 01:34:27.046: I/DEBUG(16145):     40564d24  afd0e558  /system/lib/libc.so
+01-01 01:34:27.046: I/DEBUG(16145):     40564d28  00026ac8 <br>
+01-01 01:34:27.046: I/DEBUG(16145):     40564d2c  53ffb344 <br>
+01-01 01:34:27.046: I/DEBUG(16145):     40564d30  0003c420 <br>
+01-01 01:34:27.046: I/DEBUG(16145):     40564d34  00026ac8 <br>
+01-01 01:34:27.054: I/DEBUG(16145):     40564d38  00002000 <br>
+01-01 01:34:27.054: I/DEBUG(16145):     40564d3c  0003c420 <br>
+01-01 01:34:27.054: I/DEBUG(16145):     40564d40  df002777 <br>
+01-01 01:34:27.054: I/DEBUG(16145):     40564d44  e3a070ad <br>
+01-01 01:34:27.054: I/DEBUG(16145): #00 40564d48  00026ac8 <br>
+01-01 01:34:27.054: I/DEBUG(16145):     40564d4c  a97085e4  /system/lib/libaudio.so
+01-01 01:34:27.054: I/DEBUG(16145): #01 40564d50  00000001 <br>
+01-01 01:34:27.054: I/DEBUG(16145):     40564d54  00000000 <br>
+01-01 01:34:27.054: I/DEBUG(16145):     40564d58  40564df8 <br>
+01-01 01:34:27.054: I/DEBUG(16145):     40564d5c  a970d274  /system/lib/libaudio.so
+01-01 01:34:27.054: I/DEBUG(16145):     40564d60  000059d8 <br>
+01-01 01:34:27.054: I/DEBUG(16145):     40564d64  000396c8 <br>
+01-01 01:34:27.054: I/DEBUG(16145):     40564d68  00000000 <br>
+01-01 01:34:27.054: I/DEBUG(16145):     40564d6c  a97084e8  /system/lib/libaudio.so
+01-01 01:34:27.054: I/DEBUG(16145):     40564d70  a8d34410 <br>
+01-01 01:34:27.054: I/DEBUG(16145):     40564d74  00002000 <br>
+01-01 01:34:27.054: I/DEBUG(16145):     40564d78  000396ec <br>
+01-01 01:34:27.054: I/DEBUG(16145):     40564d7c  2247cc49 <br>
+01-01 01:34:27.062: I/DEBUG(16145):     40564d80  00000529 <br>
+01-01 01:34:27.062: I/DEBUG(16145):     40564d84  a8d2795b  /system/lib/libaudioflinger.so
+01-01 01:34:27.109: D/InCallControls(16582): &gt;&gt; Speaker null
+01-01 01:34:27.148: D/wpa_supplicant(1403): nl80211_priv_driver_cmd RSSI-APPROX len = 4096
+01-01 01:34:27.148: D/wpa_supplicant(1403): nl80211_priv_driver_cmd LINKSPEED len = 4096
+01-01 01:34:27.156: D/CallProximityManager(16582): Proxmity flags supported : 31
+01-01 01:34:27.156: D/CallProximityManager(16582): Impossible to get power manager release with it
+01-01 01:34:27.265: D/PreferencesWrapper(16582): Last known version is 2220 and currently we are running 2220
+01-01 01:34:27.265: D/PreferencesWrapper(16582): Last known android version 10
+01-01 01:34:27.289: D/AccelerometerListener(16582): enable(true)
+01-01 01:34:27.289: D/InCallControls(16582): Mode is : 3
+01-01 01:34:27.320: D/InCallActivity(16582): Start in call
+01-01 01:34:27.328: D/InCallActivity(16582): We have a call 0 / 3/0
+01-01 01:34:27.328: D/InCallControls(16582): Mode is : 3
+01-01 01:34:27.328: D/InCallActivity(16582): Active call is 0
+01-01 01:34:27.328: D/InCallActivity(16582): Update ui from call 0 state Ringing…
+01-01 01:34:27.328: D/InCallActivity(16582): Acquire wake up lock
+01-01 01:34:27.328: D/InCallActivity(16582): we leave the update ui function
+01-01 01:34:27.328: D/CallProximityManager(16582): Horizontal : false and activate for calls false
+01-01 01:34:27.343: D/SIP SRV(16582): Action is null
+01-01 01:34:27.343: D/SIP SRV(16582): Service returned
+01-01 01:34:27.406: D/InCallActivity(16582): We have a call 0 / 3/0
+01-01 01:34:27.406: D/InCallControls(16582): Mode is : 3
+01-01 01:34:27.406: D/InCallInfoGrid(16582): Populate 1 children
+01-01 01:34:27.406: V/InCallInfoGrid(16582): Render a grid of 1 x 1
+01-01 01:34:27.406: D/InCallInfoGrid(16582): May render weird... min height not correct 265
+01-01 01:34:27.531: D/InCallCard(16582): Set call state : 3
+01-01 01:34:27.570: W/InCallActivity(16582): No camera preview available to be shown
+01-01 01:34:27.578: D/InCallInfoGrid(16582): Populate 0 children
+01-01 01:34:27.578: D/InCallActivity(16582): Active call is 0
+01-01 01:34:27.578: D/InCallActivity(16582): Update ui from call 0 state Ringing…
+01-01 01:34:27.578: D/InCallActivity(16582): Acquire wake up lock
+01-01 01:34:27.578: D/InCallActivity(16582): we leave the update ui function
+01-01 01:34:27.578: D/CallProximityManager(16582): Horizontal : false and activate for calls false
+01-01 01:34:27.578: D/InCallControls(16582): &gt;&gt; Speaker null
+01-01 01:34:27.578: D/CallProximityManager(16582): Horizontal : false and activate for calls false
+01-01 01:34:27.585: W/InputManagerService(1236): Starting input on non-focused client com.android.internal.view.IInputMethodClient$Stub$Proxy@4095d4e0 (uid=10029 pid=16572)
+01-01 01:34:27.656: I/BootReceiver(1236): Copying /data/tombstones/tombstone_08 to DropBox (SYSTEM_TOMBSTONE)
+01-01 01:34:27.664: W/AudioSystem(1236): AudioFlinger server died!
+01-01 01:34:27.664: W/AudioSystem(1236): AudioPolicyService server died!
+01-01 01:34:27.664: I/ServiceManager(1139): service 'media.audio_flinger' died
+01-01 01:34:27.664: I/ServiceManager(1139): service 'media.player' died
+01-01 01:34:27.664: I/ServiceManager(1139): service 'media.camera' died
+01-01 01:34:27.664: I/ServiceManager(1139): service 'media.audio_policy' died
+01-01 01:34:27.664: W/IMediaDeathNotifier(16582): media server died
+01-01 01:34:27.664: E/MediaPlayer(16582): error (100, 0)
+01-01 01:34:27.671: D/wpa_supplicant(1403): nl80211_priv_driver_cmd RSSI-APPROX len = 4096
+01-01 01:34:27.671: D/wpa_supplicant(1403): nl80211_priv_driver_cmd LINKSPEED len = 4096
+01-01 01:34:27.734: W/AudioSystem(16582): AudioFlinger server died!
+01-01 01:34:27.734: D/dalvikvm(16582): GC_EXTERNAL_ALLOC freed 246K, 44% free 3512K/6215K, external 948K/1038K, paused 82ms
+01-01 01:34:27.757: E/MediaPlayer(16582): start called in state 0
+01-01 01:34:27.757: E/MediaPlayer(16582): error (-38, 0)
+01-01 01:34:27.757: E/MediaPlayer(16582): start called in state 0
+01-01 01:34:27.757: E/MediaPlayer(16582): error (-38, 0)
+01-01 01:34:27.757: E/MediaPlayer(16582): start called in state 0
+01-01 01:34:27.757: E/MediaPlayer(16582): error (-38, 0)
+01-01 01:34:27.757: E/MediaPlayer(16582): start called in state 0
+01-01 01:34:27.757: E/MediaPlayer(16582): error (-38, 0)
+01-01 01:34:27.757: E/MediaPlayer(16582): start called in state 0
+01-01 01:34:27.757: E/MediaPlayer(16582): error (-38, 0)</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #1</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jun 9, 2013 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content -->
+              <!-- ngIf: !comment.content --><span ng-if="!comment.content" class="ng-scope">
+                <p><em>(No comment was entered for this change.)</em></p>
+              </span><!-- end ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #2</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jun 9, 2013 by
+                  <i class="ng-binding">Helpful Kangaroo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>(No comment was entered for this change.)  ?? 
+I can not see details，the status is invalid. 
+Can you resend it again? thanks</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #3</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jun 9, 2013 by
+                  <i class="ng-binding">Helpful Kangaroo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Online wait...</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #4</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jun 9, 2013 by
+                  <i class="ng-binding">Helpful Kangaroo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>I can not see details��the status is invalid. 
+Can you resend it again? thanks
+At 2013-06-09 16:32:56,csipsimple@googlecode.com wrote:</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments -->
+          </div>
+
+          <!-- Sidebar with additional information -->
+          <div class="maia-col-4">
+            <div class="maia-aside">
+              <p>Status: <code class="ng-binding">Invalid</code></p>
+              <!-- ngIf: issueCtrl.issue.labels.length > 0 --><p ng-if="issueCtrl.issue.labels.length &gt; 0" class="ng-scope">
+                Labels:
+                <br>
+                <!-- ngRepeat: label in issueCtrl.issue.labels track by $index --><span ng-repeat="label in issueCtrl.issue.labels track by $index" class="ng-scope">
+                  <span class="gca-label ng-binding">Type-Defect</span>
+                </span><!-- end ngRepeat: label in issueCtrl.issue.labels track by $index --><span ng-repeat="label in issueCtrl.issue.labels track by $index" class="ng-scope">
+                  <span class="gca-label ng-binding">Priority-Medium</span>
+                </span><!-- end ngRepeat: label in issueCtrl.issue.labels track by $index -->
+              </p><!-- end ngIf: issueCtrl.issue.labels.length > 0 -->
+            </div>
+          </div>
+        </div><!-- end ngIf: !issueCtrl.error -->
+      </div>
+    </div>
+
+  </div>
+</div>
+</div></div></div>
+    <noscript>
+      &lt;p&gt;The Google Code Archive requires JavaScript to be enabled in your browser.&lt;/p&gt;
+    </noscript>
+
+    <div id="maia-signature"></div>
+    <div class="maia-footer" id="maia-footer">
+      <div id="maia-footer-local">
+      </div>
+      <div id="maia-footer-global">
+        <div class="maia-aux">
+          <ul>
+            <li>
+              <a href="//www.google.com/">Google</a>
+            </li>
+            <li>
+              <a href="//www.google.com/intl/en/about/">About Google</a>
+            </li>
+            <li>
+              <a href="//www.google.com/intl/en/policies/privacy/">Privacy</a>
+            </li>
+            <li>
+              <a href="//www.google.com/intl/en/policies/terms/">Terms</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <script src="//www.google.com/js/maia.js"></script>
+  
+
+
+</body></html>

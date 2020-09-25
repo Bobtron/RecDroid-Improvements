@@ -11,8 +11,8 @@ with open(file_name, 'r') as file:
     for line in lines:
         line = line[:-1]
         args = line.split(',')
-        node1 = args[0] + "," + args[1] + ";"
-        node2 = args[2] + "," + args[3] + ";"
+        node1 = args[0] + "," + args[1] + "; "
+        node2 = args[2] + "," + args[3] + "; "
         score = float(args[4])
         if node1 not in adj_mat_graph.keys():
             adj_mat_graph[node1] = {}
@@ -29,7 +29,7 @@ while True:
     nearest_neighbor = {}
 
     for key in adj_mat_graph.keys():
-        nearest_neighbor[key] = ModularizedFunc.get_nearest_neighbor(adj_mat_graph, key)
+        nearest_neighbor[key] = ModularizedFunc.get_nearest_neighbor(adj_mat_graph, key, 0.82)
 
     # print(nearest_neighbor)
 

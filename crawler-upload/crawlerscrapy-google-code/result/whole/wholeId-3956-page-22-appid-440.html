@@ -1,0 +1,455 @@
+https://code.google.com/archive/p/csipsimple/issues/865<!DOCTYPE html><html class="google ng-scope" lang="en" ng-app="codesiteArchive.application"><head>
+    <meta charset="utf-8">
+    <meta content="initial-scale=1, minimum-scale=1, width=device-width" name="viewport">
+
+    <!-- https://developers.google.com/webmasters/ajax-crawling/docs/specification -->
+    <meta name="fragment" content="!">
+    <title>Google Code Archive - Long-term storage for Google Code Project Hosting.</title>
+
+    <link rel="icon" type="image/vnd.microsoft.icon" href="/archive/img/project-hosting.ico">
+    <script src="//www.google.com/js/google.js"></script>
+    <link href="//www.google.com/css/maia.css" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;lang=en" rel="stylesheet">
+    <link rel="stylesheet" href="/archive/archive_css.css">
+    <script>
+      CLOSURE_NO_DEPS = true;
+    </script>
+    <script src="/archive/angular.js"></script><style type="text/css">@charset "UTF-8";
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak],
+.ng-cloak, .x-ng-cloak,
+.ng-hide:not(.ng-hide-animate) {
+  display: none !important;
+}
+
+ng\:form {
+  display: block;
+}
+
+.ng-animate-shim {
+  visibility:hidden;
+}
+
+.ng-anchor {
+  position:absolute;
+}
+</style>
+    <script src="/archive/pagedown.js"></script>
+    <script src="/archive/archive.js"></script>
+    <base href="/archive/">
+  </head>
+
+  <body>
+    <div class="maia-header" id="maia-header" role="banner">
+      <div class="maia-aux">
+        <a href="/archive/">
+          </a><h1><a href="/archive/">
+            <img alt="Google" src="//www.google.com/images/branding/googlelogo/1x/googlelogo_color_116x41dp.png"> Code</a>
+          </h1>
+        
+        <a href="/archive/">
+          <h2>Archive</h2>
+        </a>
+        <a class="maia-teleport" href="#content">Skip to content</a>
+        <div class="maia-util">
+          <form action="/archive/search" class="maia-search ng-pristine ng-valid">
+            <input name="q" placeholder="Search this site" type="text">
+            <button class="maia-button">
+              <span class="maia-search-icon">Search</span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- ngView: --><div ng-view="" class="ng-scope"><div ng-controller="ProjectIssueCtrl as issueCtrl" class="ng-scope">
+<nav-bar-widget nav-level-1="projectCtrl.navLevel1" class="ng-isolate-scope"><div class="maia-nav maia-complex" id="maia-nav-x" role="navigation">
+  <div class="maia-aux">
+    <ul>
+      <li ng-class="{active: navLevel1 == 'projects'}">
+        <a href="/archive/">Projects</a>
+        <!-- ngIf: navLevel2 -->
+      </li>
+      <li ng-class="{active: navLevel1 == 'search'}">
+        <a href="/archive/search">Search</a>
+      </li>
+      <li ng-class="{active: navLevel1 == 'about'}">
+        <a href="/archive/about">About</a>
+      </li>
+    </ul>
+  </div>
+</div>
+</nav-bar-widget>
+<div id="maia-main" role="main">
+
+  <!-- ngIf: issueCtrl.notFound -->
+
+  <div ng-hide="issueCtrl.notFound">
+    <!-- Left-side resource nav -->
+    <project-resources-widget domain="issueCtrl.domain" project="issueCtrl.projectName" class="ng-isolate-scope"><div class="maia-nav" id="maia-nav-y" role="navigation">
+  <!-- ngIf: domain == 'code.google.com' --><ul ng-if="domain == 'code.google.com'" class="ng-scope">
+    <li class="active">
+      <a href="/archive/p/csipsimple/">Project</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/source">Source</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/issues">Issues</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/wikis">Wikis</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/downloads">Downloads</a>
+    </li>
+  </ul><!-- end ngIf: domain == 'code.google.com' -->
+
+    <!-- ngIf: domain != 'code.google.com' -->
+</div></project-resources-widget>
+
+    <div class="maia-article" role="article">
+      <div class="maia-teleport" id="content"></div>
+      <div class="maia-cols">
+        <div id="gca-project-header" class="maia-col-10">
+          <a id="gca-export-to-gh" class="maia-button" href="https://code.google.com/export-to-github/export?project=csipsimple">Export to GitHub</a>
+            <img class="gca-project-logo" src="https://storage.googleapis.com/google-code-archive/v2/code.google.com/csipsimple/logo.png">
+            <h1 class="ng-binding">csipsimple - issue #865</h1>
+            <p class="ng-binding">Add GTalk/XMPP/Jabber client functionality</p>
+        </div>
+
+        <div class="maia-col-10">
+          <hr>
+
+        <!-- ngIf: issueCtrl.error -->
+
+        <!-- ngIf: !issueCtrl.error --><div ng-if="!issueCtrl.error" class="ng-scope">
+          <!-- Comments -->
+          <div class="maia-col-8">
+            <!-- ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Apr 5, 2011 by
+                  <i class="ng-binding">Helpful Panda</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>The GTalk peering at PBXes.org recently stopped working. This was the only way to use GTalk (and thus Google Voice) as a voice connection on Android.</p>
+
+<p>What if CSipSimple were to work as a voice client for GTalk/XMPP/Jabber? Then we could skip PBXes and just connect to our GTalk account directly. It seems like the biggest use of SIP is to enable incoming VOIP connections from Google Voice anyways. I know it's not SIP and maybe doesn't belong here but there's a heck of a lot of overlap and it sure would be nice.</p>
+
+<p><a href="http://xmpp.org/xmpp-protocols/rfcs/">http://xmpp.org/xmpp-protocols/rfcs/</a></p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #1</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Apr 6, 2011 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>The goal of CSipSimple is just to provide a full featured SIP client, not to support all protocols of the creation.</p>
+
+<p>Besides, SIP allows chat through SIP Message, so up to the service provider (google) to do a gateway SIP messages &lt;-&gt; XMPP payloads.</p>
+
+<p>The android OS is very well designed and should allow apps to work together. Each app should do one thing but do it well and allow other apps to plug its features.</p>
+
+<p>So this feature request is not relevant at all of this project. You should ask developpers of the project Beem : <a href="http://www.beem-project.com/projects/beem">http://www.beem-project.com/projects/beem</a>.
+If the feature should be somewhere it is the correct place to have it. Not in CSipsimple which aim is to be a SIP client, not a XMPP / Jingle client.</p>
+
+<p>Besides : </p>
+
+<blockquote>
+  <p>It seems like the biggest use of SIP is to enable incoming VOIP connections from Google Voice </p>
+</blockquote>
+
+<p>==&gt; No ! You are probably on a contry where google voice is available, but for example in my country it's not available, besides our ISP in france provide us a SIP account for free that allow free landline calls. So we do not need Google Voice at all. Other countries has other telephony states, and SIP is <em>FAR</em> to be used only with combination of Google Voice. Besides in CSipSimple this appearing is not fully tested (obviously I can't test it here).
+SIP is also used in Companies with IP-PBXes. So really the goal is not only to support Google Voice at all. </p>
+
+<p>It's to do a SIP client and let users free to choose the provider they want ! 
+The approach is just to implement the open protocol. And in android another protocol support should be another application ! 
+Both apps could interacts through the powerful intents and bindings mechanism of android, but one app that do anything is a bad idea.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #2</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Apr 6, 2011 by
+                  <i class="ng-binding">Helpful Panda</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>OK, I am guilty of US-centrism. Sorry! </p>
+
+<p>I completely understand your desire to do one thing well. But you should realize you're currently doing TWO things well--the cip tech and the user interface, and the two are somewhat arbitrarily related.</p>
+
+<p>From a user's perspective, "SIP" is just an implementation detail. The part of your project that we interact with--the integration, the screens--could work (theoretically) just as well with any back-end implementation, SIP, XMPP, Skype, whatever. </p>
+
+<p>And furthermore, your interface is a lot better than the alternatives, which is why I want to use it no matter what back-end tech I end up using!</p>
+
+<p>Anyways, thanks for your thoughtful reply.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #3</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Apr 6, 2011 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Yes you're absolutely right, there is two parts in the project. </p>
+
+<p>I try to make things as separate as possible in code so that the SIP User Agent + its android integration is independent from the SIP backend. 
+However it's still very linked (at least in terms of features). My goal in the future is too allow several SIP backends. For now we use only pjsip-pjsua (it's a sip library in C code). In a very near future, I'll allow to use the google gingerbread SIP if available on the phone. And in the future hopefully other SIP implementations.</p>
+
+<p>For now, my plan is only to support SIP. However, CSipSimple is opensource, so if some want to use parts of the code and release a GPL application based on different backend it's absolutely possible.</p>
+
+<p>But I think that the feature for the backend should be done in a separate project. Beem is a good candidate (GPL license + active devs). As soon as they'll get a well featured application, we will consider to allow from CSipSimple to access their service. As I said in android UI and service can be two different apps. </p>
+
+<p>For now I release CSipSimple as a block with everything in it (SIP service + UI) but it can be split. 
+There is already some partners that use CSipSimple in a plugin mode. In this case CSipSimple only provide the SIP service and can provide some UI to control the communication for example.
+If all apps has this kind of level of API and split service and UI as it is done in CSipSimple, it will be easy for every app to integrate all other apps and services.</p>
+
+<p>So the support of this feature "inside" csipsimple is not relevant yet. As soon as an other app will provide this service it will become relevant.
+If you ask now to developpers of a GPL xmpp/jabber/jingle application to integrate a SIP service, I'll be pleased to help them to provide through the CSipSimple API the service inside their app.</p>
+
+<p>Also, just to try to make a comparison with another voip service that can already be integrated in csipsimple : CSipSimple support Skype. (Even if I had to reverse engineer how to plug to skype application). But you can, inside csipsimple, if you have skype installed, make skype calls.
+Obviously the integration is limited (cause skype close its application so that no others can control their calls). But what is done with skype is already some proof of concept that csipsimple could integrated a feature provided by another app.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #4</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Apr 6, 2011 by
+                  <i class="ng-binding">Helpful Panda</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>You are saying that other apps can use the CSip engine, but could a separate "GTalk engine" be used by the CSipSimple front-end? </p>
+
+<p>Ideally, and this is simply from one user's perspective, GTalk could be a type of account within CSipSimple alongside the SIP accounts.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #5</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jun 22, 2011 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Issue 1092 has been merged into this issue.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #6</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Aug 14, 2011 by
+                  <i class="ng-binding">Happy Horse</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>With ZRTP, SIP TLS and SRTP security included, csipsimple would be outstanding if it had implemented the XMPP protocol. </p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #7</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Dec 22, 2012 by
+                  <i class="ng-binding">Grumpy Lion</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Hi R3gis,</p>
+
+<p>I completely understand your principle of software doing one thing and doing it well.  CSipSimple has succeeded very well at that and I hope that stays so.</p>
+
+<p>What it does particularly well is open, standards compliant VoIP, excellent platform integration, clean UI, great codec support, ZRTP, polished UX, etc.  Bare with me, but I think Jingle completely aligns with this.</p>
+
+<ol>
+<li>Jingle was specifically designed to have core session management semantics that are compatible with SIP.</li>
+<li>It's also based on open, internet standards protocols.</li>
+<li>Everything from RTP up stays the same?</li>
+</ol>
+
+<p>Because of those three things, I really believe it's in a completely different class to Skype, etc.  The excellent voice &amp; video support, which is CSipSimple's focus, aren't something available in Gaim or anything else that I'm aware of.  Apart from SIP/RTP, Jingle is the only mainstream open VoIP protocol stack.</p>
+
+<p>I think the request might have been better phrased "support Jingle".  The requirement isn't particularly about GTalk (G's really just any another provider), neither do I think it's meant to focus on IM, which is the immediate first thought when people say XMPP.</p>
+
+<p>We all know a network is only as useful as the number of users.  We can't prevent fragmentation between SIP &amp; XMPP, that happened long ago when SIMPLE failed to gain broad acceptance.  We can only improve interop.  XMPP is widely deployed, which helps Jingle's deployment.  It also offers great features, like in-band account registration, that could really allow CSipSimple to compete head-on with the simple, user-friendly apps the mainstream users are relying on for voice &amp; video instead.  To me and a lot of other users, leveraging the XMPP infrastructure for voice and video makes absolute sense to get open VoIP more widely deployed.</p>
+
+<p>Free, compatible, software is still losing the fight against the walled-gardens of Skype, Line, WhatsApp, etc.  SIP's penetration is in single digits or less comparatively.  CSipSimple is currently the best chance that free, open, secure, standards compliant telephony on mobile has (at least on Android).  Trying to get friends to install an alternative VoIP client like CSipSimple is hard and managing additional accounts is one of those killers.</p>
+
+<p>Adding Jingle would only strengthens CSipSimple's position, not dilute it.</p>
+
+<p>What do you think?</p>
+
+<p>Dave.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #8</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Dec 22, 2012 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Some comment about jingle/libjingle. I'm working a lot with it on my full time job (where I port webrtc for android).</p>
+
+<p>And it's not standard implementation for the media part. The ICE implementation in libjingle for example is something from google and doesn't match specifications (and it is a little bit crappy). But good news... they are moving to standard way to do things ! But it's not the current way it works ;)</p>
+
+<p>IMHO the real next big thing for open mainstream voice video over IP is not XMPP, it's webRTC. </p>
+
+<p>SIP is for now the voip standard. And it's already widely deployed in world of voice/video over IP (enterprises pbxes, IMS of carriers, various sip providers -- there is clearly more than xmpp providers, various sip servers opensource also clearly more choices than xmpp, standard analog telephony gateways). And XMPP for voice/video is not as mature as SIP in terms of standardization/features and in terms of implementation where there is only one of reference that sometimes ignores standards (libjingle).</p>
+
+<p>Indeed for some feature xmpp is more advanced and mature. Your example about in-band registration (xep-0077) is one of these case where xmpp is better. 
+But there is also efforts on sip to have same features (<a href="http://tools.ietf.org/html/draft-petrie-sipping-profile-datasets-05">http://tools.ietf.org/html/draft-petrie-sipping-profile-datasets-05</a> , <a href="http://tools.ietf.org/html/draft-petrie-sipping-identity-dataset-02">http://tools.ietf.org/html/draft-petrie-sipping-identity-dataset-02</a> and <a href="http://tools.ietf.org/html/rfc6080">http://tools.ietf.org/html/rfc6080</a> ). The reason why it's slower to land in sip is that it's IETF RFC and that it takes more time to land, but as you'll notice will be more rich in terms of features than the xmpp spec. It's also reviewed by more experts eyes and have to be implemented by more people before having as big strength as google have when they release something.</p>
+
+<p>Other point, providers are moving to support both xmpp and sip (and sip over websocket). So if you have an voip provider kind they will provide both protocol. And the only thing that can be discussed is missing features of one protocol vs the other.</p>
+
+<p>Last point, I don't mean to strengthen the position of CSipSimple. 
+If better technology than SIP that gives more freedom to users arrives, I'll be pleased to spend less of my spare time working on CSipSimple and having other open projects landing. If users starts preferring some android XMPP client that does its jobs well I'll be fine too. It could even be a fork of csipsimple that just takes the user interface part... as said in comment 3, the code is designed to allow that with low efforts.
+In the choice between adding XMPP (or whatever the other open protocol : IAX, H323) inside csipsimple and adding missing parts of SIP protocol in the app, I choose adding missing part of SIP protocol (such as stuff to automatically configure the account). SIP is what the app does, not yet fully and as clean as I wish. So before thinking other protocol, let finalize SIP first.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments -->
+          </div>
+
+          <!-- Sidebar with additional information -->
+          <div class="maia-col-4">
+            <div class="maia-aside">
+              <p>Status: <code class="ng-binding">WontFix</code></p>
+              <!-- ngIf: issueCtrl.issue.labels.length > 0 --><p ng-if="issueCtrl.issue.labels.length &gt; 0" class="ng-scope">
+                Labels:
+                <br>
+                <!-- ngRepeat: label in issueCtrl.issue.labels track by $index --><span ng-repeat="label in issueCtrl.issue.labels track by $index" class="ng-scope">
+                  <span class="gca-label ng-binding">Type-Defect</span>
+                </span><!-- end ngRepeat: label in issueCtrl.issue.labels track by $index --><span ng-repeat="label in issueCtrl.issue.labels track by $index" class="ng-scope">
+                  <span class="gca-label ng-binding">Priority-Medium</span>
+                </span><!-- end ngRepeat: label in issueCtrl.issue.labels track by $index -->
+              </p><!-- end ngIf: issueCtrl.issue.labels.length > 0 -->
+            </div>
+          </div>
+        </div><!-- end ngIf: !issueCtrl.error -->
+      </div>
+    </div>
+
+  </div>
+</div>
+</div></div></div>
+    <noscript>
+      &lt;p&gt;The Google Code Archive requires JavaScript to be enabled in your browser.&lt;/p&gt;
+    </noscript>
+
+    <div id="maia-signature"></div>
+    <div class="maia-footer" id="maia-footer">
+      <div id="maia-footer-local">
+      </div>
+      <div id="maia-footer-global">
+        <div class="maia-aux">
+          <ul>
+            <li>
+              <a href="//www.google.com/">Google</a>
+            </li>
+            <li>
+              <a href="//www.google.com/intl/en/about/">About Google</a>
+            </li>
+            <li>
+              <a href="//www.google.com/intl/en/policies/privacy/">Privacy</a>
+            </li>
+            <li>
+              <a href="//www.google.com/intl/en/policies/terms/">Terms</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <script src="//www.google.com/js/maia.js"></script>
+  
+
+
+</body></html>

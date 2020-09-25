@@ -1,0 +1,672 @@
+https://code.google.com/archive/p/csipsimple/issues/1561<!DOCTYPE html><html class="google ng-scope" lang="en" ng-app="codesiteArchive.application"><head>
+    <meta charset="utf-8">
+    <meta content="initial-scale=1, minimum-scale=1, width=device-width" name="viewport">
+
+    <!-- https://developers.google.com/webmasters/ajax-crawling/docs/specification -->
+    <meta name="fragment" content="!">
+    <title>Google Code Archive - Long-term storage for Google Code Project Hosting.</title>
+
+    <link rel="icon" type="image/vnd.microsoft.icon" href="/archive/img/project-hosting.ico">
+    <script src="//www.google.com/js/google.js"></script>
+    <link href="//www.google.com/css/maia.css" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;lang=en" rel="stylesheet">
+    <link rel="stylesheet" href="/archive/archive_css.css">
+    <script>
+      CLOSURE_NO_DEPS = true;
+    </script>
+    <script src="/archive/angular.js"></script><style type="text/css">@charset "UTF-8";
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak],
+.ng-cloak, .x-ng-cloak,
+.ng-hide:not(.ng-hide-animate) {
+  display: none !important;
+}
+
+ng\:form {
+  display: block;
+}
+
+.ng-animate-shim {
+  visibility:hidden;
+}
+
+.ng-anchor {
+  position:absolute;
+}
+</style>
+    <script src="/archive/pagedown.js"></script>
+    <script src="/archive/archive.js"></script>
+    <base href="/archive/">
+  </head>
+
+  <body>
+    <div class="maia-header" id="maia-header" role="banner">
+      <div class="maia-aux">
+        <a href="/archive/">
+          </a><h1><a href="/archive/">
+            <img alt="Google" src="//www.google.com/images/branding/googlelogo/1x/googlelogo_color_116x41dp.png"> Code</a>
+          </h1>
+        
+        <a href="/archive/">
+          <h2>Archive</h2>
+        </a>
+        <a class="maia-teleport" href="#content">Skip to content</a>
+        <div class="maia-util">
+          <form action="/archive/search" class="maia-search ng-pristine ng-valid">
+            <input name="q" placeholder="Search this site" type="text">
+            <button class="maia-button">
+              <span class="maia-search-icon">Search</span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- ngView: --><div ng-view="" class="ng-scope"><div ng-controller="ProjectIssueCtrl as issueCtrl" class="ng-scope">
+<nav-bar-widget nav-level-1="projectCtrl.navLevel1" class="ng-isolate-scope"><div class="maia-nav maia-complex" id="maia-nav-x" role="navigation">
+  <div class="maia-aux">
+    <ul>
+      <li ng-class="{active: navLevel1 == 'projects'}">
+        <a href="/archive/">Projects</a>
+        <!-- ngIf: navLevel2 -->
+      </li>
+      <li ng-class="{active: navLevel1 == 'search'}">
+        <a href="/archive/search">Search</a>
+      </li>
+      <li ng-class="{active: navLevel1 == 'about'}">
+        <a href="/archive/about">About</a>
+      </li>
+    </ul>
+  </div>
+</div>
+</nav-bar-widget>
+<div id="maia-main" role="main">
+
+  <!-- ngIf: issueCtrl.notFound -->
+
+  <div ng-hide="issueCtrl.notFound">
+    <!-- Left-side resource nav -->
+    <project-resources-widget domain="issueCtrl.domain" project="issueCtrl.projectName" class="ng-isolate-scope"><div class="maia-nav" id="maia-nav-y" role="navigation">
+  <!-- ngIf: domain == 'code.google.com' --><ul ng-if="domain == 'code.google.com'" class="ng-scope">
+    <li class="active">
+      <a href="/archive/p/csipsimple/">Project</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/source">Source</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/issues">Issues</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/wikis">Wikis</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/downloads">Downloads</a>
+    </li>
+  </ul><!-- end ngIf: domain == 'code.google.com' -->
+
+    <!-- ngIf: domain != 'code.google.com' -->
+</div></project-resources-widget>
+
+    <div class="maia-article" role="article">
+      <div class="maia-teleport" id="content"></div>
+      <div class="maia-cols">
+        <div id="gca-project-header" class="maia-col-10">
+          <a id="gca-export-to-gh" class="maia-button" href="https://code.google.com/export-to-github/export?project=csipsimple">Export to GitHub</a>
+            <img class="gca-project-logo" src="https://storage.googleapis.com/google-code-archive/v2/code.google.com/csipsimple/logo.png">
+            <h1 class="ng-binding">csipsimple - issue #1561</h1>
+            <p class="ng-binding">add support for multifon.ru</p>
+        </div>
+
+        <div class="maia-col-10">
+          <hr>
+
+        <!-- ngIf: issueCtrl.error -->
+
+        <!-- ngIf: !issueCtrl.error --><div ng-if="!issueCtrl.error" class="ng-scope">
+          <!-- Comments -->
+          <div class="maia-col-8">
+            <!-- ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Feb 7, 2012 by
+                  <i class="ng-binding">Grumpy Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>It's the only SIP service provided by Russian cellphone companies:
+<a href="http://multifon.ru/help/">http://multifon.ru/help/</a></p>
+
+<p>Unfortunately it has very crappy support and creepy requirements (TCP, 60 sec registration timeout, strict SIP proxy etc.)</p>
+
+<p>I didn't managed to make it work with csipsimple - only with twinkle on my laptop.</p>
+
+<p>Hopefully someone with better luck could contribute profile to csipsimple.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #1</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Feb 7, 2012 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Well if you succeeded in configuring on twinkle I can do a wizard for csipsimple.</p>
+
+<p>Could you search in the .twinkle folder of your home directory and see the cfg file associated to the account.</p>
+
+<p>If you can extract from there everything, I will be able to give you some indication on how to configure csipsimple using "Expert wizard". 
+TCP, registration timeout proxy are all things that can be configured in expert wizard mode but required to know exactly what each field means ;). Maybe I could even do a wizard directly.</p>
+
+<p>WARNING : when extracting from twinkle configuration file, TAKE CARE; it contains your credentials and some private info. 
+Do not copy paste it here !!!
+Replace by xxxxxx, yyyyyy all things related to your private infos. If something is repeated, for example the username, use the same letters (xxxxx for example) to replace, so that I can see what can be factorized in the wizard.</p>
+
+<p>Thanks in advance</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #2</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Feb 8, 2012 by
+                  <i class="ng-binding">Grumpy Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Since it's impossible to attach file due to some google's glitch I'm posting it inline with login\pass sanitized:</p>
+
+<hr>
+
+<h1>USER</h1>
+
+<p>user_name=79231234567
+user_domain=multifon.ru
+user_display=79231234567
+user_organization=
+auth_realm=
+auth_name=79231234567
+auth_pass=myverysecretpass
+auth_aka_op=00000000000000000000000000000000
+auth_aka_amf=0000</p>
+
+<h1>SIP SERVER</h1>
+
+<p>outbound_proxy=sbc.megafon.ru:5060
+all_requests_to_proxy=yes
+non_resolvable_to_proxy=no
+registrar=multifon.ru
+register_at_startup=yes
+registration_time=60
+reg_add_qvalue=no
+reg_qvalue=1</p>
+
+<h1>RTP AUDIO</h1>
+
+<p>codecs=g711a
+ptime=20
+out_far_end_codec_pref=yes
+in_far_end_codec_pref=yes
+speex_nb_payload_type=97
+speex_wb_payload_type=98
+speex_uwb_payload_type=99
+speex_bit_rate_type=cbr
+speex_dtx=no
+speex_penh=yes
+speex_quality=6
+speex_complexity=3
+speex_dsp_vad=yes
+speex_dsp_agc=yes
+speex_dsp_aec=yes
+speex_dsp_nrd=yes
+speex_dsp_agc_level=20
+ilbc_payload_type=96
+ilbc_mode=30
+g726_16_payload_type=102
+g726_24_payload_type=103
+g726_32_payload_type=104
+g726_40_payload_type=105
+g726_packing=rfc3551
+dtmf_transport=inband
+dtmf_payload_type=101
+dtmf_duration=100
+dtmf_pause=40
+dtmf_volume=10</p>
+
+<h1>SIP PROTOCOL</h1>
+
+<p>hold_variant=rfc3264
+check_max_forwards=no
+allow_missing_contact_reg=yes
+registration_time_in_contact=yes
+compact_headers=no
+encode_multi_values_as_list=yes
+use_domain_in_contact=no
+allow_sdp_change=no
+allow_redirection=yes
+ask_user_to_redirect=yes
+max_redirections=5
+ext_100rel=supported
+ext_replaces=yes
+referee_hold=no
+referrer_hold=yes
+allow_refer=yes
+ask_user_to_refer=yes
+auto_refresh_refer_sub=no
+attended_refer_to_aor=no
+allow_xfer_consult_inprog=no
+send_p_preferred_id=no</p>
+
+<h1>Transport/NAT</h1>
+
+<p>sip_transport=tcp
+sip_transport_udp_threshold=1300
+nat_public_ip=
+stun_server=
+persistent_tcp=yes
+enable_nat_keepalive=yes</p>
+
+<h1>TIMERS</h1>
+
+<p>timer_noanswer=30
+timer_nat_keepalive=30
+timer_tcp_ping=30</p>
+
+<h1>ADDRESS FORMAT</h1>
+
+<p>display_useronly_phone=yes
+numerical_user_is_phone=no
+remove_special_phone_symbols=yes
+special_phone_symbols=-()/.
+use_tel_uri_for_phone=no</p>
+
+<h1>RING TONES</h1>
+
+<p>ringtone_file=
+ringback_file=</p>
+
+<h1>SCRIPTS</h1>
+
+<p>script_incoming_call=
+script_in_call_answered=
+script_in_call_failed=
+script_outgoing_call=
+script_out_call_answered=
+script_out_call_failed=
+script_local_release=
+script_remote_release=</p>
+
+<h1>NUMBER CONVERSION</h1>
+
+<h1>SECURITY</h1>
+
+<p>zrtp_enabled=no
+zrtp_goclear_warning=yes
+zrtp_sdp=yes
+zrtp_send_if_supported=no</p>
+
+<h1>MWI</h1>
+
+<p>mwi_sollicited=no
+mwi_user=
+mwi_server=
+mwi_via_proxy=no
+mwi_subscription_time=3600
+mwi_vm_address=</p>
+
+<h1>INSTANT MESSAGE</h1>
+
+<p>im_max_sessions=10
+im_send_iscomposing=yes</p>
+
+<h1>PRESENCE</h1>
+
+<p>pres_subscription_time=3600
+pres_publication_time=3600
+pres_publish_startup=yes</p>
+
+<hr>
+
+<p>I've tried to use expert configuration mode but still got server error from crippled sip server by multifon.ru - probably I've overlooked smth.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #3</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Feb 9, 2012 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Well normally "Advanced" wizard should be enough for this.
+Could you try :
+* Create an account with advanced wizard
+In account name : whatever you want
+In caller id : whatever you want
+In server : multifon.ru
+In username : 79231234567
+In password : yourverysecretpassword ;)
+You can try to enable TCP (as far as I can see it's configured in TCP in twinkle)
+In proxy (mandatory in your case) :  sbc.megafon.ru
+Save the account</p>
+
+<p>Since it's a SBC proxy there is maybe something that could help then.
+Long press on the account row and select choose wizard and select "Expert"
+Then, scroll down and disable "Allow contact rewrite". Since it's a sbc proxy it's normally useless (and worse could mess up the good things done by the server :) ).</p>
+
+<p>If it works I'll create the wizard. Else you should try to collect some logs (see HowToCollectLogs). I'll maybe see some interesting clue in it :).</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #4</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Aug 1, 2012 by
+                  <i class="ng-binding">Massive Bird</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Hello. I'm trying to setup MegaFon (it's the provider's name, multifon is the service name) on CSipSimple.</p>
+
+<p>First, some mentioned setting are not required. TCP is not required - works fine over UDP. 60 sec registration timeout is not required, furthermore, server returns Contact: ;expires=180 if timeout is less than 180 secs.</p>
+
+<p>According to official website, required settings are:</p>
+
+<p>account id: sip:79261234567@multifon.ru
+registration server: sip:sbc.megafon.ru
+username: 79261234567
+password: myverysecretpassword
+proxy server: sip:sbc.megafon.ru</p>
+
+<p>I have to use "Expert" wizard, because my sip id is @multifon.ru while registration and proxy server is sbc.megafon.ru.</p>
+
+<p>Also, there is a problem.</p>
+
+<p>If I set proxy server to sip:sbc.megafon.ru, CSipSimple sends REGISTER with Route:  and server replies:</p>
+
+<pre><code>    SIP/2.0 500 Internal Server Error
+    &lt;skipped&gt;
+    Reason: Q.850;cause=47;text="Call Terminated"
+</code></pre>
+
+<p>Addind Route: header causes server to reply with Internal Server Error. If I delete proxy server settings, CSipSimple sends REGISTER without Route: header and registration is ok.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #5</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Aug 1, 2012 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Thanks a lot for the test and the feedback.</p>
+
+<p>Weird that the sip server doesn't allow to use them as proxy, but ok, why not ;)</p>
+
+<p>So, I'll leave the proxy server blank in the dedicated wizard. 
+I guess that they don't need you to route request through their server.
+Do you confirm that with sip proxy deleted the calls goes out correctly?</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #6</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Aug 1, 2012 by
+                  <i class="ng-binding">Massive Bird</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>I've found that if "Allow DNS SRV" is checked in CSipSimple settings, I can use "Simple" wizard and just enter:
+User: mynumber
+Server: multifon.ru
+Password: myverysecretpass</p>
+
+<p>multifon.ru has SIP SRV records pointing to sbc.megafon.ru and everything works fine.</p>
+
+<p>However if "Allow DNS SRV" is not checked, there's something weird.</p>
+
+<p>account id: sip:mynumber@multifon.ru
+registration server: sip:sbc.megafon.ru
+username: mynumber
+password: myverysecretpassword</p>
+
+<p>If I leave the proxy server blank, all requests are routed through provider's server even if "Allow DNS SRV" is not checked. It seems to be a bug in CSipSimple.</p>
+
+<p>Another proxy server settings:</p>
+
+<ul>
+<li>sip:multifon.ru: I cannot register if "Allow DNS SRV" is not checked</li>
+<li>sip:sbc.megafon.ru: I cannot register at all (SIP/2.0 500 Internal Server Error)</li>
+<li>sip:193.201.229.35 (IP address of sbc.megafon.ru): everything works</li>
+</ul></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #7</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Aug 2, 2012 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Great news :)</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #8</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Aug 2, 2012 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>This issue was closed by revision r1758.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #9</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Nov 2, 2012 by
+                  <i class="ng-binding">Quick Wombat</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>multifon.ru wizard dont work, please change: 
+Proxy URI - sip:sbc.megafon.ru:hide
+Register timeout(sec)- 60
+you can check here:
+<a href="http://www.multifon.ru/help/#17">http://www.multifon.ru/help/#17</a>
+<a href="http://www.multifon.ru/help/#18">http://www.multifon.ru/help/#18</a></p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #10</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Nov 2, 2012 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Thanks for the update. 
+In fact it's already fixed in nightly build version (since r1918). 
+Not yet landed on market place version; But you can download updated version from :
+<a href="http://nightlies.csipsimple.com/trunk/">http://nightlies.csipsimple.com/trunk/</a></p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #11</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Nov 2, 2012 by
+                  <i class="ng-binding">Massive Bird</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>There is no need to specify a proxy and register timeout. DNS SRV should be enough, and the minimal timeout is 120 secs (however you can specify any value), the provider's site has incorrect information.
+Anyway, I never use any wizards. :)</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments -->
+          </div>
+
+          <!-- Sidebar with additional information -->
+          <div class="maia-col-4">
+            <div class="maia-aside">
+              <p>Status: <code class="ng-binding">Fixed</code></p>
+              <!-- ngIf: issueCtrl.issue.labels.length > 0 --><p ng-if="issueCtrl.issue.labels.length &gt; 0" class="ng-scope">
+                Labels:
+                <br>
+                <!-- ngRepeat: label in issueCtrl.issue.labels track by $index --><span ng-repeat="label in issueCtrl.issue.labels track by $index" class="ng-scope">
+                  <span class="gca-label ng-binding">Type-Defect</span>
+                </span><!-- end ngRepeat: label in issueCtrl.issue.labels track by $index --><span ng-repeat="label in issueCtrl.issue.labels track by $index" class="ng-scope">
+                  <span class="gca-label ng-binding">Priority-Medium</span>
+                </span><!-- end ngRepeat: label in issueCtrl.issue.labels track by $index -->
+              </p><!-- end ngIf: issueCtrl.issue.labels.length > 0 -->
+            </div>
+          </div>
+        </div><!-- end ngIf: !issueCtrl.error -->
+      </div>
+    </div>
+
+  </div>
+</div>
+</div></div></div>
+    <noscript>
+      &lt;p&gt;The Google Code Archive requires JavaScript to be enabled in your browser.&lt;/p&gt;
+    </noscript>
+
+    <div id="maia-signature"></div>
+    <div class="maia-footer" id="maia-footer">
+      <div id="maia-footer-local">
+      </div>
+      <div id="maia-footer-global">
+        <div class="maia-aux">
+          <ul>
+            <li>
+              <a href="//www.google.com/">Google</a>
+            </li>
+            <li>
+              <a href="//www.google.com/intl/en/about/">About Google</a>
+            </li>
+            <li>
+              <a href="//www.google.com/intl/en/policies/privacy/">Privacy</a>
+            </li>
+            <li>
+              <a href="//www.google.com/intl/en/policies/terms/">Terms</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <script src="//www.google.com/js/maia.js"></script>
+  
+
+
+</body></html>

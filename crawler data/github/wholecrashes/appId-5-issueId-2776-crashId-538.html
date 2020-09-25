@@ -1,0 +1,42 @@
+https://github.com/LawnchairLauncher/Lawnchair/issues/982<td class="d-block comment-body markdown-body  js-comment-body">
+
+          <h2>Description</h2>
+<p>I recently upgraded my devices to Android 8.1 "Oreo MR1". After that, Lawnchair began to systematically crash on start. I don't know if the bug appears if the device is already running Oreo MR1 when Lawnchair is first installed.</p>
+<h2>Workaround</h2>
+<p>If I go to my device's settings and manually grant the Storage permission to Lawnchair, it starts functioning normally again.</p>
+<h2>Expected Behavior</h2>
+<p>Lawnchair should have displayed my home screen, as it did before the upgrade.</p>
+<h2>Actual Behavior</h2>
+<p>After entering my PIN code/unlock schema just after the upgrade, I saw a pop-up saying that Lawnchair crashed and a menu asking me to choose between the launchers installed on my devices. Same thing after selecting Lawnchair in the menu, whether it popped up after a crash or by pressing the Home button.</p>
+<h2>Steps to Reproduce</h2>
+<ol>
+<li>Upgrade to Android 8.1 "Oreo MR1"</li>
+<li>Boot the device</li>
+<li>Unlock the device</li>
+</ol>
+<h2>Environment</h2>
+<ul>
+<li>Device: Nexus 6P / Pixel C</li>
+<li>Android version: 8.1.0</li>
+<li>Launcher version: 1.1.0.1655</li>
+<li>Rom: Stock Rom</li>
+</ul>
+<h2>Logcat</h2>
+<pre><code>12-06 11:22:51.433 18341 20011 E AndroidRuntime: FATAL EXCEPTION: pool-1-thread-3
+12-06 11:22:51.433 18341 20011 E AndroidRuntime: Process: ch.deletescape.lawnchair, PID: 18341
+12-06 11:22:51.433 18341 20011 E AndroidRuntime: java.lang.SecurityException: read wallpaper: Neither user 10291 nor current process has android.permission.READ_EXTERNAL_STORAGE.
+12-06 11:22:51.433 18341 20011 E AndroidRuntime: 	at android.os.Parcel.readException(Parcel.java:2004)
+12-06 11:22:51.433 18341 20011 E AndroidRuntime: 	at android.os.Parcel.readException(Parcel.java:1950)
+12-06 11:22:51.433 18341 20011 E AndroidRuntime: 	at android.app.IWallpaperManager$Stub$Proxy.getWallpaper(IWallpaperManager.java:481)
+12-06 11:22:51.433 18341 20011 E AndroidRuntime: 	at android.app.WallpaperManager$Globals.getCurrentWallpaperLocked(WallpaperManager.java:458)
+12-06 11:22:51.433 18341 20011 E AndroidRuntime: 	at android.app.WallpaperManager$Globals.peekWallpaperBitmap(WallpaperManager.java:412)
+12-06 11:22:51.433 18341 20011 E AndroidRuntime: 	at android.app.WallpaperManager$Globals.peekWallpaperBitmap(WallpaperManager.java:391)
+12-06 11:22:51.433 18341 20011 E AndroidRuntime: 	at android.app.WallpaperManager.getDrawable(WallpaperManager.java:538)
+12-06 11:22:51.433 18341 20011 E AndroidRuntime: 	at ch.deletescape.lawnchair.blur.BlurWallpaperProvider.updateWallpaper(Unknown Source:68)
+12-06 11:22:51.433 18341 20011 E AndroidRuntime: 	at ch.deletescape.lawnchair.blur.BlurWallpaperProvider.access$updateWallpaper(Unknown Source:0)
+12-06 11:22:51.433 18341 20011 E AndroidRuntime: 	at ch.deletescape.lawnchair.blur.BlurWallpaperProvider$mUpdateRunnable$1.run(Unknown Source:2)
+12-06 11:22:51.433 18341 20011 E AndroidRuntime: 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1162)
+12-06 11:22:51.433 18341 20011 E AndroidRuntime: 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:636)
+12-06 11:22:51.433 18341 20011 E AndroidRuntime: 	at java.lang.Thread.run(Thread.java:764)
+</code></pre>
+      </td>

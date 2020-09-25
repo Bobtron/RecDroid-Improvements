@@ -1,0 +1,1095 @@
+https://code.google.com/archive/p/csipsimple/issues/638<!DOCTYPE html><html class="google ng-scope" lang="en" ng-app="codesiteArchive.application"><head>
+    <meta charset="utf-8">
+    <meta content="initial-scale=1, minimum-scale=1, width=device-width" name="viewport">
+
+    <!-- https://developers.google.com/webmasters/ajax-crawling/docs/specification -->
+    <meta name="fragment" content="!">
+    <title>Google Code Archive - Long-term storage for Google Code Project Hosting.</title>
+
+    <link rel="icon" type="image/vnd.microsoft.icon" href="/archive/img/project-hosting.ico">
+    <script src="//www.google.com/js/google.js"></script>
+    <link href="//www.google.com/css/maia.css" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;lang=en" rel="stylesheet">
+    <link rel="stylesheet" href="/archive/archive_css.css">
+    <script>
+      CLOSURE_NO_DEPS = true;
+    </script>
+    <script src="/archive/angular.js"></script><style type="text/css">@charset "UTF-8";
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak],
+.ng-cloak, .x-ng-cloak,
+.ng-hide:not(.ng-hide-animate) {
+  display: none !important;
+}
+
+ng\:form {
+  display: block;
+}
+
+.ng-animate-shim {
+  visibility:hidden;
+}
+
+.ng-anchor {
+  position:absolute;
+}
+</style>
+    <script src="/archive/pagedown.js"></script>
+    <script src="/archive/archive.js"></script>
+    <base href="/archive/">
+  </head>
+
+  <body>
+    <div class="maia-header" id="maia-header" role="banner">
+      <div class="maia-aux">
+        <a href="/archive/">
+          </a><h1><a href="/archive/">
+            <img alt="Google" src="//www.google.com/images/branding/googlelogo/1x/googlelogo_color_116x41dp.png"> Code</a>
+          </h1>
+        
+        <a href="/archive/">
+          <h2>Archive</h2>
+        </a>
+        <a class="maia-teleport" href="#content">Skip to content</a>
+        <div class="maia-util">
+          <form action="/archive/search" class="maia-search ng-pristine ng-valid">
+            <input name="q" placeholder="Search this site" type="text">
+            <button class="maia-button">
+              <span class="maia-search-icon">Search</span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- ngView: --><div ng-view="" class="ng-scope"><div ng-controller="ProjectIssueCtrl as issueCtrl" class="ng-scope">
+<nav-bar-widget nav-level-1="projectCtrl.navLevel1" class="ng-isolate-scope"><div class="maia-nav maia-complex" id="maia-nav-x" role="navigation">
+  <div class="maia-aux">
+    <ul>
+      <li ng-class="{active: navLevel1 == 'projects'}">
+        <a href="/archive/">Projects</a>
+        <!-- ngIf: navLevel2 -->
+      </li>
+      <li ng-class="{active: navLevel1 == 'search'}">
+        <a href="/archive/search">Search</a>
+      </li>
+      <li ng-class="{active: navLevel1 == 'about'}">
+        <a href="/archive/about">About</a>
+      </li>
+    </ul>
+  </div>
+</div>
+</nav-bar-widget>
+<div id="maia-main" role="main">
+
+  <!-- ngIf: issueCtrl.notFound -->
+
+  <div ng-hide="issueCtrl.notFound">
+    <!-- Left-side resource nav -->
+    <project-resources-widget domain="issueCtrl.domain" project="issueCtrl.projectName" class="ng-isolate-scope"><div class="maia-nav" id="maia-nav-y" role="navigation">
+  <!-- ngIf: domain == 'code.google.com' --><ul ng-if="domain == 'code.google.com'" class="ng-scope">
+    <li class="active">
+      <a href="/archive/p/csipsimple/">Project</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/source">Source</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/issues">Issues</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/wikis">Wikis</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/downloads">Downloads</a>
+    </li>
+  </ul><!-- end ngIf: domain == 'code.google.com' -->
+
+    <!-- ngIf: domain != 'code.google.com' -->
+</div></project-resources-widget>
+
+    <div class="maia-article" role="article">
+      <div class="maia-teleport" id="content"></div>
+      <div class="maia-cols">
+        <div id="gca-project-header" class="maia-col-10">
+          <a id="gca-export-to-gh" class="maia-button" href="https://code.google.com/export-to-github/export?project=csipsimple">Export to GitHub</a>
+            <img class="gca-project-logo" src="https://storage.googleapis.com/google-code-archive/v2/code.google.com/csipsimple/logo.png">
+            <h1 class="ng-binding">csipsimple - issue #638</h1>
+            <p class="ng-binding">r593: crash due to SIGSEGV in pjsip_hdr_print_on</p>
+        </div>
+
+        <div class="maia-col-10">
+          <hr>
+
+        <!-- ngIf: issueCtrl.error -->
+
+        <!-- ngIf: !issueCtrl.error --><div ng-if="!issueCtrl.error" class="ng-scope">
+          <!-- Comments -->
+          <div class="maia-col-8">
+            <!-- ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jan 28, 2011 by
+                  <i class="ng-binding">Happy Rhino</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>D/WifiService(  127): releaseWifiLockLocked: WifiLock{com.csipsimple.SipService type=1 binder=android.os.BinderProxy@43d4f1e0}
+I/DEBUG   ( 8202): <strong>* <em></em></strong><em> <strong></strong></em><strong> <em></em></strong><em> <strong></strong></em><strong> <em></em></strong><em> <strong></strong></em><strong> <em></em></strong><em> <strong></strong></em><strong> <em></em></strong><em> <strong></strong></em><strong> <em></em></strong><em> <strong></strong></em><strong> <em></em></strong><em> <strong></strong></em><strong> *</strong>
+I/DEBUG   ( 8202): Build fingerprint: 'google/passion/passion/mahimahi:2.2.1/FRG83/60505:user/release-keys'
+I/DEBUG   ( 8202): pid: 8203, tid: 8217  &gt;&gt;&gt; com.csipsimple &lt;&lt;&lt;
+I/DEBUG   ( 8202): signal 11 (SIGSEGV), fault addr 00000008
+I/DEBUG   ( 8202):  r0 002e2ae4  r1 00290b71  r2 00000f33  r3 00000004
+I/DEBUG   ( 8202):  r4 00293f48  r5 0000023c  r6 80942a5c  r7 80942a5c
+I/DEBUG   ( 8202):  r8 00293f48  r9 00000f33  10 00294038  fp 00290b71
+I/DEBUG   ( 8202):  ip 80901084  sp 45d319f8  lr 80865c3d  pc 80865c48  cpsr 80000030
+I/DEBUG   ( 8202):          #00  pc 00065c48  /data/data/com.csipsimple/lib/libpjsipjni.so
+I/DEBUG   ( 8202):          #01  pc 00064d12  /data/data/com.csipsimple/lib/libpjsipjni.so (pjsip_hdr_print_on)
+I/DEBUG   ( 8202):          #02  pc 00066604  /data/data/com.csipsimple/lib/libpjsipjni.so (pjsip_msg_print)
+I/DEBUG   ( 8202):          #03  pc 0004f864  /data/data/com.csipsimple/lib/libpjsipjni.so (pjsip_tx_data_encode)
+I/DEBUG   ( 8202):          #04  pc 0006b9e8  /data/data/com.csipsimple/lib/libpjsipjni.so
+I/DEBUG   ( 8202):          #05  pc 0004f1e0  /data/data/com.csipsimple/lib/libpjsipjni.so
+I/DEBUG   ( 8202):          #06  pc 000a50f8  /data/data/com.csipsimple/lib/libpjsipjni.so
+I/DEBUG   ( 8202):          #07  pc 000a2cd8  /data/data/com.csipsimple/lib/libpjsipjni.so
+I/DEBUG   ( 8202):          #08  pc 000ad6b8  /data/data/com.csipsimple/lib/libpjsipjni.so (ioqueue_dispatch_read_event)
+I/DEBUG   ( 8202):          #09  pc 000ada88  /data/data/com.csipsimple/lib/libpjsipjni.so (pj_ioqueue_poll)
+I/DEBUG   ( 8202):          #10  pc 0007f794  /data/data/com.csipsimple/lib/libpjsipjni.so
+I/DEBUG   ( 8202):          #11  pc 000a7e5c  /data/data/com.csipsimple/lib/libpjsipjni.so
+I/DEBUG   ( 8202):          #12  pc 000115f4  /system/lib/libc.so (__thread_entry)
+I/DEBUG   ( 8202):          #13  pc 000110d8  /system/lib/libc.so (pthread_create)
+I/DEBUG   ( 8202):
+I/DEBUG   ( 8202): code around pc:
+I/DEBUG   ( 8202): 80865c28 464d4656 b4f04644 4682b087 4691468b
+I/DEBUG   ( 8202): 80865c38 fb4ef001 90034653 4f2b6ad8 447f6803
+I/DEBUG   ( 8202): 80865c48 4798685b 1c066cc4 42b43648 4b27d019
+I/DEBUG   ( 8202): 80865c58 18ffad04 46982304 6864e002 d01042b4
+I/DEBUG   ( 8202): 80865c68 1c204643 606b602f 1c293008 fa0cf046
+I/DEBUG   ( 8202):
+I/DEBUG   ( 8202): code around lr:
+I/DEBUG   ( 8202): 80865c1c f7ff1c20 bd10ffc5 465fb5f0 464d4656
+I/DEBUG   ( 8202): 80865c2c b4f04644 4682b087 4691468b fb4ef001
+I/DEBUG   ( 8202): 80865c3c 90034653 4f2b6ad8 447f6803 4798685b
+I/DEBUG   ( 8202): 80865c4c 1c066cc4 42b43648 4b27d019 18ffad04
+I/DEBUG   ( 8202): 80865c5c 46982304 6864e002 d01042b4 1c204643
+I/DEBUG   ( 8202):
+I/DEBUG   ( 8202): stack:
+I/DEBUG   ( 8202):     45d319b8  002955f8  [heap]
+I/DEBUG   ( 8202):     45d319bc  afd10a48  /system/lib/libc.so
+I/DEBUG   ( 8202):     45d319c0  002955f8  [heap]
+I/DEBUG   ( 8202):     45d319c4  00000000
+I/DEBUG   ( 8202):     45d319c8  45d31a20
+I/DEBUG   ( 8202):     45d319cc  00000020
+I/DEBUG   ( 8202):     45d319d0  00293fc4  [heap]
+I/DEBUG   ( 8202):     45d319d4  00290b46  [heap]
+I/DEBUG   ( 8202):     45d319d8  00000f66
+I/DEBUG   ( 8202):     45d319dc  809437cc  /data/data/com.csipsimple/lib/libpjsipjni.so
+I/DEBUG   ( 8202):     45d319e0  809437cc  /data/data/com.csipsimple/lib/libpjsipjni.so
+I/DEBUG   ( 8202):     45d319e4  00291aa4  [heap]
+I/DEBUG   ( 8202):     45d319e8  00290b2a  [heap]
+I/DEBUG   ( 8202):     45d319ec  80942a5c  /data/data/com.csipsimple/lib/libpjsipjni.so
+I/DEBUG   ( 8202):     45d319f0  df002777
+I/DEBUG   ( 8202):     45d319f4  e3a070ad
+I/DEBUG   ( 8202): #00 45d319f8  80943864  /data/data/com.csipsimple/lib/libpjsipjni.so
+I/DEBUG   ( 8202):     45d319fc  80865899  /data/data/com.csipsimple/lib/libpjsipjni.so
+I/DEBUG   ( 8202):     45d31a00  80943864  /data/data/com.csipsimple/lib/libpjsipjni.so
+I/DEBUG   ( 8202):     45d31a04  809437cc  /data/data/com.csipsimple/lib/libpjsipjni.so
+I/DEBUG   ( 8202):     45d31a08  8094388c  /data/data/com.csipsimple/lib/libpjsipjni.so
+I/DEBUG   ( 8202):     45d31a0c  00000000
+I/DEBUG   ( 8202):     45d31a10  00290b20  [heap]
+I/DEBUG   ( 8202):     45d31a14  00293f48  [heap]
+I/DEBUG   ( 8202):     45d31a18  0000023c
+I/DEBUG   ( 8202):     45d31a1c  80942a5c  /data/data/com.csipsimple/lib/libpjsipjni.so
+I/DEBUG   ( 8202):     45d31a20  00290b04  [heap]
+I/DEBUG   ( 8202):     45d31a24  00294038  [heap]
+I/DEBUG   ( 8202):     45d31a28  00290b71  [heap]
+I/DEBUG   ( 8202):     45d31a2c  00293f5c  [heap]
+I/DEBUG   ( 8202):     45d31a30  00291aa4  [heap]
+I/DEBUG   ( 8202):     45d31a34  80864d15  /data/data/com.csipsimple/lib/libpjsipjni.so
+I/DEBUG   ( 8202): #01 45d31a38  00294038  [heap]
+I/DEBUG   ( 8202):     45d31a3c  80866609  /data/data/com.csipsimple/lib/libpjsipjni.so
+D/dalvikvm( 8203): GC_FOR_MALLOC freed 8406 objects / 476416 bytes in 219ms
+W/PhoneWindow( 8203): Previously focused view reported id 2131427405 during save, but can't be found during restore.
+E/PjService( 8203): Set log level to 1
+I/ActivityManager(  127): Displayed activity com.csipsimple/.ui.SipHome: 2688 ms (total 105731 ms)
+I/DEBUG   ( 8202): debuggerd committing suicide to free the zombie!
+I/ActivityManager(  127): Process com.csipsimple (pid 8203) has died.
+W/ActivityManager(  127): Scheduling restart of crashed service com.csipsimple/.service.SipService in 5000ms
+I/DEBUG   ( 8303): debuggerd: Dec  2 2010 01:50:04
+D/Zygote  (   74): Process 8203 terminated by signal (11)</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #1</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jan 28, 2011 by
+                  <i class="ng-binding">Happy Rhino</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>This crash has happened 3 times in the last two hours.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #2</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jan 28, 2011 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Is there any log before about a SIP packet? (I guess that's something it's trying to build that fail).</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #3</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jan 28, 2011 by
+                  <i class="ng-binding">Happy Rhino</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Not with the default log level, but the crash is happening during idle periods, so the only transmitted SIP packets would be registers and keepalives.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #4</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jan 28, 2011 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Some questions :</p>
+
+<ul>
+<li>Is that a build you get from nightly builds website or did you do it yourself?</li>
+<li><p>Did you add by hand method names? (pjsip_hdr_print_on, pjsip_msg_print) cause using armeabi-addr2line I find other values for r593 build built on nightlies.</p></li>
+<li><p>Could you try r597 (build without stripping nor optim ldflags) and r599 (which will be built in a few ours automatically) (build with stripping and no optim ldflags).</p></li>
+</ul></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #5</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jan 29, 2011 by
+                  <i class="ng-binding">Happy Rhino</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>I only use your builds.  I'd never change them and report bugs without telling you. ;)</p>
+
+<p>I do have the tombstone files from the crashes if those are any use (one from r593 attached).</p>
+
+<p>I have been on r597 for 12 hours or so and judging from the tombstones there were 2 of these crashes in that time.  I can try r599.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length --><small ng-if="comment.attachments.length" class="ng-scope">Attachments</small><!-- end ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments --><ul ng-repeat="attachment in comment.attachments" class="ng-scope">
+                <li class="ng-binding">
+                  <a href="http://storage.googleapis.com/google-code-attachments/csipsimple/issue-638/comment-5/tombstone_06.txt" class="ng-binding">
+                    tombstone_06.txt
+                  </a> 77.44KB
+                </li>
+              </ul><!-- end ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #6</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jan 29, 2011 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Your SIP account is a TCP account? Is there other 'special' settings configured?</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #7</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jan 29, 2011 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Also, just to be sure, if you check in expert wizard your account setting, keep alive interval is set to 0?</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #8</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jan 29, 2011 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>(Forget my comment 7 I've remove the item from the expert wizard so you can't read this value :/ )
+Maybe what could be interesting is to increase log level to 5. (In expert setting mode in user interface in log level).
+There is some interesting verbose logs for this kind of things.</p>
+
+<p>Meanwhile I try to reproduce on my side ;) .</p>
+
+<p>Thanks</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #9</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jan 29, 2011 by
+                  <i class="ng-binding">Happy Rhino</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>No, it's UDP (callcentric wizard with all default settings, which forces UDP transport).  I don't see any keepalive setting in the expert account settings anymore, only the ones in the main settings (my wifi keepalive is set to 50 there).</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #10</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jan 29, 2011 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Ok I understood why I didn't get the good signature of method at least. It's cause your device build has a fingerprint that is the same than the nexus one, so... I looked the armeabi-v7a lib instead of the armeabi. So at least I can track the method call. 
+I'm trying to reproduce with my N1 with a Callcentric account. Maybe linked to the fact re-register time (60s) is near of keep alive time.... :/</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #11</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jan 29, 2011 by
+                  <i class="ng-binding">Happy Rhino</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Here is output from another crash with level 5 logs.  There is another strange thing in these logs which is that the registration looks like it's timing out a lot (not fully shown in the snippet below, will send you complete log separately):</p>
+
+<p>D/dalvikvm( 9602): GC_FOR_MALLOC freed 35419 objects / 1337976 bytes in 349ms
+D/SIP SRV (11804): KA alarm receive something com.csipsimple.ACTION_KA
+D/SIP SRV (11804): Send a keep alive packet
+D/libpjsip(11804):  13:51:28.626     resolver.c  Transmitting 43 bytes to NS 0 (192.168.1.254:53): DNS SRV query for _sip._udp.callcentric.com
+D/SIP SRV (11804): KA alarm receive something com.csipsimple.ACTION_KA
+D/SIP SRV (11804): Send a keep alive packet
+W/libpjsip(11804):  13:52:17.626    pjsua_acc.c  SIP registration failed, status=408 (Request Timeout)
+D/libpjsip(11804):  13:52:17.628     resolver.c  Re-transmitting 43 bytes to NS 0 (192.168.1.254:53): DNS SRV query for _sip._udp.callcentric.com
+D/SIP UA Receiver(11804): New reg state for : 0
+D/SIP UA Receiver(11804): In reg state
+I/libpjsip(11804):  13:52:17.645    pjsua_acc.c  Registration sent
+D/SIP SRV (11804): KA -&gt; stopping
+D/WifiService( 9602): releaseWifiLockLocked: WifiLock{com.csipsimple.SipService type=1 binder=android.os.BinderProxy@440efc18}
+D/Dialer  (11804): Update chooser choice
+D/libpjsip(11804):  13:52:18.378     resolver.c  Transmitting 40 bytes to NS 0 (192.168.1.254:53): DNS A query for alpha9.callcentric.com
+I/DEBUG   (11396): <strong>* <em></em></strong><em> <strong></strong></em><strong> <em></em></strong><em> <strong></strong></em><strong> <em></em></strong><em> <strong></strong></em><strong> <em></em></strong><em> <strong></strong></em><strong> <em></em></strong><em> <strong></strong></em><strong> <em></em></strong><em> <strong></strong></em><strong> <em></em></strong><em> <strong></strong></em><strong> *</strong>
+I/DEBUG   (11396): Build fingerprint: 'google/passion/passion/mahimahi:2.2.1/FRG83/60505:user/release-keys'
+I/DEBUG   (11396): pid: 11804, tid: 11948  &gt;&gt;&gt; com.csipsimple &lt;&lt;&lt;
+I/DEBUG   (11396): signal 11 (SIGSEGV), fault addr 00000008
+I/DEBUG   (11396):  r0 0038564c  r1 00403249  r2 00000f03  r3 00000004
+I/DEBUG   (11396):  r4 00380388  r5 0000023c  r6 80942a5c  r7 80942a5c
+I/DEBUG   (11396):  r8 00380388  r9 00000f03  10 00380478  fp 00403249
+I/DEBUG   (11396):  ip 80901084  sp 45eda9f8  lr 80865c3d  pc 80865c48  cpsr 80000030
+I/DEBUG   (11396):          #00  pc 00065c48  /data/data/com.csipsimple/lib/libpjsipjni.so
+I/DEBUG   (11396):          #01  pc 00064d12  /data/data/com.csipsimple/lib/libpjsipjni.so (pjsip_hdr_print_on)
+I/DEBUG   (11396):          #02  pc 00066604  /data/data/com.csipsimple/lib/libpjsipjni.so (pjsip_msg_print)
+I/DEBUG   (11396):          #03  pc 0004f864  /data/data/com.csipsimple/lib/libpjsipjni.so (pjsip_tx_data_encode)
+I/DEBUG   (11396):          #04  pc 0006b9e8  /data/data/com.csipsimple/lib/libpjsipjni.so
+I/DEBUG   (11396):          #05  pc 0004f1e0  /data/data/com.csipsimple/lib/libpjsipjni.so
+I/DEBUG   (11396):          #06  pc 000a50f8  /data/data/com.csipsimple/lib/libpjsipjni.so
+I/DEBUG   (11396):          #07  pc 000a2cd8  /data/data/com.csipsimple/lib/libpjsipjni.so
+I/DEBUG   (11396):          #08  pc 000ad6b8  /data/data/com.csipsimple/lib/libpjsipjni.so (ioqueue_dispatch_read_event)
+I/DEBUG   (11396):          #09  pc 000ada88  /data/data/com.csipsimple/lib/libpjsipjni.so (pj_ioqueue_poll)
+I/DEBUG   (11396):          #10  pc 0007f794  /data/data/com.csipsimple/lib/libpjsipjni.so
+I/DEBUG   (11396):          #11  pc 000a7e5c  /data/data/com.csipsimple/lib/libpjsipjni.so
+I/DEBUG   (11396):          #12  pc 000115f4  /system/lib/libc.so (__thread_entry)
+I/DEBUG   (11396):          #13  pc 000110d8  /system/lib/libc.so (pthread_create)
+I/DEBUG   (11396):
+I/DEBUG   (11396): code around pc:
+I/DEBUG   (11396): 80865c28 464d4656 b4f04644 4682b087 4691468b
+I/DEBUG   (11396): 80865c38 fb4ef001 90034653 4f2b6ad8 447f6803
+I/DEBUG   (11396): 80865c48 4798685b 1c066cc4 42b43648 4b27d019
+I/DEBUG   (11396): 80865c58 18ffad04 46982304 6864e002 d01042b4
+I/DEBUG   (11396): 80865c68 1c204643 606b602f 1c293008 fa0cf046
+I/DEBUG   (11396):
+I/DEBUG   (11396): code around lr:
+I/DEBUG   (11396): 80865c1c f7ff1c20 bd10ffc5 465fb5f0 464d4656
+I/DEBUG   (11396): 80865c2c b4f04644 4682b087 4691468b fb4ef001
+I/DEBUG   (11396): 80865c3c 90034653 4f2b6ad8 447f6803 4798685b
+I/DEBUG   (11396): 80865c4c 1c066cc4 42b43648 4b27d019 18ffad04
+I/DEBUG   (11396): 80865c5c 46982304 6864e002 d01042b4 1c204643
+I/DEBUG   (11396):
+I/DEBUG   (11396): stack:
+I/DEBUG   (11396):     45eda9b8  003f8e08  [heap]
+I/DEBUG   (11396):     45eda9bc  45eda95c
+I/DEBUG   (11396):     45eda9c0  00000000
+I/DEBUG   (11396):     45eda9c4  00000000
+I/DEBUG   (11396):     45eda9c8  45edaa20
+I/DEBUG   (11396):     45eda9cc  00000020
+I/DEBUG   (11396):     45eda9d0  00380404  [heap]
+I/DEBUG   (11396):     45eda9d4  004031ee  [heap]
+I/DEBUG   (11396):     45eda9d8  00000f66
+I/DEBUG   (11396):     45eda9dc  809437cc  /data/data/com.csipsimple/lib/libpjsipjni.so
+I/DEBUG   (11396):     45eda9e0  809437cc  /data/data/com.csipsimple/lib/libpjsipjni.so
+I/DEBUG   (11396):     45eda9e4  0040414c  [heap]
+I/DEBUG   (11396):     45eda9e8  004031d2  [heap]
+I/DEBUG   (11396):     45eda9ec  80942a5c  /data/data/com.csipsimple/lib/libpjsipjni.so
+I/DEBUG   (11396):     45eda9f0  df002777
+I/DEBUG   (11396):     45eda9f4  e3a070ad
+I/DEBUG   (11396): #00 45eda9f8  80943864  /data/data/com.csipsimple/lib/libpjsipjni.so
+I/DEBUG   (11396):     45eda9fc  80865899  /data/data/com.csipsimple/lib/libpjsipjni.so
+I/DEBUG   (11396):     45edaa00  80943864  /data/data/com.csipsimple/lib/libpjsipjni.so
+I/DEBUG   (11396):     45edaa04  809437cc  /data/data/com.csipsimple/lib/libpjsipjni.so
+I/DEBUG   (11396):     45edaa08  8094388c  /data/data/com.csipsimple/lib/libpjsipjni.so
+I/DEBUG   (11396):     45edaa0c  00000000
+I/DEBUG   (11396):     45edaa10  004031c8  [heap]
+I/DEBUG   (11396):     45edaa14  00380388  [heap]
+I/DEBUG   (11396):     45edaa18  0000023c
+I/DEBUG   (11396):     45edaa1c  80942a5c  /data/data/com.csipsimple/lib/libpjsipjni.so
+I/DEBUG   (11396):     45edaa20  004031ac  [heap]
+I/DEBUG   (11396):     45edaa24  00380478  [heap]
+I/DEBUG   (11396):     45edaa28  00403249  [heap]
+I/DEBUG   (11396):     45edaa2c  0038039c  [heap]
+I/DEBUG   (11396):     45edaa30  0040414c  [heap]
+I/DEBUG   (11396):     45edaa34  80864d15  /data/data/com.csipsimple/lib/libpjsipjni.so
+I/DEBUG   (11396): #01 45edaa38  00380478  [heap]
+I/DEBUG   (11396):     45edaa3c  80866609  /data/data/com.csipsimple/lib/libpjsipjni.so
+W/libpjsip(11804):  13:59:19.851    pjsua_acc.c  SIP registration failed, status=408 (Request Timeout)
+D/KeyguardViewMediator( 9602): pokeWakelock(5000)
+I/DEBUG   (13122): debuggerd: Dec  2 2010 01:50:04
+I/BootReceiver( 9602): Copying /data/tombstones/tombstone_03 to DropBox (SYSTEM_TOMBSTONE)
+D/dalvikvm( 9602): GC_FOR_MALLOC freed 12753 objects / 623432 bytes in 260ms
+I/dalvikvm-heap( 9602): Grow heap (frag case) to 7.865MB for 87396-byte allocation
+D/dalvikvm( 9602): GC_FOR_MALLOC freed 41 objects / 1960 bytes in 224ms
+D/Zygote  ( 9596): Process 11804 terminated by signal (11)
+D/dalvikvm( 9602): GC_FOR_MALLOC freed 131 objects / 96536 bytes in 232ms
+I/dalvikvm-heap( 9602): Grow heap (frag case) to 7.979MB for 174776-byte allocation
+D/dalvikvm( 9602): GC_FOR_MALLOC freed 9 objects / 264 bytes in 217ms
+I/ActivityManager( 9602): Process com.csipsimple (pid 11804) has died.
+I/WindowManager( 9602): WIN DEATH: Window{4423a778 com.csipsimple/com.csipsimple.ui.SipHome paused=false}
+D/dalvikvm( 9602): GC_FOR_MALLOC freed 1737 objects / 254936 bytes in 240ms
+I/dalvikvm-heap( 9602): Grow heap (frag case) to 7.901MB for 131088-byte allocation
+D/dalvikvm( 9602): GC_FOR_MALLOC freed 143 objects / 5288 bytes in 222ms
+W/ActivityManager( 9602): Scheduling restart of crashed service com.csipsimple/.service.SipService in 5000ms
+D/dalvikvm( 9602): GC_FOR_MALLOC freed 1244 objects / 123312 bytes in 230ms
+I/dalvikvm-heap( 9602): Grow heap (frag case) to 7.967MB for 196628-byte allocation
+D/dalvikvm( 9602): GC_FOR_MALLOC freed 48 objects / 2320 bytes in 215ms
+D/dalvikvm( 9602): GC_FOR_MALLOC freed 70 objects / 505752 bytes in 254ms</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #12</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jan 29, 2011 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Mmmmm, seems to be linked to DNS SRV option in combination with a network problem...</p>
+
+<p>If you can send me the full log, I'm interested in it :)</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #13</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jan 29, 2011 by
+                  <i class="ng-binding">Happy Rhino</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Log sent.  It could be related to DNS SRV but I'm not sure about that: the ordering of messages in logcat output is sometimes very non-linear, and it looks from the backtrace like the crash is happening the pjsip codepath for preparing an outgoing SIP message (unless I'm missing something).  One thing that seems strange is this line before the crash:</p>
+
+<p>I/libpjsip(11804):  13:52:17.645    pjsua_acc.c  Registration sent</p>
+
+<p>Usually you would see the full TX packet in the log near (shortly before or after) this line, but it does not show up in this case (even though it does for other registration TX messages in the same log).  This seems to suggest the crash is occurring when doing the registration TX associated with that line.  Just a guess.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #14</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jan 29, 2011 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Yes you're right logcat provides logs a random way, and it's even worse cause I think that pjsip bufferize logs.
+So maybe not.</p>
+
+<p>I've just fixed something in r602 (and built it in the nightly builds site). I absolutely don't know if it could be related to what you observe. But it was a potential source of crash in the native stack if the account get de-registered and the android java part try to send a keep alive packet. So worth to try this version.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #15</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jan 29, 2011 by
+                  <i class="ng-binding">Happy Rhino</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Thanks!  The network problem is also interesting and I'll explain it here because it might be worth adding to the FAQ or something.  It's something I fixed before but it reappeared because of an IP address change on the phone.</p>
+
+<p>What happens is:</p>
+
+<ol>
+<li>Phone does DNS SRV lookup on SIP server.</li>
+<li>Phone registers with server.</li>
+<li>Later a re-registration starts and another DNS SRV lookup is done.</li>
+<li>This time the DNS SRV returns a different server address.</li>
+<li>Re-register is done to the new address, but because of this, the original NAT state on the router for the session does not apply, and a new NAT state is created with a different outside port number.</li>
+<li>This confuses the registration process for a little while until it sorts itself out.</li>
+</ol>
+
+<p>This happens if your SIP provider returns different addresses in response to DNS SRV queries, which it may do for load-balancing.</p>
+
+<p>My fix was to add a static NAT mapping on the router so that it always uses the same outside port number.</p>
+
+<p>I don't know if the instability caused by this problem is related to this issue - it may have triggered it because of the extra messages.  I'll wait to see if there's another crash now that this is fixed to confirm, and if so will try r602.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #16</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jan 29, 2011 by
+                  <i class="ng-binding">Happy Rhino</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>I did get another crash after fixing the network problem so will move to the latest build and see how it works.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #17</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jan 31, 2011 by
+                  <i class="ng-binding">Happy Rhino</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Just got another one of these crashes on r606, so the problem's still there.  This one happened right when I woke the phone from sleep, and several of the previous ones have too.  But they've also happened during full-sleep and full-wake.  Maybe some race condition triggered by a cluster of events around the same time...</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #18</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Feb 1, 2011 by
+                  <i class="ng-binding">Happy Rhino</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>In the last 2.5 days since installing r606, this crash has happened 4 times and 3 of those times seem to have been when turning the screen on (waking the phone from sleep).  Maybe this will help with reproducing.  The good thing about this crash is that you can always tell when it's happened with an "ls -lt /data/tombstones".</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #19</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Feb 12, 2011 by
+                  <i class="ng-binding">Happy Rhino</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Actually, screen-on isn't triggering the crash - rather, it crashes while the phone is sleeping and stays down, and only reconnects when the phone wakes up, which is why when this happens I see the "SIP Registered" notification when turning the screen on.  This is worse, since it means the registration can go down and stay down for long periods of time.</p>
+
+<p>This is still happening in r619 and Android 2.3.2.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #20</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Mar 24, 2011 by
+                  <i class="ng-binding">Happy Rhino</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>This issue is still present as of r705:</p>
+
+<p>D/dalvikvm(29511): GC_CONCURRENT freed 402K, 54% free 2743K/5959K, external 56K/512K, paused 9ms+304ms
+W/ActivityManager(  150): finishReceiver called but active receiver is different
+I/DEBUG   (15506): <strong>* <em></em></strong><em> <strong></strong></em><strong> <em></em></strong><em> <strong></strong></em><strong> <em></em></strong><em> <strong></strong></em><strong> <em></em></strong><em> <strong></strong></em><strong> <em></em></strong><em> <strong></strong></em><strong> <em></em></strong><em> <strong></strong></em><strong> <em></em></strong><em> <strong></strong></em><strong> *</strong>
+I/DEBUG   (15506): Build fingerprint: 'google/passion/passion/mahimahi:2.2.1/FRG83/60505:user/release-keys'
+I/DEBUG   (15506): pid: 15508, tid: 15522  &gt;&gt;&gt; com.csipsimple &lt;&lt;&lt;
+I/DEBUG   (15506): signal 11 (SIGSEGV), code 1 (SEGV_MAPERR), fault addr 00000008
+I/DEBUG   (15506):  r0 00000002  r1 001890b4  r2 00000000  r3 00000dc9
+I/DEBUG   (15506):  r4 00182c68  r5 00182c74  r6 00183d8b  r7 80b1e480
+I/DEBUG   (15506):  r8 00183d82  r9 00184b54  10 80adf614  fp 000002a8
+I/DEBUG   (15506):  ip 00000074  sp 43df5a10  lr 80a46443  pc 80a47adc  cpsr 20000030
+I/DEBUG   (15506):          #00  pc 00047adc  /data/data/com.csipsimple/lib/libpjsipjni.so
+I/DEBUG   (15506):          #01  pc 00045c26  /data/data/com.csipsimple/lib/libpjsipjni.so (pjsip_hdr_print_on)
+I/DEBUG   (15506):          #02  pc 000474f0  /data/data/com.csipsimple/lib/libpjsipjni.so (pjsip_msg_print)
+I/DEBUG   (15506):          #03  pc 0004c880  /data/data/com.csipsimple/lib/libpjsipjni.so (pjsip_tx_data_encode)
+I/DEBUG   (15506):          #04  pc 00063a32  /data/data/com.csipsimple/lib/libpjsipjni.so
+I/DEBUG   (15506):          #05  pc 0004c210  /data/data/com.csipsimple/lib/libpjsipjni.so
+I/DEBUG   (15506):          #06  pc 0009b6dc  /data/data/com.csipsimple/lib/libpjsipjni.so
+I/DEBUG   (15506):          #07  pc 000991be  /data/data/com.csipsimple/lib/libpjsipjni.so
+I/DEBUG   (15506):          #08  pc 000a3b4c  /data/data/com.csipsimple/lib/libpjsipjni.so (ioqueue_dispatch_read_event)
+I/DEBUG   (15506):          #09  pc 000a3f18  /data/data/com.csipsimple/lib/libpjsipjni.so (pj_ioqueue_poll)
+I/DEBUG   (15506):          #10  pc 00076b3c  /data/data/com.csipsimple/lib/libpjsipjni.so
+I/DEBUG   (15506):          #11  pc 0009e2fc  /data/data/com.csipsimple/lib/libpjsipjni.so
+I/DEBUG   (15506):          #12  pc 00011cb4  /system/lib/libc.so (__thread_entry)
+I/DEBUG   (15506):          #13  pc 00011874  /system/lib/libc.so (pthread_create)
+I/DEBUG   (15506):
+I/DEBUG   (15506): code around pc:
+I/DEBUG   (15506): 80a47abc 46406829 fcbcf7fe 233a686e 44464648
+I/DEBUG   (15506): 80a47acc 23207033 6a617073 1b833602 2002680a
+I/DEBUG   (15506): 80a47adc 1c326895 280047a8 6aa3ddde 2b001835
+I/DEBUG   (15506): 80a47aec 6ae3d137 da222b00 1c3b4649 1b4a1c20
+I/DEBUG   (15506): 80a47afc 3398213b 30309101 93001c29 fea8f002
+I/DEBUG   (15506):
+I/DEBUG   (15506): code around lr:
+I/DEBUG   (15506): 80a46420 1c0cb510 f05b2138 1c03fbb5 61433314
+I/DEBUG   (15506): 80a46430 2300605b 63436004 46c0bd10 f7f4b510
+I/DEBUG   (15506): 80a46440 bd10ee66 464fb5f0 b4c04646 4b141c1c
+I/DEBUG   (15506): 80a46450 ae06b089 9306447b 60732307 68634689
+I/DEBUG   (15506): 80a46460 1c156851 18c94680 f05b310e 682afb93
+I/DEBUG   (15506):
+I/DEBUG   (15506): stack:
+I/DEBUG   (15506):     43df59d0  00183d06
+I/DEBUG   (15506):     43df59d4  80adf614  /data/data/com.csipsimple/lib/libpjsipjni.so
+I/DEBUG   (15506):     43df59d8  000002a8
+I/DEBUG   (15506):     43df59dc  00183d07
+I/DEBUG   (15506):     43df59e0  00182c74
+I/DEBUG   (15506):     43df59e4  00000dd2
+I/DEBUG   (15506):     43df59e8  80b1e480
+I/DEBUG   (15506):     43df59ec  00183d82
+I/DEBUG   (15506):     43df59f0  00184b54
+I/DEBUG   (15506):     43df59f4  80adf614  /data/data/com.csipsimple/lib/libpjsipjni.so
+I/DEBUG   (15506):     43df59f8  000002a8
+I/DEBUG   (15506):     43df59fc  00183d82
+I/DEBUG   (15506):     43df5a00  00182c68
+I/DEBUG   (15506):     43df5a04  80a46443  /data/data/com.csipsimple/lib/libpjsipjni.so
+I/DEBUG   (15506):     43df5a08  df002777
+I/DEBUG   (15506):     43df5a0c  e3a070ad
+I/DEBUG   (15506): #00 43df5a10  80b1db4c
+I/DEBUG   (15506):     43df5a14  80adf614  /data/data/com.csipsimple/lib/libpjsipjni.so
+I/DEBUG   (15506):     43df5a18  000002a8
+I/DEBUG   (15506):     43df5a1c  00182b08
+I/DEBUG   (15506):     43df5a20  80b1db4c
+I/DEBUG   (15506):     43df5a24  00182c68
+I/DEBUG   (15506):     43df5a28  00183d82
+I/DEBUG   (15506):     43df5a2c  00182b1c
+I/DEBUG   (15506):     43df5a30  00184b54
+I/DEBUG   (15506):     43df5a34  80a45c29  /data/data/com.csipsimple/lib/libpjsipjni.so
+I/DEBUG   (15506): #01 43df5a38  00182c68
+I/DEBUG   (15506):     43df5a3c  80a474f5  /data/data/com.csipsimple/lib/libpjsipjni.so
+I/EventLogService(  223): Aggregate from 1300965098806 (log), 1300965098806 (data)
+I/DEBUG   (15506): debuggerd committing suicide to free the zombie!
+I/BootReceiver(  150): Copying /data/tombstones/tombstone_06 to DropBox (SYSTEM_TOMBSTONE)
+I/DEBUG   (15947): debuggerd: Jan 29 2011 18:11:24
+D/dalvikvm(  150): GC_CONCURRENT freed 728K, 46% free 6231K/11527K, external 1363K/1745K, paused 17ms+16ms
+D/Zygote  (  112): Process 15508 terminated by signal (11)
+D/dalvikvm(  150): GC_FOR_MALLOC freed 235K, 47% free 6124K/11527K, external 1363K/1745K, paused 136ms
+I/ActivityManager(  150): Process com.csipsimple (pid 15508) has died.
+W/ActivityManager(  150): Scheduling restart of crashed service com.csipsimple/.service.SipService in 5000ms</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #21</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Apr 27, 2011 by
+                  <i class="ng-binding">Swift Giraffe</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Hi All,</p>
+
+<p>I am using pjsip_android android port for pjsip provided by csipsimple.
+I am using ICE for NAT traversal as shown by icedemo in pjsip samples.
+My code runs fine in linux but in android 2.3 I am facing an error similar to the above.</p>
+
+<p>I am attaching the trace generated.</p>
+
+<p>Kindly help.</p>
+
+<p>Regards,
+Vikash</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length --><small ng-if="comment.attachments.length" class="ng-scope">Attachments</small><!-- end ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments --><ul ng-repeat="attachment in comment.attachments" class="ng-scope">
+                <li class="ng-binding">
+                  <a href="http://storage.googleapis.com/google-code-attachments/csipsimple/issue-638/comment-21/trace" class="ng-binding">
+                    trace
+                  </a> 5.89KB
+                </li>
+              </ul><!-- end ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #22</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Apr 28, 2011 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Which version of pjsip_android are you using? (svn revision?).</p>
+
+<p>It sounds native code is trying to callback some java static method and does not find it. Normally in pjsip_android, this should occurs 
+a) if you didn't import the java part in your java project... - or if the java part is not up to date with the native library part -
+b) if the audio starts and there is no csipsimple class in your java project and Only on old pjsip_android versions (it has been improved about one month ago to use a native callback).</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #23</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Apr 28, 2011 by
+                  <i class="ng-binding">Swift Giraffe</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Thanks for the Reply.</p>
+
+<p>I am using the latest pjsip_android svn version "revision 813".</p>
+
+<p>I am not using csipsimple . I am using pjsip_android provided by csipsimple for ICE protocol.</p>
+
+<p>I have written a JNI wrapper with similar functionalities as in icedemo.c. </p>
+
+<p>In linux I am using pjsip version 1.8.10 and its works fine.For android I have used pjsip_android and it throws me the above error.</p>
+
+<p>I am new to pjsip so not fully ware of all its functions.</p>
+
+<p>Regards,
+Vikash</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #24</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Apr 28, 2011 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>I think that your problem is in your JNI wrapper. Usually this kind of problem :</p>
+
+<p>"""
+W/dalvikvm(  398): JNI WARNING: JNI method called with exception raised
+W/dalvikvm(  398):              in Ldalvik/system/NativeStart;.run ()V (CallStaticVoidMethod)
+W/dalvikvm(  398): Pending exception is:
+I/dalvikvm(  398): Ljava/lang/NoClassDefFoundError;: [generic]
+"""</p>
+
+<p>Occurs cause your native code tries to callback java using JNI.</p>
+
+<p>This part of the jni glue is usually really complicated to do. To make things much more easier in csipsimple I did use SWIG (which automatically generate things and has a director approach). However I did some patch cause of the specificity of the Dalvik JVM  : there is weird things in this JVM and we have to workaround it if we want to have things going well on all threads.</p>
+
+<p>As logs your get and your problem is really really different from the one of this thread - the only common point is that there is ~a~ crash in the native lib ;) -, we I could continue to help you if you send me a email on my private email (r3gis.3r at gmail_dot_com). </p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #25</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Apr 28, 2011 by
+                  <i class="ng-binding">Swift Giraffe</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Sorry to bother you .
+Thanks a lot for your help. </p>
+
+<p>Regards,
+Vikash</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #26</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Nov 24, 2011 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content -->
+              <!-- ngIf: !comment.content --><span ng-if="!comment.content" class="ng-scope">
+                <p><em>(No comment was entered for this change.)</em></p>
+              </span><!-- end ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments -->
+          </div>
+
+          <!-- Sidebar with additional information -->
+          <div class="maia-col-4">
+            <div class="maia-aside">
+              <p>Status: <code class="ng-binding">Obsolete</code></p>
+              <!-- ngIf: issueCtrl.issue.labels.length > 0 --><p ng-if="issueCtrl.issue.labels.length &gt; 0" class="ng-scope">
+                Labels:
+                <br>
+                <!-- ngRepeat: label in issueCtrl.issue.labels track by $index --><span ng-repeat="label in issueCtrl.issue.labels track by $index" class="ng-scope">
+                  <span class="gca-label ng-binding">Type-Defect</span>
+                </span><!-- end ngRepeat: label in issueCtrl.issue.labels track by $index --><span ng-repeat="label in issueCtrl.issue.labels track by $index" class="ng-scope">
+                  <span class="gca-label ng-binding">Priority-Medium</span>
+                </span><!-- end ngRepeat: label in issueCtrl.issue.labels track by $index -->
+              </p><!-- end ngIf: issueCtrl.issue.labels.length > 0 -->
+            </div>
+          </div>
+        </div><!-- end ngIf: !issueCtrl.error -->
+      </div>
+    </div>
+
+  </div>
+</div>
+</div></div></div>
+    <noscript>
+      &lt;p&gt;The Google Code Archive requires JavaScript to be enabled in your browser.&lt;/p&gt;
+    </noscript>
+
+    <div id="maia-signature"></div>
+    <div class="maia-footer" id="maia-footer">
+      <div id="maia-footer-local">
+      </div>
+      <div id="maia-footer-global">
+        <div class="maia-aux">
+          <ul>
+            <li>
+              <a href="//www.google.com/">Google</a>
+            </li>
+            <li>
+              <a href="//www.google.com/intl/en/about/">About Google</a>
+            </li>
+            <li>
+              <a href="//www.google.com/intl/en/policies/privacy/">Privacy</a>
+            </li>
+            <li>
+              <a href="//www.google.com/intl/en/policies/terms/">Terms</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <script src="//www.google.com/js/maia.js"></script>
+  
+
+
+</body></html>

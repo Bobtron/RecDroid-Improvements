@@ -1,0 +1,866 @@
+https://code.google.com/archive/p/csipsimple/issues/1448<!DOCTYPE html><html class="google ng-scope" lang="en" ng-app="codesiteArchive.application"><head>
+    <meta charset="utf-8">
+    <meta content="initial-scale=1, minimum-scale=1, width=device-width" name="viewport">
+
+    <!-- https://developers.google.com/webmasters/ajax-crawling/docs/specification -->
+    <meta name="fragment" content="!">
+    <title>Google Code Archive - Long-term storage for Google Code Project Hosting.</title>
+
+    <link rel="icon" type="image/vnd.microsoft.icon" href="/archive/img/project-hosting.ico">
+    <script src="//www.google.com/js/google.js"></script>
+    <link href="//www.google.com/css/maia.css" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;lang=en" rel="stylesheet">
+    <link rel="stylesheet" href="/archive/archive_css.css">
+    <script>
+      CLOSURE_NO_DEPS = true;
+    </script>
+    <script src="/archive/angular.js"></script><style type="text/css">@charset "UTF-8";
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak],
+.ng-cloak, .x-ng-cloak,
+.ng-hide:not(.ng-hide-animate) {
+  display: none !important;
+}
+
+ng\:form {
+  display: block;
+}
+
+.ng-animate-shim {
+  visibility:hidden;
+}
+
+.ng-anchor {
+  position:absolute;
+}
+</style>
+    <script src="/archive/pagedown.js"></script>
+    <script src="/archive/archive.js"></script>
+    <base href="/archive/">
+  </head>
+
+  <body>
+    <div class="maia-header" id="maia-header" role="banner">
+      <div class="maia-aux">
+        <a href="/archive/">
+          </a><h1><a href="/archive/">
+            <img alt="Google" src="//www.google.com/images/branding/googlelogo/1x/googlelogo_color_116x41dp.png"> Code</a>
+          </h1>
+        
+        <a href="/archive/">
+          <h2>Archive</h2>
+        </a>
+        <a class="maia-teleport" href="#content">Skip to content</a>
+        <div class="maia-util">
+          <form action="/archive/search" class="maia-search ng-pristine ng-valid">
+            <input name="q" placeholder="Search this site" type="text">
+            <button class="maia-button">
+              <span class="maia-search-icon">Search</span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- ngView: --><div ng-view="" class="ng-scope"><div ng-controller="ProjectIssueCtrl as issueCtrl" class="ng-scope">
+<nav-bar-widget nav-level-1="projectCtrl.navLevel1" class="ng-isolate-scope"><div class="maia-nav maia-complex" id="maia-nav-x" role="navigation">
+  <div class="maia-aux">
+    <ul>
+      <li ng-class="{active: navLevel1 == 'projects'}">
+        <a href="/archive/">Projects</a>
+        <!-- ngIf: navLevel2 -->
+      </li>
+      <li ng-class="{active: navLevel1 == 'search'}">
+        <a href="/archive/search">Search</a>
+      </li>
+      <li ng-class="{active: navLevel1 == 'about'}">
+        <a href="/archive/about">About</a>
+      </li>
+    </ul>
+  </div>
+</div>
+</nav-bar-widget>
+<div id="maia-main" role="main">
+
+  <!-- ngIf: issueCtrl.notFound -->
+
+  <div ng-hide="issueCtrl.notFound">
+    <!-- Left-side resource nav -->
+    <project-resources-widget domain="issueCtrl.domain" project="issueCtrl.projectName" class="ng-isolate-scope"><div class="maia-nav" id="maia-nav-y" role="navigation">
+  <!-- ngIf: domain == 'code.google.com' --><ul ng-if="domain == 'code.google.com'" class="ng-scope">
+    <li class="active">
+      <a href="/archive/p/csipsimple/">Project</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/source">Source</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/issues">Issues</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/wikis">Wikis</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/downloads">Downloads</a>
+    </li>
+  </ul><!-- end ngIf: domain == 'code.google.com' -->
+
+    <!-- ngIf: domain != 'code.google.com' -->
+</div></project-resources-widget>
+
+    <div class="maia-article" role="article">
+      <div class="maia-teleport" id="content"></div>
+      <div class="maia-cols">
+        <div id="gca-project-header" class="maia-col-10">
+          <a id="gca-export-to-gh" class="maia-button" href="https://code.google.com/export-to-github/export?project=csipsimple">Export to GitHub</a>
+            <img class="gca-project-logo" src="https://storage.googleapis.com/google-code-archive/v2/code.google.com/csipsimple/logo.png">
+            <h1 class="ng-binding">csipsimple - issue #1448</h1>
+            <p class="ng-binding">Add option to apply filterings rules to csipsimple dialer</p>
+        </div>
+
+        <div class="maia-col-10">
+          <hr>
+
+        <!-- ngIf: issueCtrl.error -->
+
+        <!-- ngIf: !issueCtrl.error --><div ng-if="!issueCtrl.error" class="ng-scope">
+          <!-- Comments -->
+          <div class="maia-col-8">
+            <!-- ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Dec 21, 2011 by
+                  <i class="ng-binding">Swift Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p><b>What steps will reproduce the problem?</b></p>
+
+<p>SIP account CWU 
+Filter: Can't Call; Has exactly N digit; 1 
+Dialer: CWU selected; dial '1' ; call proceeds to SIP provider 
+Call Log: &lt;sip:1@sip.callwithus.com&gt; 2 mins ago</p>
+
+<p>I've tried everything - Custom Regex, matching the SIP address instead of the number, etc etc. </p>
+
+<p><b>What is the expected output? What do you see instead?</b></p>
+
+<p>Ideally, I'd like the filter rewrite rules to rewrite something.  ;-)</p>
+
+<p><b>What version of the product are you using? On what operating system?</b></p>
+
+<p>Versions tried: 0.3.0, 0.3.1, nightly r1157 </p>
+
+<p><b>Please provide any additional information below.</b></p>
+
+<p>Of course blocking calls to single-digit numbers was not my intention.  It was just the simplest proof of failure I could provide.</p>
+
+<p>None of the following modify 1234567 or 2501234567 and
+replace it with 12501234567, as expected, (hoped, or prayed)</p>
+
+<p>Rewrite; Custom RegExp; ^[0-9]{7}$ ; Prefix by 1250</p>
+
+<p>Rewrite; Starts with; 250; Replace match by; 1250</p>
+
+<p>Rewrite; Stars with; &lt;sip:250; Replace match by; &lt;sip:1250</p>
+
+<p>Rewrite; Stars with; sip:250; Replace match by; sip:1250</p>
+
+<p>Also this doesn't prevent calling 1234567 - the dialer
+happily proceeds with the "filtered" SIP account.</p>
+
+<p>Filter: Can't Call; Has exactly N digit; 7 </p>
+
+<p>What I find amazing is that there are many people reporting
+other problems with the filter system other than failure to
+match / rewrite numbers... so the evidence would say that
+other users are actually getting this to work somehow, though
+how that is has me completely baffled...?</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #1</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Dec 21, 2011 by
+                  <i class="ng-binding">Swift Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Comment deleted</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #2</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Dec 21, 2011 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Are you using csipsimple dialer?
+If so what you observe is just absolutely normal.</p>
+
+<p>Filters are about what comes from outside. If you use csipsimple dialer, you know what you are doing and there is no reason why the app should rewrite or prevent you from making a call.</p>
+
+<p>The filters are about numbers that comes from outside : from contacts or from an outgoing call from stock phone dialer.</p>
+
+<p>So if you make a call from <em>stock</em> dialer, you'll see the effect of filters/rewriting rules.</p>
+
+<p>I always advise to use your phone as you used to do previously and to not use csipsimple dialer unless you want to place a manual sip call or bypass filtering rules.</p>
+
+<p>I did a big effort on android integration so that you can still use the android dialer and contact app. Filters are here to improve this integration, and automatically add rules when you place a call from these apps. It does not actually make sense to rewrite phone number if you dial from csipsimple cause you are in the context to do a sip call, so you know what you are typing and you know what you'd like the app to dial. Filtering/rewriting rules are only useful if there is a potential clever choice to be done by the application and if the application consider that where you dialed you didn't yet know what you want to use to make the call.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #3</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Dec 21, 2011 by
+                  <i class="ng-binding">Swift Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Comment deleted</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #4</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Dec 21, 2011 by
+                  <i class="ng-binding">Swift Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Comment deleted</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #5</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Dec 21, 2011 by
+                  <i class="ng-binding">Swift Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Comment deleted</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #6</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Dec 21, 2011 by
+                  <i class="ng-binding">Swift Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Aha, and at last now I think I understand what you mean by "outside"</p>
+
+<p>Okay, so the filtering rules ONLY affect the Mobile dialer.  If I want to use filtering against numbers in the CSipSimple Call Log I am out of luck, and if I want to use the CSipSimple dialer as the default dialer I am out of luck.  That's a shame, because it's so much better than the LG-Supplied dialer.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #7</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Dec 21, 2011 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Yes :)</p>
+
+<p>For now the feature to rewrite in call logs is not available. You can track this issue : <a href="http://code.google.com/p/csipsimple/issues/detail?id=184">http://code.google.com/p/csipsimple/issues/detail?id=184</a>
+It's a very old issue :). I would like to have this rules deduced automatically from rules you write for the outgoing way. But that's not so simple because there is not necessarily a bijection in a rewriting rule.</p>
+
+<p>For the point to use csipsimple dialer as main dialer, the way to use it is slightly different than the way to use your mobile dialer.
+In fact there is no extra step in this case. What you type is what will be dialed. You can notice that on csipsimple dialer you have a little button on the right. This button allow you to choose the account you want to use for this call. So when you type a phone number you should be aware of the account you will use for this call and so apply by yourself the rewriting rule. 
+The problem if I apply filtering rules here is that you will not be able to force a call using a sip account if there is filtering rules that goes against what you are trying to do. You should consider the csipsimple dialer as something to "force" a sip call. In this case you force the sip number (or sip text uri) you want to call.</p>
+
+<p>You can notice that if you switch to text dialer (the little buddy icon on the left) you'll see the list of the contact. If you select one user and press one phone number from this user, you'll see that in this case, the phone number will be modified if there is a rewriting rule, but it will not directly make the call, it will allow you to review the phone number.</p>
+
+<p>The idea of csipsimple dialer is to allow you to make "raw" sip calls : at this point you should not expect some clever thing. 
+The idea of the mobile dialer is to allow you to make calls... at this point you can expect csipsimple to be clever and to propose to rewrite or force call path to use some pre-defined sip account.</p>
+
+<p>If you don't like the LG supplied dialer, you should consider install another dialer. CSipSimple will integrate as well in this third party dialer. And maybe this dialer will be even better than csipsimple's one :). But the goal of csipsimple is not to be a dialer, but to allow you to place sip calls. So I do not target in making a perfect dialer. I just target in making some great integration in the android OS and as a fallback use csipsimple dialer if you want to explicitely do a sip call.
+By the way, if there is some perfect third party dialer or something that you just prefer as an alternate dialer, you will still be allowed ot use csipsimple.
+I think that an application should focus of what is its own purpose and not try to add features that are out of its scope. In our case I think that android os has a good conception to allow applications to interoperate (that's not the case of iPhone for example). So if some thing can be delegated to another application it should be. 
+First releases of csipsimple didn't included contact list because I considered that this is not the role of csipsimple to list contacts. The android app is much better for this point and it evolves at each android release and manufacturers sometimes add features. 
+I did the addition because there were some use cases where the contact list is needed (if you don't want the app to integrate mobile dialer for example).
+But for rewriting rules, this is only something how the stock mobile / contact app will provide phone number to the sip application.</p>
+
+<p>So my point is that if lg dialer is not good enough to make regular calls you should search for another third party dialer. There is very good ones that autocomplete with your contacts based on T9 for example. If I start to say that csipsimple dialer should be used to replace your mobile dialer or any other dialer, it would mean that I should accept all features request about all android manufacturers dialer. And that's not what I should focus on. I should focus on having a great integration with third party application (the stock mobile dialer, but also other third party dialer), and in making sip feature great ;).</p>
+
+<p>However, about the fact fitlering rules does not work on call logs, I completely agree that's a bug on csipsimple side and is part of the features that should be managed by csipsimple and issue 184 is about this point. It's a little bit complicated to manage but that's something that should be done allowed in csipsimple. Maybe at least for basic rewriting rules such as start with, or maybe as aditional rules "revert rewriting" for example.</p>
+
+<p>I hope it clarify my position on this feature of rewriting rule. 
+I agree that it ~could~ be integrated to csipsimple dialer (all the more so as it should not be too hard), but making coffee could also be ;). Well, maybe it could be added as an option not activated by default and that users that really want to use csipsimple dialer as main dialer could use (and also I should put a warning about the fact you'll not be able to place raw sip calls bypassing rules then).</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #8</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Dec 21, 2011 by
+                  <i class="ng-binding">Swift Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Aha, I read all of this and I can say I have a simple solution at least for power users... and that is...</p>
+
+<p>Add a config option in Expert Mode
+(o) Enable Filtering in CSipSimple Dialer [ Default off ]</p>
+
+<p>Because I can overcome any and all problems with the RegExp features if I can only use it!  ;-)</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #9</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Dec 21, 2011 by
+                  <i class="ng-binding">Swift Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>BTW, the CSipSimple Dialer beats every dialer I have seen, I love it, for all the reasons you have outlined above.  The only thing that it misses is the filtering, and if someone is crazy enough to write a filter rule which prevents them from typing a standard SIP address, I say let them suffer with it!</p>
+
+<p>After all they can set up their same SIP account twice - once with the rules and once without, and have 2 SIP provider icons for the same account, lol.  Yes, I know, that is very evil indeed...</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #10</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Dec 21, 2011 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>:) Well accepted as enhancement issue so.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #11</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Dec 21, 2011 by
+                  <i class="ng-binding">Swift Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Gracias!</p>
+
+<p>After 3 days with your dialer in text mode I couldn't go back to anything else... dialing plan or not. :)</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #12</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Feb 16, 2012 by
+                  <i class="ng-binding">Massive Monkey</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Glad I found this issue. I was pulling out my hair as well, trying to get a rewrite rule to work with the CSS dialer. [SIP provider CallWithUs doesn't support NA 10 digit dialing - my first few call attempts ended up in Malaysia instead of Vancouver :-)]</p>
+
+<p>You can count me as someone else who would really appreciate this enhancement.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #13</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Oct 28, 2012 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Issue 2041 has been merged into this issue.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #14</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Oct 11, 2013 by
+                  <i class="ng-binding">Happy Giraffe</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>I would like to add my voice for adding this as a feature.</p>
+
+<p>It is a real shame that filtering isn't working with the css dialer. I have tried to use it to "auto-answer" calls for one of my sip accounts (select "AutoAnswer" on "All" incoming calls), but it doesn't work at all.</p>
+
+<p>As others already pointed out, I am not using the native dialler, so having this feature is very important. Are there any plans in reality that this will be added soon?</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #15</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Oct 11, 2013 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>@mia : auto answer should work. It does not depend of the dialer <em>at all</em> ! So it works for all SIP incoming calls :)</p>
+
+<p>Regarding the post you sent on another issue you are building your own version of the app and there is something that you introduced manually by changing something in code that makes some features based on settings not working. Please, test the core app first, before reporting bug. And if you need help on your version do not hesitate to join and post csipsimple-dev google group which is the perfect place for the open community of csipsimple people interested in development :)</p>
+
+<p>Then about the filtering integration in css dialer, it's indeed a good idea to add that. But that's not yet done (lack of time). Do not hesitate to contribute source code if you have something :)</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #16</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Oct 11, 2013 by
+                  <i class="ng-binding">Happy Giraffe</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>@regis: unfortunately, the auto-answer filter does not work and it is why I added this comment above. It does not work even with the "vanilla" version. Don't know whether the message below is related or not, but this is what I get in when the phone rings (and auto-answer does not kick in):</p>
+
+<p>I/ActivityManager(  564): Starting: Intent { act=com.csipsimple.phone.action.INCALL flg=0x30000000 cmp=com.csipsimple/.ui.incall.InCallActivity (has extras) } from pid 2618
+W/ActivityManager(  564): Activity pause timeout for HistoryRecord{404fcb80 com.csipsimple/.ui.incall.InCallActivity}
+E/dalvikvm( 2618): Could not find class 'com.actionbarsherlock.internal.utils.Utility16', referenced from method com.actionbarsherlock.internal.utils.UtilityWrapper.getInstance
+W/dalvikvm( 2618): VFY: unable to resolve new-instance 764 (Lcom/actionbarsherlock/internal/utils/Utility16;) in Lcom/actionbarsherlock/internal/utils/UtilityWrapper;
+D/dalvikvm( 2618): VFY: replacing opcode 0x22 at 0x000a
+D/dalvikvm( 2618): VFY: dead code 0x000c-0010 in Lcom/actionbarsherlock/internal/utils/UtilityWrapper;.getInstance ()Lcom/actionbarsherlock/internal/utils/UtilityWrapper;</p>
+
+<p>Any ideas?</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #17</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Oct 12, 2013 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Mmmmh the log is not normal.
+By "vanilla" version do you mean one installed from : <a href="http://nightlies.csipsimple.com/trunk/CSipSimple-latest-trunk.apk">http://nightlies.csipsimple.com/trunk/CSipSimple-latest-trunk.apk</a> ? or one built on your side from code checkout ? (my main concern is potentials problem with a code obfuscator like proguard that you might have enabled without taking care... would explain all problems you have too)</p>
+
+<p>If the nightly build, can you collect logs as indicated here : <a href="http://code.google.com/p/csipsimple/wiki/HowToCollectLogs">http://code.google.com/p/csipsimple/wiki/HowToCollectLogs</a></p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #18</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Oct 28, 2013 by
+                  <i class="ng-binding">Quick Lion</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>First and foremost, this application is just great. I am very grateful for all your effort. Really appreciated. Now it's working almost fine, but for me the few quirks I've found do not reduce its value. They are just normal through a regular software development process. Will still check if they are already reported in other issues.</p>
+
+<p>I also would like to add my voice for adding this as a feature.</p>
+
+<p>Furthermore, I strongly suggest that the "UsingFilters" section is promptly updated with a very large, clear and appealing "warning", as a first paragraph on the Introduction section. And here is why.</p>
+
+<p>I tried a lot of rewrite, config, reconfig, install, log, reproduce, and whatever to make rewrite rules work. In short, many days of trial and error.</p>
+
+<p>After almost throwing my own phone through the window (the one inside my computer screen, I mean), trying to make this app work with rewrite rules, I found this nice but too discrete text:</p>
+
+<p>"Filters are applied when the application's "outgoing call chooser" appears:"
+Here: <a href="http://code.google.com/p/csipsimple/wiki/UsingFilters">http://code.google.com/p/csipsimple/wiki/UsingFilters</a></p>
+
+<p>The main point is: most likely, a new user WILL NOT read this thing and properly understand what it means. At least I could not grasp it after reading a few times. Then, accidentaly I've found the integration checkbox and everything worked just fine.</p>
+
+<p>However, most users don't wait that long. They try some times, don't succeed and move on.</p>
+
+<p>They just don't know the difference between the csipsimple dialer and the regular dialer. Just as me, a few hours ago. And come on, it would be a shame to loose users just because this minor detail is not clear for us.</p>
+
+<p>Here is my suggestion for this warning. As sort, direct and clear as it can be.</p>
+
+<p>"WARNING: currently, rewriting rules works ONLY for calls typed using the REGULAR PHONE DIALER. They WILL NOT WORK on the csipsimple dialer: this one is meant mainly for RAW SIP calls. If you want this as a feature, please check issue 1448."</p>
+
+<p>By the way, a link to this issue on the last word of this warning would be nice.</p>
+
+<p>Regards,
+Paulo</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #19</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Nov 8, 2013 by
+                  <i class="ng-binding">Happy Giraffe</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>@regis: Some good news and some not very good news! I think I found what is causing the filter I set up not to be triggered (the problem I described previously), but first, a bit of background.</p>
+
+<p>I have numerous (over 6) accounts active at any one time - they are all a healthy mixture of TLS, TCP and UDP connectors. Now, when I have my phone "homed" (understand plugged in via usb to my PC at work), my private sip accounts go through a different route (not through the corporate network, but my own private vpn, which hooks up to my PC at home), while the rest still goes via the corporate net - in the clear so to speak.</p>
+
+<p>Also, with this setup I experience no issues with connecting/registering/retrieving mail and so on on any of the accounts, whether "private" or otherwise (just in case you think that is a connectivity issue).</p>
+
+<p>Now, when I set up a filter as I described in one of my previous posts on this thread (Autoanswer on "all") and I am called on one of my (test) private accounts (the one which goes via my private vpn), the filter is NOT triggered. </p>
+
+<p>That was very annoying until I realised what is actually happening - for some reason CSS is showing me that the call which was just received (the one which did not trigger the filter) was, apparently, destined to one of my <em>OTHER</em> accounts, which go via the corporate net (in the clear).</p>
+
+<p>This is of course pure nonsense, because the number/address called was the one I placed my filter on and belongs to my private test account.</p>
+
+<p>This is the reason why CSS is not triggering the filter - it thinks that the "ringing" is for another one of my accounts (which is also active at the time and which does not have such filter set up) and not the one actually called (which has the autoanswer filter set up).</p>
+
+<p>Any ideas Regis - what could be the cause of this and how can I fix it?</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #20</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Nov 9, 2013 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>@mia : the sip stack could detect the incoming call as unknown account in some very valid case. </p>
+
+<p>The fact the sip server calls announces a target of the call ('to' sip header) as somebody not found in list accounts configured is usually due to some problem in the configuration. 
+We can try to debug that outside of this thread if you send me logs of your situation (with an incoming call detected as coming from another account). But it's something that I've already seen numerous times. And was always a problem with a server sending an INVITE on something that could not be linked to an account configuration. (For example sip server adding in the 'to' prefix to the account username, a different domain, etc etc).</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #21</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Nov 16, 2013 by
+                  <i class="ng-binding">Happy Giraffe</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>@regis: I couldn't figure out your email address, so I sent it to developers@csipsimple.com (the email address indicated on the main CSS page). Let me know if you need anything else from me.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #22</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Nov 16, 2013 by
+                  <i class="ng-binding">Quick Lion</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Hello,</p>
+
+<p>just to add a good reason to have rewrite rules apply also to the csipsimple dialer. Or at least a way (maybe a checkbox?) to turn rules on/off specifically for the scipsimple dialer.</p>
+
+<p>A few days ago I installed this application into a Motorola Xoom tablet. It is a hardware version without SIM card. Hence, it's a plain tablet, not a cell phone. There is absolutely no native dialer, because the device was <em>not</em> designed to make phone calls.</p>
+
+<p>However, it's Android, has a microphone, speakers and wireless. Everything which was necessary for SIP/VOIP to work. And so it did. I'm glad, because csipsimple worked like a charm. I mean, my network has a huge delay, so the lag was awful. But that was not csipsimple fault.</p>
+
+<p>Now, considering I don't have a native dialer, I just cannot take advantage of csipsimple rewriting rules. They became utterly useless, since this environment (xoom) has no way to kick them in, when I need to make a SIP call.</p>
+
+<p>I understand the point about having a way to make plain SIP calls without rewriting. That is ok. But I do think that there are distinct users with different needs. Hence, we should be able to choose what we want.</p>
+
+<p>Sounds reasonable? In case I can help (e.g. testing?), please let me know.</p>
+
+<p>By the way, thanks again for such a great app.</p>
+
+<p>Regards,
+Paulo</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #23</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Feb 23, 2014 by
+                  <i class="ng-binding">Quick Rabbit</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Hi there,</p>
+
+<p>CSipSimple is hands down the best Sip app that I have tried (and I have tried a lot!).</p>
+
+<p>It is also one of the few/best: dial &amp; text apps (all in one) out there.</p>
+
+<p>I realize that CSipSimple was designed not to be the "main" dialer....but its the best one I found.</p>
+
+<p>I as well request an option that allows me to filter directly from the CSipSimple Dialer.</p>
+
+<p>BTW, the CSipSimple filtering works great with the 3rd part dialers.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #24</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Mar 30, 2014 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>This issue was closed by revision r2387.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments -->
+          </div>
+
+          <!-- Sidebar with additional information -->
+          <div class="maia-col-4">
+            <div class="maia-aside">
+              <p>Status: <code class="ng-binding">Fixed</code></p>
+              <!-- ngIf: issueCtrl.issue.labels.length > 0 --><p ng-if="issueCtrl.issue.labels.length &gt; 0" class="ng-scope">
+                Labels:
+                <br>
+                <!-- ngRepeat: label in issueCtrl.issue.labels track by $index --><span ng-repeat="label in issueCtrl.issue.labels track by $index" class="ng-scope">
+                  <span class="gca-label ng-binding">Type-Enhancement</span>
+                </span><!-- end ngRepeat: label in issueCtrl.issue.labels track by $index --><span ng-repeat="label in issueCtrl.issue.labels track by $index" class="ng-scope">
+                  <span class="gca-label ng-binding">Priority-Medium</span>
+                </span><!-- end ngRepeat: label in issueCtrl.issue.labels track by $index -->
+              </p><!-- end ngIf: issueCtrl.issue.labels.length > 0 -->
+            </div>
+          </div>
+        </div><!-- end ngIf: !issueCtrl.error -->
+      </div>
+    </div>
+
+  </div>
+</div>
+</div></div></div>
+    <noscript>
+      &lt;p&gt;The Google Code Archive requires JavaScript to be enabled in your browser.&lt;/p&gt;
+    </noscript>
+
+    <div id="maia-signature"></div>
+    <div class="maia-footer" id="maia-footer">
+      <div id="maia-footer-local">
+      </div>
+      <div id="maia-footer-global">
+        <div class="maia-aux">
+          <ul>
+            <li>
+              <a href="//www.google.com/">Google</a>
+            </li>
+            <li>
+              <a href="//www.google.com/intl/en/about/">About Google</a>
+            </li>
+            <li>
+              <a href="//www.google.com/intl/en/policies/privacy/">Privacy</a>
+            </li>
+            <li>
+              <a href="//www.google.com/intl/en/policies/terms/">Terms</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <script src="//www.google.com/js/maia.js"></script>
+  
+
+
+</body></html>

@@ -1,0 +1,563 @@
+https://code.google.com/archive/p/csipsimple/issues/898<!DOCTYPE html><html class="google ng-scope" lang="en" ng-app="codesiteArchive.application"><head>
+    <meta charset="utf-8">
+    <meta content="initial-scale=1, minimum-scale=1, width=device-width" name="viewport">
+
+    <!-- https://developers.google.com/webmasters/ajax-crawling/docs/specification -->
+    <meta name="fragment" content="!">
+    <title>Google Code Archive - Long-term storage for Google Code Project Hosting.</title>
+
+    <link rel="icon" type="image/vnd.microsoft.icon" href="/archive/img/project-hosting.ico">
+    <script src="//www.google.com/js/google.js"></script>
+    <link href="//www.google.com/css/maia.css" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;lang=en" rel="stylesheet">
+    <link rel="stylesheet" href="/archive/archive_css.css">
+    <script>
+      CLOSURE_NO_DEPS = true;
+    </script>
+    <script src="/archive/angular.js"></script><style type="text/css">@charset "UTF-8";
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak],
+.ng-cloak, .x-ng-cloak,
+.ng-hide:not(.ng-hide-animate) {
+  display: none !important;
+}
+
+ng\:form {
+  display: block;
+}
+
+.ng-animate-shim {
+  visibility:hidden;
+}
+
+.ng-anchor {
+  position:absolute;
+}
+</style>
+    <script src="/archive/pagedown.js"></script>
+    <script src="/archive/archive.js"></script>
+    <base href="/archive/">
+  </head>
+
+  <body>
+    <div class="maia-header" id="maia-header" role="banner">
+      <div class="maia-aux">
+        <a href="/archive/">
+          </a><h1><a href="/archive/">
+            <img alt="Google" src="//www.google.com/images/branding/googlelogo/1x/googlelogo_color_116x41dp.png"> Code</a>
+          </h1>
+        
+        <a href="/archive/">
+          <h2>Archive</h2>
+        </a>
+        <a class="maia-teleport" href="#content">Skip to content</a>
+        <div class="maia-util">
+          <form action="/archive/search" class="maia-search ng-pristine ng-valid">
+            <input name="q" placeholder="Search this site" type="text">
+            <button class="maia-button">
+              <span class="maia-search-icon">Search</span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- ngView: --><div ng-view="" class="ng-scope"><div ng-controller="ProjectIssueCtrl as issueCtrl" class="ng-scope">
+<nav-bar-widget nav-level-1="projectCtrl.navLevel1" class="ng-isolate-scope"><div class="maia-nav maia-complex" id="maia-nav-x" role="navigation">
+  <div class="maia-aux">
+    <ul>
+      <li ng-class="{active: navLevel1 == 'projects'}">
+        <a href="/archive/">Projects</a>
+        <!-- ngIf: navLevel2 -->
+      </li>
+      <li ng-class="{active: navLevel1 == 'search'}">
+        <a href="/archive/search">Search</a>
+      </li>
+      <li ng-class="{active: navLevel1 == 'about'}">
+        <a href="/archive/about">About</a>
+      </li>
+    </ul>
+  </div>
+</div>
+</nav-bar-widget>
+<div id="maia-main" role="main">
+
+  <!-- ngIf: issueCtrl.notFound -->
+
+  <div ng-hide="issueCtrl.notFound">
+    <!-- Left-side resource nav -->
+    <project-resources-widget domain="issueCtrl.domain" project="issueCtrl.projectName" class="ng-isolate-scope"><div class="maia-nav" id="maia-nav-y" role="navigation">
+  <!-- ngIf: domain == 'code.google.com' --><ul ng-if="domain == 'code.google.com'" class="ng-scope">
+    <li class="active">
+      <a href="/archive/p/csipsimple/">Project</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/source">Source</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/issues">Issues</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/wikis">Wikis</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/downloads">Downloads</a>
+    </li>
+  </ul><!-- end ngIf: domain == 'code.google.com' -->
+
+    <!-- ngIf: domain != 'code.google.com' -->
+</div></project-resources-widget>
+
+    <div class="maia-article" role="article">
+      <div class="maia-teleport" id="content"></div>
+      <div class="maia-cols">
+        <div id="gca-project-header" class="maia-col-10">
+          <a id="gca-export-to-gh" class="maia-button" href="https://code.google.com/export-to-github/export?project=csipsimple">Export to GitHub</a>
+            <img class="gca-project-logo" src="https://storage.googleapis.com/google-code-archive/v2/code.google.com/csipsimple/logo.png">
+            <h1 class="ng-binding">csipsimple - issue #898</h1>
+            <p class="ng-binding">Hang/Crash when in a call &amp; using "BACK" key twice.</p>
+        </div>
+
+        <div class="maia-col-10">
+          <hr>
+
+        <!-- ngIf: issueCtrl.error -->
+
+        <!-- ngIf: !issueCtrl.error --><div ng-if="!issueCtrl.error" class="ng-scope">
+          <!-- Comments -->
+          <div class="maia-col-8">
+            <!-- ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Apr 18, 2011 by
+                  <i class="ng-binding">Massive Rhino</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p><b>What steps will reproduce the problem?</b>
+1. Make a call.
+2. Hit back button to go back to dialer.
+3. Hit back button a second time to exit dialer to Android desktop.</p>
+
+<p><b>What is the expected output? What do you see instead?</b>
+Not sure if CSip should drop the call cleanly or continue on.  LOGCAT spits out the below info when the back button is hit a second time.</p>
+
+<p>The call does continue, but if you try and re-enter the UI the program will crash and die.</p>
+
+<p><b>What version of the product are you using? On what operating system?</b></p>
+
+<p>Nightly build and SVN.  Android 2.2.</p>
+
+<p><b>Please provide any additional information below.</b></p>
+
+<p>&lt;&lt;&lt;CALL START&gt;&gt;&gt;
+I/AudioService( 1360):   Remote Control   registerMediaButtonEventReceiver() for ComponentInfo{com.csipsimple/com.csipsimple.service.HeadsetButtonReceiver}
+I/AudioService( 1360):  AudioFocus  requestAudioFocus() from android.media.AudioManager@43f39258com.csipsimple.utils.audio.AudioFocus8$1@43f3db10
+D/AudioHardwareMSM72XX( 1329): audpre_index = 3, tx_iir_index = 6
+E/AudioHardwareMSM72XX( 1329): Cannot set audpre parameters
+E/AudioHardwareMSM72XX( 1329): Cannot enable audpre
+I/AudioHardwareMSM72XX( 1329): Routing audio to Handset
+I/AudioHardwareMSM72XX( 1329): Routing audio to Handset
+I/AudioHardwareMSM72XX( 1329): Routing audio to Handset
+D/AudioHardwareMSM72XX( 1329): audpre_index = 3, tx_iir_index = 6
+E/AudioHardwareMSM72XX( 1329): Cannot set audpre parameters
+E/AudioHardwareMSM72XX( 1329): Cannot enable audpre
+I/AudioHardwareMSM72XX( 1329): do input routing device 40000
+I/AudioHardwareMSM72XX( 1329): Routing audio to Handset
+W/AudioFlinger( 1329): write blocked for 300 msecs, 48 delayed writes, thread 0xbb38
+I/ActivityManager( 1360): Starting activity: Intent { act=com.csipsimple.phone.action.INCALL flg=0x30000000 cmp=com.csipsimple/.ui.InCallActivity2 (has extras) }
+D/dalvikvm( 1360): GC_EXTERNAL_ALLOC freed 9036 objects / 492600 bytes in 460ms
+W/AudioFlinger( 1329): RecordThread: buffer overflow
+D/dalvikvm( 7394): GC_EXTERNAL_ALLOC freed 6465 objects / 350904 bytes in 230ms
+D/dalvikvm( 7394): GC_EXTERNAL_ALLOC freed 1481 objects / 76504 bytes in 180ms
+D/Sensors ( 7394): Called get_sensors_list
+D/Sensors ( 7394): Called get_sensors_list
+D/Sensors ( 7394): Called get_sensors_list
+D/Sensors ( 7394): Called get_sensors_list
+D/Sensors ( 7394): Called get_sensors_list
+D/Sensors ( 7394): Called get_sensors_list
+D/Sensors ( 7394): Called get_sensors_list
+D/Sensors ( 7394): using /dev/input/event3 (name=bma150,phys=i2c/0-0038)
+I/ActivityManager( 1360): Displayed activity com.csipsimple/.ui.InCallActivity2: 2050 ms (total 2050 ms)
+D/PowerManagerService( 1360): enableProximityLockLocked
+D/Sensors ( 1360): sensors activate returing 1
+D/PowerManagerService( 1360): mProximityListener.onSensorChanged active: false
+D/PowerManagerService( 1360): proximityChangedLocked, active: false
+D/PowerManagerService( 1360): mProximityListener.onSensorChanged active: false
+D/PowerManagerService( 1360): mProximityListener.onSensorChanged active: false
+D/PowerManagerService( 1360): mProximityListener.onSensorChanged active: false
+D/PowerManagerService( 1360): mProximityListener.onSensorChanged active: false
+I/ActivityManager( 1360): Starting activity: Intent { act=com.csipsimple.phone.action.INCALL flg=0x30000000 cmp=com.csipsimple/.ui.InCallActivity2 (has extras) }
+D/PowerManagerService( 1360): mProximityListener.onSensorChanged active: false
+D/PowerManagerService( 1360): mProximityListener.onSensorChanged active: false
+D/PowerManagerService( 1360): mProximityListener.onSensorChanged active: false
+E/Tethering( 1360): attempting to remove unknown iface (usb0), ignoring
+D/PowerManagerService( 1360): mProximityListener.onSensorChanged active: false
+D/PowerManagerService( 1360): mProximityListener.onSensorChanged active: false
+D/PowerManagerService( 1360): mProximityListener.onSensorChanged active: false
+D/PowerManagerService( 1360): mProximityListener.onSensorChanged active: false
+D/PowerManagerService( 1360): mProximityListener.onSensorChanged active: false</p>
+
+<p>&lt;&lt;&lt;CALL ANSWERED&gt;&gt;&gt;
+I/ActivityManager( 1360): Starting activity: Intent { act=com.csipsimple.phone.action.INCALL flg=0x30000000 cmp=com.csipsimple/.ui.InCallActivity2 (has extras) }
+D/PowerManagerService( 1360): mProximityListener.onSensorChanged active: false
+D/PowerManagerService( 1360): mProximityListener.onSensorChanged active: false
+D/PowerManagerService( 1360): mProximityListener.onSensorChanged active: false
+D/PowerManagerService( 1360): mProximityListener.onSensorChanged active: false
+D/PowerManagerService( 1360): mProximityListener.onSensorChanged active: false
+D/PowerManagerService( 1360): mProximityListener.onSensorChanged active: false
+D/PowerManagerService( 1360): mProximityListener.onSensorChanged active: false
+D/PowerManagerService( 1360): mProximityListener.onSensorChanged active: false
+D/dalvikvm( 1747): GC_EXPLICIT freed 157 objects / 6496 bytes in 150ms
+D/PowerManagerService( 1360): mProximityListener.onSensorChanged active: false
+D/PowerManagerService( 1360): mProximityListener.onSensorChanged active: false
+D/PowerManagerService( 1360): mProximityListener.onSensorChanged active: false
+D/PowerManagerService( 1360): mProximityListener.onSensorChanged active: false</p>
+
+<p>&lt;&lt;&lt;BACK KEY #1&gt;&gt;&gt;
+D/PowerManagerService( 1360): disableProximityLockLocked
+D/Sensors ( 1360): sensors activate returing 1</p>
+
+<p>&lt;&lt;&lt;BACK KEY #2&gt;&gt;&gt;
+I/WindowManager( 1360): Setting rotation to 1, animFlags=1
+I/ActivityManager( 1360): Config changed: { scale=1.0 imsi=310/995 loc=en_US touch=3 keys=2/1/1 nav=1/1 orien=2 layout=34 uiMode=17 seq=265}3
+W/AudioFlinger( 1329): RecordThread: buffer overflow
+W/AudioFlinger( 1329): RecordThread: buffer overflow
+D/dalvikvm( 7394): GC_EXPLICIT freed 6392 objects / 394536 bytes in 350ms
+W/AudioFlinger( 1329): RecordThread: buffer overflow
+W/AudioFlinger( 1329): RecordThread: buffer overflow
+W/AudioFlinger( 1329): RecordThread: buffer overflow
+W/AudioFlinger( 1329): RecordThread: buffer overflow
+W/AudioFlinger( 1329): RecordThread: buffer overflow
+W/AudioFlinger( 1329): RecordThread: buffer overflow
+W/AudioFlinger( 1329): RecordThread: buffer overflow
+W/AudioFlinger( 1329): RecordThread: buffer overflow
+W/AudioFlinger( 1329): RecordThread: buffer overflow
+W/AudioFlinger( 1329): RecordThread: buffer overflow
+W/AudioFlinger( 1329): RecordThread: buffer overflow
+W/AudioFlinger( 1329): RecordThread: buffer overflow
+W/IInputConnectionWrapper( 7394): showStatusIcon on inactive InputConnection
+W/AudioFlinger( 1329): RecordThread: buffer overflow
+W/AudioFlinger( 1329): RecordThread: buffer overflow
+E/ActivityThread( 7394): Service com.csipsimple.service.SipService has leaked IntentReceiver com.csipsimple.utils.bluetooth.BluetoothUtils8$1@43f3c9e0 that was originally registered here. Are you missing a call to unregisterReceiver()?
+E/ActivityThread( 7394): android.app.IntentReceiverLeaked: Service com.csipsimple.service.SipService has leaked IntentReceiver com.csipsimple.utils.bluetooth.BluetoothUtils8$1@43f3c9e0 that was originally registered here. Are you missing a call to unregisterReceiver()?
+E/ActivityThread( 7394):    at android.app.ActivityThread$PackageInfo$ReceiverDispatcher.&lt;init&gt;(ActivityThread.java:939)
+E/ActivityThread( 7394):    at android.app.ActivityThread$PackageInfo.getReceiverDispatcher(ActivityThread.java:734)
+E/ActivityThread( 7394):    at android.app.ContextImpl.registerReceiverInternal(ContextImpl.java:791)
+E/ActivityThread( 7394):    at android.app.ContextImpl.registerReceiver(ContextImpl.java:778)
+E/ActivityThread( 7394):    at android.app.ContextImpl.registerReceiver(ContextImpl.java:772)
+E/ActivityThread( 7394):    at android.content.ContextWrapper.registerReceiver(ContextWrapper.java:318)
+E/ActivityThread( 7394):    at com.csipsimple.utils.bluetooth.BluetoothUtils8.register(BluetoothUtils8.java:133)
+E/ActivityThread( 7394):    at com.csipsimple.utils.bluetooth.BluetoothUtils8.init(BluetoothUtils8.java:71)
+E/ActivityThread( 7394):    at com.csipsimple.service.MediaManager.startService(MediaManager.java:109)
+E/ActivityThread( 7394):    at com.csipsimple.pjsip.PjSipService.sipStart(PjSipService.java:191)
+E/ActivityThread( 7394):    at com.csipsimple.service.SipService.startSipStack(SipService.java:922)
+E/ActivityThread( 7394):    at com.csipsimple.service.SipService$3.run(SipService.java:854)
+E/ActivityThread( 7394):    at com.csipsimple.service.SipService$MyExecutor.executeInternal(SipService.java:1419)
+E/ActivityThread( 7394):    at com.csipsimple.service.SipService$MyExecutor.handleMessage(SipService.java:1411)
+E/ActivityThread( 7394):    at android.os.Handler.dispatchMessage(Handler.java:99)
+E/ActivityThread( 7394):    at android.os.Looper.loop(Looper.java:123)
+E/ActivityThread( 7394):    at android.os.HandlerThread.run(HandlerThread.java:60)
+W/AudioFlinger( 1329): RecordThread: buffer overflow
+E/ActivityThread( 7394): Service com.csipsimple.service.SipService has leaked IntentReceiver com.csipsimple.service.SipService$KeepAliveTimer@43f24410 that was originally registered here. Are you missing a call to unregisterReceiver()?
+E/ActivityThread( 7394): android.app.IntentReceiverLeaked: Service com.csipsimple.service.SipService has leaked IntentReceiver com.csipsimple.service.SipService$KeepAliveTimer@43f24410 that was originally registered here. Are you missing a call to unregisterReceiver()?
+E/ActivityThread( 7394):    at android.app.ActivityThread$PackageInfo$ReceiverDispatcher.&lt;init&gt;(ActivityThread.java:939)
+E/ActivityThread( 7394):    at android.app.ActivityThread$PackageInfo.getReceiverDispatcher(ActivityThread.java:734)
+E/ActivityThread( 7394):    at android.app.ContextImpl.registerReceiverInternal(ContextImpl.java:791)
+E/ActivityThread( 7394):    at android.app.ContextImpl.registerReceiver(ContextImpl.java:778)
+E/ActivityThread( 7394):    at android.app.ContextImpl.registerReceiver(ContextImpl.java:772)
+E/ActivityThread( 7394):    at android.content.ContextWrapper.registerReceiver(ContextWrapper.java:318)
+E/ActivityThread( 7394):    at com.csipsimple.service.SipService$KeepAliveTimer.&lt;init&gt;(SipService.java:1447)
+E/ActivityThread( 7394):    at com.csipsimple.service.SipService.acquireResources(SipService.java:1157)
+E/ActivityThread( 7394):    at com.csipsimple.service.SipService.addAllAccounts(SipService.java:984)
+E/ActivityThread( 7394):    at com.csipsimple.service.SipService.startSipStack(SipService.java:923)
+E/ActivityThread( 7394):    at com.csipsimple.service.SipService$3.run(SipService.java:854)
+E/ActivityThread( 7394):    at com.csipsimple.service.SipService$MyExecutor.executeInternal(SipService.java:1419)
+E/ActivityThread( 7394):    at com.csipsimple.service.SipService$MyExecutor.handleMessage(SipService.java:1411)
+E/ActivityThread( 7394):    at android.os.Handler.dispatchMessage(Handler.java:99)
+E/ActivityThread( 7394):    at android.os.Looper.loop(Looper.java:123)
+E/ActivityThread( 7394):    at android.os.HandlerThread.run(HandlerThread.java:60)
+W/AudioFlinger( 1329): RecordThread: buffer overflow
+D/dalvikvm( 1360): GC_EXPLICIT freed 5510 objects / 258808 bytes in 340ms3</p>
+
+<p>&lt;&lt;&lt;BACK IN ANDROID HOME - TRY TO RE-ENTER UI, CALL STILL UP -- FINAL CRASH &amp; ICONS DISAPPEAR FROM TASKBAR&gt;&gt;&gt;
+D/dalvikvm( 7394): GC_EXPLICIT freed 4287 objects / 296144 bytes in 150ms
+I/ActivityManager( 1360): Starting activity: Intent { act=com.csipsimple.phone.action.DIALER flg=0x10000000 cmp=com.csipsimple/.ui.SipHome bnds=[0,250][800,346] }
+I/WindowManager( 1360): Setting rotation to 0, animFlags=1
+I/ActivityManager( 1360): Config changed: { scale=1.0 imsi=310/995 loc=en_US touch=3 keys=2/1/1 nav=1/1 orien=1 layout=34 uiMode=17 seq=266}
+D/dalvikvm( 1426): GC_FOR_MALLOC freed 9782 objects / 518392 bytes in 430ms44
+4D/dalvikvm( 7394): GC_EXTERNAL_ALLOC freed 1073 objects / 64592 bytes in 130ms4
+I/ActivityManager( 1360): Displayed activity com.csipsimple/.ui.SipHome: 2600 ms (total 2600 ms)4
+I/DEBUG   ( 7392): <strong>* <em></em></strong><em> <strong></strong></em><strong> <em></em></strong><em> <strong></strong></em><strong> <em></em></strong><em> <strong></strong></em><strong> <em></em></strong><em> <strong></strong></em><strong> <em></em></strong><em> <strong></strong></em><strong> <em></em></strong><em> <strong></strong></em><strong> <em></em></strong><em> <strong></strong></em><strong> *</strong>
+I/DEBUG   ( 7392): Build fingerprint: 'generic/full_msm/msm/msm:2.2.2/FRX06/eng.bryan.20110325.203308:userdebug/release-keys'
+I/DEBUG   ( 7392): pid: 7394, tid: 7406  &gt;&gt;&gt; com.csipsimple &lt;&lt;&lt;
+I/DEBUG   ( 7392): signal 11 (SIGSEGV), fault addr 00000014
+I/DEBUG   ( 7392):  r0 00000001  r1 45ee0ebc  r2 00001974  r3 00000000
+I/DEBUG   ( 7392):  r4 80b3501c  r5 45ee0ec4  r6 45ee0ebc  r7 00000000
+I/DEBUG   ( 7392):  r8 00000000  r9 80aa85a1  10 45de1000  fp 00294384
+I/DEBUG   ( 7392):  ip 80b3517c  sp 45ee0e98  lr 80a544af  pc 80a544b4  cpsr 80000030
+I/DEBUG   ( 7392):          #00  pc 000544b4  /data/data/com.csipsimple/lib/libpjsipjni.so
+I/DEBUG   ( 7392):          #01  pc 0006166a  /data/data/com.csipsimple/lib/libpjsipjni.so
+I/DEBUG   ( 7392):          #02  pc 000618be  /data/data/com.csipsimple/lib/libpjsipjni.so
+I/DEBUG   ( 7392):          #03  pc 000a85cc  /data/data/com.csipsimple/lib/libpjsipjni.so
+I/DEBUG   ( 7392):          #04  pc 00011088  /system/lib/libc.so
+I/DEBUG   ( 7392):          #05  pc 00010b5c  /system/lib/libc.so
+I/DEBUG   ( 7392): 
+I/DEBUG   ( 7392): code around pc:
+I/DEBUG   ( 7392): 80a54494 4647b5f0 1c15b480 b0822200 92004690 
+I/DEBUG   ( 7392): 80a544a4 1c079201 f0531c0e 4643f9ab 93009301 
+I/DEBUG   ( 7392): 80a544b4 46696978 fdd8f058 468017c3 17db1a1b 
+I/DEBUG   ( 7392): 80a544c4 401a4642 4b1b4690 466c9a01 dd00429a 
+I/DEBUG   ( 7392): 80a544d4 2e009301 9a00d007 429a6833 6833dd13 
+I/DEBUG   ( 7392): 
+I/DEBUG   ( 7392): code around lr:
+I/DEBUG   ( 7392): 80a5448c f0581c22 bd70fd37 4647b5f0 1c15b480 
+I/DEBUG   ( 7392): 80a5449c b0822200 92004690 1c079201 f0531c0e 
+I/DEBUG   ( 7392): 80a544ac 4643f9ab 93009301 46696978 fdd8f058 
+I/DEBUG   ( 7392): 80a544bc 468017c3 17db1a1b 401a4642 4b1b4690 
+I/DEBUG   ( 7392): 80a544cc 466c9a01 dd00429a 2e009301 9a00d007 
+I/DEBUG   ( 7392): 
+I/DEBUG   ( 7392): stack:
+I/DEBUG   ( 7392):     45ee0e58  00000001 <br>
+I/DEBUG   ( 7392):     45ee0e5c  80aa8257  /data/data/com.csipsimple/lib/libpjsipjni.so
+I/DEBUG   ( 7392):     45ee0e60  0024c534  [heap]
+I/DEBUG   ( 7392):     45ee0e64  80aabc23  /data/data/com.csipsimple/lib/libpjsipjni.so
+I/DEBUG   ( 7392):     45ee0e68  0024c534  [heap]
+I/DEBUG   ( 7392):     45ee0e6c  80aad0ff  /data/data/com.csipsimple/lib/libpjsipjni.so
+I/DEBUG   ( 7392):     45ee0e70  4dacf929 <br>
+I/DEBUG   ( 7392):     45ee0e74  00000000 <br>
+I/DEBUG   ( 7392):     45ee0e78  80aa85a1  /data/data/com.csipsimple/lib/libpjsipjni.so
+I/DEBUG   ( 7392):     45ee0e7c  45de1000 <br>
+I/DEBUG   ( 7392):     45ee0e80  00294384  [heap]
+I/DEBUG   ( 7392):     45ee0e84  45ee0e98 <br>
+I/DEBUG   ( 7392):     45ee0e88  45ee0ec4 <br>
+I/DEBUG   ( 7392):     45ee0e8c  45ee0ebc <br>
+I/DEBUG   ( 7392):     45ee0e90  df002777 <br>
+I/DEBUG   ( 7392):     45ee0e94  e3a070ad <br>
+I/DEBUG   ( 7392): #00 45ee0e98  00000000 <br>
+I/DEBUG   ( 7392):     45ee0e9c  00000000 <br>
+I/DEBUG   ( 7392):     45ee0ea0  00100000  [heap]
+I/DEBUG   ( 7392):     45ee0ea4  80b3501c <br>
+I/DEBUG   ( 7392):     45ee0ea8  45ee0ebc <br>
+I/DEBUG   ( 7392):     45ee0eac  00294384  [heap]
+I/DEBUG   ( 7392):     45ee0eb0  00000078 <br>
+I/DEBUG   ( 7392):     45ee0eb4  80a6166f  /data/data/com.csipsimple/lib/libpjsipjni.so
+I/DEBUG   ( 7392): #01 45ee0eb8  00294384  [heap]
+I/DEBUG   ( 7392):     45ee0ebc  00000000 <br>
+I/DEBUG   ( 7392):     45ee0ec0  00000064 <br>
+I/DEBUG   ( 7392):     45ee0ec4  00000000 <br>
+I/DEBUG   ( 7392):     45ee0ec8  00294384  [heap]
+I/DEBUG   ( 7392):     45ee0ecc  000002f4 <br>
+I/DEBUG   ( 7392):     45ee0ed0  80b42518 <br>
+I/DEBUG   ( 7392):     45ee0ed4  80a618c3  /data/data/com.csipsimple/lib/libpjsipjni.so
+W/IInputConnectionWrapper( 1436): showStatusIcon on inactive InputConnection
+E/libpjsip( 7394):  22:53:30.660   pjsua_core.c  bind() error: Address already in use [status=120098]
+E/PjService( 7394): Fail to create transport Address already in use (120098)
+W/WindowManager( 1360): Window freeze timeout expired.
+W/WindowManager( 1360): Force clearing orientation change: Window{4417d3c0 com.csipsimple/com.csipsimple.ui.SipHome paused=false}
+W/WindowManager( 1360): App freeze timeout expired.
+W/WindowManager( 1360): Force clearing freeze: AppWindowToken{4441a180 token=HistoryRecord{4415a060 com.csipsimple/.ui.SipHome}}
+W/AudioFlinger( 1329): RecordThread: buffer overflow
+W/AudioFlinger( 1329): RecordThread: buffer overflow
+W/AudioFlinger( 1329): RecordThread: buffer overflow
+W/AudioFlinger( 1329): RecordThread: buffer overflow
+W/AudioFlinger( 1329): RecordThread: buffer overflow
+W/AudioFlinger( 1329): RecordThread: buffer overflow
+W/AudioFlinger( 1329): RecordThread: buffer overflow
+W/AudioFlinger( 1329): RecordThread: buffer overflow
+W/AudioFlinger( 1329): RecordThread: buffer overflow
+W/AudioFlinger( 1329): RecordThread: buffer overflow
+W/AudioFlinger( 1329): RecordThread: buffer overflow
+W/AudioFlinger( 1329): RecordThread: buffer overflow
+W/AudioFlinger( 1329): RecordThread: buffer overflow
+W/AudioFlinger( 1329): RecordThread: buffer overflow
+W/AudioFlinger( 1329): RecordThread: buffer overflow
+W/AudioFlinger( 1329): RecordThread: buffer overflow
+W/AudioFlinger( 1329): RecordThread: buffer overflow
+W/AudioFlinger( 1329): RecordThread: buffer overflow
+I/DEBUG   ( 7392): debuggerd committing suicide to free the zombie!
+I/DEBUG   ( 7439): debuggerd: Mar  1 2011 18:59:25
+I/BootReceiver( 1360): Copying /data/tombstones/tombstone_06 to DropBox (SYSTEM_TOMBSTONE)
+W/AudioFlinger( 1329): RecordThread: buffer overflow
+D/Zygote  ( 1328): Process 7394 terminated by signal (11)
+I/AudioHardwareMSM72XX( 1329): Routing audio to Handset
+D/dalvikvm( 1360): GC_FOR_MALLOC freed 2804 objects / 493240 bytes in 490ms
+I/AudioHardwareMSM72XX( 1329): Routing audio to Handset
+I/AudioHardwareMSM72XX( 1329): Routing audio to Handset
+D/dalvikvm( 1360): GC_FOR_MALLOC freed 217 objects / 512240 bytes in 370ms4
+W/AudioService( 1360): Volume service client died for stream: 1
+W/AudioService( 1360): Volume service client died for stream: 2
+W/AudioService( 1360): Volume service client died for stream: 3
+I/WindowManager( 1360): WIN DEATH: Window{4417d3c0 com.csipsimple/com.csipsimple.ui.SipHome paused=false}
+I/ActivityManager( 1360): Process com.csipsimple (pid 7394) has died.
+W/AudioService( 1360): Volume service client died for stream: 5
+W/ActivityManager( 1360): Scheduling restart of crashed service com.csipsimple/.service.SipService in 5000ms
+W/AudioService( 1360):   AudioFocus   audio focus client died
+I/AudioService( 1360):  AudioFocus  abandonAudioFocus(): removing entry for android.media.AudioManager@43f39258com.csipsimple.utils.audio.AudioFocus8$1@43f3db10
+D/dalvikvm( 1360): GC_EXPLICIT freed 553 objects / 163832 bytes in 240ms
+I/WindowManager( 1360): Setting rotation to 1, animFlags=1
+I/ActivityManager( 1360): Config changed: { scale=1.0 imsi=310/995 loc=en_US touch=3 keys=2/1/1 nav=1/1 orien=2 layout=34 uiMode=17 seq=267}
+I/UsageStats( 1360): Unexpected resume of com.android.launcher while already resumed in com.csipsimple
+W/InputManagerService( 1360): Got RemoteException sending setActive(false) notification to pid 7394 uid 10048
+W/InputManagerService( 1360): Window already focused, ignoring focus gain of: com.android.internal.view.IInputMethodClient$Stub$Proxy@441b7200
+E/Tethering( 1360): attempting to remove unknown iface (usb0), ignoring
+D/dalvikvm( 1360): GC_EXPLICIT freed 1174 objects / 383256 bytes in 220ms</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #1</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Apr 19, 2011 by
+                  <i class="ng-binding">Massive Rhino</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Comment deleted</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #2</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Apr 19, 2011 by
+                  <i class="ng-binding">Massive Rhino</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Additional info:</p>
+
+<ol>
+<li>I don't have a BlueTooth device.</li>
+<li>My Network settings are for "incoming only" when the crash happens.  When I select "always available", there is no crash.</li>
+</ol>
+
+<p>Seems CSip checks for incoming networks when trying to go to the home screen with the back button.  If set in Always Available mode and in call, you can exit and return to CSip without issue.</p>
+
+<p>Looks like CSip needs not only to check if there are Inbound networks, but also whether a call is currently in progress.  It seems to want to exit totally, even if a call is still setup in the SIP stack.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #3</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Apr 20, 2011 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Ok thanks a lot for the bug report and the detailed analysis.</p>
+
+<p>I think you're absolutely right there is a missing check on back button use case.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #4</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Apr 20, 2011 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>This issue was closed by revision r802.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments -->
+          </div>
+
+          <!-- Sidebar with additional information -->
+          <div class="maia-col-4">
+            <div class="maia-aside">
+              <p>Status: <code class="ng-binding">Fixed</code></p>
+              <!-- ngIf: issueCtrl.issue.labels.length > 0 --><p ng-if="issueCtrl.issue.labels.length &gt; 0" class="ng-scope">
+                Labels:
+                <br>
+                <!-- ngRepeat: label in issueCtrl.issue.labels track by $index --><span ng-repeat="label in issueCtrl.issue.labels track by $index" class="ng-scope">
+                  <span class="gca-label ng-binding">Type-Defect</span>
+                </span><!-- end ngRepeat: label in issueCtrl.issue.labels track by $index --><span ng-repeat="label in issueCtrl.issue.labels track by $index" class="ng-scope">
+                  <span class="gca-label ng-binding">Priority-Medium</span>
+                </span><!-- end ngRepeat: label in issueCtrl.issue.labels track by $index -->
+              </p><!-- end ngIf: issueCtrl.issue.labels.length > 0 -->
+            </div>
+          </div>
+        </div><!-- end ngIf: !issueCtrl.error -->
+      </div>
+    </div>
+
+  </div>
+</div>
+</div></div></div>
+    <noscript>
+      &lt;p&gt;The Google Code Archive requires JavaScript to be enabled in your browser.&lt;/p&gt;
+    </noscript>
+
+    <div id="maia-signature"></div>
+    <div class="maia-footer" id="maia-footer">
+      <div id="maia-footer-local">
+      </div>
+      <div id="maia-footer-global">
+        <div class="maia-aux">
+          <ul>
+            <li>
+              <a href="//www.google.com/">Google</a>
+            </li>
+            <li>
+              <a href="//www.google.com/intl/en/about/">About Google</a>
+            </li>
+            <li>
+              <a href="//www.google.com/intl/en/policies/privacy/">Privacy</a>
+            </li>
+            <li>
+              <a href="//www.google.com/intl/en/policies/terms/">Terms</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <script src="//www.google.com/js/maia.js"></script>
+  
+
+
+</body></html>

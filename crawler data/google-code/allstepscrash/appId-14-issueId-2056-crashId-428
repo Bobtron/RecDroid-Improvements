@@ -1,0 +1,11 @@
+<td class="d-block comment-body markdown-body  js-comment-body">
+
+          <p>Consider a common scenario:</p>
+<p>A user has a blog with 100s of blog posts. She makes some small changes to a draft, or creates a new draft, or updates a published post. Then when she goes back to the post list, we upload the local changes and then download and save to db <em>every single post</em> again (in one gigantic request), because the post list's ETag will have changed, which is obviously horrendously inefficient. In one casual test, this scenario (one small change to a single post) on a blog with 100 fairly long posts uses 250-350 KB of data! Imagine what happens when there are 5x more posts, and the user makes lots of small edits in several different posts!</p>
+<p>These should help:</p>
+<ul class="contains-task-list">
+<li class="task-list-item"><input type="checkbox" id="" disabled class="task-list-item-checkbox" checked> <em>Temporary workaround</em>: limit the number of posts downloaded (<a class="commit-link" href="https://github.com/vickychijwani/quill/commit/d96fd90bababac74070c2244b398ae732acf7508"><tt>d96fd90</tt></a>)</li>
+<li class="task-list-item"><input type="checkbox" id="" disabled class="task-list-item-checkbox"> Implement pagination in post list (<a class="issue-link js-issue-link" data-error-text="Failed to load issue title" data-id="91862288" data-permission-text="Issue title is private" data-url="https://github.com/vickychijwani/quill/issues/81" href="https://github.com/vickychijwani/quill/issues/81">#81</a>)</li>
+<li class="task-list-item"><input type="checkbox" id="" disabled class="task-list-item-checkbox" checked> Use E-Tags for all API calls to reduce data usage (<a class="issue-link js-issue-link" data-error-text="Failed to load issue title" data-id="105109907" data-permission-text="Issue title is private" data-url="https://github.com/vickychijwani/quill/issues/104" href="https://github.com/vickychijwani/quill/issues/104">#104</a>)</li>
+</ul>
+      </td>

@@ -1,0 +1,533 @@
+https://code.google.com/archive/p/csipsimple/issues/928<!DOCTYPE html><html class="google ng-scope" lang="en" ng-app="codesiteArchive.application"><head>
+    <meta charset="utf-8">
+    <meta content="initial-scale=1, minimum-scale=1, width=device-width" name="viewport">
+
+    <!-- https://developers.google.com/webmasters/ajax-crawling/docs/specification -->
+    <meta name="fragment" content="!">
+    <title>Google Code Archive - Long-term storage for Google Code Project Hosting.</title>
+
+    <link rel="icon" type="image/vnd.microsoft.icon" href="/archive/img/project-hosting.ico">
+    <script src="//www.google.com/js/google.js"></script>
+    <link href="//www.google.com/css/maia.css" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;lang=en" rel="stylesheet">
+    <link rel="stylesheet" href="/archive/archive_css.css">
+    <script>
+      CLOSURE_NO_DEPS = true;
+    </script>
+    <script src="/archive/angular.js"></script><style type="text/css">@charset "UTF-8";
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak],
+.ng-cloak, .x-ng-cloak,
+.ng-hide:not(.ng-hide-animate) {
+  display: none !important;
+}
+
+ng\:form {
+  display: block;
+}
+
+.ng-animate-shim {
+  visibility:hidden;
+}
+
+.ng-anchor {
+  position:absolute;
+}
+</style>
+    <script src="/archive/pagedown.js"></script>
+    <script src="/archive/archive.js"></script>
+    <base href="/archive/">
+  </head>
+
+  <body>
+    <div class="maia-header" id="maia-header" role="banner">
+      <div class="maia-aux">
+        <a href="/archive/">
+          </a><h1><a href="/archive/">
+            <img alt="Google" src="//www.google.com/images/branding/googlelogo/1x/googlelogo_color_116x41dp.png"> Code</a>
+          </h1>
+        
+        <a href="/archive/">
+          <h2>Archive</h2>
+        </a>
+        <a class="maia-teleport" href="#content">Skip to content</a>
+        <div class="maia-util">
+          <form action="/archive/search" class="maia-search ng-pristine ng-valid">
+            <input name="q" placeholder="Search this site" type="text">
+            <button class="maia-button">
+              <span class="maia-search-icon">Search</span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- ngView: --><div ng-view="" class="ng-scope"><div ng-controller="ProjectIssueCtrl as issueCtrl" class="ng-scope">
+<nav-bar-widget nav-level-1="projectCtrl.navLevel1" class="ng-isolate-scope"><div class="maia-nav maia-complex" id="maia-nav-x" role="navigation">
+  <div class="maia-aux">
+    <ul>
+      <li ng-class="{active: navLevel1 == 'projects'}">
+        <a href="/archive/">Projects</a>
+        <!-- ngIf: navLevel2 -->
+      </li>
+      <li ng-class="{active: navLevel1 == 'search'}">
+        <a href="/archive/search">Search</a>
+      </li>
+      <li ng-class="{active: navLevel1 == 'about'}">
+        <a href="/archive/about">About</a>
+      </li>
+    </ul>
+  </div>
+</div>
+</nav-bar-widget>
+<div id="maia-main" role="main">
+
+  <!-- ngIf: issueCtrl.notFound -->
+
+  <div ng-hide="issueCtrl.notFound">
+    <!-- Left-side resource nav -->
+    <project-resources-widget domain="issueCtrl.domain" project="issueCtrl.projectName" class="ng-isolate-scope"><div class="maia-nav" id="maia-nav-y" role="navigation">
+  <!-- ngIf: domain == 'code.google.com' --><ul ng-if="domain == 'code.google.com'" class="ng-scope">
+    <li class="active">
+      <a href="/archive/p/csipsimple/">Project</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/source">Source</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/issues">Issues</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/wikis">Wikis</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/downloads">Downloads</a>
+    </li>
+  </ul><!-- end ngIf: domain == 'code.google.com' -->
+
+    <!-- ngIf: domain != 'code.google.com' -->
+</div></project-resources-widget>
+
+    <div class="maia-article" role="article">
+      <div class="maia-teleport" id="content"></div>
+      <div class="maia-cols">
+        <div id="gca-project-header" class="maia-col-10">
+          <a id="gca-export-to-gh" class="maia-button" href="https://code.google.com/export-to-github/export?project=csipsimple">Export to GitHub</a>
+            <img class="gca-project-logo" src="https://storage.googleapis.com/google-code-archive/v2/code.google.com/csipsimple/logo.png">
+            <h1 class="ng-binding">csipsimple - issue #928</h1>
+            <p class="ng-binding">Problem with NAT and CSIPSimple</p>
+        </div>
+
+        <div class="maia-col-10">
+          <hr>
+
+        <!-- ngIf: issueCtrl.error -->
+
+        <!-- ngIf: !issueCtrl.error --><div ng-if="!issueCtrl.error" class="ng-scope">
+          <!-- Comments -->
+          <div class="maia-col-8">
+            <!-- ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on May 6, 2011 by
+                  <i class="ng-binding">Helpful Lion</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>CSipSimple-r830-trunk.apk</p>
+
+<p>I under NAT.
+I have disabled STUN.</p>
+
+<p>I do not hear nothing.
+My SIP provide said, that CSIPSimple do not tell sip server, that it under NAT. SIP server think that CSIPSimple has dirrect internet connection and do not use media relay server.</p>
+
+<p>Via: SIP/2.0/UDP 125.142.114.52:53894;rport;branch=z9hG4bKP...
+Contact: &lt;sip:xxx@125.142.114.52:53894;transport=UDP;ob&gt;</p>
+
+<p>vs</p>
+
+<p>Via: SIP/2.0/TCP 192.168.1.3:5060;rport;branch=z9hG4bK6274
+Contact: &lt;sip:xxx@192.168.1.3;transport=tcp&gt;</p>
+
+<p>CSIPSimple:</p>
+
+<p>INVITE sip:001@sipnet.ru SIP/2.0
+Via: SIP/2.0/UDP 125.142.114.52:53894;rport;branch=z9hG4bKPjUgMxTmqMIQ2NxBDIqJ6KkwyowxUJsx.K
+From: &lt;sip:xxx@sipnet.ru&gt;;tag=26sETylqCwngg9QQsaNcj5w86qqM8b4L
+To: &lt;sip:001@sipnet.ru&gt;
+Contact: &lt;sip:xxx@125.142.114.52:53894;transport=UDP;ob&gt;
+Route: &lt;sip:sipnet.ru;transport=udp;lr&gt;
+Supported: replaces, 100rel, timer, norefersub
+User-Agent: CSipSimple r830 / GT-I5700-8
+Content-Type: application/sdp</p>
+
+<p>Linphone:</p>
+
+<p>INVITE sip:001@sipnet.ru SIP/2.0
+Via: SIP/2.0/TCP 192.168.1.3:5060;rport;branch=z9hG4bK6274
+From: &lt;sip:xxx@sipnet.ru&gt;;tag=12412
+To: &lt;sip:001@sipnet.ru&gt;
+Contact: &lt;sip:xxx@192.168.1.3;transport=tcp&gt;
+Content-Type: application/sdp
+User-Agent: Linphone/3.4.3 (eXosip2/3.3.0)
+Subject: Phone call</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #1</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on May 6, 2011 by
+                  <i class="ng-binding">Helpful Wombat</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Comment deleted</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #2</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on May 6, 2011 by
+                  <i class="ng-binding">Helpful Lion</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Example, how it should work.</p>
+
+<p>A client sends an INVITE to a proxy server which looks like, in part:</p>
+
+<p>INVITE sip:user@example.com SIP/2.0
+   Via: SIP/2.0/UDP 10.1.1.1:4540;rport;branch=z9hG4bKkjshdyff</p>
+
+<p>This INVITE is sent with a source port of 4540 and a source IP
+   address of 10.1.1.1.  The proxy is at 192.0.2.2 (proxy.example.com),
+   listening on both port 5060 and 5070.  The client sends the request
+   to port 5060.  The request passes through a NAT on the way to the
+   proxy, so that the source IP address appears as 192.0.2.1 and the
+   source port as 9988.  The proxy forwards the request, but not before
+   appending a value to the "rport" parameter in the proxied request:</p>
+
+<p>INVITE sip:user@example.com SIP/2.0
+   Via: SIP/2.0/UDP proxy.example.com;branch=z9hG4bKkjsh77
+   Via: SIP/2.0/UDP 10.1.1.1:4540;received=192.0.2.1;rport=9988
+    ;branch=z9hG4bKkjshdyff</p>
+
+<p>This request generates a response which arrives at the proxy:</p>
+
+<p>SIP/2.0 200 OK
+   Via: SIP/2.0/UDP proxy.example.com;branch=z9hG4bKkjsh77
+   Via: SIP/2.0/UDP 10.1.1.1:4540;received=192.0.2.1;rport=9988
+    ;branch=z9hG4bKkjshdyff</p>
+
+<p>The proxy strips its top Via header field value, and then examines
+   the next one.  It contains both a "received" parameter and an "rport"
+   parameter.  The server follows the rules specified in Section 4 and
+   sends the response to IP address 192.0.2.1, port 9988, and sends it
+   from port 5060 on 192.0.2.2:</p>
+
+<p>SIP/2.0 200 OK
+   Via: SIP/2.0/UDP 10.1.1.1:4540;received=192.0.2.1;rport=9988
+    ;branch=z9hG4bKkjshdyff</p>
+
+<p>This packet matches the binding created by the initial request.
+   Therefore, the NAT rewrites the destination address of this packet
+   back to 10.1.1.1, and the destination port back to 4540.  It forwards
+   this response to the client, which is listening for the response on
+   that address and port.  The client properly receives the response.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #3</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on May 6, 2011 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Sorry I forgot to reply to this issue. </p>
+
+<p>In fact you are just misconfiguring the application.</p>
+
+<p>CSipSimple (actually pjsip, the sip stack on which csipsimple relies), provides a cool feature that helps in many many case to workaround NAT issues and to automatically detect you own public IP.
+This method is also used by xlite AFAIK. </p>
+
+<p>The client based on the first registration update its own contact header and send a second register so that the public IP is the more accurate.</p>
+
+<p>You can disable this feature (usually required when you have an SBC). To do so, simply switch to expert mode account (see the wiki page about that), and then disable "Allow contact rewrite" option.</p>
+
+<p>I think that it will solve your problem. Also, search on the issue list (even on closed issue), this was debated a lot of times and you'll also find other bugs talking about NAT resolution done by pjsip and how it works with multiple accounts.</p>
+
+<p>If you think there is a bug in pjsip, you should ask directly pjsip guys (there is mailing list). 
+I'm not an expert on what they did, but their stack is known to respect very well SIP RFC (much more better than other SIP stacks, which sometimes leads to weird things - for example for TCP transport ). </p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #4</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on May 6, 2011 by
+                  <i class="ng-binding">Helpful Lion</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><blockquote>
+  <p>and then disable "Allow contact rewrite" option.</p>
+</blockquote>
+
+<p>This not helped me. I think problem with pjsip stack, because 3CXPhone also not works.
+Pjsip sends in "Via" header external IP, but local IP is needed in "Via" for my SIP provider.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #5</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on May 6, 2011 by
+                  <i class="ng-binding">Helpful Lion</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Can not found how to register on their tracker.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #6</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on May 6, 2011 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Try the mailing list : <a href="http://lists.pjsip.org/mailman/listinfo/pjsip_lists.pjsip.org">http://lists.pjsip.org/mailman/listinfo/pjsip_lists.pjsip.org</a></p>
+
+<p>As you said, if also appear in 3CX that's something with pjsip since they also use it (even if they do not opensouce the rest of their code because they have a pjsip license).</p>
+
+<p>With allow contact rewrite disabled, did you restart the sip stack (go in csipsimple settings and press back will restart teh stack)? 
+Cause pjsip cache the public IP once get.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #7</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on May 6, 2011 by
+                  <i class="ng-binding">Helpful Lion</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><blockquote>
+  <p>With allow contact rewrite disabled, did you restart the sip stack (go in csipsimple settings and press back will restart teh stack)? Cause pjsip cache the public IP once get.</p>
+</blockquote>
+
+<p>Wow! Helps! Last 5 hours I do different test. Thank you!
+I did no know that "allow contact rewrite" means this possibility.
+How caption "allow contact rewrite" can be connected with IPs?</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #8</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on May 6, 2011 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Cool :)</p>
+
+<p>I'll try to explain my understanding of how pjsip (and xlite) do (can do) in order to resolve public IP.</p>
+
+<ul>
+<li>First step it registers.</li>
+<li>From the server reply of this register, if "Allow contact rewrite" is enabled, it tries to read the public IP as seen by the registrar. If it finds a different public IP than the one it already knows (the IP of the binded socket), it store this new IP as the "Public IP of the pjsip stack".</li>
+<li>Then it send a new register with updated public IP.</li>
+</ul>
+
+<p>Some registrar does not like to have this double registration, or does not like the way pjsip cancel the previous registration (reason of the rewrite method option). The other effect of this option is that it save a "public ip of the stack". Having a single public IP known by the stack allow to save time in some situation but has big drawback : for all the rest of time (and also other accounts :S), it will talk using this new "public IP". This is really annoying in some case (particularly when you have a private PBX and a public PBX and try to use STUN).</p>
+
+<p>But pjsip guys are aware about that and will allow a per account public IP resolution in pjsip-2.0. (there is an open issue of this tracker about that also so that I will update interested people when it will be done by pjsip guys and integrated into csipsimple)</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #9</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on May 7, 2011 by
+                  <i class="ng-binding">Helpful Lion</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Ok.
+But I think "allow contact rewrite" must be disabled when STUN is disabled.</p>
+
+<p>For my SIP provider:
+If both disabled - works.
+If both enabled - works.
+IF "allow contact rewrite" - enabled, STUN is disabled - not works.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #10</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Mar 7, 2013 by
+                  <i class="ng-binding">Happy Bird</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>@vale...</p>
+
+<p>If both enabled -works. How can it be? Use STUN or enable allow contact rewrite will makes registra thinks of you as NOT behind NAT. Use both STUN and enable allow contact rewrite does not make sense</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments -->
+          </div>
+
+          <!-- Sidebar with additional information -->
+          <div class="maia-col-4">
+            <div class="maia-aside">
+              <p>Status: <code class="ng-binding">WrongConfig</code></p>
+              <!-- ngIf: issueCtrl.issue.labels.length > 0 --><p ng-if="issueCtrl.issue.labels.length &gt; 0" class="ng-scope">
+                Labels:
+                <br>
+                <!-- ngRepeat: label in issueCtrl.issue.labels track by $index --><span ng-repeat="label in issueCtrl.issue.labels track by $index" class="ng-scope">
+                  <span class="gca-label ng-binding">Type-Defect</span>
+                </span><!-- end ngRepeat: label in issueCtrl.issue.labels track by $index --><span ng-repeat="label in issueCtrl.issue.labels track by $index" class="ng-scope">
+                  <span class="gca-label ng-binding">Priority-Medium</span>
+                </span><!-- end ngRepeat: label in issueCtrl.issue.labels track by $index -->
+              </p><!-- end ngIf: issueCtrl.issue.labels.length > 0 -->
+            </div>
+          </div>
+        </div><!-- end ngIf: !issueCtrl.error -->
+      </div>
+    </div>
+
+  </div>
+</div>
+</div></div></div>
+    <noscript>
+      &lt;p&gt;The Google Code Archive requires JavaScript to be enabled in your browser.&lt;/p&gt;
+    </noscript>
+
+    <div id="maia-signature"></div>
+    <div class="maia-footer" id="maia-footer">
+      <div id="maia-footer-local">
+      </div>
+      <div id="maia-footer-global">
+        <div class="maia-aux">
+          <ul>
+            <li>
+              <a href="//www.google.com/">Google</a>
+            </li>
+            <li>
+              <a href="//www.google.com/intl/en/about/">About Google</a>
+            </li>
+            <li>
+              <a href="//www.google.com/intl/en/policies/privacy/">Privacy</a>
+            </li>
+            <li>
+              <a href="//www.google.com/intl/en/policies/terms/">Terms</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <script src="//www.google.com/js/maia.js"></script>
+  
+
+
+</body></html>

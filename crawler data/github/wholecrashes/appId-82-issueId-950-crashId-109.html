@@ -1,0 +1,27 @@
+https://github.com/the-blue-alliance/the-blue-alliance-android/issues/735<td class="d-block comment-body markdown-body  js-comment-body">
+
+          <p>Moving more logic from the mobile app to the server would have several advantages:</p>
+<ul>
+<li>Share more code between TBA web, Android, and soon iOS and Windows Phone clients.</li>
+<li>Keep them all consistent about content details such as Bug <a class="issue-link js-issue-link" data-error-text="Failed to load issue title" data-id="153566386" data-permission-text="Issue title is private" data-url="https://github.com/the-blue-alliance/the-blue-alliance-android/issues/734" href="https://github.com/the-blue-alliance/the-blue-alliance-android/issues/734">#734</a> (recognizing the winner). Tournament rules are complex and year-specific.</li>
+<li>Allow faster deployment of bug fixes, esp. on iOS where it takes a week or two to push an update through Apple's approval process.</li>
+<li>Better support year-specific information, such as displaying Ranking Points instead of (or in addition to) quals match score points in a year with RPs.</li>
+<li>Reduce the QA work to do.</li>
+</ul>
+<p>The idea is to move more of the domain logic and high level information design choices from the client code to the server code. Clients would implement platform-specific design details while letting the server provide data such as what fields to display, how to title them, which team numbers to mark specially as "favorite" and/or "surrogate in that match". The server would not specify layout details such as colors and margins.</p>
+<p>That is, make the clients "less thick" (not "thin clients" like HTML viewers).</p>
+<p>This doesn't force all clients to have all the same features, UI, navigation, or appearance. It does mean the information they display will agree.</p>
+<p>Open design questions include:</p>
+<ul>
+<li>What info to include and exclude in the abstract presentation data?</li>
+<li>Should the client fetch the presentation data with the content data in each API response, or fetch it much less often? If the latter, the content data reply could contain a token for its needed (immutable, versioned) presentation data so the client will know if it needs to fetch that.</li>
+<li>Which API calls should aggregate content data of multiple models? Aggregation is OK as long as it doesn't interfere with fixing <a class="issue-link js-issue-link" data-error-text="Failed to load issue title" data-id="142110128" data-permission-text="Issue title is private" data-url="https://github.com/the-blue-alliance/the-blue-alliance-android/issues/638" href="https://github.com/the-blue-alliance/the-blue-alliance-android/issues/638">#638</a> . That is, each model that gets stored in a local DB row needs a last-modified timestamp so data rows received via different API calls/GCMs/Firebase do not replace older rows received from unexpired network caches.</li>
+</ul>
+<p>I asked a friend if Google Now uses a "thin client" approach that sends content + layout info to the clients so it can support more flexible and dynamic layout without having to modify the mobile client code. The reply:</p>
+<blockquote>
+<p>Yea, in the beginning all the cards used custom rendering, but now they've moved to a module approach where they have a set of predefined modules that can make up a card and the server just provides details for the modules for an individual card. The modules are fixed, so it's not super flexible, but if you define the modules well, you can still have a wide variety of card types while still keeping them pretty consistent.</p>
+</blockquote>
+<p>This is interesting! It's not just presentation information abstracted back from client-specific details. It composes little modules of such information into the cards.</p>
+<p>See More Server Side Config <a class="issue-link js-issue-link" data-error-text="Failed to load issue title" data-id="151289470" data-permission-text="Issue title is private" data-url="https://github.com/the-blue-alliance/the-blue-alliance-android/issues/715" href="https://github.com/the-blue-alliance/the-blue-alliance-android/issues/715">#715</a></p>
+<p>See <a href="https://github.com/the-blue-alliance/the-blue-alliance/issues/1507">API v3 Discussion #1507</a>, "look at trying to move things that currently require client-side computations to be part of the API proper."</p>
+      </td>

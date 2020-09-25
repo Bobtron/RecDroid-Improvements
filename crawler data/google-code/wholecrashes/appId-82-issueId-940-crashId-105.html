@@ -1,0 +1,14 @@
+https://github.com/the-blue-alliance/the-blue-alliance-android/issues/713<td class="d-block comment-body markdown-body  js-comment-body">
+
+          <p>As mentioned here: <a class="issue-link js-issue-link" data-error-text="Failed to load issue title" data-id="151272910" data-permission-text="Issue title is private" data-url="https://github.com/the-blue-alliance/the-blue-alliance-android/issues/712" href="https://github.com/the-blue-alliance/the-blue-alliance-android/pull/712">#712</a></p>
+<blockquote>
+<p>Going forward, as we make the transition to RecyclerView, this is how we should do things. It generally makes list items more reusable. I'd like to write a class that lets us compose listeners so that we can reuse click listeners throughout the app while still having the option of using multiple listeners per list. Something like this:</p>
+</blockquote>
+<div class="highlight highlight-source-java"><pre><span class="pl-smi">ViewEventListenerComposer</span><span class="pl-k">.</span><span class="pl-smi">Builder</span> builder <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">ViewEventListenerComposer</span>.<span class="pl-smi">Builder</span>();
+builder<span class="pl-k">.</span>compose(<span class="pl-k">new</span> <span class="pl-smi">EventClickListener</span>(mContext));
+builder<span class="pl-k">.</span>compose(<span class="pl-k">new</span> <span class="pl-smi">MyTbaDetailsClickListener</span>(mContext));
+creator<span class="pl-k">.</span>listener(builder<span class="pl-k">.</span>build());</pre></div>
+<hr>
+<p>I'd suggest that <code>ViewEventListenerComposer</code> require to be composed of <code>ViewEventListener</code>s, which is an interface with the function <code>boolean handleClick(action_code, blah)</code> that returns <code>true</code> once the click has been appropriately handled.</p>
+<p>Then, the final built listener just has to iterate through all its <code>ViewEventListeners</code> and execute their method until one returns <code>true</code>.</p>
+      </td>

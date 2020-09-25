@@ -1,0 +1,559 @@
+https://code.google.com/archive/p/csipsimple/issues/2126<!DOCTYPE html><html class="google ng-scope" lang="en" ng-app="codesiteArchive.application"><head>
+    <meta charset="utf-8">
+    <meta content="initial-scale=1, minimum-scale=1, width=device-width" name="viewport">
+
+    <!-- https://developers.google.com/webmasters/ajax-crawling/docs/specification -->
+    <meta name="fragment" content="!">
+    <title>Google Code Archive - Long-term storage for Google Code Project Hosting.</title>
+
+    <link rel="icon" type="image/vnd.microsoft.icon" href="/archive/img/project-hosting.ico">
+    <script src="//www.google.com/js/google.js"></script>
+    <link href="//www.google.com/css/maia.css" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;lang=en" rel="stylesheet">
+    <link rel="stylesheet" href="/archive/archive_css.css">
+    <script>
+      CLOSURE_NO_DEPS = true;
+    </script>
+    <script src="/archive/angular.js"></script><style type="text/css">@charset "UTF-8";
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak],
+.ng-cloak, .x-ng-cloak,
+.ng-hide:not(.ng-hide-animate) {
+  display: none !important;
+}
+
+ng\:form {
+  display: block;
+}
+
+.ng-animate-shim {
+  visibility:hidden;
+}
+
+.ng-anchor {
+  position:absolute;
+}
+</style>
+    <script src="/archive/pagedown.js"></script>
+    <script src="/archive/archive.js"></script>
+    <base href="/archive/">
+  </head>
+
+  <body>
+    <div class="maia-header" id="maia-header" role="banner">
+      <div class="maia-aux">
+        <a href="/archive/">
+          </a><h1><a href="/archive/">
+            <img alt="Google" src="//www.google.com/images/branding/googlelogo/1x/googlelogo_color_116x41dp.png"> Code</a>
+          </h1>
+        
+        <a href="/archive/">
+          <h2>Archive</h2>
+        </a>
+        <a class="maia-teleport" href="#content">Skip to content</a>
+        <div class="maia-util">
+          <form action="/archive/search" class="maia-search ng-pristine ng-valid">
+            <input name="q" placeholder="Search this site" type="text">
+            <button class="maia-button">
+              <span class="maia-search-icon">Search</span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- ngView: --><div ng-view="" class="ng-scope"><div ng-controller="ProjectIssueCtrl as issueCtrl" class="ng-scope">
+<nav-bar-widget nav-level-1="projectCtrl.navLevel1" class="ng-isolate-scope"><div class="maia-nav maia-complex" id="maia-nav-x" role="navigation">
+  <div class="maia-aux">
+    <ul>
+      <li ng-class="{active: navLevel1 == 'projects'}">
+        <a href="/archive/">Projects</a>
+        <!-- ngIf: navLevel2 -->
+      </li>
+      <li ng-class="{active: navLevel1 == 'search'}">
+        <a href="/archive/search">Search</a>
+      </li>
+      <li ng-class="{active: navLevel1 == 'about'}">
+        <a href="/archive/about">About</a>
+      </li>
+    </ul>
+  </div>
+</div>
+</nav-bar-widget>
+<div id="maia-main" role="main">
+
+  <!-- ngIf: issueCtrl.notFound -->
+
+  <div ng-hide="issueCtrl.notFound">
+    <!-- Left-side resource nav -->
+    <project-resources-widget domain="issueCtrl.domain" project="issueCtrl.projectName" class="ng-isolate-scope"><div class="maia-nav" id="maia-nav-y" role="navigation">
+  <!-- ngIf: domain == 'code.google.com' --><ul ng-if="domain == 'code.google.com'" class="ng-scope">
+    <li class="active">
+      <a href="/archive/p/csipsimple/">Project</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/source">Source</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/issues">Issues</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/wikis">Wikis</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/downloads">Downloads</a>
+    </li>
+  </ul><!-- end ngIf: domain == 'code.google.com' -->
+
+    <!-- ngIf: domain != 'code.google.com' -->
+</div></project-resources-widget>
+
+    <div class="maia-article" role="article">
+      <div class="maia-teleport" id="content"></div>
+      <div class="maia-cols">
+        <div id="gca-project-header" class="maia-col-10">
+          <a id="gca-export-to-gh" class="maia-button" href="https://code.google.com/export-to-github/export?project=csipsimple">Export to GitHub</a>
+            <img class="gca-project-logo" src="https://storage.googleapis.com/google-code-archive/v2/code.google.com/csipsimple/logo.png">
+            <h1 class="ng-binding">csipsimple - issue #2126</h1>
+            <p class="ng-binding">Crash on call initiation, audio hardware related?</p>
+        </div>
+
+        <div class="maia-col-10">
+          <hr>
+
+        <!-- ngIf: issueCtrl.error -->
+
+        <!-- ngIf: !issueCtrl.error --><div ng-if="!issueCtrl.error" class="ng-scope">
+          <!-- Comments -->
+          <div class="maia-col-8">
+            <!-- ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Dec 13, 2012 by
+                  <i class="ng-binding">Happy Elephant</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p><b>What steps will reproduce the problem?</b>
+1.Fire up CSipSimple
+2.Connect to account - ok
+3.Initiate call - app falls over</p>
+
+<p>This may be tied to custom kernel/s been using in 3rd party ROMs, but only had this issue in last couple of weeks after a year of using similar and constantly changing ROMs.</p>
+
+<p>Also tried latest CSipSimple trunk: 0.04-04r1916  13/12/2012</p>
+
+<p>ROM: 
+[LINARO][Pdroid][PacMAN] [aosp] Android 4.1.2 [ v.003]
+- built on stable CyanogenMod branch</p>
+
+<p><a href="http://forum.xda-developers.com/showthread.php?t=2037559">http://forum.xda-developers.com/showthread.php?t=2037559</a></p>
+
+<p>Kernel:
+ Linux localhost 3.0.55-DKOSP- #1 SMP PREEMPT Tue Dec 11 17:31:38 EST 2012 armv7l GNU/Linux</p>
+
+<p>Trace:</p>
+
+<p>D/AudioHardwareMSM8660(  126): updateDeviceInfo() called for default case
+D/AudioHardwareMSM8660(  126): updateDeviceInfo: E
+D/AudioHardwareMSM8660(  126): The node type is 1
+E/AudioHardwareMSM8660(  126): value of device and enable is 0 1 ALSA dev id:0
+D/ACDB-LOADER(  126): ACDB -&gt; send_audio_cal, acdb_id = 7, path =  0
+D/ACDB-LOADER(  126): ACDB -&gt; send_audtable
+D/ACDB-LOADER(  126): ACDB -&gt; ACDB_CMD_GET_AUDPROC_COMMON_TABLE
+D/ACDB-LOADER(  126): ACDB -&gt; AUDIO_SET_AUDPROC_CAL
+D/ACDB-LOADER(  126): ACDB -&gt; send_audvoltable
+D/ACDB-LOADER(  126): ACDB -&gt; ACDB_CMD_GET_AUDPROC_GAIN_DEP_VOLTBL_STEP_COPP
+D/ACDB-LOADER(  126): ACDB -&gt; AUDIO_SET_AUDPROC_VOL_CAL
+D/AudioHardwareMSM8660(  126): updateDeviceInfo: X
+F/libc    ( 1491): Fatal signal 11 (SIGSEGV) at 0x00000000 (code=1), thread 1555 (ervice.Executor)
+E/AudioHardwareMSM8660(  126):  unknown stream
+I/DEBUG   (  121): <strong>* <em></em></strong><em> <strong></strong></em><strong> <em></em></strong><em> <strong></strong></em><strong> <em></em></strong><em> <strong></strong></em><strong> <em></em></strong><em> <strong></strong></em><strong> <em></em></strong><em> <strong></strong></em><strong> <em></em></strong><em> <strong></strong></em><strong> <em></em></strong><em> <strong></strong></em><strong> *</strong>
+I/DEBUG   (  121): Build fingerprint: 'tmous/htc_pyramid/pyramid:4.0.3/IML74K/356011.14:user/release-keys'
+I/DEBUG   (  121): pid: 1491, tid: 1555, name: ervice.Executor  &gt;&gt;&gt; com.csipsimple:sipStack &lt;&lt;&lt;
+I/DEBUG   (  121): signal 11 (SIGSEGV), code 1 (SEGV_MAPERR), fault addr 00000000
+I/DEBUG   (  121):     r0 00000000  r1 00000007  r2 00000000  r3 00000000
+I/DEBUG   (  121):     r4 003e0b94  r5 004dbd00  r6 5c6cfd5d  r7 56d66a35
+I/DEBUG   (  121):     r8 004dbc84  r9 10624dd3  sl fffffffe  fp ffffffff
+I/DEBUG   (  121):     ip 00000007  sp 5c901520  lr 40798c45  pc 5c6dd5ac  cpsr 600d0030
+I/DEBUG   (  121):     d0  5555555555555555  d1  5555555555555555
+I/DEBUG   (  121):     d2  5555555555555555  d3  5555555555555555
+I/DEBUG   (  121):     d4  002e0074006e0065  d5  006e006f00430049
+I/DEBUG   (  121):     d6  0074006e00650074  d7  4000000000720050
+I/DEBUG   (  121):     d8  0000000000000000  d9  0000000000000000
+I/DEBUG   (  121):     d10 0000000000000000  d11 0000000000000000
+I/DEBUG   (  121):     d12 0000000000000000  d13 0000000000000000
+I/DEBUG   (  121):     d14 0000000000000000  d15 0000000000000000
+I/DEBUG   (  121):     d16 006f006900640075  d17 006e0069006c0046
+I/DEBUG   (  121):     d18 006f006300000007  d19 006e00650074006e
+I/DEBUG   (  121):     d20 0000000000000074  d21 006f006300000014
+I/DEBUG   (  121):     d22 00730063002e006d  d23 0069007300700069
+I/DEBUG   (  121):     d24 3fede16b9c24a98f  d25 3fe55559ee5e69f9
+I/DEBUG   (  121):     d26 000000000000001b  d27 0000000000000000
+I/DEBUG   (  121):     d28 0000000000000000  d29 0000000000000004
+I/DEBUG   (  121):     d30 0000000000000000  d31 0000000000000000
+I/DEBUG   (  121):     scr 80000010
+I/DEBUG   (  121):
+I/DEBUG   (  121): backtrace:
+I/DEBUG   (  121):     #00  pc 000c45ac  /data/data/com.csipsimple/lib/libpjsipjni.so (pjmedia_aud_stream_create+127)
+I/DEBUG   (  121):     #01  pc 00048c41  /system/lib/libdvm.so
+I/DEBUG   (  121):     #02  pc 00080cfc  [heap]
+I/DEBUG   (  121):
+I/DEBUG   (  121): stack:
+I/DEBUG   (  121):          5c9014e0  4107f4b0  /dev/ashmem/dalvik-heap (deleted)
+I/DEBUG   (  121):          5c9014e4  00000000 
+I/DEBUG   (  121):          5c9014e8  00000001 
+I/DEBUG   (  121):          5c9014ec  5c901be4 
+I/DEBUG   (  121):          5c9014f0  407fa1b8  /system/lib/libdvm.so
+I/DEBUG   (  121):          5c901544  0000ac44  /system/bin/app_process
+I/DEBUG   (  121):          5c901548  00000001 
+I/DEBUG   (  121):          5c90154c  00000372 
+I/DEBUG   (  121):          5c901550  00000010 
+I/DEBUG   (  121):          5c901554  00000006 
+I/DEBUG   (  121):          5c901558  00000000 
+I/DEBUG   (  121):          5c90155c  00000000 
+I/DEBUG   (  121):          5c901560  00000000 
+I/DEBUG   (  121):          5c901564  00000000 
+I/DEBUG   (  121):
+I/DEBUG   (  121): memory near r4:
+I/DEBUG   (  121):     003e0b74 00000000 00000000 5c6ffa8d 003e0b68  ..........o\h.&gt;.
+I/DEBUG   (  121):     003e0b84 003e0b68 003e0b94 003e0bb0 003e0c30  h.&gt;...&gt;...&gt;.0.&gt;.
+I/DEBUG   (  121):     003e0b94 00000000 56d6b028 5c7f1520 003e0b30  ....(..V ..\0.&gt;.
+I/DEBUG   (  121):     003e0ba4 004bd2c8 004bd324 003cf430 00650072  ..K.$.K.0.&lt;.r.e.
+I/DEBUG   (  121):     003e0bb4 00730066 00000000 00000000 0069006f  f.s.........o.i.
+I/DEBUG   (  121):
+I/DEBUG   (  121): memory near r5:
+I/DEBUG   (  121):     004dbce0 00000000 00000000 00000000 00000001  ................
+I/DEBUG   (  121):     004dbcf0 000000c8 00000000 00000000 00000000  ................
+I/DEBUG   (  121):     004dbd00 00000000 00000003 00000000 00000001  ................
+I/DEBUG   (  121):     004dbd10 0000ac44 00004e20 00000000 00000000  D... N..........
+I/DEBUG   (  121):     004dbd20 00000000 be5f181b 0004d0bd 00000001  ......_.........
+I/DEBUG   (  121):
+I/DEBUG   (  121): memory near r6:
+I/DEBUG   (  121):     5c6cfd3c f9c2f7fc bd082000 20006008 bf00bd08  ..... ...<code>. ....
+I/DEBUG   (  121):     5c6cfd4c f8d0b508 b1080084 f9c2f7fc bd082000  ............. ..
+I/DEBUG   (  121):     5c6cfd5c 4605b5f8 f100460c f10100a8 68a70110  ...F.F.........h
+I/DEBUG   (  121):     5c6cfd6c fc36f012 0084f8d5 4621b118 f9a4f7fc  ..6.......!F....
+I/DEBUG   (  121):     5c6cfd7c 6860b1d8 60a72601 60262100 f7b3463a  ..</code>h.&amp;.<code>.!&amp;amp;</code>:F..
+I/DEBUG   (  121):
+I/DEBUG   (  121): memory near r7:
+I/DEBUG   (  121):     56d66a14 4805dd05 44784905 f7ff4479 f7ffeca4  ...H.IxDyD......
+I/DEBUG   (  121):     56d66a24 2000ecd2 bf00bd10 00002082 00002190  ... ..... ...!..
+I/DEBUG   (  121):     56d66a34 4ff0e92d f8df4692 b0bf8508 2504f8df  -..O.F.........%
+I/DEBUG   (  121):     56d66a44 44f8af0e 90059704 f858460e 469b9002  ...D.....FX....F
+I/DEBUG   (  121):     56d66a54 14f4f8df f8d99f49 44793000 97069d48  ....I....0yDH...
+I/DEBUG   (  121):
+I/DEBUG   (  121): memory near r8:
+I/DEBUG   (  121):     004dbc64 00000000 00000000 5c6ffa8d 004dbc58  ..........o\X.M.
+I/DEBUG   (  121):     004dbc74 004dbc58 004dbc84 004dbd7c 004dcc20  X.M...M.|.M. .M.
+I/DEBUG   (  121):     004dbc84 ffffffff fffffffe 00000010 00000003  ................
+I/DEBUG   (  121):     004dbc94 ffffffff fffffffe 0000ac44 00000001  ........D.......
+I/DEBUG   (  121):     004dbca4 00000372 00000010 00000606 00000000  r...............
+I/DEBUG   (  121):
+I/DEBUG   (  121): memory near r9:
+I/DEBUG   (  121):     10624db0 ffffffff ffffffff ffffffff ffffffff  ................
+I/DEBUG   (  121):     10624dc0 ffffffff ffffffff ffffffff ffffffff  ................
+I/DEBUG   (  121):     10624dd0 ffffffff ffffffff ffffffff ffffffff  ................
+I/DEBUG   (  121):     10624de0 ffffffff ffffffff ffffffff ffffffff  ................
+I/DEBUG   (  121):     10624df0 ffffffff ffffffff ffffffff ffffffff  ................
+I/DEBUG   (  121):
+I/DEBUG   (  121): memory near sp:
+I/DEBUG   (  121):     5c901500 004dbd00 5c6cfd5d 56d66a35 004dbc84  ..M.].l\5j.V..M.
+I/DEBUG   (  121):     5c901510 10624dd3 fffffffe df0027ad 00000000  .Mb......'......
+I/DEBUG   (  121):     5c901520 004dbc84 004dbd00 56ccab08 003e0b94  ..M...M....V..&gt;.
+I/DEBUG   (  121):     5c901530 003e0b94 00000000 00000003 00000000  ..&gt;.............
+D/AudioHardwareMSM8660(  126): AudioStreamOutMSM8x60::standby()
+D/AudioHardwareMSM8660(  126): Deroute pcm stream
+I/DEBUG   (  121):     5c901540 00000000 0000ac44 00000001 00000372  ....D.......r...
+I/DEBUG   (  121):
+I/DEBUG   (  121): code around pc:
+I/DEBUG   (  121):     5c6dd58c 9c049b05 68639308 f8cd463a 46208000  ......ch:F.... F
+I/DEBUG   (  121):     5c6dd59c a9069501 4633695f b91047b8 6822682b  ...._i3F.G..+h"h
+I/DEBUG   (  121):     5c6dd5ac b022601a 81f0e8bd 4605b538 460c6843  .<code>&amp;quot;.....8..FCh.F
+I/DEBUG   (  121):     5c6dd5bc 4798681b 6861b9c8 2900682b 4a0bdb09  .h.G..ah+h.)...J
+I/DEBUG   (  121):     5c6dd5cc 1303ebc3 eb02447a 6b930283 606118c9  ....zD.....k..a</code>
+I/DEBUG   (  121):
+I/DEBUG   (  121): code around lr:
+I/DEBUG   (  121):     40798c24 ff88f009 bd3e4620 0005ced2 00042300  .... F&gt;......#..
+I/DEBUG   (  121):     40798c34 00046755 2107b510 68004604 ff7af009  Ug.....!.F.h..z.
+I/DEBUG   (  121):     40798c44 bd104620 b5374603 a801460d f7ff4619   F...F7..F...F..
+I/DEBUG   (  121):     40798c54 b1cdffcd 447c4c0e f5046824 f7d47052  .....L|D$h..Rp..
+I/DEBUG   (  121):     40798c64 f504eda8 2100704c f7df462a b938efa0  ....Lp.!*F....8.
+D/AudioHardwareMSM8660(  126): deleteFromTable stream 1
+E/AudioHardwareMSM8660(  126): value of device and enable is 0 0 ALSA dev id:0
+D/AudioHardwareMSM8660(  126): do_aic3254_control device: 0 mode: 0 record: 0
+D/AudioHardwareMSM8660(  126): do_aic3254_control: set aic3254 rx to 29
+I/AudioHardwareMSM8660(  126): aic3254 powered off
+I/BootReceiver(  325): Copying /data/tombstones/tombstone_08 to DropBox (SYSTEM_TOMBSTONE)
+I/ActivityManager(  325): Process com.csipsimple:sipStack (pid 1491) has died.
+W/ActivityManager(  325): Scheduling restart of crashed service com.csipsimple/.service.SipService in 5000ms
+D/Zygote  (  124): Process 1491 terminated by signal (11)
+D/dalvikvm(  325): GC_FOR_ALLOC freed 1898K, 23% free 34122K/43843K, paused 127ms, total 129ms
+I/dalvikvm-heap(  325): Grow heap (frag case) to 42.617MB for 262160-byte allocation
+D/dalvikvm(  325): GC_FOR_ALLOC freed 374K, 23% free 34357K/44163K, paused 120ms, total 120ms
+I/dalvikvm-heap(  325): Grow heap (frag case) to 42.876MB for 294932-byte allocation
+D/dalvikvm(  325): GC_FOR_ALLOC freed 832K, 24% free 34005K/44483K, paused 102ms, total 102ms
+D/SizeAdaptiveLayout(  426): com.android.internal.widget.SizeAdaptiveLayout@41a65000child view android.widget.FrameLayout@41123cd0 measured out of bounds at 95px clamped to 96px
+D/SizeAdaptiveLayout(  426): com.android.internal.widget.SizeAdaptiveLayout@41a65000child view android.widget.FrameLayout@41123cd0 measured out of bounds at 95px clamped to 96px
+^C</p>
+
+<p>Email with CSipSimple collected logs and details sent separately </p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #1</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Dec 13, 2012 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Hi Thanks for the logs.</p>
+
+<p>It's a known bug with Cyanogen based rom (and only these roms). 
+It has been fixed (work-around actually) in nightly build version of the application.</p>
+
+<p>Can you try to upgrade from
+<a href="http://nightlies.csipsimple.com/trunk/CSipSimple-latest-trunk.apk">http://nightlies.csipsimple.com/trunk/CSipSimple-latest-trunk.apk</a>
+And confirms it fixes the problem.</p>
+
+<p>Thanks! </p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #2</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Dec 13, 2012 by
+                  <i class="ng-binding">Happy Elephant</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>
+.... of using similar and constantly changing ROMs.</p>
+
+<p>Also tried latest CSipSimple trunk: 0.04-04r1916  13/12/2012</p>
+
+<p>ROM: 
+[LINARO][Pdroid][PacMAN] [aosp] Android 4.1.2 [ v.003]
+- built on stable CyanogenMod branch
+</p>
+
+<p>Nope it doesn't seem to fix the issue in this case.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #3</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Dec 13, 2012 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Mmmh, normally latest trunk is not r1916, it's r2044. (r1916 is the one published on the playstore)</p>
+
+<p>With r2044 it should at least eliminate the crash. (not sure for the call establishment but pretty sure for the crash ;) ).</p>
+
+<p>About the changes of the ROM, indeed latest 4.1/2 changes impacts deeply audio layer. Google has moved one module which makes things probably hard to maintain for ROM makers.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #4</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Dec 13, 2012 by
+                  <i class="ng-binding">Happy Elephant</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>My bad! Thought I had the nightly!</p>
+
+<p>As you suspected - crash no longer occurs, but still no call establishes:</p>
+
+<p>E/libOpenSLES(23942): android_audioRecorder_realize(0x1228bb8) error creating AudioRecord object
+W/libOpenSLES(23942): Leaving Object::Realize (SL_RESULT_CONTENT_UNSUPPORTED)
+W/AudioPolicyManagerBase(  123): getInput() could not find profile for device 100000, samplingRate 44100, format 1,channelMask 0010
+E/AudioRecord(23942): Could not get audio input for record source 7
+E/libOpenSLES(23942): android_audioRecorder_realize(0x1228bb8) error creating AudioRecord object
+W/libOpenSLES(23942): Leaving Object::Realize (SL_RESULT_CONTENT_UNSUPPORTED)
+W/AudioPolicyManagerBase(  123): getInput() could not find profile for device 100000, samplingRate 48000, format 1,channelMask 0010
+E/AudioRecord(23942): Could not get audio input for record source 7
+E/libOpenSLES(23942): android_audioRecorder_realize(0x1228bb8) error creating AudioRecord object
+W/libOpenSLES(23942): Leaving Object::Realize (SL_RESULT_CONTENT_UNSUPPORTED)
+W/AudioPolicyManagerBase(  123</p>
+
+<p>have to hope this gets fixed in 4.1-2/CM </p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #5</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Dec 13, 2012 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Ok, from logs seems deeply linked to opensl-es layer (the one that changed).
+Could be interesting to switch to Java one and see if better. 
+(The option is the last one of troubleshooting section).</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #6</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Dec 14, 2012 by
+                  <i class="ng-binding">Happy Elephant</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>OK so upgraded to r2045</p>
+
+<p>This hasn't helped, however the 'switch to Java' troubleshooting does!(Switch to Java; Select: Expert mode; then Settings &gt; Media &gt; Audio &gt; Audio troubleshooting &gt; Audio implementation: Java) </p>
+
+<p>However testing with a call, audio works initially on the remote end, but soon disappears and seems to be just echoing back to my device.</p>
+
+<p>Log emailed separately </p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #7</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Dec 14, 2012 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Ok, so if java implementation helps it confirms my guess, there is something wrong in the merge made by CM guys with latest google changes on the opensl-es driver. Nothing I can do on my side as bug on CM side.</p>
+
+<p>As this part is unstable on CM, I would say that other parts of the media layer can be affected too. 
+With Java implementation on now, it could be interesting to re-test other troubleshooting options as may help. I mean there is maybe a way to get this buggy audio layer working, but as I don't know where is the bug and I'm not able to test it directly it's hard to tell. 
+Anyway, definitely not a bug of csipsimple so I mark the issue as "Won't fix". However do not hesitate to update this issue with your findings. I'm pretty sure could be useful for CM guys to debug the problem or to other users trying to use this unstable rom.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments -->
+          </div>
+
+          <!-- Sidebar with additional information -->
+          <div class="maia-col-4">
+            <div class="maia-aside">
+              <p>Status: <code class="ng-binding">WontFix</code></p>
+              <!-- ngIf: issueCtrl.issue.labels.length > 0 --><p ng-if="issueCtrl.issue.labels.length &gt; 0" class="ng-scope">
+                Labels:
+                <br>
+                <!-- ngRepeat: label in issueCtrl.issue.labels track by $index --><span ng-repeat="label in issueCtrl.issue.labels track by $index" class="ng-scope">
+                  <span class="gca-label ng-binding">Type-Defect</span>
+                </span><!-- end ngRepeat: label in issueCtrl.issue.labels track by $index --><span ng-repeat="label in issueCtrl.issue.labels track by $index" class="ng-scope">
+                  <span class="gca-label ng-binding">Priority-Medium</span>
+                </span><!-- end ngRepeat: label in issueCtrl.issue.labels track by $index -->
+              </p><!-- end ngIf: issueCtrl.issue.labels.length > 0 -->
+            </div>
+          </div>
+        </div><!-- end ngIf: !issueCtrl.error -->
+      </div>
+    </div>
+
+  </div>
+</div>
+</div></div></div>
+    <noscript>
+      &lt;p&gt;The Google Code Archive requires JavaScript to be enabled in your browser.&lt;/p&gt;
+    </noscript>
+
+    <div id="maia-signature"></div>
+    <div class="maia-footer" id="maia-footer">
+      <div id="maia-footer-local">
+      </div>
+      <div id="maia-footer-global">
+        <div class="maia-aux">
+          <ul>
+            <li>
+              <a href="//www.google.com/">Google</a>
+            </li>
+            <li>
+              <a href="//www.google.com/intl/en/about/">About Google</a>
+            </li>
+            <li>
+              <a href="//www.google.com/intl/en/policies/privacy/">Privacy</a>
+            </li>
+            <li>
+              <a href="//www.google.com/intl/en/policies/terms/">Terms</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <script src="//www.google.com/js/maia.js"></script>
+  
+
+
+</body></html>

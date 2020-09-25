@@ -1,0 +1,571 @@
+https://code.google.com/archive/p/csipsimple/issues/2405<!DOCTYPE html><html class="google ng-scope" lang="en" ng-app="codesiteArchive.application"><head>
+    <meta charset="utf-8">
+    <meta content="initial-scale=1, minimum-scale=1, width=device-width" name="viewport">
+
+    <!-- https://developers.google.com/webmasters/ajax-crawling/docs/specification -->
+    <meta name="fragment" content="!">
+    <title>Google Code Archive - Long-term storage for Google Code Project Hosting.</title>
+
+    <link rel="icon" type="image/vnd.microsoft.icon" href="/archive/img/project-hosting.ico">
+    <script src="//www.google.com/js/google.js"></script>
+    <link href="//www.google.com/css/maia.css" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;lang=en" rel="stylesheet">
+    <link rel="stylesheet" href="/archive/archive_css.css">
+    <script>
+      CLOSURE_NO_DEPS = true;
+    </script>
+    <script src="/archive/angular.js"></script><style type="text/css">@charset "UTF-8";
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak],
+.ng-cloak, .x-ng-cloak,
+.ng-hide:not(.ng-hide-animate) {
+  display: none !important;
+}
+
+ng\:form {
+  display: block;
+}
+
+.ng-animate-shim {
+  visibility:hidden;
+}
+
+.ng-anchor {
+  position:absolute;
+}
+</style>
+    <script src="/archive/pagedown.js"></script>
+    <script src="/archive/archive.js"></script>
+    <base href="/archive/">
+  </head>
+
+  <body>
+    <div class="maia-header" id="maia-header" role="banner">
+      <div class="maia-aux">
+        <a href="/archive/">
+          </a><h1><a href="/archive/">
+            <img alt="Google" src="//www.google.com/images/branding/googlelogo/1x/googlelogo_color_116x41dp.png"> Code</a>
+          </h1>
+        
+        <a href="/archive/">
+          <h2>Archive</h2>
+        </a>
+        <a class="maia-teleport" href="#content">Skip to content</a>
+        <div class="maia-util">
+          <form action="/archive/search" class="maia-search ng-pristine ng-valid">
+            <input name="q" placeholder="Search this site" type="text">
+            <button class="maia-button">
+              <span class="maia-search-icon">Search</span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- ngView: --><div ng-view="" class="ng-scope"><div ng-controller="ProjectIssueCtrl as issueCtrl" class="ng-scope">
+<nav-bar-widget nav-level-1="projectCtrl.navLevel1" class="ng-isolate-scope"><div class="maia-nav maia-complex" id="maia-nav-x" role="navigation">
+  <div class="maia-aux">
+    <ul>
+      <li ng-class="{active: navLevel1 == 'projects'}">
+        <a href="/archive/">Projects</a>
+        <!-- ngIf: navLevel2 -->
+      </li>
+      <li ng-class="{active: navLevel1 == 'search'}">
+        <a href="/archive/search">Search</a>
+      </li>
+      <li ng-class="{active: navLevel1 == 'about'}">
+        <a href="/archive/about">About</a>
+      </li>
+    </ul>
+  </div>
+</div>
+</nav-bar-widget>
+<div id="maia-main" role="main">
+
+  <!-- ngIf: issueCtrl.notFound -->
+
+  <div ng-hide="issueCtrl.notFound">
+    <!-- Left-side resource nav -->
+    <project-resources-widget domain="issueCtrl.domain" project="issueCtrl.projectName" class="ng-isolate-scope"><div class="maia-nav" id="maia-nav-y" role="navigation">
+  <!-- ngIf: domain == 'code.google.com' --><ul ng-if="domain == 'code.google.com'" class="ng-scope">
+    <li class="active">
+      <a href="/archive/p/csipsimple/">Project</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/source">Source</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/issues">Issues</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/wikis">Wikis</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/downloads">Downloads</a>
+    </li>
+  </ul><!-- end ngIf: domain == 'code.google.com' -->
+
+    <!-- ngIf: domain != 'code.google.com' -->
+</div></project-resources-widget>
+
+    <div class="maia-article" role="article">
+      <div class="maia-teleport" id="content"></div>
+      <div class="maia-cols">
+        <div id="gca-project-header" class="maia-col-10">
+          <a id="gca-export-to-gh" class="maia-button" href="https://code.google.com/export-to-github/export?project=csipsimple">Export to GitHub</a>
+            <img class="gca-project-logo" src="https://storage.googleapis.com/google-code-archive/v2/code.google.com/csipsimple/logo.png">
+            <h1 class="ng-binding">csipsimple - issue #2405</h1>
+            <p class="ng-binding">another crash after restarting from a previous crash</p>
+        </div>
+
+        <div class="maia-col-10">
+          <hr>
+
+        <!-- ngIf: issueCtrl.error -->
+
+        <!-- ngIf: !issueCtrl.error --><div ng-if="!issueCtrl.error" class="ng-scope">
+          <!-- Comments -->
+          <div class="maia-col-8">
+            <!-- ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jun 14, 2013 by
+                  <i class="ng-binding">Massive Rabbit</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>I've experienced this crash after CSip automatically restarts after the crash I reported in #2399. I think it is unrelated.</p>
+
+<pre><code>   audio_hw_primary  E  Leaving IN_CALL state, in_call=0, mode=3
+</code></pre>
+
+<p>950            AudioService  I  Remote Control   registerMediaButtonIntent() for PendingIntent{42ba63e8: PendingIntentRecord{42cb5f88 com.csipsimple broadcast
+                               Intent}}
+  950            AudioService  I  AudioFocus  requestAudioFocus() from android.media.AudioManager@42690a40com.csipsimple.utils.audio.AudioFocus8$1@426ab078
+  950         ActivityManager  I  START u0 {act=com.csipsimple.phone.action.INCALL flg=0x30000000 pkg=com.csipsimple cmp=com.csipsimple/.ui.incall.InCallActivit
+                               y (has extras)} from pid 12758
+ 12758               dalvikvm  W  method Lcom/actionbarsherlock/internal/widget/IcsLinearLayout;.drawDividersHorizontal incorrectly overrides package-private me
+                               thod with same name in Landroid/widget/LinearLayout;
+ 12758               dalvikvm  W  method Lcom/actionbarsherlock/internal/widget/IcsLinearLayout;.drawDividersVertical incorrectly overrides package-private meth
+                               od with same name in Landroid/widget/LinearLayout;
+ 12758               dalvikvm  W  method Lcom/actionbarsherlock/internal/widget/IcsLinearLayout;.drawHorizontalDivider incorrectly overrides package-private met
+                               hod with same name in Landroid/widget/LinearLayout;
+ 12758               dalvikvm  W  method Lcom/actionbarsherlock/internal/widget/IcsLinearLayout;.drawVerticalDivider incorrectly overrides package-private metho
+                               d with same name in Landroid/widget/LinearLayout;
+ 12758               dalvikvm  D  GC_CONCURRENT freed 284K, 4% free 9512K/9856K, paused 2ms+4ms, total 26ms
+ 12744               dalvikvm  D  GC_EXPLICIT freed 301K, 3% free 11200K/11532K, paused 3ms+6ms, total 43ms
+ 12758               dalvikvm  D  GC_FOR_ALLOC freed 299K, 5% free 9416K/9856K, paused 19ms, total 19ms
+ 12758          dalvikvm-heap  I  Grow heap (frag case) to 9.715MB for 518416-byte allocation
+ 12758               dalvikvm  D  GC_FOR_ALLOC freed 12K, 5% free 9910K/10364K, paused 17ms, total 17ms
+ 12758               dalvikvm  D  GC_CONCURRENT freed 7K, 5% free 9932K/10364K, paused 1ms+3ms, total 21ms
+ 12758               libpjsip  E  18:24:47.281   pjsua_pres.c !..Unable to create server subscription: Bad Event [status=170489]
+  950         ActivityManager  I  Displayed com.csipsimple/.ui.incall.InCallActivity: +696ms
+ 12758               dalvikvm  D  GC_FOR_ALLOC freed 135K, 3% free 10089K/10384K, paused 18ms, total 18ms
+ 12758          dalvikvm-heap  I  Grow heap (frag case) to 11.856MB for 2073616-byte allocation
+ 12758               dalvikvm  D  GC_FOR_ALLOC freed 2K, 3% free 12112K/12412K, paused 22ms, total 22ms
+ 12758               dalvikvm  D  GC_CONCURRENT freed 17K, 3% free 12107K/12412K, paused 4ms+8ms, total 57ms
+  950         ActivityManager  I  START u0 {act=com.csipsimple.phone.action.INCALL flg=0x30000000 pkg=com.csipsimple cmp=com.csipsimple/.ui.incall.InCallActivit
+                               y (has extras)} from pid 12758
+ 12758                   libc  F  Fatal signal 11 (SIGSEGV) at 0x5f3e9008 (code=2), thread 12786 (ervice.Executor)
+  694                   DEBUG  I  <strong>* <em></em></strong><em> <strong></strong></em><strong> <em></em></strong><em> <strong></strong></em><strong> <em></em></strong><em> <strong></strong></em><strong> <em></em></strong><em> <strong></strong></em><strong> <em></em></strong><em> <strong></strong></em><strong> <em></em></strong><em> <strong></strong></em><strong> <em></em></strong><em> <strong></strong></em><strong> *</strong>
+  694                   DEBUG  I  Build fingerprint: 'google/takju/maguro:4.2.2/JDQ39/573038:user/release-keys'
+  694                   DEBUG  I  Revision: '9'
+  694                   DEBUG  I  pid: 12758, tid: 12786, name: ervice.Executor  &gt;&gt;&gt; com.csipsimple:sipStack &lt;&lt;&lt;
+  694                   DEBUG  I  signal 11 (SIGSEGV), code 2 (SEGV_ACCERR), fault addr 5f3e9008
+  699            AudioFlinger  W  RecordThread: buffer overflow
+  694                   DEBUG  I  r0 000001ab  r1 5f3e9008  r2 0071bec0  r3 8140d1ab
+  694                   DEBUG  I  r4 5f3e5a80  r5 00064140  r6 5f3e5a78  r7 000003c0
+  694                   DEBUG  I  r8 5b5666d0  r9 00000001  sl 00000028  fp 5ed72386
+  694                   DEBUG  I  ip 0000d000  sp 5f3e5900  lr 59faa669  pc 59faa696  cpsr a0000030
+  694                   DEBUG  I  d0  0000000000000000  d1  0000000000000000
+  694                   DEBUG  I  d2  0000000000000000  d3  0000000000000000
+  694                   DEBUG  I  d4  0000000000000000  d5  0000000000000000
+  694                   DEBUG  I  d6  0000000000000000  d7  0000000000000000
+  694                   DEBUG  I  d8  0000000000000000  d9  0000000000000000
+  694                   DEBUG  I  d10 0000000000000000  d11 0000000000000000
+  694                   DEBUG  I  d12 0000000000000000  d13 0000000000000000
+  694                   DEBUG  I  d14 0000000000000000  d15 0000000000000000
+  694                   DEBUG  I  d16 4000000000000000  d17 4010000000000000
+  694                   DEBUG  I  d18 0000000000000000  d19 00bc800000b98000
+  694                   DEBUG  I  d20 00b6802e00b3802d  d21 00bc802f00b9802f
+  694                   DEBUG  I  d22 0707070703030303  d23 0000002f0000002e
+  694                   DEBUG  I  d24 0000000000000000  d25 0000000000000000
+  694                   DEBUG  I  d26 0000002f0000002f  d27 0000002f0000002f
+  694                   DEBUG  I  d28 0001000000010000  d29 0001000000010000
+  694                   DEBUG  I  d30 0003000000030000  d31 0003000000030000
+  694                   DEBUG  I  scr 80000090
+  694                   DEBUG  I  backtrace:
+  694                   DEBUG  I  #00  pc 0002b696  /data/app-lib/com.csipsimple.plugins.codecs.pack1-1/libpj_opus_codec.so
+  694                   DEBUG  I  #01  pc 000acc3f  /data/app-lib/com.csipsimple-2/libpjsipjni.so
+  694                   DEBUG  I  #02  pc 0000d6cc  &lt;unknown&gt;
+  694                   DEBUG  I  stack:
+  694                   DEBUG  I  5f3e58c0  5f3e590b
+  694                   DEBUG  I  5f3e58c4  5f3e5a78
+  694                   DEBUG  I  5f3e58c8  5f3e5910
+  694                   DEBUG  I  5f3e58cc  5b5666d0
+  694                   DEBUG  I  5f3e58d0  5c762c5c
+  694                   DEBUG  I  5f3e58d4  00000028
+  694                   DEBUG  I  5f3e58d8  5ed72386  /data/app-lib/com.csipsimple-2/libpjsipjni.so
+  694                   DEBUG  I  5f3e58dc  59fa6e33  /data/app-lib/com.csipsimple.plugins.codecs.pack1-1/libpj_opus_codec.so (opus_packet_parse+26)
+  694                   DEBUG  I  5f3e58e0  5f3e5970
+  694                   DEBUG  I  5f3e58e4  5f3e5910
+  694                   DEBUG  I  5f3e58e8  5f3e590c
+  694                   DEBUG  I  5f3e58ec  00000000
+  694                   DEBUG  I  5f3e58f0  00000000
+  694                   DEBUG  I  5f3e58f4  5f3e5a80
+  694                   DEBUG  I  5f3e58f8  df0027ad
+  694                   DEBUG  I  5f3e58fc  00000000
+  694                   DEBUG  I  #00  5f3e5900  5f3e5910
+  694                   DEBUG  I  5f3e5904  5f3e590c
+  694                   DEBUG  I  5f3e5908  00000000
+  694                   DEBUG  I  5f3e590c  00000000
+  694                   DEBUG  I  5f3e5910  00000083
+  694                   DEBUG  I  5f3e5914  00000000
+  694                   DEBUG  I  5f3e5918  00000000
+  694                   DEBUG  I  5f3e591c  00000000
+  694                   DEBUG  I  5f3e5920  00000000
+  694                   DEBUG  I  5f3e5924  00000000
+  694                   DEBUG  I  5f3e5928  00000000
+  694                   DEBUG  I  5f3e592c  00000000
+  694                   DEBUG  I  5f3e5930  00000000
+  694                   DEBUG  I  5f3e5934  00000000
+  694                   DEBUG  I  5f3e5938  00000000
+  694                   DEBUG  I  5f3e593c  00000000
+  694                   DEBUG  I  ........  ........
+  694                   DEBUG  I  #01  5f3e5a50  5f3e5a78
+  694                   DEBUG  I  5f3e5a54  5f3e5a90
+  694                   DEBUG  I  5f3e5a58  00000000
+  694                   DEBUG  I  5f3e5a5c  00000000
+  694                   DEBUG  I  5f3e5a60  00000000
+  694                   DEBUG  I  5f3e5a64  00000000
+  694                   DEBUG  I  5f3e5a68  00000000
+  694                   DEBUG  I  5f3e5a6c  5b5666c4
+  694                   DEBUG  I  5f3e5a70  5b5666d0
+  694                   DEBUG  I  5f3e5a74  00000028
+  694                   DEBUG  I  5f3e5a78  fffffffc
+  694                   DEBUG  I  5f3e5a7c  00000000
+  694                   DEBUG  I  5f3e5a80  006b8140
+  694                   DEBUG  I  5f3e5a84  00000000
+  694                   DEBUG  I  5f3e5a88  00000000
+  694                   DEBUG  I  5f3e5a8c  00000001
+  694                   DEBUG  I  ........  ........
+  694                   DEBUG  I  #02  5f3e5cb8  00000028
+  694                   DEBUG  I  5f3e5cbc  00000000
+  694                   DEBUG  I  5f3e5cc0  006bc100
+  694                   DEBUG  I  5f3e5cc4  00000000
+  694                   DEBUG  I  5f3e5cc8  8140d011
+  694                   DEBUG  I  5f3e5ccc  5b5666c4
+  694                   DEBUG  I  5f3e5cd0  00000001
+  694                   DEBUG  I  5f3e5cd4  5b5666d0
+  694                   DEBUG  I  5f3e5cd8  00000028
+  694                   DEBUG  I  5f3e5cdc  00000034
+  694                   DEBUG  I  5f3e5ce0  006bc4c0
+  694                   DEBUG  I  5f3e5ce4  00000000
+  694                   DEBUG  I  5f3e5ce8  8140d012
+  694                   DEBUG  I  5f3e5cec  5ecd14c7  /data/app-lib/com.csipsimple-2/libpjsipjni.so (pj_ioqueue_recvfrom+142)
+  694                   DEBUG  I  5f3e5cf0  00000001
+  694                   DEBUG  I  5f3e5cf4  5b5666d0
+  694                   DEBUG  I  memory near r1:
+  694                   DEBUG  I  5f3e8fe8 8140d1aa 00000000 00000001 5b5666d0
+  694                   DEBUG  I  5f3e8ff8 00000028 00000000 00000000 00000000
+  694                   DEBUG  I  5f3e9008 00000000 00000000 00000000 00000000
+  694                   DEBUG  I  5f3e9018 00000000 00000000 00000000 00000000
+  694                   DEBUG  I  5f3e9028 00000000 00000000 00000000 00000000
+  694                   DEBUG  I  5f3e9038 00000000 00000000 00000000 00000000
+  694                   DEBUG  I  5f3e9048 00000000 00000000 00000000 00000000
+  694                   DEBUG  I  5f3e9058 00000000 00000000 00000000 00000000
+  694                   DEBUG  I  5f3e9068 00000000 00000000 00000000 00000000
+  694                   DEBUG  I  5f3e9078 00000000 00000000 00000000 00000000
+  694                   DEBUG  I  5f3e9088 00000000 00000000 00000000 00000000
+  694                   DEBUG  I  5f3e9098 00000000 00000000 00000000 00000000
+  694                   DEBUG  I  5f3e90a8 00000000 00000000 00000000 00000000
+  694                   DEBUG  I  5f3e90b8 00000000 00000000 00000000 00000000
+  694                   DEBUG  I  5f3e90c8 00000000 00000000 00000000 00000000
+  694                   DEBUG  I  5f3e90d8 00000000 00000000 00000000 00000000
+  694                   DEBUG  I  memory near r2:
+  694                   DEBUG  I  0071bea0 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  0071beb0 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  0071bec0 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  0071bed0 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  0071bee0 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  0071bef0 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  0071bf00 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  0071bf10 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  0071bf20 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  0071bf30 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  0071bf40 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  0071bf50 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  0071bf60 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  0071bf70 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  0071bf80 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  0071bf90 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  memory near r3:
+  694                   DEBUG  I  8140d188 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  8140d198 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  8140d1a8 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  8140d1b8 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  8140d1c8 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  8140d1d8 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  8140d1e8 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  8140d1f8 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  8140d208 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  8140d218 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  8140d228 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  8140d238 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  8140d248 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  8140d258 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  8140d268 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  8140d278 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  memory near r4:
+  694                   DEBUG  I  5f3e5a60 00000000 00000000 00000000 5b5666c4
+  694                   DEBUG  I  5f3e5a70 5b5666d0 00000028 fffffffc 00000000
+  694                   DEBUG  I  5f3e5a80 006b8140 00000000 00000000 00000001
+  694                   DEBUG  I  5f3e5a90 00000001 5b5666d0 00000028 00000000
+  694                   DEBUG  I  5f3e5aa0 006b8140 00000000 8140d000 00000000
+  694                   DEBUG  I  5f3e5ab0 00000001 5b5666d0 00000028 00000000
+  694                   DEBUG  I  5f3e5ac0 006b8500 00000000 8140d001 00000000
+  694                   DEBUG  I  5f3e5ad0 00000001 5b5666d0 00000028 00000000
+  694                   DEBUG  I  5f3e5ae0 006b88c0 00000000 8140d002 00000000
+  694                   DEBUG  I  5f3e5af0 00000001 5b5666d0 00000028 00000000
+  694                   DEBUG  I  5f3e5b00 006b8c80 00000000 8140d003 00000000
+  694                   DEBUG  I  5f3e5b10 00000001 5b5666d0 00000028 00000000
+  694                   DEBUG  I  5f3e5b20 006b9040 00000000 8140d004 00000000
+  694                   DEBUG  I  5f3e5b30 00000001 5b5666d0 00000028 00000000
+  694                   DEBUG  I  5f3e5b40 006b9400 00000000 8140d005 00000000
+  694                   DEBUG  I  5f3e5b50 00000001 5b5666d0 00000028 00000000
+  694                   DEBUG  I  memory near r5:
+  694                   DEBUG  I  00064120 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  00064130 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  00064140 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  00064150 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  00064160 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  00064170 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  00064180 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  00064190 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  000641a0 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  000641b0 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  000641c0 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  000641d0 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  000641e0 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  000641f0 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  00064200 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  00064210 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  memory near r6:
+  694                   DEBUG  I  5f3e5a58 00000000 00000000 00000000 00000000
+  694                   DEBUG  I  5f3e5a68 00000000 5b5666c4 5b5666d0 00000028
+  694                   DEBUG  I  5f3e5a78 fffffffc 00000000 006b8140 00000000
+  694                   DEBUG  I  5f3e5a88 00000000 00000001 00000001 5b5666d0
+  694                   DEBUG  I  5f3e5a98 00000028 00000000 006b8140 00000000
+  694                   DEBUG  I  5f3e5aa8 8140d000 00000000 00000001 5b5666d0
+  694                   DEBUG  I  5f3e5ab8 00000028 00000000 006b8500 00000000
+  694                   DEBUG  I  5f3e5ac8 8140d001 00000000 00000001 5b5666d0
+  694                   DEBUG  I  5f3e5ad8 00000028 00000000 006b88c0 00000000
+  694                   DEBUG  I  5f3e5ae8 8140d002 00000000 00000001 5b5666d0
+  694                   DEBUG  I  5f3e5af8 00000028 00000000 006b8c80 00000000
+  694                   DEBUG  I  5f3e5b08 8140d003 00000000 00000001 5b5666d0
+  694                   DEBUG  I  5f3e5b18 00000028 00000000 006b9040 00000000
+  694                   DEBUG  I  5f3e5b28 8140d004 00000000 00000001 5b5666d0
+  694                   DEBUG  I  5f3e5b38 00000028 00000000 006b9400 00000000
+  694                   DEBUG  I  5f3e5b48 8140d005 00000000 00000001 5b5666d0
+  694                   DEBUG  I  memory near r8:
+  694                   DEBUG  I  5b5666b0 00000000 00000000 00000000 00000000
+  694                   DEBUG  I  5b5666c0 00000010 cb046f80 40816b00 55c2e732
+  694                   DEBUG  I  5b5666d0 9bbc83ba 44c27868 5fac0174 aa357e13
+  694                   DEBUG  I  5b5666e0 33cbbb8e 03072e53 e8149ddd ce36b87c
+  694                   DEBUG  I  5b5666f0 da7514eb cc9e7dd7 00000000 00000000
+  694                   DEBUG  I  5b566700 00000000 00000000 00000000 00000000
+  694                   DEBUG  I  5b566710 00000000 00000000 00000000 00000000
+  694                   DEBUG  I  5b566720 00000000 00000000 00000000 00000000
+  694                   DEBUG  I  5b566730 00000000 00000000 00000000 00000000
+  694                   DEBUG  I  5b566740 00000000 00000000 00000000 00000000
+  694                   DEBUG  I  5b566750 00000000 00000000 00000000 00000000
+  694                   DEBUG  I  5b566760 00000000 00000000 00000000 00000000
+  694                   DEBUG  I  5b566770 00000000 00000000 00000000 00000000
+  694                   DEBUG  I  5b566780 00000000 00000000 00000000 00000000
+  694                   DEBUG  I  5b566790 00000000 00000000 00000000 00000000
+  694                   DEBUG  I  5b5667a0 00000000 00000000 00000000 00000000
+  694                   DEBUG  I  memory near fp:
+  694                   DEBUG  I  5ed72364 43490021 65722045 72617473 61662074
+  694                   DEBUG  I  5ed72374 64656c69 74732820 73757461 2964253d
+  694                   DEBUG  I  5ed72384 58520021 50545220 63617020 2074656b
+  694                   DEBUG  I  5ed72394 706f7264 20646570 61636562 20657375
+  694                   DEBUG  I  5ed723a4 7020666f 6c20746b 2074736f 756d6973
+  694                   DEBUG  I  5ed723b4 6974616c 52006e6f 746f6d65 54522065
+  694                   DEBUG  I  5ed723c4 64612050 73657264 77732073 68637469
+  694                   DEBUG  I  5ed723d4 74206465 7325206f 6d655200 2065746f
+  694                   DEBUG  I  5ed723e4 50435452 64646120 73736572 69777320
+  694                   DEBUG  I  5ed723f4 65686374 6f742064 65727020 74636964
+  694                   DEBUG  I  5ed72404 61206465 65726464 25207373 65520073
+  694                   DEBUG  I  5ed72414 65746f6d 43545220 64612050 73657264
+  694                   DEBUG  I  5ed72424 77732073 68637469 74206465 7325206f
+  694                   DEBUG  I  5ed72434 20585400 20505452 6b636170 64207465
+  694                   DEBUG  I  5ed72444 70706f72 62206465 75616365 6f206573
+  694                   DEBUG  I  5ed72454 6b702066 6f6c2074 73207473 6c756d69
+  694                   DEBUG  I  memory near ip:
+  694                   DEBUG  I  0000cfe0 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  0000cff0 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  0000d000 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  0000d010 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  0000d020 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  0000d030 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  0000d040 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  0000d050 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  0000d060 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  0000d070 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  0000d080 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  0000d090 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  0000d0a0 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  0000d0b0 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  0000d0c0 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  0000d0d0 ffffffff ffffffff ffffffff ffffffff
+  694                   DEBUG  I  memory near sp:
+  694                   DEBUG  I  5f3e58e0 5f3e5970 5f3e5910 5f3e590c 00000000
+  694                   DEBUG  I  5f3e58f0 00000000 5f3e5a80 df0027ad 00000000
+  694                   DEBUG  I  5f3e5900 5f3e5910 5f3e590c 00000000 00000000
+  694                   DEBUG  I  5f3e5910 00000083 00000000 00000000 00000000
+  694                   DEBUG  I  5f3e5920 00000000 00000000 00000000 00000000
+  694                   DEBUG  I  5f3e5930 00000000 00000000 00000000 00000000
+  694                   DEBUG  I  5f3e5940 00000000 00000000 00000000 00000000
+  694                   DEBUG  I  5f3e5950 00000000 00000000 00000000 00000000
+  694                   DEBUG  I  5f3e5960 00000000 00000000 00000000 00000000
+  694                   DEBUG  I  5f3e5970 00000000 00000000 00000000 00000000
+  694                   DEBUG  I  5f3e5980 00000000 00000000 00000000 00000000
+  694                   DEBUG  I  5f3e5990 00000000 00000000 00000000 00000000
+  694                   DEBUG  I  5f3e59a0 00000000 00000000 00000000 00000000
+  694                   DEBUG  I  5f3e59b0 00000000 00000000 00000000 00000000
+  694                   DEBUG  I  5f3e59c0 00000000 00000000 00000000 00000000
+  694                   DEBUG  I  5f3e59d0 00000000 00000000 00000000 00000000
+  694                   DEBUG  I  code around pc:
+  694                   DEBUG  I  59faa674 f04f2500 31180901 4c1cea4f f8414628
+  694                   DEBUG  I  59faa684 68239c18 8c14f841 ac10f841 4303ea4c
+  694                   DEBUG  I  59faa694 600b4303 2300e9d4 19523001 f143443d
+  694                   DEBUG  I  59faa6a4 e9410300 68332302 42833120 2000d8e7
+  694                   DEBUG  I  59faa6b4 e8bdb04c bf0087f0 41f0e92d 4d1b4606
+  694                   DEBUG  I  59faa6c4 447d4617 f7d969a8 6a2ced92 031cf105
+  694                   DEBUG  I  59faa6d4 d01b429c f7d94620 f8dfede8 25008054
+  694                   DEBUG  I  59faa6e4 f8d844f8 f7d90018 68a6ed6e f44f4911
+  694                   DEBUG  I  59faa6f4 46137200 447960f5 0010f8d8 f7d96175
+  694                   DEBUG  I  59faa704 6030ed3c 603c4628 81f0e8bd 22142101
+  694                   DEBUG  I  59faa714 f7d96968 4b08ed72 447b2130 60c64604
+  694                   DEBUG  I  59faa724 69686103 ed0af7d9 e7d660a0 0000d9a6
+  694                   DEBUG  I  59faa734 0000d988 00005802 0000d916 e92d4b99
+  694                   DEBUG  I  59faa744 447b4ff0 4605b08b e893460c f1030003
+  694                   DEBUG  I  59faa754 ae020e08 0c20f10d c004f8cd 0003e886
+  694                   DEBUG  I  59faa764 0210f103 0003e89e 3318af04 0a18f10d
+  694                   DEBUG  I  code around lr:
+  694                   DEBUG  I  59faa648 020bf10d 4640ab1c af039e54 af049701
+  694                   DEBUG  I  59faa658 f7fc9700 6030fbdd 68a94640 fa3cf7fc
+  694                   DEBUG  I  59faa668 46076833 ea4fb30b 99556c08 f04f2500
+  694                   DEBUG  I  59faa678 31180901 4c1cea4f f8414628 68239c18
+  694                   DEBUG  I  59faa688 8c14f841 ac10f841 4303ea4c 600b4303
+  694                   DEBUG  I  59faa698 2300e9d4 19523001 f143443d e9410300
+  694                   DEBUG  I  59faa6a8 68332302 42833120 2000d8e7 e8bdb04c
+  694                   DEBUG  I  59faa6b8 bf0087f0 41f0e92d 4d1b4606 447d4617
+  694                   DEBUG  I  59faa6c8 f7d969a8 6a2ced92 031cf105 d01b429c
+  694                   DEBUG  I  59faa6d8 f7d94620 f8dfede8 25008054 f8d844f8
+  694                   DEBUG  I  59faa6e8 f7d90018 68a6ed6e f44f4911 46137200
+  694                   DEBUG  I  59faa6f8 447960f5 0010f8d8 f7d96175 6030ed3c
+  694                   DEBUG  I  59faa708 603c4628 81f0e8bd 22142101 f7d96968
+  694                   DEBUG  I  59faa718 4b08ed72 447b2130 60c64604 69686103
+  694                   DEBUG  I  59faa728 ed0af7d9 e7d660a0 0000d9a6 0000d988
+  694                   DEBUG  I  59faa738 00005802 0000d916 e92d4b99 447b4ff0
+  694                   DEBUG  I  memory map around fault addr 5f3e9008:
+  694                   DEBUG  I  5f2ea000-5f3e9000
+  694                   DEBUG  I  5f3e9000-5f3ea000
+  694                   DEBUG  I  5f3ea000-5f4e9000
+ 12758          Choreographer  I  Skipped 31 frames!  The application may be doing too much work on its main thread.
+  950            BootReceiver  I  Copying /data/tombstones/tombstone_05 to DropBox (SYSTEM_TOMBSTONE)
+  950            AudioService  W  setMode() client died
+  699        audio_hw_primary  E  Leaving IN_CALL state, in_call=0, mode=0
+  950         ActivityManager  I  Process com.csipsimple:sipStack (pid 12758) has died.
+  950         ActivityManager  W  Scheduling restart of crashed service com.csipsimple/.service.SipService in 5000ms
+  950         ActivityManager  I  Kill com.csipsimple (pid 12744): provider com.csipsimple.db.DBProvider in dying process com.csipsimple:sipStack
+  950             WindowState  I  WIN DEATH: Window{433237b8 u0 com.csipsimple/com.csipsimple.ui.incall.InCallActivity}</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #1</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jun 22, 2015 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content -->
+              <!-- ngIf: !comment.content --><span ng-if="!comment.content" class="ng-scope">
+                <p><em>(No comment was entered for this change.)</em></p>
+              </span><!-- end ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments -->
+          </div>
+
+          <!-- Sidebar with additional information -->
+          <div class="maia-col-4">
+            <div class="maia-aside">
+              <p>Status: <code class="ng-binding">Obsolete</code></p>
+              <!-- ngIf: issueCtrl.issue.labels.length > 0 --><p ng-if="issueCtrl.issue.labels.length &gt; 0" class="ng-scope">
+                Labels:
+                <br>
+                <!-- ngRepeat: label in issueCtrl.issue.labels track by $index --><span ng-repeat="label in issueCtrl.issue.labels track by $index" class="ng-scope">
+                  <span class="gca-label ng-binding">Type-Defect</span>
+                </span><!-- end ngRepeat: label in issueCtrl.issue.labels track by $index --><span ng-repeat="label in issueCtrl.issue.labels track by $index" class="ng-scope">
+                  <span class="gca-label ng-binding">Priority-Medium</span>
+                </span><!-- end ngRepeat: label in issueCtrl.issue.labels track by $index -->
+              </p><!-- end ngIf: issueCtrl.issue.labels.length > 0 -->
+            </div>
+          </div>
+        </div><!-- end ngIf: !issueCtrl.error -->
+      </div>
+    </div>
+
+  </div>
+</div>
+</div></div></div>
+    <noscript>
+      &lt;p&gt;The Google Code Archive requires JavaScript to be enabled in your browser.&lt;/p&gt;
+    </noscript>
+
+    <div id="maia-signature"></div>
+    <div class="maia-footer" id="maia-footer">
+      <div id="maia-footer-local">
+      </div>
+      <div id="maia-footer-global">
+        <div class="maia-aux">
+          <ul>
+            <li>
+              <a href="//www.google.com/">Google</a>
+            </li>
+            <li>
+              <a href="//www.google.com/intl/en/about/">About Google</a>
+            </li>
+            <li>
+              <a href="//www.google.com/intl/en/policies/privacy/">Privacy</a>
+            </li>
+            <li>
+              <a href="//www.google.com/intl/en/policies/terms/">Terms</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <script src="//www.google.com/js/maia.js"></script>
+  
+
+
+</body></html>

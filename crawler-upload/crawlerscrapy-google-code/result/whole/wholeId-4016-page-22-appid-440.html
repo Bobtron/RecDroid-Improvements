@@ -1,0 +1,437 @@
+https://code.google.com/archive/p/csipsimple/issues/768<!DOCTYPE html><html class="google ng-scope" lang="en" ng-app="codesiteArchive.application"><head>
+    <meta charset="utf-8">
+    <meta content="initial-scale=1, minimum-scale=1, width=device-width" name="viewport">
+
+    <!-- https://developers.google.com/webmasters/ajax-crawling/docs/specification -->
+    <meta name="fragment" content="!">
+    <title>Google Code Archive - Long-term storage for Google Code Project Hosting.</title>
+
+    <link rel="icon" type="image/vnd.microsoft.icon" href="/archive/img/project-hosting.ico">
+    <script src="//www.google.com/js/google.js"></script>
+    <link href="//www.google.com/css/maia.css" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;lang=en" rel="stylesheet">
+    <link rel="stylesheet" href="/archive/archive_css.css">
+    <script>
+      CLOSURE_NO_DEPS = true;
+    </script>
+    <script src="/archive/angular.js"></script><style type="text/css">@charset "UTF-8";
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak],
+.ng-cloak, .x-ng-cloak,
+.ng-hide:not(.ng-hide-animate) {
+  display: none !important;
+}
+
+ng\:form {
+  display: block;
+}
+
+.ng-animate-shim {
+  visibility:hidden;
+}
+
+.ng-anchor {
+  position:absolute;
+}
+</style>
+    <script src="/archive/pagedown.js"></script>
+    <script src="/archive/archive.js"></script>
+    <base href="/archive/">
+  </head>
+
+  <body>
+    <div class="maia-header" id="maia-header" role="banner">
+      <div class="maia-aux">
+        <a href="/archive/">
+          </a><h1><a href="/archive/">
+            <img alt="Google" src="//www.google.com/images/branding/googlelogo/1x/googlelogo_color_116x41dp.png"> Code</a>
+          </h1>
+        
+        <a href="/archive/">
+          <h2>Archive</h2>
+        </a>
+        <a class="maia-teleport" href="#content">Skip to content</a>
+        <div class="maia-util">
+          <form action="/archive/search" class="maia-search ng-pristine ng-valid">
+            <input name="q" placeholder="Search this site" type="text">
+            <button class="maia-button">
+              <span class="maia-search-icon">Search</span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- ngView: --><div ng-view="" class="ng-scope"><div ng-controller="ProjectIssueCtrl as issueCtrl" class="ng-scope">
+<nav-bar-widget nav-level-1="projectCtrl.navLevel1" class="ng-isolate-scope"><div class="maia-nav maia-complex" id="maia-nav-x" role="navigation">
+  <div class="maia-aux">
+    <ul>
+      <li ng-class="{active: navLevel1 == 'projects'}">
+        <a href="/archive/">Projects</a>
+        <!-- ngIf: navLevel2 -->
+      </li>
+      <li ng-class="{active: navLevel1 == 'search'}">
+        <a href="/archive/search">Search</a>
+      </li>
+      <li ng-class="{active: navLevel1 == 'about'}">
+        <a href="/archive/about">About</a>
+      </li>
+    </ul>
+  </div>
+</div>
+</nav-bar-widget>
+<div id="maia-main" role="main">
+
+  <!-- ngIf: issueCtrl.notFound -->
+
+  <div ng-hide="issueCtrl.notFound">
+    <!-- Left-side resource nav -->
+    <project-resources-widget domain="issueCtrl.domain" project="issueCtrl.projectName" class="ng-isolate-scope"><div class="maia-nav" id="maia-nav-y" role="navigation">
+  <!-- ngIf: domain == 'code.google.com' --><ul ng-if="domain == 'code.google.com'" class="ng-scope">
+    <li class="active">
+      <a href="/archive/p/csipsimple/">Project</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/source">Source</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/issues">Issues</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/wikis">Wikis</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/downloads">Downloads</a>
+    </li>
+  </ul><!-- end ngIf: domain == 'code.google.com' -->
+
+    <!-- ngIf: domain != 'code.google.com' -->
+</div></project-resources-widget>
+
+    <div class="maia-article" role="article">
+      <div class="maia-teleport" id="content"></div>
+      <div class="maia-cols">
+        <div id="gca-project-header" class="maia-col-10">
+          <a id="gca-export-to-gh" class="maia-button" href="https://code.google.com/export-to-github/export?project=csipsimple">Export to GitHub</a>
+            <img class="gca-project-logo" src="https://storage.googleapis.com/google-code-archive/v2/code.google.com/csipsimple/logo.png">
+            <h1 class="ng-binding">csipsimple - issue #768</h1>
+            <p class="ng-binding">r684-ginger: completely broken  ;)</p>
+        </div>
+
+        <div class="maia-col-10">
+          <hr>
+
+        <!-- ngIf: issueCtrl.error -->
+
+        <!-- ngIf: !issueCtrl.error --><div ng-if="!issueCtrl.error" class="ng-scope">
+          <!-- Comments -->
+          <div class="maia-col-8">
+            <!-- ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Mar 5, 2011 by
+                  <i class="ng-binding">Happy Rhino</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Just tried moving from r657-ginger -&gt; r684-ginger but r684 is completely broken for me: right after install the account shows up as Inactive and any attempt to change account settings or main settings gives an FC.  Also tried a clean uninstall/reinstall with the same results.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #1</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Mar 5, 2011 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Strange, just test on my N1 with this build and no FC.</p>
+
+<p>Can you try to send me logs please? 
+Thx in advance</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #2</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Mar 5, 2011 by
+                  <i class="ng-binding">Happy Rhino</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Logs showing FCs from two events: first is trying to save account settings, second happens when selecting Network Settings from the main settings screen.</p>
+
+<p>D/szipinf ( 9061): Initializing inflate state
+D/dalvikvm( 9061): GC_CONCURRENT freed 156K, 51% free 2779K/5639K, external 0K/0K, paused 7ms+10ms
+D/szipinf ( 9061): Initializing inflate state
+D/szipinf ( 9061): Initializing inflate state
+D/szipinf ( 9061): Initializing inflate state
+D/szipinf ( 9061): Initializing inflate state
+D/szipinf ( 9061): Initializing inflate state
+D/szipinf ( 9061): Initializing inflate state
+D/szipinf ( 9061): Initializing inflate state
+D/szipinf ( 9061): Initializing inflate state
+D/szipinf ( 9061): Initializing inflate state
+D/szipinf ( 9061): Initializing inflate state
+D/szipinf ( 9061): Initializing inflate state
+D/szipinf ( 9061): Initializing inflate state
+D/szipinf ( 9061): Initializing inflate state
+D/szipinf ( 9061): Initializing inflate state
+D/dalvikvm(  239): GC_CONCURRENT freed 565K, 55% free 2997K/6599K, external 1852K/1869K, paused 7ms+18ms
+E/PjService( 9047): PJSIP is not started here, nothing can be done
+W/dalvikvm( 9047): No implementation found for native Lorg/pjsip/pjsua/pjsuaJNI;.swig_module_init ()V
+W/dalvikvm( 9047): Exception Ljava/lang/UnsatisfiedLinkError; thrown while initializing Lorg/pjsip/pjsua/pjsuaJNI;
+W/dalvikvm( 9047): Exception Ljava/lang/ExceptionInInitializerError; thrown while initializing Lorg/pjsip/pjsua/pjsuaConstants;
+W/dalvikvm( 9047): threadid=11: thread exiting with uncaught exception (group=0x40018560)
+E/AndroidRuntime( 9047): FATAL EXCEPTION: Thread-14
+E/AndroidRuntime( 9047): java.lang.ExceptionInInitializerError
+E/AndroidRuntime( 9047):        at com.csipsimple.pjsip.PjSipService.addAccount(PjSipService.java:514)
+E/AndroidRuntime( 9047):        at com.csipsimple.service.SipService.addAllAccounts(SipService.java:929)
+E/AndroidRuntime( 9047):        at com.csipsimple.service.SipService.reAddAllAccounts(SipService.java:990)
+E/AndroidRuntime( 9047):        at com.csipsimple.service.SipService.access$400(SipService.java:80)
+E/AndroidRuntime( 9047):        at com.csipsimple.service.SipService$1.reAddAllAccounts(SipService.java:163)
+E/AndroidRuntime( 9047):        at com.csipsimple.wizards.BasePrefsWizard$4.run(BasePrefsWizard.java:321)
+E/AndroidRuntime( 9047): Caused by: java.lang.ExceptionInInitializerError
+E/AndroidRuntime( 9047):        at org.pjsip.pjsua.pjsuaConstants.(pjsuaConstants.java:12)
+E/AndroidRuntime( 9047):        ... 6 more
+E/AndroidRuntime( 9047): Caused by: java.lang.UnsatisfiedLinkError: swig_module_init
+E/AndroidRuntime( 9047):        at org.pjsip.pjsua.pjsuaJNI.swig_module_init(Native Method)
+E/AndroidRuntime( 9047):        at org.pjsip.pjsua.pjsuaJNI.(pjsuaJNI.java:1020)
+E/AndroidRuntime( 9047):        ... 7 more
+W/ActivityManager(  150):   Force finishing activity com.csipsimple/.ui.AccountsList
+W/InputManagerService(  150): Starting input on non-focused client com.android.internal.view.IInputMethodClient$Stub$Proxy@406bc550 (uid=10059 pid=9047)
+W/ActivityManager(  150): finishReceiver called but no pending broadcasts
+W/ActivityManager(  150): Activity pause timeout for HistoryRecord{406a40f0 com.csipsimple/.ui.AccountsList}
+I/Process ( 9047): Sending signal. PID: 9047 SIG: 9
+I/ActivityManager(  150): Process com.csipsimple (pid 9047) has died.
+E/InputDispatcher(  150): channel '407b17c0 com.csipsimple/com.csipsimple.ui.SipHome (server)' ~ Consumer closed input channel or an error occurred.  events=0x8
+E/InputDispatcher(  150): channel '407b17c0 com.csipsimple/com.csipsimple.ui.SipHome (server)' ~ Channel is unrecoverably broken and will be disposed!
+W/ActivityManager(  150): Scheduling restart of crashed service com.csipsimple/.service.SipService in 5000ms
+I/WindowManager(  150): WIN DEATH: Window{407b17c0 com.csipsimple/com.csipsimple.ui.SipHome paused=false}
+W/InputManagerService(  150): Got RemoteException sending setActive(false) notification to pid 9047 uid 10059
+I/ActivityManager(  150): Starting: Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10200000 cmp=com.csipsimple/.ui.SipHome bnds=[0,278][48,320] } from pid 235
+I/ActivityManager(  150): Start proc com.csipsimple for activity com.csipsimple/.ui.SipHome: pid=9072 uid=10059 gids={3003, 3002, 1007, 1015}
+D/dalvikvm( 9072): GC_EXTERNAL_ALLOC freed 179K, 52% free 2725K/5575K, external 0K/0K, paused 70ms
+D/dalvikvm( 9072): GC_CONCURRENT freed 117K, 50% free 2824K/5639K, external 417K/512K, paused 7ms+7ms
+D/dalvikvm( 9072): Trying to load lib /data/data/com.csipsimple/lib/libpjsipjni.so 0x405160b0
+E/PjService( 9072): We have a problem with the current stack.... NOT YET Implemented
+E/PjService( 9072): java.lang.UnsatisfiedLinkError: Cannot load library: load_library[1104]: Library '/data/data/com.csipsimple/lib/libpjsipjni.so' not found
+E/PjService( 9072):     at java.lang.Runtime.load(Runtime.java:394)
+E/PjService( 9072):     at java.lang.System.load(System.java:534)
+E/PjService( 9072):     at com.csipsimple.pjsip.PjSipService.tryToLoadStack(PjSipService.java:116)
+E/PjService( 9072):     at com.csipsimple.service.SipService.loadAndConnectStack(SipService.java:841)
+E/PjService( 9072):     at com.csipsimple.service.SipService.onCreate(SipService.java:760)
+E/PjService( 9072):     at android.app.ActivityThread.handleCreateService(ActivityThread.java:2050)
+E/PjService( 9072):     at android.app.ActivityThread.access$2500(ActivityThread.java:123)
+E/PjService( 9072):     at android.app.ActivityThread$H.handleMessage(ActivityThread.java:990)
+E/PjService( 9072):     at android.os.Handler.dispatchMessage(Handler.java:99)
+E/PjService( 9072):     at android.os.Looper.loop(Looper.java:123)
+E/PjService( 9072):     at android.app.ActivityThread.main(ActivityThread.java:3812)
+E/PjService( 9072):     at java.lang.reflect.Method.invokeNative(Native Method)
+E/PjService( 9072):     at java.lang.reflect.Method.invoke(Method.java:507)
+E/PjService( 9072):     at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:841)
+E/PjService( 9072):     at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:599)
+E/PjService( 9072):     at dalvik.system.NativeStart.main(Native Method)
+V/SipWakeLock( 9072): acquire wakelock: holder count=1
+V/SipWakeLock( 9072): acquire wakelock: holder count=2
+V/SipWakeLock( 9072): acquire wakelock: holder count=3
+V/SipWakeLock( 9072): release wakelock: holder count=2
+E/PjService( 9072): We have no sip stack, we can't start
+V/SipWakeLock( 9072): release wakelock: holder count=1
+I/ActivityManager(  150): Displayed com.csipsimple/.ui.SipHome: +2s433ms
+V/SipWakeLock( 9072): acquire wakelock: holder count=2
+V/SipWakeLock( 9072): acquire wakelock: holder count=3
+V/SipWakeLock( 9072): release wakelock: holder count=2
+V/SipWakeLock( 9072): release wakelock: holder count=1
+E/PjService( 9072): We have no sip stack, we can't start
+V/SipWakeLock( 9072): release wakelock: holder count=0
+D/dalvikvm( 7287): GC_CONCURRENT freed 518K, 55% free 2849K/6279K, external 5K/512K, paused 7ms+6ms
+W/KeyCharacterMap( 9072): No keyboard for id 131074
+W/KeyCharacterMap( 9072): Using default keymap: /system/usr/keychars/qwerty.kcm.bin
+D/dalvikvm( 9072): GC_EXTERNAL_ALLOC freed 295K, 51% free 2939K/5895K, external 505K/512K, paused 85ms
+I/ActivityManager(  150): Starting: Intent { cmp=com.csipsimple/.ui.prefs.MainPrefs } from pid 9072
+D/dalvikvm( 9072): GC_EXTERNAL_ALLOC freed 127K, 51% free 2944K/5895K, external 565K/1014K, paused 76ms
+I/ActivityManager(  150): Displayed com.csipsimple/.ui.prefs.MainPrefs: +953ms
+I/ActivityManager(  150): Starting: Intent { cmp=com.csipsimple/.ui.prefs.PrefsNetwork } from pid 9072
+W/Resources( 9072): Converting to string: TypedValue{t=0x10/d=0x13c4 a=-1}
+W/Resources( 9072): Converting to string: TypedValue{t=0x10/d=0x13c4 a=-1}
+W/Resources( 9072): Converting to string: TypedValue{t=0x10/d=0x64 a=-1}
+W/Resources( 9072): Converting to string: TypedValue{t=0x10/d=0x28 a=-1}
+W/Resources( 9072): Converting to string: TypedValue{t=0x10/d=0xfa0 a=-1}
+W/Resources( 9072): Converting to string: TypedValue{t=0x10/d=0x1a a=-1}
+W/dalvikvm( 9072): No implementation found for native Lorg/pjsip/pjsua/pjsuaJNI;.swig_module_init ()V
+W/dalvikvm( 9072): Exception Ljava/lang/UnsatisfiedLinkError; thrown while initializing Lorg/pjsip/pjsua/pjsuaJNI;
+D/AndroidRuntime( 9072): Shutting down VM
+W/dalvikvm( 9072): threadid=1: thread exiting with uncaught exception (group=0x40018560)
+E/AndroidRuntime( 9072): FATAL EXCEPTION: main
+E/AndroidRuntime( 9072): java.lang.ExceptionInInitializerError
+E/AndroidRuntime( 9072):        at org.pjsip.pjsua.pjsua.can_use_tls(pjsua.java:621)
+E/AndroidRuntime( 9072):        at com.csipsimple.ui.prefs.PrefsNetwork.afterBuildPrefs(PrefsNetwork.java:78)
+E/AndroidRuntime( 9072):        at com.csipsimple.ui.prefs.GenericPrefs.onCreate(GenericPrefs.java:41)
+E/AndroidRuntime( 9072):        at android.app.Instrumentation.callActivityOnCreate(Instrumentation.java:1047)
+E/AndroidRuntime( 9072):        at android.app.ActivityThread.performLaunchActivity(ActivityThread.java:1706)
+E/AndroidRuntime( 9072):        at android.app.ActivityThread.handleLaunchActivity(ActivityThread.java:1768)
+E/AndroidRuntime( 9072):        at android.app.ActivityThread.access$1500(ActivityThread.java:123)
+E/AndroidRuntime( 9072):        at android.app.ActivityThread$H.handleMessage(ActivityThread.java:936)
+E/AndroidRuntime( 9072):        at android.os.Handler.dispatchMessage(Handler.java:99)
+E/AndroidRuntime( 9072):        at android.os.Looper.loop(Looper.java:123)
+E/AndroidRuntime( 9072):        at android.app.ActivityThread.main(ActivityThread.java:3812)
+E/AndroidRuntime( 9072):        at java.lang.reflect.Method.invokeNative(Native Method)
+E/AndroidRuntime( 9072):        at java.lang.reflect.Method.invoke(Method.java:507)
+E/AndroidRuntime( 9072):        at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:841)
+E/AndroidRuntime( 9072):        at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:599)
+E/AndroidRuntime( 9072):        at dalvik.system.NativeStart.main(Native Method)
+E/AndroidRuntime( 9072): Caused by: java.lang.UnsatisfiedLinkError: swig_module_init
+E/AndroidRuntime( 9072):        at org.pjsip.pjsua.pjsuaJNI.swig_module_init(Native Method)
+E/AndroidRuntime( 9072):        at org.pjsip.pjsua.pjsuaJNI.(pjsuaJNI.java:1020)
+E/AndroidRuntime( 9072):        ... 16 more
+W/ActivityManager(  150):   Force finishing activity com.csipsimple/.ui.prefs.PrefsNetwork
+W/ActivityManager(  150):   Force finishing activity com.csipsimple/.ui.prefs.MainPrefs
+D/dalvikvm( 9072): GC_CONCURRENT freed 229K, 49% free 3070K/5959K, external 932K/1300K, paused 7ms+32ms
+W/ActivityManager(  150): Activity pause timeout for HistoryRecord{406d0570 com.csipsimple/.ui.prefs.PrefsNetwork}
+I/Process ( 9072): Sending signal. PID: 9072 SIG: 9
+I/ActivityManager(  150): Process com.csipsimple (pid 9072) has died.
+E/InputDispatcher(  150): channel '408f3268 com.csipsimple/com.csipsimple.ui.SipHome (server)' ~ Consumer closed input channel or an error occurred.  events=0x8
+8
+E/InputDispatcher(  150): channel '408f3268 com.csipsimple/com.csipsimple.ui.SipHome (server)' ~ Channel is unrecoverably broken and will be disposed!
+W/ActivityManager(  150): Service crashed 2 times, stopping: ServiceRecord{40b04ad0 com.csipsimple/.service.SipService}
+I/WindowManager(  150): WIN DEATH: Window{409b3448 com.csipsimple/com.csipsimple.ui.prefs.MainPrefs paused=true}
+I/WindowManager(  150): WIN DEATH: Window{408f3268 com.csipsimple/com.csipsimple.ui.SipHome paused=false}
+W/InputManagerService(  150): Got RemoteException sending setActive(false) notification to pid 9072 uid 10059</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #3</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Mar 5, 2011 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Ok got it. 
+The build server has again something missing. 
+It built only for armv7a on gingerbread which obviously is wrong (but was fine for my nexus one ;) ).</p>
+
+<p>I've launched a new build which should build with armeabi support for the gingerbread build.</p>
+
+<p>It will be available as r685 in few minutes.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #4</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Mar 5, 2011 by
+                  <i class="ng-binding">Happy Rhino</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Much better, thanks ;)</p>
+
+<p>As a side note the new in-call UI screen isn't quite right on this (QVGA) phone:
+ - the drop-down tab overlaps a bit with the add-call/end/dialpad buttons
+ - when the tab is selected, the drawer that opens with the hold/info/end buttons has to be scrolled up and down to see all of them since they're so large
+ - the info button doesn't do anything, just flashes the screen white very briefly</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments -->
+          </div>
+
+          <!-- Sidebar with additional information -->
+          <div class="maia-col-4">
+            <div class="maia-aside">
+              <p>Status: <code class="ng-binding">Fixed</code></p>
+              <!-- ngIf: issueCtrl.issue.labels.length > 0 --><p ng-if="issueCtrl.issue.labels.length &gt; 0" class="ng-scope">
+                Labels:
+                <br>
+                <!-- ngRepeat: label in issueCtrl.issue.labels track by $index --><span ng-repeat="label in issueCtrl.issue.labels track by $index" class="ng-scope">
+                  <span class="gca-label ng-binding">Type-Defect</span>
+                </span><!-- end ngRepeat: label in issueCtrl.issue.labels track by $index --><span ng-repeat="label in issueCtrl.issue.labels track by $index" class="ng-scope">
+                  <span class="gca-label ng-binding">Priority-Medium</span>
+                </span><!-- end ngRepeat: label in issueCtrl.issue.labels track by $index -->
+              </p><!-- end ngIf: issueCtrl.issue.labels.length > 0 -->
+            </div>
+          </div>
+        </div><!-- end ngIf: !issueCtrl.error -->
+      </div>
+    </div>
+
+  </div>
+</div>
+</div></div></div>
+    <noscript>
+      &lt;p&gt;The Google Code Archive requires JavaScript to be enabled in your browser.&lt;/p&gt;
+    </noscript>
+
+    <div id="maia-signature"></div>
+    <div class="maia-footer" id="maia-footer">
+      <div id="maia-footer-local">
+      </div>
+      <div id="maia-footer-global">
+        <div class="maia-aux">
+          <ul>
+            <li>
+              <a href="//www.google.com/">Google</a>
+            </li>
+            <li>
+              <a href="//www.google.com/intl/en/about/">About Google</a>
+            </li>
+            <li>
+              <a href="//www.google.com/intl/en/policies/privacy/">Privacy</a>
+            </li>
+            <li>
+              <a href="//www.google.com/intl/en/policies/terms/">Terms</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <script src="//www.google.com/js/maia.js"></script>
+  
+
+
+</body></html>

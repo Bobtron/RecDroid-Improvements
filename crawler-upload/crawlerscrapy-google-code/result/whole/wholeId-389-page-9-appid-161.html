@@ -1,0 +1,627 @@
+https://code.google.com/archive/p/android-maps-extensions/issues/7<!DOCTYPE html><html class="google ng-scope" lang="en" ng-app="codesiteArchive.application"><head>
+    <meta charset="utf-8">
+    <meta content="initial-scale=1, minimum-scale=1, width=device-width" name="viewport">
+
+    <!-- https://developers.google.com/webmasters/ajax-crawling/docs/specification -->
+    <meta name="fragment" content="!">
+    <title>Google Code Archive - Long-term storage for Google Code Project Hosting.</title>
+
+    <link rel="icon" type="image/vnd.microsoft.icon" href="/archive/img/project-hosting.ico">
+    <script src="//www.google.com/js/google.js"></script>
+    <link href="//www.google.com/css/maia.css" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;lang=en" rel="stylesheet">
+    <link rel="stylesheet" href="/archive/archive_css.css">
+    <script>
+      CLOSURE_NO_DEPS = true;
+    </script>
+    <script src="/archive/angular.js"></script><style type="text/css">@charset "UTF-8";
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak],
+.ng-cloak, .x-ng-cloak,
+.ng-hide:not(.ng-hide-animate) {
+  display: none !important;
+}
+
+ng\:form {
+  display: block;
+}
+
+.ng-animate-shim {
+  visibility:hidden;
+}
+
+.ng-anchor {
+  position:absolute;
+}
+</style>
+    <script src="/archive/pagedown.js"></script>
+    <script src="/archive/archive.js"></script>
+    <base href="/archive/">
+  </head>
+
+  <body>
+    <div class="maia-header" id="maia-header" role="banner">
+      <div class="maia-aux">
+        <a href="/archive/">
+          </a><h1><a href="/archive/">
+            <img alt="Google" src="//www.google.com/images/branding/googlelogo/1x/googlelogo_color_116x41dp.png"> Code</a>
+          </h1>
+        
+        <a href="/archive/">
+          <h2>Archive</h2>
+        </a>
+        <a class="maia-teleport" href="#content">Skip to content</a>
+        <div class="maia-util">
+          <form action="/archive/search" class="maia-search ng-pristine ng-valid">
+            <input name="q" placeholder="Search this site" type="text">
+            <button class="maia-button">
+              <span class="maia-search-icon">Search</span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- ngView: --><div ng-view="" class="ng-scope"><div ng-controller="ProjectIssueCtrl as issueCtrl" class="ng-scope">
+<nav-bar-widget nav-level-1="projectCtrl.navLevel1" class="ng-isolate-scope"><div class="maia-nav maia-complex" id="maia-nav-x" role="navigation">
+  <div class="maia-aux">
+    <ul>
+      <li ng-class="{active: navLevel1 == 'projects'}">
+        <a href="/archive/">Projects</a>
+        <!-- ngIf: navLevel2 -->
+      </li>
+      <li ng-class="{active: navLevel1 == 'search'}">
+        <a href="/archive/search">Search</a>
+      </li>
+      <li ng-class="{active: navLevel1 == 'about'}">
+        <a href="/archive/about">About</a>
+      </li>
+    </ul>
+  </div>
+</div>
+</nav-bar-widget>
+<div id="maia-main" role="main">
+
+  <!-- ngIf: issueCtrl.notFound -->
+
+  <div ng-hide="issueCtrl.notFound">
+    <!-- Left-side resource nav -->
+    <project-resources-widget domain="issueCtrl.domain" project="issueCtrl.projectName" class="ng-isolate-scope"><div class="maia-nav" id="maia-nav-y" role="navigation">
+  <!-- ngIf: domain == 'code.google.com' --><ul ng-if="domain == 'code.google.com'" class="ng-scope">
+    <li class="active">
+      <a href="/archive/p/android-maps-extensions/">Project</a>
+    </li>
+    <li>
+      <a href="/archive/p/android-maps-extensions/source">Source</a>
+    </li>
+    <li>
+      <a href="/archive/p/android-maps-extensions/issues">Issues</a>
+    </li>
+    <li>
+      <a href="/archive/p/android-maps-extensions/wikis">Wikis</a>
+    </li>
+    <li>
+      <a href="/archive/p/android-maps-extensions/downloads">Downloads</a>
+    </li>
+  </ul><!-- end ngIf: domain == 'code.google.com' -->
+
+    <!-- ngIf: domain != 'code.google.com' -->
+</div></project-resources-widget>
+
+    <div class="maia-article" role="article">
+      <div class="maia-teleport" id="content"></div>
+      <div class="maia-cols">
+        <div id="gca-project-header" class="maia-col-10">
+          <a id="gca-export-to-gh" class="maia-button" href="https://code.google.com/export-to-github/export?project=android-maps-extensions">Export to GitHub</a>
+            <img class="gca-project-logo" src="https://storage.googleapis.com/google-code-archive/v2/code.google.com/android-maps-extensions/logo.png">
+            <h1 class="ng-binding">android-maps-extensions - issue #7</h1>
+            <p class="ng-binding">Getting Displayed Markers</p>
+        </div>
+
+        <div class="maia-col-10">
+          <hr>
+
+        <!-- ngIf: issueCtrl.error -->
+
+        <!-- ngIf: !issueCtrl.error --><div ng-if="!issueCtrl.error" class="ng-scope">
+          <!-- Comments -->
+          <div class="maia-col-8">
+            <!-- ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Apr 12, 2013 by
+                  <i class="ng-binding">Grumpy Camel</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Hi, firstly; thanks for your great extension, your clustering library is really useful, I had partly built one myself but it was quite buggy.</p>
+
+<p>I've got a bit stuck while trying to access the displayed markers, I can access all of the markers, but ideally I was to get the clustered ones.</p>
+
+<p>I'm currently using an onClickListener in a list of places I've got, what I want it to do, is when a place is clicked, find where it is clustered and keep zooming into that location until it is no longer clustered and then show the infowindow.</p>
+
+<p>I've tried doing map.getMarkers(); but it just shows all the markers from my result. Is there any way to get the visible (clustered) markers?</p>
+
+<p>If not it would be great to be able to do it. Thanks!</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #1</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Apr 12, 2013 by
+                  <i class="ng-binding">Happy Elephant</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>References to cluster markers are not to be kept (I should probably add this info in the non-existent documentation). They are reused when possible and the same marker can appear on the other side of the globe.</p>
+
+<p>The way clustering works now (when addMarkerDynamically is used) would not give a complete list.</p>
+
+<p>What I think would be useful is to give Marker reference to the API and get minimal zoom level at which it is no longer clustered.</p>
+
+<p>I'm renaming this issue.</p>
+
+<p>Your code will probably look like this:</p>
+
+<p>float zoom = map.getMinZoomNotClustered(marker);
+map.animateCamera(CameraUpdateFactory.newLatLngZoom(marker.getPosition(), zoom));</p>
+
+<p>For now I would use some hardcoded zoom level (18 or 20) which works for all markers in your app instead of trying to zoom by some value.</p>
+
+<p>There will probably be a use-case where getting a list of visible markers (both normal and cluster) is the thing to do, but I can't think of any.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #2</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Apr 13, 2013 by
+                  <i class="ng-binding">Grumpy Camel</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Thanks for your reply, I have just done the zoom as you said. However, I've just come across another problem which requires the use of the visible markers (clustered and normal).</p>
+
+<p>I need to show off the screen points using this technique: <a href="http://www.google.co.uk/imgres?um=1&amp;safe=off&amp;client=firefox-a&amp;rls=org.mozilla:en-US:official&amp;hl=en&amp;biw=2560&amp;bih=1331&amp;tbm=isch&amp;tbnid=GvwWyriWASm0iM:&amp;imgrefurl=http://stackoverflow.com/questions/9526592/calculating-radius-for-off-screen-map-locations&amp;docid=HemvfVzXcTyefM&amp;imgurl=http://i.stack.imgur.com/qObDP.png&amp;w=1000&amp;h=1000&amp;ei=SaNpUd-dOqm80QWxoYDQBw&amp;zoom=1&amp;ved=1t:3588,r:0,s:0,i:79&amp;iact=rc&amp;dur=723&amp;page=1&amp;tbnh=187&amp;tbnw=187&amp;start=0&amp;ndsp=54&amp;tx=139&amp;ty=89">http://www.google.co.uk/imgres?um=1&amp;safe=off&amp;client=firefox-a&amp;rls=org.mozilla:en-US:official&amp;hl=en&amp;biw=2560&amp;bih=1331&amp;tbm=isch&amp;tbnid=GvwWyriWASm0iM:&amp;imgrefurl=http://stackoverflow.com/questions/9526592/calculating-radius-for-off-screen-map-locations&amp;docid=HemvfVzXcTyefM&amp;imgurl=http://i.stack.imgur.com/qObDP.png&amp;w=1000&amp;h=1000&amp;ei=SaNpUd-dOqm80QWxoYDQBw&amp;zoom=1&amp;ved=1t:3588,r:0,s:0,i:79&amp;iact=rc&amp;dur=723&amp;page=1&amp;tbnh=187&amp;tbnw=187&amp;start=0&amp;ndsp=54&amp;tx=139&amp;ty=89</a></p>
+
+<p>Is there a quick way of getting the visible markers or is it too hard? Would I have to use addMarkerDynamically(false) and modify the library? Is it possible to do simply?</p>
+
+<p>I need to get this feature complete in the next 24 hours unfortunately.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #3</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Apr 13, 2013 by
+                  <i class="ng-binding">Happy Elephant</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>For a quick hack you can try to merge
+LongSparseArray clusters from GridClusteringStrategy
+with what DelegatingGoogleMap.getMarkers return.</p>
+
+<p>Just remember to remove from the second list all markers that are also in any ClusterMarker.getMarkers().</p>
+
+<p>I think it would require addMarkersDynamically to be turned off (which I don't recommend for more than few few hundred markers) to work properly, but you may try without it set to false.</p>
+
+<p>I'll keep in mind to add getDisplayedMarkers function, but for proper working it will require some refactoring.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #4</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Apr 13, 2013 by
+                  <i class="ng-binding">Grumpy Camel</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Thanks for the help, I have been trying a few things, but obviously I don't know the code as well as you :)</p>
+
+<p>I'm working on it at the moment, I've got the full list but struggling to remove the markers from within the cluster marker.</p>
+
+<pre><code>@Override
+public List&lt;Marker&gt; getMarkerCluster() {
+    LongSparseArray&lt;ClusterMarker&gt; clusters = clusteringStrategy.getMarkerCluster();
+    List&lt;Marker&gt; allMarkers = getMarkers();
+    for(long i = 0; i&lt; clusters.size();i++){
+        if(clusters.get(i)!=null){
+            LazyMarker lazy = createdMarkers.get(clusters.get(i).getVirtual());
+            DelegatingMarker delegating = markers.get(lazy);
+            allMarkers.add(delegating);
+
+            for(int i2 = 0; i2&lt;allMarkers.size();i2++){
+                Log.e("marker in here",""+allMarkers.get(i2).getTitle());
+                for(Marker m2:clusters.get(i).getMarkers()){
+                    Log.e("marker in here",""+m2.getTitle());
+                    if(m2.getTitle().equals(allMarkers.get(i2).getTitle())){
+                        Log.e("marker should be removed from list","it is clustered");
+                        allMarkers.remove(i2);
+                    }
+                }
+            }
+
+
+        }
+    }
+
+    return allMarkers;
+}
+</code></pre>
+
+<p>I'm still working on it, atm non of the logs are producing anything so I'm working my way up to see what is going on.</p>
+
+<p>Thanks again!</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #5</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Apr 13, 2013 by
+                  <i class="ng-binding">Grumpy Camel</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Ok, I just spotted that clusters.get(i) is null every time.</p>
+
+<p>I guess I am not iterating over the LongSparseArray properly, I'll do some googling and figure out the best way :)</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #6</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Apr 13, 2013 by
+                  <i class="ng-binding">Grumpy Camel</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Ok, getting somewhere now, I think I've improved my iteration method.</p>
+
+<p>I removed the removing within the loops, and just created a separate array to store the markers which need deleting. However, the cluster.getMarkers() seems to be returning null each time.</p>
+
+<p>@Override
+    public List getMarkerCluster() {
+        LongSparseArray clusters = clusteringStrategy.getMarkerCluster();
+        List allMarkers = getMarkers();
+        List markersToBeRemoved = new ArrayList();
+        long key = 0;
+        for(int i = 0; i&lt; clusters.size();i++){
+            key = clusters.keyAt(i);
+            ClusterMarker cluster = clusters.get(key);
+            if(cluster!=null){
+                Log.e("marker is not null",""+cluster.getTitle());
+                LazyMarker lazy = createdMarkers.get(cluster.getVirtual());
+                    if(cluster.getMarkers()!=null){
+                        for(Marker m2:cluster.getMarkers()){
+                            markersToBeRemoved.add(m2);
+                        }
+                        Log.e("The list of markers exists","");
+                    }else{
+                        Log.e("the list of markers doesn't exist","");
+                    }</p>
+
+<pre><code>            if(lazy!=null){
+                DelegatingMarker delegating = markers.get(lazy);
+                if(delegating !=null){
+                    allMarkers.add(delegating);
+                }
+            }
+
+
+        }else{
+            Log.e("Cluster is null","NULL");
+        }
+    }
+
+    for(Marker m:markersToBeRemoved){
+        Log.e("Removing Marker","");
+        allMarkers.remove(m);
+    }
+
+    return allMarkers;
+}
+</code></pre></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #7</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Apr 13, 2013 by
+                  <i class="ng-binding">Grumpy Camel</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Doh, sorry to keep spamming here, but I noticed the huge mistake I'm making, I'm using the createdMarkers.get to retrieve a LazyMarker to then turn it into a DelegateMarker, but I guess that it doesn't exist in the created Markers. I guess I can cast it to Delegate? I'll try and find a solution.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #8</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Apr 13, 2013 by
+                  <i class="ng-binding">Happy Elephant</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>You may skip using createdMarkers, but you have to add all ClusterMarkers to allMarkers at the end and this should work.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #9</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Apr 13, 2013 by
+                  <i class="ng-binding">Grumpy Camel</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Oh, I didn't realise that would work,lol. I started just retrieving the LatLngs, but changed to markers. However, using both methods I'm getting this exception:</p>
+
+<p>04-13 23:17:14.006: E/AndroidRuntime(15432): java.lang.UnsupportedOperationException
+04-13 23:17:14.006: E/AndroidRuntime(15432):    at pl.mg6.android.maps.extensions.impl.ClusterMarker.getPosition(ClusterMarker.java:136)</p>
+
+<p>I haven't changed those lines, so it looks like the marker position is null for some reason :(</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #10</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Apr 13, 2013 by
+                  <i class="ng-binding">Happy Elephant</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>You cannot get position from ClusterMarker when it is not yet drawn, so you need to get all markers inside cluster and calculate position like in the ClusterMarker.refresh():</p>
+
+<p>LatLngBounds.Builder builder = LatLngBounds.builder();
+for (DelegatingMarker m : markers) {
+    builder.include(m.getPosition());
+    m.changeVisible(false);
+}
+LatLng position = calculateCenter(builder.build());</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #11</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Apr 13, 2013 by
+                  <i class="ng-binding">Grumpy Camel</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Thanks maciek, got it all working! Really Appreciate your help.</p>
+
+<p>Here's it atm:
+<a href="https://www.dropbox.com/s/qb6arm9uvhlttvq/device-2013-04-13-234132.png">https://www.dropbox.com/s/qb6arm9uvhlttvq/device-2013-04-13-234132.png</a></p>
+
+<p>However, when zooming it creates new circles for markers coming out of the cluster, but then the unclustered markers suddenly disappear.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #12</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Apr 14, 2013 by
+                  <i class="ng-binding">Happy Elephant</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>As this conversation grew a bit, I'm going back to your original feature request.</p>
+
+<p>From the images I see there is a need to know where are all the markers currently displayed.</p>
+
+<p>I'm still not sure what you want to achieve, but the circles look nice.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #13</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Apr 14, 2013 by
+                  <i class="ng-binding">Grumpy Camel</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>The feature is to show off screen points by using circles (halos). I've almost completed it, I'm using the getProjection to getVisibleRegion, then if they are not in the region (ie. off screen), it needs to draw a circle.</p>
+
+<p>I've created a boundary similar to this: <a href="http://www.google.co.uk/imgres?um=1&amp;safe=off&amp;client=firefox-a&amp;rls=org.mozilla:en-US:official&amp;hl=en&amp;biw=2560&amp;bih=1331&amp;tbm=isch&amp;tbnid=GvwWyriWASm0iM:&amp;imgrefurl=http://stackoverflow.com/questions/9526592/calculating-radius-for-off-screen-map-locations&amp;docid=HemvfVzXcTyefM&amp;imgurl=http://i.stack.imgur.com/qObDP.png&amp;w=1000&amp;h=1000&amp;ei=SaNpUd-dOqm80QWxoYDQBw&amp;zoom=1&amp;ved=1t:3588,r:0,s:0,i:79&amp;iact=rc&amp;dur=723&amp;page=1&amp;tbnh=187&amp;tbnw=187&amp;start=0&amp;ndsp=54&amp;tx=139&amp;ty=89">http://www.google.co.uk/imgres?um=1&amp;safe=off&amp;client=firefox-a&amp;rls=org.mozilla:en-US:official&amp;hl=en&amp;biw=2560&amp;bih=1331&amp;tbm=isch&amp;tbnid=GvwWyriWASm0iM:&amp;imgrefurl=http://stackoverflow.com/questions/9526592/calculating-radius-for-off-screen-map-locations&amp;docid=HemvfVzXcTyefM&amp;imgurl=http://i.stack.imgur.com/qObDP.png&amp;w=1000&amp;h=1000&amp;ei=SaNpUd-dOqm80QWxoYDQBw&amp;zoom=1&amp;ved=1t:3588,r:0,s:0,i:79&amp;iact=rc&amp;dur=723&amp;page=1&amp;tbnh=187&amp;tbnw=187&amp;start=0&amp;ndsp=54&amp;tx=139&amp;ty=89</a></p>
+
+<p>By converting the visibleRegion to Points, and using the Point.offset to reduce the points by 10dp for now. To create an inner boundary such as the image above. I just need to calculate the marker's distance from the nearest point at the boundary. This is where it's getting a bit complicated. I managed to get it working previous by using pythagorous to get the distance from my center point, but need to it to go the closest edge of the boundary :( </p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #14</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on May 8, 2013 by
+                  <i class="ng-binding">Happy Elephant</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Added in 1.3</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments -->
+          </div>
+
+          <!-- Sidebar with additional information -->
+          <div class="maia-col-4">
+            <div class="maia-aside">
+              <p>Status: <code class="ng-binding">Fixed</code></p>
+              <!-- ngIf: issueCtrl.issue.labels.length > 0 --><p ng-if="issueCtrl.issue.labels.length &gt; 0" class="ng-scope">
+                Labels:
+                <br>
+                <!-- ngRepeat: label in issueCtrl.issue.labels track by $index --><span ng-repeat="label in issueCtrl.issue.labels track by $index" class="ng-scope">
+                  <span class="gca-label ng-binding">Type-Enhancement</span>
+                </span><!-- end ngRepeat: label in issueCtrl.issue.labels track by $index -->
+              </p><!-- end ngIf: issueCtrl.issue.labels.length > 0 -->
+            </div>
+          </div>
+        </div><!-- end ngIf: !issueCtrl.error -->
+      </div>
+    </div>
+
+  </div>
+</div>
+</div></div></div>
+    <noscript>
+      &lt;p&gt;The Google Code Archive requires JavaScript to be enabled in your browser.&lt;/p&gt;
+    </noscript>
+
+    <div id="maia-signature"></div>
+    <div class="maia-footer" id="maia-footer">
+      <div id="maia-footer-local">
+      </div>
+      <div id="maia-footer-global">
+        <div class="maia-aux">
+          <ul>
+            <li>
+              <a href="//www.google.com/">Google</a>
+            </li>
+            <li>
+              <a href="//www.google.com/intl/en/about/">About Google</a>
+            </li>
+            <li>
+              <a href="//www.google.com/intl/en/policies/privacy/">Privacy</a>
+            </li>
+            <li>
+              <a href="//www.google.com/intl/en/policies/terms/">Terms</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <script src="//www.google.com/js/maia.js"></script>
+  
+
+
+</body></html>

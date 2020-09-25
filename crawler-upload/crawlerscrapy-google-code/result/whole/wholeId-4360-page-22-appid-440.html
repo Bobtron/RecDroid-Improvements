@@ -1,0 +1,509 @@
+https://code.google.com/archive/p/csipsimple/issues/442<!DOCTYPE html><html class="google ng-scope" lang="en" ng-app="codesiteArchive.application"><head>
+    <meta charset="utf-8">
+    <meta content="initial-scale=1, minimum-scale=1, width=device-width" name="viewport">
+
+    <!-- https://developers.google.com/webmasters/ajax-crawling/docs/specification -->
+    <meta name="fragment" content="!">
+    <title>Google Code Archive - Long-term storage for Google Code Project Hosting.</title>
+
+    <link rel="icon" type="image/vnd.microsoft.icon" href="/archive/img/project-hosting.ico">
+    <script src="//www.google.com/js/google.js"></script>
+    <link href="//www.google.com/css/maia.css" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;lang=en" rel="stylesheet">
+    <link rel="stylesheet" href="/archive/archive_css.css">
+    <script>
+      CLOSURE_NO_DEPS = true;
+    </script>
+    <script src="/archive/angular.js"></script><style type="text/css">@charset "UTF-8";
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak],
+.ng-cloak, .x-ng-cloak,
+.ng-hide:not(.ng-hide-animate) {
+  display: none !important;
+}
+
+ng\:form {
+  display: block;
+}
+
+.ng-animate-shim {
+  visibility:hidden;
+}
+
+.ng-anchor {
+  position:absolute;
+}
+</style>
+    <script src="/archive/pagedown.js"></script>
+    <script src="/archive/archive.js"></script>
+    <base href="/archive/">
+  </head>
+
+  <body>
+    <div class="maia-header" id="maia-header" role="banner">
+      <div class="maia-aux">
+        <a href="/archive/">
+          </a><h1><a href="/archive/">
+            <img alt="Google" src="//www.google.com/images/branding/googlelogo/1x/googlelogo_color_116x41dp.png"> Code</a>
+          </h1>
+        
+        <a href="/archive/">
+          <h2>Archive</h2>
+        </a>
+        <a class="maia-teleport" href="#content">Skip to content</a>
+        <div class="maia-util">
+          <form action="/archive/search" class="maia-search ng-pristine ng-valid">
+            <input name="q" placeholder="Search this site" type="text">
+            <button class="maia-button">
+              <span class="maia-search-icon">Search</span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- ngView: --><div ng-view="" class="ng-scope"><div ng-controller="ProjectIssueCtrl as issueCtrl" class="ng-scope">
+<nav-bar-widget nav-level-1="projectCtrl.navLevel1" class="ng-isolate-scope"><div class="maia-nav maia-complex" id="maia-nav-x" role="navigation">
+  <div class="maia-aux">
+    <ul>
+      <li ng-class="{active: navLevel1 == 'projects'}">
+        <a href="/archive/">Projects</a>
+        <!-- ngIf: navLevel2 -->
+      </li>
+      <li ng-class="{active: navLevel1 == 'search'}">
+        <a href="/archive/search">Search</a>
+      </li>
+      <li ng-class="{active: navLevel1 == 'about'}">
+        <a href="/archive/about">About</a>
+      </li>
+    </ul>
+  </div>
+</div>
+</nav-bar-widget>
+<div id="maia-main" role="main">
+
+  <!-- ngIf: issueCtrl.notFound -->
+
+  <div ng-hide="issueCtrl.notFound">
+    <!-- Left-side resource nav -->
+    <project-resources-widget domain="issueCtrl.domain" project="issueCtrl.projectName" class="ng-isolate-scope"><div class="maia-nav" id="maia-nav-y" role="navigation">
+  <!-- ngIf: domain == 'code.google.com' --><ul ng-if="domain == 'code.google.com'" class="ng-scope">
+    <li class="active">
+      <a href="/archive/p/csipsimple/">Project</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/source">Source</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/issues">Issues</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/wikis">Wikis</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/downloads">Downloads</a>
+    </li>
+  </ul><!-- end ngIf: domain == 'code.google.com' -->
+
+    <!-- ngIf: domain != 'code.google.com' -->
+</div></project-resources-widget>
+
+    <div class="maia-article" role="article">
+      <div class="maia-teleport" id="content"></div>
+      <div class="maia-cols">
+        <div id="gca-project-header" class="maia-col-10">
+          <a id="gca-export-to-gh" class="maia-button" href="https://code.google.com/export-to-github/export?project=csipsimple">Export to GitHub</a>
+            <img class="gca-project-logo" src="https://storage.googleapis.com/google-code-archive/v2/code.google.com/csipsimple/logo.png">
+            <h1 class="ng-binding">csipsimple - issue #442</h1>
+            <p class="ng-binding">Set PJSIP_CHECK_VIA_SENT_BY to 0</p>
+        </div>
+
+        <div class="maia-col-10">
+          <hr>
+
+        <!-- ngIf: issueCtrl.error -->
+
+        <!-- ngIf: !issueCtrl.error --><div ng-if="!issueCtrl.error" class="ng-scope">
+          <!-- Comments -->
+          <div class="maia-col-8">
+            <!-- ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Dec 3, 2010 by
+                  <i class="ng-binding">Happy Rhino</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Greetings!  A big thank you to all your efforts on cSipSimple, it's a really excellent program.  The only problem I'm having so far is that registration with the SIP server (callcentric.com) is not very stable even when the network connection seems (?) to be.</p>
+
+<p>Using cSipSimple 0.00-15 on an HTC Wildfire running CyanogenMod 6.1-RC, WiFi only (no 3G/mobile data). WiFi Sleep Policy is set to Never.  Had to enable the "Stay Awake While On Call" and "Use Partial Wake Lock" options in order to prevent audio failing during a call when the screen blanks, and permanent loss of registration in sleep mode, respectively.  (The first problem, and maybe others, are probably due to the Power-Save Polling used by the bcm4329 wifi driver; this is described in <a href="http://code.google.com/p/cyanogenmod/issues/detail?id=2403">http://code.google.com/p/cyanogenmod/issues/detail?id=2403</a> but the fix isn't integrated in CM yet.)</p>
+
+<p>The phone is behind a NAT router but the router doesn't seem to be causing trouble; other softphones have no problem staying registered over the same WLAN.  And this is all while sitting a few feet from the router.</p>
+
+<p>Outbound calls work fine, and inbound calls also work fine when registered.  But the registration frequently drops and re-establishes.  It's not predictable, i.e. doesn't happen at a fixed time interval; sometimes it stays up for several minutes, other times it resets more often.  It happens in both sleep and wake modes.</p>
+
+<p>I think callcentric uses a quite short registration timeout (e.g. 60 seconds) so I'm wondering if the problem is caused by UDP packets in either direction getting lost somehow.  (Registration Timeout is set to 1800 seconds on the phone, but I don't think the server actually uses this.)  But I even see the registration flapping while on calls, with the two-way audio working fine.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #1</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Dec 3, 2010 by
+                  <i class="ng-binding">Happy Rhino</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>I turned the log level up to 5 and have found a pattern that seems to correspond with the registration problems.  In the following log snippets, EXT_IP is the real external NAT IP address.</p>
+
+<p>It appears that registration requests/replies will ping-pong normally for some time.  Then an event like this will occur:</p>
+
+<p>12-03 16:02:31.268 I/libpjsip(  310):  16:02:31.269    pjsua_acc.c  IP address change detected for account 0 (EXT_IP:50896 --&gt; EXT_IP:51622). Updating registration (using method 2)</p>
+
+<p>After this happens, subsequent registration requests get no replies and are retransmitted several times:</p>
+
+<p>12-03 16:02:59.309 V/libpjsip(  310):  16:02:59.313    tsx0x48e62c  Retransmit timer event
+12-03 16:02:59.309 V/libpjsip(  310):  16:02:59.314    tsx0x48e62c  Retransmiting Request msg REGISTER/cseq=52140 (tdta0x495c78), count=8, restart?=1</p>
+
+<p>Finally, a registration failure is returned from the server with code 500 (Network Error):</p>
+
+<p>12-03 16:03:02.948 V/libpjsip(  310):  16:03:02.950 sip_endpoint.c  Processing incoming message: Response msg 500/REGISTER/cseq=52140 (rdata0x480474)
+12-03 16:03:02.948 D/libpjsip(  310):  16:03:02.950   pjsua_core.c  RX 306 bytes Response msg 500/REGISTER/cseq=52140 (rdata0x480474) from UDP 204.11.192.34:5080:
+12-03 16:03:02.948 D/libpjsip(  310): SIP/2.0 500 Network Failure
+  ...
+12-03 16:03:02.948 W/libpjsip(  310):  16:03:02.951    pjsua_acc.c  SIP registration failed, status=500 (Network Failure)</p>
+
+<p>So it looks like what's happening is the local port number is changing, and when cSipSimple switches to the new number, it confuses the server and after about 30 seconds a failure notice is sent to the new port and the registration is re-initialized.</p>
+
+<p>But why the local port number would change periodically I have no idea.  Is that something cSipSimple is doing?</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #2</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Dec 3, 2010 by
+                  <i class="ng-binding">Happy Rhino</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Scratch the last question, I now understand how SIP rport works.  ;)  I don't see why the rport mechanism is failing, but a workaround may be to try to prevent the port changes on the NAT router...</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #3</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Dec 4, 2010 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><blockquote>
+  <p>are probably due to the Power-Save Polling .</p>
+</blockquote>
+
+<p>Indeed, in latest dev version,"Stay Awake While On Call" is automatically activated for all (with exceptions) HTC devices (previously was only N1, Evo and Desire).</p>
+
+<blockquote>
+  <p>It's not predictable, i.e. doesn't happen at a fixed time interval; sometimes it stays up for several minutes, other times it resets more often.  It happens in both sleep and wake modes.</p>
+</blockquote>
+
+<p>You should try to transform your account into an Expert account (menu &gt; choose wizard). 
+Here you'll be able to choose keep awake interval for the account and registration time that may help.
+You should also try to use the latest version.
+As for re-registration, maybe callcentric doesn't support fully the RFC and doesn't like the way pjsip re-register. If so you could try in expert account settings to choose re-writting contact method : legacy. You could also try to disable "rewrite contact field".</p>
+
+<p>Let me know how it goes with these settings. If some helps, I'll integrate it back in the callcentric wizard as default params.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #4</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Dec 4, 2010 by
+                  <i class="ng-binding">Happy Rhino</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Thanks r3gis,</p>
+
+<p>When I posted this report I had already been using Expert mode and had tried various values for the Registration Timeout and Keepalive settings and none made any real difference.  (Callcentric always replies with a registration timeout between 60-65 seconds.)</p>
+
+<p>But I found a problem on the NAT router that was causing it to time out UDP state after 1 second, and after fixing this, the problem described above that was resulting in the 500 Network Failure effects seems to have been resolved.  Hpwever, there is still a remaining timeout problem which is causing registration instability.</p>
+
+<p>The logs show the pattern for this second problem.  The code is hitting the failure path from the sent-by check enabled by PJSIP_CHECK_VIA_SENT_BY as described at <a href="http://www.pjsip.org/pjsip/docs/html/group__PJSIP__CONFIG.htm">http://www.pjsip.org/pjsip/docs/html/group__PJSIP__CONFIG.htm</a> and <a href="http://trac.pjsip.org/repos/ticket/352">http://trac.pjsip.org/repos/ticket/352</a>.</p>
+
+<hr>
+
+<p>12-03 18:57:08.578 D/libpjsip(  310):  18:57:08.585   pjsua_core.c  TX 561 bytes Request msg REGISTER/cseq=54993 (tdta0x4c8d80) to UDP 204.11.192.35:5080:
+12-03 18:57:08.578 D/libpjsip(  310): REGISTER sip:callcentric.com SIP/2.0
+12-03 18:57:08.578 D/libpjsip(  310): Via: SIP/2.0/UDP INT_IP:5060;rport;branch=z9hG4bKPjHE-r85UIs0WjGfimtZIZOXDbWI.iCfgI
+...
+12-03 18:57:08.578 D/libpjsip(  310): --end msg--
+12-03 18:57:09.459 D/libpjsip(  310):  18:57:09.465   pjsua_core.c  RX 342 bytes Response msg 200/REGISTER/cseq=54993 (rdata0x4c69ec) from UDP 204.11.192.35:5080:
+12-03 18:57:09.466 I/libpjsip(  310):  18:57:09.467    pjsua_acc.c  : registration success, status=200 (Ok), will re-register in 61 seconds</p>
+
+<p>...so far so good...</p>
+
+<p>12-03 18:58:05.968 D/libpjsip(  310):  18:58:05.969   pjsua_core.c  TX 561 bytes Request msg REGISTER/cseq=54994 (tdta0x4c8d80) to UDP 204.11.192.35:5080:
+12-03 18:58:06.606 D/libpjsip(  310):  18:58:06.608   pjsua_core.c  RX 342 bytes Response msg 200/REGISTER/cseq=54994 (rdata0x4c69ec) from UDP 204.11.192.35:5080:
+12-03 18:58:06.606 I/libpjsip(  310):  18:58:06.609    pjsua_acc.c  : registration success, status=200 (Ok), will re-register in 62 seconds</p>
+
+<p>... still good ...</p>
+
+<p>12-03 18:59:04.106 D/libpjsip(  310):  18:59:04.112   pjsua_core.c  TX 561 bytes Request msg REGISTER/cseq=54995 (tdta0x4c8d80) to UDP 204.11.192.35:5080:
+12-03 18:59:04.969 D/libpjsip(  310):  18:59:04.975 sip_endpoint.c  Dropping response Response msg 200/REGISTER/cseq=54995 (rdata0x4c69ec) from 204.11.192.35:5080 because sent-by is mismatch
+12-03 18:59:04.976 D/libpjsip(  310):  18:59:04.978 sip_endpoint.c  Dropping response Response msg 200/REGISTER/cseq=54995 (rdata0x4c69ec) from 204.11.192.35:5080 because sent-by is mismatch
+12-03 18:59:05.112 D/libpjsip(  310):  18:59:05.113   pjsua_core.c  TX 561 bytes Request msg REGISTER/cseq=54995 (tdta0x4c8d80) to UDP 204.11.192.35:5080:
+12-03 18:59:05.890 D/libpjsip(  310):  18:59:05.895 sip_endpoint.c  Dropping response Response msg 200/REGISTER/cseq=54995 (rdata0x4c69ec) from 204.11.192.35:5080 because sent-by is mismatch
+12-03 18:59:07.107 D/libpjsip(  310):  18:59:07.113   pjsua_core.c  TX 561 bytes Request msg REGISTER/cseq=54995 (tdta0x4c8d80) to UDP 204.11.192.35:5080:
+12-03 18:59:08.046 D/libpjsip(  310):  18:59:08.046 sip_endpoint.c  Dropping response Response msg 200/REGISTER/cseq=54995 (rdata0x4c69ec) from 204.11.192.35:5080 because sent-by is mismatch
+12-03 18:59:11.106 D/libpjsip(  310):  18:59:11.113   pjsua_core.c  TX 561 bytes Request msg REGISTER/cseq=54995 (tdta0x4c8d80) to UDP 204.11.192.35:5080:
+12-03 18:59:12.036 D/libpjsip(  310):  18:59:12.040 sip_endpoint.c  Dropping response Response msg 200/REGISTER/cseq=54995 (rdata0x4c69ec) from 204.11.192.35:5080 because sent-by is mismatch
+12-03 18:59:15.109 D/libpjsip(  310):  18:59:15.114   pjsua_core.c  TX 561 bytes Request msg REGISTER/cseq=54995 (tdta0x4c8d80) to UDP 204.11.192.35:5080:
+12-03 18:59:16.029 D/libpjsip(  310):  18:59:16.033 sip_endpoint.c  Dropping response Response msg 200/REGISTER/cseq=54995 (rdata0x4c69ec) from 204.11.192.35:5080 because sent-by is mismatch
+12-03 18:59:19.113 D/libpjsip(  310):  18:59:19.115   pjsua_core.c  TX 561 bytes Request msg REGISTER/cseq=54995 (tdta0x4c8d80) to UDP 204.11.192.35:5080:
+12-03 18:59:20.016 D/libpjsip(  310):  18:59:20.025 sip_endpoint.c  Dropping response Response msg 200/REGISTER/cseq=54995 (rdata0x4c69ec) from 204.11.192.35:5080 because sent-by is mismatch
+12-03 18:59:23.116 D/libpjsip(  310):  18:59:23.116   pjsua_core.c  TX 561 bytes Request msg REGISTER/cseq=54995 (tdta0x4c8d80) to UDP 204.11.192.35:5080:
+12-03 18:59:24.016 D/libpjsip(  310):  18:59:24.020 sip_endpoint.c  Dropping response Response msg 200/REGISTER/cseq=54995 (rdata0x4c69ec) from 204.11.192.35:5080 because sent-by is mismatch
+12-03 18:59:27.110 D/libpjsip(  310):  18:59:27.116   pjsua_core.c  TX 561 bytes Request msg REGISTER/cseq=54995 (tdta0x4c8d80) to UDP 204.11.192.35:5080:
+12-03 18:59:28.010 D/libpjsip(  310):  18:59:28.014 sip_endpoint.c  Dropping response Response msg 200/REGISTER/cseq=54995 (rdata0x4c69ec) from 204.11.192.35:5080 because sent-by is mismatch
+12-03 18:59:31.116 D/libpjsip(  310):  18:59:31.116   pjsua_core.c  TX 561 bytes Request msg REGISTER/cseq=54995 (tdta0x4c8d80) to UDP 204.11.192.35:5080:
+12-03 18:59:32.316 D/libpjsip(  310):  18:59:32.318 sip_endpoint.c  Dropping response Response msg 200/REGISTER/cseq=54995 (rdata0x4c69ec) from 204.11.192.35:5080 because sent-by is mismatch
+12-03 18:59:35.116 D/libpjsip(  310):  18:59:35.117   pjsua_core.c  TX 561 bytes Request msg REGISTER/cseq=54995 (tdta0x4c8d80) to UDP 204.11.192.35:5080:
+12-03 18:59:35.612 W/libpjsip(  310):  18:59:35.612    pjsua_acc.c  SIP registration failed, status=408 (Request Timeout)
+12-03 18:59:35.612 D/SIP UA Receiver(  310): New reg state for : 0
+12-03 18:59:35.612 D/SIP UA Receiver(  310): In reg state
+12-03 18:59:35.626 D/libpjsip(  310):  18:59:35.632   pjsua_core.c  TX 561 bytes Request msg REGISTER/cseq=64261 (tdta0x2faab0) to UDP 204.11.192.35:5080:
+12-03 18:59:35.626 I/libpjsip(  310):  18:59:35.634    pjsua_acc.c  Registration sent
+12-03 18:59:36.531 D/libpjsip(  310):  18:59:36.535 sip_endpoint.c  Dropping response Response msg 200/REGISTER/cseq=54995 (rdata0x4c69ec) from 204.11.192.35:5080 because sent-by is mismatch
+12-03 18:59:36.531 D/libpjsip(  310):  18:59:36.536 sip_endpoint.c  Dropping response Response msg 407/REGISTER/cseq=64261 (rdata0x4552c4) from 204.11.192.35:5080 because sent-by is mismatch
+12-03 18:59:37.401 D/libpjsip(  310):  18:59:37.402 sip_endpoint.c  Dropping response Response msg 407/REGISTER/cseq=64261 (rdata0x4c69ec) from 204.11.192.35:5080 because sent-by is mismatch
+12-03 18:59:37.525 D/libpjsip(  310):  18:59:37.531   pjsua_core.c  TX 561 bytes Request msg REGISTER/cseq=64261 (tdta0x2faab0) to UDP 204.11.192.35:5080:
+12-03 18:59:38.321 D/libpjsip(  310):  18:59:38.325 sip_endpoint.c  Dropping response Response msg 407/REGISTER/cseq=64261 (rdata0x4552c4) from 204.11.192.35:5080 because sent-by is mismatch
+12-03 19:02:54.713 D/libpjsip(  310):  19:02:54.716   pjsua_core.c  TX 561 bytes Request msg REGISTER/cseq=64261 (tdta0x2faab0) to UDP 204.11.192.35:5080:
+12-03 19:02:54.723 W/libpjsip(  310):  19:02:54.723    pjsua_acc.c  SIP registration failed, status=408 (Request Timeout)
+12-03 19:02:54.723 D/SIP UA Receiver(  310): New reg state for : 0
+12-03 19:02:54.723 D/SIP UA Receiver(  310): In reg state
+...
+12-03 19:05:30.675 D/libpjsip(  310):  19:05:30.676   pjsua_core.c  TX 560 bytes Request msg REGISTER/cseq=8832 (tdta0x4c8d80) to UDP 204.11.192.23:5080:
+12-03 19:05:30.795 D/libpjsip(  310):  19:05:30.802   pjsua_core.c  RX 479 bytes Response msg 407/REGISTER/cseq=8832 (rdata0x4552c4) from UDP 204.11.192.23:5080:
+12-03 19:05:30.795 D/libpjsip(  310): SIP/2.0 407 Proxy Authentication Required
+12-03 19:05:30.795 D/libpjsip(  310):  19:05:30.803   pjsua_core.c  TX 766 bytes Request msg REGISTER/cseq=8833 (tdta0x4c8d80) to UDP 204.11.192.23:5080:
+12-03 19:05:30.955 D/libpjsip(  310):  19:05:30.957   pjsua_core.c  RX 341 bytes Response msg 200/REGISTER/cseq=8833 (rdata0x4552c4) from UDP 204.11.192.23:5080:
+12-03 19:05:30.955 D/libpjsip(  310): SIP/2.0 200 Ok</p>
+
+<h2>12-03 19:05:30.955 I/libpjsip(  310):  19:05:30.957    pjsua_acc.c  : registration success, status=200 (Ok), will re-register in 60 seconds</h2></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #5</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Dec 4, 2010 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Ok, I could try to disable the flag in pjsip build.</p>
+
+<p>Seems to have not a lot of impact.</p>
+
+<p>I'll turn of the setting in next build and see if there is regression (or if somebody cry about that ;) ).</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #6</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Dec 4, 2010 by
+                  <i class="ng-binding">Happy Rhino</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Thanks!  Will give it a try as soon as it's available.  Is it in the 0.00-15-18 build?</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #7</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Dec 4, 2010 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Indeed, included in 0.00-15-18</p>
+
+<p>Let me know how it goes with the modification.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #8</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Dec 5, 2010 by
+                  <i class="ng-binding">Happy Rhino</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>With this change registration seems to have become stable at last.  Thanks a lot for the quick fix!</p>
+
+<p>[I did run into a couple of unrelated and minor problems with this build which you might already be aware of.  One is that when setting up the account in the expert wizard, if some values are entered with the wrong syntax so that they appear as orange and the Save button at the bottom is greyed out, if you then hit Menu you get another Save button and if you press it, the application locks up and has to be force-closed.  The other is that with audible dial feedback enabled and vibrate dial feedback disabled, both audible and vibrate feedback occur.  But otherwise the build has been working fine so far.]</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #9</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Dec 7, 2010 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Ok for the save in menu will be fixed in next release.
+For vibrate &amp; audible feedback that's more tricky.</p>
+
+<p>There is something I did in hurry that is not really clean : if vibrate or tone feedback is set to false in settings it get the setting from the android system.
+The actual setting label should be "Force vibrate feedback" and "Force dialtone feedback". Else it fallback to android settings settings. But I've not decided yet if should be a "Auto/Force yes/Force no" list or just a "Force  no" checkbox (or no option at all even if it's needed for workaround some bad device behavior).</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments -->
+          </div>
+
+          <!-- Sidebar with additional information -->
+          <div class="maia-col-4">
+            <div class="maia-aside">
+              <p>Status: <code class="ng-binding">NextRelease</code></p>
+              <!-- ngIf: issueCtrl.issue.labels.length > 0 --><p ng-if="issueCtrl.issue.labels.length &gt; 0" class="ng-scope">
+                Labels:
+                <br>
+                <!-- ngRepeat: label in issueCtrl.issue.labels track by $index --><span ng-repeat="label in issueCtrl.issue.labels track by $index" class="ng-scope">
+                  <span class="gca-label ng-binding">Type-Defect</span>
+                </span><!-- end ngRepeat: label in issueCtrl.issue.labels track by $index --><span ng-repeat="label in issueCtrl.issue.labels track by $index" class="ng-scope">
+                  <span class="gca-label ng-binding">Priority-Medium</span>
+                </span><!-- end ngRepeat: label in issueCtrl.issue.labels track by $index -->
+              </p><!-- end ngIf: issueCtrl.issue.labels.length > 0 -->
+            </div>
+          </div>
+        </div><!-- end ngIf: !issueCtrl.error -->
+      </div>
+    </div>
+
+  </div>
+</div>
+</div></div></div>
+    <noscript>
+      &lt;p&gt;The Google Code Archive requires JavaScript to be enabled in your browser.&lt;/p&gt;
+    </noscript>
+
+    <div id="maia-signature"></div>
+    <div class="maia-footer" id="maia-footer">
+      <div id="maia-footer-local">
+      </div>
+      <div id="maia-footer-global">
+        <div class="maia-aux">
+          <ul>
+            <li>
+              <a href="//www.google.com/">Google</a>
+            </li>
+            <li>
+              <a href="//www.google.com/intl/en/about/">About Google</a>
+            </li>
+            <li>
+              <a href="//www.google.com/intl/en/policies/privacy/">Privacy</a>
+            </li>
+            <li>
+              <a href="//www.google.com/intl/en/policies/terms/">Terms</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <script src="//www.google.com/js/maia.js"></script>
+  
+
+
+</body></html>

@@ -1,0 +1,570 @@
+https://code.google.com/archive/p/csipsimple/issues/326<!DOCTYPE html><html class="google ng-scope" lang="en" ng-app="codesiteArchive.application"><head>
+    <meta charset="utf-8">
+    <meta content="initial-scale=1, minimum-scale=1, width=device-width" name="viewport">
+
+    <!-- https://developers.google.com/webmasters/ajax-crawling/docs/specification -->
+    <meta name="fragment" content="!">
+    <title>Google Code Archive - Long-term storage for Google Code Project Hosting.</title>
+
+    <link rel="icon" type="image/vnd.microsoft.icon" href="/archive/img/project-hosting.ico">
+    <script src="//www.google.com/js/google.js"></script>
+    <link href="//www.google.com/css/maia.css" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;lang=en" rel="stylesheet">
+    <link rel="stylesheet" href="/archive/archive_css.css">
+    <script>
+      CLOSURE_NO_DEPS = true;
+    </script>
+    <script src="/archive/angular.js"></script><style type="text/css">@charset "UTF-8";
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak],
+.ng-cloak, .x-ng-cloak,
+.ng-hide:not(.ng-hide-animate) {
+  display: none !important;
+}
+
+ng\:form {
+  display: block;
+}
+
+.ng-animate-shim {
+  visibility:hidden;
+}
+
+.ng-anchor {
+  position:absolute;
+}
+</style>
+    <script src="/archive/pagedown.js"></script>
+    <script src="/archive/archive.js"></script>
+    <base href="/archive/">
+  </head>
+
+  <body>
+    <div class="maia-header" id="maia-header" role="banner">
+      <div class="maia-aux">
+        <a href="/archive/">
+          </a><h1><a href="/archive/">
+            <img alt="Google" src="//www.google.com/images/branding/googlelogo/1x/googlelogo_color_116x41dp.png"> Code</a>
+          </h1>
+        
+        <a href="/archive/">
+          <h2>Archive</h2>
+        </a>
+        <a class="maia-teleport" href="#content">Skip to content</a>
+        <div class="maia-util">
+          <form action="/archive/search" class="maia-search ng-pristine ng-valid">
+            <input name="q" placeholder="Search this site" type="text">
+            <button class="maia-button">
+              <span class="maia-search-icon">Search</span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- ngView: --><div ng-view="" class="ng-scope"><div ng-controller="ProjectIssueCtrl as issueCtrl" class="ng-scope">
+<nav-bar-widget nav-level-1="projectCtrl.navLevel1" class="ng-isolate-scope"><div class="maia-nav maia-complex" id="maia-nav-x" role="navigation">
+  <div class="maia-aux">
+    <ul>
+      <li ng-class="{active: navLevel1 == 'projects'}">
+        <a href="/archive/">Projects</a>
+        <!-- ngIf: navLevel2 -->
+      </li>
+      <li ng-class="{active: navLevel1 == 'search'}">
+        <a href="/archive/search">Search</a>
+      </li>
+      <li ng-class="{active: navLevel1 == 'about'}">
+        <a href="/archive/about">About</a>
+      </li>
+    </ul>
+  </div>
+</div>
+</nav-bar-widget>
+<div id="maia-main" role="main">
+
+  <!-- ngIf: issueCtrl.notFound -->
+
+  <div ng-hide="issueCtrl.notFound">
+    <!-- Left-side resource nav -->
+    <project-resources-widget domain="issueCtrl.domain" project="issueCtrl.projectName" class="ng-isolate-scope"><div class="maia-nav" id="maia-nav-y" role="navigation">
+  <!-- ngIf: domain == 'code.google.com' --><ul ng-if="domain == 'code.google.com'" class="ng-scope">
+    <li class="active">
+      <a href="/archive/p/csipsimple/">Project</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/source">Source</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/issues">Issues</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/wikis">Wikis</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/downloads">Downloads</a>
+    </li>
+  </ul><!-- end ngIf: domain == 'code.google.com' -->
+
+    <!-- ngIf: domain != 'code.google.com' -->
+</div></project-resources-widget>
+
+    <div class="maia-article" role="article">
+      <div class="maia-teleport" id="content"></div>
+      <div class="maia-cols">
+        <div id="gca-project-header" class="maia-col-10">
+          <a id="gca-export-to-gh" class="maia-button" href="https://code.google.com/export-to-github/export?project=csipsimple">Export to GitHub</a>
+            <img class="gca-project-logo" src="https://storage.googleapis.com/google-code-archive/v2/code.google.com/csipsimple/logo.png">
+            <h1 class="ng-binding">csipsimple - issue #326</h1>
+            <p class="ng-binding">Sipsorcery DNS on Mobile data network</p>
+        </div>
+
+        <div class="maia-col-10">
+          <hr>
+
+        <!-- ngIf: issueCtrl.error -->
+
+        <!-- ngIf: !issueCtrl.error --><div ng-if="!issueCtrl.error" class="ng-scope">
+          <!-- Comments -->
+          <div class="maia-col-8">
+            <!-- ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Oct 30, 2010 by
+                  <i class="ng-binding">Happy Giraffe</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p><b>What steps will reproduce the problem?</b>
+1.specify sipsorcery account
+2.over wifi it works fine
+3.over mobile carrier it it reports a registration error - bad gateway</p>
+
+<p><b>What is the expected output? What do you see instead?</b>
+registration error - bad gateway</p>
+
+<p><b>What version of the product are you using? On what operating system?</b>
+0.0.15 -006 dev</p>
+
+<p><b>Please provide any additional information below.</b>
+running on HTC HERO with Froydvillain 1.5
+additionally I got a Voipcheap, a Sipgate and a Gizmo5 account specified and they work perfectly on 3G or HSDPA</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #1</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Oct 30, 2010 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Maybe for sipsorcery you need to activate stun... Worth to be tried. 
+Some sip servers, such as ekiga - example I well know-, refuse to register with a private url and you need to provide them directly your public IP which is done by STUN.
+So maybe, activating stun will help. </p>
+
+<p>Else you can try to use the new "record logs" feature available from menu &gt; help. And send me what is happening, maybe the full trace is more verbose about the bad gateway error.
+Or, it's maybe something to see with sipsorcery ... if works well with your other sip provider... no? (Or another thought, maybe your 3G carrier that block sipsorcery domain.... )</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #2</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Oct 30, 2010 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Hop, another thought, maybe it's linked to issue 300? </p>
+
+<p>There is also an open point on sip sorcery forum.
+I've just contacted their support guy to see if there is something we could do together for their users.
+<a href="http://forum.sipsorcery.com/viewtopic.php?f=6&amp;t=2897&amp;p=17489#p17489">http://forum.sipsorcery.com/viewtopic.php?f=6&amp;t=2897&amp;p=17489#p17489</a></p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #3</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Oct 30, 2010 by
+                  <i class="ng-binding">Happy Giraffe</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Thanks for your quick reply on this,
+I've seen this thread on the sipsorcery forum, but didn't really relate to it since it seems to work perfectly fine over wifi.
+The interesting part is that it also isn't a mobile provider issue since I had sipdroid running until yesterday with exactly the same settings I am trying to use now with CSIsimple.
+I tried the STUN, using stun01.sipphone.com, didn't work either.
+I also observed that the application is going nuts when I try to register to sipsorcery over 3G or HDSPA, it kind of slows down the entire system.
+I didn't really get worm with the log file extraction, is there a way to limit the log to CSIsipmle only since I find everything in there?</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #4</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Oct 30, 2010 by
+                  <i class="ng-binding">Happy Giraffe</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Thanks for your quick reply on this,
+I've seen this thread on the sipsorcery forum, but didn't really relate to it since it seems to work perfectly fine over wifi.
+The interesting part is that it also isn't a mobile provider issue since I had sipdroid running until yesterday with exactly the same settings I am trying to use now with CSIsimple.
+I tried the STUN, using stun01.sipphone.com, didn't work either.
+I also observed that the application is going nuts when I try to register to sipsorcery over 3G or HDSPA, it kind of slows down the entire system.
+I didn't really get worm with the log file extraction, is there a way to limit the log to CSIsipmle only since I find everything in there?</p>
+
+<p>may this be the problem:
+10-30 18:17:59.823 D/libpjsip(11483):  18:17:59.823  sip_resolve.c  Failed to resolve 'sipsorcery.com'. Err=70018 (gethostbyname() has returned error (PJ_ERESOLVE))
+10-30 18:17:59.823 W/libpjsip(11483):  18:17:59.824    tsx0x25795c  Failed to send Request msg REGISTER/cseq=56715 (tdta0x2348f0)! err=70018 (gethostbyname() has returned error (PJ_ERESOLVE))
+10-30 18:17:59.823 V/libpjsip(11483):  18:17:59.824    tsx0x25795c  State changed from Null to Terminated, event=TRANSPORT_ERROR
+10-30 18:17:59.823 W/libpjsip(11483):  18:17:59.824    pjsua_acc.c  SIP registration failed, status=502 (gethostbyname() has returned </p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #5</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Oct 30, 2010 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Comment deleted</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #6</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Oct 30, 2010 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Ok... so sounds android has not updated his DNS.
+Try to activate DNS SRV in expert settings 
+Settings &gt; Network &gt; DNS SRV
+It will use the sip stack to resolve DNS instead of relying on android DNS stack</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #7</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Oct 30, 2010 by
+                  <i class="ng-binding">Happy Giraffe</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Just installed your latest and found out that it doesn't keep the settings when you uninstall the app before installing the new version, a bummer.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #8</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Oct 30, 2010 by
+                  <i class="ng-binding">Happy Giraffe</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Ok, here we go this is tha 17 version with DNS SRV enabled:</p>
+
+<p>Account  added with id 0
+10-30 18:40:54.563 I/libpjsip(11913):  18:40:54.567    pjsua_acc.c  Registration sent
+10-30 18:40:54.573 D/Dialer  (11913): Update chooser choice
+10-30 18:40:54.743 D/dalvikvm(11913): GC_FOR_MALLOC freed 8965 objects / 529464 bytes in 138ms
+10-30 18:40:54.803 D/SIP AccountList(11913): &gt; Need to update list !
+10-30 18:40:56.243 D/libpjsip(11913):  18:40:56.250     resolver.c  Re-transmitting 42 bytes to NS 0 (85.62.229.133:53): DNS SRV query for _sip._udp.sipsorcery.com
+10-30 18:40:57.263 D/SIP HOME(11913): On Resume SIPHOME
+10-30 18:40:57.273 D/SIP HOME(11913): WE CAN NOW start SIP service
+10-30 18:40:57.283 D/Dialer  (11913): Update chooser choice
+10-30 18:40:57.603 D/SIP SRV (11913): Start sip stack because start asked
+10-30 18:40:57.603 D/PreferencesWrapper(11913): We are valid for MOBILE
+10-30 18:40:57.603 I/SIP SRV (11913): Will start sip : false
+10-30 18:40:57.623 D/SIP AccountList(11913): Unbind from service
+10-30 18:40:58.251 D/libpjsip(11913):  18:40:58.251     resolver.c  Re-transmitting 42 bytes to NS 0 (85.62.229.133:53): DNS SRV query for _sip._udp.sipsorcery.com
+10-30 18:40:58.743 D/SIP HOME(11913): On back pressed ! 
+10-30 18:40:58.753 D/SIP HOME(11913): On back pressed ! 
+10-30 18:41:00.243 D/libpjsip(11913):  18:41:00.252 _sip._udp.sips  DNS SRV resolution failed for _sip._udp.sipsorcery.com: Operation timed out (PJ_ETIMEDOUT)
+10-30 18:41:00.243 D/libpjsip(11913):  18:41:00.252 _sip._udp.sips  DNS SRV resolution failed for _sip._udp.sipsorcery.com, trying resolving A record for sipsorcery.com
+10-30 18:41:00.243 D/libpjsip(11913):  18:41:00.253 _sip._udp.sips  DNS A record resolution failed: DNS "Server failure" (PJLIB_UTIL_EDNS_SERVFAIL)
+10-30 18:41:00.243 D/libpjsip(11913):  18:41:00.253  sip_resolve.c  DNS A record resolution failed: DNS "Server failure" (PJLIB_UTIL_EDNS_SERVFAIL)
+10-30 18:41:00.253 W/libpjsip(11913):  18:41:00.253    tsx0x37cd24  Failed to send Request msg REGISTER/cseq=19079 (tdta0x3a5420)! err=320052 (DNS "Server failure" (PJLIB_UTIL_EDNS_SERVFAIL))
+10-30 18:41:00.253 D/libpjsip(11913):  18:41:00.253 _sip._udp.sips  DNS SRV resolution failed for _sip._udp.sipsorcery.com: Operation timed out (PJ_ETIMEDOUT)
+10-30 18:41:00.253 D/libpjsip(11913):  18:41:00.254 _sip._udp.sips  DNS SRV resolution failed for _sip._udp.sipsorcery.com, trying resolving A record for sipsorcery.com
+10-30 18:41:00.253 D/libpjsip(11913):  18:41:00.254 _sip._udp.sips  DNS A record resolution failed: DNS "Server failure" (PJLIB_UTIL_EDNS_SERVFAIL)
+10-30 18:41:00.253 D/libpjsip(11913):  18:41:00.254  sip_resolve.c  DNS A record resolution failed: DNS "Server failure" (PJLIB_UTIL_EDNS_SERVFAIL)
+10-30 18:41:00.253 W/libpjsip(11913):  18:41:00.254    tsx0x38df04  Failed to send Request msg REGISTER/cseq=10867 (tdta0x38ccc0)! err=320052 (DNS "Server failure" (PJLIB_UTIL_EDNS_SERVFAIL))
+10-30 18:41:00.253 W/libpjsip(11913):  18:41:00.254    pjsua_acc.c  SIP registration failed, status=503 (DNS "Server failure" (PJLIB_UTIL_EDNS_SERVFAIL))</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #9</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Oct 30, 2010 by
+                  <i class="ng-binding">Happy Giraffe</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>I checked the sipsorcery console and the device doesn't even reach sipsorcery, there is no log of any register request of that device at all</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #10</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Oct 30, 2010 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>The fact that it doesn't reach is absolutely logic regarding the trace you have on CSipSimple traces...
+It doesn't resolve sipsorcery at all. So can't reach it. The question is... why it doesn't resolve... nor android, nor pjsip sip stack...
+Could be cause blacklisted on your carrier DNS :S. But would not explain why it worked with sipdroid previously installed on your phone.
+You can try to use expert wizard (while editing your account use menu choose wizard to switch to another wizard) to replace registrar uri from
+sip:sipsorcery.com to sip:69.59.142.213 : it will avoid dns resolution.</p>
+
+<p>See then if it goes far than just dns resolution. Should at least try to reach the sipsorcery server.</p>
+
+<p>For update of new csipsimple dev versions :
+ * Indeed there is an open issue about saving account settings.. I know that's not easy for now to be a alpha testor ...
+ * If you are already using dev version, you can install it using adb and force the update to keep your settings (there is an option on adb  install -r CSipSimple.apk (it will keep your datas).</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #11</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Oct 30, 2010 by
+                  <i class="ng-binding">Happy Giraffe</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Ok that helped, defining sipsorcery's IP on Realm and Proxy lets me register.
+And here comes the big but ;-)
+CSIsimple registers fine on sipsorcery via udp, but when I define tcp, it seems to register, but I don't receive incoming calls, even though I am able to place calls.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #12</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Oct 30, 2010 by
+                  <i class="ng-binding">Happy Giraffe</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>this actually brings me to another question, regarding this: <a href="http://code.google.com/p/sipdroid/wiki/NewStandbyTechnique">http://code.google.com/p/sipdroid/wiki/NewStandbyTechnique</a>
+I was wondering whether I could push the timeout limit in CSIPsimple to 3600s and the keep alive to 120s in order to reduce battery impact.
+The timeout is an important reason for the use of TCP, I suppose you implemented TCP for that purpose </p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #13</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Oct 30, 2010 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Could be great to test this values. you can read : 
+<a href="http://code.google.com/p/csipsimple/issues/detail?id=81">http://code.google.com/p/csipsimple/issues/detail?id=81</a>
+and 
+<a href="http://code.google.com/p/csipsimple/issues/detail?id=50">http://code.google.com/p/csipsimple/issues/detail?id=50</a>
+that are also mentioning the link from sipdroid.
+Let me know how it goes. However regarding the sipdroid code, I'm not sure they definitely use what they announce in this wiki page.</p>
+
+<p>Well, here in csipsimple, you can play with these values. So try it and let me know how it goes.
+I know that on some 3G networks in some countries it has to be reduced (timeout reduce and keep alive increased) to be able to still receive calls after a while (15 minutes for example).</p>
+
+<p>I didn't get time to really test values and impacts on the battery.
+But if you could test would be nice to share your results so that I could introduce bests results as default values.
+I'm sure that using two account consume more battery than only one ;), that increasing log level also consume more battery, having a sip provider that constantly send Notify or Option also increase.... but I don't know exactly what is the impact of timeouts and keep alive. So would be really interested by tests on this point!</p>
+
+<p>There is apps that monitor battery and display battery graph. Maybe could be useful to compare result trying to keep scenario as much as possible the same between each test.</p>
+
+<p>About the first issue you had, if putting IP solve the problem, I think that there is something with DNS of your mobile carrier. 
+Still two strange points :
+ * that other sip client succeeded, unless they do cache with DNS resolution, (which I think is a bad idea when you have an enterprise ip-pbx).
+ * other accounts you have succeed in resolving dns names of other server (which make me think that the DNS is reachable and can resolve other domain names)</p>
+
+<p>I mark the issue as closed but I keep it in mind. And if somebody else have the same problem, I'll reopen it. 
+Keep me in touch about your result on timeout and keep alive. You can put your results on the issue 81 (I think it's the right place about this optimisation)</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments -->
+          </div>
+
+          <!-- Sidebar with additional information -->
+          <div class="maia-col-4">
+            <div class="maia-aside">
+              <p>Status: <code class="ng-binding">WrongConfig</code></p>
+              <!-- ngIf: issueCtrl.issue.labels.length > 0 --><p ng-if="issueCtrl.issue.labels.length &gt; 0" class="ng-scope">
+                Labels:
+                <br>
+                <!-- ngRepeat: label in issueCtrl.issue.labels track by $index --><span ng-repeat="label in issueCtrl.issue.labels track by $index" class="ng-scope">
+                  <span class="gca-label ng-binding">Type-Defect</span>
+                </span><!-- end ngRepeat: label in issueCtrl.issue.labels track by $index --><span ng-repeat="label in issueCtrl.issue.labels track by $index" class="ng-scope">
+                  <span class="gca-label ng-binding">Priority-Medium</span>
+                </span><!-- end ngRepeat: label in issueCtrl.issue.labels track by $index -->
+              </p><!-- end ngIf: issueCtrl.issue.labels.length > 0 -->
+            </div>
+          </div>
+        </div><!-- end ngIf: !issueCtrl.error -->
+      </div>
+    </div>
+
+  </div>
+</div>
+</div></div></div>
+    <noscript>
+      &lt;p&gt;The Google Code Archive requires JavaScript to be enabled in your browser.&lt;/p&gt;
+    </noscript>
+
+    <div id="maia-signature"></div>
+    <div class="maia-footer" id="maia-footer">
+      <div id="maia-footer-local">
+      </div>
+      <div id="maia-footer-global">
+        <div class="maia-aux">
+          <ul>
+            <li>
+              <a href="//www.google.com/">Google</a>
+            </li>
+            <li>
+              <a href="//www.google.com/intl/en/about/">About Google</a>
+            </li>
+            <li>
+              <a href="//www.google.com/intl/en/policies/privacy/">Privacy</a>
+            </li>
+            <li>
+              <a href="//www.google.com/intl/en/policies/terms/">Terms</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <script src="//www.google.com/js/maia.js"></script>
+  
+
+
+</body></html>

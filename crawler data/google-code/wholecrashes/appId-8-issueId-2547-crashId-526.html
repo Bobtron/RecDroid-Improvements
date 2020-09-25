@@ -1,0 +1,20 @@
+https://github.com/microg/android_packages_apps_GmsCore/issues/560<td class="d-block comment-body markdown-body  js-comment-body">
+
+          <p>I get this at boot:</p>
+<pre><code>[ 06-17 21:30:50.251  3264: 3598 W/GmsGcmMcsSvc ]
+Exception while connecting!
+java.lang.NullPointerException: Attempt to invoke virtual method 'boolean android.net.NetworkInfo.isRoaming()' on a null object reference
+	at org.microg.gms.gcm.GcmPrefs.getNetworkPrefForInfo(GcmPrefs.java:103)
+	at org.microg.gms.gcm.McsService.connect(McsService.java:370)
+	at org.microg.gms.gcm.McsService.handleMessage(McsService.java:535)
+	at android.os.Handler.dispatchMessage(Handler.java:98)
+	at android.os.Looper.loop(Looper.java:154)
+	at org.microg.gms.gcm.McsService$HandlerThread.run(McsService.java:152)
+
+[ 06-17 21:30:50.251  3264: 3598 D/GmsGcmMcsSvc ]
+Teardown initiated, reason: java.lang.NullPointerException: Attempt to invoke virtual method 'boolean android.net.NetworkInfo.isRoaming()' on a null object reference
+</code></pre>
+<p>The problem is <a href="https://github.com/microg/android_packages_apps_GmsCore/blob/master/play-services-core/src/main/java/org/microg/gms/gcm/GcmPrefs.java#L102">here</a> but it is caused by the fact that there isn't a null check for the two call of <code>cm.getActiveNetworkInfo()</code> <a href="https://github.com/microg/android_packages_apps_GmsCore/blob/master/play-services-core/src/main/java/org/microg/gms/gcm/McsService.java#L366">here</a>.</p>
+<p><strong>ConnectivityManager.getActiveNetworkInfo():</strong><br>
+<code>a NetworkInfo object for the current default network or **null** if no default network is currently active.</code></p>
+      </td>

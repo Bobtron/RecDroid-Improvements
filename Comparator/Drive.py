@@ -2,6 +2,8 @@ import sys
 # from pyemd import emd
 from gensim.models.keyedvectors import KeyedVectors
 import Tools
+from scipy import stats
+import statistics
 
 model = sys.argv[1]
 binary = sys.argv[2]
@@ -16,9 +18,15 @@ bug_r_files = [
     # "bug_reports/bugreport2"  ,
     #  "bug_reports/bugreport3",
     #  "bug_reports/bugreport4"
-    "bug_reports/made_up/1_bugreport0",
-    "bug_reports/made_up/1_bugreport1",
-    "bug_reports/made_up/1_bugreport2"
+    # "../bug_reports/Synthesized/Fenix/split0",
+    # "../bug_reports/Synthesized/Fenix/bugreport1",
+    '../bug_reports/Synthesized/Newsblur/split0',
+    '../bug_reports/Synthesized/Newsblur/split1',
+    '../bug_reports/Synthesized/Newsblur/split2',
+    '../bug_reports/Synthesized/Newsblur/split3',
+    '../bug_reports/Synthesized/Newsblur/split4'
+    # '../bug_reports/Synthesized/Fenix/split0',
+    # '../bug_reports/Synthesized/Fenix/split1'
 ]
 
 
@@ -62,6 +70,8 @@ for bug_report_i in range(len(bug_report_step_arr) - 1):
     sim_arr_map.append(i_arr)
 # print(sim_arr_map)
 
+all_steps = []
+
 with open(output, 'w') as file:
     for report_i in range(len(sim_arr_map)):
         for step_j in range(len(sim_arr_map[report_i])):
@@ -69,4 +79,17 @@ with open(output, 'w') as file:
                 for step_l in range(len(sim_arr_map[report_i][step_j][report_k])):
                     sim_arr_map[report_i][step_j][report_k][step_l] = (sim_arr_map[report_i][step_j][report_k][step_l] - min) / (max - min)
                     print(sim_arr_map[report_i][step_j][report_k][step_l])
+                    all_steps.append(sim_arr_map[report_i][step_j][report_k][step_l])
                     file.write( str(report_i) + "," + str(step_j) + "," + str(report_k + report_i + 1) + "," + str(step_l) + "," + "{:.6f}".format(sim_arr_map[report_i][step_j][report_k][step_l]) + "\n")
+
+# print(stats.describe(all_steps))
+#
+# print(statistics.mean(all_steps))
+# print(statistics.stdev(all_steps))
+# print(statistics.median_low(all_steps))
+# print(statistics.median(all_steps))
+# print(statistics.median_high(all_steps))
+
+print("Min Score to Combine: " + str(statistics.mean(all_steps) + 0.5*statistics.stdev(all_steps)))
+
+

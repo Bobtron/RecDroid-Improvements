@@ -1,0 +1,28 @@
+https://github.com/microg/android_packages_apps_UnifiedNlp/issues/156<td class="d-block comment-body markdown-body  js-comment-body">
+
+          <p>It isn't listed anywhere in dependencies, but <code>build.gradle</code> does reference file from there:</p>
+<p></p><div class="border rounded-1 my-2">
+  <div class="f6 px-3 py-2 lh-condensed border-bottom bg-gray-light">
+    <p class="mb-0 text-bold">
+      <a href="https://github.com/microg/android_packages_apps_UnifiedNlp/blob/b331309c66d399918f7b293ceb6c3533ad24af88/unifiednlp-compat/build.gradle#L28">android_packages_apps_UnifiedNlp/unifiednlp-compat/build.gradle</a>
+    </p>
+    <p class="mb-0 text-gray-light">
+         Line 28
+      in
+      <a data-pjax="true" class="commit-tease-sha" href="/microg/android_packages_apps_UnifiedNlp/commit/b331309c66d399918f7b293ceb6c3533ad24af88">b331309</a>
+    </p>
+    </div>
+    <div itemprop="text" class="blob-wrapper blob-wrapper-embedded data">
+    <table class="highlight tab-size mb-0 js-file-line-container" data-tab-size="8">
+
+        <tbody><tr class="border-0">
+          <td id="L28" class="blob-num border-0 px-3 py-0 bg-white js-line-number" data-line-number="28"></td>
+          <td id="LC28" class="blob-code border-0 px-3 py-0 bg-white blob-code-inner js-file-line"> compileClasspath <span class="pl-k">+</span><span class="pl-k">=</span> project<span class="pl-k">.</span>rootProject<span class="pl-k">.</span>files(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-smi">$s<span class="pl-smi">dkDir</span></span>/platforms/android-25/android.jar<span class="pl-pds">"</span></span>) </td>
+        </tr>
+    </tbody></table>
+  </div>
+</div>
+
+<p>Without manually installing Android SDK Platform 25 the build fails with a lot of errors like <code>error: package android.os does not exist</code>. By default only Android SDK Platform 27 is automatically installed. Is something missing in <a class="commit-link" href="https://github.com/microg/android_packages_apps_UnifiedNlp/commit/b331309c66d399918f7b293ceb6c3533ad24af88"><tt>b331309</tt></a>, or should Android SDK Platform 25 be required explicitly (here or in <a href="https://github.com/microg/android_packages_apps_GmsCore">https://github.com/microg/android_packages_apps_GmsCore</a>, maybe just as additional step in <a href="https://github.com/microg/android_packages_apps_GmsCore/wiki/Building">build instruction</a>)?</p>
+<p>Full error message: <a href="https://github.com/microg/android_packages_apps_UnifiedNlp/files/1998889/build-fail.txt">build-fail.txt</a></p>
+      </td>

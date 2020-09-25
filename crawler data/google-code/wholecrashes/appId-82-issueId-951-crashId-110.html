@@ -1,0 +1,17 @@
+https://github.com/the-blue-alliance/the-blue-alliance-android/issues/736<td class="d-block comment-body markdown-body  js-comment-body">
+
+          <p><a href="https://www.vagrantup.com/" rel="nofollow">Vagrant</a> is an awesome tool for configurable dev environments, I think that using it for the app (<a href="https://www.vagrantup.com/docs/docker/" rel="nofollow">backed by Docker containers</a>, not VMs) will lead to a few benefits</p>
+<ul>
+<li>More consistent dev environment (right libraries, versions, external tools, etc)</li>
+<li>I think we can have faster CI builds if Travis just loads a docker image. I'm sick of waiting 10+ minutes for each.</li>
+<li>This can help us with reproducible builds (see <a class="issue-link js-issue-link" data-error-text="Failed to load issue title" data-id="144781832" data-permission-text="Issue title is private" data-url="https://github.com/the-blue-alliance/the-blue-alliance-android/issues/656" href="https://github.com/the-blue-alliance/the-blue-alliance-android/issues/656">#656</a>)</li>
+</ul>
+<p>A few things to evaluate</p>
+<ul class="contains-task-list">
+<li class="task-list-item"><input type="checkbox" id="" disabled class="task-list-item-checkbox"> Is there a way to keep dependency versions (like Android SDK) in sync with the values in <code>build.gradle</code>? That would be amazing</li>
+<li class="task-list-item"><input type="checkbox" id="" disabled class="task-list-item-checkbox"> Ensure that <a href="https://docs.travis-ci.com/user/docker/" rel="nofollow">using a docker image in Travis</a> for environment setup actually gives us a speedup</li>
+<li class="task-list-item"><input type="checkbox" id="" disabled class="task-list-item-checkbox"> Do we maintain a docker image in the repo and let travis build it from dockerscript each test run, or do we host the image and just pull it. Seems like ease of maintenance v. performance.</li>
+<li class="task-list-item"><input type="checkbox" id="" disabled class="task-list-item-checkbox">  Non-linux user support. Do we care that Docker isn't considered <em>stable</em> there yet?</li>
+<li class="task-list-item"><input type="checkbox" id="" disabled class="task-list-item-checkbox"> Maybe this is only useful for the test/prod build environment, rather than everyday development. A decision to make.</li>
+</ul>
+      </td>

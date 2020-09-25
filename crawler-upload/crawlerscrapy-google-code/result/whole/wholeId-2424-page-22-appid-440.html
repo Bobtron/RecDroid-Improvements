@@ -1,0 +1,538 @@
+https://code.google.com/archive/p/csipsimple/issues/2366<!DOCTYPE html><html class="google ng-scope" lang="en" ng-app="codesiteArchive.application"><head>
+    <meta charset="utf-8">
+    <meta content="initial-scale=1, minimum-scale=1, width=device-width" name="viewport">
+
+    <!-- https://developers.google.com/webmasters/ajax-crawling/docs/specification -->
+    <meta name="fragment" content="!">
+    <title>Google Code Archive - Long-term storage for Google Code Project Hosting.</title>
+
+    <link rel="icon" type="image/vnd.microsoft.icon" href="/archive/img/project-hosting.ico">
+    <script src="//www.google.com/js/google.js"></script>
+    <link href="//www.google.com/css/maia.css" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;lang=en" rel="stylesheet">
+    <link rel="stylesheet" href="/archive/archive_css.css">
+    <script>
+      CLOSURE_NO_DEPS = true;
+    </script>
+    <script src="/archive/angular.js"></script><style type="text/css">@charset "UTF-8";
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak],
+.ng-cloak, .x-ng-cloak,
+.ng-hide:not(.ng-hide-animate) {
+  display: none !important;
+}
+
+ng\:form {
+  display: block;
+}
+
+.ng-animate-shim {
+  visibility:hidden;
+}
+
+.ng-anchor {
+  position:absolute;
+}
+</style>
+    <script src="/archive/pagedown.js"></script>
+    <script src="/archive/archive.js"></script>
+    <base href="/archive/">
+  </head>
+
+  <body>
+    <div class="maia-header" id="maia-header" role="banner">
+      <div class="maia-aux">
+        <a href="/archive/">
+          </a><h1><a href="/archive/">
+            <img alt="Google" src="//www.google.com/images/branding/googlelogo/1x/googlelogo_color_116x41dp.png"> Code</a>
+          </h1>
+        
+        <a href="/archive/">
+          <h2>Archive</h2>
+        </a>
+        <a class="maia-teleport" href="#content">Skip to content</a>
+        <div class="maia-util">
+          <form action="/archive/search" class="maia-search ng-pristine ng-valid">
+            <input name="q" placeholder="Search this site" type="text">
+            <button class="maia-button">
+              <span class="maia-search-icon">Search</span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- ngView: --><div ng-view="" class="ng-scope"><div ng-controller="ProjectIssueCtrl as issueCtrl" class="ng-scope">
+<nav-bar-widget nav-level-1="projectCtrl.navLevel1" class="ng-isolate-scope"><div class="maia-nav maia-complex" id="maia-nav-x" role="navigation">
+  <div class="maia-aux">
+    <ul>
+      <li ng-class="{active: navLevel1 == 'projects'}">
+        <a href="/archive/">Projects</a>
+        <!-- ngIf: navLevel2 -->
+      </li>
+      <li ng-class="{active: navLevel1 == 'search'}">
+        <a href="/archive/search">Search</a>
+      </li>
+      <li ng-class="{active: navLevel1 == 'about'}">
+        <a href="/archive/about">About</a>
+      </li>
+    </ul>
+  </div>
+</div>
+</nav-bar-widget>
+<div id="maia-main" role="main">
+
+  <!-- ngIf: issueCtrl.notFound -->
+
+  <div ng-hide="issueCtrl.notFound">
+    <!-- Left-side resource nav -->
+    <project-resources-widget domain="issueCtrl.domain" project="issueCtrl.projectName" class="ng-isolate-scope"><div class="maia-nav" id="maia-nav-y" role="navigation">
+  <!-- ngIf: domain == 'code.google.com' --><ul ng-if="domain == 'code.google.com'" class="ng-scope">
+    <li class="active">
+      <a href="/archive/p/csipsimple/">Project</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/source">Source</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/issues">Issues</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/wikis">Wikis</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/downloads">Downloads</a>
+    </li>
+  </ul><!-- end ngIf: domain == 'code.google.com' -->
+
+    <!-- ngIf: domain != 'code.google.com' -->
+</div></project-resources-widget>
+
+    <div class="maia-article" role="article">
+      <div class="maia-teleport" id="content"></div>
+      <div class="maia-cols">
+        <div id="gca-project-header" class="maia-col-10">
+          <a id="gca-export-to-gh" class="maia-button" href="https://code.google.com/export-to-github/export?project=csipsimple">Export to GitHub</a>
+            <img class="gca-project-logo" src="https://storage.googleapis.com/google-code-archive/v2/code.google.com/csipsimple/logo.png">
+            <h1 class="ng-binding">csipsimple - issue #2366</h1>
+            <p class="ng-binding">Application Restarts after several recieved calls</p>
+        </div>
+
+        <div class="maia-col-10">
+          <hr>
+
+        <!-- ngIf: issueCtrl.error -->
+
+        <!-- ngIf: !issueCtrl.error --><div ng-if="!issueCtrl.error" class="ng-scope">
+          <!-- Comments -->
+          <div class="maia-col-8">
+            <!-- ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on May 15, 2013 by
+                  <i class="ng-binding">Happy Elephant</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p><b>What steps will reproduce the problem?</b>
+1. A side calls B
+2. B side application restarts after the 3rd call
+3. B app re-register again</p>
+
+<p><b>What is the expected output? What do you see instead?</b>
+Continuous receiving of calls. </p>
+
+<p><b>What version of the product are you using? On what operating system?</b>
+I used the CSipSimple  revision 1108 Samdsung devices. Is there a problem on building pjsip or a memory leaked occured?</p>
+
+<p><b>Please provide any additional information below.</b></p>
+
+<p>I/libpjsip( 6404):  17:39:48.802 zrtp_android.c  ZRTP transport created
+D/libpjsip( 6404):  17:39:48.805  pjsua_media.c  Media index 0 selected for call 0
+I/DEBUG   (   89): <strong>* <em></em></strong><em> <strong></strong></em><strong> <em></em></strong><em> <strong></strong></em><strong> <em></em></strong><em> <strong></strong></em><strong> <em></em></strong><em> <strong></strong></em><strong> <em></em></strong><em> <strong></strong></em><strong> <em></em></strong><em> <strong></strong></em><strong> <em></em></strong><em> <strong></strong></em><strong> *</strong>
+I/DEBUG   (   89): Build fingerprint: 'samsung/GT-S5660/GT-S5660:2.3.3/GINGERBREAD/XXKPS:user/release-keys'
+I/DEBUG   (   89): pid: 6404, tid: 6671  &gt;&gt;&gt; com.csipsimple &lt;&lt;&lt;
+I/DEBUG   (   89): signal 11 (SIGSEGV), code 1 (SEGV_MAPERR), fault addr deadbaad
+I/DEBUG   (   89):  r0 deadbaad  r1 0000000c  r2 00000027  r3 00000000
+I/DEBUG   (   89):  r4 00000080  r5 afd46688  r6 002beff0  r7 00000078
+I/DEBUG   (   89):  r8 811bb49c  r9 002beff0  10 00100000  fp 47a7764c
+I/DEBUG   (   89):  ip ffffffff  sp 47a775b8  lr afd19385  pc afd15f00  cpsr 00000030
+I/DEBUG   (   89):  d0  4040000040000000  d1  3fe999999999999a
+I/DEBUG   (   89):  d2  4010000000000000  d3  46fffe00c7000000
+I/DEBUG   (   89):  d4  0000000046fffe00  d5  0000000000000000
+I/DEBUG   (   89):  d6  427e000000000000  d7  000000003f800000
+I/DEBUG   (   89):  d8  0000000000000000  d9  0000000000000000
+I/DEBUG   (   89):  d10 0000000000000000  d11 0000000000000000
+I/DEBUG   (   89):  d12 0000000000000000  d13 0000000000000000
+I/DEBUG   (   89):  d14 0000000000000000  d15 0000000000000000
+I/DEBUG   (   89):  scr 80000012
+I/DEBUG   (   89): 
+I/DEBUG   (   89):          #00  pc 00015f00  /system/lib/libc.so
+I/DEBUG   (   89):          #01  pc 0001c78e  /system/lib/libc.so
+I/DEBUG   (   89): 
+I/DEBUG   (   89): code around pc:
+I/DEBUG   (   89): afd15ee0 68241c23 d1fb2c00 68dae027 d0042a00 
+I/DEBUG   (   89): afd15ef0 20014d18 6028447d 48174790 24802227 
+I/DEBUG   (   89): afd15f00 f7f57002 2106eb56 ec92f7f6 0563aa01 
+I/DEBUG   (   89): afd15f10 60932100 91016051 1c112006 e818f7f6 
+I/DEBUG   (   89): afd15f20 2200a905 f7f62002 f7f5e824 2106eb42 
+I/DEBUG   (   89): 
+I/DEBUG   (   89): code around lr:
+I/DEBUG   (   89): afd19364 b0834a0d 589c447b 26009001 686768a5 
+I/DEBUG   (   89): afd19374 220ce008 2b005eab 1c28d003 47889901 
+I/DEBUG   (   89): afd19384 35544306 d5f43f01 2c006824 b003d1ee 
+I/DEBUG   (   89): afd19394 bdf01c30 000281b8 ffffff88 1c0fb5f0 
+I/DEBUG   (   89): afd193a4 43551c3d a904b087 1c16ac01 604d9004 
+I/DEBUG   (   89): 
+I/DEBUG   (   89): stack:
+I/DEBUG   (   89):     47a77578  00000155 <br>
+I/DEBUG   (   89):     47a7757c  afd18417  /system/lib/libc.so
+I/DEBUG   (   89):     47a77580  afd42624 <br>
+I/DEBUG   (   89):     47a77584  afd467a4 <br>
+I/DEBUG   (   89):     47a77588  00000000 <br>
+I/DEBUG   (   89):     47a7758c  afd19385  /system/lib/libc.so
+I/DEBUG   (   89):     47a77590  0e76a0ce <br>
+I/DEBUG   (   89):     47a77594  afd183e9  /system/lib/libc.so
+I/DEBUG   (   89):     47a77598  466e8031 <br>
+I/DEBUG   (   89):     47a7759c  00000000 <br>
+I/DEBUG   (   89):     47a775a0  afd46688 <br>
+I/DEBUG   (   89):     47a775a4  002beff0 <br>
+I/DEBUG   (   89):     47a775a8  00000078 <br>
+I/DEBUG   (   89):     47a775ac  afd18687  /system/lib/libc.so
+I/DEBUG   (   89):     47a775b0  df002777 <br>
+I/DEBUG   (   89):     47a775b4  e3a070ad <br>
+I/DEBUG   (   89): #00 47a775b8  002f9c58 <br>
+I/DEBUG   (   89):     47a775bc  afd3b029  /system/lib/libc.so
+I/DEBUG   (   89):     47a775c0  813e2ae0  /data/data/com.csipsimple/lib/libpjsipjni.so
+I/DEBUG   (   89):     47a775c4  002beff0 <br>
+I/DEBUG   (   89):     47a775c8  00000078 <br>
+I/DEBUG   (   89):     47a775cc  fffffbdf <br>
+I/DEBUG   (   89):     47a775d0  002f9c30 <br>
+I/DEBUG   (   89):     47a775d4  afd3b029  /system/lib/libc.so
+I/DEBUG   (   89):     47a775d8  813e2ae0  /data/data/com.csipsimple/lib/libpjsipjni.so
+I/DEBUG   (   89):     47a775dc  afd1c793  /system/lib/libc.so
+I/DEBUG   (   89): #01 47a775e0  afd3b029  /system/lib/libc.so
+I/DEBUG   (   89):     47a775e4  afd1c793  /system/lib/libc.so
+I/DEBUG   (   89):     47a775e8  000002aa <br>
+I/DEBUG   (   89):     47a775ec  813e30f8  /data/data/com.csipsimple/lib/libpjsipjni.so
+I/DEBUG   (   89):     47a775f0  00266578 <br>
+I/DEBUG   (   89):     47a775f4  81436d14 <br>
+I/DEBUG   (   89):     47a775f8  002ca09c <br>
+I/DEBUG   (   89):     47a775fc  8116c520  /data/data/com.csipsimple/lib/libpjsipjni.so
+I/DEBUG   (   89):     47a77600  47a77860 <br>
+I/DEBUG   (   89):     47a77604  00247a94 <br>
+I/DEBUG   (   89):     47a77608  00000000 <br>
+I/DEBUG   (   89):     47a7760c  00247a94 <br>
+I/DEBUG   (   89):     47a77610  000000da <br>
+I/DEBUG   (   89):     47a77614  00002178 <br>
+I/DEBUG   (   89):     47a77618  000001b4 <br>
+I/DEBUG   (   89):     47a7761c  c0000000 <br>
+I/DEBUG   (   89):     47a77620  002ca09c <br>
+I/DEBUG   (   89):     47a77624  002beff0 <br>
+I/DEBUG   (   89): dumpstate /data/log/dumpstate_app_native.txt</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #1</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on May 15, 2013 by
+                  <i class="ng-binding">Happy Elephant</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Comment deleted</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #2</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on May 15, 2013 by
+                  <i class="ng-binding">Happy Elephant</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Comment deleted</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #3</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on May 16, 2013 by
+                  <i class="ng-binding">Happy Elephant</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Additional log test using other devices</p>
+
+<p>I/libpjsip(10613):  16:10:42.466 zrtp_android.c  ZRTP transport created</p>
+
+<p>D/libpjsip(10613):  16:10:42.466  pjsua_media.c  Media index 0 selected for call 0
+F/libc    (10613): Fatal signal 11 (SIGSEGV) at 0xdeadbaad (code=1)
+I/DEBUG   ( 7459): <strong>* <em></em></strong><em> <strong></strong></em><strong> <em></em></strong><em> <strong></strong></em><strong> <em></em></strong><em> <strong></strong></em><strong> <em></em></strong><em> <strong></strong></em><strong> <em></em></strong><em> <strong></strong></em><strong> <em></em></strong><em> <strong></strong></em><strong> <em></em></strong><em> <strong></strong></em><strong> *</strong>
+I/DEBUG   ( 7459): Build fingerprint: 'qcom/msm7627a/msm7627a:4.0.4/IMM76I/TBW592241_8572_V000031:user/test-keys'
+I/DEBUG   ( 7459): pid: 10613, tid: 10634  &gt;&gt;&gt; com.csipsimple &lt;&lt;&lt;
+I/DEBUG   ( 7459): signal 11 (SIGSEGV), code 1 (SEGV_MAPERR), fault addr deadbaad
+I/DEBUG   ( 7459):  r0 deadbaad  r1 01839480  r2 40000000  r3 00000000
+I/DEBUG   ( 7459):  r4 00000000  r5 00000027  r6 01875b40  r7 00000078
+I/DEBUG   ( 7459):  r8 50714008  r9 01875b40  10 00100000  fp 50cb76a4
+I/DEBUG   ( 7459):  ip 00000000  sp 50cb7618  lr 400a1841  pc 4009dbd0  cpsr 60000030
+I/DEBUG   ( 7459):  d0  695f7465675f7472  d1  6964656d6a702f73
+I/DEBUG   ( 7459):  d2  70736e6172742f70  d3  707472735f74726f
+I/DEBUG   ( 7459):  d4  0000000000000017  d5  0000000000000000
+I/DEBUG   ( 7459):  d6  4040000000000000  d7  00b1fa8000000000
+I/DEBUG   ( 7459):  d8  0000000000000000  d9  0000000000000000
+I/DEBUG   ( 7459):  d10 0000000000000000  d11 0000000000000000
+I/DEBUG   ( 7459):  d12 0000000000000000  d13 0000000000000000
+I/DEBUG   ( 7459):  d14 0000000000000000  d15 0000000000000000
+I/DEBUG   ( 7459):  d16 41663f5010000000  d17 3fe0000000000000
+I/DEBUG   ( 7459):  d18 0000000000000000  d19 0000000000000000
+I/DEBUG   ( 7459):  d20 0000000000000000  d21 0000000000000000
+I/DEBUG   ( 7459):  d22 0000000000000000  d23 0000000000000000
+I/DEBUG   ( 7459):  d24 3e66376972bea4d0  d25 3fc39a09d078c69f
+I/DEBUG   ( 7459):  d26 0000000000000000  d27 0000000000000000
+I/DEBUG   ( 7459):  d28 0000000000000000  d29 0000000000000000
+I/DEBUG   ( 7459):  d30 0000000000000000  d31 0000000000000000
+I/DEBUG   ( 7459):  scr 60000013
+I/DEBUG   ( 7459): 
+I/DEBUG   ( 7459):          #00  pc 00017bd0  /system/lib/libc.so
+I/DEBUG   ( 7459):          #01  pc 0001f13c  /system/lib/libc.so (__assert2)
+I/DEBUG   ( 7459):          #02  pc 0016a44c  /data/data/com.csipsimple/lib/libpjsipjni.so
+I/DEBUG   ( 7459):          #03  pc 00168a70  /data/data/com.csipsimple/lib/libpjsipjni.so
+I/DEBUG   ( 7459):          #04  pc 0016a56c  /data/data/com.csipsimple/lib/libpjsipjni.so
+I/DEBUG   ( 7459):          #05  pc 00168a70  /data/data/com.csipsimple/lib/libpjsipjni.so
+I/DEBUG   ( 7459):          #06  pc 0016a56c  /data/data/com.csipsimple/lib/libpjsipjni.so
+I/DEBUG   ( 7459):          #07  pc 00168a70  /data/data/com.csipsimple/lib/libpjsipjni.so
+I/DEBUG   ( 7459):          #08  pc 0016a56c  /data/data/com.csipsimple/lib/libpjsipjni.so
+I/DEBUG   ( 7459):          #09  pc 00259ed0  /data/data/com.csipsimple/lib/libpjsipjni.so
+I/DEBUG   ( 7459):          #10  pc 0025bb9c  /data/data/com.csipsimple/lib/libpjsipjni.so
+I/DEBUG   ( 7459):          #11  pc 000fb07c  /data/data/com.csipsimple/lib/libpjsipjni.so
+I/DEBUG   ( 7459):          #12  pc 000fe674  /data/data/com.csipsimple/lib/libpjsipjni.so (pjsua_media_channel_create_sdp)
+I/DEBUG   ( 7459):          #13  pc 000e99c4  /data/data/com.csipsimple/lib/libpjsipjni.so (pjsua_call_on_incoming)
+I/DEBUG   ( 7459):          #14  pc 000f36f0  /data/data/com.csipsimple/lib/libpjsipjni.so
+I/DEBUG   ( 7459):          #15  pc 000d276c  /data/data/com.csipsimple/lib/libpjsipjni.so
+I/DEBUG   ( 7459):          #16  pc 000d712c  /data/data/com.csipsimple/lib/libpjsipjni.so (pjsip_tpmgr_receive_packet)
+I/DEBUG   ( 7459):          #17  pc 001156c8  /data/data/com.csipsimple/lib/libpjsipjni.so
+I/DEBUG   ( 7459):          #18  pc 001ca8c0  /data/data/com.csipsimple/lib/libpjsipjni.so (ioqueue_dispatch_read_event)
+I/DEBUG   ( 7459):          #19  pc 001cd150  /data/data/com.csipsimple/lib/libpjsipjni.so (pj_ioqueue_poll)
+I/DEBUG   ( 7459):          #20  pc 0014c920  /data/data/com.csipsimple/lib/libpjsipjni.so
+I/DEBUG   ( 7459):          #21  pc 001b90b8  /data/data/com.csipsimple/lib/libpjsipjni.so
+I/DEBUG   ( 7459):          #22  pc 00013110  /system/lib/libc.so (__thread_entry)
+I/DEBUG   ( 7459):          #23  pc 00012c64  /system/lib/libc.so (pthread_create)
+I/DEBUG   ( 7459): 
+I/DEBUG   ( 7459): code around pc:
+I/DEBUG   ( 7459): 4009dbb0 4623b15c 2c006824 e026d1fb b12368db  .#F$h.,..&amp;..h#.
+I/DEBUG   ( 7459): 4009dbc0 21014a17 6011447a 48124798 24002527  .J.!zD.`.G.H'%.$
+I/DEBUG   ( 7459): 4009dbd0 f7f47005 2106edd8 ee74f7f5 460aa901  .p.....!..t....F
+I/DEBUG   ( 7459): 4009dbe0 f04f2006 94015380 94029303 ea30f7f5  . O..S........0.
+I/DEBUG   ( 7459): 4009dbf0 4622a905 f7f52002 f7f4ea3a 2106edc4  .."F. ..:......!
+I/DEBUG   ( 7459): 
+I/DEBUG   ( 7459): code around lr:
+I/DEBUG   ( 7459): 400a1820 41f0e92d 46804c0c 447c2600 68a56824  -..A.L.F.&amp;|D$h.h
+I/DEBUG   ( 7459): 400a1830 e0076867 300cf9b5 dd022b00 47c04628  gh.....0.+..(F.G
+I/DEBUG   ( 7459): 400a1840 35544306 37fff117 6824d5f4 d1ee2c00  .CT5...7..$h.,..
+I/DEBUG   ( 7459): 400a1850 e8bd4630 bf0081f0 00028cde 41f0e92d  0F..........-..A
+I/DEBUG   ( 7459): 400a1860 fb01b086 9004f602 461f4815 4615460c  .........H.F.F.F
+I/DEBUG   ( 7459): 
+I/DEBUG   ( 7459): memory map around addr deadbaad:
+I/DEBUG   ( 7459): bed98000-bedb9000 [stack]
+I/DEBUG   ( 7459): (no map for address)
+I/DEBUG   ( 7459): ffff0000-ffff1000 [vectors]
+I/DEBUG   ( 7459): 
+I/DEBUG   ( 7459): stack:
+I/DEBUG   ( 7459):     50cb75d8  400ca704  /system/lib/libc.so
+I/DEBUG   ( 7459):     50cb75dc  01839480  [heap]
+I/DEBUG   ( 7459):     50cb75e0  00000141 <br>
+I/DEBUG   ( 7459):     50cb75e4  400a05ed  /system/lib/libc.so
+I/DEBUG   ( 7459):     50cb75e8  400ca7b4  /system/lib/libc.so
+I/DEBUG   ( 7459):     50cb75ec  400cf93c <br>
+I/DEBUG   ( 7459):     50cb75f0  00000000 <br>
+I/DEBUG   ( 7459):     50cb75f4  400a1841  /system/lib/libc.so
+I/DEBUG   ( 7459):     50cb75f8  00000000 <br>
+I/DEBUG   ( 7459):     50cb75fc  50cb762c <br>
+I/DEBUG   ( 7459):     50cb7600  01875b40  [heap]
+I/DEBUG   ( 7459):     50cb7604  00000078 <br>
+I/DEBUG   ( 7459):     50cb7608  50714008  /data/data/com.csipsimple/lib/libpjsipjni.so
+I/DEBUG   ( 7459):     50cb760c  400a09ad  /system/lib/libc.so
+I/DEBUG   ( 7459):     50cb7610  df0027ad <br>
+I/DEBUG   ( 7459):     50cb7614  00000000 <br>
+I/DEBUG   ( 7459): #00 50cb7618  400c0db4  /system/lib/libc.so
+I/DEBUG   ( 7459):     50cb761c  5093ed9c  /data/data/com.csipsimple/lib/libpjsipjni.so
+I/DEBUG   ( 7459):     50cb7620  01875b40  [heap]
+I/DEBUG   ( 7459):     50cb7624  400a0cd9  /system/lib/libc.so
+I/DEBUG   ( 7459):     50cb7628  400ca758  /system/lib/libc.so
+I/DEBUG   ( 7459):     50cb762c  fffffbdf <br>
+I/DEBUG   ( 7459):     50cb7630  400a513d  /system/lib/libc.so
+I/DEBUG   ( 7459):     50cb7634  400c0db4  /system/lib/libc.so
+I/DEBUG   ( 7459):     50cb7638  5093ed9c  /data/data/com.csipsimple/lib/libpjsipjni.so
+I/DEBUG   ( 7459):     50cb763c  400a5141  /system/lib/libc.so
+I/DEBUG   ( 7459): #01 50cb7640  000002aa <br>
+I/DEBUG   ( 7459):     50cb7644  5093f358  /data/data/com.csipsimple/lib/libpjsipjni.so
+I/DEBUG   ( 7459):     50cb7648  5093f358  /data/data/com.csipsimple/lib/libpjsipjni.so
+I/DEBUG   ( 7459):     50cb764c  5098fd00  /data/data/com.csipsimple/lib/libpjsipjni.so
+I/DEBUG   ( 7459):     50cb7650  01a83684  [heap]
+I/DEBUG   ( 7459):     50cb7654  506c5450  /data/data/com.csipsimple/lib/libpjsipjni.so</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #4</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on May 16, 2013 by
+                  <i class="ng-binding">Happy Elephant</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>CRASH dump based from previous logs </p>
+
+<p><strong>******</strong> Crash dump: <strong>******</strong>
+Build fingerprint: 'qcom/msm7627a/msm7627a:4.0.4/IMM76I/TBW592241_8572_V000031:user/test-keys'
+pid: 10613, tid: 10634  &gt;&gt;&gt; com.csipsimple &lt;&lt;&lt;
+signal 11 (SIGSEGV), code 1 (SEGV_MAPERR), fault addr deadbaad
+Stack frame #00  pc 00017bd0  /system/lib/libc.so
+Stack frame #01  pc 0001f13c  /system/lib/libc.so (__assert2)
+Stack frame #02  pc 0016a44c  /data/data/com.csipsimple/lib/libpjsipjni.so: Routine transport_get_info in ../project/build/..//pjmedia/build/..//src/pjmedia/transport_srtp.c:681
+Stack frame #03  pc 00168a70  /data/data/com.csipsimple/lib/libpjsipjni.so: Routine pjmedia_transport_get_info in ../project/build/..//pjmedia/build/../include/pjmedia/transport.h:544
+Stack frame #04  pc 0016a56c  /data/data/com.csipsimple/lib/libpjsipjni.so: Routine transport_get_info in ../project/build/..//pjmedia/build/..//src/pjmedia/transport_srtp.c:698
+Stack frame #05  pc 00168a70  /data/data/com.csipsimple/lib/libpjsipjni.so: Routine pjmedia_transport_get_info in ../project/build/..//pjmedia/build/../include/pjmedia/transport.h:544
+Stack frame #06  pc 0016a56c  /data/data/com.csipsimple/lib/libpjsipjni.so: Routine transport_get_info in ../project/build/..//pjmedia/build/..//src/pjmedia/transport_srtp.c:698
+Stack frame #07  pc 00168a70  /data/data/com.csipsimple/lib/libpjsipjni.so: Routine pjmedia_transport_get_info in ../project/build/..//pjmedia/build/../include/pjmedia/transport.h:544
+Stack frame #08  pc 0016a56c  /data/data/com.csipsimple/lib/libpjsipjni.so: Routine transport_get_info in ../project/build/..//pjmedia/build/..//src/pjmedia/transport_srtp.c:698
+Stack frame #09  pc 00259ed0  /data/data/com.csipsimple/lib/libpjsipjni.so: Routine pjmedia_transport_get_info in ../project/build/..//third_party/build/zrtp4pj/../../zrtp4pj/zsrtp/../../../pjmedia/include/pjmedia/transport.h:544
+Stack frame #10  pc 0025bb9c  /data/data/com.csipsimple/lib/libpjsipjni.so: Routine transport_get_info in ../project/build/..//third_party/build/zrtp4pj/../../zrtp4pj/zsrtp/transport_zrtp.c:805
+Stack frame #11  pc 000fb07c  /data/data/com.csipsimple/lib/libpjsipjni.so: Routine pjmedia_transport_get_info in ../project/build/..//pjsip/build/../../pjmedia/include/pjmedia/transport.h:544
+Stack frame #12  pc 000fe674  /data/data/com.csipsimple/lib/libpjsipjni.so (pjsua_media_channel_create_sdp): Routine pjsua_media_channel_create_sdp in ../project/build/..//pjsip/build/..//src/pjsua-lib/pjsua_media.c:1418
+Stack frame #13  pc 000e99c4  /data/data/com.csipsimple/lib/libpjsipjni.so (pjsua_call_on_incoming): Routine pjsua_call_on_incoming in ../project/build/..//pjsip/build/..//src/pjsua-lib/pjsua_call.c:840
+Stack frame #14  pc 000f36f0  /data/data/com.csipsimple/lib/libpjsipjni.so: Routine mod_pjsua_on_rx_request in ../project/build/..//pjsip/build/..//src/pjsua-lib/pjsua_core.c:449
+Stack frame #15  pc 000d276c  /data/data/com.csipsimple/lib/libpjsipjni.so: Routine endpt_on_rx_msg in ../project/build/..//pjsip/build/..//src/pjsip/sip_endpoint.c:901
+Stack frame #16  pc 000d712c  /data/data/com.csipsimple/lib/libpjsipjni.so (pjsip_tpmgr_receive_packet): Routine pjsip_tpmgr_receive_packet in ../project/build/..//pjsip/build/..//src/pjsip/sip_transport.c:1521
+Stack frame #17  pc 001156c8  /data/data/com.csipsimple/lib/libpjsipjni.so: Routine udp_on_read_complete in ../project/build/..//pjsip/build/..//src/pjsip/sip_transport_udp.c:173
+Stack frame #18  pc 001ca8c0  /data/data/com.csipsimple/lib/libpjsipjni.so (ioqueue_dispatch_read_event): Routine ioqueue_dispatch_read_event in ../project/build/..//pjlib/build/..//src/pj/ioqueue_common_abs.c:577
+Stack frame #19  pc 001cd150  /data/data/com.csipsimple/lib/libpjsipjni.so (pj_ioqueue_poll): Routine pj_ioqueue_poll in ../project/build/..//pjlib/build/..//src/pj/ioqueue_select.c:902
+Stack frame #20  pc 0014c920  /data/data/com.csipsimple/lib/libpjsipjni.so: Routine worker_proc in ../project/build/..//pjmedia/build/..//src/pjmedia/endpoint.c:296
+Stack frame #21  pc 001b90b8  /data/data/com.csipsimple/lib/libpjsipjni.so: Routine thread_main in ../project/build/..//pjlib/build/..//src/pj/os_core_unix.c:492
+Stack frame #22  pc 00013110  /system/lib/libc.so (__thread_entry)
+Stack frame #23  pc 00012c64  /system/lib/libc.so (pthread_create)</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #5</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on May 16, 2013 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>r1108 is not supported for dev anymore. Please switch to latest stable.
+Thanks</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments -->
+          </div>
+
+          <!-- Sidebar with additional information -->
+          <div class="maia-col-4">
+            <div class="maia-aside">
+              <p>Status: <code class="ng-binding">Invalid</code></p>
+              <!-- ngIf: issueCtrl.issue.labels.length > 0 --><p ng-if="issueCtrl.issue.labels.length &gt; 0" class="ng-scope">
+                Labels:
+                <br>
+                <!-- ngRepeat: label in issueCtrl.issue.labels track by $index --><span ng-repeat="label in issueCtrl.issue.labels track by $index" class="ng-scope">
+                  <span class="gca-label ng-binding">Type-Defect</span>
+                </span><!-- end ngRepeat: label in issueCtrl.issue.labels track by $index --><span ng-repeat="label in issueCtrl.issue.labels track by $index" class="ng-scope">
+                  <span class="gca-label ng-binding">Priority-Medium</span>
+                </span><!-- end ngRepeat: label in issueCtrl.issue.labels track by $index -->
+              </p><!-- end ngIf: issueCtrl.issue.labels.length > 0 -->
+            </div>
+          </div>
+        </div><!-- end ngIf: !issueCtrl.error -->
+      </div>
+    </div>
+
+  </div>
+</div>
+</div></div></div>
+    <noscript>
+      &lt;p&gt;The Google Code Archive requires JavaScript to be enabled in your browser.&lt;/p&gt;
+    </noscript>
+
+    <div id="maia-signature"></div>
+    <div class="maia-footer" id="maia-footer">
+      <div id="maia-footer-local">
+      </div>
+      <div id="maia-footer-global">
+        <div class="maia-aux">
+          <ul>
+            <li>
+              <a href="//www.google.com/">Google</a>
+            </li>
+            <li>
+              <a href="//www.google.com/intl/en/about/">About Google</a>
+            </li>
+            <li>
+              <a href="//www.google.com/intl/en/policies/privacy/">Privacy</a>
+            </li>
+            <li>
+              <a href="//www.google.com/intl/en/policies/terms/">Terms</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <script src="//www.google.com/js/maia.js"></script>
+  
+
+
+</body></html>

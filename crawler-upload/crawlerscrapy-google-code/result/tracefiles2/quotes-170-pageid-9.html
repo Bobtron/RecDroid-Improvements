@@ -1,0 +1,265 @@
+https://code.google.com/archive/p/timebox-psisolutions/<!DOCTYPE html><html class="google ng-scope" lang="en" ng-app="codesiteArchive.application"><head>
+    <meta charset="utf-8">
+    <meta content="initial-scale=1, minimum-scale=1, width=device-width" name="viewport">
+
+    <!-- https://developers.google.com/webmasters/ajax-crawling/docs/specification -->
+    <meta name="fragment" content="!">
+    <title>Google Code Archive - Long-term storage for Google Code Project Hosting.</title>
+
+    <link rel="icon" type="image/vnd.microsoft.icon" href="/archive/img/project-hosting.ico">
+    <script src="//www.google.com/js/google.js"></script>
+    <link href="//www.google.com/css/maia.css" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;lang=en" rel="stylesheet">
+    <link rel="stylesheet" href="/archive/archive_css.css">
+    <script>
+      CLOSURE_NO_DEPS = true;
+    </script>
+    <script src="/archive/angular.js"></script><style type="text/css">@charset "UTF-8";
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak],
+.ng-cloak, .x-ng-cloak,
+.ng-hide:not(.ng-hide-animate) {
+  display: none !important;
+}
+
+ng\:form {
+  display: block;
+}
+
+.ng-animate-shim {
+  visibility:hidden;
+}
+
+.ng-anchor {
+  position:absolute;
+}
+</style>
+    <script src="/archive/pagedown.js"></script>
+    <script src="/archive/archive.js"></script>
+    <base href="/archive/">
+  </head>
+
+  <body>
+    <div class="maia-header" id="maia-header" role="banner">
+      <div class="maia-aux">
+        <a href="/archive/">
+          </a><h1><a href="/archive/">
+            <img alt="Google" src="//www.google.com/images/branding/googlelogo/1x/googlelogo_color_116x41dp.png"> Code</a>
+          </h1>
+        
+        <a href="/archive/">
+          <h2>Archive</h2>
+        </a>
+        <a class="maia-teleport" href="#content">Skip to content</a>
+        <div class="maia-util">
+          <form action="/archive/search" class="maia-search ng-pristine ng-valid">
+            <input name="q" placeholder="Search this site" type="text">
+            <button class="maia-button">
+              <span class="maia-search-icon">Search</span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- ngView: --><div ng-view="" class="ng-scope"><div ng-controller="ProjectHomepageCtrl as projectCtrl" class="ng-scope">
+<nav-bar-widget nav-level-1="projectCtrl.navLevel1" class="ng-isolate-scope"><div class="maia-nav maia-complex" id="maia-nav-x" role="navigation">
+  <div class="maia-aux">
+    <ul>
+      <li ng-class="{active: navLevel1 == 'projects'}" class="active">
+        <a href="/archive/">Projects</a>
+        <!-- ngIf: navLevel2 -->
+      </li>
+      <li ng-class="{active: navLevel1 == 'search'}">
+        <a href="/archive/search">Search</a>
+      </li>
+      <li ng-class="{active: navLevel1 == 'about'}">
+        <a href="/archive/about">About</a>
+      </li>
+    </ul>
+  </div>
+</div>
+</nav-bar-widget>
+<div id="maia-main" role="main">
+
+  <!-- Left-side resource nav -->
+  <span ng-hide="projectCtrl.project.notFound">
+    <project-resources-widget domain="projectCtrl.domain" project="projectCtrl.projectName" class="ng-isolate-scope"><div class="maia-nav" id="maia-nav-y" role="navigation">
+  <!-- ngIf: domain == 'code.google.com' --><ul ng-if="domain == 'code.google.com'" class="ng-scope">
+    <li class="active">
+      <a href="/archive/p/timebox-psisolutions/">Project</a>
+    </li>
+    <li>
+      <a href="/archive/p/timebox-psisolutions/source">Source</a>
+    </li>
+    <li>
+      <a href="/archive/p/timebox-psisolutions/issues">Issues</a>
+    </li>
+    <li>
+      <a href="/archive/p/timebox-psisolutions/wikis">Wikis</a>
+    </li>
+    <li>
+      <a href="/archive/p/timebox-psisolutions/downloads">Downloads</a>
+    </li>
+  </ul><!-- end ngIf: domain == 'code.google.com' -->
+
+    <!-- ngIf: domain != 'code.google.com' -->
+</div></project-resources-widget>
+  </span>
+
+  <div class="maia-article" role="article">
+    <div class="maia-teleport" id="content"></div>
+    <div class="maia-cols">
+
+      <!-- BUG: We show "no issues" and relaged sub-pages for projects that
+           do not exist. Similarly, if you go to page 1,000,000 it says the
+           project has no issues, despite page 999,999 existing. -->
+      <!-- ngIf: projectCtrl.project.notFound -->
+
+      <div ng-hide="projectCtrl.project.notFound" id="gca-project-header" class="maia-col-10">
+        <img class="gca-project-logo" src="https://storage.googleapis.com/google-code-archive/v2/code.google.com/timebox-psisolutions/logo.png">
+        <h1 class="ng-binding">timebox-psisolutions</h1>
+      </div>
+
+      <div ng-hide="projectCtrl.project.notFound" class="maia-col-10">
+        <hr>
+
+        <!-- ngIf: projectCtrl.error -->
+
+        <!-- Switch by project resource -->
+        <!-- ngIf: !projectCtrl.error --><div ng-if="!projectCtrl.error" ng-switch="projectCtrl.resource" class="ng-scope">
+
+          <!-- Project -->
+          <!-- ngSwitchWhen: project --><div ng-switch-when="project" class="ng-scope">
+            <!-- ngIf: projectCtrl.project == null -->
+
+            <!-- ngIf: projectCtrl.project.notFound -->
+
+            <!-- ngIf: projectCtrl.project.found --><div ng-if="projectCtrl.project.found" class="ng-scope">
+              <div class="maia-col-6">
+                <p class="maia-meta ng-binding">TimeBox is a time management application which utilises the Pomodoro Technique.</p>
+                <markdown-widget text="projectCtrl.project.description" class="markdown"><h3>What is TimeBox?</h3>
+
+<p>TimeBox is a configurable time management application that employs the <a href="http://www.pomodorotechnique.com/">Pomodoro Technique</a>.</p>
+
+<p>The Pomodoro technique was developed by Francesco Cirillo in the late 1980s.The technique breaks your work flow into cycles called Pomodori (Italian for tomato).</p>
+
+<p>Cycles are typically 25 minutes with a 5 minute break afterward.After four of such cycles, an extended break is taken (15-20 minutes).</p>
+
+<p>Here at Psi Solutions, we believe that life is not one-size-fits-all.We have given you the ability to configure every aspect of a Pomodoro to suit your own needs.</p>
+
+<p>These configurations are stored as user presets, which can be freely created, modified or removed.The result is a dynamic time management service which helps you get work done without impeding your work flow.</p>
+
+<h3>Key Features</h3>
+
+<ul>
+<li>Configure all aspects of a Pomdoro (eg. work/break ratio)</li>
+<li>Save configurations as user presets</li>
+<li>Preferences which control audio alerts and wake lock</li>
+<li>Selection of visualisations to represent a Pomodoro's progress</li>
+<li>Multitasking-friendly, TimeBox will continue running an active Pomodoro in the background</li>
+</ul>
+
+<h3>Where Can I Get It?</h3>
+
+<p>TimeBox can be found on the Android Market at this <a href="https://market.android.com/details?id=nz.wgtn.psisolutions.timebox">link</a> or simply scan the following QR Code:</p>
+
+<p><img src="https://lh3.googleusercontent.com/-pfwJLf1md0Y/TqXwviTHzCI/AAAAAAAAAD4/Hca3ixOKiiY/s219/Market_QR.jpg" alt="https://lh3.googleusercontent.com/-pfwJLf1md0Y/TqXwviTHzCI/AAAAAAAAAD4/Hca3ixOKiiY/s219/Market_QR.jpg" title=""></p>
+
+<h3>Screenshots</h3>
+
+<p><img src="https://lh4.googleusercontent.com/-kqQ6G48V22I/Tp5eL0HOzYI/AAAAAAAAADk/0MF5wlpR5WY/s480/PresetList.jpg" alt="https://lh4.googleusercontent.com/-kqQ6G48V22I/Tp5eL0HOzYI/AAAAAAAAADk/0MF5wlpR5WY/s480/PresetList.jpg" title=""> <img src="https://lh4.googleusercontent.com/-9JW2NGNlWTk/Tp5eKDNVS0I/AAAAAAAAADI/nUjYimXlQYE/s480/EditPreset.jpg" alt="https://lh4.googleusercontent.com/-9JW2NGNlWTk/Tp5eKDNVS0I/AAAAAAAAADI/nUjYimXlQYE/s480/EditPreset.jpg" title=""> <img src="https://lh3.googleusercontent.com/-M2Cn_B0oS2k/Tp5eL3p93hI/AAAAAAAAADg/TIB9W3-xf3g/s480/Preferences.jpg" alt="https://lh3.googleusercontent.com/-M2Cn_B0oS2k/Tp5eL3p93hI/AAAAAAAAADg/TIB9W3-xf3g/s480/Preferences.jpg" title=""> <img src="https://lh5.googleusercontent.com/-ooY2GCGlpEI/Tp5eLHa6GEI/AAAAAAAAADY/vTJlvWYcZow/s480/PomdoroWork.jpg" alt="https://lh5.googleusercontent.com/-ooY2GCGlpEI/Tp5eLHa6GEI/AAAAAAAAADY/vTJlvWYcZow/s480/PomdoroWork.jpg" title=""> <img src="https://lh6.googleusercontent.com/-wzX_Q4IZTn8/Tp5eKB530OI/AAAAAAAAAC4/RT90PwP2T7c/s480/PomdoroBreak.jpg" alt="https://lh6.googleusercontent.com/-wzX_Q4IZTn8/Tp5eKB530OI/AAAAAAAAAC4/RT90PwP2T7c/s480/PomdoroBreak.jpg" title=""> <img src="https://lh6.googleusercontent.com/-SJpFL_UTDbQ/Tp5eK57MIQI/AAAAAAAAADM/V2Eht1iM_Jc/s480/PomdoroPause.jpg" alt="https://lh6.googleusercontent.com/-SJpFL_UTDbQ/Tp5eK57MIQI/AAAAAAAAADM/V2Eht1iM_Jc/s480/PomdoroPause.jpg" title=""> <img src="https://lh5.googleusercontent.com/-chjnm9V1FdA/Tp5eKRgFtiI/AAAAAAAAAC8/3lR2BaagajM/s480/Notification.jpg" alt="https://lh5.googleusercontent.com/-chjnm9V1FdA/Tp5eKRgFtiI/AAAAAAAAAC8/3lR2BaagajM/s480/Notification.jpg" title=""></p></markdown-widget>
+              </div>
+              <div id="gca-project-info-box" class="maia-col-4">
+                <div class="maia-aside">
+                  <h1>Project Information</h1>
+                  <!-- ngIf: projectCtrl.project.creationTime --><p ng-if="projectCtrl.project.creationTime" class="ng-binding ng-scope">
+                    The project was created on Oct 18, 2011.
+                  </p><!-- end ngIf: projectCtrl.project.creationTime -->
+                  <!-- ngIf: projectCtrl.project.ancestorRepo -->
+                  <ul>
+                    <li>
+                      License: <a href="http://www.gnu.org/licenses/old-licenses/gpl-2.0.html" class="ng-binding">
+                        GNU GPL v2</a>
+                    </li>
+                    <!-- ngIf: projectCtrl.project.contentLicenseName -->
+                    <!-- ngIf: projectCtrl.project.stars --><li ng-if="projectCtrl.project.stars" class="ng-binding ng-scope">
+                      5 stars
+                    </li><!-- end ngIf: projectCtrl.project.stars -->
+                    <li class="ng-binding">svn-based source control</li>
+                  </ul>
+                  <!-- ngIf: projectCtrl.project.labels.length > 0 --><p ng-if="projectCtrl.project.labels.length &gt; 0" class="ng-scope">
+                    Labels:
+                    <br>
+                    <!-- ngRepeat: label in projectCtrl.project.labels track by $index --><span ng-repeat="label in projectCtrl.project.labels track by $index" class="ng-scope">
+                      <a href="/archive/search?q=domain:code.google.com label:Android"><span class="gca-label ng-binding">Android</span></a>
+                    </span><!-- end ngRepeat: label in projectCtrl.project.labels track by $index --><span ng-repeat="label in projectCtrl.project.labels track by $index" class="ng-scope">
+                      <a href="/archive/search?q=domain:code.google.com label:Pomodoro"><span class="gca-label ng-binding">Pomodoro</span></a>
+                    </span><!-- end ngRepeat: label in projectCtrl.project.labels track by $index --><span ng-repeat="label in projectCtrl.project.labels track by $index" class="ng-scope">
+                      <a href="/archive/search?q=domain:code.google.com label:Timer"><span class="gca-label ng-binding">Timer</span></a>
+                    </span><!-- end ngRepeat: label in projectCtrl.project.labels track by $index --><span ng-repeat="label in projectCtrl.project.labels track by $index" class="ng-scope">
+                      <a href="/archive/search?q=domain:code.google.com label:Java"><span class="gca-label ng-binding">Java</span></a>
+                    </span><!-- end ngRepeat: label in projectCtrl.project.labels track by $index --><span ng-repeat="label in projectCtrl.project.labels track by $index" class="ng-scope">
+                      <a href="/archive/search?q=domain:code.google.com label:Time"><span class="gca-label ng-binding">Time</span></a>
+                    </span><!-- end ngRepeat: label in projectCtrl.project.labels track by $index -->
+                  </p><!-- end ngIf: projectCtrl.project.labels.length > 0 -->
+                </div>
+              </div>
+            </div><!-- end ngIf: projectCtrl.project.found -->
+          </div><!-- end ngSwitchWhen: -->
+
+          <!-- Source -->
+          <!-- ngSwitchWhen: source -->
+
+          <!-- Issues -->
+          <!-- ngSwitchWhen: issues -->
+
+          <!-- Wikis -->
+          <!-- ngSwitchWhen: wikis -->
+
+          <!-- Downloads -->
+          <!-- ngSwitchWhen: downloads -->
+
+          <!-- Default -->
+          <!-- ngSwitchDefault: -->
+
+        <!-- end Switch -->
+        </div><!-- end ngIf: !projectCtrl.error -->
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+    <noscript>
+      &lt;p&gt;The Google Code Archive requires JavaScript to be enabled in your browser.&lt;/p&gt;
+    </noscript>
+
+    <div id="maia-signature"></div>
+    <div class="maia-footer" id="maia-footer">
+      <div id="maia-footer-local">
+      </div>
+      <div id="maia-footer-global">
+        <div class="maia-aux">
+          <ul>
+            <li>
+              <a href="//www.google.com/">Google</a>
+            </li>
+            <li>
+              <a href="//www.google.com/intl/en/about/">About Google</a>
+            </li>
+            <li>
+              <a href="//www.google.com/intl/en/policies/privacy/">Privacy</a>
+            </li>
+            <li>
+              <a href="//www.google.com/intl/en/policies/terms/">Terms</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <script src="//www.google.com/js/maia.js"></script>
+  
+
+
+</body></html>

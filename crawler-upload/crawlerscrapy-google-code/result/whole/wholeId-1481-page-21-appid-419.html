@@ -1,0 +1,562 @@
+https://code.google.com/archive/p/vogar/issues/61<!DOCTYPE html><html class="google ng-scope" lang="en" ng-app="codesiteArchive.application"><head>
+    <meta charset="utf-8">
+    <meta content="initial-scale=1, minimum-scale=1, width=device-width" name="viewport">
+
+    <!-- https://developers.google.com/webmasters/ajax-crawling/docs/specification -->
+    <meta name="fragment" content="!">
+    <title>Google Code Archive - Long-term storage for Google Code Project Hosting.</title>
+
+    <link rel="icon" type="image/vnd.microsoft.icon" href="/archive/img/project-hosting.ico">
+    <script src="//www.google.com/js/google.js"></script>
+    <link href="//www.google.com/css/maia.css" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;lang=en" rel="stylesheet">
+    <link rel="stylesheet" href="/archive/archive_css.css">
+    <script>
+      CLOSURE_NO_DEPS = true;
+    </script>
+    <script src="/archive/angular.js"></script><style type="text/css">@charset "UTF-8";
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak],
+.ng-cloak, .x-ng-cloak,
+.ng-hide:not(.ng-hide-animate) {
+  display: none !important;
+}
+
+ng\:form {
+  display: block;
+}
+
+.ng-animate-shim {
+  visibility:hidden;
+}
+
+.ng-anchor {
+  position:absolute;
+}
+</style>
+    <script src="/archive/pagedown.js"></script>
+    <script src="/archive/archive.js"></script>
+    <base href="/archive/">
+  </head>
+
+  <body>
+    <div class="maia-header" id="maia-header" role="banner">
+      <div class="maia-aux">
+        <a href="/archive/">
+          </a><h1><a href="/archive/">
+            <img alt="Google" src="//www.google.com/images/branding/googlelogo/1x/googlelogo_color_116x41dp.png"> Code</a>
+          </h1>
+        
+        <a href="/archive/">
+          <h2>Archive</h2>
+        </a>
+        <a class="maia-teleport" href="#content">Skip to content</a>
+        <div class="maia-util">
+          <form action="/archive/search" class="maia-search ng-pristine ng-valid">
+            <input name="q" placeholder="Search this site" type="text">
+            <button class="maia-button">
+              <span class="maia-search-icon">Search</span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- ngView: --><div ng-view="" class="ng-scope"><div ng-controller="ProjectIssueCtrl as issueCtrl" class="ng-scope">
+<nav-bar-widget nav-level-1="projectCtrl.navLevel1" class="ng-isolate-scope"><div class="maia-nav maia-complex" id="maia-nav-x" role="navigation">
+  <div class="maia-aux">
+    <ul>
+      <li ng-class="{active: navLevel1 == 'projects'}">
+        <a href="/archive/">Projects</a>
+        <!-- ngIf: navLevel2 -->
+      </li>
+      <li ng-class="{active: navLevel1 == 'search'}">
+        <a href="/archive/search">Search</a>
+      </li>
+      <li ng-class="{active: navLevel1 == 'about'}">
+        <a href="/archive/about">About</a>
+      </li>
+    </ul>
+  </div>
+</div>
+</nav-bar-widget>
+<div id="maia-main" role="main">
+
+  <!-- ngIf: issueCtrl.notFound -->
+
+  <div ng-hide="issueCtrl.notFound">
+    <!-- Left-side resource nav -->
+    <project-resources-widget domain="issueCtrl.domain" project="issueCtrl.projectName" class="ng-isolate-scope"><div class="maia-nav" id="maia-nav-y" role="navigation">
+  <!-- ngIf: domain == 'code.google.com' --><ul ng-if="domain == 'code.google.com'" class="ng-scope">
+    <li class="active">
+      <a href="/archive/p/vogar/">Project</a>
+    </li>
+    <li>
+      <a href="/archive/p/vogar/source">Source</a>
+    </li>
+    <li>
+      <a href="/archive/p/vogar/issues">Issues</a>
+    </li>
+    <li>
+      <a href="/archive/p/vogar/wikis">Wikis</a>
+    </li>
+    <li>
+      <a href="/archive/p/vogar/downloads">Downloads</a>
+    </li>
+  </ul><!-- end ngIf: domain == 'code.google.com' -->
+
+    <!-- ngIf: domain != 'code.google.com' -->
+</div></project-resources-widget>
+
+    <div class="maia-article" role="article">
+      <div class="maia-teleport" id="content"></div>
+      <div class="maia-cols">
+        <div id="gca-project-header" class="maia-col-10">
+          <a id="gca-export-to-gh" class="maia-button" href="https://code.google.com/export-to-github/export?project=vogar">Export to GitHub</a>
+            <img class="gca-project-logo" src="https://storage.googleapis.com/google-code-archive/v2/code.google.com/vogar/logo.png">
+            <h1 class="ng-binding">vogar - issue #61</h1>
+            <p class="ng-binding">Running Android Benchmarks</p>
+        </div>
+
+        <div class="maia-col-10">
+          <hr>
+
+        <!-- ngIf: issueCtrl.error -->
+
+        <!-- ngIf: !issueCtrl.error --><div ng-if="!issueCtrl.error" class="ng-scope">
+          <!-- Comments -->
+          <div class="maia-col-8">
+            <!-- ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Dec 2, 2014 by
+                  <i class="ng-binding">Happy Monkey</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>I couldn't get Vogar to run benchmarks on Android, executing the benchmarks would fail with "Fatal Error: Unable to find package java.lang in classpath or bootclasspath" <a href="http://pastebin.com/zZcTL3WN">http://pastebin.com/zZcTL3WN</a></p>
+
+<p>The project is under the <code>prateek/vogar</code> branch; <a href="https://github.com/segmentio/analytics-android/tree/prateek/vogar">https://github.com/segmentio/analytics-android/tree/prateek/vogar</a>, running <code>java -jar vogar.jar --benchmark --mode device --device-dir /sdcard/vogar --sourcepath core/src/main/java --verbose core/src/androidTest/java/com/segment/analytics/SampleBenchmark.java</code></p>
+
+<p>I tried setting up a similar project on Okio using the UTF8Benchmark I saw Jesse posting (<a href="https://gist.github.com/swankjesse/7b7f12ea5dc06196bedd">https://gist.github.com/swankjesse/7b7f12ea5dc06196bedd</a>). Tried it setting that up here - <a href="https://github.com/f2prateek/okio/commit/c709e3b5a54daecd9dd6eed29a20dd2114258738">https://github.com/f2prateek/okio/commit/c709e3b5a54daecd9dd6eed29a20dd2114258738</a>. It fails with a similar message "Fatal Error: Unable to find package java.lang in classpath or bootclasspath"</p>
+
+<p>Am I missing some obvious steps?</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #1</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Dec 3, 2014 by
+                  <i class="ng-binding">Happy Monkey</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>This was with JDK 7, 8 running on Android 5.0</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #2</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Dec 4, 2014 by
+                  <i class="ng-binding">Massive Monkey</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Using a recent version of vogar (the one described here: <a href="https://groups.google.com/forum/#!topic/vogarcode/DamJXHpC-nw">https://groups.google.com/forum/#!topic/vogarcode/DamJXHpC-nw</a>) works for me with a sample benchmark from my AOSP dev tree:</p>
+
+<p>e.g.
+vogar --benchmark --mode device --verbose libcore/benchmarks/src/benchmarks/ArrayCopyBenchmark.java </p>
+
+<p>From the classpath, it looks like the version of vogar you are using dates from KitKat or before. The core library changed its name when ART was introduced. Pick up the latest version from the AOSP tree.</p>
+
+<p>If you need to, you should still be able to target older devices that came with dalvik with --mode device_dalvik</p>
+
+<p>One thing to watch out for with ART is that it needs root access for the AOT compile:</p>
+
+<p>e.g. call this before running vogar:
+$ adb root
+$ adb remount</p>
+
+<p>If you don't, it will still work but it will be using the (much slower) interpreter.</p>
+
+<p>Marking this as fixed, but please feel free to come back if you continue to have problems.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #3</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Dec 4, 2014 by
+                  <i class="ng-binding">Massive Monkey</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>A small update after talking to somebody who knows about these things:</p>
+
+<p>The need for root I suggested <em>may</em> not be needed if you are specifying --device-dir and pointing at an alternative location.</p>
+
+<p>You should expect the first time you run on a device for it to take a while as it performs the AOT compile for the boot image. The runtime performance will be better and more representative of behavior in a real app.</p>
+
+<p>On a related side note, if you are using AOSP top-of-tree:</p>
+
+<p>I'm currently seeing issues using AOSP top-of-tree with the --device-dir default setting (e.g. when you don't specify it, you get /sdcard/vogar). The bug mean it's falling back to the interpreter anyway (despite running as root). It may be related to any use of the /sdcard file system.</p>
+
+<p>I'm going to take that up with the ART guys. In the meantime, if you see issues you might want to try --device-dir /data/local/tmp
+On my tests just now it made the benchmark I was looking at 2x faster, which would be consistent with interpreter Vs AOT.</p>
+
+<p>It doesn't look like you would need root to write there, but look for files of non-zero length in /data/local/tmp/dalvik-cache/arm/ to be sure that AOT is working. Once/if files have been written there as root you should continue to do so or clear them out.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #4</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Dec 4, 2014 by
+                  <i class="ng-binding">Happy Monkey</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Thanks for the detailed notes! I was still unable to get it working however, failing with the same error.</p>
+
+<p>Here's what I did:</p>
+
+<ol>
+<li><p>git clone <a href="https://android.googlesource.com/platform/external/vogar">https://android.googlesource.com/platform/external/vogar</a> (SHA 5a8fd4b1d6c046471c7b951680cace3eec723fe7)</p></li>
+<li><p>Build the JAR (I used the  /bin/vogar script, only modifying the location of my Android SDK Path as on my system)</p>
+
+<ul><li>android_tools_dir=<code>dirname ${adb_path}</code></li>
+<li>android_tools_dir=~/android-sdk/platform-tools</li></ul></li>
+<li><p>Clone libcore (git clone <a href="https://android.googlesource.com/platform/libcore">https://android.googlesource.com/platform/libcore</a>) (SHA 59c2a0aa48b2e7f6770e29993332fecadb145f21)</p></li>
+<li><p>run <code>java -jar vogar.jar --benchmark --mode device --verbose libcore/benchmarks/src/benchmarks/ArrayCopyBenchmark.java</code></p></li>
+</ol>
+
+<p>I also tried the variant that was in the vogar-android script, by running <code>java -classpath vogar.jar vogar.Vogar --benchmark --mode device --verbose libcore/benchmarks/src/benchmarks/ArrayCopyBenchmark.java</code></p>
+
+<p>And the error report still looks very similar to the previous one <a href="http://pastebin.com/ut9y0yH0">http://pastebin.com/ut9y0yH0</a></p>
+
+<p>My device is also not rooted, so I couldn't try running <code>adb root</code> before the benchmarks.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #5</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Dec 4, 2014 by
+                  <i class="ng-binding">Happy Monkey</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Som more notes:</p>
+
+<ol>
+<li><p><code>--device-dir /data/local/tmp</code> failed with the same error</p></li>
+<li><p>Running on a Genymotion Emulator for API 19 (with root) failed with the same error.
+<code>java -classpath vogar.jar vogar.Vogar --benchmark --mode device_dalvik --verbose libcore/benchmarks/src/benchmarks/ArrayCopyBenchmark.java</code></p></li>
+</ol></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #6</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Dec 5, 2014 by
+                  <i class="ng-binding">Massive Monkey</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Ok. We've made progress: you have the latest vogar.</p>
+
+<p>I suspect from the change you had to make in 2 that an assumption I made about your dev environment was incorrect.</p>
+
+<p>vogar has determined that you are not using an Android SDK. I had assumed the same. </p>
+
+<p>Vogar has two modes based on where the "adb" in your path lives: if it thinks you are using an SDK it works differently. I can see from the pastebin that it either picked up "adb" in a directory other than platform-tools, or it couldn't find it at all.</p>
+
+<p>To get adb, make sure you run the sdk-manager and download platform-tools.</p>
+
+<p>If adb is not in your path (as suggested by your change in 2) it falls back to assuming you have a full AOSP dev environment.</p>
+
+<p>So, given your path in 2 above, execute this:</p>
+
+<p>export PATH=$PATH:~/android-sdk/platform-tools</p>
+
+<p>and vogar should detect the adb is in the platform-tools directory and should switch to compiling against the android framework.jar (which contains java.lang, etc.). vogar requires adb in your path later in the process as well, so this is needed anyway.</p>
+
+<p>If you do that you can/should also undo your change in 2: the script makes the same assumption.</p>
+
+<hr>
+
+<p>In the case you <em>are</em> using vogar with a full AOSP tree....</p>
+
+<p>The next step is to make sure the libraries referenced exist. The immediate complaint is that it cannot find java.lang. </p>
+
+<p>That is supposed to be here:
+out/target/common/obj/JAVA_LIBRARIES/core-libart_intermediates/classes.jar</p>
+
+<p>This jar is built as a side effect of various rules on Android. I typically build / flash my devices so I typically have these libs already built (and with root access to the device).</p>
+
+<p>To get a full android build (i.e. one that you can push to a device), you would do:</p>
+
+<p>$ make all</p>
+
+<p>(usually with a -j flag like -j16 to make it threaded, e.g. make -j16 all).</p>
+
+<p><em>However</em>, that takes a long time and some setup (<a href="https://source.android.com/source/initializing.html">https://source.android.com/source/initializing.html</a>).</p>
+
+<p>If you just need the libraries vogar wants for compilation you just need:</p>
+
+<p>$ make -j core-libart</p>
+
+<p>The other libraries listed in your pastebin are required depending on the nature of the tests you want to run. core-libart contains the java.* libraries. Some of the networking code needs conscrypt and bouncycastle for secure sockets / crypto. The process is the same (take the name before _intermediates and you have the name of the build target).</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #7</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Dec 5, 2014 by
+                  <i class="ng-binding">Massive Monkey</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Another update: please pull the latest code from vogar and it should now create the AOT / dalvik-cache resource in a location that works for non-rooted devices. Now, there should be no need to use --device-dir for K and L devices.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #8</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Dec 5, 2014 by
+                  <i class="ng-binding">Happy Monkey</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>That did it! I had installed the Android SDK and build-tools with homebrew which put <code>adb</code> (and other binaries) in /usr/local/bin, which caused issues with the assumption that ../../ would give the Android SDK installation directory.</p>
+
+<p>Most tools (Gradle, Maven, etc.) use the $ANDROID_HOME variable to determine the location of the Android SDK. Would it be possible to get vogar to do the same?</p>
+
+<p>Here's my attempt to try to do that - <a href="https://gist.github.com/f2prateek/f9397d52c13904ecf530">https://gist.github.com/f2prateek/f9397d52c13904ecf530</a>. I got the vogar.sh script to work, but not the actual vogar.jar. Hope that helps if you want to add it to vogar.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #9</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Dec 8, 2014 by
+                  <i class="ng-binding">Massive Monkey</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Created <a href="https://code.google.com/p/android/issues/detail?id=82018">https://code.google.com/p/android/issues/detail?id=82018</a> to track / remind me. </p>
+
+<p>I can't be sure when / if I'll get to it: I never have ANDROID_HOME set, and I could only find one reference to it on the actual developer.android.com site.</p>
+
+<p>I agree, though: if it is a common pattern it seems reasonable to use it as a signal if it is present. A quick search for it does suggest it is becoming a de facto standard.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #10</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Dec 8, 2014 by
+                  <i class="ng-binding">Happy Monkey</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Thanks for opening, I should be able to submit a complete patch sometime next week after my exams.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #11</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Dec 8, 2014 by
+                  <i class="ng-binding">Massive Monkey</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Good luck with the exams!</p>
+
+<p>If you are planning to contribute to Android, take a look here: <a href="https://source.android.com/source/contributing.html">https://source.android.com/source/contributing.html</a></p>
+
+<p>If you haven't already, you will need to agree to the contributor license agreement for Android: <a href="https://source.android.com/source/licenses.html">https://source.android.com/source/licenses.html</a></p>
+
+<p>FYI if unaware: to obtain access to the ANDROID_HOME, you should be able to use System.getenv("ANDROID_HOME").</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #12</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Dec 17, 2014 by
+                  <i class="ng-binding">Happy Monkey</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Thanks, I've submitted a patch here <a href="https://android-review.googlesource.com/#/c/120030/">https://android-review.googlesource.com/#/c/120030/</a></p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments -->
+          </div>
+
+          <!-- Sidebar with additional information -->
+          <div class="maia-col-4">
+            <div class="maia-aside">
+              <p>Status: <code class="ng-binding">Fixed</code></p>
+              <!-- ngIf: issueCtrl.issue.labels.length > 0 --><p ng-if="issueCtrl.issue.labels.length &gt; 0" class="ng-scope">
+                Labels:
+                <br>
+                <!-- ngRepeat: label in issueCtrl.issue.labels track by $index --><span ng-repeat="label in issueCtrl.issue.labels track by $index" class="ng-scope">
+                  <span class="gca-label ng-binding">Type-Defect</span>
+                </span><!-- end ngRepeat: label in issueCtrl.issue.labels track by $index --><span ng-repeat="label in issueCtrl.issue.labels track by $index" class="ng-scope">
+                  <span class="gca-label ng-binding">Priority-Medium</span>
+                </span><!-- end ngRepeat: label in issueCtrl.issue.labels track by $index -->
+              </p><!-- end ngIf: issueCtrl.issue.labels.length > 0 -->
+            </div>
+          </div>
+        </div><!-- end ngIf: !issueCtrl.error -->
+      </div>
+    </div>
+
+  </div>
+</div>
+</div></div></div>
+    <noscript>
+      &lt;p&gt;The Google Code Archive requires JavaScript to be enabled in your browser.&lt;/p&gt;
+    </noscript>
+
+    <div id="maia-signature"></div>
+    <div class="maia-footer" id="maia-footer">
+      <div id="maia-footer-local">
+      </div>
+      <div id="maia-footer-global">
+        <div class="maia-aux">
+          <ul>
+            <li>
+              <a href="//www.google.com/">Google</a>
+            </li>
+            <li>
+              <a href="//www.google.com/intl/en/about/">About Google</a>
+            </li>
+            <li>
+              <a href="//www.google.com/intl/en/policies/privacy/">Privacy</a>
+            </li>
+            <li>
+              <a href="//www.google.com/intl/en/policies/terms/">Terms</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <script src="//www.google.com/js/maia.js"></script>
+  
+
+
+</body></html>

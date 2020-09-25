@@ -1,0 +1,40 @@
+https://github.com/microg/android_packages_apps_GmsCore/issues/121<td class="d-block comment-body markdown-body  js-comment-body">
+
+          <p>Hi,</p>
+<p>I installed GmsCore and so on (from the f-droid repo) to be able to use apps that require Google services to be installed on the phone. It seems to be working very well (self check is ok, geolocation using wifi is ok as well, and some apps which used to crash are working, such as Uber).</p>
+<p>I wanted to test how much apps that could not be used before were now usable. I tried "Duel quiz" (<a href="https://play.google.com/store/apps/details?id=se.feomedia.quizkampen.fr.lite&amp;hl=fr" rel="nofollow">https://play.google.com/store/apps/details?id=se.feomedia.quizkampen.fr.lite&amp;hl=fr</a>), latest version (2.2.0).</p>
+<p>However, when launching it, I get some "This app encountered a problem and crashed" error message. I am not 100% sure it has a link to micro-g, but I suspect the issue to be caused by the loading of advertisements displayed in the app.</p>
+<p>Here is the traceback I had using <code>logcat</code>:</p>
+<pre><code>E/AndroidRuntime(18468): FATAL EXCEPTION: main
+E/AndroidRuntime(18468): java.lang.VerifyError: o/र$if
+E/AndroidRuntime(18468):    at o.र.ˊ(Unknown Source)
+E/AndroidRuntime(18468):    at o.т.ˊ(Unknown Source)
+E/AndroidRuntime(18468):    at o.т.ˊ(Unknown Source)
+E/AndroidRuntime(18468):    at o.ᴛ.ˎ(Unknown Source)
+E/AndroidRuntime(18468):    at o.ᴛ.ˋ(Unknown Source)
+E/AndroidRuntime(18468):    at o.ᴛ.ˊ(Unknown Source)
+E/AndroidRuntime(18468):    at com.mopub.mobileads.GooglePlayServicesBanner.loadBanner(SourceFile:4000)
+E/AndroidRuntime(18468):    at com.mopub.mobileads.CustomEventBannerAdapter.loadAd(SourceFile:92)
+E/AndroidRuntime(18468):    at com.mopub.mobileads.MoPubView.loadCustomEvent(SourceFile:173)
+E/AndroidRuntime(18468):    at com.mopub.mobileads.AdLoader$CustomEventAdLoader.load(SourceFile:64)
+E/AndroidRuntime(18468):    at com.mopub.mobileads.AdViewController.onAdLoadSuccess(SourceFile:147)
+E/AndroidRuntime(18468):    at com.mopub.mobileads.AdViewController$1.onSuccess(SourceFile:115)
+E/AndroidRuntime(18468):    at o.ki.ˊ(SourceFile:44246)
+E/AndroidRuntime(18468):    at o.kG.run(SourceFile:99)
+E/AndroidRuntime(18468):    at android.os.Handler.handleCallback(Handler.java:725)
+E/AndroidRuntime(18468):    at android.os.Handler.dispatchMessage(Handler.java:92)
+E/AndroidRuntime(18468):    at android.os.Looper.loop(Looper.java:153)
+E/AndroidRuntime(18468):    at android.app.ActivityThread.main(ActivityThread.java:5299)
+E/AndroidRuntime(18468):    at java.lang.reflect.Method.invokeNative(Native Method)
+E/AndroidRuntime(18468):    at java.lang.reflect.Method.invoke(Method.java:511)
+E/AndroidRuntime(18468):    at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:833)
+E/AndroidRuntime(18468):    at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:600)
+E/AndroidRuntime(18468):    at de.robv.android.xposed.XposedBridge.main(XposedBridge.java:132)
+E/AndroidRuntime(18468):    at dalvik.system.NativeStart.main(Native Method)
+W/ActivityManager(  597):   Force finishing activity se.feomedia.quizkampen.fr.lite/o.tM
+</code></pre>
+<p>Which references <code>GooglePlayServicesBanner</code>, which is in agreement with the issue being cause by advertisements, I think, and made me think it could also be linked to microg.</p>
+<p>Using adblock plus, everything works fine, which confirms the issue with ads.</p>
+<p>Thanks</p>
+<h2></h2>
+      </td>

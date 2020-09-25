@@ -1,0 +1,627 @@
+https://code.google.com/archive/p/android-maps-extensions/issues/43<!DOCTYPE html><html class="google ng-scope" lang="en" ng-app="codesiteArchive.application"><head>
+    <meta charset="utf-8">
+    <meta content="initial-scale=1, minimum-scale=1, width=device-width" name="viewport">
+
+    <!-- https://developers.google.com/webmasters/ajax-crawling/docs/specification -->
+    <meta name="fragment" content="!">
+    <title>Google Code Archive - Long-term storage for Google Code Project Hosting.</title>
+
+    <link rel="icon" type="image/vnd.microsoft.icon" href="/archive/img/project-hosting.ico">
+    <script src="//www.google.com/js/google.js"></script>
+    <link href="//www.google.com/css/maia.css" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;lang=en" rel="stylesheet">
+    <link rel="stylesheet" href="/archive/archive_css.css">
+    <script>
+      CLOSURE_NO_DEPS = true;
+    </script>
+    <script src="/archive/angular.js"></script><style type="text/css">@charset "UTF-8";
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak],
+.ng-cloak, .x-ng-cloak,
+.ng-hide:not(.ng-hide-animate) {
+  display: none !important;
+}
+
+ng\:form {
+  display: block;
+}
+
+.ng-animate-shim {
+  visibility:hidden;
+}
+
+.ng-anchor {
+  position:absolute;
+}
+</style>
+    <script src="/archive/pagedown.js"></script>
+    <script src="/archive/archive.js"></script>
+    <base href="/archive/">
+  </head>
+
+  <body>
+    <div class="maia-header" id="maia-header" role="banner">
+      <div class="maia-aux">
+        <a href="/archive/">
+          </a><h1><a href="/archive/">
+            <img alt="Google" src="//www.google.com/images/branding/googlelogo/1x/googlelogo_color_116x41dp.png"> Code</a>
+          </h1>
+        
+        <a href="/archive/">
+          <h2>Archive</h2>
+        </a>
+        <a class="maia-teleport" href="#content">Skip to content</a>
+        <div class="maia-util">
+          <form action="/archive/search" class="maia-search ng-pristine ng-valid">
+            <input name="q" placeholder="Search this site" type="text">
+            <button class="maia-button">
+              <span class="maia-search-icon">Search</span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- ngView: --><div ng-view="" class="ng-scope"><div ng-controller="ProjectIssueCtrl as issueCtrl" class="ng-scope">
+<nav-bar-widget nav-level-1="projectCtrl.navLevel1" class="ng-isolate-scope"><div class="maia-nav maia-complex" id="maia-nav-x" role="navigation">
+  <div class="maia-aux">
+    <ul>
+      <li ng-class="{active: navLevel1 == 'projects'}">
+        <a href="/archive/">Projects</a>
+        <!-- ngIf: navLevel2 -->
+      </li>
+      <li ng-class="{active: navLevel1 == 'search'}">
+        <a href="/archive/search">Search</a>
+      </li>
+      <li ng-class="{active: navLevel1 == 'about'}">
+        <a href="/archive/about">About</a>
+      </li>
+    </ul>
+  </div>
+</div>
+</nav-bar-widget>
+<div id="maia-main" role="main">
+
+  <!-- ngIf: issueCtrl.notFound -->
+
+  <div ng-hide="issueCtrl.notFound">
+    <!-- Left-side resource nav -->
+    <project-resources-widget domain="issueCtrl.domain" project="issueCtrl.projectName" class="ng-isolate-scope"><div class="maia-nav" id="maia-nav-y" role="navigation">
+  <!-- ngIf: domain == 'code.google.com' --><ul ng-if="domain == 'code.google.com'" class="ng-scope">
+    <li class="active">
+      <a href="/archive/p/android-maps-extensions/">Project</a>
+    </li>
+    <li>
+      <a href="/archive/p/android-maps-extensions/source">Source</a>
+    </li>
+    <li>
+      <a href="/archive/p/android-maps-extensions/issues">Issues</a>
+    </li>
+    <li>
+      <a href="/archive/p/android-maps-extensions/wikis">Wikis</a>
+    </li>
+    <li>
+      <a href="/archive/p/android-maps-extensions/downloads">Downloads</a>
+    </li>
+  </ul><!-- end ngIf: domain == 'code.google.com' -->
+
+    <!-- ngIf: domain != 'code.google.com' -->
+</div></project-resources-widget>
+
+    <div class="maia-article" role="article">
+      <div class="maia-teleport" id="content"></div>
+      <div class="maia-cols">
+        <div id="gca-project-header" class="maia-col-10">
+          <a id="gca-export-to-gh" class="maia-button" href="https://code.google.com/export-to-github/export?project=android-maps-extensions">Export to GitHub</a>
+            <img class="gca-project-logo" src="https://storage.googleapis.com/google-code-archive/v2/code.google.com/android-maps-extensions/logo.png">
+            <h1 class="ng-binding">android-maps-extensions - issue #43</h1>
+            <p class="ng-binding">IllegalArgumentException when try to execute marker.setIcon in the onMarkerClick callback</p>
+        </div>
+
+        <div class="maia-col-10">
+          <hr>
+
+        <!-- ngIf: issueCtrl.error -->
+
+        <!-- ngIf: !issueCtrl.error --><div ng-if="!issueCtrl.error" class="ng-scope">
+          <!-- Comments -->
+          <div class="maia-col-8">
+            <!-- ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jan 15, 2014 by
+                  <i class="ng-binding">Happy Bird</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p><b>What steps will reproduce the problem? Please provide sscce (short, self</b>
+<b>contained, correct example) when possible.</b></p>
+
+<ol>
+<li>initialize(add to map) a marker with custom bitmap icon</li>
+<li>when marker A is clicked, it's icon need to be changed to another bitmap</li>
+<li>So, I put marker.setIcon(some_new_bitmapDescripter) in the marker's onMarkerCLick callback</li>
+<li>it seems work fine first</li>
+<li>but after create and click some markers repeatedly, app crashes with exception</li>
+</ol>
+
+<p><b>What is the expected output? What do you see instead?</b></p>
+
+<p>I want to see markers changing their icon when clicked. but, exception comes like below...</p>
+
+<hr>
+
+<pre><code>java.lang.IllegalArgumentException: Released unknown bitmap reference
+        at maps.aq.o.a(Unknown Source)
+        at maps.af.n.b(Unknown Source)
+        at maps.af.bk.a(Unknown Source)
+        at cpe.onTransact(SourceFile:204)
+        at android.os.Binder.transact(Binder.java:326)
+        at com.google.android.gms.maps.model.internal.d$a$a.i(Unknown Source)
+        at com.google.android.gms.maps.model.Marker.setIcon(Unknown Source)
+        at com.androidmapsextensions.lazy.LazyMarker.setIcon(LazyMarker.java:185)
+        at com.androidmapsextensions.impl.DelegatingMarker.setIcon(DelegatingMarker.java:188)
+        at com.livecity.s.activity.MainActivity.focusOnMarker(MainActivity.java:365)
+</code></pre></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #1</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jan 15, 2014 by
+                  <i class="ng-binding">Happy Elephant</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Can you make sure bitmap you pass to BitmapDescriptorFactory.fromBitmap(...) is not null and correct otherwise (e.g. not recycled)?</p>
+
+<p>Similar issue found here:
+<a href="http://stackoverflow.com/questions/18097090/released-unknown-bitmap-reference">http://stackoverflow.com/questions/18097090/released-unknown-bitmap-reference</a></p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #2</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Feb 3, 2014 by
+                  <i class="ng-binding">Happy Camel</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>I have exactly the same issue with setIcon of marker. In my case the passed BitmapDescriptor is not null and is not recycled.
+  The exception is thrown after the marker icon is updated, so try catch block around the setIcon method suppress the error and the result from the operation is right.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #3</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Feb 3, 2014 by
+                  <i class="ng-binding">Happy Elephant</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Hey Miro,</p>
+
+<p>The try-catch around setIcon doesn't seem like a good idea. Can you provide a simple example code so we can find the root cause of this issue?</p>
+
+<p>Is the marker visible when you change the icon or hidden in a cluster?</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #4</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Feb 3, 2014 by
+                  <i class="ng-binding">Happy Camel</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Hey,</p>
+
+<p>Well the try-catch isn't elegant, but keeps the things right.</p>
+
+<p>The problem is that the issue doesn't reproduce every time. I will try to make sample android project that demonstrates the problem anyway.</p>
+
+<p>The marker is visible when the exception occurs.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #5</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Feb 3, 2014 by
+                  <i class="ng-binding">Happy Elephant</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Does the icon change despite exception being thrown?</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #6</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Feb 3, 2014 by
+                  <i class="ng-binding">Happy Camel</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>My previous observations are that it changes, but I couldn't reproduce it in the past several minutes to confirm. I will add another comment when I am certain about that.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #7</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Feb 7, 2014 by
+                  <i class="ng-binding">Happy Camel</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>I confirm that the icon change despite the exception and the marker is fully functional.</p>
+
+<p>I didn't managed to create example that can rapidly reproduce the problem.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #8</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Feb 16, 2014 by
+                  <i class="ng-binding">Happy Elephant</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Found another StackOverflow question about this issue: <a href="http://stackoverflow.com/questions/21523202/released-unknown-bitmap-reference-setting-marker-in-android">http://stackoverflow.com/questions/21523202/released-unknown-bitmap-reference-setting-marker-in-android</a>
+Not that it helps, but if someone later answers it, might be easier for anyone hitting this page for an answer.</p>
+
+<p>Anyway this is really weird that it "works correctly" if you catch the exception. Can you share a bit of your code that might be relevant here?</p>
+
+<p>I have tried to reproduce it with a simple code like this, but it never crashed:</p>
+
+<pre><code>        @Override
+        public boolean onMarkerClick(Marker marker) {
+            Bitmap bitmap = Bitmap.createBitmap(100, 100, Bitmap.Config.ARGB_8888);
+            Canvas canvas = new Canvas(bitmap);
+            canvas.drawColor(0xFF00FFFF);
+            marker.setIcon(BitmapDescriptorFactory.fromBitmap(bitmap));
+</code></pre></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #9</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Feb 19, 2014 by
+                  <i class="ng-binding">Helpful Rhino</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>I had a similar problem, when I tried to reload a Marker executing "myMarker.setIcon()" then after some refreshes the app ran into a "java.lang.IllegalArgumentException: Released unknown bitmap reference".</p>
+
+<p>I discovered that calling "myMap.clear()" for cleaning all markers was the problem, In fact in the function docs you can read that "Removes all markers, polylines, polygons, overlays, etc from the map.".</p>
+
+<p>Well, that "etc" seems to do more as I expected...</p>
+
+<p>For solving that I used a custom function to iterate through all my markers saved in a HashMap and removing one by one, and that's all, no more exceptions like that in my code.</p>
+
+<p>You can iterate through all markers to remove them as follows:</p>
+
+<p>/**
+ * Alternative to myMap.clear() to avoid undesired exceptions
+ */
+private void clearAllMapMarkers() {
+    // Clearing the current map markers being shown
+    // Note that we do not use myMap.clear() because that incur in the exception
+    // "java.lang.IllegalArgumentException: Released unknown bitmap reference"
+    try {
+        for (Map.Entry markerEntry : mMarkerList.entrySet()) {
+            markerEntry.getValue().remove();
+        }
+    } catch (IllegalArgumentException e) {
+        // Manage here the exception (never raised but who knows...)
+    }
+}</p>
+
+<p>I answered an StackOverflow question here: <a href="http://stackoverflow.com/questions/18097090/released-unknown-bitmap-reference/21887173#21887173">http://stackoverflow.com/questions/18097090/released-unknown-bitmap-reference/21887173#21887173</a></p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #10</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Feb 19, 2014 by
+                  <i class="ng-binding">Happy Elephant</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Thank you for giving the solution that worked for you.</p>
+
+<p>Can you also share affected code you were having this issue with? Where you were using both clear and setIcon? I think it might be good to post it on the official gmaps-api-issues if you can provide example of code that breaks.</p>
+
+<p>Miro, wildroco: did you also use clear in your code? I actually never used it in real app, because it does more than I want.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #11</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Feb 20, 2014 by
+                  <i class="ng-binding">Happy Camel</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>I don't use clear. On update I remove the markers that are out of the map and add the new markers on the map.</p>
+
+<p>The code that manages the main part of the map functionality is:</p>
+
+<p>Add object:</p>
+
+<pre><code>private Marker addMapObject(IMapObject mapObject) {
+    final BitmapDescriptor iconBitmap = mapObject.getMarkerIcon();
+    final LatLng position = new LatLng(mapObject.getLatitude(), mapObject.getLongitude());
+    return mMap.addMarker(new MarkerOptions().position(position).icon(iconBitmap));
+}
+</code></pre>
+
+<p>Create marker icon:</p>
+
+<pre><code>public BitmapDescriptor getSelectedMarkerIcon() {
+    return BitmapDescriptorFactory.fromBitmap(getSelectedIcon());
+}
+
+public Bitmap getSelectedIcon() {
+    return Icons.getSelectedHotelIcon(mStars);
+}
+
+static Bitmap getSelectedIcon(int stars) {
+    final Resources resources = Globals.context.getResources();
+    Bitmap marker = BitmapFactory.decodeResource(resources, R.drawable.pin_grey);
+    if( stars != 0 ) {
+        marker = Paints.signIcon(Const.FILTER_LOW, stars, marker);
+    }
+    return marker;
+}
+
+public static Bitmap signIcon(byte priceRange, int stars, Bitmap icon) {
+    final Bitmap layout = Bitmap.createBitmap(icon.getWidth(), icon.getHeight(), Bitmap.Config.ARGB_8888);
+    final Canvas canvas = new Canvas(layout);
+    canvas.drawBitmap(icon, 0, 0, null);
+    final String starsAsString = String.valueOf(stars);
+    final float offsetLeft = icon.getWidth() * 0.50f;
+    final float offsetTop = icon.getHeight() * 0.75f;
+    final int color = getPaintColor(priceRange);
+    final Paint paint = getPaint(color, R.dimen.font_size);
+    canvas.drawText(starsAsString, offsetLeft, offsetTop, paint);
+    return layout;
+}
+</code></pre>
+
+<p>Update marker icon:</p>
+
+<pre><code>/**Wrapper method related with https://code.google.com/p/android-maps-extensions/issues/detail?id=43*/
+private void setMarkerIcon(Marker marker, BitmapDescriptor newIcon) {
+    try {
+        marker.setIcon(newIcon);
+    } catch(Throwable ex) {
+        MelonLog.i(getClass().getSimpleName(), "Marker.setIcon failed: " + ex.getMessage());
+    }
+}
+</code></pre>
+
+<p>Manage map objects:</p>
+
+<pre><code>private class MapObjectUpdater&lt;T extends IMapObject&gt; {
+
+    final HashMap&lt;Marker, T&gt; mapObjects = new HashMap&lt;Marker, T&gt;();
+
+    void update(List&lt;T&gt; updatedMapObjects) {
+        removeUnpresentedObjects(updatedMapObjects);
+        addNewObjects(updatedMapObjects);
+    }
+
+    private void removeUnpresentedObjects(List&lt;T&gt; updatedMapObjects) {
+        for(final Iterator&lt;Entry&lt;Marker, T&gt;&gt; it = mapObjects.entrySet().iterator(); it.hasNext(); ) {
+            final Entry&lt;Marker, T&gt; entry = it.next();
+            final T mapObject = entry.getValue();
+            if( ! updatedMapObjects.contains(mapObject)) {
+                final Marker marker = entry.getKey();
+                marker.remove();
+                it.remove();
+            }
+        }
+    }
+
+    private void addNewObjects(List&lt;T&gt; updatedMapObjects) {
+        final Collection&lt;T&gt; currentValues = mapObjects.values();
+        for(final T object : updatedMapObjects) {
+            if( ! currentValues.contains(object)) {
+                final Marker marker = addMapObject(object);
+                mapObjects.put(marker, object);
+            }
+        }
+    }
+}
+</code></pre></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #12</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Mar 5, 2014 by
+                  <i class="ng-binding">Swift Camel</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>I experienced "IllegalArgumentExcepion: Released unknown bitmap reference" when way trying to modify Marker instance which is not on the map anymore. Test code to reproduce:</p>
+
+<p>final Marker marker = googleMap.addMarker(..);
+googleMap.clear();
+marker.setIcon(..);</p>
+
+<p><a href="http://stackoverflow.com/questions/21523202/released-unknown-bitmap-reference-setting-marker-in-android/22200809#22200809">http://stackoverflow.com/questions/21523202/released-unknown-bitmap-reference-setting-marker-in-android/22200809#22200809</a></p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments -->
+          </div>
+
+          <!-- Sidebar with additional information -->
+          <div class="maia-col-4">
+            <div class="maia-aside">
+              <p>Status: <code class="ng-binding">NeedsMoreInfo</code></p>
+              <!-- ngIf: issueCtrl.issue.labels.length > 0 --><p ng-if="issueCtrl.issue.labels.length &gt; 0" class="ng-scope">
+                Labels:
+                <br>
+                <!-- ngRepeat: label in issueCtrl.issue.labels track by $index --><span ng-repeat="label in issueCtrl.issue.labels track by $index" class="ng-scope">
+                  <span class="gca-label ng-binding">Type-Defect</span>
+                </span><!-- end ngRepeat: label in issueCtrl.issue.labels track by $index -->
+              </p><!-- end ngIf: issueCtrl.issue.labels.length > 0 -->
+            </div>
+          </div>
+        </div><!-- end ngIf: !issueCtrl.error -->
+      </div>
+    </div>
+
+  </div>
+</div>
+</div></div></div>
+    <noscript>
+      &lt;p&gt;The Google Code Archive requires JavaScript to be enabled in your browser.&lt;/p&gt;
+    </noscript>
+
+    <div id="maia-signature"></div>
+    <div class="maia-footer" id="maia-footer">
+      <div id="maia-footer-local">
+      </div>
+      <div id="maia-footer-global">
+        <div class="maia-aux">
+          <ul>
+            <li>
+              <a href="//www.google.com/">Google</a>
+            </li>
+            <li>
+              <a href="//www.google.com/intl/en/about/">About Google</a>
+            </li>
+            <li>
+              <a href="//www.google.com/intl/en/policies/privacy/">Privacy</a>
+            </li>
+            <li>
+              <a href="//www.google.com/intl/en/policies/terms/">Terms</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <script src="//www.google.com/js/maia.js"></script>
+  
+
+
+</body></html>

@@ -1,0 +1,423 @@
+https://code.google.com/archive/p/j2memaprouteprovider/issues/5<!DOCTYPE html><html class="google ng-scope" lang="en" ng-app="codesiteArchive.application"><head>
+    <meta charset="utf-8">
+    <meta content="initial-scale=1, minimum-scale=1, width=device-width" name="viewport">
+
+    <!-- https://developers.google.com/webmasters/ajax-crawling/docs/specification -->
+    <meta name="fragment" content="!">
+    <title>Google Code Archive - Long-term storage for Google Code Project Hosting.</title>
+
+    <link rel="icon" type="image/vnd.microsoft.icon" href="/archive/img/project-hosting.ico">
+    <script src="//www.google.com/js/google.js"></script>
+    <link href="//www.google.com/css/maia.css" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;lang=en" rel="stylesheet">
+    <link rel="stylesheet" href="/archive/archive_css.css">
+    <script>
+      CLOSURE_NO_DEPS = true;
+    </script>
+    <script src="/archive/angular.js"></script><style type="text/css">@charset "UTF-8";
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak],
+.ng-cloak, .x-ng-cloak,
+.ng-hide:not(.ng-hide-animate) {
+  display: none !important;
+}
+
+ng\:form {
+  display: block;
+}
+
+.ng-animate-shim {
+  visibility:hidden;
+}
+
+.ng-anchor {
+  position:absolute;
+}
+</style>
+    <script src="/archive/pagedown.js"></script>
+    <script src="/archive/archive.js"></script>
+    <base href="/archive/">
+  </head>
+
+  <body>
+    <div class="maia-header" id="maia-header" role="banner">
+      <div class="maia-aux">
+        <a href="/archive/">
+          </a><h1><a href="/archive/">
+            <img alt="Google" src="//www.google.com/images/branding/googlelogo/1x/googlelogo_color_116x41dp.png"> Code</a>
+          </h1>
+        
+        <a href="/archive/">
+          <h2>Archive</h2>
+        </a>
+        <a class="maia-teleport" href="#content">Skip to content</a>
+        <div class="maia-util">
+          <form action="/archive/search" class="maia-search ng-pristine ng-valid">
+            <input name="q" placeholder="Search this site" type="text">
+            <button class="maia-button">
+              <span class="maia-search-icon">Search</span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- ngView: --><div ng-view="" class="ng-scope"><div ng-controller="ProjectIssueCtrl as issueCtrl" class="ng-scope">
+<nav-bar-widget nav-level-1="projectCtrl.navLevel1" class="ng-isolate-scope"><div class="maia-nav maia-complex" id="maia-nav-x" role="navigation">
+  <div class="maia-aux">
+    <ul>
+      <li ng-class="{active: navLevel1 == 'projects'}">
+        <a href="/archive/">Projects</a>
+        <!-- ngIf: navLevel2 -->
+      </li>
+      <li ng-class="{active: navLevel1 == 'search'}">
+        <a href="/archive/search">Search</a>
+      </li>
+      <li ng-class="{active: navLevel1 == 'about'}">
+        <a href="/archive/about">About</a>
+      </li>
+    </ul>
+  </div>
+</div>
+</nav-bar-widget>
+<div id="maia-main" role="main">
+
+  <!-- ngIf: issueCtrl.notFound -->
+
+  <div ng-hide="issueCtrl.notFound">
+    <!-- Left-side resource nav -->
+    <project-resources-widget domain="issueCtrl.domain" project="issueCtrl.projectName" class="ng-isolate-scope"><div class="maia-nav" id="maia-nav-y" role="navigation">
+  <!-- ngIf: domain == 'code.google.com' --><ul ng-if="domain == 'code.google.com'" class="ng-scope">
+    <li class="active">
+      <a href="/archive/p/j2memaprouteprovider/">Project</a>
+    </li>
+    <li>
+      <a href="/archive/p/j2memaprouteprovider/source">Source</a>
+    </li>
+    <li>
+      <a href="/archive/p/j2memaprouteprovider/issues">Issues</a>
+    </li>
+    <li>
+      <a href="/archive/p/j2memaprouteprovider/wikis">Wikis</a>
+    </li>
+    <li>
+      <a href="/archive/p/j2memaprouteprovider/downloads">Downloads</a>
+    </li>
+  </ul><!-- end ngIf: domain == 'code.google.com' -->
+
+    <!-- ngIf: domain != 'code.google.com' -->
+</div></project-resources-widget>
+
+    <div class="maia-article" role="article">
+      <div class="maia-teleport" id="content"></div>
+      <div class="maia-cols">
+        <div id="gca-project-header" class="maia-col-10">
+          <a id="gca-export-to-gh" class="maia-button" href="https://code.google.com/export-to-github/export?project=j2memaprouteprovider">Export to GitHub</a>
+            <img class="gca-project-logo" src="https://storage.googleapis.com/google-code-archive/v2/code.google.com/j2memaprouteprovider/logo.png">
+            <h1 class="ng-binding">j2memaprouteprovider - issue #5</h1>
+            <p class="ng-binding">Anti-alias improvement</p>
+        </div>
+
+        <div class="maia-col-10">
+          <hr>
+
+        <!-- ngIf: issueCtrl.error -->
+
+        <!-- ngIf: !issueCtrl.error --><div ng-if="!issueCtrl.error" class="ng-scope">
+          <!-- Comments -->
+          <div class="maia-col-8">
+            <!-- ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Mar 21, 2012 by
+                  <i class="ng-binding">Swift Rabbit</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>This is more a suggestion than an issue.</p>
+
+<p>I've successfully used this code (many thanks to the author!) but I noticed that the drawPath method of the MapOverlay class draws a path which is not smooth at all.</p>
+
+<p>To dramatically improve the path smoothness I activated anti-alias on the Paint and made a single call to the canvas.drawPath method instead of several calls to canvas.drawLine.</p>
+
+<p>In the following I report the modified drawPath method, hoping that it will be useful to someone else.</p>
+
+<p>public void drawPath(MapView mv, Canvas canvas) {
+                int x1 = -1, y1 = -1, x2 = -1, y2 = -1;
+                // this activates anti-alias
+                Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
+                paint.setColor(Color.GREEN);
+                paint.setStyle(Paint.Style.STROKE);
+                paint.setStrokeWidth(3);</p>
+
+<pre><code>            // creates a path to be drawn
+            Path path = new Path();
+
+            for (int i = 0; i &amp;lt; mPoints.size(); i++) {
+                    Point point = new Point();
+                    mv.getProjection().toPixels(mPoints.get(i), point);
+                    x2 = point.x;
+                    y2 = point.y;
+                    // original code commented out
+                    //if (i &amp;gt; 0) {
+                    //        canvas.drawLine(x1, y1, x2, y2, paint);
+                    //}
+                    x1 = x2;
+                    y1 = y2;
+
+                    if (i == 0) {
+                        path.moveTo(x1, y1);
+                    }
+                    else {
+                        path.lineTo(x1, y1);
+                    }
+            }
+            // draws the whole path
+            canvas.drawPath(path, paint);
+    }
+</code></pre>
+
+<p>Thanks again.
+All the best.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #1</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Apr 13, 2012 by
+                  <i class="ng-binding">Helpful Bear</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Thanks a tone for the anti alias..  also we can add any push pin like logo on map by making MapOverlay class to inner class!</p>
+
+<p>public class Gmap extends MapActivity {</p>
+
+<pre><code>MapView mapView;
+MapController mc;
+GeoPoint p;
+
+/** Called when the activity is first created. */
+@Override
+public void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.main);
+    mapView=(MapView)findViewById(R.id.mapView);
+    mapView.setBuiltInZoomControls(true);
+    mc = mapView.getController();
+    String coordinates[] = {"1.352566007", "103.78921587"};
+    double lat = Double.parseDouble(coordinates[0]);
+    double lng = Double.parseDouble(coordinates[1]);
+
+    p = new GeoPoint(        //for 2 point display have to make 2points
+        (int) (lat * 1E6), 
+        (int) (lng * 1E6));
+
+    mc.animateTo(p);
+    mc.setZoom(17); 
+    MapOverlay mapOverlay = new MapOverlay();
+    List&lt;Overlay&gt; listOfOverlays = mapView.getOverlays();
+    listOfOverlays.clear();
+    listOfOverlays.add(mapOverlay);
+    mapView.invalidate();
+
+}
+
+@Override
+protected boolean isRouteDisplayed() {
+    // TODO Auto-generated method stub
+    return false;
+}
+</code></pre>
+
+<p>class MapOverlay extends com.google.android.maps.Overlay    {</p>
+
+<pre><code>    @Override
+    public boolean draw(Canvas canvas, MapView mapView, 
+    boolean shadow, long when) 
+    {
+        super.draw(canvas, mapView, shadow);                   
+
+        //---translate the GeoPoint to screen pixels---
+        Point screenPts = new Point();
+        mapView.getProjection().toPixels(p, screenPts);
+
+        //---add the marker---
+        Bitmap bmp = BitmapFactory.decodeResource(
+            getResources(), R.drawable.push_pin);            
+        canvas.drawBitmap(bmp, screenPts.x, screenPts.y-50, null);         
+        return true;
+      //...
+    }
+                      ......
+</code></pre></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length --><small ng-if="comment.attachments.length" class="ng-scope">Attachments</small><!-- end ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments --><ul ng-repeat="attachment in comment.attachments" class="ng-scope">
+                <li class="ng-binding">
+                  <a href="http://storage.googleapis.com/google-code-attachments/j2memaprouteprovider/issue-5/comment-1/device-2012-04-13-190907.png" class="ng-binding">
+                    device-2012-04-13-190907.png
+                  </a> 130.73KB
+                </li>
+              </ul><!-- end ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #2</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jul 31, 2012 by
+                  <i class="ng-binding">Swift Giraffe</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>hi 
+can you pls tell me why do i have "null null" in the description and the name of the route ?? when i run the application it dispalys this "null,null" textView and closes 
+and these are the logCat: 
+08-01 14:28:30.738: E/MapActivity(682): Couldn't get connection factory client
+08-01 14:28:31.598: W/System.err(682): org.apache.harmony.xml.ExpatParser$ParseException: At line 1, column 1083: not well-formed (invalid token)
+08-01 14:28:31.609: W/System.err(682):  at org.apache.harmony.xml.ExpatParser.parseFragment(ExpatParser.java:515)
+08-01 14:28:31.609: W/System.err(682):  at org.apache.harmony.xml.ExpatParser.parseDocument(ExpatParser.java:474)
+08-01 14:28:31.609: W/System.err(682):  at org.apache.harmony.xml.ExpatReader.parse(ExpatReader.java:321)
+08-01 14:28:31.669: W/System.err(682):  at org.apache.harmony.xml.ExpatReader.parse(ExpatReader.java:279)
+08-01 14:28:31.769: W/System.err(682):  at javax.xml.parsers.SAXParser.parse(SAXParser.java:390)
+08-01 14:28:31.769: W/System.err(682):  at javax.xml.parsers.SAXParser.parse(SAXParser.java:187)
+08-01 14:28:31.769: W/System.err(682):  at org.ci.geo.route.RoadProvider.getRoute(RoadProvider.java:23)
+08-01 14:28:31.769: W/System.err(682):  at com.test.MainActivity$2.run(MainActivity.java:50)
+08-01 14:28:31.918: W/dalvikvm(682): threadid=1: thread exiting with uncaught exception (group=0x409c01f8)
+08-01 14:28:32.079: E/AndroidRuntime(682): FATAL EXCEPTION: main
+08-01 14:28:32.079: E/AndroidRuntime(682): java.lang.NullPointerException
+08-01 14:28:32.079: E/AndroidRuntime(682):  at com.test.MapOverlay.drawPath(MainActivity.java:126)
+08-01 14:28:32.079: E/AndroidRuntime(682):  at com.test.MapOverlay.draw(MainActivity.java:116)
+08-01 14:28:32.079: E/AndroidRuntime(682):  at com.google.android.maps.OverlayBundle.draw(OverlayBundle.java:42)
+08-01 14:28:32.079: E/AndroidRuntime(682):  at com.google.android.maps.MapView.onDraw(MapView.java:530)
+08-01 14:28:32.079: E/AndroidRuntime(682):  at android.view.View.draw(View.java:10978)
+08-01 14:28:32.079: E/AndroidRuntime(682):  at android.view.ViewGroup.drawChild(ViewGroup.java:2887)
+08-01 14:28:32.079: E/AndroidRuntime(682):  at android.view.ViewGroup.dispatchDraw(ViewGroup.java:2489)
+08-01 14:28:32.079: E/AndroidRuntime(682):  at android.view.ViewGroup.drawChild(ViewGroup.java:2885)
+08-01 14:28:32.079: E/AndroidRuntime(682):  at android.view.ViewGroup.dispatchDraw(ViewGroup.java:2489)
+08-01 14:28:32.079: E/AndroidRuntime(682):  at android.view.ViewGroup.drawChild(ViewGroup.java:2885)
+08-01 14:28:32.079: E/AndroidRuntime(682):  at android.view.ViewGroup.dispatchDraw(ViewGroup.java:2489)
+08-01 14:28:32.079: E/AndroidRuntime(682):  at android.view.ViewGroup.drawChild(ViewGroup.java:2885)
+08-01 14:28:32.079: E/AndroidRuntime(682):  at android.view.ViewGroup.dispatchDraw(ViewGroup.java:2489)
+08-01 14:28:32.079: E/AndroidRuntime(682):  at android.view.View.draw(View.java:10981)
+08-01 14:28:32.079: E/AndroidRuntime(682):  at android.widget.FrameLayout.draw(FrameLayout.java:450)
+08-01 14:28:32.079: E/AndroidRuntime(682):  at com.android.internal.policy.impl.PhoneWindow$DecorView.draw(PhoneWindow.java:2126)
+08-01 14:28:32.079: E/AndroidRuntime(682):  at android.view.ViewRootImpl.draw(ViewRootImpl.java:2026)
+08-01 14:28:32.079: E/AndroidRuntime(682):  at android.view.ViewRootImpl.performTraversals(ViewRootImpl.java:1634)
+08-01 14:28:32.079: E/AndroidRuntime(682):  at android.view.ViewRootImpl.handleMessage(ViewRootImpl.java:2442)
+08-01 14:28:32.079: E/AndroidRuntime(682):  at android.os.Handler.dispatchMessage(Handler.java:99)
+08-01 14:28:32.079: E/AndroidRuntime(682):  at android.os.Looper.loop(Looper.java:137)
+08-01 14:28:32.079: E/AndroidRuntime(682):  at android.app.ActivityThread.main(ActivityThread.java:4424)
+08-01 14:28:32.079: E/AndroidRuntime(682):  at java.lang.reflect.Method.invokeNative(Native Method)
+08-01 14:28:32.079: E/AndroidRuntime(682):  at java.lang.reflect.Method.invoke(Method.java:511)
+08-01 14:28:32.079: E/AndroidRuntime(682):  at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:784)
+08-01 14:28:32.079: E/AndroidRuntime(682):  at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:551)
+08-01 14:28:32.079: E/AndroidRuntime(682):  at dalvik.system.NativeStart.main(Native Method)</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #3</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Apr 12, 2013 by
+                  <i class="ng-binding">Massive Kangaroo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Hi
+Even i am also getting the same issue.
+Can any one pls help?</p>
+
+<p>Thanks 
+Ravikanth</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments -->
+          </div>
+
+          <!-- Sidebar with additional information -->
+          <div class="maia-col-4">
+            <div class="maia-aside">
+              <p>Status: <code class="ng-binding">New</code></p>
+              <!-- ngIf: issueCtrl.issue.labels.length > 0 --><p ng-if="issueCtrl.issue.labels.length &gt; 0" class="ng-scope">
+                Labels:
+                <br>
+                <!-- ngRepeat: label in issueCtrl.issue.labels track by $index --><span ng-repeat="label in issueCtrl.issue.labels track by $index" class="ng-scope">
+                  <span class="gca-label ng-binding">Type-Defect</span>
+                </span><!-- end ngRepeat: label in issueCtrl.issue.labels track by $index --><span ng-repeat="label in issueCtrl.issue.labels track by $index" class="ng-scope">
+                  <span class="gca-label ng-binding">Priority-Medium</span>
+                </span><!-- end ngRepeat: label in issueCtrl.issue.labels track by $index -->
+              </p><!-- end ngIf: issueCtrl.issue.labels.length > 0 -->
+            </div>
+          </div>
+        </div><!-- end ngIf: !issueCtrl.error -->
+      </div>
+    </div>
+
+  </div>
+</div>
+</div></div></div>
+    <noscript>
+      &lt;p&gt;The Google Code Archive requires JavaScript to be enabled in your browser.&lt;/p&gt;
+    </noscript>
+
+    <div id="maia-signature"></div>
+    <div class="maia-footer" id="maia-footer">
+      <div id="maia-footer-local">
+      </div>
+      <div id="maia-footer-global">
+        <div class="maia-aux">
+          <ul>
+            <li>
+              <a href="//www.google.com/">Google</a>
+            </li>
+            <li>
+              <a href="//www.google.com/intl/en/about/">About Google</a>
+            </li>
+            <li>
+              <a href="//www.google.com/intl/en/policies/privacy/">Privacy</a>
+            </li>
+            <li>
+              <a href="//www.google.com/intl/en/policies/terms/">Terms</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <script src="//www.google.com/js/maia.js"></script>
+  
+
+
+</body></html>

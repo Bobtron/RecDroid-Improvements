@@ -1,0 +1,267 @@
+https://github.com/microg/android_packages_apps_GmsCore/issues/507<td class="d-block comment-body markdown-body  js-comment-body">
+
+          <p>I am running LineageOS 15.1 on a3y17lte. My banking app does not register successfully anymore (it did work with LineageOS 14.1, though app lost the gcm connection after some hours).<br>
+As you can see in the logs the registration seems to be ok with Push.io but after some time there is a timeout. The number26 app is also not listed in the microG Service Core app. (With LineageOS 14.1 it was listed and received messages for some hours)</p>
+<pre><code>03-19 11:35:20.563 23506 23506 D pushio  : Push IO Manager - version: 6.32
+03-19 11:35:20.566 23506 23506 D pushio  : LEP PushIOLocalEventProcessor loaded
+03-19 11:35:20.567 23506 23506 D pushio  : PH registerPushMessageListener
+03-19 11:35:20.567 23506 23506 D pushio  : EM registerPushIOEventListener
+03-19 11:35:20.567 23506 23506 D pushio  : Detecting notification service...
+03-19 11:35:20.568  2957  3704 I Xposed  : FakeGApps: caught the NullPointerException
+03-19 11:35:20.570  2957  3704 I Xposed  : FakeGApps: caught the NullPointerException
+03-19 11:35:20.571 23506 23506 D pushio  : Google Play Services found, using GCM for notification service.
+03-19 11:35:20.573 23506 23506 D pushio  : Registering device with 'GCM' servers...
+03-19 11:35:20.577 23506 23506 D pushio  : Your PushIO Device ID is: garbled-garbled-4d9a-969a-garbled
+03-19 11:35:20.577 23506 23506 D pushio  : Registering device with 'GCM' servers...
+03-19 11:35:20.579 23506 23506 D pushio  : Your PushIO Device ID is: garbled-garbled-4d9a-969a-garbled
+03-19 11:35:20.579 23506 23506 D pushio  : Registering device with 'GCM' servers...
+03-19 11:35:20.581 23506 23506 D pushio  : Your PushIO Device ID is: garbled-garbled-4d9a-969a-garbled
+03-19 11:35:20.583  2957  3704 I ActivityManager: START u0 {cmp=de.number26.android/de.number26.machete.android.ui.activation.ActivationProcessActivity} from uid 10078
+03-19 11:35:20.598 23506 23716 D pushio  : GCM registration
+03-19 11:35:20.602 23506 23716 W InstanceID/Rpc: Failed to resolve IID implementation package, falling back
+03-19 11:35:20.603  2957  3704 I Xposed  : FakeGApps: caught the NullPointerException
+03-19 11:35:20.605 23506 23635 V FA      : Recording user engagement, ms: 27994
+03-19 11:35:20.605 23506 23635 V FA      : Using measurement service
+03-19 11:35:20.606 23506 23635 V FA      : Connecting to remote service
+03-19 11:35:20.607  2957  3289 I Xposed  : FakeGApps: caught the NullPointerException
+03-19 11:35:20.617  2957 18339 W ActivityManager: Unable to start service Intent { act=com.google.android.gms.measurement.START pkg=com.google.android.gms } U=0: not found
+03-19 11:35:20.617  2957 18339 W ActivityManager: Unbind failed: could not find connection for android.os.BinderProxy@13bf7f7
+03-19 11:35:20.608  2957  3289 I Xposed  : FakeGApps: caught the NullPointerException
+03-19 11:35:20.617 23506 23635 E GmsClient: unable to connect to service: com.google.android.gms.measurement.START on com.google.android.gms
+03-19 11:35:20.618 23506 23635 V FA      : Activity paused, time: 52958098
+03-19 11:35:20.622 23506 23635 D FA      : Logging event (FE): user_engagement(_e), Bundle[{firebase_event_origin(_o)=auto, engagement_time_msec(_et)=27994, firebase_screen_class(_sc)=LandingActivity, firebase_screen_id(_si)=-4655452402262749458}]
+03-19 11:35:20.628 23506 23506 I AppCompatDelegate: The Activity's LayoutInflater already has a Factory installed so we can not install AppCompat's
+03-19 11:35:20.629 23506 23506 V FA      : onActivityCreated
+03-19 11:35:20.646 23506 23635 V FA      : Using measurement service
+03-19 11:35:20.646 23506 23635 V FA      : Connection attempt already in progress
+03-19 11:35:20.733 23506 23635 V FA      : Using measurement service
+03-19 11:35:20.733 23506 23635 V FA      : Connection attempt already in progress
+03-19 11:35:20.734 23506 23635 V FA      : Activity resumed, time: 52958227
+03-19 11:35:20.739 23506 23635 D FA      : Logging event (FE): screen_view(_vs), Bundle[{firebase_event_origin(_o)=auto, firebase_previous_class(_pc)=LandingActivity, firebase_previous_id(_pi)=-4655452402262749458, firebase_screen_class(_sc)=ActivationProcessActivity, firebase_screen_id(_si)=-4655452402262749457}]
+03-19 11:35:20.743 23506 23506 W FA      : Service connection failed: ConnectionResult{statusCode=API_UNAVAILABLE, resolution=null, message=null}
+03-19 11:35:20.753 23506 23635 V FA      : Using measurement service
+03-19 11:35:20.754 23506 23635 V FA      : Connecting to remote service
+03-19 11:35:20.755  2957 18339 I Xposed  : FakeGApps: caught the NullPointerException
+03-19 11:35:20.758  2957 18339 W ActivityManager: Unable to start service Intent { act=com.google.android.gms.measurement.START pkg=com.google.android.gms } U=0: not found
+03-19 11:35:20.759  2957 18339 W ActivityManager: Unbind failed: could not find connection for android.os.BinderProxy@41edd82
+03-19 11:35:20.756  2957 18339 I Xposed  : FakeGApps: caught the NullPointerException
+03-19 11:35:20.759 23506 23635 E GmsClient: unable to connect to service: com.google.android.gms.measurement.START on com.google.android.gms
+03-19 11:35:20.759 23506 23635 V FA      : Processing queued up service tasks: 4
+03-19 11:35:20.759 23506 23635 E FA      : Failed to send current screen to service
+03-19 11:35:20.760 23506 23635 E FA      : Discarding data. Failed to send event to service
+03-19 11:35:20.760 23506 23635 E FA      : Failed to send current screen to service
+03-19 11:35:20.760 23506 23635 E FA      : Discarding data. Failed to send event to service
+03-19 11:35:20.771 23506 23565 D mali_winsys: EGLint new_window_surface(egl_winsys_display*, void*, EGLSurface, EGLConfig, egl_winsys_surface**, egl_color_buffer_format*, EGLBoolean) returns 0x3000,  [720x1280]-format:1
+03-19 11:35:20.822 23506 23506 W FA      : Service connection failed: ConnectionResult{statusCode=API_UNAVAILABLE, resolution=null, message=null}
+03-19 11:35:20.824 23506 23635 V FA      : Processing queued up service tasks: 0
+03-19 11:35:46.275 23506 23506 W FA      : Service connection failed: ConnectionResult{statusCode=API_UNAVAILABLE, resolution=null, message=null}
+03-19 11:35:46.276 23506 23635 V FA      : Processing queued up service tasks: 0
+03-19 11:35:46.297  3953  3967 D GmsLocManagerSvcImpl: getLastLocationWithPackage: de.number26.android
+03-19 11:35:46.299  3953  3967 E JavaBinder: *** Uncaught remote exception!  (Exceptions are not yet supported across processes.)
+03-19 11:35:46.299  3953  3967 E JavaBinder: java.lang.RuntimeException: Can't toast on a thread that has not called Looper.prepare()
+03-19 11:35:46.299  3953  3967 E JavaBinder: 	at android.widget.Toast$TN.&lt;init&gt;(Toast.java:390)
+03-19 11:35:46.299  3953  3967 E JavaBinder: 	at android.widget.Toast.&lt;init&gt;(Toast.java:114)
+03-19 11:35:46.299  3953  3967 E JavaBinder: 	at android.widget.Toast.makeText(Toast.java:277)
+03-19 11:35:46.299  3953  3967 E JavaBinder: 	at android.widget.Toast.makeText(Toast.java:267)
+03-19 11:35:46.299  3953  3967 E JavaBinder: 	at org.microg.gms.common.Utils.hasSelfPermissionOrNotify(Utils.java:57)
+03-19 11:35:46.299  3953  3967 E JavaBinder: 	at org.microg.gms.location.GoogleLocationManager.&lt;init&gt;(GoogleLocationManager.java:58)
+03-19 11:35:46.299  3953  3967 E JavaBinder: 	at org.microg.gms.location.GoogleLocationManagerServiceImpl.getLocationManager(GoogleLocationManagerServiceImpl.java:70)
+03-19 11:35:46.299  3953  3967 E JavaBinder: 	at org.microg.gms.location.GoogleLocationManagerServiceImpl.getLastLocationWithPackage(GoogleLocationManagerServiceImpl.java:235)
+03-19 11:35:46.299  3953  3967 E JavaBinder: 	at com.google.android.gms.location.internal.IGoogleLocationManagerService$Stub.onTransact(IGoogleLocationManagerService.java:440)
+03-19 11:35:46.299  3953  3967 E JavaBinder: 	at org.microg.gms.location.GoogleLocationManagerServiceImpl.onTransact(GoogleLocationManagerServiceImpl.java:341)
+03-19 11:35:46.299  3953  3967 E JavaBinder: 	at android.os.Binder.execTransact(Binder.java:697)
+03-19 11:35:46.303  3953  7126 D SafeParcel: Unknown field num 9 in com.google.android.gms.location.internal.LocationRequestInternal, skipping.
+03-19 11:35:46.304  3953  7126 D GmsLocManagerSvcImpl: updateLocationRequest: LocationRequestUpdateData{opCode=1, request=LocationRequestInternal{request=LocationRequest{priority=102, interval=3600000, fastestInterval=600000, explicitFastestInterval=false, expirationTime=9223372036854775807, numUpdates=1, smallestDesplacement=0.0, maxWaitTime=0}, requestNlpDebugInfo=false, restorePendingIntentListeners=false, triggerUpdate=false, clients=[], tag='null', hideFromAppOps=false, forceCoarseLocation=false}, listener=com.google.android.gms.location.ILocationListener$Stub$Proxy@19eb8c0, pendingIntent=null, callback=null, fusedLocationProviderCallback=com.google.android.gms.location.internal.IFusedLocationProviderCallback$Stub$Proxy@15f59f9}
+03-19 11:35:46.305  3953  7126 E JavaBinder: *** Uncaught remote exception!  (Exceptions are not yet supported across processes.)
+03-19 11:35:46.305  3953  7126 E JavaBinder: java.lang.RuntimeException: Can't toast on a thread that has not called Looper.prepare()
+03-19 11:35:46.305  3953  7126 E JavaBinder: 	at android.widget.Toast$TN.&lt;init&gt;(Toast.java:390)
+03-19 11:35:46.305  3953  7126 E JavaBinder: 	at android.widget.Toast.&lt;init&gt;(Toast.java:114)
+03-19 11:35:46.305  3953  7126 E JavaBinder: 	at android.widget.Toast.makeText(Toast.java:277)
+03-19 11:35:46.305  3953  7126 E JavaBinder: 	at android.widget.Toast.makeText(Toast.java:267)
+03-19 11:35:46.305  3953  7126 E JavaBinder: 	at org.microg.gms.common.Utils.hasSelfPermissionOrNotify(Utils.java:57)
+03-19 11:35:46.305  3953  7126 E JavaBinder: 	at org.microg.gms.location.GoogleLocationManager.&lt;init&gt;(GoogleLocationManager.java:58)
+03-19 11:35:46.305  3953  7126 E JavaBinder: 	at org.microg.gms.location.GoogleLocationManagerServiceImpl.getLocationManager(GoogleLocationManagerServiceImpl.java:70)
+03-19 11:35:46.305  3953  7126 E JavaBinder: 	at org.microg.gms.location.GoogleLocationManagerServiceImpl.updateLocationRequest(GoogleLocationManagerServiceImpl.java:175)
+03-19 11:35:46.305  3953  7126 E JavaBinder: 	at com.google.android.gms.location.internal.IGoogleLocationManagerService$Stub.onTransact(IGoogleLocationManagerService.java:408)
+03-19 11:35:46.305  3953  7126 E JavaBinder: 	at org.microg.gms.location.GoogleLocationManagerServiceImpl.onTransact(GoogleLocationManagerServiceImpl.java:341)
+03-19 11:35:46.305  3953  7126 E JavaBinder: 	at android.os.Binder.execTransact(Binder.java:697)
+03-19 11:35:46.326  2957  2980 I ActivityManager: Displayed de.number26.android/de.number26.machete.android.ui.cash26.Cash26Activity: +359ms
+03-19 11:35:46.342 23506 23565 W libEGL  : EGLNativeWindowType 0xcdcd8008 disconnect failed
+03-19 11:35:46.342 23506 23565 D OpenGLRenderer: endAllActiveAnimators on 0xcf756500 (RippleDrawable) with handle 0xd48bb370
+03-19 11:35:46.666 23506 23506 I zygote  : Deoptimizing android.view.View android.support.v7.widget.RecyclerView$5.b(int) due to JIT inline cache
+03-19 11:35:47.625 23506 23626 W InstanceID/Rpc: No response
+03-19 11:35:47.628 23506 23626 D FirebaseInstanceId: background sync failed: TIMEOUT, retry in 40s
+03-19 11:35:47.635  2957  3274 I Xposed  : FakeGApps: caught the NullPointerException
+03-19 11:35:50.623 23506 23716 W InstanceID/Rpc: No response android.os.ConditionVariable@2359977
+03-19 11:35:50.624 23506 23716 E pushio  : GCM Error: TIMEOUT
+03-19 11:35:50.630 23506 23716 E pushio  : Retrying in 1000 MS
+03-19 11:35:50.633 23506 23716 D pushio  : GCM registration
+03-19 11:35:50.644  2957 18339 I Xposed  : FakeGApps: caught the NullPointerException
+03-19 11:35:52.826  2957 18339 I ActivityManager: START u0 {cmp=de.number26.android/de.number26.machete.android.refactor.presentation.transfers.consent.VisibilityAsN26ContactConsentActivity (has extras)} from uid 10078
+03-19 11:35:52.843 23506 23635 V FA      : Recording user engagement, ms: 2842
+03-19 11:35:52.844 23506 23635 V FA      : Using measurement service
+03-19 11:35:52.844 23506 23635 V FA      : Connecting to remote service
+03-19 11:35:52.845  2957 18339 I Xposed  : FakeGApps: caught the NullPointerException
+03-19 11:35:52.848  2957 18339 I Xposed  : FakeGApps: caught the NullPointerException
+03-19 11:35:52.862  2957  2967 I zygote  : Background concurrent copying GC freed 72336(3MB) AllocSpace objects, 21(1060KB) LOS objects, 42% free, 11MB/20MB, paused 455us total 195.306ms
+03-19 11:35:52.868  2957 18339 W ActivityManager: Unable to start service Intent { act=com.google.android.gms.measurement.START pkg=com.google.android.gms } U=0: not found
+03-19 11:35:52.869  2957 18339 W ActivityManager: Unbind failed: could not find connection for android.os.BinderProxy@edb7772
+03-19 11:35:52.870 23506 23635 E GmsClient: unable to connect to service: com.google.android.gms.measurement.START on com.google.android.gms
+03-19 11:36:20.688 23506 23716 W InstanceID/Rpc: No response android.os.ConditionVariable@3976659
+03-19 11:36:20.688 23506 23716 E pushio  : GCM Error: TIMEOUT
+03-19 11:36:20.692 23506 23716 E pushio  : Retrying in 2000 MS
+03-19 11:36:20.694 23506 23716 D pushio  : GCM registration
+03-19 11:36:20.701  2957 13790 I Xposed  : FakeGApps: caught the NullPointerException
+03-19 11:36:25.730 23506 23833 D pushio  : Push Broadcast
+03-19 11:36:25.730 23506 23833 D pushio  : Push Broadcast Action: com.pushio.manager.push.intent.RETRY
+03-19 11:36:25.730 23506 23833 D pushio  : Retry received.
+03-19 11:36:25.735 23506 23833 D pushio  : Push Broadcast
+03-19 11:36:25.735 23506 23833 D pushio  : Push Broadcast Action: com.pushio.manager.push.intent.RETRY
+03-19 11:36:25.735 23506 23833 D pushio  : Retry received.
+03-19 11:36:25.738 23506 23833 D pushio  : Push Broadcast
+03-19 11:36:25.738 23506 23833 D pushio  : Push Broadcast Action: com.pushio.manager.push.intent.RETRY
+03-19 11:36:25.738 23506 23833 D pushio  : Retry received.
+03-19 11:36:29.825  2957 13790 I ActivityManager: START u0 {cmp=de.number26.android/de.number26.machete.android.ui.cash26.Cash26Activity} from uid 10078
+03-19 11:36:29.836 23506 23635 V FA      : Recording user engagement, ms: 16234
+03-19 11:36:29.839 23506 23635 V FA      : Using measurement service
+03-19 11:36:29.839 23506 23635 V FA      : Connecting to remote service
+03-19 11:36:29.840  2957 13790 I Xposed  : FakeGApps: caught the NullPointerException
+03-19 11:36:29.852  2957 13790 W ActivityManager: Unable to start service Intent { act=com.google.android.gms.measurement.START pkg=com.google.android.gms } U=0: not found
+03-19 11:36:29.852  2957 13790 W ActivityManager: Unbind failed: could not find connection for android.os.BinderProxy@c83f452
+03-19 11:36:29.841  2957 13790 I Xposed  : FakeGApps: caught the NullPointerException
+03-19 11:36:29.853 23506 23635 E GmsClient: unable to connect to service: com.google.android.gms.measurement.START on com.google.android.gms
+03-19 11:36:29.853 23506 23635 V FA      : Activity paused, time: 53027329
+03-19 11:36:29.857 23506 23635 D FA      : Logging event (FE): user_engagement(_e), Bundle[{firebase_event_origin(_o)=auto, engagement_time_msec(_et)=16234, firebase_screen_class(_sc)=HomeActivity, firebase_screen_id(_si)=-4655452402262749446}]
+03-19 11:36:29.865 23506 23506 I AppCompatDelegate: The Activity's LayoutInflater already has a Factory installed so we can not install AppCompat's
+03-19 11:36:29.866 23506 23506 V FA      : onActivityCreated
+03-19 11:36:29.873 23506 23635 V FA      : Using measurement service
+03-19 11:36:29.873 23506 23635 V FA      : Connection attempt already in progress
+03-19 11:36:29.974 23506 23506 D GmsMapViewImpl: onCreate
+03-19 11:36:29.975 23506 23506 D GmsMapViewImpl: GoogleMap instance created
+03-19 11:36:29.998 23506 23506 W GmsMapImpl: Compass not yet supported
+03-19 11:36:29.998 23506 23506 I chatty  : uid=10078(de.number26.android) identical 3 lines
+03-19 11:36:29.998 23506 23506 W GmsMapImpl: Compass not yet supported
+03-19 11:36:29.998 23506 23506 W GmsMapImpl: ZoomControls not yet supported
+03-19 11:36:29.998 23506 23506 W GmsMapImpl: Compass not yet supported
+03-19 11:36:29.998 23506 23506 W GmsMapImpl: ZoomControls not yet supported
+03-19 11:36:29.999 23506 23506 D GmsMapViewImpl: getMapAsync
+03-19 11:36:30.005 23506 23635 V FA      : Using measurement service
+03-19 11:36:30.005 23506 23635 V FA      : Connection attempt already in progress
+03-19 11:36:30.006 23506 23635 V FA      : Activity resumed, time: 53027499
+03-19 11:36:30.008 23506 23506 D GmsMapViewImpl: onResume
+03-19 11:36:30.009 23506 23635 D FA      : Logging event (FE): screen_view(_vs), Bundle[{firebase_event_origin(_o)=auto, firebase_previous_class(_pc)=HomeActivity, firebase_previous_id(_pi)=-4655452402262749446, firebase_screen_class(_sc)=Cash26Activity, firebase_screen_id(_si)=-4655452402262749445}]
+03-19 11:36:30.010  2957 15312 I Xposed  : FakeGApps: caught the NullPointerException
+03-19 11:36:30.011  2957 15312 I Xposed  : FakeGApps: caught the NullPointerException
+03-19 11:36:30.017  3953  3953 D GmsLocManagerSvc: onBind: Intent { act=com.google.android.location.internal.GoogleLocationManagerService.START pkg=com.google.android.gms }
+03-19 11:36:30.022 23506 23506 W FA      : Service connection failed: ConnectionResult{statusCode=API_UNAVAILABLE, resolution=null, message=null}
+03-19 11:36:30.027 23506 23635 V FA      : Using measurement service
+03-19 11:36:30.027 23506 23635 V FA      : Connecting to remote service
+03-19 11:36:30.028  2957 15312 I Xposed  : FakeGApps: caught the NullPointerException
+03-19 11:36:30.031  2957 15312 W ActivityManager: Unable to start service Intent { act=com.google.android.gms.measurement.START pkg=com.google.android.gms } U=0: not found
+03-19 11:36:30.031  2957 15312 W ActivityManager: Unbind failed: could not find connection for android.os.BinderProxy@e265338
+03-19 11:36:30.029  2957 15312 I Xposed  : FakeGApps: caught the NullPointerException
+03-19 11:36:30.032 23506 23635 E GmsClient: unable to connect to service: com.google.android.gms.measurement.START on com.google.android.gms
+03-19 11:36:30.032 23506 23635 V FA      : Processing queued up service tasks: 4
+03-19 11:36:30.033 23506 23635 E FA      : Failed to send current screen to service
+03-19 11:36:30.033 23506 23635 E FA      : Discarding data. Failed to send event to service
+03-19 11:36:30.033 23506 23635 E FA      : Failed to send current screen to service
+03-19 11:36:30.033 23506 23635 E FA      : Discarding data. Failed to send event to service
+03-19 11:36:30.043 23506 23565 D mali_winsys: EGLint new_window_surface(egl_winsys_display*, void*, EGLSurface, EGLConfig, egl_winsys_surface**, egl_color_buffer_format*, EGLBoolean) returns 0x3000,  [720x1280]-format:1
+03-19 11:36:30.058 23506 23837 D mali_winsys: EGLint new_window_surface(egl_winsys_display*, void*, EGLSurface, EGLConfig, egl_winsys_surface**, egl_color_buffer_format*, EGLBoolean) returns 0x3000,  [720x1136]-format:1
+03-19 11:36:30.061 23506 23506 D GmsMapImpl: getUiSettings: org.microg.gms.maps.UiSettingsImpl@d451767
+03-19 11:36:30.061 23506 23506 W GmsMapImpl: Compass not yet supported
+03-19 11:36:30.061 23506 23506 W GmsMapImpl: ZoomControls not yet supported
+03-19 11:36:30.061 23506 23506 D GmsMapImpl: not yet usable: setInfoWindowAdapter
+03-19 11:36:30.062 23506 23506 D GmsMapImpl: setOnMapClickListener: not supported
+03-19 11:36:30.062 23506 23506 D GmsMapImpl: setOnMarkerClickListener
+03-19 11:36:30.062 23506 23506 D GmsMapImpl: onTransact [unknown]: 86, android.os.Parcel@4368914, 0
+03-19 11:36:30.063 23506 23506 D GmsMapCamUpdateFactory: newLatLngZoom
+03-19 11:36:30.064 23506 23506 W GmsMapImpl: MyLocation not yet supported
+03-19 11:36:30.067 23506 23506 D GmsMapCamUpdateFactory: newLatLngZoom
+03-19 11:36:30.128 23506 23837 W libEGL  : EGLNativeWindowType 0xcf778008 disconnect failed
+03-19 11:36:30.130 23506 23837 D mali_winsys: EGLint new_window_surface(egl_winsys_display*, void*, EGLSurface, EGLConfig, egl_winsys_surface**, egl_color_buffer_format*, EGLBoolean) returns 0x3000,  [720x488]-format:1
+03-19 11:36:30.154 23506 23506 W FA      : Service connection failed: ConnectionResult{statusCode=API_UNAVAILABLE, resolution=null, message=null}
+03-19 11:36:30.155 23506 23635 V FA      : Processing queued up service tasks: 0
+03-19 11:36:30.161  3953  3967 D SafeParcel: Unknown field num 10 in com.google.android.gms.common.internal.GetServiceRequest, skipping.
+03-19 11:36:30.161  3953  3967 D GmsLocManagerSvc: bound by: GetServiceRequest{serviceId=LOCATION_MANAGER, gmsVersion=11400000, packageName='de.number26.android', extras=Bundle[{client_name=locationServices}]}
+03-19 11:36:30.192  3953  3967 D GmsLocManagerSvcImpl: getLastLocationWithPackage: de.number26.android
+03-19 11:36:30.196  3953  3967 E JavaBinder: *** Uncaught remote exception!  (Exceptions are not yet supported across processes.)
+03-19 11:36:30.196  3953  3967 E JavaBinder: java.lang.RuntimeException: Can't toast on a thread that has not called Looper.prepare()
+03-19 11:36:30.196  3953  3967 E JavaBinder: 	at android.widget.Toast$TN.&lt;init&gt;(Toast.java:390)
+03-19 11:36:30.196  3953  3967 E JavaBinder: 	at android.widget.Toast.&lt;init&gt;(Toast.java:114)
+03-19 11:36:30.196  3953  3967 E JavaBinder: 	at android.widget.Toast.makeText(Toast.java:277)
+03-19 11:36:30.196  3953  3967 E JavaBinder: 	at android.widget.Toast.makeText(Toast.java:267)
+03-19 11:36:30.196  3953  3967 E JavaBinder: 	at org.microg.gms.common.Utils.hasSelfPermissionOrNotify(Utils.java:57)
+03-19 11:36:30.196  3953  3967 E JavaBinder: 	at org.microg.gms.location.GoogleLocationManager.&lt;init&gt;(GoogleLocationManager.java:58)
+03-19 11:36:30.196  3953  3967 E JavaBinder: 	at org.microg.gms.location.GoogleLocationManagerServiceImpl.getLocationManager(GoogleLocationManagerServiceImpl.java:70)
+03-19 11:36:30.196  3953  3967 E JavaBinder: 	at org.microg.gms.location.GoogleLocationManagerServiceImpl.getLastLocationWithPackage(GoogleLocationManagerServiceImpl.java:235)
+03-19 11:36:30.196  3953  3967 E JavaBinder: 	at com.google.android.gms.location.internal.IGoogleLocationManagerService$Stub.onTransact(IGoogleLocationManagerService.java:440)
+03-19 11:36:30.196  3953  3967 E JavaBinder: 	at org.microg.gms.location.GoogleLocationManagerServiceImpl.onTransact(GoogleLocationManagerServiceImpl.java:341)
+03-19 11:36:30.196  3953  3967 E JavaBinder: 	at android.os.Binder.execTransact(Binder.java:697)
+03-19 11:36:30.200  3953  3967 D SafeParcel: Unknown field num 9 in com.google.android.gms.location.internal.LocationRequestInternal, skipping.
+03-19 11:36:30.200  3953  3967 D GmsLocManagerSvcImpl: updateLocationRequest: LocationRequestUpdateData{opCode=1, request=LocationRequestInternal{request=LocationRequest{priority=102, interval=3600000, fastestInterval=600000, explicitFastestInterval=false, expirationTime=9223372036854775807, numUpdates=1, smallestDesplacement=0.0, maxWaitTime=0}, requestNlpDebugInfo=false, restorePendingIntentListeners=false, triggerUpdate=false, clients=[], tag='null', hideFromAppOps=false, forceCoarseLocation=false}, listener=com.google.android.gms.location.ILocationListener$Stub$Proxy@d46ca33, pendingIntent=null, callback=null, fusedLocationProviderCallback=com.google.android.gms.location.internal.IFusedLocationProviderCallback$Stub$Proxy@f31d1f0}
+03-19 11:36:30.202  2957  2980 I ActivityManager: Displayed de.number26.android/de.number26.machete.android.ui.cash26.Cash26Activity: +345ms
+03-19 11:36:30.203  3953  3967 E JavaBinder: *** Uncaught remote exception!  (Exceptions are not yet supported across processes.)
+03-19 11:36:30.203  3953  3967 E JavaBinder: java.lang.RuntimeException: Can't toast on a thread that has not called Looper.prepare()
+03-19 11:36:30.203  3953  3967 E JavaBinder: 	at android.widget.Toast$TN.&lt;init&gt;(Toast.java:390)
+03-19 11:36:30.203  3953  3967 E JavaBinder: 	at android.widget.Toast.&lt;init&gt;(Toast.java:114)
+03-19 11:36:30.203  3953  3967 E JavaBinder: 	at android.widget.Toast.makeText(Toast.java:277)
+03-19 11:36:30.203  3953  3967 E JavaBinder: 	at android.widget.Toast.makeText(Toast.java:267)
+03-19 11:36:30.203  3953  3967 E JavaBinder: 	at org.microg.gms.common.Utils.hasSelfPermissionOrNotify(Utils.java:57)
+03-19 11:36:30.203  3953  3967 E JavaBinder: 	at org.microg.gms.location.GoogleLocationManager.&lt;init&gt;(GoogleLocationManager.java:58)
+03-19 11:36:30.203  3953  3967 E JavaBinder: 	at org.microg.gms.location.GoogleLocationManagerServiceImpl.getLocationManager(GoogleLocationManagerServiceImpl.java:70)
+03-19 11:36:30.203  3953  3967 E JavaBinder: 	at org.microg.gms.location.GoogleLocationManagerServiceImpl.updateLocationRequest(GoogleLocationManagerServiceImpl.java:175)
+03-19 11:36:30.203  3953  3967 E JavaBinder: 	at com.google.android.gms.location.internal.IGoogleLocationManagerService$Stub.onTransact(IGoogleLocationManagerService.java:408)
+03-19 11:36:30.203  3953  3967 E JavaBinder: 	at org.microg.gms.location.GoogleLocationManagerServiceImpl.onTransact(GoogleLocationManagerServiceImpl.java:341)
+03-19 11:36:30.203  3953  3967 E JavaBinder: 	at android.os.Binder.execTransact(Binder.java:697)
+03-19 11:36:30.225 23506 23565 W libEGL  : EGLNativeWindowType 0xca27d808 disconnect failed
+03-19 11:36:30.225 23506 23565 D OpenGLRenderer: endAllActiveAnimators on 0xc9a61000 (RippleDrawable) with handle 0xc9ee5bf0
+03-19 11:36:32.307 23506 23635 V FA      : Recording user engagement, ms: 2302
+03-19 11:36:32.308 23506 23635 V FA      : Using measurement service
+03-19 11:36:32.308 23506 23506 D GmsMapViewImpl: onPause
+03-19 11:36:32.308 23506 23635 V FA      : Connecting to remote service
+03-19 11:36:32.309  2957 13790 I Xposed  : FakeGApps: caught the NullPointerException
+03-19 11:36:32.310  3953  3967 D GmsLocManagerSvcImpl: updateLocationRequest: LocationRequestUpdateData{opCode=2, request=null, listener=com.google.android.gms.location.ILocationListener$Stub$Proxy@17591ee, pendingIntent=null, callback=null, fusedLocationProviderCallback=com.google.android.gms.location.internal.IFusedLocationProviderCallback$Stub$Proxy@d99d68f}
+03-19 11:36:32.310  2957 13790 I Xposed  : FakeGApps: caught the NullPointerException
+03-19 11:36:32.311  3953  3967 E JavaBinder: *** Uncaught remote exception!  (Exceptions are not yet supported across processes.)
+03-19 11:36:32.311  3953  3967 E JavaBinder: java.lang.RuntimeException: Can't toast on a thread that has not called Looper.prepare()
+03-19 11:36:32.311  3953  3967 E JavaBinder: 	at android.widget.Toast$TN.&lt;init&gt;(Toast.java:390)
+03-19 11:36:32.311  3953  3967 E JavaBinder: 	at android.widget.Toast.&lt;init&gt;(Toast.java:114)
+03-19 11:36:32.311  3953  3967 E JavaBinder: 	at android.widget.Toast.makeText(Toast.java:277)
+03-19 11:36:32.311  3953  3967 E JavaBinder: 	at android.widget.Toast.makeText(Toast.java:267)
+03-19 11:36:32.311  3953  3967 E JavaBinder: 	at org.microg.gms.common.Utils.hasSelfPermissionOrNotify(Utils.java:57)
+03-19 11:36:32.311  3953  3967 E JavaBinder: 	at org.microg.gms.location.GoogleLocationManager.&lt;init&gt;(GoogleLocationManager.java:58)
+03-19 11:36:32.311  3953  3967 E JavaBinder: 	at org.microg.gms.location.GoogleLocationManagerServiceImpl.getLocationManager(GoogleLocationManagerServiceImpl.java:70)
+03-19 11:36:32.311  3953  3967 E JavaBinder: 	at org.microg.gms.location.GoogleLocationManagerServiceImpl.updateLocationRequest(GoogleLocationManagerServiceImpl.java:175)
+03-19 11:36:32.311  3953  3967 E JavaBinder: 	at com.google.android.gms.location.internal.IGoogleLocationManagerService$Stub.onTransact(IGoogleLocationManagerService.java:408)
+03-19 11:36:32.311  3953  3967 E JavaBinder: 	at org.microg.gms.location.GoogleLocationManagerServiceImpl.onTransact(GoogleLocationManagerServiceImpl.java:341)
+03-19 11:36:32.311  3953  3967 E JavaBinder: 	at android.os.Binder.execTransact(Binder.java:697)
+03-19 11:36:32.312  2957 13790 W ActivityManager: Unable to start service Intent { act=com.google.android.gms.measurement.START pkg=com.google.android.gms } U=0: not found
+03-19 11:36:32.313  2957 13790 W ActivityManager: Unbind failed: could not find connection for android.os.BinderProxy@2dd2f49
+03-19 11:36:32.313 23506 23635 E GmsClient: unable to connect to service: com.google.android.gms.measurement.START on com.google.android.gms
+03-19 11:36:32.313 23506 23635 V FA      : Activity paused, time: 53029801
+03-19 11:36:32.317 23506 23635 D FA      : Logging event (FE): user_engagement(_e), Bundle[{firebase_event_origin(_o)=auto, engagement_time_msec(_et)=2302, firebase_screen_class(_sc)=Cash26Activity, firebase_screen_id(_si)=-4655452402262749445}]
+03-19 11:36:32.328 23506 23506 W FA      : Service connection failed: ConnectionResult{statusCode=API_UNAVAILABLE, resolution=null, message=null}
+03-19 11:36:32.332 23506 23635 V FA      : Using measurement service
+03-19 11:36:32.333 23506 23635 V FA      : Connecting to remote service
+03-19 11:36:32.333  2957 15312 I Xposed  : FakeGApps: caught the NullPointerException
+03-19 11:36:32.336  2957 13790 W ActivityManager: Unable to start service Intent { act=com.google.android.gms.measurement.START pkg=com.google.android.gms } U=0: not found
+03-19 11:36:32.337  2957 13790 W ActivityManager: Unbind failed: could not find connection for android.os.BinderProxy@d38656f
+03-19 11:36:32.334  2957 15312 I Xposed  : FakeGApps: caught the NullPointerException
+03-19 11:36:32.337 23506 23635 E GmsClient: unable to connect to service: com.google.android.gms.measurement.START on com.google.android.gms
+03-19 11:36:32.338 23506 23635 V FA      : Processing queued up service tasks: 2
+03-19 11:36:32.338 23506 23635 E FA      : Failed to send current screen to service
+03-19 11:36:32.338 23506 23635 E FA      : Discarding data. Failed to send event to service
+03-19 11:36:32.347 23506 23635 V FA      : Using measurement service
+03-19 11:36:32.347 23506 23635 V FA      : Connection attempt already in progress
+03-19 11:36:32.347 23506 23635 V FA      : Activity resumed, time: 53029840
+03-19 11:36:32.353 23506 23635 D FA      : Logging event (FE): screen_view(_vs), Bundle[{firebase_event_origin(_o)=auto, firebase_previous_class(_pc)=Cash26Activity, firebase_previous_id(_pi)=-4655452402262749445, firebase_screen_class(_sc)=HomeActivity, firebase_screen_id(_si)=-4655452402262749446}]
+03-19 11:36:32.370 23506 23565 D mali_winsys: EGLint new_window_surface(egl_winsys_display*, void*, EGLSurface, EGLConfig, egl_winsys_surface**, egl_color_buffer_format*, EGLBoolean) returns 0x3000,  [720x1280]-format:1
+03-19 11:36:32.370 23506 23635 V FA      : Using measurement service
+03-19 11:36:32.370 23506 23506 W FA      : Service connection failed: ConnectionResult{statusCode=API_UNAVAILABLE, resolution=null, message=null}
+03-19 11:36:32.370 23506 23635 V FA      : Connection attempt already in progress
+03-19 11:36:32.371 23506 23635 V FA      : Processing queued up service tasks: 2
+03-19 11:36:32.371 23506 23635 E FA      : Failed to send current screen to service
+03-19 11:36:32.371 23506 23635 E FA      : Discarding data. Failed to send event to service
+</code></pre>
+      </td>

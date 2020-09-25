@@ -1,0 +1,686 @@
+https://code.google.com/archive/p/csipsimple/issues/2379<!DOCTYPE html><html class="google ng-scope" lang="en" ng-app="codesiteArchive.application"><head>
+    <meta charset="utf-8">
+    <meta content="initial-scale=1, minimum-scale=1, width=device-width" name="viewport">
+
+    <!-- https://developers.google.com/webmasters/ajax-crawling/docs/specification -->
+    <meta name="fragment" content="!">
+    <title>Google Code Archive - Long-term storage for Google Code Project Hosting.</title>
+
+    <link rel="icon" type="image/vnd.microsoft.icon" href="/archive/img/project-hosting.ico">
+    <script src="//www.google.com/js/google.js"></script>
+    <link href="//www.google.com/css/maia.css" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;lang=en" rel="stylesheet">
+    <link rel="stylesheet" href="/archive/archive_css.css">
+    <script>
+      CLOSURE_NO_DEPS = true;
+    </script>
+    <script src="/archive/angular.js"></script><style type="text/css">@charset "UTF-8";
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak],
+.ng-cloak, .x-ng-cloak,
+.ng-hide:not(.ng-hide-animate) {
+  display: none !important;
+}
+
+ng\:form {
+  display: block;
+}
+
+.ng-animate-shim {
+  visibility:hidden;
+}
+
+.ng-anchor {
+  position:absolute;
+}
+</style>
+    <script src="/archive/pagedown.js"></script>
+    <script src="/archive/archive.js"></script>
+    <base href="/archive/">
+  </head>
+
+  <body>
+    <div class="maia-header" id="maia-header" role="banner">
+      <div class="maia-aux">
+        <a href="/archive/">
+          </a><h1><a href="/archive/">
+            <img alt="Google" src="//www.google.com/images/branding/googlelogo/1x/googlelogo_color_116x41dp.png"> Code</a>
+          </h1>
+        
+        <a href="/archive/">
+          <h2>Archive</h2>
+        </a>
+        <a class="maia-teleport" href="#content">Skip to content</a>
+        <div class="maia-util">
+          <form action="/archive/search" class="maia-search ng-pristine ng-valid">
+            <input name="q" placeholder="Search this site" type="text">
+            <button class="maia-button">
+              <span class="maia-search-icon">Search</span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- ngView: --><div ng-view="" class="ng-scope"><div ng-controller="ProjectIssueCtrl as issueCtrl" class="ng-scope">
+<nav-bar-widget nav-level-1="projectCtrl.navLevel1" class="ng-isolate-scope"><div class="maia-nav maia-complex" id="maia-nav-x" role="navigation">
+  <div class="maia-aux">
+    <ul>
+      <li ng-class="{active: navLevel1 == 'projects'}">
+        <a href="/archive/">Projects</a>
+        <!-- ngIf: navLevel2 -->
+      </li>
+      <li ng-class="{active: navLevel1 == 'search'}">
+        <a href="/archive/search">Search</a>
+      </li>
+      <li ng-class="{active: navLevel1 == 'about'}">
+        <a href="/archive/about">About</a>
+      </li>
+    </ul>
+  </div>
+</div>
+</nav-bar-widget>
+<div id="maia-main" role="main">
+
+  <!-- ngIf: issueCtrl.notFound -->
+
+  <div ng-hide="issueCtrl.notFound">
+    <!-- Left-side resource nav -->
+    <project-resources-widget domain="issueCtrl.domain" project="issueCtrl.projectName" class="ng-isolate-scope"><div class="maia-nav" id="maia-nav-y" role="navigation">
+  <!-- ngIf: domain == 'code.google.com' --><ul ng-if="domain == 'code.google.com'" class="ng-scope">
+    <li class="active">
+      <a href="/archive/p/csipsimple/">Project</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/source">Source</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/issues">Issues</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/wikis">Wikis</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/downloads">Downloads</a>
+    </li>
+  </ul><!-- end ngIf: domain == 'code.google.com' -->
+
+    <!-- ngIf: domain != 'code.google.com' -->
+</div></project-resources-widget>
+
+    <div class="maia-article" role="article">
+      <div class="maia-teleport" id="content"></div>
+      <div class="maia-cols">
+        <div id="gca-project-header" class="maia-col-10">
+          <a id="gca-export-to-gh" class="maia-button" href="https://code.google.com/export-to-github/export?project=csipsimple">Export to GitHub</a>
+            <img class="gca-project-logo" src="https://storage.googleapis.com/google-code-archive/v2/code.google.com/csipsimple/logo.png">
+            <h1 class="ng-binding">csipsimple - issue #2379</h1>
+            <p class="ng-binding">ZRTP + ICE : deadlock and failure management</p>
+        </div>
+
+        <div class="maia-col-10">
+          <hr>
+
+        <!-- ngIf: issueCtrl.error -->
+
+        <!-- ngIf: !issueCtrl.error --><div ng-if="!issueCtrl.error" class="ng-scope">
+          <!-- Comments -->
+          <div class="maia-col-8">
+            <!-- ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on May 28, 2013 by
+                  <i class="ng-binding">Happy Giraffe</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p><b>What steps will reproduce the problem?</b>
+1.setup two CSimpleSIP clients with create-ZRTP (STUN disabled) and ICE enabled. Register them with TURN server to relay all RTPs media.
+2. Setup FS with inbound-zrtp-passthru and bypass_mode (media point-2-point).
+3. Connect both CSimpleSIP clients on two different networks (3G and WiFi - it will work on the same LAN) and call each other. </p>
+
+<p>What is the expected output? 
+The expect output should be that both CSimpleSIP clients wil share the same ZRTP SAS on their screen.</p>
+
+<p>What do you see instead?
+Unfoutunatly both clients just connect oer the TURN server (both ways audio - OK) and no ZRTP SAS indication.
+The ZRTP SAS is displayed on both clients when they are connected on the same LAN network.</p>
+
+<p>What version of the product are you using? 
+r2225
+On what device / operating system? 
+SONY ST21a Android 4.04 + SONY MT27i Adroid 4.04</p>
+
+<p><b>Please provide any additional information below.</b>
+In the SSimpleSip call log file I see that the ZRTP request fail (timeout)- maybe because one tries to connect the other with both clients private IP addresses (10.205.94.140:4010--&gt;192.168.1.106:4017) instead of using the pbulic addresses (mapped to the TURN/ICE).</p>
+
+<p>D/libpjsip(26459): 17:17:38.181   conference.c  ......Port 0 (OpenSL ES Audio) transmitting to port 2 (sip:1003@91.205.155.18:5090)
+D/libpjsip(26459): 17:17:38.192   Master/sound !Underflow, buf_cnt=0, will generate 1 frame
+D/libpjsip(26459): 17:17:38.196        icetp00 !..Check 0: [1] 10.205.94.140:4010--&gt;192.168.1.106:4017: state changed from Waiting to In Progress
+I/libpjsip(26459): 17:17:38.222 zrtp_android.c !ZRTP failed: 3, subcode: 5</p>
+
+<p>How to make ZRTP working between two clients which relay RTP media over TURN server?</p>
+
+<p>Thanks for the support.</p>
+
+<p>Regards
+Assaf</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #1</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on May 29, 2013 by
+                  <i class="ng-binding">Happy Giraffe</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>More test results that pointing out the ZRTP fail reason (I assume so) due to the incorrect ICE addressing decesion. This caller's log shows that the ICE is checking the connection with the private addresses instead of the public addresses conection (after that the ICE keeps testing the other connections and seccessfuly open the public addresses conection for RTP audio - but with ZRTP which has failed earlier):</p>
+
+<p>ICE incorrect connection =&gt; ZRTP fail:
+D/libpjsip(11520): 10:40:23.921        icetp00 !......Processing SDP: support ICE=1, common comp_cnt=2, ice_mismatch=0, ice_restart=0, local_role=Controlling
+D/libpjsip(11520): 10:40:23.925        icetp00  ......Check 3: [1] 10.182.162.190:4008--&gt;192.168.1.106:4009 pruned (duplicate found)
+D/libpjsip(11520): 10:40:23.925        icetp00  ......Check 5: [2] 10.182.162.190:4000--&gt;192.168.1.106:4036 pruned (duplicate found)
+D/libpjsip(11520): 10:40:23.925        icetp00  ......Check 3: [1] 10.182.162.190:4008--&gt;94.159.132.138:4009 pruned (duplicate found)
+D/libpjsip(11520): 10:40:23.925        icetp00  ......Check 4: [2] 10.182.162.190:4000--&gt;94.159.132.138:4036 pruned (duplicate found)
+D/libpjsip(11520): 10:40:23.925        icetp00  ......Check 6: [1] 10.182.162.190:4008--&gt;91.205.155.18:13737 pruned (duplicate found)
+D/libpjsip(11520): 10:40:23.925        icetp00  ......Check 10: [2] 10.182.162.190:4000--&gt;91.205.155.18:12187 pruned (duplicate found)
+D/libpjsip(11520): 10:40:23.925        icetp00  ......Checklist created:
+D/libpjsip(11520): 10:40:23.925        icetp00  ...... 0: [1] 10.182.162.190:4008--&gt;192.168.1.106:4009 (not nominated, state=Frozen)
+D/libpjsip(11520): 10:40:23.932        icetp00  ...... 1: [2] 10.182.162.190:4000--&gt;192.168.1.106:4036 (not nominated, state=Frozen)
+D/libpjsip(11520): 10:40:23.932        icetp00  ...... 2: [1] 10.182.162.190:4008--&gt;94.159.132.138:4009 (not nominated, state=Frozen)
+D/libpjsip(11520): 10:40:23.932        icetp00  ...... 3: [2] 10.182.162.190:4000--&gt;94.159.132.138:4036 (not nominated, state=Frozen)
+D/libpjsip(11520): 10:40:23.932        icetp00  ...... 4: [1] 10.182.162.190:4008--&gt;91.205.155.18:13737 (not nominated, state=Frozen)
+D/libpjsip(11520): 10:40:23.932        icetp00  ...... 5: [1] 91.205.155.18:19518--&gt;192.168.1.106:4009 (not nominated, state=Frozen)
+D/libpjsip(11520): 10:40:23.932        icetp00  ...... 6: [1] 91.205.155.18:19518--&gt;94.159.132.138:4009 (not nominated, state=Frozen)
+D/libpjsip(11520): 10:40:23.932        icetp00  ...... 7: [1] 91.205.155.18:19518--&gt;91.205.155.18:13737 (not nominated, state=Frozen)
+D/libpjsip(11520): 10:40:23.932        icetp00  ...... 8: [2] 10.182.162.190:4000--&gt;91.205.155.18:12187 (not nominated, state=Frozen)
+D/libpjsip(11520): 10:40:23.932        icetp00  ...... 9: [2] 91.205.155.18:15765--&gt;192.168.1.106:4036 (not nominated, state=Frozen)
+D/libpjsip(11520): 10:40:23.932        icetp00  ...... 10: [2] 91.205.155.18:15765--&gt;94.159.132.138:4036 (not nominated, state=Frozen)
+D/libpjsip(11520): 10:40:23.932        icetp00  ...... 11: [2] 91.205.155.18:15765--&gt;91.205.155.18:12187 (not nominated, state=Frozen)
+D/libpjsip(11520): 10:40:23.939        icetp00  ......Starting ICE check..
+D/libpjsip(11520): 10:40:23.939        icetp00  .......Check 0: [1] 10.182.162.190:4008--&gt;192.168.1.106:4009: state changed from Frozen to Waiting
+D/libpjsip(11520): 10:40:23.939        icetp00  .......Check 5: [1] 91.205.155.18:19518--&gt;192.168.1.106:4009: state changed from Frozen to Waiting
+D/libpjsip(11520): 10:40:23.944    pjsua_aud.c  ......Audio channel update..
+D/libpjsip(11520): 10:40:23.944   strm0x596dac  .......Encoder stream started
+D/libpjsip(11520): 10:40:23.944   strm0x596dac  .......Decoder stream started
+D/libpjsip(11520): 10:40:23.945  pjsua_media.c  ......Audio updated, stream #0: SILK (sendrecv)
+D/libpjsip(11520): 10:40:23.954    pjsua_aud.c  .....Conf disconnect: 1 -x- 0
+D/libpjsip(11520): 10:40:23.954   conference.c  ......Port 1 (ringback) stop transmitting to port 0 (OpenSL ES Audio)
+D/SIP UA Receiver(11520): &lt; LOCK CPU
+D/libpjsip(11520): 10:40:23.954        icetp00 !Checklist: state changed from Idle to Running
+D/libpjsip(11520): 10:40:23.955        icetp00  Starting checklist periodic check
+D/libpjsip(11520): 10:40:23.955        icetp00  .Sending connectivity check for check 0: [1] 10.182.162.190:4008--&gt;192.168.1.106:4009
+D/libpjsip(11520): 10:40:23.959        icetp00  ..Check 0: [1] 10.182.162.190:4008--&gt;192.168.1.106:4009: state changed from Waiting to In Progress
+D/SIP UA Receiver(11520): Updating call infos from the stack
+D/PjSipCalls(11520): Update call 0
+I/libpjsip(11520): 10:40:23.965 zrtp_android.c !ZRTP failed: 3, subcode: 5
+D/libpjsip(11520): 10:40:23.965   strm0x596dac  Error sending RTP: ICE check is in progress (PJNATH_EICEINPROGRESS)
+D/libpjsip(11520): 10:40:23.966   strm0x596dac  Error sending RTP: ICE check is in progress (PJNATH_EICEINPROGRESS)</p>
+
+<p>ICE correct connection =&gt; call connect with RTP audio:
+D/libpjsip(11520): 10:40:25.471        icetp00  ..Check 10: [2] 91.205.155.18:15765--&gt;94.159.132.138:4036 (nominated): connectivity check SUCCESS
+D/libpjsip(11520): 10:40:25.471        icetp00  ..Check 10: [2] 91.205.155.18:15765--&gt;94.159.132.138:4036: state changed from In Progress to Succeeded
+D/libpjsip(11520): 10:40:25.471        icetp00  ..Check 10 is successful  and nominated
+D/libpjsip(11520): 10:40:25.471        icetp00  ..Cancelling check 1: [2] 10.182.162.190:4000--&gt;192.168.1.106:4036 (In Progress)
+D/libpjsip(11520): 10:40:25.490        icetp00  ..Check 1: [2] 10.182.162.190:4000--&gt;192.168.1.106:4036: state changed from In Progress to Failed
+D/libpjsip(11520): 10:40:25.491        icetp00  ..Cancelling check 3: [2] 10.182.162.190:4000--&gt;94.159.132.138:4036 (In Progress)
+D/libpjsip(11520): 10:40:25.497        icetp00  ..Check 3: [2] 10.182.162.190:4000--&gt;94.159.132.138:4036: state changed from In Progress to Failed
+D/libpjsip(11520): 10:40:25.497        icetp00  ..Cancelling check 8: [2] 10.182.162.190:4000--&gt;91.205.155.18:12187 (In Progress)
+D/libpjsip(11520): 10:40:25.501        icetp00  ..Check 8: [2] 10.182.162.190:4000--&gt;91.205.155.18:12187: state changed from In Progress to Failed
+D/libpjsip(11520): 10:40:25.501        icetp00  ..Cancelling check 9: [2] 91.205.155.18:15765--&gt;192.168.1.106:4036 (In Progress)
+D/libpjsip(11520): 10:40:25.507        icetp00  ..Check 9: [2] 91.205.155.18:15765--&gt;192.168.1.106:4036: state changed from In Progress to Failed
+D/libpjsip(11520): 10:40:25.507        icetp00  ..Cancelling check 11: [2] 91.205.155.18:15765--&gt;91.205.155.18:12187 (In Progress)
+D/libpjsip(11520): 10:40:25.512        icetp00  ..Check 11: [2] 91.205.155.18:15765--&gt;91.205.155.18:12187: state changed from In Progress to Failed
+D/libpjsip(11520): 10:40:25.512        icetp00  ..ICE process complete, status=Success
+D/libpjsip(11520): 10:40:25.512        icetp00  ..Valid list
+D/libpjsip(11520): 10:40:25.513        icetp00  .. 0: [1] 91.205.155.18:19518--&gt;94.159.132.138:4009 (nominated, state=Succeeded)
+D/libpjsip(11520): 10:40:25.513        icetp00  .. 1: [2] 91.205.155.18:15765--&gt;94.159.132.138:4036 (nominated, state=Succeeded)
+D/libpjsip(11520): 10:40:25.534        icetp00 !ICE negotiation success after 1s:611
+D/libpjsip(11520): 10:40:25.537        icetp00   Comp 1: sending from relay candidate 91.205.155.18:19518 to srflx candidate 94.159.132.138:4009
+D/libpjsip(11520): 10:40:25.541        icetp00   Comp 2: sending from relay candidate 91.205.155.18:15765 to srflx candidate 94.159.132.138:4036
+D/libpjsip(11520): 10:40:25.560   pjsua_call.c  .Call 0 sending UPDATE for updating ICE transport address after ICE negotiation</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #2</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on May 31, 2013 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Does your TURN server supports ZRTP?
+As far as I understood ZRTP is designed to be sure there is nothing not trusted in the middle that could listen your conversation.
+By definition a TURN server is something in the middle of the media path.
+So if it drops or doesn't handle properly zrtp packets the entire ZRTP mecanism will not work and you'll see the call is not secured.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #3</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on May 31, 2013 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content -->
+              <!-- ngIf: !comment.content --><span ng-if="!comment.content" class="ng-scope">
+                <p><em>(No comment was entered for this change.)</em></p>
+              </span><!-- end ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #4</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jun 2, 2013 by
+                  <i class="ng-binding">Happy Giraffe</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>My TURN server (like any others) is totaly transparent - just relaying UDP traffic (RTP) from one port to another without any UDP/RTP modification. By definition it cannot support any app protocol beside STUN/TURN.</p>
+
+<p>When both CSimpleSip clients are being relayed via the TURN server and the FS=proxy_media (transparent bridge) then the ZRTP is passing end2end between both clients (TwoFish SAS). that shows that the TURN is just relaying the ZRTP without breaking it. The FS is also just bridging the media without touching it at all.
+With this case the CSimpleSip log shows that the ice checking proccess is being break by the FS which set ice-mismatch in the SDP (FS in proxy_media is managing back to back the SIP INVITE/OK). This ice-mismatch force the use of the FS SDP media ports as it set in the SDP c&amp;m attributes. the successful ZRTP path is: client-&gt;TURN-&gt;FS-&gt;TURN-&gt;client.</p>
+
+<p>When FS=bypass_media the ZRTP fails! it looks like the ice process cannot manage the right candidate path for the first ZRTP HELLO RTP package (it could probably work if the SDP c&amp;m attributes of the TURN relay where used instead of the ice process). </p>
+
+<p>The ZRTP RFC spec says that the ZRTP HELLO/ACK handshack can success even when one client dial the other end directly with txt name@ipaddr without any SIP proxy in between so it is clearly not a MUST to have a ZRTP server in the ZRTP path. It just requires a clear RTP media channel to passthrugh it the ZRTP RTPs (and TURN can clearly do it). 
+The server MUST support ZRTP when a client is being bridged with a none ZRTP endpoint (MiTM case) of when ZRTP Enrolment mode is required (Trusted MiTM).</p>
+
+<p>I believe that the ZRTP is somehow not synchoronized with the ice checking proccess for the right validated media connection.</p>
+
+<p>Hopefully someone could look into the code and resolve this issue.</p>
+
+<p>Thanks</p>
+
+<p>Assaf </p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #5</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Sep 4, 2013 by
+                  <i class="ng-binding">Swift Bear</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>I experience the very same issue (logs are virtually the same, incl. "ZRTP failed: 3, subcode: 5"), but with <em>TURN turned off</em>. Having ICE enabled is sufficient to reproduce this, even with two phones on the same WLAN AP (private IPs mutually visible). </p>
+
+<p>ZRTP with bypass_media=true in FreeSwitch (i.e. media relayed via FreeSwitch without modification) works OK.</p>
+
+<p>CSipSimple 1.01.00 r2272 (from the Play store)
+FreeSWITCH Version 1.5.6b+git~20130902T175658Z~dc9815461f (git dc98154 2013-09-02 17:56:58Z)</p>
+
+<p>I can supply any logs or perform additional diagnostics.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #6</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Sep 9, 2013 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Latest nightly build introduces a partial fix for ICE + ZRTP support.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #7</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Sep 9, 2013 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Quick update : actually we had a problem with latest nightly production (which prevented the fix to be taken into account). It should be resolved in next nightly build.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #8</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Sep 10, 2013 by
+                  <i class="ng-binding">Swift Bear</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Régis Montoya  in csipsimple-users on Sep 9:</p>
+
+<blockquote>
+  <p>I did some changes to improve the situation. The nightly build version should 
+  have the problem almost fixed.
+  The only remaining problem is that sometimes the activation of ZRTP after ICE 
+  seems to introduce a deadlock somewhere (and in this case no audio and call 
+  is blocked). It should not occur too frequently, but it's still necessary to fix 
+  that and I'll try to spent more free time (when I'll have) on this problem.</p>
+</blockquote>
+
+<p>Hello Régis, </p>
+
+<p>I tried the nightly build r2291, <em>ZRTP + ICE works</em> (relayed via TURN and also directly on the same WLAN AP), but I get those freezes quite frequently (once in 8 calls maybe; I need to kill CSipSimple via Task manager to revive).</p>
+
+<p>Additionally, I spotted the following binary garbage (non-ASCII slash char in transport_zrtp.c line 927) in the log: </p>
+
+<p>D/libpjsip( 1354): 13:03:44.086 transport_zrtp  zrtp :: has ice transport is yes... state is 4 âˆ• 1</p>
+
+<p>Thanks for the fix, I'd appreciate if you'd find time to catch the deadlock... </p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #9</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Sep 12, 2013 by
+                  <i class="ng-binding">Swift Bear</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Found one more (more serious) problem with the patch. </p>
+
+<p>It manifests when calling an IVR directly on Freeswitch (i.e. not between phones). 
+In this case audio works immediately after dialing, but <em>ICE fails</em> after 8s and thus <em>ZRTP negotiation is never performed</em>.</p>
+
+<p>D/libpjsip( 5732): 14:38:24.607 transport_zrtp  zrtp :: has ice transport is yes... state is 4 / 1
+D/libpjsip( 5732): 14:38:24.626        icetp00  ICE negotiation failed after 8s:249: All ICE checklists failed (PJNATH_EICEFAILED)
+D/libpjsip( 5732): 14:38:24.629 transport_zrtp !zrtp :: has ice transport is yes... state is 6 / 1</p>
+
+<p>I think we should fire up ZRTP also when ICE fails, as the audio stream might work properly even without ICE (as in my case).</p>
+
+<p>Full log here: <a href="http://pastebin.com/JVBstn2q">http://pastebin.com/JVBstn2q</a></p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #10</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Sep 12, 2013 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Hi Tomas,</p>
+
+<p>Thanks a lot for all this valuable feedback.</p>
+
+<p>The second point (comment 9) is probably easy to fix. Thanks to the log you sent, we know exactly the status of ice neg and it should be easy to decide to start zrtp when state is 6 (I think I did only on 5 before).</p>
+
+<p>About the deadlock, I think there is more time to spent on the topic. I already spent couple of hours without luck, but I'll try to find some free time to tackle this one.
+I'll update this issue when something will be ready to test.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #11</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Sep 13, 2013 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Issue 2193 has been merged into this issue.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #12</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Sep 15, 2013 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>I've just pushed in revision 2299 something that should fix the deadlock. 
+It will be produced in tonight nightly build. Do not hesitate to give me feedback. I spent my afternoon to debug the problem and I'm not fully sure the fix is the good one. From latests tests I did it seems good but as it involves both ZRTP lib and pjsip lib and android timers it's hard to test all cases.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #13</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Sep 16, 2013 by
+                  <i class="ng-binding">Swift Bear</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>We tried rev 2300 today and the ZRTP problem on ICE fail (Comment #9) is fixed, ZRTP kicks in about 8 seconds into the call, there's basically no pause in audio :)</p>
+
+<p>We have not performed enough tests to see whether the deadlock is gone, but we'll continue tomorrow.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #14</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Sep 25, 2013 by
+                  <i class="ng-binding">Swift Bear</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>We have not observed the deadlock anymore, I suggest to close this issue, if we observe it again, we'll report.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #15</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Sep 25, 2013 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Great !
+Thanks for the feedback</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #16</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Oct 18, 2013 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Issue 2193 has been merged into this issue.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments -->
+          </div>
+
+          <!-- Sidebar with additional information -->
+          <div class="maia-col-4">
+            <div class="maia-aside">
+              <p>Status: <code class="ng-binding">Verified</code></p>
+              <!-- ngIf: issueCtrl.issue.labels.length > 0 --><p ng-if="issueCtrl.issue.labels.length &gt; 0" class="ng-scope">
+                Labels:
+                <br>
+                <!-- ngRepeat: label in issueCtrl.issue.labels track by $index --><span ng-repeat="label in issueCtrl.issue.labels track by $index" class="ng-scope">
+                  <span class="gca-label ng-binding">Type-Defect</span>
+                </span><!-- end ngRepeat: label in issueCtrl.issue.labels track by $index --><span ng-repeat="label in issueCtrl.issue.labels track by $index" class="ng-scope">
+                  <span class="gca-label ng-binding">Priority-Medium</span>
+                </span><!-- end ngRepeat: label in issueCtrl.issue.labels track by $index -->
+              </p><!-- end ngIf: issueCtrl.issue.labels.length > 0 -->
+            </div>
+          </div>
+        </div><!-- end ngIf: !issueCtrl.error -->
+      </div>
+    </div>
+
+  </div>
+</div>
+</div></div></div>
+    <noscript>
+      &lt;p&gt;The Google Code Archive requires JavaScript to be enabled in your browser.&lt;/p&gt;
+    </noscript>
+
+    <div id="maia-signature"></div>
+    <div class="maia-footer" id="maia-footer">
+      <div id="maia-footer-local">
+      </div>
+      <div id="maia-footer-global">
+        <div class="maia-aux">
+          <ul>
+            <li>
+              <a href="//www.google.com/">Google</a>
+            </li>
+            <li>
+              <a href="//www.google.com/intl/en/about/">About Google</a>
+            </li>
+            <li>
+              <a href="//www.google.com/intl/en/policies/privacy/">Privacy</a>
+            </li>
+            <li>
+              <a href="//www.google.com/intl/en/policies/terms/">Terms</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <script src="//www.google.com/js/maia.js"></script>
+  
+
+
+</body></html>

@@ -1,0 +1,567 @@
+https://code.google.com/archive/p/csipsimple/issues/2201<!DOCTYPE html><html class="google ng-scope" lang="en" ng-app="codesiteArchive.application"><head>
+    <meta charset="utf-8">
+    <meta content="initial-scale=1, minimum-scale=1, width=device-width" name="viewport">
+
+    <!-- https://developers.google.com/webmasters/ajax-crawling/docs/specification -->
+    <meta name="fragment" content="!">
+    <title>Google Code Archive - Long-term storage for Google Code Project Hosting.</title>
+
+    <link rel="icon" type="image/vnd.microsoft.icon" href="/archive/img/project-hosting.ico">
+    <script src="//www.google.com/js/google.js"></script>
+    <link href="//www.google.com/css/maia.css" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;lang=en" rel="stylesheet">
+    <link rel="stylesheet" href="/archive/archive_css.css">
+    <script>
+      CLOSURE_NO_DEPS = true;
+    </script>
+    <script src="/archive/angular.js"></script><style type="text/css">@charset "UTF-8";
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak],
+.ng-cloak, .x-ng-cloak,
+.ng-hide:not(.ng-hide-animate) {
+  display: none !important;
+}
+
+ng\:form {
+  display: block;
+}
+
+.ng-animate-shim {
+  visibility:hidden;
+}
+
+.ng-anchor {
+  position:absolute;
+}
+</style>
+    <script src="/archive/pagedown.js"></script>
+    <script src="/archive/archive.js"></script>
+    <base href="/archive/">
+  </head>
+
+  <body>
+    <div class="maia-header" id="maia-header" role="banner">
+      <div class="maia-aux">
+        <a href="/archive/">
+          </a><h1><a href="/archive/">
+            <img alt="Google" src="//www.google.com/images/branding/googlelogo/1x/googlelogo_color_116x41dp.png"> Code</a>
+          </h1>
+        
+        <a href="/archive/">
+          <h2>Archive</h2>
+        </a>
+        <a class="maia-teleport" href="#content">Skip to content</a>
+        <div class="maia-util">
+          <form action="/archive/search" class="maia-search ng-pristine ng-valid">
+            <input name="q" placeholder="Search this site" type="text">
+            <button class="maia-button">
+              <span class="maia-search-icon">Search</span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- ngView: --><div ng-view="" class="ng-scope"><div ng-controller="ProjectIssueCtrl as issueCtrl" class="ng-scope">
+<nav-bar-widget nav-level-1="projectCtrl.navLevel1" class="ng-isolate-scope"><div class="maia-nav maia-complex" id="maia-nav-x" role="navigation">
+  <div class="maia-aux">
+    <ul>
+      <li ng-class="{active: navLevel1 == 'projects'}">
+        <a href="/archive/">Projects</a>
+        <!-- ngIf: navLevel2 -->
+      </li>
+      <li ng-class="{active: navLevel1 == 'search'}">
+        <a href="/archive/search">Search</a>
+      </li>
+      <li ng-class="{active: navLevel1 == 'about'}">
+        <a href="/archive/about">About</a>
+      </li>
+    </ul>
+  </div>
+</div>
+</nav-bar-widget>
+<div id="maia-main" role="main">
+
+  <!-- ngIf: issueCtrl.notFound -->
+
+  <div ng-hide="issueCtrl.notFound">
+    <!-- Left-side resource nav -->
+    <project-resources-widget domain="issueCtrl.domain" project="issueCtrl.projectName" class="ng-isolate-scope"><div class="maia-nav" id="maia-nav-y" role="navigation">
+  <!-- ngIf: domain == 'code.google.com' --><ul ng-if="domain == 'code.google.com'" class="ng-scope">
+    <li class="active">
+      <a href="/archive/p/csipsimple/">Project</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/source">Source</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/issues">Issues</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/wikis">Wikis</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/downloads">Downloads</a>
+    </li>
+  </ul><!-- end ngIf: domain == 'code.google.com' -->
+
+    <!-- ngIf: domain != 'code.google.com' -->
+</div></project-resources-widget>
+
+    <div class="maia-article" role="article">
+      <div class="maia-teleport" id="content"></div>
+      <div class="maia-cols">
+        <div id="gca-project-header" class="maia-col-10">
+          <a id="gca-export-to-gh" class="maia-button" href="https://code.google.com/export-to-github/export?project=csipsimple">Export to GitHub</a>
+            <img class="gca-project-logo" src="https://storage.googleapis.com/google-code-archive/v2/code.google.com/csipsimple/logo.png">
+            <h1 class="ng-binding">csipsimple - issue #2201</h1>
+            <p class="ng-binding">When receiving incoming calls, both native phone app and csipsimple pop up</p>
+        </div>
+
+        <div class="maia-col-10">
+          <hr>
+
+        <!-- ngIf: issueCtrl.error -->
+
+        <!-- ngIf: !issueCtrl.error --><div ng-if="!issueCtrl.error" class="ng-scope">
+          <!-- Comments -->
+          <div class="maia-col-8">
+            <!-- ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jan 27, 2013 by
+                  <i class="ng-binding">Helpful Kangaroo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p><b>What steps will reproduce the problem?</b>
+1. Use CSipSimple with integration
+2.Receive incoming call</p>
+
+<p><b>What is the expected output? What do you see instead?</b></p>
+
+<p>I expected only CSipSimple's incoming call window to pop up but instead I get:</p>
+
+<ol>
+<li>CSipSimple's window</li>
+<li>After about 2 seconds the native incoming call window pops up on top of CSipSimple's</li>
+</ol>
+
+<p><b>What version of the product are you using? On what operating system?</b></p>
+
+<p>I'm using the latest version in the play store (looks like 0.04-04 r1916).
+Android 4.2.1
+Nexus 4</p>
+
+<p><b>Please provide any additional information below.</b></p>
+
+<p>I tried a lot of settings and filters and nothing seems to work.</p>
+
+<ul>
+<li>checking "mobile phone integration - force" didn't help</li>
+<li>adding filter to "use mobile" of "stop processing" - "all" did not work either</li>
+</ul>
+
+<p>(Note: I do have Google Voice set to forward calls to my mobile number but I need that in case GV or CSipSimple go down from lack of data connection. But I want to be able to turn off/on the native answering manually)</p>
+
+<p>How do I prevent the normal phone from working at all?</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #1</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Feb 1, 2013 by
+                  <i class="ng-binding">Quick Rabbit</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Comment deleted</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #2</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Feb 1, 2013 by
+                  <i class="ng-binding">Quick Rabbit</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>I have the same setup, and I also would prefer to be able to optionally disable native incoming calls.</p>
+
+<p>A workaround I've found is to turn on airplane mode, and then connect to Wifi.  When I leave the house I have to remember to turn off airplane mode.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #3</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Feb 19, 2013 by
+                  <i class="ng-binding">Quick Ox</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>bump</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #4</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Mar 8, 2013 by
+                  <i class="ng-binding">Massive Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>I have the exact same GV setup and would like to see the feature to suppress incoming mobile call and use CSipSimple to take the call.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #5</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Mar 9, 2013 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Not a problem in csipsimple but a configuration in GV.</p>
+
+<p>CSipSimple obviously can't prevent an incoming gsm call (and that's pretty safe it can't ;) ).</p>
+
+<p>The problem you have here is something with the service, not something with the client application.</p>
+
+<p>If on your web browser (firefox/chrome/internet explorer), if you visit a website and see 2 popup on this website, will you open a bug on the web browser or try to see why the website you visit shows the two popups?
+Here it's the same, csipsimple is like a browser of the sip protocol. It will ring if the configured server is calling. Your android GSM device is also like a browser of the gsm protocol, when somebody calls, the phone will ring.
+So if Google Voice is configured to ring at the same time the sip device and the gsm device.... well the only thing you can expect is to have the gsm and the sip to ring at the same time.
+And the culprit is Google Voice and the configuration done that make both sip and gsm ring at the same time.</p>
+
+<p>For the record, the other settings you mention aim is to "filter" <em>outgoing calls made from the native dialer</em>. 
+So will have no impact on incoming calls and even less impact on incoming gsm call ;). 
+In the filters, there is just one option to have impact on incoming sip calls and allow auto-reply/auto-hangup of sip calls (but not gsm calls).</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #6</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Mar 9, 2013 by
+                  <i class="ng-binding">Quick Rabbit</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><blockquote>
+  <p>CSipSimple obviously can't prevent an incoming gsm call (and that's pretty safe it can't ;) ).</p>
+</blockquote>
+
+<p>Au Contraire -- <a href="http://stackoverflow.com/questions/7357372/how-to-disable-gsm-connection-in-android-programmatically">http://stackoverflow.com/questions/7357372/how-to-disable-gsm-connection-in-android-programmatically</a></p>
+
+<p>Although this isn't really a bug, as you say.  This should be reclassified as a feature request to turn on airplane mode for the GSM when a wifi connection is detected.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #7</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Mar 10, 2013 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>I didn't say it's not technically possible. I say CSipSimple has not the role to prevent gsm calls.</p>
+
+<p>It's the role of another app to change settings according to phone context.</p>
+
+<p>On android apps are not monolithic and each app should focus one feature and provide api to other apps so that the behavior is tweaked by dedicated apps.</p>
+
+<p>It applies to how to prevent gsm calls, it applies to how to enable/disable a sip account depending on the WiFi hotspot, of the time range in the day, on how the weather looks like.
+there is currently existing apps doing that such as tasker and locale.I've also developed one that I plan to release as open source. But due to the time CSipSimple support take to me I've not enough free time to release it in short term.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #8</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Mar 12, 2013 by
+                  <i class="ng-binding">Massive Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Actually, Sipdroid has implemented this feature already. When google voice rings both the SIP account and the Mobile number, Sipdroid suppresses the Mobile call and the SIP call is given priority.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #9</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Aug 15, 2013 by
+                  <i class="ng-binding">Helpful Rabbit</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Sipdroid doesn't actually suppress the call. It just pushes its intent back on top of the native dialer. You will notice this because the ringtone restarts part way through (when the native dialer shows up).</p>
+
+<p>I disagree with r3gis and I believe that CSipSimple does in fact play a role in GSM call management. Like he(she?) said it is difficult to do it right, but I believe that it should do what sipdroid does(attempts) and suppress the incoming call if the number from GSM is already being handled by CSipSimple (This is what I want it to do anyways... If it should or not is a different question). </p>
+
+<p>To that end I wrote a patch that performs true call suppression (I terminate the incoming call without interrupting the sip call (IFF numbers match)). I have no idea if it will work on any other devices or without root (you might even need to use Titanium App's to make it a system app). I wrote it to do what I needed it to do. If it does what you want, here you go.</p>
+
+<p>My Device: Nexus4
+Android: Rooted Stock 4.3</p>
+
+<p>Aaand because I can't post patches here I will put them on my server.
+<a href="http://www.lindeneau.com/csipsimple/prevent-native.patch">http://www.lindeneau.com/csipsimple/prevent-native.patch</a>
+And a pre-compiled based off of latest trunk.
+<a href="http://www.lindeneau.com/csipsimple/SipHome.apk">http://www.lindeneau.com/csipsimple/SipHome.apk</a></p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #10</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Aug 15, 2013 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>@slindeneau :
+Thanks for contributing that !</p>
+
+<p>Indeed it will not work if you are not rooted and not able to change the app rights.
+That's why a correct approach for this kind of stuff is definitely not to put that inside CSipSimple (and I maintain my position on that, it's not the role of CSipSimple app).</p>
+
+<p>However, what you did is something that is totally feasible as a separate application !
+Android OS is designed to be not monolitic !!! It's not iOS !! 
+An app that automatically cut incoming GSM calls based on other condition is some role that totally makes sense. And that's almost what you did and what you need. My point is just that it's not a correct software design to put it <em>inside</em> csipsimple.</p>
+
+<p>That's why I think the feature you added should be a <em>plugin</em> and distributed as a separate app. By this way, anyone with stock csipsimple (or any fork of it) could use your feature + It will not grant extra system permissions to the sip app. And better... it could benefit more apps than just csipsimple... maybe the thing you did could just also check presence of other sip apps like sipdroid/linphone/imsdroid and get number of incoming calls from these apps and cut gsm if they have incoming calls.</p>
+
+<p>You did almost all the work to make this functional. And it's great! Now, IMHO, it's just about putting that in a different app and using the CSipSimple API (<a href="http://r3gis3r.github.com/SampleCSipSimpleApp/javadoc/">http://r3gis3r.github.com/SampleCSipSimpleApp/javadoc/</a>) to know if there is calls incoming (note : the csipsimple api is already what you use in your patch, so it's just about binding the service).</p>
+
+<p>Also, think about that : this <em>dedicated</em> app could also allow user to configure more stuff like : 
+ * filtering what is the incoming gsm number to address more cases than GV.
+ * let user configure with a widget (or inside the app) if he wants to always prefer gsm over sip or sip over gsm.
+ * ... put here whatever other thing you might think/need in the future... 
+Also think about the fact that if you create such a plugin, it will work with all future version of the app, and it will not be needed to do new full builds of CSipSimple each time it evolves.</p>
+
+<p>My point was not to say the feature proposed here is silly. It's just to say it's not good idea to add it <em>inside</em> csipsimple because it's definitely not the role of csipsimple to provide this feature. The role of csipsimple is to provide SIP and to do that well (as good as possible ;) ). 
+It's not to implement the galaxy of possible side features. 
+Other side features should take place in <em>dedicated</em> apps that address specifically this side need. It should also do that well with dedicated options so that :
+ - users that does not need it will not get lost with feature they do not understand
+ - users that needs the feature will download the plugin and have more detailed control on what this feature does. In this particular case, they will also need to follow special instructions (root device, transform the plugin into a system app).</p>
+
+<p>That's why I classified the issue as invalid for csipsimple and that's why your work on the topic is very welcome and that I advise you to change your approach to create a plugin instead so that it can benefit anyone easily and that your plugin can evolves to provide more feature to all users with this need.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #11</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Aug 15, 2013 by
+                  <i class="ng-binding">Helpful Rabbit</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>I understand what you are saying. I will look into making it a tasker/locale plugin.</p>
+
+<p>For this to work the sip apps would also need an option to simply ignore the fact that that the GSM dialer was being called, otherwise there is a hickup (like sipdroid's ringer being restarted.) In my version of the code (I left it out of the patch) I completely removed all of the onGSMCallIncoming() code within the pjservice because it breaks the unified user experience.</p>
+
+<p>By the by, I did my work in CSipSimple because I found it to be the best sip app by far. From your post I can see why it is the best. Good Job.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #12</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Sep 4, 2013 by
+                  <i class="ng-binding">Happy Giraffe</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>@slinden, thanks for the effort you are putting in to make this a tasker. do i follow this thread for updates or do i follow your effort elsewhere? thanks again.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #13</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Feb 13, 2015 by
+                  <i class="ng-binding">Happy Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>I've disabled using cSipSimple for incoming calls because of this problem.  My cellular service provider (CDMA in my case) provides a SIP gateway to make/receive calls using the same phone number as the cellular service.  So, when a call comes in while I'm under Wifi, while CSipSimple does start ringing first, as soon as the cellular radio gets the incoming call, cSipSimple is pushed to a task bar notification by the native ringer and I don't know how to get it back into the foreground quickly so I can pick up the call using SIP instead.  So there seems to be no point of trying to use cSipSimple for incoming calls.</p>
+
+<p>NOTE: Even if you got this to work better, I also do not agree that SIP should always have precedence for taking an incoming call.  Rather, I would like to be able to configure how incoming calls are handled between the two services, including being presented with a service chooser on the native incoming ringer screen.  Sometimes, I might be driving and be temporarily covered by a public WIFI network, so I would not want to answer the call using SIP in that case like I would if I were stationary or at home, because as I understand it, there is no handshake to seemlessly transfer the call between cellular and SIP like cellular can usually do between towers and the call would get dropped really quickly if I answered using SIP.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments -->
+          </div>
+
+          <!-- Sidebar with additional information -->
+          <div class="maia-col-4">
+            <div class="maia-aside">
+              <p>Status: <code class="ng-binding">Invalid</code></p>
+              <!-- ngIf: issueCtrl.issue.labels.length > 0 --><p ng-if="issueCtrl.issue.labels.length &gt; 0" class="ng-scope">
+                Labels:
+                <br>
+                <!-- ngRepeat: label in issueCtrl.issue.labels track by $index --><span ng-repeat="label in issueCtrl.issue.labels track by $index" class="ng-scope">
+                  <span class="gca-label ng-binding">Type-Defect</span>
+                </span><!-- end ngRepeat: label in issueCtrl.issue.labels track by $index --><span ng-repeat="label in issueCtrl.issue.labels track by $index" class="ng-scope">
+                  <span class="gca-label ng-binding">Priority-Medium</span>
+                </span><!-- end ngRepeat: label in issueCtrl.issue.labels track by $index -->
+              </p><!-- end ngIf: issueCtrl.issue.labels.length > 0 -->
+            </div>
+          </div>
+        </div><!-- end ngIf: !issueCtrl.error -->
+      </div>
+    </div>
+
+  </div>
+</div>
+</div></div></div>
+    <noscript>
+      &lt;p&gt;The Google Code Archive requires JavaScript to be enabled in your browser.&lt;/p&gt;
+    </noscript>
+
+    <div id="maia-signature"></div>
+    <div class="maia-footer" id="maia-footer">
+      <div id="maia-footer-local">
+      </div>
+      <div id="maia-footer-global">
+        <div class="maia-aux">
+          <ul>
+            <li>
+              <a href="//www.google.com/">Google</a>
+            </li>
+            <li>
+              <a href="//www.google.com/intl/en/about/">About Google</a>
+            </li>
+            <li>
+              <a href="//www.google.com/intl/en/policies/privacy/">Privacy</a>
+            </li>
+            <li>
+              <a href="//www.google.com/intl/en/policies/terms/">Terms</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <script src="//www.google.com/js/maia.js"></script>
+  
+
+
+</body></html>

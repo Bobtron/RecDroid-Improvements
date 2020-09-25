@@ -1,0 +1,2224 @@
+https://code.google.com/archive/p/csipsimple/issues/1837<!DOCTYPE html><html class="google ng-scope" lang="en" ng-app="codesiteArchive.application"><head>
+    <meta charset="utf-8">
+    <meta content="initial-scale=1, minimum-scale=1, width=device-width" name="viewport">
+
+    <!-- https://developers.google.com/webmasters/ajax-crawling/docs/specification -->
+    <meta name="fragment" content="!">
+    <title>Google Code Archive - Long-term storage for Google Code Project Hosting.</title>
+
+    <link rel="icon" type="image/vnd.microsoft.icon" href="/archive/img/project-hosting.ico">
+    <script src="//www.google.com/js/google.js"></script>
+    <link href="//www.google.com/css/maia.css" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;lang=en" rel="stylesheet">
+    <link rel="stylesheet" href="/archive/archive_css.css">
+    <script>
+      CLOSURE_NO_DEPS = true;
+    </script>
+    <script src="/archive/angular.js"></script><style type="text/css">@charset "UTF-8";
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak],
+.ng-cloak, .x-ng-cloak,
+.ng-hide:not(.ng-hide-animate) {
+  display: none !important;
+}
+
+ng\:form {
+  display: block;
+}
+
+.ng-animate-shim {
+  visibility:hidden;
+}
+
+.ng-anchor {
+  position:absolute;
+}
+</style>
+    <script src="/archive/pagedown.js"></script>
+    <script src="/archive/archive.js"></script>
+    <base href="/archive/">
+  </head>
+
+  <body>
+    <div class="maia-header" id="maia-header" role="banner">
+      <div class="maia-aux">
+        <a href="/archive/">
+          </a><h1><a href="/archive/">
+            <img alt="Google" src="//www.google.com/images/branding/googlelogo/1x/googlelogo_color_116x41dp.png"> Code</a>
+          </h1>
+        
+        <a href="/archive/">
+          <h2>Archive</h2>
+        </a>
+        <a class="maia-teleport" href="#content">Skip to content</a>
+        <div class="maia-util">
+          <form action="/archive/search" class="maia-search ng-pristine ng-valid">
+            <input name="q" placeholder="Search this site" type="text">
+            <button class="maia-button">
+              <span class="maia-search-icon">Search</span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- ngView: --><div ng-view="" class="ng-scope"><div ng-controller="ProjectIssueCtrl as issueCtrl" class="ng-scope">
+<nav-bar-widget nav-level-1="projectCtrl.navLevel1" class="ng-isolate-scope"><div class="maia-nav maia-complex" id="maia-nav-x" role="navigation">
+  <div class="maia-aux">
+    <ul>
+      <li ng-class="{active: navLevel1 == 'projects'}">
+        <a href="/archive/">Projects</a>
+        <!-- ngIf: navLevel2 -->
+      </li>
+      <li ng-class="{active: navLevel1 == 'search'}">
+        <a href="/archive/search">Search</a>
+      </li>
+      <li ng-class="{active: navLevel1 == 'about'}">
+        <a href="/archive/about">About</a>
+      </li>
+    </ul>
+  </div>
+</div>
+</nav-bar-widget>
+<div id="maia-main" role="main">
+
+  <!-- ngIf: issueCtrl.notFound -->
+
+  <div ng-hide="issueCtrl.notFound">
+    <!-- Left-side resource nav -->
+    <project-resources-widget domain="issueCtrl.domain" project="issueCtrl.projectName" class="ng-isolate-scope"><div class="maia-nav" id="maia-nav-y" role="navigation">
+  <!-- ngIf: domain == 'code.google.com' --><ul ng-if="domain == 'code.google.com'" class="ng-scope">
+    <li class="active">
+      <a href="/archive/p/csipsimple/">Project</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/source">Source</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/issues">Issues</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/wikis">Wikis</a>
+    </li>
+    <li>
+      <a href="/archive/p/csipsimple/downloads">Downloads</a>
+    </li>
+  </ul><!-- end ngIf: domain == 'code.google.com' -->
+
+    <!-- ngIf: domain != 'code.google.com' -->
+</div></project-resources-widget>
+
+    <div class="maia-article" role="article">
+      <div class="maia-teleport" id="content"></div>
+      <div class="maia-cols">
+        <div id="gca-project-header" class="maia-col-10">
+          <a id="gca-export-to-gh" class="maia-button" href="https://code.google.com/export-to-github/export?project=csipsimple">Export to GitHub</a>
+            <img class="gca-project-logo" src="https://storage.googleapis.com/google-code-archive/v2/code.google.com/csipsimple/logo.png">
+            <h1 class="ng-binding">csipsimple - issue #1837</h1>
+            <p class="ng-binding">Add configuration libertalk (ex neuftalk) </p>
+        </div>
+
+        <div class="maia-col-10">
+          <hr>
+
+        <!-- ngIf: issueCtrl.error -->
+
+        <!-- ngIf: !issueCtrl.error --><div ng-if="!issueCtrl.error" class="ng-scope">
+          <!-- Comments -->
+          <div class="maia-col-8">
+            <!-- ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jul 22, 2012 by
+                  <i class="ng-binding">Helpful Panda</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Please delete configuration neuftalk and add configuration for libertalk. The new protocole sip of SFR in France. </p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #1</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jul 22, 2012 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Bonjour,</p>
+
+<p>Merci pour le retour. Apparement qqun sur twitter à déjà réussi à trouver les bon paramètres pour configurer en mode expert (<a href="https://twitter.com/raphy972/status/227042164100702210">https://twitter.com/raphy972/status/227042164100702210</a>). 
+Pour pouvoir rajouter le wizard il me faut les infos sur la façon de le configurer.
+J'ai un peu cherché en parallèle sur les forums de SFR et les infos que j'y trouve ne sont pas tout à fait claires.</p>
+
+<p>Voilà à priori la façon dont j'esserai de configurer si j'avais un compte libertalk au vue des infos du forum de SFR:</p>
+
+<p>configuration en utilisant le mode avancé sur une nightly build (téléchargeable ici : <a href="http://nightlies.csipsimple.com/trunk/">http://nightlies.csipsimple.com/trunk/</a>) :
+Nom du compte =&gt; Libertalk (peu importe c'est juste pour l'affichage dans l'appli)
+Caller ID (identifianteur de l'appelant ) =&gt; laisser vide
+Serveur =&gt; ims.mnc010.mcc208.3gppnetwork.org
+Nom utilisateur =&gt; +3399XXXXXXXXXX
+Id d'autentitification SIP =&gt; NDIXXXXXXXXXX.LIBERTALK.sfr.fr (à priori je dirais que les majuscules sont importantes)
+Mot de passe =&gt; le mot de passe libertalk
+Utiliser le TCP =&gt; pas dans un premier temps (il faudra tester après si c'est jouable ou pas)
+Serveur proxy =&gt; 96.68.1.20:5064</p>
+
+<p>Dites moi ce qu'il en est avec ces options. Dès qu'on trouve des options fonctionnelles, j'ajoute le wizard. 
+Ca sera bien vu qu'il n'y aura que besoin du champ numéro de téléphone et un mot de passe et tout le reste sera fait automatiquement.</p>
+
+<p>Par contre pour l'instant je cros pas qu'il faille enlever la configuration neuftalk. Libertalk m'a l'air encore en beta et Neuftalk semble toujours dispo, non?</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #2</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jul 23, 2012 by
+                  <i class="ng-binding">Happy Elephant</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>J'essaye également à partir des infos de <a href="http://forum.sfr.fr/c364-6-tutoriaux-et-utilitaires/f153-tutoriaux-et-utilitaires/t527390-libertalktutorial-media5fone-pour-android.htm">http://forum.sfr.fr/c364-6-tutoriaux-et-utilitaires/f153-tutoriaux-et-utilitaires/t527390-libertalktutorial-media5fone-pour-android.htm</a></p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #3</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jul 23, 2012 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Ok, merci pour le lien. A priori ça confirmerai mes instructions ci-dessus. Sauf le ID d'authentification SIP qui doit être 
+NDIXXXXXXXXXX.LIBERTALK@sfr.fr au lieu de NDIXXXXXXXXXX.LIBERTALK.sfr.fr (ce n'est pas un point mais un arobase).
+Il y a juste le serveur proxy qu'ils addressent par nom de domaine (internet.p-cscf.sfr.net:5064) mais ça à l'air de résoudre en 91.68.1.20, donc ça doit être bon.</p>
+
+<p>Peut-être juste un truc qui diffère aussi c'est le temps d'enregistrement. Dans CSipSimple pour le basculer à 3600, il faut :
+(une fois le compte créé avec les infos données précédement via le wizard basic), faire un appuie long sur la ligne du compte puis sélectionner "choisir l'assistant" puis choisir le wizard Expert. L'éditer... il sera rempli avec les infos crées à partir du mode avancé donc pas besoin de retoucher aux autres infos. Et changer le champ "Timeout du register (sec)" en 3600.</p>
+
+<p>Dites moi si vous avez une conf fonctionnelle avec ces instructions. Si c'est le cas je bascule en wizard et ça sera beaucoup plus simple pour les autres utilisateurs.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #4</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jul 23, 2012 by
+                  <i class="ng-binding">Happy Elephant</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Et non, neuftalk n'est plus disponible. Quand la connexion neuftalk réussit, on tombe sur un répondeur qui indique qu'il faut aller sur <a href="http://neuftalk.sfr.fr">http://neuftalk.sfr.fr</a> (ce qui renvoie vers <a href="http://www.sfr.fr/adsl-fibre/services-options/appels-repondeurs-fixes/sfr-libertalk/">http://www.sfr.fr/adsl-fibre/services-options/appels-repondeurs-fixes/sfr-libertalk/</a>)</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #5</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jul 23, 2012 by
+                  <i class="ng-binding">Happy Elephant</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Oui, et sur les forums, on trouve aussi un proxy 96.68.1.20 mais j'avoue que pour le moment, je n'arrive pas à me connecter :/</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #6</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jul 23, 2012 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Ok pour neuftalk, j'avais en effet juste testé que leur serveur sip répondait mais pas un vrai appel (je n'ai pas de compte chez sfr).</p>
+
+<p>Ca donne quoi comme erreur quand ça essaie de se connecter? (Au cas je peux peut-être trouver des indices dans les logs =&gt; voir la page du wiki HowToCollectLogs pour récupérer et envoyer les logs)</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #7</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jul 23, 2012 by
+                  <i class="ng-binding">Happy Elephant</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>J'ai "Forbidden". Je vérifierai mon mot de passe ce soir.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #8</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jul 23, 2012 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>ok. En effet avec la version du market tu avais le spellchecking encore activé et ça pouvait mener à des erreurs. 
+Je te conseille très très fortement de basculer sur les nightly build 
+<a href="http://nightlies.csipsimple.com/trunk/">http://nightlies.csipsimple.com/trunk/</a></p>
+
+<p>Pour le forbidden, du coup il faudrai tenter ça :</p>
+
+<p>Mode expert 
+SIP ID =&gt; 
+Register =&gt; sip:ims.mnc010.mcc208.3gppnetwork.org
+Login =&gt; +3399XXXXXXXXXX
+Pwd =&gt; le pwd du compte
+Proxy =&gt; sip:internet.p-cscf.sfr.net:5064
+Register timeout =&gt; 3600</p>
+
+<p>normalement quand il y a un forbidden le pb viens de Login ou de Pwd (en mode expert). Un "user not found" c'est le SIP ID qui a un pb. Un timeout c'est le proxy et/ou le registrar.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #9</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jul 23, 2012 by
+                  <i class="ng-binding">Swift Camel</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Bonjour,</p>
+
+<p>Comme indiqué sur mon compte twitter je suis parvenu à trouver un paramétrage qui fonctionne chez moi. Je suis en mesure d'émettre des appels ainsi que de recevoir les appels qui sont redirigés de mon fixe vers LiberTalk(le renvoi d'appels ver NeufTalk ne fonctionnait pas pour moi, évolution donc). Ci-dessous mon paramétrage :</p>
+
+<p>Les informations non données sont celles par défaut de l'application
+XXXXXXXXXX : Mon numéro de fixe SFR à dix chiffres</p>
+
+<p>SIP ACCOUNT
+    Nom de compte : SFR LiberTalk</p>
+
+<pre><code>Identifiant pour le compte : XXXXXXXXXX &lt;sip:+3399XXXXXXXXXX@ims.mnc010.mcc208.3gppnetwork.org&gt;
+
+URI du registrar : sip:ims.mnc010.mcc208.3gppnetwork.org:5064
+</code></pre>
+
+<p>SIP AUTHENTICATION
+    Realm : *</p>
+
+<pre><code>Nom d'utilisateur : NDIXXXXXXXXXX.LIBERTALK@sfr.fr
+
+Mot de passe : mot de passe NeufTalk
+</code></pre>
+
+<p>CONNECTION
+    Transport : UDP
+    Délai avant le rafraichissement de l'enregistrement : 3600</p>
+
+<p>SERVEUR PROXY
+    Uri du proxy : sip:internet.p-cscf.sfr.net:5064</p>
+
+<p>DIVERS
+    Messagerie vocale : 147
+    Notifications boite vocale : oui</p>
+
+<p>Voilà, en espérant que ça puisse vous aider. Mon paramétrage n'est peut-être pas non plus optimal mais j'ai gardé le premier qui fonctionnait :-)</p>
+
+<p>Raphael</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #10</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jul 23, 2012 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Merci beaucoup Raphael !</p>
+
+<p>C'est parti pour le wizard :). Normalement ça sera dispo dans la nightly build de demain midi. (oui il y a des nightly builds à midi et a minuit ;) ).</p>
+
+<p>Je vais réduire la priorité du compte neuftalk aussi je l'enlèverai après avoir vérifié que ça casse pas tout d'enlever un wizard dans mon code et les databases existantes (normalement non, mais il vaut mieux être prudent pour les gens qui en ont un toujours configuré, histoire que ça empêche pas l'appli de démarrer).</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #11</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jul 23, 2012 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>This issue was closed by revision r1726.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #12</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jul 23, 2012 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>This issue was closed by revision r1727.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #13</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jul 24, 2012 by
+                  <i class="ng-binding">Grumpy Lion</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Hello.
+La méthode de Raphael fonctionne,par contre il n'y a as d'espace ici:
+XXXXXXXXXX </p>
+
+<p>Donc le libellé doit être: XXXXXXXXXX</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #14</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jul 24, 2012 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>A priori les deux doivent marcher. 
+Avec l'espace c'est plus dans la norme SIP, normalement ça doit aussi marcher avec des doubles quotes :
+"XXXXXXXX" </p>
+
+<p>Dans une petite heure il y a la prod de la nightly build. Si certains d'entre vous ont le temps de la tester histoire de valider que je n'ai rien oublié dans le wizard ça sera cool :)
+Ca sera dispo ici : <a href="http://nightlies.csipsimple.com/trunk/">http://nightlies.csipsimple.com/trunk/</a> </p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #15</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jul 24, 2012 by
+                  <i class="ng-binding">Grumpy Lion</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Ça ne fonctionnait pas avec l'espace,donc... </p>
+
+<p>Je testerais ta dernière build,merci.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #16</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jul 24, 2012 by
+                  <i class="ng-binding">Happy Elephant</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Je confirme que le wizard marche bien avec r1728</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #17</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jul 24, 2012 by
+                  <i class="ng-binding">Grumpy Lion</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Je confirme également,ça fonctionne parfaitement.</p>
+
+<p>J'ai installé la r1728 et supprimé le compte expert, simplement rentré le numéro de téléphone et le mot de passe dans le wizard.
+Merci.</p>
+
+<p>Sinon,pas moyen d'afficher autre chose que ce numéro à rallonge? </p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #18</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jul 24, 2012 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Super merci pour les retours.</p>
+
+<p>Pour le numéro à rallonge, c'est où qu'il s'affiche ?</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #19</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jul 24, 2012 by
+                  <i class="ng-binding">Grumpy Lion</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Le fameux +3399xxxxxxxxxx ,il s'afficher sur l'écran du correspondant.
+Mias je pense que c'est pas possible, seul SFR pourrait nous permettre d'afficher autre chose (par exemple sans le prefixe +3399 ) .</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #20</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jul 24, 2012 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>En effet.
+Après comme je pense que c'est un coeur IMS qu'ils ont (surement Alcatel) à priori il doit plutôt bien marcher avec pas mal de choses supportées. (Par exemple les extensions IMS P-Preferred-Identity).
+Ceci dit, après ça dépend comment SFR le configure. Mais au final en effet c'est leur serveur qui a le dernier mot sur ce qui est envoyé en tant qu'identifiant d'appelant à l'autre côté : En fait en IMS (si j'ai bien tout compris) on propose une identité est ensuite le S-CSCF transforme ça en "asserted-identity" si c'est une identité valide pour l'utilisateur. 
+Reste à savoir qu'est-ce qui est supporté par le serveur de sfr et si ils permettent de se faire passer pour autre chose que le numéro avec tous les chiffres devant. Ca il me fait jouer un peu avec le serveur en face pour m'en rendre compte. J'ai un pote qui a un compte chez SFR, je lui demanderai si il peut faire la migration vers libertalk pour que je puisse jouer avec.</p>
+
+<p>Sinon petite question, quand vous numérotez un numéro de téléphone il n'y a pas besoin de rajouter le +3399 devant? Si c'est le cas je peux faire en sorte que l'appli rajoute une règle de réécriture automatique avec le wizard pour les numéros qui viennent de l'appli contact.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #21</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jul 24, 2012 by
+                  <i class="ng-binding">Grumpy Lion</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Non, on compose directement au clavier  ou à partir des contacts le numéro à 10 chiffres.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #22</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jul 24, 2012 by
+                  <i class="ng-binding">Helpful Panda</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Merci tout est fonctionnel. </p>
+
+<p>Csipsimple est le meilleur logiciel sip de tous les temps. </p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #23</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jul 24, 2012 by
+                  <i class="ng-binding">Helpful Panda</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Bizarre ça ne marche pas sur le réseau 3g+ de SFR. </p>
+
+<p>J'ai un autre compte ippi et la ça marche via 3g.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #24</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jul 24, 2012 by
+                  <i class="ng-binding">Grumpy Lion</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Fonctionne sur SOSH et Free mobile. </p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #25</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jul 24, 2012 by
+                  <i class="ng-binding">Happy Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Bonjour, en mode expert, impossible d'enregistrer la configuration. L'identifiant pour le compte reste en couleur orange.
+merci de me conseiller  </p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #26</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jul 24, 2012 by
+                  <i class="ng-binding">Grumpy Lion</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Pourquoi passer  par le mode Expert?</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #27</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jul 24, 2012 by
+                  <i class="ng-binding">Happy Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Je me suis basé sur les prescriptions du commentaire 9 de Raphaël. 
+J'ai retélécharger Csipsimple sur Google Play.
+Sur quel mode doit-on alors configurer Libertalk et avec quelle données.
+Merci</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #28</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jul 24, 2012 by
+                  <i class="ng-binding">Grumpy Lion</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Ne prends pas la version du Play store mais celle-ci <a href="http://nightlies.csipsimple.com/trunk/CSipSimple-r1728-trunk.apk">http://nightlies.csipsimple.com/trunk/CSipSimple-r1728-trunk.apk</a> (il faut avoir coché Sources inconnues dans les paramètres des applications). <br>
+Tu as le wizard SFR Libertalk directement intégré,donc simplement à renseigner ton numéro de téléphone à 10 chiffres et ton mot de passe .</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #29</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jul 24, 2012 by
+                  <i class="ng-binding">Happy Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Merci</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #30</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jul 24, 2012 by
+                  <i class="ng-binding">Happy Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>L'application a été téléchargée sans aucun souci. Cependant, à l'enregistrement du compte, après avoir intégré mon n° téléphone et mot de passe Libertalk, indication "Erreur lors de l enregistrement Request Timeout".
+Doit'on modifier certaines autres données ?</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #31</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jul 24, 2012 by
+                  <i class="ng-binding">Grumpy Lion</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Non.
+Regardes dans Aide si tu as bien la r1728</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #32</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jul 24, 2012 by
+                  <i class="ng-binding">Happy Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Oui, version 0.04.00 r1728
+Merci encore pour l'aide apportée.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #33</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jul 24, 2012 by
+                  <i class="ng-binding">Grumpy Lion</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Supprimes le compte et refait le.
+Sinon reprend le mode Expert mais ne mets pas d'espace comme j'ai indiqué plus haut.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #34</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jul 24, 2012 by
+                  <i class="ng-binding">Happy Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Merci encore, je vais essayé.
+Bonne soirée. </p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #35</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jul 24, 2012 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>En général "Request timeout" signifie qu'il y a un problème réseau.
+Est-ce qu'il y a un firewall sur le réseau (point d'accès wifi d'entreprise/ point d'accès wifi hostpot gratuit)? Ou est-ce que c'est un réseau 3G non totalement débloqué pour faire passer le SIP?</p>
+
+<p>Il faut savoir que niveau réseau mobile data SFR et Bouygues sont pas très ouvert sur ce qu'ils permettent de faire. Comme vous l'avez surement vu dans les contrats téléphoniques chez la plupart des opérateurs l'utilisation de la "VoIP" est interdite par le contrat. 
+Ca a bougé niveau contrats assez récement grace aux pressions des assoc de consomateurs. Par exemple chez bouygues sur certains contrats c'est autorisé.</p>
+
+<p>Cependant, historiquement, les réseaux opérateurs sont configurés pour bloquer les paquets SIP (je dis bien SIP, parceque les packets Skype ou autre protocoles propriétaires ça peut passer).
+Comme le support des opérateurs n'a aucune compétence technique et que les gens des réseaux n'ont pas forcement les requêtes qui arrivent jusqu'à eux pour ouvrir les ports l'ouverture du SIP sur les réseaux est très lente. Chez Orange et chez Free c'est different car c'est historiquement ouvert pour le SIP sur le réseau data.
+Il faut savoir aussi que ce blocage est en général fait au niveau d'un équipement réseau qui regroupe une grappe d'antenne sur un type donné de techno réseau.
+Ceci peut donc mener à des situations où d'un département à un autre c'est possible ou impossible de faire du SIP sur la 3G. Possible aussi que ça s'applique entre EDGE/GPRS/3G/3G+/HDSPA.</p>
+
+<p>Bref, à priori il faut déjà regarder dans le contrat tél si c'est théoriquement autorisé. Après si techniquement il y a une erreur timeout, c'est que l'opérateur bloque les ports. Pour avoir essayé c'est assez compliqué (impossible) de passer les couches du support qui n'y comprennent pas un beignet en technique pour ce genre de problème.</p>
+
+<p>Il existe cependant des façons de contourner mais ça nécessite que le serveur supporte un peu plus que juste du transport UDP (genre du transport SIPS -- sip + tls). Comme c'est crypté l'opérateur ne vois plus rien, ça deviens de la pure data.</p>
+
+<p>A la décharge des opérateurs, il faut savoir que suivant les codecs utilisés un appel data peut revenir plus cher qu'un appel GSM (en terme de bande passante). Cependant CSipSimple supporte beaucoup de codecs et certains de ce codecs sont plus performants que le codec GSM (qui d'ailleurs est aussi supporté). Donc si le serveur SIP supporte des codecs un peu sympa ça pourrait leur revenir moins cher. C'est bien pour ça que tout est en train de basculer en IP d'ailleurs ;).</p>
+
+<p>Voilà, désolé pour le commentaire un peu long, mais ça peut peut-être éclaircir certains points.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #36</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jul 24, 2012 by
+                  <i class="ng-binding">Swift Bear</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Comment deleted</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #37</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jul 24, 2012 by
+                  <i class="ng-binding">Helpful Panda</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Il y a un bug chez SFR, un flux est hors service pour la VOIP via la 3G.</p>
+
+<p>cf le staff de LiberTalk : </p>
+
+<p>"
+bonjour,</p>
+
+<p>pour l'accès en 3G, c'est un bug chez nous. Un flux est KO. Nous sommes en train de le corriger. Ce n'est ni une fatalité ni une volonté délibérée. Je n'ai pas encore de date de correction à communiquer.</p>
+
+<p>"</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #38</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jul 24, 2012 by
+                  <i class="ng-binding">Helpful Panda</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Par contre, j'ai fait un appel de 15 minutes avec LiberTalk et CSipSimple, il y a toujours un problème de raccrochage lorsqu'on appuie sur le téléphone rouge, cela ne réponds pas et ne raccroche pas de suite...</p>
+
+<p>il faut attendre une dizaine voir une vingtaine de secondes, avant que l'appel soit considéré comme terminé.</p>
+
+<p>C'est un problème sur les serveurs SFR ou du logiciel CsipSimple ?</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #39</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jul 24, 2012 by
+                  <i class="ng-binding">Happy Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Bonjour,
+Suite à mes précédents messages, après avoir réinstallé le programme, toujours la même source d'erreur au moment de l'enregistrement des données "Erreur lors de l enregistrement Request Timeout". 
+Dans la configuration simplifiées, des données sont-elles à modifier ?
+Avec mes remerciements;
+Jean-Michel</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #40</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jul 25, 2012 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Salut,</p>
+
+<p>@Roussel... : sur quel réseau tu es connecté? Si c'est de la 3G il est possible que ça soit le problème évoqué par @fca.. (le sip bloqué sur la 3G). Si c'est un réseau wifi c'est quoi comme type de réseau? Hotspot ouvert? borne maison sfrbox? Borne de réseau entreprise?</p>
+
+<p>@fca... : ok pour le racrochage, ok mais c'est peut-être &lt;&gt;. 
+En fait il faut savoir que contrairement à beaucoup d'autre client j'ai choisi l'approche de fermer la vue d'appel uniquement lorsque je suis certains que l'autre côté est bien raccroché. Je me base sur le vrai état du dialog SIP ce qui permet d'être conscient que l'autre partie a bien reçu le raccrocher et d'avoir un état consistant quoi qu'il arrive (cette attente à une limite au bout de laquelle ça raccroche quoiqu'il arrive mais ce temps est normalisé dans le protocole SIP.
+Du coup quand le raccrocher n'est pas pris immédiatement en compte c'est probablement que la confirmation de raccrocher de l'autre côté n'a pas été répondu par le serveur. Des fois c'est juste une problème réseau (ou de latence) et des fois c'est un problème qui peut être résolu par de la configuration.
+Ce qui peut m'aider c'est des logs de ce cas. (voir la page HowToCollectLogs du wiki) -- il faut reproduire le problème alors que les logs enregistrent. Peut-être que je trouverai un indice sur ce qui cloche dans la confirmation de raccrocher.</p>
+
+<p>Sinon ton info sur la réponse du staff de libertalk est super encourageante ! Enfin des personnes qui s'y connaissent techniquement et qui vont pouvoir faire bouger les blocages réseau SFR. C'est cool :)</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #41</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jul 25, 2012 by
+                  <i class="ng-binding">Happy Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Bonjour</p>
+
+<p>Je suis sur SFR. Pour le WIFI sur la Box SFR. Auparavant avec NeufTalk, cela fonctionnait.
+Peut-être faut-il essayer avec un autre réseau WIFI;
+Cordialement </p>
+
+<p>@Roussel... : sur quel réseau tu es connecté? Si c'est de la 3G il est possible que ça soit le problème évoqué par @fca.. (le sip bloqué sur la 3G). Si c'est un réseau wifi c'est quoi comme type de réseau? Hotspot ouvert? borne maison sfrbox? Borne de réseau entreprise?</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #42</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jul 25, 2012 by
+                  <i class="ng-binding">Massive Rabbit</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>bonjour 
+super ca fonctionne sur ma tablette acer A500 j'essaie maintenant sur mon portable chinois star A5000 et vous tiens au courant
+phil</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #43</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jul 25, 2012 by
+                  <i class="ng-binding">Massive Rabbit</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>fonctionne parfaitement sur mon A5000 star android chinois, merci pour votre réactivité pour nous permettre de téléphoner en toutes liberté 
+phil</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #44</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jul 26, 2012 by
+                  <i class="ng-binding">Grumpy Lion</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Mise à jour de la r1736, fonctionne parfaitement, merci. 
+Roussel, vu que tu as un compte sur l'atelier SFR LiberTalk, pourrais tu indiquer que ça fonctionne avec CsipSimple? 
+Merci. </p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #45</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jul 26, 2012 by
+                  <i class="ng-binding">Happy Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Bonsoir,</p>
+
+<p>Je fais le nécessaire sur l'atelier SFR en donnant la version r1736.
+<a href="http://nightlies.csipsimple.com/trunk/CSipSimple-r1736-trunk.apk">http://nightlies.csipsimple.com/trunk/CSipSimple-r1736-trunk.apk</a>
+Pour ma part, toujours l'erreur "Erreur lors de l enregistrement Request Timeout".</p>
+
+<p>Merci</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #46</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jul 26, 2012 by
+                  <i class="ng-binding">Happy Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Pour information, à l'ouverture du programme, j'ai ce message en anglais :
+"select network not allowed with current setting you have setup".
+Peut-être est-ce la cause du non fonctionnement ?</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #47</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jul 26, 2012 by
+                  <i class="ng-binding">Happy Elephant</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Comment deleted</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #48</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jul 26, 2012 by
+                  <i class="ng-binding">Happy Elephant</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Un retour d'expérience complémentaire: le volume de ma voix (l'appelant SIP) était faible du point de vue de mon correspondant (l'appelé sur ligne fixe).
+Pourtant j'avais un niveau sonore de 8.0
+Je réessaierai avec un niveau de 10, mais si d'autres ont eu ceci, j'imagine qu'il est possible d'ajouter un gain dans l'assistant?
+(version trunk r1728)</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #49</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jul 26, 2012 by
+                  <i class="ng-binding">Grumpy Lion</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Roussel,je ne vois pas ton intervention <a href="http://atelier.sfr.fr/beta-tests/sfr-libertalk-emportez-avec-vous-votre-ligne-fixe">http://atelier.sfr.fr/beta-tests/sfr-libertalk-emportez-avec-vous-votre-ligne-fixe</a>
+Je ne comprend pas ton problème, j'ai également installé l'application sur un HTC Wildfire sous Free Mobile et ça fonctionne.
+Essaie sur un autre téléphone, si ça ne fonctionne toujours pas je pense que le problème vient de ton compte LiberTalk.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #50</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jul 26, 2012 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>@Roussel : le message "select network not allowed with current setting you have setup" signifie que dans la configuration le sip n'est pas activé pour le réseau sur lequel tu es connecté actuelle. Tu peux aller dans les "options" dans la configuration simplifiée, et vérifier que tu as bien coché "Je suis autorisé à faire de la VoIP sur le canal donnée du mobile".
+Si ce n'est pas activé, le SIP ne démarrera jamais sur le canal 3G/GPRS/EDGE vu que ce n'est pas configuré pour.</p>
+
+<p>@Régis : pour les problèmes audio avec un niveau faible, l'amplification software peut en effet être une solution, mais des fois c'est aussi lié à la façon d'utiliser l'API android audio. En fait il faut savoir que les constructeurs interprêtent un peu à leur sauce l'api audio d'android. En conséquence suivant le modèle/constructeur, il faut utiliser l'api de différentes façon. Pour donner un accès aux utilisateurs à ces façon d'utiliser l'api audio, il y a des options dispo (cachées mais dispo) dans CSipSimple. Tu peux donc essayer de jouer avec les options décrite ici : <a href="http://code.google.com/p/csipsimple/wiki/FAQ?wl=en#Audio_routing_troubleshooting">http://code.google.com/p/csipsimple/wiki/FAQ?wl=en#Audio_routing_troubleshooting</a> (dans les nightly build c'est dans une sous section à part de la section "Média".</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #51</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jul 26, 2012 by
+                  <i class="ng-binding">Helpful Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Tout d’abord MERCI pour la version r1736. Installe et adopté définitivement. Ca marche nickel sur HTC Desire S. Avec la version de play j’avais des pb de son de façon aléatoire. 
+Est-ce que qqn sait comment faire une conférence avec 2 numéros ? </p>
+
+<p>J’arrive à voir deux appels séparément mais comment les mettre en conf ? </p>
+
+<p>J’ai active l’option SUPPORT APPELS MULTIPLES dans les OPTIONS D’APPEL</p>
+
+<p>Merci  </p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #52</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jul 27, 2012 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Normalement une fois le support d'appel multiple activé, une fois que tu es en com tu appuie sur le petit triple point vertical de la barre du bas pour sélectionner l'option ajouter un appel.
+Puis tu compose/cherche.
+Si le serveur supporte les appels multiples (parcequ'il peuvent aussi bloquer du côté serveur), tu verras un deuxième appel apparaître. 
+Chez free les appels multiples sont bloqués. Chez ippi c'est ouvert. Chez Libertalk je ne sais pas, il faut tester. Comme ça à l'air d'être un coeur IMS l'espoir que ça marche est grand ;).</p>
+
+<p>Après si ça marche tu peux jouer avec la mise en attente de chaque appel (en cliquant sur les trois point verticaux de la carte d'appel). Dès lors que plusieurs appels sont actifs ils sont automatiquement en conférence. C'est une conférence gérée par le client SIP donc les autres parties ne "voient" pas qui est l'autre personne dans la conf ni que c'est une conf d'ailleurs, l'autre partie entends bien sur vous et toutes les autres parties dans la conf.
+Les builds standards que je fais sur le serveur de nightly build supportent jusqu'à 4 appels simultanés (histoire de pas trop abusé pour du mobile ;) ).</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #53</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jul 27, 2012 by
+                  <i class="ng-binding">Happy Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Bonjour,</p>
+
+<p>Message laissé sur atelier SFR.</p>
+
+<p>Bonne journée</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #54</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jul 28, 2012 by
+                  <i class="ng-binding">Helpful Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>@r3gis : apparemment ça ne marche pas . Des que je valide le deuxième appel ça coupe et j’ai le message 403/FORBIDEN . Ce qui est bizarre car avec le softphone de SFR on peut lancer un deuxième   appel  mais le premier est mise en attente et on peut jongler entre les deux sans pouvoir les mettre en conférence. Mais ce n’est  pas grave . 
+La qualité audio  du r1740 tjrs nickel. 
+Quels est la différence entre r1736  et r1740 ? 
+Merci pour votre travail . </p>
+
+<p>@roussel : Je n’ai jamais eu de problème avec les versions r1736  et r1740  . Je pense que votre pb vient de votre connexion (box, wifi) ou votre smartphone (je pense aux installations multiples  de logiciels SIP). Ma box est en FW 3.2.7 âgée de 3 ans, pas une EVOLUTION. </p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #55</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jul 28, 2012 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>@neuf8.. : Peut-être qu'il faut commencer par mettre en attente l'appel en cours avant de faire le deuxième (pour ça presse les 3 petits point en dessous à droite de la photo et choisit le "mettre en attente").
+Il devrait basculer sur la droite de l'écran et tu peux lancer le deuxième appel.</p>
+
+<p>Au sujet des changements tu peux suivre les commentaires de commit : <a href="http://code.google.com/p/csipsimple/source/list">http://code.google.com/p/csipsimple/source/list</a></p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #56</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jul 28, 2012 by
+                  <i class="ng-binding">Helpful Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>@r3gis:Je pense qu’il y a un pb car quand je presse sur les 3 points sous la photo (à droite de la touche « i » ) il ne se passe rien . En revanche si j’appui d’abord  sur la toute petite touche verte tout en haut à gauche (c’est la touche indiquant que vous avez 1 appel en cour), puis les 3 points sous la photo à droite j’ai le menu pour mettre en attente. Mais la photo ne bascule pas à droite.   En suite je peux ajouter le 2ème appel  mais il y le même problème que pour 1er appel . Je ne peux pas non plus basculer entre les 2 appels . <br>
+Merci </p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #57</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jul 28, 2012 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Oui en effet il y a un problème sur android 2.x avec les appels sortant là dessus. Je suis en train de le fixer =&gt; issue 1853.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #58</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jul 29, 2012 by
+                  <i class="ng-binding">Helpful Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Comment deleted</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #59</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jan 25, 2013 by
+                  <i class="ng-binding">Grumpy Ox</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Bonsoir,
+De retour chez SFR, je vois que le service Neuftalk (pour lequel j'avais un peu participé aux tests sur cipsimple à mes temps perdus) est remplacé par Libertalk.</p>
+
+<p>Essai du Wizard proposé dans la version Market, fonctionnement niquel et sans aucun effort, en Wifi et en 3G chez Sosh (pour la 3G, j'ai dû désactiver le serveur STUN resté dans ma config).</p>
+
+<p>Seule remarque : le numéro vu par les correspondants, est sous la forme +3399xxxxxxxx
+A lire vos posts ci-dessus, je ne suis visiblement pas le seul dans ce cas.</p>
+
+<p>Des personnes sur <a href="http://www.n9ws.com/forum/viewtopic.php?f=51&amp;t=119398">http://www.n9ws.com/forum/viewtopic.php?f=51&amp;t=119398</a> semblaient tenir une piste, mais je ne comprends pas trop.
+Manifestement, avec l'application officielle Libertalk, la présentation du numéro est correcte.</p>
+
+<p>Ça vaudrait le coup à ton avis, que je sorte Wireshark, afin de comparer le trafic ?</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #60</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jan 25, 2013 by
+                  <i class="ng-binding">Grumpy Ox</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Comment deleted</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #61</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jan 25, 2013 by
+                  <i class="ng-binding">Grumpy Ox</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>La construction de la requête INVITE, varie légèrement entre Libertalk et CSimSimple, je ne sais pas si ça peut jouer ;) (présence de "" dans le champ From)</p>
+
+<p>Libertalk :</p>
+
+<p>INVITE sip:022206xxxx@ims.mnc010.mcc208.3gppnetwork.org;user=phone SIP/2.0
+Via: SIP/2.0/UDP 192.168.1.2:5060;rport;branch=xxxxxxxxxxxxxxxxx
+From: 095222xxxx ;tag=xxxxxxxxxx
+To: </p>
+
+<p>CSipSimple :</p>
+
+<p>INVITE sip:022206xxxx@ims.mnc010.mcc208.3gppnetwork.org:5064 SIP/2.0
+v: SIP/2.0/UDP 192.168.1.6:5060;rport;branch=xxxxxxxxxxxxxxxxx
+Max-Forwards: 70
+f: "095222xxxx" ;tag=xxxxxxxxxx
+t: 
+m: </p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #62</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jan 26, 2013 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Salut,</p>
+
+<p>Merci pour les traces wireshark. 
+En effet possible que les doubles quotes soit obligatoire.</p>
+
+<p>Pour changer ça dans csipsimple : il faudrai transformer le compte libertalk en compte expert et l'éditer. Appui long sur le compte, "choisissez l'assistant" et expert.
+Tu peux aussi tenter ici de changer le identifiant du compte pour rajouter les doubles quotes.</p>
+
+<p>Ca peut aussi être interessant dans le champ registrar, enlever le ":5064" (apparement l'appli Libertalk est configuré avec 5060 au lieu de 5064 sur le registrar).</p>
+
+<p>Dis mi si ça fonctionne je modifierai le wizard pour que ça ne rajoute pas le 5064 comme port du registrar et les doubles quotes pour le display name.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #63</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jan 26, 2013 by
+                  <i class="ng-binding">Grumpy Ox</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Salut !</p>
+
+<p>Je viens de faire quelques tests via le mode expert (au passage, super pratique de pouvoir convertir le compte, sans avoir à se farcir à nouveau la configuration complète)</p>
+
+<p>Pour le coup des doubles quotes, c'est l'inverse : elles sont absence avec le client Libertalk, et présentes avec CSipSimple. Or, dans la configuration, la première partie du champ "identifiant du compte" est bien saisie sans les doubles quotes.
+J'imagine qu'elles sont donc rajoutées par le logiciel, après coup. Je ne vois donc pas de moyen de tester CSipSimple sans les doubles quotes. Si ça n'est pas possible sans modification Soft, ne t'embête pas ;)</p>
+
+<p>Pour le coup du :5064, ça semble marcher aussi bien avec et sans.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #64</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jan 29, 2013 by
+                  <i class="ng-binding">Grumpy Ox</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Les doubles quotes sont une fausse piste :p</p>
+
+<p>J'ai en effet essayé de creuser dans le code, afin de tenter de supprimer les doubles quotes. (au passage, chapeau bas pour le projet, je me suis contenté de suivre le HowTo, le téléchargement + compil a parfaitement fonctionné).</p>
+
+<p>Les quotes sont ajoutées par pjsip, à 2 endroits :
+- dans jni/pjsip/sources/pjsip/src/pjsip/sip_uri.c:570 (cf. *buf++ = '"')
+- dans jni/pjsip/sources/pjsip/src/pjsua-lib/pjsua_acc.c:2944 (cf. <a href="http://trac.pjsip.org/repos/ticket/1363">http://trac.pjsip.org/repos/ticket/1363</a>)</p>
+
+<p>J'ai supprimé tout ça ... les doubles quotes sur le champ "display name" ne sont plus là, et malgré ça le numéro présenté est toujours un +3399xxxxxxxxxx.</p>
+
+<p>En observant plus précisément les traces, je viens de noter une différence à laquelle je n'avais pas fait attention. Sur le client Libertalk, l'entête From de la commande INVITE ne fait pas figurer le +3399 !!</p>
+
+<p>Forcément, si j'enlève le +3399 dans la champ "identifiant de compte" de CSipSimple, le REGISTER ne passe plus.</p>
+
+<p>Est-il possible, dans CSipSimple, de renseigner un identifiant de compte (URI From) qui soit différente pour la commande REGISTER et la commande INVITE ?</p>
+
+<p>Encore merci !</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #65</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Feb 1, 2013 by
+                  <i class="ng-binding">Helpful Camel</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Bonjour, je n'arrive pas à configurer Media5 Voip, quelqu'un aurait la soluce ???
+Merci</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #66</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Feb 4, 2013 by
+                  <i class="ng-binding">Grumpy Ox</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Comment deleted</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #67</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Feb 4, 2013 by
+                  <i class="ng-binding">Grumpy Ox</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>priscille &gt; Ce groupe traite du logiciel CSipSimple disponible sur Android, compatible avec une multitude de fournisseurs de services SIP.</p>
+
+<p><a href="https://play.google.com/store/apps/details?id=com.csipsimple">https://play.google.com/store/apps/details?id=com.csipsimple</a></p>
+
+<p>A propos du problème de "+3399" présent dans le champ "From header" de la commande INVITE, j'ai essayé d'avancer, mais suis assez vite bloqué.
+En effet, au niveau du client pjsua, le champ "From header" semble automatiquement généré à partir du champ "identifiant de compte", ci dessous :</p>
+
+<p><a href="http://www.pjsip.org/pjsip/docs/html/structpjsua__acc__config.htm#ab290b04e8150ed9627335a67e6127b7c">http://www.pjsip.org/pjsip/docs/html/structpjsua__acc__config.htm#ab290b04e8150ed9627335a67e6127b7c</a></p>
+
+<p>Je n'ai pas trouvé de moyen d'utiliser une entête différente, pour la commande REGISTER, et la commande INVITE, comme le fait le logiciel Libertalk.</p>
+
+<p>Je crois que je vais me contenter de présenter un numéro en +3399x, lorsque j'appelle en SIP ;-)</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #68</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Feb 4, 2013 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Oui j'ai un peu regardé aussi de mon côté. 
+C'est pas évident en effet. </p>
+
+<p>En fait il y a un moyen propre de le faire mais c'est un peu compliqué :
+Il faudrait rajouter un module pjsua au milieu qui ré-écrit les requêtes suivant le verbe SIP (REGISTER ou INVITE). </p>
+
+<p>J'ai vaguement documenté comment intégrer un module pjsip dans csipsimple par là :
+<a href="http://code.google.com/p/csipsimple/wiki/IntegrateExistingPjsipModule">http://code.google.com/p/csipsimple/wiki/IntegrateExistingPjsipModule</a>
+(par analogie avec le module d’exemple le hook dans le cas de la ré-écriture du From devrait se faire ici : <a href="http://code.google.com/p/csipsimple/source/browse/trunk/CSipSimple/jni/pjsip_mod_reghandler/src/pjsip_mobile_reg_handler.cpp#139">http://code.google.com/p/csipsimple/source/browse/trunk/CSipSimple/jni/pjsip_mod_reghandler/src/pjsip_mobile_reg_handler.cpp#139</a> -- dans l'example ça rajoute des headers contacts sur les registers, mais c'est techniquement possible de modifier le contact from des Invites)
+Il y a plus de doc chez pjsip sur leur système de modules. </p>
+
+<p>En soi, la partie ré-écriture ne doit pas être bien compliquée. Une grosse partie du boulot c'est de le remonter jusqu'à l'interface utilisateur. 
+Par ailleurs, à ma connaissance il n'y a que Libertalk dans ce cas ce module ne serait pas un candidat pour rentrer dans le coeur de csipsimple (vu qu'il introduit de la complexité). 
+Du coup il faudrai pouvoir le rajouter en plugin. Et mettre ce genre de module natif en plugin n'est pas encore supporté dans csipsimple (c'est techniquement faisable, mais il faudra surtout bétonner tout ça niveau sécurité pour pas laisser n'importe quel app exécuter n'importe quoi sur les requêtes SIP).</p>
+
+<p>Après, si c'est juste pour un test sans remonter dans la partie UI de csipsimple ça doit être jouable ;). Mais de mon côté vu que je n'ai pas trop de temps en ce moment (et pas de compte pour tester sur libertalk non plus), je passe mon tour. Mais n'hesite pas à poser des questions ici ou sur le forum de dev (<a href="http://groups.google.com/group/csipsimple-dev/">http://groups.google.com/group/csipsimple-dev/</a>) si tu veux creuser plus le sujet (ps : tu peux aussi poster en FR sur le forum de dev : c'est plus facile pour moi pour répondre ;) ).</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #69</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Feb 4, 2013 by
+                  <i class="ng-binding">Grumpy Ox</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Merci pour ces compléments d'informations, qui me seront très utiles si je me décide à creuser davantage !</p>
+
+<p>Je suis d'accord, il n'est pas raisonnable d'impacter CSipSimple avec des modifications si lourdes, d'autant que Libertalk semble avoir une gestion bien particulière du champ From.</p>
+
+<p>Encore merci, et bravo pour la qualité du projet !</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #70</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on May 29, 2013 by
+                  <i class="ng-binding">Grumpy Lion</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Hello.
+Depuis plusieurs jours aucun son des deux cotés.
+Pouvez vous confirmer ou infirmer que je saches si ça vient de SFR?
+Merci. </p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #71</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on May 29, 2013 by
+                  <i class="ng-binding">Grumpy Ox</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Bonsoir,</p>
+
+<p>Je viens de tester à l'instant. Effectivement, plus de son des deux côté, sans avoir touché quoi que ce soit à CSipSimple (Test effectué depuis une Box SFR)</p>
+
+<p>Par contre, si j'active STUN dans les paramètres réseaux de CSipSimple (j'ai mis stun.ippi.fr), cela se remet à fonctionner sur l'accès Box SFR.</p>
+
+<p>Je n'ai pas pris le temps de creuser davantage.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #72</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on May 30, 2013 by
+                  <i class="ng-binding">Grumpy Lion</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Salut.
+Oui ,�a fonctionne avec le STUN mais uniquement en WiFi.
+En 3G j'ai toujours le m�me probl�me.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #73</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on May 30, 2013 by
+                  <i class="ng-binding">Grumpy Ox</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Effectivement, j'ai le même soucis avec un accès Orange-Sosh.
+Nous ne sommes pas les seuls : <a href="http://forum.sfr.fr/t5/Mes-autres-services-et-%C3%A9quipements-SFR/Libertalk-mon-interlocuteur-ne-m-entend-pas-et-vice-versa/td-p/297020">http://forum.sfr.fr/t5/Mes-autres-services-et-%C3%A9quipements-SFR/Libertalk-mon-interlocuteur-ne-m-entend-pas-et-vice-versa/td-p/297020</a></p>
+
+<p>Il faudrait tester avec le client officiel sur PC, voir si cela fonctionne toujours. S'ils utilisent un serveur STUN, un piste serait d'utiliser le même, pour voir.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #74</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on May 31, 2013 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Il semblerai qu'une solution consisterai à utiliser le serveur STUN du réseau SFR : stun.qutecom.fr</p>
+
+<p>Peut-être également changer le proxy en 91.68.1.20 (mais pas sûr que ça soit besoin).</p>
+
+<p>En fait le stun choix du serveur utilisé peut expliquer le fait que ça marche en wifi et pas en 3G.
+En gros le STUN ça sert à annoncer au serveur sip quelle est l'ip:port à contacter pour envoyer du son à l'application.
+Pour se faire, l'application n'est pas capable d'elle même de savoir comment elle sera vue depuis "l'exterieur". Il lui faut donc un stun server : un serveur à qui on demande "Hé comment est-ce que tu me vois depuis là où tu es?".
+Le stun serveur réponds alors avec l'ip:port qu'il voit. En général quand tout le monde est sur l'internet public, n'importe quel STUN serveur fait l'affaire. Puisque ce qu'on cherche à résoudre c'est son addresse IP:port publique.
+Cependant dans certain cas (topologie réseaux), il ne faut pas résoudre le ip publique mais une ip dans un sous réseau.
+Je pense que c'est ce qui se passe dans le cas de SFR. En 3G il est possible que le point d'entrée le plus proche vers le réseau de SFR ne pas le réseau public mais un réseau plus privé. Du coup annoncer une addresse publique obligerait le serveur de SFR à ressortir du réseau privé puis à y re-rentrer par le même noeud réseau (ce que peut de routeur sont configuré pour faire).
+C'est pour cette raison que le choix du serveur stun est très important et qu'il faut idéalement qu'il soit dans le réseau le plus proche possible de celui du serveur sip.</p>
+
+<p>J'attends vos retour pour modifier le wizard Libertalk dans l'application. Testez en priorité la modification du serveur stun (vers stun.qutecom.fr) et si ça n'aide pas changer la configuration du compte (appui long sur la ligne &gt; choisir l'assistant &gt; avancé puis clic sur la ligne) pour changer le "proxy" en utilisant l'IP ci dessus à la place de internet.p-cscf.sfr.net)</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #75</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on May 31, 2013 by
+                  <i class="ng-binding">Grumpy Lion</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Salut.
+Merci mais �a ne fonctionne pas.
+Rien en 3G en modifiant le STUN.
+En changeant l'IP j'ai le message Request time out.
+Le 31 mai 2013 16:18,  a �crit :</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #76</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on May 31, 2013 by
+                  <i class="ng-binding">Grumpy Ox</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Je testerai quand j'aurai un moment, pour voir si j'arrive au même résultat !</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #77</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on May 31, 2013 by
+                  <i class="ng-binding">Grumpy Ox</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Comment deleted</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #78</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on May 31, 2013 by
+                  <i class="ng-binding">Grumpy Ox</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Impossible de résoudre l'adresse stun.qutecom.fr, ça part mal.</p>
+
+<p>Avec en remplaçant dans le champ "proxy", la valeur "sip:internet.p-cscf.sfr.net:5064" par "sip:91.68.1.20", timeout. Par "sip:91.68.1.20:5064", même comportement que sans la modification.</p>
+
+<p>J'ai utilisé le client officiel Libertalk sous Windows, et ai regardé le trafic avec Wireshark. Le client semble utiliser comme serveur STUN 91.68.1.28:5064</p>
+
+<p>J'ai tenté de configurer le même dans CSipSimple : même comportement que sans le STUN, à savoir pas de son en ADSL comme en 3G.
+Je n'ai pas vérifié si CSipSimple prenait bien le port en compte.</p>
+
+<p>Avec stun.ippi.fr : son OK en ADSL, KO en 3G.</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #79</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on May 31, 2013 by
+                  <i class="ng-binding">Grumpy Lion</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Je viens d'essayer avec Media5-phone, �a fonctionne en 3G...</p>
+
+<p>Le 31 mai 2013 20:00,  a �crit :</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #80</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jun 16, 2014 by
+                  <i class="ng-binding">Massive Bird</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>[general]
+register =&gt; +3399XXXXXXXXXX@ims.mnc010.mcc208.3gppnetwork.org:monmotdepasse:NDIXXXXXXXXXX.LIBERTALK@sfr.fr@internet.p-cscf.sfr.net:5064~3600
+allowguest=no
+alwaysauthreject=yes
+contactdeny=0.0.0.0/0.0.0.0
+contactpermit=91.68.1.28/255.255.255.255 ; internet.p-cscf.sfr.net
+contactpermit=192.168.1.0/255.255.255.0 ; mes réseaux privés
+contactpermit=192.168.2.0/255.255.255.0 ;
+media_address=ip.publique.du.serveur.asterisk</p>
+
+<p>[sfr-out]
+type=peer
+fromdomain=ims.mnc010.mcc208.3gppnetwork.org
+fromuser=+3399XXXXXXXXXX
+defaultuser=NDIXXXXXXXXXX.LIBERTALK@sfr.fr
+host=internet.p-cscf.sfr.net
+insecure=invite,port
+remotesecret=monmotdepasse
+auth=NDIXXXXXXXXXX.LIBERTALK@sfr.fr:monmotdepasse@ims.mnc010.mcc208.3gppnetwork.org
+outboundproxy=internet.p-cscf.sfr.net:5064
+canreinvite=no</p>
+
+<p>[sfr-in]
+type=friend
+fromdomain=ims.mnc010.mcc208.3gppnetwork.org
+host=internet.p-cscf.sfr.net
+insecure=invite,port
+context=from-sfr
+port=5064
+canreinvite=no</p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #81</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jul 6, 2014 by
+                  <i class="ng-binding">Grumpy Cat</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content --><span ng-if="comment.content" class="ng-scope">
+                <markdown-widget text="comment.content" class="markdown"><p>Quelqu'un serait configuré un GrandStream GXP 2020 avec Libertalk ? J'ai regardé partout depuis 6 mois et je ne trouve rien ... J'ai tout essayé.  </p></markdown-widget>
+              </span><!-- end ngIf: comment.content -->
+              <!-- ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments --><div ng-repeat="comment in issueCtrl.issue.comments" class="ng-scope">
+              <div>
+                <!-- ngIf: comment.id --><h3 ng-if="comment.id" class="ng-binding ng-scope">Comment #82</h3><!-- end ngIf: comment.id -->
+                <!-- ms to seconds. -->
+                <small class="ng-binding">
+                  Posted on Jun 22, 2015 by
+                  <i class="ng-binding">Quick Hippo</i>
+                </small>
+              </div>
+
+              <!-- TODO(chrsmith): Get the formatting right. Google Code comments
+              are not stored in wiki/markdown or HTML format. So we probably need to
+              create a custom filter to get 100% paritiy. -->
+              <!-- ngIf: comment.content -->
+              <!-- ngIf: !comment.content --><span ng-if="!comment.content" class="ng-scope">
+                <p><em>(No comment was entered for this change.)</em></p>
+              </span><!-- end ngIf: !comment.content -->
+
+              <!-- ngIf: comment.attachments.length -->
+              <!-- ngRepeat: attachment in comment.attachments -->
+            </div><!-- end ngRepeat: comment in issueCtrl.issue.comments -->
+          </div>
+
+          <!-- Sidebar with additional information -->
+          <div class="maia-col-4">
+            <div class="maia-aside">
+              <p>Status: <code class="ng-binding">Obsolete</code></p>
+              <!-- ngIf: issueCtrl.issue.labels.length > 0 --><p ng-if="issueCtrl.issue.labels.length &gt; 0" class="ng-scope">
+                Labels:
+                <br>
+                <!-- ngRepeat: label in issueCtrl.issue.labels track by $index --><span ng-repeat="label in issueCtrl.issue.labels track by $index" class="ng-scope">
+                  <span class="gca-label ng-binding">Type-Defect</span>
+                </span><!-- end ngRepeat: label in issueCtrl.issue.labels track by $index --><span ng-repeat="label in issueCtrl.issue.labels track by $index" class="ng-scope">
+                  <span class="gca-label ng-binding">Priority-Medium</span>
+                </span><!-- end ngRepeat: label in issueCtrl.issue.labels track by $index -->
+              </p><!-- end ngIf: issueCtrl.issue.labels.length > 0 -->
+            </div>
+          </div>
+        </div><!-- end ngIf: !issueCtrl.error -->
+      </div>
+    </div>
+
+  </div>
+</div>
+</div></div></div>
+    <noscript>
+      &lt;p&gt;The Google Code Archive requires JavaScript to be enabled in your browser.&lt;/p&gt;
+    </noscript>
+
+    <div id="maia-signature"></div>
+    <div class="maia-footer" id="maia-footer">
+      <div id="maia-footer-local">
+      </div>
+      <div id="maia-footer-global">
+        <div class="maia-aux">
+          <ul>
+            <li>
+              <a href="//www.google.com/">Google</a>
+            </li>
+            <li>
+              <a href="//www.google.com/intl/en/about/">About Google</a>
+            </li>
+            <li>
+              <a href="//www.google.com/intl/en/policies/privacy/">Privacy</a>
+            </li>
+            <li>
+              <a href="//www.google.com/intl/en/policies/terms/">Terms</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <script src="//www.google.com/js/maia.js"></script>
+  
+
+
+</body></html>

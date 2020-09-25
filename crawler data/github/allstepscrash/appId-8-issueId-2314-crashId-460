@@ -1,0 +1,44 @@
+<td class="d-block comment-body markdown-body  js-comment-body">
+
+          <p>I noticed that Keep does not sync.</p>
+<p>Sadly I know very little about Googles auth system.</p>
+<p>Logcat shows a related infos (I removed some sensitive bits):</p>
+<pre><code>10-29 14:49:33.097  2278  3233 W AppOps  : Bad call: specified package com.google.android.gms under uid 10107 but it is really 10081
+10-29 14:49:33.099  2278  2996 I Xposed  : FakeGApps: faked signature
+10-29 14:49:33.106  2278  2295 I Xposed  : FakeGApps: faked signature
+10-29 14:49:33.115  3668  3668 D GmsSignInSvc: onBind: Intent { act=com.google.android.gms.signin.service.START pkg=com.google.android.gms }
+10-29 14:49:33.125  3668  3668 D GmsPeopleSvc: onBind: Intent { act=com.google.android.gms.people.service.START pkg=com.google.android.gms }
+10-29 14:49:33.129  3668  3668 D GmsDriveApiSvc: onBind: Intent { act=com.google.android.gms.drive.ApiService.START pkg=com.google.android.gms }
+10-29 14:49:33.140  3668  3686 D GmsSignInSvc: bound by: GetServiceRequest{serviceId=SIGN_IN, gmsVersion=8083000, packageName='com.google.android.keep', scopes=[https://www.googleapis.com/auth/drive, https://www.googleapis.com/auth/drive.appdata], extras=Bundle[{com.google.android.gms.signin.internal.serverClientId=null, com.google.android.gms.signin.internal.usePromptModeForAuthCode=false, com.google.android.gms.signin.internal.offlineAccessRequested=false, com.google.android.gms.common.internal.ClientSettings.sessionId=71052304, com.google.android.gms.signin.internal.idTokenRequested=false, com.google.android.gms.signin.internal.forceCodeForRefreshToken=false}], account=Account {name=my_google_account@gmail.com, type=com.google}}
+10-29 14:49:33.140  3668  3686 D GmsSignInSvc: unimplemented Method: handleServiceRequest
+
+
+10-29 14:49:38.198  2278  2956 I Xposed  : FakeGApps: faked signature
+10-29 14:49:38.200  2278  2983 I Xposed  : FakeGApps: faked signature
+10-29 14:49:38.207  3668  3685 D GmsAuthManagerSvc: getToken: account:my_google_account@gmail.com scope:oauth2:https://www.googleapis.com/auth/memento https://www.googleapis.com/auth/drive extras:Bundle[{sync_extras=Bundle[EMPTY_PARCEL], androidPackageName=com.google.android.keep, clientPackageName=com.google.android.keep, service_connection_start_time_millis=275809474, authority=com.google.android.keep, handle_notification=true}], notify: true
+10-29 14:49:38.216  3668  3685 D GmsAuthManagerSvc: getToken: &lt;&lt;&lt;&lt;&lt;129 chars of base64 token &gt;&gt;&gt;&gt;&gt;
+10-29 14:49:38.218 10454 12984 E KeepSync: IOException
+10-29 14:49:38.218 10454 12984 E KeepSync: com.google.android.apiary.AuthenticationException: Could not get an auth token
+10-29 14:49:38.218 10454 12984 E KeepSync:  at com.google.android.apiary.GoogleRequestInitializer.getAuthToken(SourceFile:152)
+10-29 14:49:38.218 10454 12984 E KeepSync:  at com.google.android.apiary.GoogleRequestInitializer.intercept(SourceFile:89)
+10-29 14:49:38.218 10454 12984 E KeepSync:  at com.google.android.keep.util.KeepApiaryClient$KeepRequestInitializer.intercept(SourceFile:238)
+10-29 14:49:38.218 10454 12984 E KeepSync:  at com.google.api.client.http.HttpRequest.execute(SourceFile:858)
+10-29 14:49:38.218 10454 12984 E KeepSync:  at com.google.api.client.googleapis.services.AbstractGoogleClientRequest.executeUnparsed(SourceFile:410)
+10-29 14:49:38.218 10454 12984 E KeepSync:  at com.google.api.client.googleapis.services.AbstractGoogleClientRequest.executeUnparsed(SourceFile:343)
+10-29 14:49:38.218 10454 12984 E KeepSync:  at com.google.api.client.googleapis.services.AbstractGoogleClientRequest.execute(SourceFile:460)
+10-29 14:49:38.218 10454 12984 E KeepSync:  at com.google.android.keep.util.KeepApiaryClient.syncChanges(SourceFile:212)
+10-29 14:49:38.218 10454 12984 E KeepSync:  at com.google.android.keep.syncadapter.KeepSyncAdapter.syncOnceToServer(SourceFile:317)
+10-29 14:49:38.218 10454 12984 E KeepSync:  at com.google.android.keep.syncadapter.KeepSyncAdapter.onPerformSync(SourceFile:197)
+10-29 14:49:38.218 10454 12984 E KeepSync:  at android.content.AbstractThreadedSyncAdapter$SyncThread.run(AbstractThreadedSyncAdapter.java:259)
+10-29 14:49:38.218 10454 12984 E KeepSync: Caused by: com.google.android.gms.auth.GoogleAuthException: OK
+10-29 14:49:38.218 10454 12984 E KeepSync:  at com.google.android.gms.auth.GoogleAuthUtil.zza(Unknown)
+10-29 14:49:38.218 10454 12984 E KeepSync:  at com.google.android.gms.auth.GoogleAuthUtil.zzc(Unknown)
+10-29 14:49:38.218 10454 12984 E KeepSync:  at com.google.android.gms.auth.GoogleAuthUtil.getTokenWithNotification(Unknown)
+10-29 14:49:38.218 10454 12984 E KeepSync:  at com.google.android.gms.auth.GoogleAuthUtil.getTokenWithNotification(Unknown)
+10-29 14:49:38.218 10454 12984 E KeepSync:  at com.google.android.apiary.GoogleRequestInitializer.getAuthToken(SourceFile:140)
+10-29 14:49:38.218 10454 12984 E KeepSync:  ... 10 more
+10-29 14:49:38.218 10454 12984 W KeepSync: Sync result 2
+10-29 14:49:38.275  2278  2299 D SyncManager: failed sync operation my_google_account@gmail.com u0 (com.google), com.google.android.keep, SERVER, currentRunTime 275804147, reason: AutoSync, SyncResult: stats [ numIoExceptions: 1]
+</code></pre>
+<h2></h2>
+      </td>
