@@ -1,4 +1,4 @@
-#Compares steps in bugreports about the same bug, against other steps in other bugreports about the same bug
+# Compares steps in bugreports about the same bug, against other steps in other bugreports about the same bug
 
 First, download a pretrained word/phrase vector. I recommend google news vector here: https://code.google.com/archive/p/word2vec/
 or Stanfords pre-trained word-vectors here: https://nlp.stanford.edu/projects/glove/
