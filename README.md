@@ -1,4 +1,4 @@
 # RecDroid-Improvements
 Improvements to the existing automated bug recreator
 
-For USC Summer 2020 Research
+Please see individual folders for details of how to run sections of the program.
