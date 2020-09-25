@@ -5,7 +5,7 @@ or Stanfords pre-trained word-vectors here: https://nlp.stanford.edu/projects/gl
 
 You can run the comparator via Driver.py like this:
 
-python Driver.py path-to-model True/False-is-the-model-in-binary path-to-output-file>
+python Driver.py path-to-model True/False-is-the-model-in-binary path-to-output-file
 
 For example:
 
